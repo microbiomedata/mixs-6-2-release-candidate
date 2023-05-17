@@ -10,6 +10,8 @@ repository = "https://github.com/turbomam/mixs-envo-struct-knowl-extraction"
 
 [tool.poetry.dependencies]
 python = "^3.9"
+pandas = "^2.0.1"
+openpyxl = "^3.1.2"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.1.3"
