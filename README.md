@@ -21,7 +21,7 @@
 
 <!-- PROJECT LOGO -->
 
-<h1>Extracting structured knowledge from MIxS and finding EnvO terms that would be reasonalbe answers to scoped MIxS questions</h1>
+<h1>MIxS/EnvO Structured Knowledge Extraction</h1>
 
 <p>Extracting structured knowledge from MIxS and finding EnvO terms that would be reasonalbe answers to scoped MIxS questions</p>
 <nav>
