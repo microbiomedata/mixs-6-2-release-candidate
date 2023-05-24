@@ -8,7 +8,8 @@ import requests
 import yaml
 from linkml_runtime import SchemaView
 from linkml_runtime.dumpers import yaml_dumper
-from linkml_runtime.linkml_model import Annotation, SchemaDefinition, SlotDefinition, ClassDefinition
+from linkml_runtime.linkml_model import Annotation, SchemaDefinition, SlotDefinition, ClassDefinition, Example
+from linkml_runtime.linkml_model.units import UnitOfMeasure
 
 pd.set_option('display.max_columns', None)
 
@@ -32,7 +33,7 @@ global_target_view = SchemaView(global_target_schema)
 
 def harmonize_sheets(url: str) -> pd.DataFrame:
     # Download the Excel file
-    response = requests.get(file_url)
+    response = requests.get(url)
     with open(file_path, 'wb') as file:
         file.write(response.content)
 
@@ -75,7 +76,6 @@ def harmonize_sheets(url: str) -> pd.DataFrame:
     column_mapping = {
         'Environmental package': 'class',
         'Package item': 'Item',
-        # 'Section': 'differentiator',
     }
 
     # Rename the columns
@@ -103,7 +103,7 @@ def convert_to_pascal_case(string):
     return ''.join(pascal_case_words)
 
 
-def instantiate_classes(df: pd.DataFrame) -> List[str]:
+def instantiate_classes(df: pd.DataFrame) -> None:
     # prior knowledge
     classes_list = df['class'].unique().tolist()
     classes_list.sort()
@@ -127,8 +127,7 @@ def process_sheet(df: pd.DataFrame) -> List[str]:
     return slots_list
 
 
-def process_scn(df: pd.DataFrame, scn: str) -> pd.DataFrame:
-    print(scn)
+def process_scn(df: pd.DataFrame, scn: str) -> None:
     scn_sheet_original = df[df[scn_key] == scn]
     scn_sheet = scn_sheet_original.copy()
     scn_sheet.drop(scn_key, axis=1, inplace=True)
@@ -139,16 +138,13 @@ def process_scn(df: pd.DataFrame, scn: str) -> pd.DataFrame:
         process_attribute(df, scn, attribute_name)
 
 
-def process_attribute(df: pd.DataFrame, scn: str, attribute_name: str) -> List[str]:
+def process_attribute(df: pd.DataFrame, scn: str, attribute_name: str) -> None:
     # Filter the DataFrame based on the condition
     filtered_df = df[df[scn_key] == scn]
 
     # Extract the unique values from the desired column
     unique_values = filtered_df[attribute_name].unique()
     unique_values = [x for x in unique_values if not pd.isna(x)]
-
-    # for uv in unique_values:
-    #     print(f"{uv} {type(uv)}")
 
     if len(unique_values) == 1:
         process_consensus_value(scn, attribute_name, unique_values[0])
@@ -158,45 +154,154 @@ def process_attribute(df: pd.DataFrame, scn: str, attribute_name: str) -> List[s
         process_contested_value(attributes_by_class)
 
 
-def process_consensus_value(scn: str, attribute_name: str, value: str) -> List[str]:
+def process_consensus_value(scn: str, attribute_name: str, value: str) -> None:
     tidied_attribute_name = re.sub(r'\W+', '_', attribute_name)
     tidied_slot_name = re.sub(r'\W+', '_', scn)
-    if tidied_slot_name not in global_target_schema.slots:
-        # print("Adding slot: " + tidied_slot_name)
-        global_target_schema.slots[tidied_slot_name] = SlotDefinition(name=tidied_slot_name)
-    else:
-        pass
-        # print("Slot already exists: " + tidied_slot_name)
     new_annotation = Annotation(tag=tidied_attribute_name, value=value)
-    global_target_schema.slots[tidied_slot_name].annotations[tidied_attribute_name] = new_annotation
+
+    if tidied_slot_name not in global_target_schema.slots:
+        global_target_schema.slots[tidied_slot_name] = SlotDefinition(name=tidied_slot_name)
+
+    if tidied_attribute_name == "Item":
+        global_target_schema.slots[tidied_slot_name].title = value
+    elif tidied_attribute_name == "Definition":
+        global_target_schema.slots[tidied_slot_name].description = value
+    elif tidied_attribute_name == "Example":
+        new_example = Example(value=value)
+        global_target_schema.slots[tidied_slot_name].examples = [new_example]
+    elif tidied_attribute_name == "Section":
+        global_target_schema.slots[tidied_slot_name].in_subset = [value]
+    elif tidied_attribute_name == "Occurrence":
+        if value == "m":
+            global_target_schema.slots[tidied_slot_name].multivalued = True
+        else:
+            global_target_schema.slots[tidied_slot_name].multivalued = False
+    elif tidied_attribute_name == "MIXS_ID":
+        global_target_schema.slots[tidied_slot_name].slot_uri = value
+    elif tidied_attribute_name == "Value_syntax":
+        global_target_schema.slots[tidied_slot_name].string_serialization = value
+    elif tidied_attribute_name == "Requirement":
+        if value == "-":
+            print(f"Slot {tidied_slot_name} has a consensus {tidied_attribute_name} value of {value}")
+            global_target_schema.slots[tidied_slot_name].annotations[tidied_attribute_name] = new_annotation
+        elif value == "C":
+            global_target_schema.slots[tidied_slot_name].recommended = True
+            global_target_schema.slots[tidied_slot_name].annotations[tidied_attribute_name] = new_annotation
+        elif value == "E":
+            global_target_schema.slots[tidied_slot_name].recommended = True
+            global_target_schema.slots[tidied_slot_name].annotations[tidied_attribute_name] = new_annotation
+            # take some slot usage action if the class is an environmental package???
+        elif value == "M":
+            global_target_schema.slots[tidied_slot_name].required = True
+        elif value == "X":
+            global_target_schema.slots[tidied_slot_name].recommended = False
+            global_target_schema.slots[tidied_slot_name].required = False
+    # elif tidied_attribute_name == "Preferred_unit":
+    #     # we are using the unit.symbol slot VERY LIBERALLY here
+    #     # and I doubt that UOMs will show up in linkml2sheets output
+    #     new_uom = UnitOfMeasure(symbol=value)
+    #     global_target_schema.slots[tidied_slot_name].unit = new_uom
+    else:
+        global_target_schema.slots[tidied_slot_name].annotations[tidied_attribute_name] = new_annotation
 
 
-def process_contested_value(attributes_by_class: pd.DataFrame) -> List[str]:
+# https://github.com/GenomicsStandardsConsortium/mixs/wiki/5.-MIxS-checklists
+# - not applicable (-): descriptor is not applicable for a given checklist type
+# C conditional mandatory (C): descriptor must be present for compliance with the checklist, but only when applicable to the study, i.e. if this item is not applicable for the study the metadata data will still be checklist compliant even if it is left out
+# E environment-dependent (E): descriptor must be present depending on the environment the original sample was obtained from
+# M mandatory (M): descriptor must be present for compliance with the checklist_
+# X optional (X): descriptor may be present, not mandatory for compliance with checklist
+
+
+def process_contested_value(attributes_by_class: pd.DataFrame) -> None:
     scn = attributes_by_class[scn_key].iloc[0]
     abc = attributes_by_class.copy()
     abc.drop(scn_key, axis=1, inplace=True)
 
     remaining_columns = abc.columns.tolist()
-    value_name = (set(remaining_columns) - set(['class'])).pop()
+    value_name = (set(remaining_columns) - {'class'}).pop()
 
     class_counts = abc['class'].value_counts()
     # Filter values with count greater than 1
     duplicated_classes = class_counts[class_counts > 1].index.tolist()
     if len(duplicated_classes) > 0:
         print(f"Classes {duplicated_classes} has/have duplicate values in {value_name} for {scn}: {duplicated_classes}")
-        dupe_frame = abc[abc['class'].isin(duplicated_classes)]
+        dupe_frame = abc[abc['class'].isin(duplicated_classes)].copy()
         dupe_frame[scn_key] = scn
         print(dupe_frame)
+    else:
+        abc_dict = abc.to_dict('records')
+        # print(abc_dict)
+        for slot_usage_dict in abc_dict:
+            tidied_attribute_name = re.sub(r'\W+', '_', value_name)
+            tidied_slot_name = re.sub(r'\W+', '_', scn)
 
-    # duplicated_classes = abc[abc.duplicated(subset='class', keep=False)]['class'].unique()
-    # if len(duplicated_classes) > 0:
-    #     print("Multiple values for " + scn + " " + str(duplicated_classes))
+            current_class = convert_to_pascal_case(slot_usage_dict['class'])
 
-    # print(abc)
+            value = slot_usage_dict[value_name]
+
+            new_annotation = Annotation(tag=tidied_attribute_name, value=value)
+
+            print(
+                f"will create a {tidied_attribute_name} slot usage of {value} for {tidied_slot_name} in {current_class}")
+
+            if tidied_slot_name not in global_target_schema.classes[current_class].slot_usage:
+                new_slot_usage = SlotDefinition(name=tidied_slot_name)
+                global_target_schema.classes[current_class].slot_usage[tidied_slot_name] = new_slot_usage
+
+            if tidied_attribute_name == "Item":
+                # global_target_schema.slots[tidied_slot_name].title = value
+                global_target_schema.classes[current_class].slot_usage[tidied_slot_name].title = value
+            elif tidied_attribute_name == "Definition":
+                # global_target_schema.slots[tidied_slot_name].description = value
+                global_target_schema.classes[current_class].slot_usage[tidied_slot_name].description = value
+            elif tidied_attribute_name == "Example":
+                new_example = Example(value=value)
+                # global_target_schema.slots[tidied_slot_name].examples = [new_example]
+                global_target_schema.classes[current_class].slot_usage[tidied_slot_name].examples = [new_example]
+            elif tidied_attribute_name == "Section":
+                # global_target_schema.slots[tidied_slot_name].in_subset = [value]
+                global_target_schema.classes[current_class].slot_usage[tidied_slot_name].in_subset = [value]
+            elif tidied_attribute_name == "Occurrence":
+                if value == "m":
+                    global_target_schema.classes[current_class].slot_usage[tidied_slot_name].multivalued = True
+                else:
+                    global_target_schema.classes[current_class].slot_usage[tidied_slot_name].multivalued = False
+            elif tidied_attribute_name == "MIXS_ID":
+                global_target_schema.classes[current_class].slot_usage[tidied_slot_name].slot_uri = value
+            elif tidied_attribute_name == "Value_syntax":
+                global_target_schema.classes[current_class].slot_usage[tidied_slot_name].string_serialization = value
+            elif tidied_attribute_name == "Requirement":
+                # TODO needs modified logic for value "-" and ("E", when the class is a environmental package)
+                if value == "-":
+                    print(f"Slot {tidied_slot_name} has a consensus {tidied_attribute_name} value of {value}")
+                    global_target_schema.classes[current_class].slot_usage[tidied_slot_name].annotations[
+                        tidied_attribute_name] = new_annotation
+                elif value == "C":
+                    global_target_schema.classes[current_class].slot_usage[tidied_slot_name].recommended = True
+                    global_target_schema.classes[current_class].slot_usage[tidied_slot_name].annotations[
+                        tidied_attribute_name] = new_annotation
+                elif value == "E":
+                    global_target_schema.classes[current_class].slot_usage[tidied_slot_name].recommended = True
+                    global_target_schema.classes[current_class].slot_usage[tidied_slot_name].annotations[
+                        tidied_attribute_name] = new_annotation
+                    # take some slot usage action if the class is an environmental package???
+                elif value == "M":
+                    global_target_schema.classes[current_class].slot_usage[tidied_slot_name].required = True
+                elif value == "X":
+                    global_target_schema.classes[current_class].slot_usage[tidied_slot_name].recommended = False
+                    global_target_schema.classes[current_class].slot_usage[tidied_slot_name].required = False
+                # elif tidied_attribute_name == "Preferred_unit":
+                #     # we are using the unit.symbol slot VERY LIBERALLY here
+                #     # and I doubt that UOMs will show up in linkml2sheets output
+                #     new_uom = UnitOfMeasure(symbol=value)
+                #     global_target_schema.slots[tidied_slot_name].unit = new_uom
+                else:
+                    global_target_schema.classes[current_class].slot_usage[tidied_slot_name].annotations[
+                        tidied_attribute_name] = new_annotation
 
 
 process_sheet(harmonized_sheets)
-# print(yaml_dumper.dumps(global_target_schema))
 yaml_dumper.dump(global_target_schema, 'target_schema.yaml')
 
 # from_gsc['scn_tidied'] = from_gsc['Structured comment name'].str.replace(r'\W', '_')
