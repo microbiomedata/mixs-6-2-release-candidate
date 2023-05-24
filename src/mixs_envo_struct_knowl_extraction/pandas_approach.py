@@ -8,8 +8,28 @@ import requests
 import yaml
 from linkml_runtime import SchemaView
 from linkml_runtime.dumpers import yaml_dumper
-from linkml_runtime.linkml_model import Annotation, SchemaDefinition, SlotDefinition, ClassDefinition, Example
+from linkml_runtime.linkml_model import Annotation, SchemaDefinition, SlotDefinition, ClassDefinition, Example, \
+    SubsetDefinition
 from linkml_runtime.linkml_model.units import UnitOfMeasure
+
+# https://github.com/GenomicsStandardsConsortium/mixs/wiki/5.-MIxS-checklists
+# section: indicates which section (should be one of: investigation, environment, mixs extension,
+#   nucleic acid sequence source, sequencing) a descriptor belongs to
+# todo we arent' getting "mixs extension"
+
+# todo get class uris from external source
+
+# todo create combination classes
+#   checklists should be mixins
+
+# GSC is saying that any slots from any checklist of environmental package can be combined together in any submission
+#   and even that submissions with non-MIxS slots should be accepted
+
+# todo add some string tidying? unless we also kept original strings, it might be harder to do diffs against the
+#  Excel model
+# todo collapse multiple internal spaces to one
+#   trim leading and trailing whitespace
+#   replace non-ascii characters with whitespace or placeholder character?
 
 pd.set_option('display.max_columns', None)
 
@@ -108,11 +128,23 @@ def instantiate_classes(df: pd.DataFrame) -> None:
     classes_list = df['class'].unique().tolist()
     classes_list.sort()
 
-    classes_list = [convert_to_pascal_case(string) for string in classes_list]
+    # classes_list = [convert_to_pascal_case(string) for string in classes_list]
 
     for class_name in classes_list:
-        new_class = ClassDefinition(name=class_name)
-        global_target_schema.classes[class_name] = new_class
+        if class_name in checklists:
+            if "Checklist" not in global_target_schema.classes:
+                new_super = ClassDefinition(name="Checklist")
+                global_target_schema.classes["Checklist"] = new_super
+            class_name = convert_to_pascal_case(class_name)
+            new_class = ClassDefinition(name=class_name, is_a="Checklist")
+            global_target_schema.classes[class_name] = new_class
+        else:
+            if "EnvironmentalPackage" not in global_target_schema.classes:
+                new_super = ClassDefinition(name="EnvironmentalPackage")
+                global_target_schema.classes["EnvironmentalPackage"] = new_super
+            class_name = convert_to_pascal_case(class_name)
+            new_class = ClassDefinition(name=class_name, is_a="EnvironmentalPackage")
+            global_target_schema.classes[class_name] = new_class
 
 
 def process_sheet(df: pd.DataFrame) -> List[str]:
@@ -149,7 +181,7 @@ def process_attribute(df: pd.DataFrame, scn: str, attribute_name: str) -> None:
     if len(unique_values) == 1:
         process_consensus_value(scn, attribute_name, unique_values[0])
     else:
-        print("Multiple values for " + scn + " " + attribute_name + " " + str(unique_values))
+        # print("Multiple values for " + scn + " " + attribute_name + " " + str(unique_values))
         attributes_by_class = filtered_df[[scn_key, 'class', attribute_name]]
         process_contested_value(attributes_by_class)
 
@@ -170,6 +202,11 @@ def process_consensus_value(scn: str, attribute_name: str, value: str) -> None:
         new_example = Example(value=value)
         global_target_schema.slots[tidied_slot_name].examples = [new_example]
     elif tidied_attribute_name == "Section":
+        if value not in global_target_schema.subsets:
+            # print(f"Creating subset {value}")
+            global_target_schema.subsets[value] = SubsetDefinition(name=value)
+        # else:
+        #     print("Subset already exists")
         global_target_schema.slots[tidied_slot_name].in_subset = [value]
     elif tidied_attribute_name == "Occurrence":
         if value == "m":
@@ -242,25 +279,26 @@ def process_contested_value(attributes_by_class: pd.DataFrame) -> None:
 
             new_annotation = Annotation(tag=tidied_attribute_name, value=value)
 
-            print(
-                f"will create a {tidied_attribute_name} slot usage of {value} for {tidied_slot_name} in {current_class}")
+            # print(
+            #     f"will create a {tidied_attribute_name} slot usage of {value} for {tidied_slot_name} in {current_class}")
 
             if tidied_slot_name not in global_target_schema.classes[current_class].slot_usage:
                 new_slot_usage = SlotDefinition(name=tidied_slot_name)
                 global_target_schema.classes[current_class].slot_usage[tidied_slot_name] = new_slot_usage
 
             if tidied_attribute_name == "Item":
-                # global_target_schema.slots[tidied_slot_name].title = value
                 global_target_schema.classes[current_class].slot_usage[tidied_slot_name].title = value
             elif tidied_attribute_name == "Definition":
-                # global_target_schema.slots[tidied_slot_name].description = value
                 global_target_schema.classes[current_class].slot_usage[tidied_slot_name].description = value
             elif tidied_attribute_name == "Example":
                 new_example = Example(value=value)
-                # global_target_schema.slots[tidied_slot_name].examples = [new_example]
                 global_target_schema.classes[current_class].slot_usage[tidied_slot_name].examples = [new_example]
             elif tidied_attribute_name == "Section":
-                # global_target_schema.slots[tidied_slot_name].in_subset = [value]
+                if value not in global_target_schema.subsets:
+                    # print(f"Creating subset {value}")
+                    global_target_schema.subsets[value] = SubsetDefinition(name=value)
+                # else:
+                #     print("Subset already exists")
                 global_target_schema.classes[current_class].slot_usage[tidied_slot_name].in_subset = [value]
             elif tidied_attribute_name == "Occurrence":
                 if value == "m":
