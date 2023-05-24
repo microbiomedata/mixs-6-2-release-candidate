@@ -1,6 +1,15 @@
 name: GSC_MIxS
 id: http://example.com/GSC_MIxS
 default_prefix: http://example.com/GSC_MIxS/
+subsets:
+  sequencing:
+    name: sequencing
+  environment:
+    name: environment
+  nucleic acid sequence source:
+    name: nucleic acid sequence source
+  investigation:
+    name: investigation
 slots:
   16s_recover:
     name: 16s_recover
@@ -12560,8 +12569,11 @@ slots:
     multivalued: false
     recommended: true
 classes:
+  EnvironmentalPackage:
+    name: EnvironmentalPackage
   Agriculture:
     name: Agriculture
+    is_a: EnvironmentalPackage
     slot_usage:
       adapters:
         name: adapters
@@ -13382,6 +13394,7 @@ classes:
         recommended: true
   Air:
     name: Air
+    is_a: EnvironmentalPackage
     slot_usage:
       alt:
         name: alt
@@ -13520,6 +13533,7 @@ classes:
         - value: 21 kilometer per hour
   BuiltEnvironment:
     name: BuiltEnvironment
+    is_a: EnvironmentalPackage
     slot_usage:
       air_temp:
         name: air_temp
@@ -13584,6 +13598,7 @@ classes:
         required: true
   FoodAnimalAndAnimalFeed:
     name: FoodAnimalAndAnimalFeed
+    is_a: EnvironmentalPackage
     slot_usage:
       IFSAC_category:
         name: IFSAC_category
@@ -13878,6 +13893,7 @@ classes:
         recommended: false
   FoodFarmEnvironment:
     name: FoodFarmEnvironment
+    is_a: EnvironmentalPackage
     slot_usage:
       IFSAC_category:
         name: IFSAC_category
@@ -14404,6 +14420,7 @@ classes:
         - value: 1.6 kilometers per hour
   FoodFoodProductionFacility:
     name: FoodFoodProductionFacility
+    is_a: EnvironmentalPackage
     slot_usage:
       IFSAC_category:
         name: IFSAC_category
@@ -14715,6 +14732,7 @@ classes:
         recommended: false
   FoodHumanFoods:
     name: FoodHumanFoods
+    is_a: EnvironmentalPackage
     slot_usage:
       IFSAC_category:
         name: IFSAC_category
@@ -15017,6 +15035,7 @@ classes:
         recommended: false
   HostAssociated:
     name: HostAssociated
+    is_a: EnvironmentalPackage
     slot_usage:
       alt:
         name: alt
@@ -15301,6 +15320,7 @@ classes:
         recommended: false
   HumanAssociated:
     name: HumanAssociated
+    is_a: EnvironmentalPackage
     slot_usage:
       chem_administration:
         name: chem_administration
@@ -15495,6 +15515,7 @@ classes:
         recommended: false
   HumanGut:
     name: HumanGut
+    is_a: EnvironmentalPackage
     slot_usage:
       chem_administration:
         name: chem_administration
@@ -15681,6 +15702,7 @@ classes:
         recommended: false
   HumanOral:
     name: HumanOral
+    is_a: EnvironmentalPackage
     slot_usage:
       chem_administration:
         name: chem_administration
@@ -15877,6 +15899,7 @@ classes:
         recommended: false
   HumanSkin:
     name: HumanSkin
+    is_a: EnvironmentalPackage
     slot_usage:
       chem_administration:
         name: chem_administration
@@ -16063,6 +16086,7 @@ classes:
         recommended: false
   HumanVaginal:
     name: HumanVaginal
+    is_a: EnvironmentalPackage
     slot_usage:
       chem_administration:
         name: chem_administration
@@ -16258,6 +16282,7 @@ classes:
         recommended: false
   HydrocarbonResourcesCores:
     name: HydrocarbonResourcesCores
+    is_a: EnvironmentalPackage
     slot_usage:
       ammonium:
         name: ammonium
@@ -16423,6 +16448,7 @@ classes:
         required: true
   HydrocarbonResourcesFluidsSwabs:
     name: HydrocarbonResourcesFluidsSwabs
+    is_a: EnvironmentalPackage
     slot_usage:
       ammonium:
         name: ammonium
@@ -16576,6 +16602,7 @@ classes:
         recommended: true
   MicrobialMatBiofilm:
     name: MicrobialMatBiofilm
+    is_a: EnvironmentalPackage
     slot_usage:
       alkyl_diethers:
         name: alkyl_diethers
@@ -16744,8 +16771,11 @@ classes:
       water_content:
         name: water_content
         string_serialization: '{float} {unit}'
+  Checklist:
+    name: Checklist
   Migs_ba:
     name: Migs_ba
+    is_a: Checklist
     slot_usage:
       16s_recover:
         name: 16s_recover
@@ -17342,6 +17372,7 @@ classes:
             value: '-'
   Migs_eu:
     name: Migs_eu
+    is_a: Checklist
     slot_usage:
       16s_recover:
         name: 16s_recover
@@ -17928,6 +17959,7 @@ classes:
             value: '-'
   Migs_org:
     name: Migs_org
+    is_a: Checklist
     slot_usage:
       16s_recover:
         name: 16s_recover
@@ -18528,6 +18560,7 @@ classes:
             value: '-'
   Migs_pl:
     name: Migs_pl
+    is_a: Checklist
     slot_usage:
       16s_recover:
         name: 16s_recover
@@ -19124,6 +19157,7 @@ classes:
             value: '-'
   Migs_vi:
     name: Migs_vi
+    is_a: Checklist
     slot_usage:
       16s_recover:
         name: 16s_recover
@@ -19725,6 +19759,7 @@ classes:
             value: '-'
   Mimag:
     name: Mimag
+    is_a: Checklist
     slot_usage:
       16s_recover:
         name: 16s_recover
@@ -20316,6 +20351,7 @@ classes:
             value: '-'
   Mimarks_c:
     name: Mimarks_c
+    is_a: Checklist
     slot_usage:
       16s_recover:
         name: 16s_recover
@@ -20950,6 +20986,7 @@ classes:
             value: '-'
   Mimarks_s:
     name: Mimarks_s
+    is_a: Checklist
     slot_usage:
       16s_recover:
         name: 16s_recover
@@ -21601,6 +21638,7 @@ classes:
             value: '-'
   Mims:
     name: Mims
+    is_a: Checklist
     slot_usage:
       16s_recover:
         name: 16s_recover
@@ -22244,6 +22282,7 @@ classes:
             value: '-'
   Misag:
     name: Misag
+    is_a: Checklist
     slot_usage:
       16s_recover:
         name: 16s_recover
@@ -22832,6 +22871,7 @@ classes:
         recommended: false
   MiscellaneousNaturalOrArtificialEnvironment:
     name: MiscellaneousNaturalOrArtificialEnvironment
+    is_a: EnvironmentalPackage
     slot_usage:
       alt:
         name: alt
@@ -22984,6 +23024,7 @@ classes:
         recommended: false
   Miuvig:
     name: Miuvig
+    is_a: Checklist
     slot_usage:
       16s_recover:
         name: 16s_recover
@@ -23607,6 +23648,7 @@ classes:
         recommended: true
   PlantAssociated:
     name: PlantAssociated
+    is_a: EnvironmentalPackage
     slot_usage:
       ances_data:
         name: ances_data
@@ -23900,6 +23942,7 @@ classes:
         recommended: false
   Sediment:
     name: Sediment
+    is_a: EnvironmentalPackage
     slot_usage:
       alkyl_diethers:
         name: alkyl_diethers
@@ -24072,6 +24115,7 @@ classes:
         string_serialization: '{float} {unit}'
   Soil:
     name: Soil
+    is_a: EnvironmentalPackage
     slot_usage:
       crop_rotation:
         name: crop_rotation
@@ -24296,6 +24340,7 @@ classes:
         string_serialization: '{float}'
   SymbiontAssociated:
     name: SymbiontAssociated
+    is_a: EnvironmentalPackage
     slot_usage:
       alt:
         name: alt
@@ -24602,6 +24647,7 @@ classes:
         recommended: false
   WastewaterSludge:
     name: WastewaterSludge
+    is_a: EnvironmentalPackage
     slot_usage:
       chem_administration:
         name: chem_administration
@@ -24709,6 +24755,7 @@ classes:
         recommended: false
   Water:
     name: Water
+    is_a: EnvironmentalPackage
     slot_usage:
       alkyl_diethers:
         name: alkyl_diethers
