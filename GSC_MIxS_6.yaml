@@ -1,10 +1,18 @@
-name: GSC_MIxS
+name: GSC_MIxS_6
 comments:
 - 'Classes [''food-animal and animal feed''] has/have duplicate values in MIXS ID
   for samp_transport_cont: [''MIXS:0000755'', ''MIXS:0001230'']'
+- 'The following slots have  contradictory Value syntaxes so enumerations can not
+  be created for their ranges: [''biotic_relationship'', ''trophic_level'', ''oxy_stat_samp'']'
 source: https://github.com/GenomicsStandardsConsortium/mixs/raw/main/mixs/excel/mixs_v6.xlsx
-id: http://example.com/GSC_MIxS
-default_prefix: http://example.com/GSC_MIxS/
+id: http://example.com/GSC_MIxS_6
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+default_prefix: http://example.com/GSC_MIxS_6/
 subsets:
   sequencing:
     name: sequencing
@@ -2019,6 +2027,125 @@ enums:
         text: scrubbed with hand
       soaking:
         text: soaking
+  SHARED_ENUM_0:
+    name: SHARED_ENUM_0
+    permissible_values:
+      no presence of mold visible:
+        text: no presence of mold visible
+      presence of mold visible:
+        text: presence of mold visible
+  SHARED_ENUM_1:
+    name: SHARED_ENUM_1
+    permissible_values:
+      east:
+        text: east
+      north:
+        text: north
+      south:
+        text: south
+      west:
+        text: west
+  SHARED_ENUM_2:
+    name: SHARED_ENUM_2
+    permissible_values:
+      damaged:
+        text: damaged
+      needs repair:
+        text: needs repair
+      new:
+        text: new
+      rupture:
+        text: rupture
+      visible wear:
+        text: visible wear
+  SHARED_ENUM_3:
+    name: SHARED_ENUM_3
+    permissible_values:
+      damaged:
+        text: damaged
+      needs repair:
+        text: needs repair
+      new:
+        text: new
+      rupture:
+        text: rupture
+      visible wear:
+        text: visible wear
+  SHARED_ENUM_4:
+    name: SHARED_ENUM_4
+    permissible_values:
+      A horizon:
+        text: A horizon
+      B horizon:
+        text: B horizon
+      C horizon:
+        text: C horizon
+      E horizon:
+        text: E horizon
+      O horizon:
+        text: O horizon
+      Permafrost:
+        text: Permafrost
+      R layer:
+        text: R layer
+  SHARED_ENUM_5:
+    name: SHARED_ENUM_5
+    permissible_values:
+      Archean:
+        text: Archean
+      Cambrian:
+        text: Cambrian
+      Carboniferous:
+        text: Carboniferous
+      Cenozoic:
+        text: Cenozoic
+      Cretaceous:
+        text: Cretaceous
+      Devonian:
+        text: Devonian
+      Jurassic:
+        text: Jurassic
+      Mesozoic:
+        text: Mesozoic
+      Neogene:
+        text: Neogene
+      Ordovician:
+        text: Ordovician
+      Paleogene:
+        text: Paleogene
+      Paleozoic:
+        text: Paleozoic
+      Permian:
+        text: Permian
+      Precambrian:
+        text: Precambrian
+      Proterozoic:
+        text: Proterozoic
+      Silurian:
+        text: Silurian
+      Triassic:
+        text: Triassic
+      other:
+        text: other
+  SHARED_ENUM_6:
+    name: SHARED_ENUM_6
+    permissible_values:
+      east:
+        text: east
+      north:
+        text: north
+      northeast:
+        text: northeast
+      northwest:
+        text: northwest
+      south:
+        text: south
+      southeast:
+        text: southeast
+      southwest:
+        text: southwest
+      west:
+        text: west
 slots:
   16s_recover:
     name: 16s_recover
@@ -2228,10 +2355,6 @@ slots:
     recommended: false
   aero_struc:
     name: aero_struc
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Aerospace structures typically consist of thin plates with stiffeners
       for the external surfaces, bulkheads and frames to support the shape and fasteners
       such as welds, rivets, screws and bolts to hold the components together
@@ -2623,10 +2746,6 @@ slots:
     recommended: false
   animal_body_cond:
     name: animal_body_cond
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Body condition scoring is a production management tool used to evaluate
       overall health and nutritional needs of a food animal. Because there are different
       scoring systems, this field is restricted to three categories
@@ -2721,10 +2840,6 @@ slots:
     recommended: false
   animal_sex:
     name: animal_sex
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The sex and reproductive status of the food animal
     title: food animal source sex category
     examples:
@@ -2823,10 +2938,6 @@ slots:
     required: true
   arch_struc:
     name: arch_struc
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: An architectural structure is a human-made, free-standing, immobile
       outdoor construction
     title: architectural structure
@@ -3205,10 +3316,6 @@ slots:
     recommended: true
   bin_param:
     name: bin_param
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The parameters that have been applied during the extraction of genomes
       from metagenomic datasets
     title: binning parameters
@@ -3308,10 +3415,6 @@ slots:
     recommended: false
   biol_stat:
     name: biol_stat
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The level of genome modification
     title: biological status
     examples:
@@ -3355,10 +3458,6 @@ slots:
     slot_uri: MIXS:0001038
   biotic_relationship:
     name: biotic_relationship
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Description of relationship(s) between the subject organism and other
       organism(s) it is associated with. E.g., parasite on species X; mutualist with
       species Y. The target organism is the subject of the relationship, and the other
@@ -3469,10 +3568,6 @@ slots:
     recommended: false
   build_docs:
     name: build_docs
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The building design, construction and operation documents
     title: design, construction, and operation documents
     examples:
@@ -3484,10 +3579,6 @@ slots:
     recommended: false
   build_occup_type:
     name: build_occup_type
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The primary function for which a building or discrete part of a building
       is intended to be used
     title: building occupancy type
@@ -3499,10 +3590,6 @@ slots:
     required: true
   building_setting:
     name: building_setting
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: A location (geography) where a building is set
     title: building setting
     examples:
@@ -3531,10 +3618,6 @@ slots:
     recommended: false
   built_struc_set:
     name: built_struc_set
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The characterization of the location of the built structure as high
       or low human density
     title: built structure setting
@@ -3645,26 +3728,18 @@ slots:
     recommended: false
   ceil_cond:
     name: ceil_cond
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The physical condition of the ceiling at the time of sampling; photos
       or video preferred; use drawings to indicate location of damaged areas
     title: ceiling condition
     examples:
     - value: damaged
-    string_serialization: '[new|visible wear|needs repair|damaged|rupture]'
     slot_uri: MIXS:0000779
     multivalued: false
+    range: SHARED_ENUM_3
     required: false
     recommended: false
   ceil_finish_mat:
     name: ceil_finish_mat
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The type of material used to finish a ceiling
     title: ceiling finish material
     examples:
@@ -3676,10 +3751,6 @@ slots:
     recommended: false
   ceil_struc:
     name: ceil_struc
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The construction format of the ceiling
     title: ceiling structure
     examples:
@@ -3691,10 +3762,6 @@ slots:
     recommended: false
   ceil_texture:
     name: ceil_texture
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The feel, appearance, or consistency of a ceiling surface
     title: ceiling texture
     examples:
@@ -3725,10 +3792,6 @@ slots:
     recommended: false
   ceil_type:
     name: ceil_type
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The type of ceiling according to the ceiling's appearance or construction
     title: ceiling type
     examples:
@@ -3740,17 +3803,13 @@ slots:
     recommended: false
   ceil_water_mold:
     name: ceil_water_mold
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Signs of the presence of mold or mildew on the ceiling
     title: ceiling signs of water/mold
     examples:
     - value: presence of mold visible
-    string_serialization: '[presence of mold visible|no presence of mold visible]'
     slot_uri: MIXS:0000781
     multivalued: false
+    range: SHARED_ENUM_0
     required: false
     recommended: false
   chem_administration:
@@ -4094,10 +4153,6 @@ slots:
     multivalued: false
   contam_screen_input:
     name: contam_screen_input
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The type of sequence data used as input
     title: contamination screening input
     examples:
@@ -4178,10 +4233,6 @@ slots:
     recommended: false
   cult_result:
     name: cult_result
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Any result of a bacterial culture experiment reported as a binary
       assessment such as positive/negative, active/inactive
     title: culture result
@@ -4322,10 +4373,6 @@ slots:
     recommended: false
   decontam_software:
     name: decontam_software
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Tool(s) used in contamination screening
     title: decontamination software
     examples:
@@ -4353,10 +4400,6 @@ slots:
     recommended: false
   depos_env:
     name: depos_env
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Main depositional environment (https://en.wikipedia.org/wiki/Depositional_environment).
       If "other" is specified, please propose entry in "additional info" field
     title: depositional environment
@@ -4656,10 +4699,6 @@ slots:
     recommended: false
   dominant_hand:
     name: dominant_hand
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Dominant hand of the subject
     title: dominant hand
     examples:
@@ -4671,10 +4710,6 @@ slots:
     recommended: false
   door_comp_type:
     name: door_comp_type
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The composite type of the door
     title: door type, composite
     examples:
@@ -4686,25 +4721,17 @@ slots:
     recommended: false
   door_cond:
     name: door_cond
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The phsical condition of the door
     title: door condition
     examples:
     - value: new
-    string_serialization: '[damaged|needs repair|new|rupture|visible wear]'
     slot_uri: MIXS:0000788
     multivalued: false
+    range: SHARED_ENUM_2
     required: false
     recommended: false
   door_direct:
     name: door_direct
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The direction the door opens
     title: door direction of opening
     examples:
@@ -4716,25 +4743,17 @@ slots:
     recommended: false
   door_loc:
     name: door_loc
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The relative location of the door in the room
     title: door location
     examples:
     - value: north
-    string_serialization: '[north|south|east|west]'
     slot_uri: MIXS:0000790
     multivalued: false
+    range: SHARED_ENUM_1
     required: false
     recommended: false
   door_mat:
     name: door_mat
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The material the door is composed of
     title: door material
     examples:
@@ -4746,10 +4765,6 @@ slots:
     recommended: false
   door_move:
     name: door_move
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The type of movement of the door
     title: door movement
     examples:
@@ -4779,10 +4794,6 @@ slots:
     recommended: false
   door_type:
     name: door_type
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The type of door material
     title: door type
     examples:
@@ -4794,10 +4805,6 @@ slots:
     recommended: false
   door_type_metal:
     name: door_type_metal
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The type of metal door
     title: door type, metal
     examples:
@@ -4826,17 +4833,13 @@ slots:
     recommended: false
   door_water_mold:
     name: door_water_mold
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Signs of the presence of mold or mildew on a door
     title: door signs of water/mold
     examples:
     - value: presence of mold visible
-    string_serialization: '[presence of mold visible|no presence of mold visible]'
     slot_uri: MIXS:0000793
     multivalued: false
+    range: SHARED_ENUM_0
     required: false
     recommended: false
   douche:
@@ -4876,10 +4879,6 @@ slots:
     recommended: false
   drainage_class:
     name: drainage_class
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Drainage classification from a standard system such as the USDA system
     title: drainage classification
     examples:
@@ -4889,10 +4888,6 @@ slots:
     range: DRAINAGE_CLASS_ENUM
   drawings:
     name: drawings
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The buildings architectural drawings; if design is chosen, indicate
       phase-conceptual, schematic, design development, and construction documents
     title: drawings
@@ -5190,40 +5185,28 @@ slots:
     recommended: false
   ext_wall_orient:
     name: ext_wall_orient
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The orientation of the exterior wall
     title: orientations of exterior wall
     examples:
     - value: northwest
-    string_serialization: '[north|south|east|west|northeast|southeast|southwest|northwest]'
     slot_uri: MIXS:0000817
     multivalued: false
+    range: SHARED_ENUM_6
     required: false
     recommended: false
   ext_window_orient:
     name: ext_window_orient
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The compass direction the exterior window of the room is facing
     title: orientations of exterior window
     examples:
     - value: southwest
-    string_serialization: '[north|south|east|west|northeast|southeast|southwest|northwest]'
     slot_uri: MIXS:0000818
     multivalued: false
+    range: SHARED_ENUM_6
     required: false
     recommended: false
   extr_weather_event:
     name: extr_weather_event
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Unusual weather events that may have affected microbial populations.
       Multiple terms can be separated by pipes, listed in reverse chronological order
     title: extreme weather event
@@ -5264,10 +5247,6 @@ slots:
     multivalued: false
   facility_type:
     name: facility_type
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Establishment details about the type of facility where the sample
       was taken. This is independent of the specific product(s) within the facility
     title: facility type
@@ -5280,10 +5259,6 @@ slots:
     recommended: false
   fao_class:
     name: fao_class
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Soil classification from the FAO World Reference Database for Soil
       Resources. The list can be found at http://www.fao.org/nr/land/sols/soil/wrb-soil-maps/reference-groups
     title: soil_taxonomic/FAO classification
@@ -5356,10 +5331,6 @@ slots:
     recommended: false
   farm_water_source:
     name: farm_water_source
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Source of water used on the farm for irrigation of crops or watering
       of livestock
     title: farm watering water source
@@ -5601,10 +5572,6 @@ slots:
     recommended: true
   filter_type:
     name: filter_type
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: A device which removes solid particulates or airborne molecular contaminants
     title: filter type
     examples:
@@ -5626,10 +5593,6 @@ slots:
     multivalued: false
   fireplace_type:
     name: fireplace_type
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: A firebox with chimney
     title: fireplace type
     examples:
@@ -5684,18 +5647,14 @@ slots:
     recommended: false
   floor_cond:
     name: floor_cond
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The physical condition of the floor at the time of sampling; photos
       or video preferred; use drawings to indicate location of damaged areas
     title: floor condition
     examples:
     - value: new
-    string_serialization: '[new|visible wear|needs repair|damaged|rupture]'
     slot_uri: MIXS:0000803
     multivalued: false
+    range: SHARED_ENUM_3
     required: false
     recommended: false
   floor_count:
@@ -5731,10 +5690,6 @@ slots:
     recommended: false
   floor_struc:
     name: floor_struc
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Refers to the structural elements and subfloor upon which the finish
       flooring is installed
     title: floor structure
@@ -5763,10 +5718,6 @@ slots:
     recommended: false
   floor_water_mold:
     name: floor_water_mold
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Signs of the presence of mold or mildew in a room
     title: floor signs of water/mold
     examples:
@@ -5843,10 +5794,6 @@ slots:
     recommended: false
   food_clean_proc:
     name: food_clean_proc
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The process of cleaning food to separate other environmental materials
       from the food source. Multiple terms can be separated by pipes
     title: food cleaning process
@@ -6229,10 +6176,6 @@ slots:
     recommended: false
   food_trace_list:
     name: food_trace_list
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The FDA is proposing to establish additional traceability recordkeeping
       requirements (beyond what is already required in existing regulations) for persons
       who manufacture, process, pack, or hold foods the Agency has designated for
@@ -6342,10 +6285,6 @@ slots:
     multivalued: true
   furniture:
     name: furniture
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The types of furniture present in the sampled room
     title: furniture
     examples:
@@ -6404,10 +6343,6 @@ slots:
     recommended: false
   gender_restroom:
     name: gender_restroom
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The gender type of the restroom
     title: gender of restroom
     examples:
@@ -6529,10 +6464,6 @@ slots:
     recommended: false
   growth_habit:
     name: growth_habit
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Characteristic shape, appearance or growth form of a plant species
     title: growth habit
     examples:
@@ -6611,10 +6542,6 @@ slots:
     recommended: false
   handidness:
     name: handidness
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The handidness of the individual sampled
     title: handidness
     examples:
@@ -6626,10 +6553,6 @@ slots:
     recommended: false
   hc_produced:
     name: hc_produced
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Main hydrocarbon type produced from resource (i.e. Oil, gas, condensate,
       etc). If "other" is specified, please propose entry in "additional info" field
     title: hydrocarbon type produced
@@ -6641,10 +6564,6 @@ slots:
     required: true
   hcr:
     name: hcr
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Main Hydrocarbon Resource type. The term "Hydrocarbon Resource" HCR
       defined as a natural environmental feature containing large amounts of hydrocarbons
       at high concentrations potentially suitable for commercial exploitation. This
@@ -6677,18 +6596,14 @@ slots:
     recommended: true
   hcr_geol_age:
     name: hcr_geol_age
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: 'Geological age of hydrocarbon resource (Additional info: https://en.wikipedia.org/wiki/Period_(geology)).
       If "other" is specified, please propose entry in "additional info" field'
     title: hydrocarbon resource geological age
     examples:
     - value: Silurian
-    string_serialization: '[Archean|Cambrian|Carboniferous|Cenozoic|Cretaceous|Devonian|Jurassic|Mesozoic|Neogene|Ordovician|Paleogene|Paleozoic|Permian|Precambrian|Proterozoic|Silurian|Triassic|other]'
     slot_uri: MIXS:0000993
     multivalued: false
+    range: SHARED_ENUM_5
     recommended: true
   hcr_pressure:
     name: hcr_pressure
@@ -6724,10 +6639,6 @@ slots:
     multivalued: false
   heat_cool_type:
     name: heat_cool_type
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Methods of conditioning or heating a room or building
     title: heating and cooling system type
     examples:
@@ -6738,25 +6649,17 @@ slots:
     required: true
   heat_deliv_loc:
     name: heat_deliv_loc
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The location of heat delivery within the room
     title: heating delivery locations
     examples:
     - value: north
-    string_serialization: '[north|south|east|west]'
     slot_uri: MIXS:0000810
     multivalued: false
+    range: SHARED_ENUM_1
     required: false
     recommended: false
   heat_sys_deliv_meth:
     name: heat_sys_deliv_meth
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The method by which the heat is delivered through the system
     title: heating system delivery method
     examples:
@@ -6841,17 +6744,13 @@ slots:
     multivalued: true
   horizon:
     name: horizon
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Specific layer in the land area which measures parallel to the soil
       surface and possesses physical characteristics which differ from the layers
       above and beneath
     title: horizon
-    string_serialization: '[O horizon|A horizon|E horizon|B horizon|C horizon|R layer|Permafrost]'
     slot_uri: MIXS:0001082
     multivalued: false
+    range: SHARED_ENUM_4
     recommended: true
   horizon_meth:
     name: horizon_meth
@@ -6944,10 +6843,6 @@ slots:
     recommended: false
   host_cellular_loc:
     name: host_cellular_loc
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: 'The localization of the symbiotic host organism within the host
       from which it was sampled: e.g. intracellular if the symbiotic host organism
       is localized within the cells or extracellular if the symbiotic host organism
@@ -6980,10 +6875,6 @@ slots:
     multivalued: false
   host_dependence:
     name: host_dependence
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Type of host dependence for the symbiotic host organism to its host
     title: host dependence
     examples:
@@ -7416,10 +7307,6 @@ slots:
     multivalued: false
   host_pred_appr:
     name: host_pred_appr
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Tool or approach used for host prediction
     title: host prediction approach
     examples:
@@ -7502,10 +7389,6 @@ slots:
     multivalued: true
   host_specificity:
     name: host_specificity
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: 'Level of specificity of symbiont-host interaction: e.g. generalist
       (symbiont able to establish associations with distantly related hosts) or species-specific'
     title: host specificity
@@ -7691,10 +7574,6 @@ slots:
     recommended: false
   indoor_space:
     name: indoor_space
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: A distinguishable space within a structure, the purpose for which
       discrete areas of a building is used
     title: indoor space
@@ -7706,10 +7585,6 @@ slots:
     required: true
   indoor_surf:
     name: indoor_surf
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Type of indoor surface
     title: indoor surface
     examples:
@@ -7769,18 +7644,14 @@ slots:
     recommended: false
   int_wall_cond:
     name: int_wall_cond
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The physical condition of the wall at the time of sampling; photos
       or video preferred; use drawings to indicate location of damaged areas
     title: interior wall condition
     examples:
     - value: damaged
-    string_serialization: '[new|visible wear|needs repair|damaged|rupture]'
     slot_uri: MIXS:0000813
     multivalued: false
+    range: SHARED_ENUM_3
     required: false
     recommended: false
   intended_consumer:
@@ -7891,10 +7762,6 @@ slots:
     required: true
   lib_layout:
     name: lib_layout
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Specify whether to expect single, paired, or other configuration
       of reads
     title: library layout
@@ -8013,10 +7880,6 @@ slots:
     recommended: false
   light_type:
     name: light_type
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Application of light to achieve some practical or aesthetic effect.
       Lighting includes the use of both artificial light sources such as lamps and
       light fixtures, as well as natural illumination by capturing daylight. Can also
@@ -8067,10 +7930,6 @@ slots:
     recommended: false
   lithology:
     name: lithology
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: 'Hydrocarbon resource main lithology (Additional information: http://petrowiki.org/Lithology_and_rock_type_determination).
       If "other" is specified, please propose entry in "additional info" field'
     title: lithology
@@ -8131,10 +7990,6 @@ slots:
     recommended: false
   mag_cov_software:
     name: mag_cov_software
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Tool(s) used to determine the genome coverage if coverage is used
       as a binning parameter in the extraction of genomes from metagenomic datasets
     title: MAG coverage software
@@ -8228,10 +8083,6 @@ slots:
     recommended: false
   mech_struc:
     name: mech_struc
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: 'mechanical structure: a moving structure'
     title: mechanical structure
     examples:
@@ -8537,10 +8388,6 @@ slots:
     recommended: false
   mode_transmission:
     name: mode_transmission
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The process through which the symbiotic host organism entered the
       host from which it was sampled
     title: mode of transmission
@@ -8821,10 +8668,6 @@ slots:
     required: true
   occup_document:
     name: occup_document
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The type of documentation of occupancy
     title: occupancy documentation
     examples:
@@ -9005,10 +8848,6 @@ slots:
     recommended: false
   oxy_stat_samp:
     name: oxy_stat_samp
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Oxygenation status of sample
     title: oxygenation status of sample
     examples:
@@ -9397,10 +9236,6 @@ slots:
     multivalued: false
   plant_reprod_crop:
     name: plant_reprod_crop
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Plant reproductive part used in the field during planting to start
       the crop
     title: plant reproductive part
@@ -9413,10 +9248,6 @@ slots:
     recommended: false
   plant_sex:
     name: plant_sex
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Sex of the reproductive parts on the whole plant, e.g. pistillate,
       staminate, monoecieous, hermaphrodite
     title: plant sex
@@ -9590,10 +9421,6 @@ slots:
     recommended: false
   pred_genome_struc:
     name: pred_genome_struc
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Expected structure of the viral genome
     title: predicted genome structure
     examples:
@@ -9786,10 +9613,6 @@ slots:
     recommended: true
   profile_position:
     name: profile_position
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Cross-sectional position in the hillslope where sample was collected.sample
       area position in relation to surrounding areas
     title: profile position
@@ -9850,10 +9673,6 @@ slots:
     recommended: false
   quad_pos:
     name: quad_pos
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The quadrant position of the sampling room within the building
     title: quadrant position
     examples:
@@ -10041,10 +9860,6 @@ slots:
     multivalued: false
   rel_samp_loc:
     name: rel_samp_loc
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The sampling location within the train car
     title: relative sampling location
     examples:
@@ -10056,10 +9871,6 @@ slots:
     recommended: false
   rel_to_oxygen:
     name: rel_to_oxygen
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Is this organism an aerobe, anaerobe? Please note that aerobic and
       anaerobic are valid descriptors for microbial environments
     title: relationship to oxygen
@@ -10146,10 +9957,6 @@ slots:
     recommended: false
   room_condt:
     name: room_condt
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The condition of the room at the time of sampling
     title: room condition
     examples:
@@ -10161,10 +9968,6 @@ slots:
     recommended: false
   room_connected:
     name: room_connected
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: List of rooms connected to the sampling room by a doorway
     title: rooms connected by a doorway
     examples:
@@ -10253,10 +10056,6 @@ slots:
     recommended: false
   room_loc:
     name: room_loc
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The position of the room within the building
     title: room location in building
     examples:
@@ -10311,10 +10110,6 @@ slots:
     recommended: false
   room_samp_pos:
     name: room_samp_pos
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The horizontal sampling position in the room relative to architectural
       elements
     title: room sampling position
@@ -10526,10 +10321,6 @@ slots:
     recommended: false
   route_transmission:
     name: route_transmission
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Description of path taken by the symbiotic host organism being sampled
       in order to establish a symbiotic relationship with the host (with which it
       was observed at the time of sampling) via a mode of transmission (specified
@@ -10590,10 +10381,6 @@ slots:
     multivalued: true
   samp_capt_status:
     name: samp_capt_status
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Reason for the sample
     title: sample capture status
     examples:
@@ -10656,10 +10443,6 @@ slots:
     recommended: false
   samp_collect_point:
     name: samp_collect_point
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Sampling point on the asset were sample was collected (e.g. Wellhead,
       storage tank, separator, etc). If "other" is specified, please propose entry
       in "additional info" field
@@ -10672,10 +10455,6 @@ slots:
     required: true
   samp_dis_stage:
     name: samp_dis_stage
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Stage of the disease at the time of sample collection, e.g. inoculation,
       penetration, infection, growth and reproduction, dissemination of pathogen
     title: sample disease stage
@@ -10688,10 +10467,6 @@ slots:
     recommended: false
   samp_floor:
     name: samp_floor
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The floor of the building, where the sampling room is located
     title: sampling floor
     examples:
@@ -10703,10 +10478,6 @@ slots:
     recommended: false
   samp_loc_condition:
     name: samp_loc_condition
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The condition of the sample location at the time of sampling
     title: sample location condition
     examples:
@@ -11090,10 +10861,6 @@ slots:
     recommended: false
   samp_subtype:
     name: samp_subtype
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Name of sample sub-type. For example if "sample type" is "Produced
       Water" then subtype could be "Oil Phase" or "Water Phase". If "other" is specified,
       please propose entry in "additional info" field
@@ -11106,10 +10873,6 @@ slots:
     recommended: true
   samp_surf_moisture:
     name: samp_surf_moisture
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Degree of water held on a sampled surface.  If present, user can
       state the degree of water held on surface (intermittent moisture, submerged).
       If no surface moisture is present indicate not present
@@ -11176,10 +10939,6 @@ slots:
     recommended: false
   samp_transport_cont:
     name: samp_transport_cont
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Conatiner in which the sample was stored during transport. Indicate
       the location name
     title: sample transport  container
@@ -11278,10 +11037,6 @@ slots:
     multivalued: false
   samp_weather:
     name: samp_weather
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The weather on the sampling day
     title: sampling day weather
     examples:
@@ -11429,10 +11184,6 @@ slots:
     recommended: false
   season_use:
     name: season_use
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The seasons the space is occupied
     title: seasonal use
     examples:
@@ -11458,10 +11209,6 @@ slots:
     recommended: false
   sediment_type:
     name: sediment_type
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Information about the sediment type based on major constituents
     title: sediment type
     examples:
@@ -11587,40 +11334,28 @@ slots:
     recommended: false
   shad_dev_water_mold:
     name: shad_dev_water_mold
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Signs of the presence of mold or mildew on the shading device
     title: shading device signs of water/mold
     examples:
     - value: no presence of mold visible
-    string_serialization: '[presence of mold visible|no presence of mold visible]'
     slot_uri: MIXS:0000834
     multivalued: false
+    range: SHARED_ENUM_0
     required: false
     recommended: false
   shading_device_cond:
     name: shading_device_cond
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The physical condition of the shading device at the time of sampling
     title: shading device condition
     examples:
     - value: new
-    string_serialization: '[damaged|needs repair|new|rupture|visible wear]'
     slot_uri: MIXS:0000831
     multivalued: false
+    range: SHARED_ENUM_2
     required: false
     recommended: false
   shading_device_loc:
     name: shading_device_loc
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The location of the shading device in relation to the built structure
     title: shading device location
     examples:
@@ -11645,10 +11380,6 @@ slots:
     recommended: false
   shading_device_type:
     name: shading_device_type
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The type of shading device
     title: shading device type
     examples:
@@ -11705,10 +11436,6 @@ slots:
     multivalued: false
   single_cell_lysis_appr:
     name: single_cell_lysis_appr
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Method used to free DNA from interior of the cell(s) or particle(s)
     title: single cell or viral particle lysis approach
     examples:
@@ -11918,12 +11645,9 @@ slots:
     recommended: true
   soil_horizon:
     name: soil_horizon
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     title: soil horizon
     multivalued: false
+    range: SHARED_ENUM_4
   soil_pH:
     name: soil_pH
     annotations:
@@ -11992,10 +11716,6 @@ slots:
     recommended: false
   soil_texture_class:
     name: soil_texture_class
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: One of the 12 soil texture classes use to describe soil texture based
       on the relative proportion of different grain sizes  of mineral particles [sand
       (50 um to 2 mm), silt (2 um to 50 um), and clay (<2 um)] in a soil
@@ -12128,10 +11848,6 @@ slots:
     multivalued: true
   sort_tech:
     name: sort_tech
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Method used to sort/isolate cells or particles of interest
     title: sorting technology
     examples:
@@ -12189,10 +11905,6 @@ slots:
     multivalued: false
   space_typ_state:
     name: space_typ_state
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Customary or normal state of the space
     title: space typical state
     examples:
@@ -12235,10 +11947,6 @@ slots:
     recommended: false
   specific:
     name: specific
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: 'The building specifications. If design is chosen, indicate phase:
       conceptual, schematic, design development, construction documents'
     title: specifications
@@ -12436,10 +12144,6 @@ slots:
     recommended: false
   sr_dep_env:
     name: sr_dep_env
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Source rock depositional environment (https://en.wikipedia.org/wiki/Source_rock).
       If "other" is specified, please propose entry in "additional info" field
     title: source rock depositional environment
@@ -12452,26 +12156,18 @@ slots:
     recommended: false
   sr_geol_age:
     name: sr_geol_age
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: 'Geological age of source rock (Additional info: https://en.wikipedia.org/wiki/Period_(geology)).
       If "other" is specified, please propose entry in "additional info" field'
     title: source rock geological age
     examples:
     - value: Silurian
-    string_serialization: '[Archean|Cambrian|Carboniferous|Cenozoic|Cretaceous|Devonian|Jurassic|Mesozoic|Neogene|Ordovician|Paleogene|Paleozoic|Permian|Precambrian|Proterozoic|Silurian|Triassic|other]'
     slot_uri: MIXS:0000997
     multivalued: false
+    range: SHARED_ENUM_5
     required: false
     recommended: false
   sr_kerog_type:
     name: sr_kerog_type
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: 'Origin of kerogen. Type I: Algal (aquatic), Type II: planktonic
       and soft plant material (aquatic or terrestrial), Type III: terrestrial woody/
       fibrous plant material (terrestrial), Type IV: oxidized recycled woody debris
@@ -12487,10 +12183,6 @@ slots:
     recommended: false
   sr_lithology:
     name: sr_lithology
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Lithology of source rock (https://en.wikipedia.org/wiki/Source_rock).
       If "other" is specified, please propose entry in "additional info" field
     title: source rock lithology
@@ -12674,10 +12366,6 @@ slots:
     multivalued: false
   substructure_type:
     name: substructure_type
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The substructure or under building is that largely hidden section
       of the building which is built off the foundations to the ground floor level
     title: substructure type
@@ -12736,10 +12424,6 @@ slots:
     multivalued: false
   surf_air_cont:
     name: surf_air_cont
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Contaminant identified on surface
     title: surface-air contaminant
     examples:
@@ -12767,10 +12451,6 @@ slots:
     recommended: true
   surf_material:
     name: surf_material
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Surface materials at the point of sampling
     title: surface material
     examples:
@@ -12880,10 +12560,6 @@ slots:
     required: true
   symbiont_host_role:
     name: symbiont_host_role
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Role of the host in the life cycle of the symbiotic organism
     title: host of the symbiont role
     examples:
@@ -12960,10 +12636,6 @@ slots:
     multivalued: false
   tax_ident:
     name: tax_ident
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The phylogenetic marker(s) used to assign an organism name to the
       SAG or MAG
     title: taxonomic identity marker
@@ -13055,10 +12727,6 @@ slots:
     recommended: false
   tidal_stage:
     name: tidal_stage
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Stage of tide
     title: tidal stage
     examples:
@@ -13070,10 +12738,6 @@ slots:
     recommended: false
   tillage:
     name: tillage
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Note method(s) used for tilling
     title: history/tillage
     examples:
@@ -13421,10 +13085,6 @@ slots:
     recommended: true
   train_line:
     name: train_line
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The subway line name
     title: train line
     examples:
@@ -13436,10 +13096,6 @@ slots:
     recommended: false
   train_stat_loc:
     name: train_stat_loc
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The train station collection location
     title: train station collection location
     examples:
@@ -13451,10 +13107,6 @@ slots:
     recommended: false
   train_stop_loc:
     name: train_stop_loc
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The train stop collection location
     title: train stop collection location
     examples:
@@ -13510,10 +13162,6 @@ slots:
     multivalued: false
   trophic_level:
     name: trophic_level
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Trophic levels are the feeding position in a food chain. Microbes
       can be a range of producers (e.g. chemolithotroph)
     title: trophic level
@@ -13603,10 +13251,6 @@ slots:
     required: true
   type_of_symbiosis:
     name: type_of_symbiosis
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Type of biological interaction established between the symbiotic
       host organism being sampled and its respective host
     title: type of symbiosis
@@ -13618,10 +13262,6 @@ slots:
     recommended: true
   urine_collect_meth:
     name: urine_collect_meth
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Specification of urine collection method
     title: urine/collection method
     examples:
@@ -13752,10 +13392,6 @@ slots:
     multivalued: false
   virus_enrich_appr:
     name: virus_enrich_appr
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: List of approaches used to enrich the sample for viruses, if any
     title: virus enrichment approach
     examples:
@@ -13836,10 +13472,6 @@ slots:
     recommended: false
   wall_const_type:
     name: wall_const_type
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The building class of the wall defined by the composition of the
       building elements and fire-resistance rating
     title: wall construction type
@@ -13852,10 +13484,6 @@ slots:
     recommended: false
   wall_finish_mat:
     name: wall_finish_mat
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The material utilized to finish the outer most layer of the wall
     title: wall finish material
     examples:
@@ -13883,25 +13511,17 @@ slots:
     recommended: false
   wall_loc:
     name: wall_loc
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The relative location of the wall within the room
     title: wall location
     examples:
     - value: north
-    string_serialization: '[north|south|east|west]'
     slot_uri: MIXS:0000843
     multivalued: false
+    range: SHARED_ENUM_1
     required: false
     recommended: false
   wall_surf_treatment:
     name: wall_surf_treatment
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The surface treatment of interior wall
     title: wall surface treatment
     examples:
@@ -13913,10 +13533,6 @@ slots:
     recommended: false
   wall_texture:
     name: wall_texture
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The feel, appearance, or consistency of a wall surface
     title: wall texture
     examples:
@@ -13946,17 +13562,13 @@ slots:
     recommended: false
   wall_water_mold:
     name: wall_water_mold
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Signs of the presence of mold or mildew on a wall
     title: wall signs of water/mold
     examples:
     - value: no presence of mold visible
-    string_serialization: '[presence of mold visible|no presence of mold visible]'
     slot_uri: MIXS:0000844
     multivalued: false
+    range: SHARED_ENUM_0
     required: false
     recommended: false
   wastewater_type:
@@ -14053,10 +13665,6 @@ slots:
     recommended: false
   water_feat_type:
     name: water_feat_type
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The type of water feature present within the building being sampled
     title: water feature type
     examples:
@@ -14179,10 +13787,6 @@ slots:
     multivalued: true
   weekday:
     name: weekday
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The day of the week when sampling occurred
     title: weekday
     examples:
@@ -14213,10 +13817,6 @@ slots:
     recommended: false
   wga_amp_appr:
     name: wga_amp_appr
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Method used to amplify genomic DNA in preparation for sequencing
     title: WGA amplification approach
     examples:
@@ -14283,25 +13883,17 @@ slots:
     recommended: false
   window_cond:
     name: window_cond
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The physical condition of the window at the time of sampling
     title: window condition
     examples:
     - value: rupture
-    string_serialization: '[damaged|needs repair|new|rupture|visible wear]'
     slot_uri: MIXS:0000849
     multivalued: false
+    range: SHARED_ENUM_2
     required: false
     recommended: false
   window_cover:
     name: window_cover
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The type of window covering
     title: window covering
     examples:
@@ -14313,10 +13905,6 @@ slots:
     recommended: false
   window_horiz_pos:
     name: window_horiz_pos
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The horizontal position of the window on the wall
     title: window horizontal position
     examples:
@@ -14328,25 +13916,17 @@ slots:
     recommended: false
   window_loc:
     name: window_loc
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The relative location of the window within the room
     title: window location
     examples:
     - value: west
-    string_serialization: '[north|south|east|west]'
     slot_uri: MIXS:0000852
     multivalued: false
+    range: SHARED_ENUM_1
     required: false
     recommended: false
   window_mat:
     name: window_mat
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The type of material used to finish a window
     title: window material
     examples:
@@ -14387,10 +13967,6 @@ slots:
     recommended: false
   window_status:
     name: window_status
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Defines whether the windows were open or closed during environmental
       testing
     title: window status
@@ -14403,10 +13979,6 @@ slots:
     recommended: false
   window_type:
     name: window_type
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The type of windows
     title: window type
     examples:
@@ -14418,10 +13990,6 @@ slots:
     recommended: false
   window_vert_pos:
     name: window_vert_pos
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: The vertical position of the window on the wall
     title: window vertical position
     examples:
@@ -14433,17 +14001,13 @@ slots:
     recommended: false
   window_water_mold:
     name: window_water_mold
-    annotations:
-      Expected_value:
-        tag: Expected_value
-        value: enumeration
     description: Signs of the presence of mold or mildew on the window
     title: window signs of water/mold
     examples:
     - value: no presence of mold visible
-    string_serialization: '[presence of mold visible|no presence of mold visible]'
     slot_uri: MIXS:0000854
     multivalued: false
+    range: SHARED_ENUM_0
     required: false
     recommended: false
   xylene:
@@ -19072,63 +18636,63 @@ classes:
     name: MigsBa
     is_a: Checklist
     slots:
+    - samp_taxon_id
+    - experimental_factor
+    - env_broad_scale
+    - subspecf_gen_lin
+    - lib_reads_seqd
+    - lib_layout
+    - tax_ident
+    - elev
+    - assembly_qual
+    - ref_db
+    - project_name
+    - tax_class
+    - samp_collec_method
+    - nucl_acid_amp
+    - geo_loc_name
+    - assembly_software
+    - estimated_size
+    - adapters
+    - encoded_traits
+    - samp_vol_we_dna_ext
+    - lib_size
+    - pos_cont_type
+    - host_disease_stat
+    - isol_growth_condt
+    - collection_date
+    - rel_to_oxygen
+    - source_mat_id
+    - lib_screen
+    - feat_pred
+    - nucl_acid_ext
+    - ref_biomaterial
+    - samp_name
     - neg_cont_type
     - compl_software
-    - number_contig
-    - lat_lon
-    - estimated_size
-    - samp_name
-    - samp_vol_we_dna_ext
-    - tax_ident
-    - rel_to_oxygen
-    - pathogenicity
-    - env_medium
-    - project_name
     - trophic_level
-    - lib_screen
-    - elev
-    - samp_taxon_id
-    - num_replicons
-    - collection_date
-    - host_disease_stat
-    - nucl_acid_amp
-    - adapters
-    - biotic_relationship
-    - pos_cont_type
-    - subspecf_gen_lin
-    - compl_score
-    - env_broad_scale
-    - source_mat_id
-    - temp
-    - alt
-    - annot
-    - experimental_factor
-    - depth
-    - specific_host
-    - ref_db
     - host_spec_range
-    - lib_vector
+    - sim_search_meth
+    - num_replicons
+    - annot
+    - samp_size
+    - depth
+    - alt
+    - env_medium
+    - number_contig
+    - specific_host
     - samp_collec_device
     - env_local_scale
-    - encoded_traits
-    - extrachrom_elements
-    - samp_collec_method
-    - seq_meth
-    - assembly_qual
+    - temp
+    - lib_vector
+    - lat_lon
+    - biotic_relationship
     - assembly_name
-    - feat_pred
-    - lib_layout
-    - geo_loc_name
-    - tax_class
+    - compl_score
+    - pathogenicity
+    - extrachrom_elements
     - samp_mat_process
-    - samp_size
-    - isol_growth_condt
-    - nucl_acid_ext
-    - lib_reads_seqd
-    - assembly_software
-    - ref_biomaterial
-    - sim_search_meth
-    - lib_size
+    - seq_meth
     - associated_resource
     - sop
     slot_usage:
@@ -19384,63 +18948,63 @@ classes:
     name: MigsEu
     is_a: Checklist
     slots:
+    - samp_taxon_id
+    - experimental_factor
+    - env_broad_scale
+    - subspecf_gen_lin
+    - lib_reads_seqd
+    - lib_layout
+    - tax_ident
+    - elev
+    - assembly_qual
+    - ref_db
+    - tax_class
+    - samp_collec_method
+    - nucl_acid_amp
+    - geo_loc_name
+    - estimated_size
+    - ploidy
+    - assembly_software
+    - adapters
+    - samp_vol_we_dna_ext
+    - lib_size
+    - pos_cont_type
+    - propagation
+    - host_disease_stat
+    - isol_growth_condt
+    - extrachrom_elements
+    - collection_date
+    - source_mat_id
+    - lib_screen
+    - feat_pred
+    - nucl_acid_ext
+    - ref_biomaterial
+    - samp_name
     - neg_cont_type
     - compl_software
-    - number_contig
-    - lat_lon
-    - estimated_size
-    - samp_name
-    - samp_vol_we_dna_ext
-    - tax_ident
-    - pathogenicity
-    - env_medium
-    - project_name
-    - ploidy
     - trophic_level
-    - lib_screen
-    - propagation
-    - elev
-    - samp_taxon_id
-    - num_replicons
-    - collection_date
-    - host_disease_stat
-    - nucl_acid_amp
-    - adapters
-    - biotic_relationship
-    - pos_cont_type
-    - subspecf_gen_lin
-    - compl_score
-    - env_broad_scale
-    - source_mat_id
-    - temp
-    - alt
-    - annot
-    - experimental_factor
-    - depth
-    - specific_host
-    - ref_db
     - host_spec_range
-    - lib_vector
+    - sim_search_meth
+    - num_replicons
+    - annot
+    - samp_size
+    - depth
+    - alt
+    - env_medium
+    - number_contig
+    - specific_host
     - samp_collec_device
     - env_local_scale
-    - extrachrom_elements
-    - samp_collec_method
-    - seq_meth
-    - assembly_qual
+    - temp
+    - lib_vector
+    - lat_lon
+    - biotic_relationship
     - assembly_name
-    - feat_pred
-    - lib_layout
-    - geo_loc_name
-    - tax_class
+    - compl_score
+    - pathogenicity
+    - project_name
     - samp_mat_process
-    - samp_size
-    - isol_growth_condt
-    - nucl_acid_ext
-    - lib_reads_seqd
-    - assembly_software
-    - ref_biomaterial
-    - sim_search_meth
-    - lib_size
+    - seq_meth
     - associated_resource
     - sop
     slot_usage:
@@ -19702,54 +19266,54 @@ classes:
     name: MigsOrg
     is_a: Checklist
     slots:
+    - samp_taxon_id
+    - experimental_factor
+    - env_broad_scale
+    - subspecf_gen_lin
+    - lib_reads_seqd
+    - lib_layout
+    - tax_ident
+    - elev
+    - assembly_qual
+    - ref_db
+    - tax_class
+    - samp_collec_method
+    - nucl_acid_amp
+    - geo_loc_name
+    - estimated_size
+    - assembly_software
+    - adapters
+    - samp_vol_we_dna_ext
+    - lib_size
+    - pos_cont_type
+    - isol_growth_condt
+    - extrachrom_elements
+    - collection_date
+    - source_mat_id
+    - lib_screen
+    - feat_pred
+    - nucl_acid_ext
+    - ref_biomaterial
+    - samp_name
     - neg_cont_type
     - compl_software
-    - number_contig
-    - lat_lon
-    - estimated_size
-    - samp_name
-    - samp_vol_we_dna_ext
-    - tax_ident
-    - env_medium
-    - project_name
-    - elev
-    - lib_screen
-    - samp_taxon_id
-    - collection_date
-    - nucl_acid_amp
-    - adapters
-    - pos_cont_type
-    - subspecf_gen_lin
-    - compl_score
-    - env_broad_scale
-    - source_mat_id
-    - temp
-    - alt
+    - sim_search_meth
     - annot
-    - experimental_factor
+    - samp_size
     - depth
-    - ref_db
-    - lib_vector
+    - alt
+    - env_medium
+    - number_contig
     - samp_collec_device
     - env_local_scale
-    - extrachrom_elements
-    - samp_collec_method
-    - seq_meth
-    - assembly_qual
+    - temp
+    - lib_vector
+    - lat_lon
     - assembly_name
-    - feat_pred
-    - lib_layout
-    - geo_loc_name
-    - tax_class
+    - compl_score
+    - project_name
     - samp_mat_process
-    - samp_size
-    - isol_growth_condt
-    - nucl_acid_ext
-    - lib_reads_seqd
-    - assembly_software
-    - ref_biomaterial
-    - sim_search_meth
-    - lib_size
+    - seq_meth
     - associated_resource
     - sop
     slot_usage:
@@ -19968,57 +19532,57 @@ classes:
     name: MigsPl
     is_a: Checklist
     slots:
+    - samp_taxon_id
+    - experimental_factor
+    - env_broad_scale
+    - subspecf_gen_lin
+    - lib_reads_seqd
+    - lib_layout
+    - tax_ident
+    - elev
+    - assembly_qual
+    - ref_db
+    - tax_class
+    - samp_collec_method
+    - nucl_acid_amp
+    - geo_loc_name
+    - estimated_size
+    - assembly_software
+    - adapters
+    - encoded_traits
+    - samp_vol_we_dna_ext
+    - lib_size
+    - pos_cont_type
+    - propagation
+    - isol_growth_condt
+    - collection_date
+    - source_mat_id
+    - lib_screen
+    - feat_pred
+    - nucl_acid_ext
+    - ref_biomaterial
+    - samp_name
     - neg_cont_type
     - compl_software
-    - number_contig
-    - lat_lon
-    - estimated_size
-    - samp_name
-    - samp_vol_we_dna_ext
-    - tax_ident
-    - env_medium
-    - project_name
-    - elev
-    - lib_screen
-    - propagation
-    - samp_taxon_id
-    - collection_date
-    - nucl_acid_amp
-    - adapters
-    - pos_cont_type
-    - subspecf_gen_lin
-    - compl_score
-    - env_broad_scale
-    - source_mat_id
-    - temp
-    - alt
-    - annot
-    - depth
-    - experimental_factor
-    - specific_host
-    - ref_db
     - host_spec_range
-    - lib_vector
-    - samp_collec_device
-    - env_local_scale
-    - encoded_traits
-    - samp_collec_method
-    - seq_meth
-    - assembly_qual
-    - assembly_name
-    - feat_pred
-    - lib_layout
-    - geo_loc_name
-    - tax_class
-    - samp_mat_process
-    - samp_size
-    - isol_growth_condt
-    - nucl_acid_ext
-    - lib_reads_seqd
-    - assembly_software
-    - ref_biomaterial
     - sim_search_meth
-    - lib_size
+    - annot
+    - samp_size
+    - depth
+    - alt
+    - env_medium
+    - number_contig
+    - samp_collec_device
+    - specific_host
+    - env_local_scale
+    - temp
+    - lib_vector
+    - lat_lon
+    - assembly_name
+    - compl_score
+    - project_name
+    - samp_mat_process
+    - seq_meth
     - associated_resource
     - sop
     slot_usage:
@@ -20247,62 +19811,62 @@ classes:
     name: MigsVi
     is_a: Checklist
     slots:
+    - samp_taxon_id
+    - experimental_factor
+    - env_broad_scale
+    - subspecf_gen_lin
+    - lib_reads_seqd
+    - lib_layout
+    - tax_ident
+    - elev
+    - assembly_qual
+    - ref_db
+    - tax_class
+    - samp_collec_method
+    - nucl_acid_amp
+    - geo_loc_name
+    - estimated_size
+    - assembly_software
+    - adapters
+    - encoded_traits
+    - samp_vol_we_dna_ext
+    - lib_size
+    - pos_cont_type
+    - propagation
+    - host_disease_stat
+    - isol_growth_condt
+    - collection_date
+    - source_mat_id
+    - lib_screen
+    - feat_pred
+    - nucl_acid_ext
+    - ref_biomaterial
+    - samp_name
     - neg_cont_type
     - compl_software
-    - number_contig
-    - lat_lon
-    - estimated_size
-    - samp_name
-    - samp_vol_we_dna_ext
-    - tax_ident
-    - pathogenicity
-    - env_medium
-    - project_name
-    - elev
-    - lib_screen
-    - virus_enrich_appr
-    - propagation
-    - samp_taxon_id
-    - num_replicons
-    - collection_date
-    - host_disease_stat
-    - nucl_acid_amp
-    - adapters
-    - biotic_relationship
-    - pos_cont_type
-    - subspecf_gen_lin
-    - compl_score
-    - env_broad_scale
-    - source_mat_id
-    - temp
-    - alt
-    - annot
-    - experimental_factor
-    - depth
-    - specific_host
-    - ref_db
     - host_spec_range
-    - lib_vector
+    - sim_search_meth
+    - num_replicons
+    - annot
+    - samp_size
+    - depth
+    - alt
+    - env_medium
+    - number_contig
+    - specific_host
     - samp_collec_device
     - env_local_scale
-    - encoded_traits
-    - samp_collec_method
-    - seq_meth
-    - assembly_qual
+    - temp
+    - virus_enrich_appr
+    - lib_vector
+    - lat_lon
+    - biotic_relationship
     - assembly_name
-    - feat_pred
-    - lib_layout
-    - geo_loc_name
-    - tax_class
+    - compl_score
+    - pathogenicity
+    - project_name
     - samp_mat_process
-    - samp_size
-    - isol_growth_condt
-    - nucl_acid_ext
-    - lib_reads_seqd
-    - assembly_software
-    - ref_biomaterial
-    - sim_search_meth
-    - lib_size
+    - seq_meth
     - associated_resource
     - sop
     slot_usage:
@@ -20556,66 +20120,66 @@ classes:
     name: Mimag
     is_a: Checklist
     slots:
-    - neg_cont_type
-    - compl_software
-    - number_contig
-    - lat_lon
-    - samp_name
-    - samp_vol_we_dna_ext
-    - tax_ident
-    - rel_to_oxygen
-    - 16s_recover
-    - env_medium
-    - project_name
-    - elev
-    - lib_screen
     - samp_taxon_id
-    - decontam_software
-    - collection_date
-    - compl_appr
-    - nucl_acid_amp
-    - adapters
-    - pos_cont_type
-    - compl_score
-    - env_broad_scale
-    - source_mat_id
-    - contam_screen_input
-    - temp
-    - size_frac
-    - alt
-    - annot
     - experimental_factor
-    - depth
+    - lib_layout
+    - env_broad_scale
+    - lib_reads_seqd
+    - tax_ident
+    - compl_appr
+    - elev
+    - assembly_qual
     - ref_db
     - mid
+    - tax_class
+    - samp_collec_method
+    - nucl_acid_amp
+    - seq_meth
+    - geo_loc_name
+    - assembly_software
+    - decontam_software
+    - adapters
+    - samp_vol_we_dna_ext
+    - lib_size
     - trnas
+    - pos_cont_type
     - contam_screen_param
-    - lib_vector
+    - contam_score
+    - bin_param
+    - 16s_recover_software
+    - collection_date
+    - rel_to_oxygen
+    - source_mat_id
+    - lib_screen
+    - size_frac
+    - nucl_acid_ext
+    - ref_biomaterial
+    - feat_pred
+    - samp_name
+    - neg_cont_type
+    - 16s_recover
+    - compl_software
+    - mag_cov_software
+    - sim_search_meth
+    - annot
+    - samp_size
+    - depth
+    - alt
+    - env_medium
+    - number_contig
+    - reassembly_bin
     - samp_collec_device
     - env_local_scale
-    - 16s_recover_software
-    - samp_collec_method
-    - seq_meth
-    - assembly_qual
-    - assembly_name
-    - feat_pred
-    - lib_layout
-    - geo_loc_name
-    - tax_class
-    - samp_mat_process
+    - temp
+    - lib_vector
+    - lat_lon
     - trna_ext_software
+    - contam_screen_input
+    - assembly_name
     - bin_software
-    - samp_size
-    - bin_param
-    - contam_score
-    - nucl_acid_ext
-    - lib_reads_seqd
-    - assembly_software
-    - ref_biomaterial
-    - sim_search_meth
-    - mag_cov_software
-    - lib_size
-    - reassembly_bin
+    - project_name
+    - samp_mat_process
+    - compl_score
     - associated_resource
     - sop
     slot_usage:
@@ -20868,43 +20432,43 @@ classes:
     name: MimarksC
     is_a: Checklist
     slots:
-    - neg_cont_type
-    - lat_lon
-    - samp_name
-    - samp_vol_we_dna_ext
-    - rel_to_oxygen
-    - env_medium
-    - chimera_check
-    - trophic_level
-    - project_name
-    - elev
     - samp_taxon_id
-    - collection_date
-    - nucl_acid_amp
-    - biotic_relationship
-    - target_gene
-    - target_subfragment
-    - pos_cont_type
-    - pcr_primers
-    - subspecf_gen_lin
-    - env_broad_scale
-    - source_mat_id
-    - temp
-    - alt
     - experimental_factor
+    - env_broad_scale
+    - subspecf_gen_lin
+    - elev
+    - project_name
+    - samp_collec_method
+    - nucl_acid_amp
+    - geo_loc_name
+    - samp_vol_we_dna_ext
+    - pos_cont_type
+    - isol_growth_condt
+    - target_gene
+    - collection_date
+    - rel_to_oxygen
+    - source_mat_id
+    - seq_quality_check
+    - nucl_acid_ext
+    - samp_name
+    - neg_cont_type
+    - trophic_level
+    - pcr_primers
+    - samp_size
     - depth
-    - pcr_cond
+    - alt
+    - env_medium
     - samp_collec_device
     - env_local_scale
+    - temp
+    - pcr_cond
+    - chimera_check
+    - lat_lon
+    - biotic_relationship
+    - target_subfragment
     - extrachrom_elements
-    - samp_collec_method
-    - seq_meth
-    - geo_loc_name
     - samp_mat_process
-    - samp_size
-    - isol_growth_condt
-    - nucl_acid_ext
-    - seq_quality_check
+    - seq_meth
     - associated_resource
     - sop
     slot_usage:
@@ -21076,47 +20640,47 @@ classes:
     name: MimarksS
     is_a: Checklist
     slots:
-    - neg_cont_type
-    - lat_lon
-    - samp_name
-    - samp_vol_we_dna_ext
-    - rel_to_oxygen
-    - env_medium
-    - chimera_check
-    - project_name
-    - lib_screen
-    - elev
     - samp_taxon_id
-    - collection_date
-    - nucl_acid_amp
-    - adapters
-    - target_gene
-    - target_subfragment
-    - pos_cont_type
-    - pcr_primers
-    - env_broad_scale
-    - source_mat_id
-    - temp
-    - size_frac
-    - alt
-    - depth
     - experimental_factor
+    - lib_layout
+    - env_broad_scale
+    - lib_reads_seqd
+    - elev
     - mid
-    - pcr_cond
-    - lib_vector
+    - samp_collec_method
+    - nucl_acid_amp
+    - geo_loc_name
+    - assembly_software
+    - adapters
+    - samp_vol_we_dna_ext
+    - lib_size
+    - pos_cont_type
+    - target_gene
+    - collection_date
+    - rel_to_oxygen
+    - source_mat_id
+    - lib_screen
+    - size_frac
+    - nucl_acid_ext
+    - seq_quality_check
+    - samp_name
+    - neg_cont_type
+    - pcr_primers
+    - samp_size
+    - depth
+    - alt
+    - env_medium
     - samp_collec_device
     - env_local_scale
-    - samp_collec_method
-    - seq_meth
-    - lib_layout
-    - geo_loc_name
+    - temp
+    - lib_vector
+    - pcr_cond
+    - chimera_check
+    - lat_lon
+    - target_subfragment
+    - project_name
     - samp_mat_process
-    - samp_size
-    - nucl_acid_ext
-    - lib_reads_seqd
-    - assembly_software
-    - lib_size
-    - seq_quality_check
+    - seq_meth
     - associated_resource
     - sop
     slot_usage:
@@ -21301,50 +20865,50 @@ classes:
     name: Mims
     is_a: Checklist
     slots:
-    - neg_cont_type
-    - number_contig
-    - lat_lon
-    - samp_name
-    - samp_vol_we_dna_ext
-    - rel_to_oxygen
-    - env_medium
-    - project_name
-    - elev
-    - lib_screen
     - samp_taxon_id
-    - collection_date
-    - nucl_acid_amp
-    - adapters
-    - pos_cont_type
-    - env_broad_scale
-    - source_mat_id
-    - temp
-    - size_frac
-    - alt
-    - annot
     - experimental_factor
-    - depth
+    - lib_layout
+    - env_broad_scale
+    - lib_reads_seqd
+    - elev
+    - assembly_qual
     - ref_db
     - mid
-    - lib_vector
+    - tax_class
+    - samp_collec_method
+    - nucl_acid_amp
+    - geo_loc_name
+    - assembly_software
+    - adapters
+    - samp_vol_we_dna_ext
+    - lib_size
+    - pos_cont_type
+    - collection_date
+    - rel_to_oxygen
+    - source_mat_id
+    - lib_screen
+    - size_frac
+    - nucl_acid_ext
+    - ref_biomaterial
+    - feat_pred
+    - samp_name
+    - neg_cont_type
+    - sim_search_meth
+    - annot
+    - samp_size
+    - depth
+    - alt
+    - env_medium
+    - number_contig
     - samp_collec_device
     - env_local_scale
-    - samp_collec_method
-    - seq_meth
-    - assembly_qual
+    - temp
+    - lib_vector
+    - lat_lon
     - assembly_name
-    - feat_pred
-    - lib_layout
-    - geo_loc_name
-    - tax_class
+    - project_name
     - samp_mat_process
-    - samp_size
-    - nucl_acid_ext
-    - lib_reads_seqd
-    - assembly_software
-    - ref_biomaterial
-    - sim_search_meth
-    - lib_size
+    - seq_meth
     - associated_resource
     - sop
     slot_usage:
@@ -21537,67 +21101,67 @@ classes:
     name: Misag
     is_a: Checklist
     slots:
-    - neg_cont_type
-    - compl_software
-    - number_contig
-    - lat_lon
-    - sort_tech
-    - samp_name
-    - samp_vol_we_dna_ext
-    - tax_ident
-    - rel_to_oxygen
-    - 16s_recover
-    - env_medium
-    - wga_amp_appr
-    - project_name
-    - elev
-    - lib_screen
     - samp_taxon_id
-    - decontam_software
-    - collection_date
-    - compl_appr
-    - single_cell_lysis_prot
-    - nucl_acid_amp
-    - adapters
-    - pos_cont_type
-    - compl_score
-    - env_broad_scale
-    - source_mat_id
-    - contam_screen_input
-    - temp
-    - size_frac
-    - alt
-    - annot
     - experimental_factor
-    - depth
+    - lib_layout
+    - env_broad_scale
+    - lib_reads_seqd
+    - tax_ident
+    - compl_appr
+    - elev
+    - assembly_qual
     - ref_db
     - mid
-    - trnas
-    - contam_screen_param
-    - lib_vector
-    - samp_collec_device
-    - wga_amp_kit
-    - env_local_scale
-    - 16s_recover_software
-    - samp_collec_method
-    - seq_meth
-    - assembly_qual
-    - assembly_name
-    - feat_pred
-    - lib_layout
-    - geo_loc_name
     - tax_class
-    - samp_mat_process
-    - trna_ext_software
-    - samp_size
-    - single_cell_lysis_appr
-    - contam_score
-    - nucl_acid_ext
-    - lib_reads_seqd
+    - samp_collec_method
+    - nucl_acid_amp
+    - geo_loc_name
     - assembly_software
-    - ref_biomaterial
-    - sim_search_meth
+    - decontam_software
+    - adapters
+    - samp_vol_we_dna_ext
     - lib_size
+    - trnas
+    - pos_cont_type
+    - contam_screen_param
+    - wga_amp_kit
+    - contam_score
+    - 16s_recover_software
+    - collection_date
+    - rel_to_oxygen
+    - source_mat_id
+    - lib_screen
+    - size_frac
+    - nucl_acid_ext
+    - ref_biomaterial
+    - feat_pred
+    - samp_name
+    - neg_cont_type
+    - 16s_recover
+    - compl_software
+    - single_cell_lysis_appr
+    - sim_search_meth
+    - annot
+    - samp_size
+    - depth
+    - alt
+    - env_medium
+    - sort_tech
+    - number_contig
+    - wga_amp_appr
+    - samp_collec_device
+    - env_local_scale
+    - temp
+    - lib_vector
+    - single_cell_lysis_prot
+    - lat_lon
+    - trna_ext_software
+    - contam_screen_input
+    - assembly_name
+    - compl_score
+    - project_name
+    - samp_mat_process
+    - seq_meth
     - associated_resource
     - sop
     slot_usage:
@@ -22023,63 +21587,63 @@ classes:
     name: Miuvig
     is_a: Checklist
     slots:
-    - neg_cont_type
-    - compl_software
-    - number_contig
-    - lat_lon
-    - estimated_size
-    - samp_name
-    - samp_vol_we_dna_ext
-    - tax_ident
-    - pathogenicity
-    - env_medium
-    - project_name
-    - elev
-    - lib_screen
-    - virus_enrich_appr
     - samp_taxon_id
-    - collection_date
-    - host_disease_stat
-    - compl_appr
-    - nucl_acid_amp
-    - adapters
-    - biotic_relationship
-    - source_uvig
-    - pos_cont_type
-    - compl_score
-    - env_broad_scale
-    - source_mat_id
-    - temp
-    - size_frac
-    - alt
-    - annot
-    - depth
     - experimental_factor
-    - specific_host
+    - lib_layout
+    - env_broad_scale
+    - lib_reads_seqd
+    - tax_ident
+    - compl_appr
+    - elev
+    - assembly_qual
+    - source_uvig
     - ref_db
     - mid
+    - tax_class
+    - samp_collec_method
+    - nucl_acid_amp
+    - seq_meth
+    - geo_loc_name
+    - assembly_software
+    - estimated_size
+    - adapters
+    - samp_vol_we_dna_ext
+    - lib_size
     - trnas
+    - pos_cont_type
+    - host_disease_stat
+    - collection_date
+    - source_mat_id
+    - lib_screen
+    - size_frac
+    - nucl_acid_ext
+    - ref_biomaterial
+    - feat_pred
+    - samp_name
+    - neg_cont_type
+    - compl_software
     - host_spec_range
-    - lib_vector
+    - sim_search_meth
+    - annot
+    - samp_size
+    - depth
+    - alt
+    - env_medium
+    - number_contig
+    - specific_host
     - samp_collec_device
     - env_local_scale
-    - samp_collec_method
-    - seq_meth
-    - assembly_qual
-    - assembly_name
-    - feat_pred
-    - lib_layout
-    - geo_loc_name
-    - tax_class
-    - samp_mat_process
+    - temp
+    - virus_enrich_appr
+    - lib_vector
+    - lat_lon
+    - biotic_relationship
     - trna_ext_software
-    - samp_size
-    - nucl_acid_ext
-    - lib_reads_seqd
-    - assembly_software
-    - ref_biomaterial
-    - sim_search_meth
-    - lib_size
+    - assembly_name
+    - pathogenicity
+    - project_name
+    - samp_mat_process
+    - compl_score
     - sort_tech
     - single_cell_lysis_appr
     - single_cell_lysis_prot

@@ -6,7 +6,7 @@ import pandas as pd
 import requests
 from linkml_runtime.dumpers import yaml_dumper
 from linkml_runtime.linkml_model import Annotation, SchemaDefinition, SlotDefinition, ClassDefinition, Example, \
-    SubsetDefinition, EnumDefinition, PermissibleValue
+    SubsetDefinition, EnumDefinition, PermissibleValue, Prefix
 
 # todo get class uris from external source
 
@@ -32,6 +32,8 @@ from linkml_runtime.linkml_model import Annotation, SchemaDefinition, SlotDefini
 # todo infer ranges from string_serialization and expected value annotation
 
 # todo infer enumerations as long as string_serialization starts with [, contains |s and doesn't include , : or (
+#  make sure examples from slots using the enum match a PV form the enum
+#  account for string_serialization starting with [ and containing any of the forbidden characters
 
 # todo give annotations _annotation suffix ?
 
@@ -73,7 +75,23 @@ consensus_annotation = Annotation(tag="consensus", value="true")
 
 file_url = base_url + file_path
 
-global_target_schema = SchemaDefinition(name='GSC_MIxS', id='http://example.com/GSC_MIxS', source=file_url, )
+schema_name = 'GSC_MIxS_6'
+
+schema_file_name = f"{schema_name}.yaml"
+
+harmonized_sheets_file_name = f"{file_path}.harmonized.tsv"
+
+global_target_schema = SchemaDefinition(
+    id=f"http://example.com/{schema_name}",
+    name=schema_name,
+    source=file_url,
+)
+
+linkml_prefix = Prefix(prefix_prefix="linkml", prefix_reference="https://w3id.org/linkml/")
+
+global_target_schema.prefixes["linkml"] = linkml_prefix
+
+global_target_schema.imports.append("linkml:types")
 
 
 def convert_to_pascal_case(string):
@@ -466,9 +484,13 @@ def construct_assign_simple_enumerations(sheet: pd.DataFrame):
     duplicated_scns = duplicated_scn_val_counts.index.tolist()
 
     contradictory_enums = possible_enums_sheet[possible_enums_sheet['Structured comment name'].isin(duplicated_scns)]
+    print(contradictory_enums)
 
     # add a comment to the schema
-    print(contradictory_enums)
+    scns_with_contradictory_enums = contradictory_enums['Structured comment name'].unique().tolist()
+    scns_with_contradictory_enums = [re.sub(r'\W+', '_', scn) for scn in scns_with_contradictory_enums]
+    global_target_schema.comments.append(
+        f"The following slots have  contradictory Value syntaxes so enumerations can not be created for their ranges: {scns_with_contradictory_enums}")
 
     possible_enums_no_scn_dupes = possible_enums_sheet[
         ~possible_enums_sheet['Structured comment name'].isin(duplicated_scns)]
@@ -480,8 +502,6 @@ def construct_assign_simple_enumerations(sheet: pd.DataFrame):
     duplicated_val_syntaxes = duplicated_val_syntax_val_counts.index.tolist()
 
     shared_enums = possible_enums_sheet[possible_enums_sheet['Value syntax'].isin(duplicated_val_syntaxes)]
-
-    pprint.pprint(shared_enums)
 
     singleton_enums = possible_enums_sheet[~possible_enums_sheet['Value syntax'].isin(duplicated_val_syntaxes)]
     singleton_enum_dict_list = singleton_enums.to_dict('records')
@@ -503,6 +523,40 @@ def construct_assign_simple_enumerations(sheet: pd.DataFrame):
     for k, v in slot_to_enums_dict.items():
         global_target_schema.slots[k].range = v
         del global_target_schema.slots[k].string_serialization
+        if "Expected_value" in global_target_schema.slots[k].annotations:
+            expected_val = global_target_schema.slots[k].annotations["Expected_value"]
+            expected_val_val = expected_val.value
+            if expected_val_val == "enumeration":
+                del global_target_schema.slots[k].annotations["Expected_value"]
+        else:
+            print(f"{k} has no Expected_value annotation")
+
+    index = 0
+    for val_syntax in duplicated_val_syntaxes:
+        subset_frame = shared_enums[shared_enums['Value syntax'] == val_syntax]
+        pvs = [x.strip() for x in val_syntax.strip('[]').split('|')]
+        pvs.sort()
+        scns = subset_frame['Structured comment name'].tolist()
+
+        name_for_enum = f"SHARED_ENUM_{index}"
+        current_enum = EnumDefinition(name=name_for_enum)
+        for pv in pvs:
+            current_pv = PermissibleValue(text=pv)
+            current_enum.permissible_values[pv] = current_pv
+        global_target_schema.enums[name_for_enum] = current_enum
+
+        for scn in scns:
+            tidied_scn = re.sub(r'\W+', '_', scn)
+            global_target_schema.slots[tidied_scn].range = name_for_enum
+            del global_target_schema.slots[tidied_scn].string_serialization
+            if "Expected_value" in global_target_schema.slots[tidied_scn].annotations:
+                expected_val = global_target_schema.slots[tidied_scn].annotations["Expected_value"]
+                expected_val_val = expected_val.value
+                if expected_val_val == "enumeration":
+                    del global_target_schema.slots[tidied_scn].annotations["Expected_value"]
+            else:
+                print(f"{tidied_scn} has no Expected_value annotation")
+        index += 1
 
 
 harmonized_sheets = harmonize_sheets(file_url)
@@ -513,6 +567,7 @@ requirement_followup(harmonized_sheets)
 
 construct_assign_simple_enumerations(harmonized_sheets)
 
-harmonized_sheets.to_csv('harmonized_sheets.tsv', index=False, sep='\t')
+harmonized_sheets.to_csv(harmonized_sheets_file_name, index=False, sep='\t')
 
-yaml_dumper.dump(global_target_schema, 'target_schema.yaml')
+yaml_dumper.dump(global_target_schema, schema_file_name)
+# 'target_schema.yaml')
