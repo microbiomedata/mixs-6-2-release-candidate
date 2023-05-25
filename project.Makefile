@@ -1,16 +1,22 @@
 .PHONY: all clean squeaky_clean check-jsonschema
 
-all: squeaky_clean GSC_MIxS_6_usage.tsv mixs_v6.xlsx.harmonized.tsv.dtm.tsv GSC_MIxS_6.yaml.schema.json check-jsonschema
+RUN = poetry run
 
-GSC_MIxS_6.yaml:
-	poetry run python src/mixs_envo_struct_knowl_extraction/mixs_linkml_from_xlsx.py
+DEST_DIR = generated
 
-GSC_MIxS_6.yaml.schema.json: GSC_MIxS_6.yaml
-	poetry run gen-json-schema \
+all: squeaky_clean \
+generated/GSC_MIxS_6_usage.tsv generated/mixs_v6.xlsx.harmonized.tsv.dtm.tsv generated/GSC_MIxS_6.yaml.schema.json \
+check-jsonschema
+
+generated/GSC_MIxS_6.yaml:
+	$(RUN) python src/mixs_envo_struct_knowl_extraction/mixs_linkml_from_xlsx.py
+
+generated/GSC_MIxS_6.yaml.schema.json: generated/GSC_MIxS_6.yaml
+	$(RUN) gen-json-schema \
 		--closed $< > $@
 
-GSC_MIxS_6_usage.tsv: GSC_MIxS_6.yaml
-	poetry run generate_and_populate_template \
+generated/GSC_MIxS_6_usage.tsv: generated/GSC_MIxS_6.yaml
+	$(RUN) generate_and_populate_template \
 		 --base-class enum_definition \
 		 --base-class permissible_value \
 		 --base-class slot_definition \
@@ -19,26 +25,23 @@ GSC_MIxS_6_usage.tsv: GSC_MIxS_6.yaml
 		 --columns-to-insert slot \
 		 --columns-to-insert permissible_value \
 		 --destination-template $@ \
-		 --meta-model-excel-file meta.xlsx \
+		 --meta-model-excel-file generated/meta.xlsx \
 		 --meta-path https://raw.githubusercontent.com/linkml/linkml-model/main/linkml_model/model/schema/meta.yaml \
 		 --source-schema-path $<
 
 clean:
-	#rm -rf mixs_v6.xlsx
-	rm -rf GSC_MIxS_6_usage.tsv
-	rm -rf GSC_MIxS_6_usage_populated_raw.tsv
-	rm -rf meta.xlsx
+	#rm -rf generated/mixs_v6.xlsx
+	rm -rf generated/GSC_MIxS_6_usage.tsv
+	rm -rf generated/GSC_MIxS_6_usage_populated_raw.tsv
+	rm -rf generated/meta.xlsx
 
 squeaky_clean: clean
-	rm -rf GSC_MIxS_6.yaml
-	rm -rf GSC_MIxS_6.yaml.schema.json
-	rm -rf GSC_MIxS_6_usage_populated_no_blank_cols.tsv
-	rm -rf mixs_v6.xlsx
-	rm -rf mixs_v6.xlsx.harmonized.tsv
-	rm -rf mixs_v6.xlsx.harmonized.tsv.dtm.tsv
+	rm -rf generated/*
+	mkdir -p generated
+	touch generated/.gitkeep
 
-mixs_v6.xlsx.harmonized.tsv.dtm.tsv:
-	poetry run python src/mixs_envo_struct_knowl_extraction/mixs_dtm.py
+generated/mixs_v6.xlsx.harmonized.tsv.dtm.tsv:
+	$(RUN) python src/mixs_envo_struct_knowl_extraction/mixs_dtm.py
 
-check-jsonschema: GSC_MIxS_6.yaml.schema.json data/ExhaustiveTestClassCollection-example-data.yaml
-	poetry run check-jsonschema  --schemafile $^
+check-jsonschema: generated/GSC_MIxS_6.yaml.schema.json data/ExhaustiveTestClassCollection-example-data.yaml
+	$(RUN) check-jsonschema  --schemafile $^
