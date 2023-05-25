@@ -10,55 +10,6 @@ from linkml_runtime.linkml_model import Annotation, SchemaDefinition, SlotDefini
     SubsetDefinition, EnumDefinition, PermissibleValue, Prefix
 from linkml_runtime.linkml_model.meta import PatternExpression
 
-# todo get class uris from external source
-
-# todo create combination classes
-#   checklists should be mixins
-#   addition of combinations for all checklists X all environmental packages will make the schema painfully large
-
-# todo create collections for each class
-
-# GSC is saying that any slots from any checklist of environmental package can be combined together in any submission
-#   and even that submissions with non-MIxS slots should be accepted
-
-# string tidying might be harder to do diffs against the Excel file
-
-# todo is everything being considered a string at this point?
-
-# todo check for many to many slot names/ids
-
-# todo collapse multiple whitespace
-
-# todo add textual annotations like descriptions on classes
-
-# todo infer ranges from string_serialization and expected value annotation
-
-# todo infer enumerations as long as string_serialization starts with [, contains |s and doesn't include , : or (
-#  make sure examples from slots using the enum match a PV form the enum
-#  account for string_serialization starting with [ and containing any of the forbidden characters
-
-# todo give annotations _annotation suffix ?
-
-# todo manually replace any slots attributes that are carelessly customized for a small number of packages
-
-# todo: manually break up description, examples, string_serialization, title, Preferred_unit annotation and Expected_value
-#  into parts that can go in examples, multivalued	recommended	required, pattern, structured pattern, range
-
-# todo: manually create schema setting for the components of structured patterns
-#  won't work well with schemasheets, but could go into an imported YAML file
-
-# todo manually create dynamic enums from ontologies/classes mentioned in elements from above
-#  may not work well with schemasheets... start with a new annotation?
-#  or just defined the dynamic enums in a separate YAML file and import it?
-
-# todo manually remove duplicated elements from the above and reconcile contradictory elements
-
-# todo spellcheck
-
-# todo better logging of deleted content, especially value syntax and expected value
-
-# add units attribute to slots? would be for a single unit and might be hard to work with in schemasheets
-
 pd.set_option('display.max_columns', None)
 
 debug_mode = False
@@ -118,7 +69,6 @@ def remove_non_ascii(text):
 
 
 def instantiate_classes(df: pd.DataFrame) -> None:
-    # prior knowledge
     classes_list = df['class'].unique().tolist()
     classes_list.sort()
 
@@ -284,7 +234,6 @@ def process_consensus_value(scn: str, attribute_name: str, value: str) -> None:
         global_target_schema.slots[tidied_slot_name].string_serialization = value
     elif tidied_attribute_name == "Requirement":
         if value == "-":
-            # print(f"Slot {tidied_slot_name} has a true consensus {tidied_attribute_name} value of {value}")
             global_target_schema.slots[tidied_slot_name].annotations[tidied_attribute_name] = new_annotation
         elif value == "C":
             global_target_schema.slots[tidied_slot_name].recommended = True
@@ -292,7 +241,6 @@ def process_consensus_value(scn: str, attribute_name: str, value: str) -> None:
         elif value == "E":
             global_target_schema.slots[tidied_slot_name].recommended = True
             global_target_schema.slots[tidied_slot_name].annotations[tidied_attribute_name] = new_annotation
-            # take some slot usage action if the class is an environmental package???
         elif value == "M":
             global_target_schema.slots[tidied_slot_name].required = True
         elif value == "X":
@@ -471,8 +419,6 @@ def requirement_followup(sheet: pd.DataFrame):
 
 
 def construct_assign_simple_enumerations(sheet: pd.DataFrame):
-    # todo assign them as the range of slots in a separate function ?
-    # todo find shared enumerations
     relevant_columns = ['Structured comment name', 'Value syntax']
 
     relevant_sheet = sheet[relevant_columns].copy()
