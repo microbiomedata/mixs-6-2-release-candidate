@@ -17881,63 +17881,63 @@ classes:
     name: MigsBa
     is_a: Checklist
     slots:
-    - lib_reads_seqd
-    - depth
-    - rel_to_oxygen
     - extrachrom_elements
+    - assembly_qual
+    - assembly_software
     - neg_cont_type
-    - adapters
     - host_spec_range
+    - encoded_traits
+    - tax_ident
+    - assembly_name
+    - number_contig
+    - compl_score
+    - num_replicons
+    - env_local_scale
+    - lib_vector
+    - alt
+    - depth
+    - samp_collec_method
+    - env_medium
+    - samp_taxon_id
+    - env_broad_scale
+    - pos_cont_type
+    - samp_collec_device
+    - ref_biomaterial
+    - subspecf_gen_lin
+    - pathogenicity
+    - lib_screen
+    - nucl_acid_amp
+    - isol_growth_condt
+    - trophic_level
+    - project_name
+    - specific_host
+    - biotic_relationship
+    - annot
+    - lib_layout
+    - ref_db
+    - source_mat_id
+    - seq_meth
+    - adapters
+    - collection_date
+    - estimated_size
+    - host_disease_stat
+    - rel_to_oxygen
+    - samp_name
+    - samp_mat_process
+    - sim_search_meth
     - experimental_factor
     - samp_size
-    - collection_date
-    - samp_vol_we_dna_ext
-    - annot
-    - pos_cont_type
+    - lib_reads_seqd
     - lat_lon
-    - assembly_software
     - lib_size
-    - num_replicons
-    - geo_loc_name
-    - feat_pred
-    - specific_host
-    - env_broad_scale
-    - lib_screen
-    - samp_taxon_id
-    - ref_biomaterial
-    - host_disease_stat
-    - samp_mat_process
-    - compl_score
-    - samp_collec_device
-    - assembly_qual
-    - seq_meth
-    - number_contig
-    - pathogenicity
-    - subspecf_gen_lin
-    - tax_ident
-    - isol_growth_condt
-    - env_local_scale
-    - samp_collec_method
-    - lib_layout
-    - tax_class
-    - sim_search_meth
-    - source_mat_id
-    - assembly_name
-    - alt
-    - estimated_size
-    - env_medium
-    - elev
-    - samp_name
-    - trophic_level
-    - nucl_acid_ext
     - compl_software
-    - biotic_relationship
-    - encoded_traits
-    - ref_db
+    - tax_class
+    - feat_pred
+    - elev
+    - nucl_acid_ext
     - temp
-    - nucl_acid_amp
-    - lib_vector
-    - project_name
+    - samp_vol_we_dna_ext
+    - geo_loc_name
     - associated_resource
     - sop
     slot_usage:
@@ -18193,63 +18193,63 @@ classes:
     name: MigsEu
     is_a: Checklist
     slots:
-    - lib_reads_seqd
-    - depth
     - extrachrom_elements
+    - assembly_qual
+    - assembly_software
     - neg_cont_type
-    - ploidy
-    - adapters
     - host_spec_range
+    - tax_ident
+    - assembly_name
+    - number_contig
+    - propagation
+    - compl_score
+    - num_replicons
+    - env_local_scale
+    - lib_vector
+    - alt
+    - depth
+    - samp_collec_method
+    - env_medium
+    - samp_taxon_id
+    - env_broad_scale
+    - pos_cont_type
+    - samp_collec_device
+    - ref_biomaterial
+    - subspecf_gen_lin
+    - pathogenicity
+    - lib_screen
+    - nucl_acid_amp
+    - isol_growth_condt
+    - trophic_level
+    - project_name
+    - specific_host
+    - biotic_relationship
+    - annot
+    - lib_layout
+    - ref_db
+    - source_mat_id
+    - seq_meth
+    - adapters
+    - collection_date
+    - estimated_size
+    - host_disease_stat
+    - samp_name
+    - samp_mat_process
+    - ploidy
+    - sim_search_meth
     - experimental_factor
     - samp_size
-    - collection_date
-    - propagation
-    - samp_vol_we_dna_ext
-    - annot
-    - pos_cont_type
+    - lib_reads_seqd
     - lat_lon
-    - assembly_software
     - lib_size
-    - num_replicons
-    - geo_loc_name
-    - feat_pred
-    - specific_host
-    - env_broad_scale
-    - lib_screen
-    - samp_taxon_id
-    - ref_biomaterial
-    - host_disease_stat
-    - samp_mat_process
-    - compl_score
-    - samp_collec_device
-    - assembly_qual
-    - seq_meth
-    - number_contig
-    - pathogenicity
-    - subspecf_gen_lin
-    - tax_ident
-    - isol_growth_condt
-    - env_local_scale
-    - samp_collec_method
-    - lib_layout
-    - tax_class
-    - sim_search_meth
-    - source_mat_id
-    - assembly_name
-    - alt
-    - estimated_size
-    - env_medium
-    - elev
-    - samp_name
-    - trophic_level
-    - nucl_acid_ext
     - compl_software
-    - biotic_relationship
-    - ref_db
+    - tax_class
+    - feat_pred
+    - elev
+    - nucl_acid_ext
     - temp
-    - nucl_acid_amp
-    - lib_vector
-    - project_name
+    - samp_vol_we_dna_ext
+    - geo_loc_name
     - associated_resource
     - sop
     slot_usage:
@@ -18511,54 +18511,54 @@ classes:
     name: MigsOrg
     is_a: Checklist
     slots:
-    - lib_reads_seqd
     - extrachrom_elements
-    - neg_cont_type
-    - adapters
-    - samp_size
-    - experimental_factor
-    - collection_date
-    - samp_vol_we_dna_ext
-    - annot
-    - lat_lon
-    - pos_cont_type
-    - assembly_software
-    - lib_size
-    - geo_loc_name
-    - feat_pred
-    - env_broad_scale
-    - lib_screen
-    - samp_taxon_id
-    - ref_biomaterial
-    - samp_mat_process
-    - compl_score
-    - samp_collec_device
     - assembly_qual
-    - seq_meth
-    - number_contig
-    - subspecf_gen_lin
+    - assembly_software
+    - neg_cont_type
     - tax_ident
-    - isol_growth_condt
-    - env_local_scale
-    - samp_collec_method
-    - lib_layout
-    - tax_class
-    - sim_search_meth
-    - source_mat_id
     - assembly_name
-    - alt
-    - estimated_size
-    - env_medium
-    - elev
-    - samp_name
-    - nucl_acid_ext
-    - compl_software
-    - temp
-    - ref_db
-    - depth
-    - nucl_acid_amp
+    - number_contig
+    - compl_score
+    - env_local_scale
     - lib_vector
+    - alt
+    - depth
+    - samp_collec_method
+    - env_medium
+    - samp_taxon_id
+    - env_broad_scale
+    - pos_cont_type
+    - samp_collec_device
+    - ref_biomaterial
+    - subspecf_gen_lin
+    - lib_screen
+    - nucl_acid_amp
+    - isol_growth_condt
     - project_name
+    - annot
+    - lib_layout
+    - ref_db
+    - source_mat_id
+    - seq_meth
+    - adapters
+    - estimated_size
+    - collection_date
+    - samp_name
+    - samp_mat_process
+    - sim_search_meth
+    - experimental_factor
+    - samp_size
+    - lib_reads_seqd
+    - lat_lon
+    - lib_size
+    - compl_software
+    - tax_class
+    - feat_pred
+    - elev
+    - nucl_acid_ext
+    - temp
+    - samp_vol_we_dna_ext
+    - geo_loc_name
     - associated_resource
     - sop
     slot_usage:
@@ -18777,57 +18777,57 @@ classes:
     name: MigsPl
     is_a: Checklist
     slots:
-    - lib_reads_seqd
+    - assembly_qual
+    - assembly_software
     - neg_cont_type
-    - adapters
     - host_spec_range
+    - encoded_traits
+    - tax_ident
+    - assembly_name
+    - number_contig
+    - propagation
+    - compl_score
+    - env_local_scale
+    - lib_vector
+    - alt
+    - depth
+    - samp_collec_method
+    - env_medium
+    - samp_taxon_id
+    - env_broad_scale
+    - pos_cont_type
+    - samp_collec_device
+    - ref_biomaterial
+    - subspecf_gen_lin
+    - lib_screen
+    - nucl_acid_amp
+    - isol_growth_condt
+    - project_name
+    - specific_host
+    - annot
+    - lib_layout
+    - ref_db
+    - source_mat_id
+    - seq_meth
+    - adapters
+    - estimated_size
+    - collection_date
+    - samp_name
+    - samp_mat_process
+    - sim_search_meth
     - experimental_factor
     - samp_size
-    - collection_date
-    - propagation
-    - samp_vol_we_dna_ext
-    - annot
-    - pos_cont_type
+    - lib_reads_seqd
     - lat_lon
-    - assembly_software
     - lib_size
-    - geo_loc_name
-    - feat_pred
-    - specific_host
-    - env_broad_scale
-    - lib_screen
-    - samp_taxon_id
-    - ref_biomaterial
-    - samp_mat_process
-    - compl_score
-    - samp_collec_device
-    - assembly_qual
-    - seq_meth
-    - number_contig
-    - subspecf_gen_lin
-    - tax_ident
-    - isol_growth_condt
-    - env_local_scale
-    - samp_collec_method
-    - lib_layout
-    - tax_class
-    - sim_search_meth
-    - source_mat_id
-    - assembly_name
-    - alt
-    - estimated_size
-    - env_medium
-    - elev
-    - samp_name
-    - nucl_acid_ext
     - compl_software
-    - encoded_traits
+    - tax_class
+    - feat_pred
+    - elev
+    - nucl_acid_ext
     - temp
-    - ref_db
-    - depth
-    - nucl_acid_amp
-    - lib_vector
-    - project_name
+    - samp_vol_we_dna_ext
+    - geo_loc_name
     - associated_resource
     - sop
     slot_usage:
@@ -19056,62 +19056,62 @@ classes:
     name: MigsVi
     is_a: Checklist
     slots:
-    - lib_reads_seqd
-    - depth
+    - assembly_qual
+    - virus_enrich_appr
+    - assembly_software
     - neg_cont_type
-    - adapters
     - host_spec_range
+    - encoded_traits
+    - tax_ident
+    - assembly_name
+    - number_contig
+    - propagation
+    - compl_score
+    - num_replicons
+    - env_local_scale
+    - lib_vector
+    - alt
+    - depth
+    - samp_collec_method
+    - env_medium
+    - samp_taxon_id
+    - pos_cont_type
+    - samp_collec_device
+    - ref_biomaterial
+    - subspecf_gen_lin
+    - pathogenicity
+    - lib_screen
+    - nucl_acid_ext
+    - nucl_acid_amp
+    - isol_growth_condt
+    - project_name
+    - specific_host
+    - biotic_relationship
+    - annot
+    - lib_layout
+    - ref_db
+    - source_mat_id
+    - seq_meth
+    - adapters
+    - collection_date
+    - estimated_size
+    - host_disease_stat
+    - samp_name
+    - samp_mat_process
+    - sim_search_meth
     - experimental_factor
     - samp_size
-    - collection_date
-    - propagation
-    - samp_vol_we_dna_ext
-    - virus_enrich_appr
-    - annot
+    - lib_reads_seqd
     - lat_lon
-    - pos_cont_type
-    - assembly_software
     - lib_size
-    - num_replicons
-    - geo_loc_name
-    - feat_pred
-    - specific_host
-    - env_broad_scale
-    - lib_screen
-    - samp_taxon_id
-    - ref_biomaterial
-    - host_disease_stat
-    - samp_mat_process
-    - compl_score
-    - samp_collec_device
-    - assembly_qual
-    - seq_meth
-    - number_contig
-    - pathogenicity
-    - subspecf_gen_lin
-    - tax_ident
-    - isol_growth_condt
-    - env_local_scale
-    - samp_collec_method
-    - lib_layout
-    - tax_class
-    - sim_search_meth
-    - source_mat_id
-    - assembly_name
-    - alt
-    - estimated_size
-    - env_medium
-    - elev
-    - samp_name
-    - nucl_acid_ext
     - compl_software
-    - biotic_relationship
-    - encoded_traits
-    - ref_db
+    - tax_class
+    - feat_pred
+    - elev
+    - env_broad_scale
     - temp
-    - nucl_acid_amp
-    - lib_vector
-    - project_name
+    - samp_vol_we_dna_ext
+    - geo_loc_name
     - associated_resource
     - sop
     slot_usage:
@@ -19365,66 +19365,66 @@ classes:
     name: Mimag
     is_a: Checklist
     slots:
-    - lib_reads_seqd
-    - bin_software
-    - 16s_recover
-    - rel_to_oxygen
-    - compl_appr
-    - depth
-    - neg_cont_type
-    - mag_cov_software
-    - adapters
-    - bin_param
-    - samp_size
-    - experimental_factor
-    - collection_date
-    - samp_vol_we_dna_ext
-    - annot
-    - 16s_recover_software
-    - lat_lon
-    - pos_cont_type
-    - assembly_software
-    - lib_size
-    - geo_loc_name
-    - feat_pred
-    - env_broad_scale
-    - lib_screen
-    - decontam_software
-    - samp_taxon_id
-    - ref_biomaterial
-    - samp_mat_process
-    - contam_screen_param
-    - nucl_acid_amp
-    - samp_collec_device
-    - assembly_qual
-    - seq_meth
-    - reassembly_bin
-    - number_contig
-    - tax_ident
-    - trna_ext_software
-    - env_local_scale
-    - samp_collec_method
-    - lib_layout
-    - tax_class
-    - contam_screen_input
-    - sim_search_meth
-    - source_mat_id
-    - assembly_name
-    - alt
     - mid
-    - env_medium
-    - elev
-    - samp_name
-    - nucl_acid_ext
-    - contam_score
-    - compl_software
-    - size_frac
-    - ref_db
-    - temp
+    - assembly_qual
+    - assembly_software
+    - neg_cont_type
+    - tax_ident
+    - assembly_name
+    - number_contig
     - compl_score
+    - contam_score
+    - env_local_scale
     - lib_vector
+    - alt
+    - depth
+    - samp_collec_method
+    - size_frac
+    - env_medium
+    - 16s_recover
+    - mag_cov_software
+    - samp_taxon_id
+    - env_broad_scale
+    - trna_ext_software
+    - pos_cont_type
+    - samp_collec_device
+    - ref_biomaterial
+    - 16s_recover_software
+    - lib_screen
+    - nucl_acid_amp
     - project_name
+    - annot
+    - lib_layout
+    - ref_db
+    - source_mat_id
+    - bin_param
+    - seq_meth
+    - adapters
+    - collection_date
+    - rel_to_oxygen
+    - decontam_software
     - trnas
+    - samp_name
+    - bin_software
+    - samp_mat_process
+    - compl_appr
+    - sim_search_meth
+    - experimental_factor
+    - samp_size
+    - contam_screen_param
+    - lib_reads_seqd
+    - lat_lon
+    - lib_size
+    - compl_software
+    - tax_class
+    - feat_pred
+    - elev
+    - nucl_acid_ext
+    - contam_screen_input
+    - temp
+    - samp_vol_we_dna_ext
+    - reassembly_bin
+    - geo_loc_name
     - associated_resource
     - sop
     slot_usage:
@@ -19677,43 +19677,43 @@ classes:
     name: MimarksC
     is_a: Checklist
     slots:
-    - depth
-    - pcr_primers
-    - rel_to_oxygen
     - extrachrom_elements
     - neg_cont_type
+    - pcr_primers
+    - pcr_cond
+    - env_local_scale
+    - alt
+    - depth
+    - samp_collec_method
     - target_subfragment
+    - env_medium
+    - samp_taxon_id
+    - pos_cont_type
+    - samp_collec_device
+    - chimera_check
+    - subspecf_gen_lin
+    - nucl_acid_ext
+    - nucl_acid_amp
+    - isol_growth_condt
+    - trophic_level
+    - project_name
+    - biotic_relationship
+    - source_mat_id
+    - seq_meth
+    - collection_date
+    - rel_to_oxygen
+    - samp_name
+    - samp_mat_process
     - experimental_factor
     - samp_size
-    - collection_date
-    - samp_vol_we_dna_ext
-    - chimera_check
-    - pos_cont_type
     - lat_lon
     - target_gene
-    - geo_loc_name
-    - env_broad_scale
-    - samp_taxon_id
-    - samp_mat_process
-    - samp_collec_device
-    - seq_meth
-    - subspecf_gen_lin
-    - pcr_cond
-    - isol_growth_condt
-    - env_local_scale
-    - samp_collec_method
-    - seq_quality_check
-    - source_mat_id
-    - alt
-    - env_medium
     - elev
-    - samp_name
-    - trophic_level
-    - nucl_acid_ext
-    - biotic_relationship
+    - env_broad_scale
     - temp
-    - nucl_acid_amp
-    - project_name
+    - seq_quality_check
+    - samp_vol_we_dna_ext
+    - geo_loc_name
     - associated_resource
     - sop
     slot_usage:
@@ -19885,47 +19885,47 @@ classes:
     name: MimarksS
     is_a: Checklist
     slots:
-    - lib_reads_seqd
-    - depth
-    - pcr_primers
-    - rel_to_oxygen
-    - neg_cont_type
-    - target_subfragment
-    - adapters
-    - experimental_factor
-    - samp_size
-    - collection_date
-    - samp_vol_we_dna_ext
-    - chimera_check
-    - pos_cont_type
-    - lat_lon
+    - mid
     - assembly_software
-    - lib_size
-    - target_gene
-    - geo_loc_name
-    - env_broad_scale
-    - lib_screen
-    - samp_taxon_id
-    - samp_mat_process
-    - samp_collec_device
-    - seq_meth
+    - neg_cont_type
+    - pcr_primers
     - pcr_cond
     - env_local_scale
-    - samp_collec_method
-    - lib_layout
-    - seq_quality_check
-    - source_mat_id
-    - alt
-    - mid
-    - env_medium
-    - elev
-    - samp_name
-    - nucl_acid_ext
-    - size_frac
-    - temp
-    - nucl_acid_amp
     - lib_vector
+    - alt
+    - depth
+    - samp_collec_method
+    - target_subfragment
+    - size_frac
+    - env_medium
+    - samp_taxon_id
+    - env_broad_scale
+    - pos_cont_type
+    - samp_collec_device
+    - chimera_check
+    - lib_screen
+    - nucl_acid_amp
     - project_name
+    - lib_layout
+    - source_mat_id
+    - seq_meth
+    - adapters
+    - collection_date
+    - rel_to_oxygen
+    - samp_name
+    - samp_mat_process
+    - experimental_factor
+    - samp_size
+    - lib_reads_seqd
+    - lat_lon
+    - lib_size
+    - target_gene
+    - elev
+    - nucl_acid_ext
+    - temp
+    - seq_quality_check
+    - samp_vol_we_dna_ext
+    - geo_loc_name
     - associated_resource
     - sop
     slot_usage:
@@ -20110,50 +20110,50 @@ classes:
     name: Mims
     is_a: Checklist
     slots:
-    - lib_reads_seqd
-    - depth
-    - rel_to_oxygen
-    - neg_cont_type
-    - adapters
-    - samp_size
-    - experimental_factor
-    - collection_date
-    - samp_vol_we_dna_ext
-    - annot
-    - lat_lon
-    - pos_cont_type
-    - assembly_software
-    - lib_size
-    - geo_loc_name
-    - feat_pred
-    - env_broad_scale
-    - lib_screen
-    - samp_taxon_id
-    - ref_biomaterial
-    - samp_mat_process
-    - samp_collec_device
+    - mid
     - assembly_qual
-    - seq_meth
+    - assembly_software
+    - neg_cont_type
+    - assembly_name
     - number_contig
     - env_local_scale
-    - samp_collec_method
-    - lib_layout
-    - tax_class
-    - sim_search_meth
-    - source_mat_id
-    - assembly_name
-    - alt
-    - mid
-    - env_medium
-    - elev
-    - samp_name
-    - nucl_acid_ext
-    - size_frac
-    - ref_db
-    - temp
-    - nucl_acid_amp
     - lib_vector
+    - alt
+    - depth
+    - samp_collec_method
+    - size_frac
+    - env_medium
+    - samp_taxon_id
+    - env_broad_scale
+    - pos_cont_type
+    - samp_collec_device
+    - ref_biomaterial
+    - lib_screen
+    - nucl_acid_amp
     - project_name
+    - annot
+    - lib_layout
+    - ref_db
+    - source_mat_id
+    - seq_meth
+    - adapters
+    - collection_date
+    - rel_to_oxygen
+    - samp_name
+    - samp_mat_process
+    - sim_search_meth
+    - experimental_factor
+    - samp_size
+    - lib_reads_seqd
+    - lat_lon
+    - lib_size
+    - tax_class
+    - feat_pred
+    - elev
+    - nucl_acid_ext
+    - temp
+    - samp_vol_we_dna_ext
+    - geo_loc_name
     - associated_resource
     - sop
     slot_usage:
@@ -20346,67 +20346,67 @@ classes:
     name: Misag
     is_a: Checklist
     slots:
-    - lib_reads_seqd
-    - 16s_recover
-    - rel_to_oxygen
-    - compl_appr
-    - neg_cont_type
-    - adapters
-    - wga_amp_appr
-    - samp_size
-    - experimental_factor
-    - collection_date
-    - samp_vol_we_dna_ext
-    - annot
-    - pos_cont_type
-    - lat_lon
-    - assembly_software
-    - 16s_recover_software
-    - wga_amp_kit
-    - lib_size
-    - single_cell_lysis_prot
-    - geo_loc_name
-    - feat_pred
-    - env_broad_scale
-    - lib_screen
-    - decontam_software
-    - samp_taxon_id
-    - ref_biomaterial
-    - samp_mat_process
-    - contam_screen_param
-    - compl_score
-    - samp_collec_device
-    - assembly_qual
-    - seq_meth
-    - number_contig
-    - tax_ident
-    - trna_ext_software
-    - env_local_scale
-    - samp_collec_method
-    - lib_layout
-    - tax_class
-    - contam_screen_input
-    - sim_search_meth
-    - source_mat_id
-    - assembly_name
-    - alt
     - mid
-    - env_medium
-    - elev
-    - samp_name
-    - nucl_acid_ext
+    - assembly_qual
+    - assembly_software
+    - neg_cont_type
+    - tax_ident
+    - assembly_name
+    - number_contig
+    - compl_score
     - contam_score
-    - compl_software
-    - sort_tech
-    - size_frac
-    - temp
-    - ref_db
-    - depth
-    - nucl_acid_amp
+    - env_local_scale
+    - alt
     - lib_vector
+    - depth
+    - sort_tech
+    - samp_collec_method
+    - size_frac
+    - env_medium
+    - 16s_recover
+    - samp_taxon_id
+    - trna_ext_software
+    - single_cell_lysis_prot
+    - pos_cont_type
+    - samp_collec_device
+    - ref_biomaterial
+    - 16s_recover_software
+    - lib_screen
+    - nucl_acid_ext
+    - nucl_acid_amp
     - project_name
-    - single_cell_lysis_appr
+    - annot
+    - lib_layout
+    - ref_db
+    - source_mat_id
+    - seq_meth
+    - adapters
+    - collection_date
+    - rel_to_oxygen
+    - decontam_software
     - trnas
+    - samp_name
+    - samp_mat_process
+    - wga_amp_appr
+    - compl_appr
+    - sim_search_meth
+    - experimental_factor
+    - samp_size
+    - contam_screen_param
+    - lib_reads_seqd
+    - lat_lon
+    - lib_size
+    - compl_software
+    - single_cell_lysis_appr
+    - tax_class
+    - feat_pred
+    - elev
+    - wga_amp_kit
+    - env_broad_scale
+    - contam_screen_input
+    - temp
+    - samp_vol_we_dna_ext
+    - geo_loc_name
     - associated_resource
     - sop
     slot_usage:
@@ -20832,63 +20832,63 @@ classes:
     name: Miuvig
     is_a: Checklist
     slots:
-    - lib_reads_seqd
-    - compl_appr
+    - mid
+    - assembly_qual
+    - virus_enrich_appr
+    - assembly_software
     - neg_cont_type
-    - adapters
     - host_spec_range
+    - tax_ident
+    - assembly_name
+    - number_contig
+    - compl_score
+    - env_local_scale
+    - lib_vector
+    - alt
+    - depth
+    - samp_collec_method
+    - size_frac
+    - env_medium
+    - samp_taxon_id
+    - env_broad_scale
+    - trna_ext_software
+    - pos_cont_type
+    - samp_collec_device
+    - ref_biomaterial
+    - pathogenicity
+    - lib_screen
+    - nucl_acid_amp
+    - project_name
+    - specific_host
+    - biotic_relationship
+    - annot
+    - lib_layout
+    - ref_db
+    - source_mat_id
+    - seq_meth
+    - adapters
+    - collection_date
+    - estimated_size
+    - host_disease_stat
+    - source_uvig
+    - trnas
+    - samp_name
+    - samp_mat_process
+    - compl_appr
+    - sim_search_meth
     - experimental_factor
     - samp_size
-    - collection_date
-    - samp_vol_we_dna_ext
-    - virus_enrich_appr
-    - annot
-    - pos_cont_type
+    - lib_reads_seqd
     - lat_lon
-    - assembly_software
     - lib_size
-    - geo_loc_name
-    - feat_pred
-    - specific_host
-    - env_broad_scale
-    - lib_screen
-    - samp_taxon_id
-    - ref_biomaterial
-    - host_disease_stat
-    - samp_mat_process
-    - nucl_acid_amp
-    - samp_collec_device
-    - assembly_qual
-    - seq_meth
-    - number_contig
-    - pathogenicity
-    - tax_ident
-    - trna_ext_software
-    - env_local_scale
-    - samp_collec_method
-    - lib_layout
-    - tax_class
-    - sim_search_meth
-    - source_mat_id
-    - assembly_name
-    - alt
-    - estimated_size
-    - mid
-    - source_uvig
-    - env_medium
-    - elev
-    - samp_name
-    - nucl_acid_ext
     - compl_software
-    - biotic_relationship
-    - size_frac
+    - tax_class
+    - feat_pred
+    - elev
+    - nucl_acid_ext
     - temp
-    - ref_db
-    - depth
-    - compl_score
-    - lib_vector
-    - project_name
-    - trnas
+    - samp_vol_we_dna_ext
+    - geo_loc_name
     - sort_tech
     - single_cell_lysis_appr
     - single_cell_lysis_prot

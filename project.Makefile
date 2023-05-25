@@ -6,6 +6,7 @@ DEST_DIR = generated
 
 all: squeaky_clean \
 generated/GSC_MIxS_6_usage.tsv generated/mixs_v6.xlsx.harmonized.tsv.dtm.tsv generated/GSC_MIxS_6.yaml.schema.json \
+generated/exhaustion_report.yaml \
 check-jsonschema
 
 generated/GSC_MIxS_6.yaml:
@@ -45,3 +46,17 @@ generated/mixs_v6.xlsx.harmonized.tsv.dtm.tsv:
 
 check-jsonschema: generated/GSC_MIxS_6.yaml.schema.json data/ExhaustiveTestClassCollection-example-data.yaml
 	$(RUN) check-jsonschema  --schemafile $^
+
+generated/single-exhaustive_test-record.yaml: data/ExhaustiveTestClassCollection-example-data.yaml
+	yq e '.exhaustive_test_set[0]' $< | tee $@.raw
+	poetry run pretty-sort-yaml \
+		-i $@.raw \
+		-o $@
+	rm -rf $@.raw
+
+generated/exhaustion_report.yaml: generated/single-exhaustive_test-record.yaml
+	poetry run exhaustion-check \
+		--class-name "ExhaustiveTestClass" \
+		--instance-yaml-file $< \
+		--output-yaml-file $@ \
+		--schema-path generated/GSC_MIxS_6.yaml
