@@ -1,9 +1,9 @@
 .PHONY: all clean squeaky_clean
 
-all: squeaky_clean GSC_MIxS_6_usage.tsv
+all: squeaky_clean GSC_MIxS_6_usage.tsv mixs_v6.xlsx.harmonized.tsv.dtm.tsv
 
 GSC_MIxS_6.yaml:
-	poetry run python src/mixs_envo_struct_knowl_extraction/pandas_approach.py
+	poetry run python src/mixs_envo_struct_knowl_extraction/mixs_linkml_from_xlsx.py
 
 GSC_MIxS_6_usage.tsv: GSC_MIxS_6.yaml
 	poetry run generate_and_populate_template \
@@ -30,4 +30,7 @@ squeaky_clean: clean
 	rm -rf GSC_MIxS_6_usage_populated_no_blank_cols.tsv
 	rm -rf mixs_v6.xlsx
 	rm -rf mixs_v6.xlsx.harmonized.tsv
+	rm -rf mixs_v6.xlsx.harmonized.tsv.dtm.tsv
 
+mixs_v6.xlsx.harmonized.tsv.dtm.tsv:
+	poetry run python src/mixs_envo_struct_knowl_extraction/mixs_dtm.py
