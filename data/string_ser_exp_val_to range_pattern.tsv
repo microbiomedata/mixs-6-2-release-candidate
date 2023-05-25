@@ -1,0 +1,49 @@
+string_serialization	Expected_value	range	pattern	structured_pattern	notes
+{boolean}	boolean	boolean			
+{boolean}	hysterectomy status	boolean			
+{boolean}	presence status	boolean			
+{boolean}	smoking status	boolean			
+{boolean}	true or false	boolean			
+{dna}	multiplex identifier sequence		^[ACGTRKSYMWBHDVN]+$		
+{dna},{dna}			^[ACGTRKSYMWBHDVN]+$		
+{dna};{dna}			^[ACGTRKSYMWBHDVN]+$		
+{duration}	duration		^P(?!$)(\d+Y)?(\d+M)?(\d+W)?(\d+D)?(T(?=\d+[HMS])(\d+H)?(\d+M)?(\d+S)?)?$		
+{duration}			^P(?!$)(\d+Y)?(\d+M)?(\d+W)?(\d+D)?(T(?=\d+[HMS])(\d+H)?(\d+M)?(\d+S)?)?$		
+{float}	measurement value	float			
+{float}	value	float			
+{float} {unit}	measurement value	string	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$		
+{float} {unit}		string	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$		
+{float}{unit}	measurement value	string	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$		
+{integer}	for eukaryotes and bacteria: chromosomes (haploid count); for viruses: segments	integer			
+{integer}	IHMC code	integer			
+{integer}	measurement value		^[1-9][0-9]* \S.*\S+$		
+{integer}	number of clones	integer			
+{integer}	number of extrachromosmal elements	integer			
+{integer}	number of reads sequenced	integer			
+{integer}	unique identifier	integer			
+{integer}	value	integer			
+{integer} {unit}	measurement value	string	^[1-9][0-9]* \S.*\S+$		
+{PMID} | {DOI} | {URL}	reference to resource			{PMID}|{DOI}|{URL}	
+{PMID}|{DOI}|{URL}	PMID, DOI or URL			{PMID}|{DOI}|{URL}	
+{PMID}|{DOI}|{URL}	PMID,DOI or URL			{PMID}|{DOI}|{URL}	
+{PMID}|{DOI}|{URL}	PMID,DOI or url	string		{PMID}|{DOI}|{URL}	
+{PMID}|{DOI}|{URL}|{text}	PMID,DOI,url , or text			{PMID}|{DOI}|{URL}|{text}	
+{PMID}|{DOI}|{URL}|{text}	PMID,DOI,url or free text			{PMID}|{DOI}|{URL}|{text}	
+{PMID}|{DOI}|{URL}|{text}				{PMID}|{DOI}|{URL}|{text}	
+{PMID|DOI|URL}	PMID,DOI or url			{PMID}|{DOI}|{URL}	
+{termLabel} {[termID]}		string	^\S+.*\S+ \[[a-zA-Z]{2,}:\d+\]$		
+{text}	disorder name	string			
+{text}	free text	string			
+{text}	name	string			
+{text}	text	string			
+{text}		string			
+{text} {text}		string	^\S.*\S+ \S.*\S+$		
+{timestamp}	date	date_or_datetime			
+{timestamp}	date and time	date_or_datetime			
+{timestamp}	timestamp	date_or_datetime			
+	free text	string			
+	measurement value	string	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$		
+	PMID, DOI or URL			{PMID}|{DOI}|{URL}	
+	PMID,DOI or url			{PMID}|{DOI}|{URL}	
+	PMID,DOI or URL			{PMID}|{DOI}|{URL}	
+	text	string			

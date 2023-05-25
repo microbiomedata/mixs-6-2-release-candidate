@@ -2,11 +2,13 @@ import pprint
 import re
 from typing import List
 
+import numpy as np
 import pandas as pd
 import requests
 from linkml_runtime.dumpers import yaml_dumper
 from linkml_runtime.linkml_model import Annotation, SchemaDefinition, SlotDefinition, ClassDefinition, Example, \
     SubsetDefinition, EnumDefinition, PermissibleValue, Prefix
+from linkml_runtime.linkml_model.meta import PatternExpression
 
 # todo get class uris from external source
 
@@ -53,6 +55,8 @@ from linkml_runtime.linkml_model import Annotation, SchemaDefinition, SlotDefini
 
 # todo spellcheck
 
+# todo better logging of deleted content, especially value syntax and expected value
+
 # add units attribute to slots? would be for a single unit and might be hard to work with in schemasheets
 
 pd.set_option('display.max_columns', None)
@@ -80,6 +84,8 @@ schema_name = 'GSC_MIxS_6'
 schema_file_name = f"{schema_name}.yaml"
 
 harmonized_sheets_file_name = f"{file_path}.harmonized.tsv"
+
+string_ser_exp_val_to_range_pattern_file = "data/string_ser_exp_val_to range_pattern.tsv"
 
 global_target_schema = SchemaDefinition(
     id=f"http://example.com/{schema_name}",
@@ -323,7 +329,7 @@ def process_contested_value(attributes_by_class: pd.DataFrame) -> None:
         dupe_frame = abc[abc['class'].isin(duplicated_classes)].copy()
         dupe_frame[scn_key] = scn
         all_values = dupe_frame[value_name].unique().tolist()
-        duplication_comment = f"Classes {duplicated_classes} has/have duplicate values in {value_name} for {scn}: {all_values}"
+        duplication_comment = f"Classes {', '.join(duplicated_classes)} has/have duplicate values in {value_name} for {scn}: {', '.join(all_values)}"
         print(duplication_comment)
         print(dupe_frame)
         global_target_schema.comments.append(duplication_comment)
@@ -490,7 +496,7 @@ def construct_assign_simple_enumerations(sheet: pd.DataFrame):
     scns_with_contradictory_enums = contradictory_enums['Structured comment name'].unique().tolist()
     scns_with_contradictory_enums = [re.sub(r'\W+', '_', scn) for scn in scns_with_contradictory_enums]
     global_target_schema.comments.append(
-        f"The following slots have  contradictory Value syntaxes so enumerations can not be created for their ranges: {scns_with_contradictory_enums}")
+        f"The following slots have  contradictory Value syntaxes so enumerations can not be created for their ranges: {', '.join(scns_with_contradictory_enums)}")
 
     possible_enums_no_scn_dupes = possible_enums_sheet[
         ~possible_enums_sheet['Structured comment name'].isin(duplicated_scns)]
@@ -529,7 +535,8 @@ def construct_assign_simple_enumerations(sheet: pd.DataFrame):
             if expected_val_val == "enumeration":
                 del global_target_schema.slots[k].annotations["Expected_value"]
         else:
-            print(f"{k} has no Expected_value annotation")
+            if debug_mode:
+                print(f"{k} has no Expected_value annotation")
 
     index = 0
     for val_syntax in duplicated_val_syntaxes:
@@ -555,8 +562,52 @@ def construct_assign_simple_enumerations(sheet: pd.DataFrame):
                 if expected_val_val == "enumeration":
                     del global_target_schema.slots[tidied_scn].annotations["Expected_value"]
             else:
-                print(f"{tidied_scn} has no Expected_value annotation")
+                if debug_mode:
+                    print(f"{scn} has no Expected_value annotation")
         index += 1
+
+
+def string_ser_exp_val_to_range_patterns(tsv_file: str):
+    df_raw = pd.read_csv(tsv_file, sep='\t')
+    df = df_raw.replace(np.nan, '')
+
+    slots = global_target_schema.slots
+    for k, v in slots.items():
+
+        ss = ""
+        if v.string_serialization:
+            ss = v.string_serialization
+        ev = ""
+        if "Expected_value" in v.annotations:
+            ev = v.annotations["Expected_value"].value
+
+        string_ser_exp_val_row = df[(df['string_serialization'] == ss) & (df['Expected_value'] == ev)]
+        row_count = string_ser_exp_val_row.shape[0]
+        if row_count == 1:
+            if not pd.isna(string_ser_exp_val_row.iloc[0]['range']):
+                r = string_ser_exp_val_row.iloc[0]['range']
+                if r != "":
+                    global_target_schema.slots[k].range = r
+            if not pd.isna(string_ser_exp_val_row.iloc[0]['pattern']):
+                p = string_ser_exp_val_row.iloc[0]['pattern']
+                if p != "":
+                    global_target_schema.slots[k].pattern = p
+            if not pd.isna(string_ser_exp_val_row.iloc[0]['structured_pattern']):
+                s = string_ser_exp_val_row.iloc[0]['structured_pattern']
+                if s != "":
+                    sp = PatternExpression(syntax=s, interpolated=True, partial_match=True)
+                    global_target_schema.slots[k].structured_pattern = sp
+            if "Expected_value" in global_target_schema.slots[k].annotations:
+                del global_target_schema.slots[k].annotations["Expected_value"]
+            if global_target_schema.slots[k].string_serialization:
+                del global_target_schema.slots[k].string_serialization
+
+        else:
+            if ss == "" and ev == "":
+                global_target_schema.slots[k].range = "string"
+            else:
+                print(
+                    f"{row_count = }. No full match string serialization of <{ss}> and expected value of <{ev}>")
 
 
 harmonized_sheets = harmonize_sheets(file_url)
@@ -567,7 +618,34 @@ requirement_followup(harmonized_sheets)
 
 construct_assign_simple_enumerations(harmonized_sheets)
 
+string_ser_exp_val_to_range_patterns(string_ser_exp_val_to_range_pattern_file)
+
 harmonized_sheets.to_csv(harmonized_sheets_file_name, index=False, sep='\t')
 
+ExhaustiveTestClass = ClassDefinition(
+    name="ExhaustiveTestClass",
+)
+all_slots = global_target_schema.slots
+for slot_k, slot_v in all_slots.items():
+    ExhaustiveTestClass.slots.append(slot_k)
+
+exhaustive_test_set = SlotDefinition(
+    inlined=True,
+    inlined_as_list=True,
+    multivalued=True,
+    name="exhaustive_test_set",
+    range="ExhaustiveTestClass",
+)
+
+ExhaustiveTestClassCollection = ClassDefinition(
+    name="ExhaustiveTestClassCollection",
+    tree_root=True,
+)
+
+ExhaustiveTestClassCollection.slots.append("exhaustive_test_set")
+
+global_target_schema.classes["ExhaustiveTestClass"] = ExhaustiveTestClass
+global_target_schema.classes["ExhaustiveTestClassCollection"] = ExhaustiveTestClassCollection
+global_target_schema.slots["exhaustive_test_set"] = exhaustive_test_set
+
 yaml_dumper.dump(global_target_schema, schema_file_name)
-# 'target_schema.yaml')
