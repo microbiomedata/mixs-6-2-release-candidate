@@ -1,40 +1,57 @@
-import math
 import pprint
 import re
 from typing import List
 
 import pandas as pd
 import requests
-import yaml
-from linkml_runtime import SchemaView
 from linkml_runtime.dumpers import yaml_dumper
 from linkml_runtime.linkml_model import Annotation, SchemaDefinition, SlotDefinition, ClassDefinition, Example, \
-    SubsetDefinition
-from linkml_runtime.linkml_model.units import UnitOfMeasure
-
-# import unicodedata
-
-# https://github.com/GenomicsStandardsConsortium/mixs/wiki/5.-MIxS-checklists
-# section: indicates which section (should be one of: investigation, environment, mixs extension,
-#   nucleic acid sequence source, sequencing) a descriptor belongs to
-# "mixs extension" doesn't appear anywhere in mixs_v6.xlsx
+    SubsetDefinition, EnumDefinition, PermissibleValue
 
 # todo get class uris from external source
 
 # todo create combination classes
 #   checklists should be mixins
+#   addition of combinations for all checklists X all environmental packages will make the schema painfully large
+
+# todo create collections for each class
 
 # GSC is saying that any slots from any checklist of environmental package can be combined together in any submission
 #   and even that submissions with non-MIxS slots should be accepted
 
-# todo add some string tidying? unless we also kept original strings, it might be harder to do diffs against the
-#  Excel model
-
-# todo replace non-ascii characters with whitespace or placeholder character?
+# string tidying might be harder to do diffs against the Excel file
 
 # todo is everything being considered a string at this point?
 
 # todo check for many to many slot names/ids
+
+# todo collapse multiple whitespace
+
+# todo add textual annotations like descriptions on classes
+
+# todo infer ranges from string_serialization and expected value annotation
+
+# todo infer enumerations as long as string_serialization starts with [, contains |s and doesn't include , : or (
+
+# todo give annotations _annotation suffix ?
+
+# todo manually replace any slots attributes that are carelessly customized for a small number of packages
+
+# todo: manually break up description, examples, string_serialization, title, Preferred_unit annotation and Expected_value
+#  into parts that can go in examples, multivalued	recommended	required, pattern, structured pattern, range
+
+# todo: manually create schema setting for the components of structured patterns
+#  won't work well with schemasheets, but could go into an imported YAML file
+
+# todo manually create dynamic enums from ontologies/classes mentioned in elements from above
+#  may not work well with schemasheets... start with a new annotation?
+#  or just defined the dynamic enums in a separate YAML file and import it?
+
+# todo manually remove duplicated elements from the above and reconcile contradictory elements
+
+# todo spellcheck
+
+# add units attribute to slots? would be for a single unit and might be hard to work with in schemasheets
 
 pd.set_option('display.max_columns', None)
 
@@ -57,6 +74,44 @@ consensus_annotation = Annotation(tag="consensus", value="true")
 file_url = base_url + file_path
 
 global_target_schema = SchemaDefinition(name='GSC_MIxS', id='http://example.com/GSC_MIxS', source=file_url, )
+
+
+def convert_to_pascal_case(string):
+    words = re.findall(r'\w+', string.replace('_', ' '))
+    pascal_case_words = [word.capitalize() for word in words]
+    return ''.join(pascal_case_words)
+
+
+def convert_to_upper_snake_case(string):
+    words = re.findall(r'\w+', string.replace('_', ' '))
+    pascal_case_words = [word.upper() for word in words]
+    return '_'.join(pascal_case_words)
+
+
+def remove_non_ascii(text):
+    return ''.join([i if ord(i) < 128 else non_ascii_replacement for i in text])
+
+
+def instantiate_classes(df: pd.DataFrame) -> None:
+    # prior knowledge
+    classes_list = df['class'].unique().tolist()
+    classes_list.sort()
+
+    for class_name in classes_list:
+        if class_name in checklists:
+            if "Checklist" not in global_target_schema.classes:
+                new_super = ClassDefinition(name="Checklist")
+                global_target_schema.classes["Checklist"] = new_super
+            class_name = convert_to_pascal_case(class_name)
+            new_class = ClassDefinition(name=class_name, is_a="Checklist")
+            global_target_schema.classes[class_name] = new_class
+        else:
+            if "EnvironmentalPackage" not in global_target_schema.classes:
+                new_super = ClassDefinition(name="EnvironmentalPackage")
+                global_target_schema.classes["EnvironmentalPackage"] = new_super
+            class_name = convert_to_pascal_case(class_name)
+            new_class = ClassDefinition(name=class_name, is_a="EnvironmentalPackage")
+            global_target_schema.classes[class_name] = new_class
 
 
 def harmonize_sheets(url: str) -> pd.DataFrame:
@@ -121,42 +176,6 @@ def harmonize_sheets(url: str) -> pd.DataFrame:
     from_gsc = from_gsc.drop_duplicates()
 
     return from_gsc
-
-
-harmonized_sheets = harmonize_sheets(file_url)
-harmonized_sheets.to_csv('harmonized_sheets.tsv', index=False, sep='\t')
-
-
-def convert_to_pascal_case(string):
-    words = re.findall(r'\w+', string)
-    pascal_case_words = [word.capitalize() for word in words]
-    return ''.join(pascal_case_words)
-
-
-def remove_non_ascii(text):
-    return ''.join([i if ord(i) < 128 else non_ascii_replacement for i in text])
-
-
-def instantiate_classes(df: pd.DataFrame) -> None:
-    # prior knowledge
-    classes_list = df['class'].unique().tolist()
-    classes_list.sort()
-
-    for class_name in classes_list:
-        if class_name in checklists:
-            if "Checklist" not in global_target_schema.classes:
-                new_super = ClassDefinition(name="Checklist")
-                global_target_schema.classes["Checklist"] = new_super
-            class_name = convert_to_pascal_case(class_name)
-            new_class = ClassDefinition(name=class_name, is_a="Checklist")
-            global_target_schema.classes[class_name] = new_class
-        else:
-            if "EnvironmentalPackage" not in global_target_schema.classes:
-                new_super = ClassDefinition(name="EnvironmentalPackage")
-                global_target_schema.classes["EnvironmentalPackage"] = new_super
-            class_name = convert_to_pascal_case(class_name)
-            new_class = ClassDefinition(name=class_name, is_a="EnvironmentalPackage")
-            global_target_schema.classes[class_name] = new_class
 
 
 def process_sheet(df: pd.DataFrame) -> List[str]:
@@ -327,7 +346,6 @@ def process_contested_value(attributes_by_class: pd.DataFrame) -> None:
             elif tidied_attribute_name == "Value_syntax":
                 global_target_schema.classes[current_class].slot_usage[tidied_slot_name].string_serialization = value
             elif tidied_attribute_name == "Requirement":
-                # TODO needs modified logic for value "-" and ("E", when the class is a environmental package)
                 if value == "-":
                     global_target_schema.classes[current_class].slot_usage[tidied_slot_name].annotations[
                         tidied_attribute_name] = new_annotation
@@ -339,7 +357,6 @@ def process_contested_value(attributes_by_class: pd.DataFrame) -> None:
                     global_target_schema.classes[current_class].slot_usage[tidied_slot_name].recommended = True
                     global_target_schema.classes[current_class].slot_usage[tidied_slot_name].annotations[
                         tidied_attribute_name] = new_annotation
-                    # take some slot usage action if the class is an environmental package???
                 elif value == "M":
                     global_target_schema.classes[current_class].slot_usage[tidied_slot_name].required = True
                 elif value == "X":
@@ -355,10 +372,7 @@ def process_contested_value(attributes_by_class: pd.DataFrame) -> None:
                         tidied_attribute_name] = new_annotation
 
 
-process_sheet(harmonized_sheets)
-
-
-def remove_forbidden_or_associate(sheet: pd.DataFrame):
+def requirement_followup(sheet: pd.DataFrame):
     """
     Iterate over the slot/scn and class columns in the sheet.
     Check if there is already a slot usage for that combination.
@@ -431,6 +445,74 @@ def remove_forbidden_or_associate(sheet: pd.DataFrame):
             del global_target_schema.slots[tidied_scn].annotations['Requirement']
 
 
-remove_forbidden_or_associate(harmonized_sheets)
+def construct_assign_simple_enumerations(sheet: pd.DataFrame):
+    # todo assign them as the range of slots in a separate function ?
+    # todo find shared enumerations
+    relevant_columns = ['Structured comment name', 'Value syntax']
+
+    relevant_sheet = sheet[relevant_columns].copy()
+
+    relevant_sheet.drop_duplicates(inplace=True)
+
+    relevant_sheet['Value syntax'] = relevant_sheet['Value syntax'].astype(str)
+
+    possible_enums_sheet = relevant_sheet[relevant_sheet['Value syntax'].str.contains(r'^\[.*\|.*\]$') &
+                                          ~relevant_sheet['Value syntax'].str.contains(r'[,;]|\(')]
+
+    scn_val_counts = possible_enums_sheet['Structured comment name'].value_counts()
+
+    duplicated_scn_val_counts = scn_val_counts[scn_val_counts > 1]
+
+    duplicated_scns = duplicated_scn_val_counts.index.tolist()
+
+    contradictory_enums = possible_enums_sheet[possible_enums_sheet['Structured comment name'].isin(duplicated_scns)]
+
+    # add a comment to the schema
+    print(contradictory_enums)
+
+    possible_enums_no_scn_dupes = possible_enums_sheet[
+        ~possible_enums_sheet['Structured comment name'].isin(duplicated_scns)]
+
+    val_syntax_val_counts = possible_enums_no_scn_dupes['Value syntax'].value_counts()
+
+    duplicated_val_syntax_val_counts = val_syntax_val_counts[val_syntax_val_counts > 1]
+
+    duplicated_val_syntaxes = duplicated_val_syntax_val_counts.index.tolist()
+
+    shared_enums = possible_enums_sheet[possible_enums_sheet['Value syntax'].isin(duplicated_val_syntaxes)]
+
+    pprint.pprint(shared_enums)
+
+    singleton_enums = possible_enums_sheet[~possible_enums_sheet['Value syntax'].isin(duplicated_val_syntaxes)]
+    singleton_enum_dict_list = singleton_enums.to_dict('records')
+
+    slot_to_enums_dict = {}
+
+    for singleton_enum_dict in singleton_enum_dict_list:
+        tidied_scn = tidied_scn = re.sub(r'\W+', '_', singleton_enum_dict['Structured comment name'])
+        name_for_enum = f"{convert_to_upper_snake_case(singleton_enum_dict['Structured comment name'])}_ENUM"
+        slot_to_enums_dict[tidied_scn] = name_for_enum
+        pvs = [x.strip() for x in singleton_enum_dict['Value syntax'].strip('[]').split('|')]
+        pvs.sort()
+        current_enum = EnumDefinition(name=name_for_enum)
+        for pv in pvs:
+            current_pv = PermissibleValue(text=pv)
+            current_enum.permissible_values[pv] = current_pv
+        global_target_schema.enums[name_for_enum] = current_enum
+
+    for k, v in slot_to_enums_dict.items():
+        global_target_schema.slots[k].range = v
+        del global_target_schema.slots[k].string_serialization
+
+
+harmonized_sheets = harmonize_sheets(file_url)
+
+process_sheet(harmonized_sheets)
+
+requirement_followup(harmonized_sheets)
+
+construct_assign_simple_enumerations(harmonized_sheets)
+
+harmonized_sheets.to_csv('harmonized_sheets.tsv', index=False, sep='\t')
 
 yaml_dumper.dump(global_target_schema, 'target_schema.yaml')

@@ -14,6 +14,2011 @@ subsets:
     name: nucleic acid sequence source
   investigation:
     name: investigation
+enums:
+  NEG_CONT_TYPE_ENUM:
+    name: NEG_CONT_TYPE_ENUM
+    permissible_values:
+      DNA-free PCR mix:
+        text: DNA-free PCR mix
+      distilled water:
+        text: distilled water
+      empty collection device:
+        text: empty collection device
+      empty collection tube:
+        text: empty collection tube
+      phosphate buffer:
+        text: phosphate buffer
+      sterile swab:
+        text: sterile swab
+      sterile syringe:
+        text: sterile syringe
+  BIOTIC_RELATIONSHIP_ENUM:
+    name: BIOTIC_RELATIONSHIP_ENUM
+    permissible_values:
+      commensal:
+        text: commensal
+      free living:
+        text: free living
+      parasite:
+        text: parasite
+      symbiont:
+        text: symbiont
+  TROPHIC_LEVEL_ENUM:
+    name: TROPHIC_LEVEL_ENUM
+    permissible_values:
+      autotroph:
+        text: autotroph
+      carboxydotroph:
+        text: carboxydotroph
+      chemoautolithotroph:
+        text: chemoautolithotroph
+      chemoautotroph:
+        text: chemoautotroph
+      chemoheterotroph:
+        text: chemoheterotroph
+      chemolithoautotroph:
+        text: chemolithoautotroph
+      chemolithotroph:
+        text: chemolithotroph
+      chemoorganoheterotroph:
+        text: chemoorganoheterotroph
+      chemoorganotroph:
+        text: chemoorganotroph
+      chemosynthetic:
+        text: chemosynthetic
+      chemotroph:
+        text: chemotroph
+      copiotroph:
+        text: copiotroph
+      diazotroph:
+        text: diazotroph
+      facultative:
+        text: facultative
+      heterotroph:
+        text: heterotroph
+      lithoautotroph:
+        text: lithoautotroph
+      lithoheterotroph:
+        text: lithoheterotroph
+      lithotroph:
+        text: lithotroph
+      methanotroph:
+        text: methanotroph
+      methylotroph:
+        text: methylotroph
+      mixotroph:
+        text: mixotroph
+      obligate:
+        text: obligate
+      oligotroph:
+        text: oligotroph
+      organoheterotroph:
+        text: organoheterotroph
+      organotroph:
+        text: organotroph
+      photoautotroph:
+        text: photoautotroph
+      photoheterotroph:
+        text: photoheterotroph
+      photolithoautotroph:
+        text: photolithoautotroph
+      photolithotroph:
+        text: photolithotroph
+      photosynthetic:
+        text: photosynthetic
+      phototroph:
+        text: phototroph
+  REL_TO_OXYGEN_ENUM:
+    name: REL_TO_OXYGEN_ENUM
+    permissible_values:
+      aerobe:
+        text: aerobe
+      anaerobe:
+        text: anaerobe
+      facultative:
+        text: facultative
+      microaerophilic:
+        text: microaerophilic
+      microanaerobe:
+        text: microanaerobe
+      obligate aerobe:
+        text: obligate aerobe
+      obligate anaerobe:
+        text: obligate anaerobe
+  VIRUS_ENRICH_APPR_ENUM:
+    name: VIRUS_ENRICH_APPR_ENUM
+    permissible_values:
+      CsCl density gradient:
+        text: CsCl density gradient
+      DNAse:
+        text: DNAse
+      FeCl Precipitation:
+        text: FeCl Precipitation
+      PEG Precipitation:
+        text: PEG Precipitation
+      RNAse:
+        text: RNAse
+      centrifugation:
+        text: centrifugation
+      filtration:
+        text: filtration
+      none:
+        text: none
+      other:
+        text: other
+      targeted sequence capture:
+        text: targeted sequence capture
+      ultracentrifugation:
+        text: ultracentrifugation
+      ultrafiltration:
+        text: ultrafiltration
+  LIB_LAYOUT_ENUM:
+    name: LIB_LAYOUT_ENUM
+    permissible_values:
+      other:
+        text: other
+      paired:
+        text: paired
+      single:
+        text: single
+      vector:
+        text: vector
+  SEQ_QUALITY_CHECK_ENUM:
+    name: SEQ_QUALITY_CHECK_ENUM
+    permissible_values:
+      manually edited:
+        text: manually edited
+      none:
+        text: none
+  TAX_IDENT_ENUM:
+    name: TAX_IDENT_ENUM
+    permissible_values:
+      16S rRNA gene:
+        text: 16S rRNA gene
+      multi-marker approach:
+        text: multi-marker approach
+      other:
+        text: other
+  COMPL_APPR_ENUM:
+    name: COMPL_APPR_ENUM
+    permissible_values:
+      marker gene:
+        text: marker gene
+      other:
+        text: other
+      reference based:
+        text: reference based
+  CONTAM_SCREEN_INPUT_ENUM:
+    name: CONTAM_SCREEN_INPUT_ENUM
+    permissible_values:
+      contigs:
+        text: contigs
+      reads:
+        text: reads
+  DECONTAM_SOFTWARE_ENUM:
+    name: DECONTAM_SOFTWARE_ENUM
+    permissible_values:
+      acdc:
+        text: acdc
+      anvi'o:
+        text: anvi'o
+      bbtools:decontaminate.sh:
+        text: bbtools:decontaminate.sh
+      checkm/refinem:
+        text: checkm/refinem
+      combination:
+        text: combination
+      prodege:
+        text: prodege
+  SORT_TECH_ENUM:
+    name: SORT_TECH_ENUM
+    permissible_values:
+      flow cytometric cell sorting:
+        text: flow cytometric cell sorting
+      lazer-tweezing:
+        text: lazer-tweezing
+      microfluidics:
+        text: microfluidics
+      micromanipulation:
+        text: micromanipulation
+      optical manipulation:
+        text: optical manipulation
+      other:
+        text: other
+  SINGLE_CELL_LYSIS_APPR_ENUM:
+    name: SINGLE_CELL_LYSIS_APPR_ENUM
+    permissible_values:
+      chemical:
+        text: chemical
+      combination:
+        text: combination
+      enzymatic:
+        text: enzymatic
+      physical:
+        text: physical
+  WGA_AMP_APPR_ENUM:
+    name: WGA_AMP_APPR_ENUM
+    permissible_values:
+      mda based:
+        text: mda based
+      pcr based:
+        text: pcr based
+  BIN_PARAM_ENUM:
+    name: BIN_PARAM_ENUM
+    permissible_values:
+      codon usage:
+        text: codon usage
+      combination:
+        text: combination
+      coverage:
+        text: coverage
+      homology search:
+        text: homology search
+      kmer:
+        text: kmer
+  MAG_COV_SOFTWARE_ENUM:
+    name: MAG_COV_SOFTWARE_ENUM
+    permissible_values:
+      bbmap:
+        text: bbmap
+      bowtie:
+        text: bowtie
+      bwa:
+        text: bwa
+      other:
+        text: other
+  PRED_GENOME_STRUC_ENUM:
+    name: PRED_GENOME_STRUC_ENUM
+    permissible_values:
+      non-segmented:
+        text: non-segmented
+      segmented:
+        text: segmented
+      undetermined:
+        text: undetermined
+  HOST_PRED_APPR_ENUM:
+    name: HOST_PRED_APPR_ENUM
+    permissible_values:
+      CRISPR spacer match:
+        text: CRISPR spacer match
+      co-occurrence:
+        text: co-occurrence
+      combination:
+        text: combination
+      host sequence similarity:
+        text: host sequence similarity
+      kmer similarity:
+        text: kmer similarity
+      other:
+        text: other
+      provirus:
+        text: provirus
+  OXY_STAT_SAMP_ENUM:
+    name: OXY_STAT_SAMP_ENUM
+    permissible_values:
+      aerobic:
+        text: aerobic
+      anaerobic:
+        text: anaerobic
+  SURF_MATERIAL_ENUM:
+    name: SURF_MATERIAL_ENUM
+    permissible_values:
+      adobe:
+        text: adobe
+      carpet:
+        text: carpet
+      cinder blocks:
+        text: cinder blocks
+      concrete:
+        text: concrete
+      glass:
+        text: glass
+      hay bales:
+        text: hay bales
+      metal:
+        text: metal
+      paint:
+        text: paint
+      plastic:
+        text: plastic
+      stainless steel:
+        text: stainless steel
+      stone:
+        text: stone
+      stucco:
+        text: stucco
+      tile:
+        text: tile
+      vinyl:
+        text: vinyl
+      wood:
+        text: wood
+  SURF_AIR_CONT_ENUM:
+    name: SURF_AIR_CONT_ENUM
+    permissible_values:
+      biocides:
+        text: biocides
+      biological contaminants:
+        text: biological contaminants
+      dust:
+        text: dust
+      nutrients:
+        text: nutrients
+      organic matter:
+        text: organic matter
+      particulate matter:
+        text: particulate matter
+      radon:
+        text: radon
+      volatile organic compounds:
+        text: volatile organic compounds
+  BUILD_OCCUP_TYPE_ENUM:
+    name: BUILD_OCCUP_TYPE_ENUM
+    permissible_values:
+      airport:
+        text: airport
+      commercial:
+        text: commercial
+      health care:
+        text: health care
+      high rise:
+        text: high rise
+      low rise:
+        text: low rise
+      market:
+        text: market
+      office:
+        text: office
+      residence:
+        text: residence
+      residential:
+        text: residential
+      restaurant:
+        text: restaurant
+      school:
+        text: school
+      sports complex:
+        text: sports complex
+      wood framed:
+        text: wood framed
+  INDOOR_SPACE_ENUM:
+    name: INDOOR_SPACE_ENUM
+    permissible_values:
+      bathroom:
+        text: bathroom
+      bedroom:
+        text: bedroom
+      elevator:
+        text: elevator
+      foyer:
+        text: foyer
+      hallway:
+        text: hallway
+      kitchen:
+        text: kitchen
+      locker room:
+        text: locker room
+      office:
+        text: office
+  INDOOR_SURF_ENUM:
+    name: INDOOR_SURF_ENUM
+    permissible_values:
+      cabinet:
+        text: cabinet
+      ceiling:
+        text: ceiling
+      counter top:
+        text: counter top
+      door:
+        text: door
+      shelving:
+        text: shelving
+      vent cover:
+        text: vent cover
+      wall:
+        text: wall
+      window:
+        text: window
+  FILTER_TYPE_ENUM:
+    name: FILTER_TYPE_ENUM
+    permissible_values:
+      HEPA:
+        text: HEPA
+      chemical air filter:
+        text: chemical air filter
+      electrostatic:
+        text: electrostatic
+      gas-phase or ultraviolet air treatments:
+        text: gas-phase or ultraviolet air treatments
+      low-MERV pleated media:
+        text: low-MERV pleated media
+      particulate air filter:
+        text: particulate air filter
+  HEAT_COOL_TYPE_ENUM:
+    name: HEAT_COOL_TYPE_ENUM
+    permissible_values:
+      forced air system:
+        text: forced air system
+      heat pump:
+        text: heat pump
+      radiant system:
+        text: radiant system
+      steam forced heat:
+        text: steam forced heat
+      wood stove:
+        text: wood stove
+  SUBSTRUCTURE_TYPE_ENUM:
+    name: SUBSTRUCTURE_TYPE_ENUM
+    permissible_values:
+      basement:
+        text: basement
+      crawlspace:
+        text: crawlspace
+      slab on grade:
+        text: slab on grade
+  BUILDING_SETTING_ENUM:
+    name: BUILDING_SETTING_ENUM
+    permissible_values:
+      exurban:
+        text: exurban
+      rural:
+        text: rural
+      suburban:
+        text: suburban
+      urban:
+        text: urban
+  LIGHT_TYPE_ENUM:
+    name: LIGHT_TYPE_ENUM
+    permissible_values:
+      desk lamp:
+        text: desk lamp
+      electric light:
+        text: electric light
+      flourescent lights:
+        text: flourescent lights
+      natural light:
+        text: natural light
+      none:
+        text: none
+  SPACE_TYP_STATE_ENUM:
+    name: SPACE_TYP_STATE_ENUM
+    permissible_values:
+      typically occupied:
+        text: typically occupied
+      typically unoccupied:
+        text: typically unoccupied
+  AERO_STRUC_ENUM:
+    name: AERO_STRUC_ENUM
+    permissible_values:
+      glider:
+        text: glider
+      plane:
+        text: plane
+  ARCH_STRUC_ENUM:
+    name: ARCH_STRUC_ENUM
+    permissible_values:
+      building:
+        text: building
+      home:
+        text: home
+      shed:
+        text: shed
+  BUILT_STRUC_SET_ENUM:
+    name: BUILT_STRUC_SET_ENUM
+    permissible_values:
+      rural:
+        text: rural
+      urban:
+        text: urban
+  CEIL_FINISH_MAT_ENUM:
+    name: CEIL_FINISH_MAT_ENUM
+    permissible_values:
+      PVC:
+        text: PVC
+      drywall:
+        text: drywall
+      fiberglass:
+        text: fiberglass
+      metal:
+        text: metal
+      mineral fibre:
+        text: mineral fibre
+      mineral wool/calcium silicate:
+        text: mineral wool/calcium silicate
+      plasterboard:
+        text: plasterboard
+      stucco:
+        text: stucco
+      tiles:
+        text: tiles
+      wood:
+        text: wood
+  CEIL_STRUC_ENUM:
+    name: CEIL_STRUC_ENUM
+    permissible_values:
+      concrete:
+        text: concrete
+      wood frame:
+        text: wood frame
+  CEIL_TEXTURE_ENUM:
+    name: CEIL_TEXTURE_ENUM
+    permissible_values:
+      Santa-Fe texture:
+        text: Santa-Fe texture
+      crows feet:
+        text: crows feet
+      crows-foot stomp:
+        text: crows-foot stomp
+      double skip:
+        text: double skip
+      hawk and trowel:
+        text: hawk and trowel
+      knockdown:
+        text: knockdown
+      orange peel:
+        text: orange peel
+      popcorn:
+        text: popcorn
+      rosebud stomp:
+        text: rosebud stomp
+      skip trowel:
+        text: skip trowel
+      smooth:
+        text: smooth
+      stomp knockdown:
+        text: stomp knockdown
+      swirl:
+        text: swirl
+  CEIL_TYPE_ENUM:
+    name: CEIL_TYPE_ENUM
+    permissible_values:
+      barrel-shaped:
+        text: barrel-shaped
+      cathedral:
+        text: cathedral
+      coffered:
+        text: coffered
+      concave:
+        text: concave
+      cove:
+        text: cove
+      dropped:
+        text: dropped
+      stretched:
+        text: stretched
+  BUILD_DOCS_ENUM:
+    name: BUILD_DOCS_ENUM
+    permissible_values:
+      building information model:
+        text: building information model
+      commissioning report:
+        text: commissioning report
+      complaint logs:
+        text: complaint logs
+      contract administration:
+        text: contract administration
+      cost estimate:
+        text: cost estimate
+      janitorial schedules or logs:
+        text: janitorial schedules or logs
+      maintenance plans:
+        text: maintenance plans
+      schedule:
+        text: schedule
+      sections:
+        text: sections
+      shop drawings:
+        text: shop drawings
+      submittals:
+        text: submittals
+      ventilation system:
+        text: ventilation system
+      windows:
+        text: windows
+  DOOR_DIRECT_ENUM:
+    name: DOOR_DIRECT_ENUM
+    permissible_values:
+      inward:
+        text: inward
+      outward:
+        text: outward
+      sideways:
+        text: sideways
+  DOOR_MAT_ENUM:
+    name: DOOR_MAT_ENUM
+    permissible_values:
+      aluminum:
+        text: aluminum
+      cellular PVC:
+        text: cellular PVC
+      engineered plastic:
+        text: engineered plastic
+      fiberboard:
+        text: fiberboard
+      fiberglass:
+        text: fiberglass
+      metal:
+        text: metal
+      thermoplastic alloy:
+        text: thermoplastic alloy
+      vinyl:
+        text: vinyl
+      wood:
+        text: wood
+      wood/plastic composite:
+        text: wood/plastic composite
+  DOOR_MOVE_ENUM:
+    name: DOOR_MOVE_ENUM
+    permissible_values:
+      collapsible:
+        text: collapsible
+      folding:
+        text: folding
+      revolving:
+        text: revolving
+      rolling shutter:
+        text: rolling shutter
+      sliding:
+        text: sliding
+      swinging:
+        text: swinging
+  DOOR_TYPE_ENUM:
+    name: DOOR_TYPE_ENUM
+    permissible_values:
+      composite:
+        text: composite
+      metal:
+        text: metal
+      wooden:
+        text: wooden
+  DOOR_COMP_TYPE_ENUM:
+    name: DOOR_COMP_TYPE_ENUM
+    permissible_values:
+      metal covered:
+        text: metal covered
+      revolving:
+        text: revolving
+      sliding:
+        text: sliding
+      telescopic:
+        text: telescopic
+  DOOR_TYPE_METAL_ENUM:
+    name: DOOR_TYPE_METAL_ENUM
+    permissible_values:
+      collapsible:
+        text: collapsible
+      corrugated steel:
+        text: corrugated steel
+      hollow:
+        text: hollow
+      rolling shutters:
+        text: rolling shutters
+      steel plate:
+        text: steel plate
+  DRAWINGS_ENUM:
+    name: DRAWINGS_ENUM
+    permissible_values:
+      as built:
+        text: as built
+      bid:
+        text: bid
+      building navigation map:
+        text: building navigation map
+      construction:
+        text: construction
+      design:
+        text: design
+      diagram:
+        text: diagram
+      operation:
+        text: operation
+      sketch:
+        text: sketch
+  FIREPLACE_TYPE_ENUM:
+    name: FIREPLACE_TYPE_ENUM
+    permissible_values:
+      gas burning:
+        text: gas burning
+      wood burning:
+        text: wood burning
+  FLOOR_WATER_MOLD_ENUM:
+    name: FLOOR_WATER_MOLD_ENUM
+    permissible_values:
+      bulging walls:
+        text: bulging walls
+      ceiling discoloration:
+        text: ceiling discoloration
+      condensation:
+        text: condensation
+      floor discoloration:
+        text: floor discoloration
+      mold odor:
+        text: mold odor
+      peeling paint or wallpaper:
+        text: peeling paint or wallpaper
+      wall discoloration:
+        text: wall discoloration
+      water stains:
+        text: water stains
+      wet floor:
+        text: wet floor
+  FLOOR_STRUC_ENUM:
+    name: FLOOR_STRUC_ENUM
+    permissible_values:
+      balcony:
+        text: balcony
+      concrete:
+        text: concrete
+      floating floor:
+        text: floating floor
+      glass floor:
+        text: glass floor
+      raised floor:
+        text: raised floor
+      sprung floor:
+        text: sprung floor
+      wood-framed:
+        text: wood-framed
+  FREQ_CLEAN_ENUM:
+    name: FREQ_CLEAN_ENUM
+    permissible_values:
+      Annually:
+        text: Annually
+      Daily:
+        text: Daily
+      Monthly:
+        text: Monthly
+      Quarterly:
+        text: Quarterly
+      Weekly:
+        text: Weekly
+      other:
+        text: other
+  FURNITURE_ENUM:
+    name: FURNITURE_ENUM
+    permissible_values:
+      cabinet:
+        text: cabinet
+      chair:
+        text: chair
+      desks:
+        text: desks
+  GENDER_RESTROOM_ENUM:
+    name: GENDER_RESTROOM_ENUM
+    permissible_values:
+      all gender:
+        text: all gender
+      female:
+        text: female
+      gender neurtral:
+        text: gender neurtral
+      male:
+        text: male
+      male and female:
+        text: male and female
+      unisex:
+        text: unisex
+  HANDIDNESS_ENUM:
+    name: HANDIDNESS_ENUM
+    permissible_values:
+      ambidexterity:
+        text: ambidexterity
+      left handedness:
+        text: left handedness
+      mixed-handedness:
+        text: mixed-handedness
+      right handedness:
+        text: right handedness
+  HEAT_SYS_DELIV_METH_ENUM:
+    name: HEAT_SYS_DELIV_METH_ENUM
+    permissible_values:
+      conductive:
+        text: conductive
+      radiant:
+        text: radiant
+  MECH_STRUC_ENUM:
+    name: MECH_STRUC_ENUM
+    permissible_values:
+      boat:
+        text: boat
+      bus:
+        text: bus
+      car:
+        text: car
+      carriage:
+        text: carriage
+      coach:
+        text: coach
+      elevator:
+        text: elevator
+      escalator:
+        text: escalator
+      subway:
+        text: subway
+      train:
+        text: train
+  OCCUP_DOCUMENT_ENUM:
+    name: OCCUP_DOCUMENT_ENUM
+    permissible_values:
+      automated count:
+        text: automated count
+      estimate:
+        text: estimate
+      manual count:
+        text: manual count
+      videos:
+        text: videos
+  QUAD_POS_ENUM:
+    name: QUAD_POS_ENUM
+    permissible_values:
+      East side:
+        text: East side
+      North side:
+        text: North side
+      South side:
+        text: South side
+      West side:
+        text: West side
+  REL_SAMP_LOC_ENUM:
+    name: REL_SAMP_LOC_ENUM
+    permissible_values:
+      center of car:
+        text: center of car
+      edge of car:
+        text: edge of car
+      under a seat:
+        text: under a seat
+  ROOM_CONDT_ENUM:
+    name: ROOM_CONDT_ENUM
+    permissible_values:
+      damaged:
+        text: damaged
+      needs repair:
+        text: needs repair
+      new:
+        text: new
+      rupture:
+        text: rupture
+      visible signs of mold/mildew:
+        text: visible signs of mold/mildew
+      visible wear:
+        text: visible wear
+  ROOM_LOC_ENUM:
+    name: ROOM_LOC_ENUM
+    permissible_values:
+      corner room:
+        text: corner room
+      exterior wall:
+        text: exterior wall
+      interior room:
+        text: interior room
+  ROOM_SAMP_POS_ENUM:
+    name: ROOM_SAMP_POS_ENUM
+    permissible_values:
+      center:
+        text: center
+      east corner:
+        text: east corner
+      north corner:
+        text: north corner
+      northeast corner:
+        text: northeast corner
+      northwest corner:
+        text: northwest corner
+      south corner:
+        text: south corner
+      southeast corner:
+        text: southeast corner
+      southwest corner:
+        text: southwest corner
+      west corner:
+        text: west corner
+  ROOM_CONNECTED_ENUM:
+    name: ROOM_CONNECTED_ENUM
+    permissible_values:
+      attic:
+        text: attic
+      bathroom:
+        text: bathroom
+      closet:
+        text: closet
+      conference room:
+        text: conference room
+      elevator:
+        text: elevator
+      examining room:
+        text: examining room
+      hallway:
+        text: hallway
+      kitchen:
+        text: kitchen
+      mail room:
+        text: mail room
+      office:
+        text: office
+      stairwell:
+        text: stairwell
+  SAMP_WEATHER_ENUM:
+    name: SAMP_WEATHER_ENUM
+    permissible_values:
+      clear sky:
+        text: clear sky
+      cloudy:
+        text: cloudy
+      foggy:
+        text: foggy
+      hail:
+        text: hail
+      rain:
+        text: rain
+      sleet:
+        text: sleet
+      snow:
+        text: snow
+      sunny:
+        text: sunny
+      windy:
+        text: windy
+  SAMP_FLOOR_ENUM:
+    name: SAMP_FLOOR_ENUM
+    permissible_values:
+      1st floor:
+        text: 1st floor
+      2nd floor:
+        text: 2nd floor
+      basement:
+        text: basement
+      lobby:
+        text: lobby
+      '{integer} floor':
+        text: '{integer} floor'
+  SEASON_USE_ENUM:
+    name: SEASON_USE_ENUM
+    permissible_values:
+      Fall:
+        text: Fall
+      Spring:
+        text: Spring
+      Summer:
+        text: Summer
+      Winter:
+        text: Winter
+  SHADING_DEVICE_LOC_ENUM:
+    name: SHADING_DEVICE_LOC_ENUM
+    permissible_values:
+      exterior:
+        text: exterior
+      interior:
+        text: interior
+  SHADING_DEVICE_TYPE_ENUM:
+    name: SHADING_DEVICE_TYPE_ENUM
+    permissible_values:
+      bahama shutters:
+        text: bahama shutters
+      exterior roll blind:
+        text: exterior roll blind
+      gambrel awning:
+        text: gambrel awning
+      hood awning:
+        text: hood awning
+      porchroller awning:
+        text: porchroller awning
+      sarasota shutters:
+        text: sarasota shutters
+      slatted aluminum:
+        text: slatted aluminum
+      solid aluminum awning:
+        text: solid aluminum awning
+      sun screen:
+        text: sun screen
+      tree:
+        text: tree
+      trellis:
+        text: trellis
+      venetian awning:
+        text: venetian awning
+  SPECIFIC_ENUM:
+    name: SPECIFIC_ENUM
+    permissible_values:
+      as built:
+        text: as built
+      bid:
+        text: bid
+      construction:
+        text: construction
+      design:
+        text: design
+      operation:
+        text: operation
+      photos:
+        text: photos
+  TRAIN_LINE_ENUM:
+    name: TRAIN_LINE_ENUM
+    permissible_values:
+      green:
+        text: green
+      orange:
+        text: orange
+      red:
+        text: red
+  TRAIN_STAT_LOC_ENUM:
+    name: TRAIN_STAT_LOC_ENUM
+    permissible_values:
+      forest hills:
+        text: forest hills
+      riverside:
+        text: riverside
+      south station above ground:
+        text: south station above ground
+      south station amtrak:
+        text: south station amtrak
+      south station underground:
+        text: south station underground
+  TRAIN_STOP_LOC_ENUM:
+    name: TRAIN_STOP_LOC_ENUM
+    permissible_values:
+      downtown:
+        text: downtown
+      end:
+        text: end
+      mid:
+        text: mid
+  WALL_CONST_TYPE_ENUM:
+    name: WALL_CONST_TYPE_ENUM
+    permissible_values:
+      fire resistive:
+        text: fire resistive
+      frame construction:
+        text: frame construction
+      joisted masonry:
+        text: joisted masonry
+      light noncombustible:
+        text: light noncombustible
+      masonry noncombustible:
+        text: masonry noncombustible
+      modified fire resistive:
+        text: modified fire resistive
+  WALL_FINISH_MAT_ENUM:
+    name: WALL_FINISH_MAT_ENUM
+    permissible_values:
+      acoustical treatment:
+        text: acoustical treatment
+      gypsum board:
+        text: gypsum board
+      gypsum plaster:
+        text: gypsum plaster
+      masonry:
+        text: masonry
+      metal:
+        text: metal
+      plaster:
+        text: plaster
+      stone facing:
+        text: stone facing
+      terrazzo:
+        text: terrazzo
+      tile:
+        text: tile
+      veneer plaster:
+        text: veneer plaster
+      wood:
+        text: wood
+  WALL_SURF_TREATMENT_ENUM:
+    name: WALL_SURF_TREATMENT_ENUM
+    permissible_values:
+      fabric:
+        text: fabric
+      no treatment:
+        text: no treatment
+      painted:
+        text: painted
+      paneling:
+        text: paneling
+      stucco:
+        text: stucco
+      wall paper:
+        text: wall paper
+  WALL_TEXTURE_ENUM:
+    name: WALL_TEXTURE_ENUM
+    permissible_values:
+      ? ''
+      : text: ''
+      Santa-Fe texture:
+        text: Santa-Fe texture
+      crows feet:
+        text: crows feet
+      crows-foot stomp:
+        text: crows-foot stomp
+      double skip:
+        text: double skip
+      hawk and trowel:
+        text: hawk and trowel
+      knockdown:
+        text: knockdown
+      orange peel:
+        text: orange peel
+      popcorn:
+        text: popcorn
+      rosebud stomp:
+        text: rosebud stomp
+      skip trowel:
+        text: skip trowel
+      smooth:
+        text: smooth
+      stomp knockdown:
+        text: stomp knockdown
+      swirl:
+        text: swirl
+  WATER_FEAT_TYPE_ENUM:
+    name: WATER_FEAT_TYPE_ENUM
+    permissible_values:
+      fountain:
+        text: fountain
+      pool:
+        text: pool
+      standing feature:
+        text: standing feature
+      stream:
+        text: stream
+      waterfall:
+        text: waterfall
+  WEEKDAY_ENUM:
+    name: WEEKDAY_ENUM
+    permissible_values:
+      Friday:
+        text: Friday
+      Monday:
+        text: Monday
+      Saturday:
+        text: Saturday
+      Sunday:
+        text: Sunday
+      Thursday:
+        text: Thursday
+      Tuesday:
+        text: Tuesday
+      Wednesday:
+        text: Wednesday
+  WINDOW_COVER_ENUM:
+    name: WINDOW_COVER_ENUM
+    permissible_values:
+      blinds:
+        text: blinds
+      curtains:
+        text: curtains
+      none:
+        text: none
+  WINDOW_HORIZ_POS_ENUM:
+    name: WINDOW_HORIZ_POS_ENUM
+    permissible_values:
+      left:
+        text: left
+      middle:
+        text: middle
+      right:
+        text: right
+  WINDOW_MAT_ENUM:
+    name: WINDOW_MAT_ENUM
+    permissible_values:
+      clad:
+        text: clad
+      fiberglass:
+        text: fiberglass
+      metal:
+        text: metal
+      vinyl:
+        text: vinyl
+      wood:
+        text: wood
+  WINDOW_STATUS_ENUM:
+    name: WINDOW_STATUS_ENUM
+    permissible_values:
+      closed:
+        text: closed
+      open:
+        text: open
+  WINDOW_TYPE_ENUM:
+    name: WINDOW_TYPE_ENUM
+    permissible_values:
+      fixed window:
+        text: fixed window
+      horizontal sash window:
+        text: horizontal sash window
+      single-hung sash window:
+        text: single-hung sash window
+  WINDOW_VERT_POS_ENUM:
+    name: WINDOW_VERT_POS_ENUM
+    permissible_values:
+      bottom:
+        text: bottom
+      high:
+        text: high
+      low:
+        text: low
+      middle:
+        text: middle
+      top:
+        text: top
+  BIOL_STAT_ENUM:
+    name: BIOL_STAT_ENUM
+    permissible_values:
+      breeder's line:
+        text: breeder's line
+      clonal selection:
+        text: clonal selection
+      hybrid:
+        text: hybrid
+      inbred line:
+        text: inbred line
+      mutant:
+        text: mutant
+      natural:
+        text: natural
+      semi-natural:
+        text: semi-natural
+      wild:
+        text: wild
+  SAMP_CAPT_STATUS_ENUM:
+    name: SAMP_CAPT_STATUS_ENUM
+    permissible_values:
+      active surveillance in response to an outbreak:
+        text: active surveillance in response to an outbreak
+      active surveillance not initiated by an outbreak:
+        text: active surveillance not initiated by an outbreak
+      farm sample:
+        text: farm sample
+      market sample:
+        text: market sample
+      other:
+        text: other
+  SAMP_DIS_STAGE_ENUM:
+    name: SAMP_DIS_STAGE_ENUM
+    permissible_values:
+      dissemination:
+        text: dissemination
+      growth and reproduction:
+        text: growth and reproduction
+      infection:
+        text: infection
+      inoculation:
+        text: inoculation
+      other:
+        text: other
+      penetration:
+        text: penetration
+  URINE_COLLECT_METH_ENUM:
+    name: URINE_COLLECT_METH_ENUM
+    permissible_values:
+      catheter:
+        text: catheter
+      clean catch:
+        text: clean catch
+  DOMINANT_HAND_ENUM:
+    name: DOMINANT_HAND_ENUM
+    permissible_values:
+      ambidextrous:
+        text: ambidextrous
+      left:
+        text: left
+      right:
+        text: right
+  HCR_ENUM:
+    name: HCR_ENUM
+    permissible_values:
+      Coalbed:
+        text: Coalbed
+      Gas Reservoir:
+        text: Gas Reservoir
+      Oil Reservoir:
+        text: Oil Reservoir
+      Oil Sand:
+        text: Oil Sand
+      Shale:
+        text: Shale
+      Tight Gas Reservoir:
+        text: Tight Gas Reservoir
+      Tight Oil Reservoir:
+        text: Tight Oil Reservoir
+      other:
+        text: other
+  HC_PRODUCED_ENUM:
+    name: HC_PRODUCED_ENUM
+    permissible_values:
+      Bitumen:
+        text: Bitumen
+      Coalbed Methane:
+        text: Coalbed Methane
+      Gas:
+        text: Gas
+      Gas-Condensate:
+        text: Gas-Condensate
+      Oil:
+        text: Oil
+      other:
+        text: other
+  LITHOLOGY_ENUM:
+    name: LITHOLOGY_ENUM
+    permissible_values:
+      Basement:
+        text: Basement
+      Chalk:
+        text: Chalk
+      Chert:
+        text: Chert
+      Coal:
+        text: Coal
+      Conglomerate:
+        text: Conglomerate
+      Diatomite:
+        text: Diatomite
+      Dolomite:
+        text: Dolomite
+      Limestone:
+        text: Limestone
+      Sandstone:
+        text: Sandstone
+      Shale:
+        text: Shale
+      Siltstone:
+        text: Siltstone
+      Volcanic:
+        text: Volcanic
+      other:
+        text: other
+  DEPOS_ENV_ENUM:
+    name: DEPOS_ENV_ENUM
+    permissible_values:
+      Continental - Aeolian:
+        text: Continental - Aeolian
+      Continental - Alluvial:
+        text: Continental - Alluvial
+      Continental - Fluvial:
+        text: Continental - Fluvial
+      Continental - Lacustrine:
+        text: Continental - Lacustrine
+      Marine - Deep:
+        text: Marine - Deep
+      Marine - Reef:
+        text: Marine - Reef
+      Marine - Shallow:
+        text: Marine - Shallow
+      Other - Evaporite:
+        text: Other - Evaporite
+      Other - Glacial:
+        text: Other - Glacial
+      Other - Volcanic:
+        text: Other - Volcanic
+      Transitional - Beach:
+        text: Transitional - Beach
+      Transitional - Deltaic:
+        text: Transitional - Deltaic
+      Transitional - Lagoonal:
+        text: Transitional - Lagoonal
+      Transitional - Lake:
+        text: Transitional - Lake
+      Transitional - Tidal:
+        text: Transitional - Tidal
+      other:
+        text: other
+  SR_KEROG_TYPE_ENUM:
+    name: SR_KEROG_TYPE_ENUM
+    permissible_values:
+      Type I:
+        text: Type I
+      Type II:
+        text: Type II
+      Type III:
+        text: Type III
+      Type IV:
+        text: Type IV
+      other:
+        text: other
+  SR_LITHOLOGY_ENUM:
+    name: SR_LITHOLOGY_ENUM
+    permissible_values:
+      Biosilicieous:
+        text: Biosilicieous
+      Carbonate:
+        text: Carbonate
+      Clastic:
+        text: Clastic
+      Coal:
+        text: Coal
+      other:
+        text: other
+  SR_DEP_ENV_ENUM:
+    name: SR_DEP_ENV_ENUM
+    permissible_values:
+      Fluvioldeltaic:
+        text: Fluvioldeltaic
+      Fluviomarine:
+        text: Fluviomarine
+      Lacustine:
+        text: Lacustine
+      Marine:
+        text: Marine
+      other:
+        text: other
+  SAMP_SUBTYPE_ENUM:
+    name: SAMP_SUBTYPE_ENUM
+    permissible_values:
+      biofilm:
+        text: biofilm
+      not applicable:
+        text: not applicable
+      oil phase:
+        text: oil phase
+      other:
+        text: other
+      water phase:
+        text: water phase
+  SAMP_COLLECT_POINT_ENUM:
+    name: SAMP_COLLECT_POINT_ENUM
+    permissible_values:
+      drilling rig:
+        text: drilling rig
+      other:
+        text: other
+      separator:
+        text: separator
+      storage tank:
+        text: storage tank
+      test well:
+        text: test well
+      well:
+        text: well
+      wellhead:
+        text: wellhead
+  GROWTH_HABIT_ENUM:
+    name: GROWTH_HABIT_ENUM
+    permissible_values:
+      erect:
+        text: erect
+      prostrate:
+        text: prostrate
+      semi-erect:
+        text: semi-erect
+      spreading:
+        text: spreading
+  PLANT_SEX_ENUM:
+    name: PLANT_SEX_ENUM
+    permissible_values:
+      Androdioecious:
+        text: Androdioecious
+      Androecious:
+        text: Androecious
+      Androgynomonoecious:
+        text: Androgynomonoecious
+      Androgynous:
+        text: Androgynous
+      Andromonoecious:
+        text: Andromonoecious
+      Bisexual:
+        text: Bisexual
+      Dichogamous:
+        text: Dichogamous
+      Diclinous:
+        text: Diclinous
+      Dioecious:
+        text: Dioecious
+      Gynodioecious:
+        text: Gynodioecious
+      Gynoecious:
+        text: Gynoecious
+      Gynomonoecious:
+        text: Gynomonoecious
+      Hermaphroditic:
+        text: Hermaphroditic
+      Imperfect:
+        text: Imperfect
+      Monoclinous:
+        text: Monoclinous
+      Monoecious:
+        text: Monoecious
+      Perfect:
+        text: Perfect
+      Polygamodioecious:
+        text: Polygamodioecious
+      Polygamomonoecious:
+        text: Polygamomonoecious
+      Polygamous:
+        text: Polygamous
+      Protandrous:
+        text: Protandrous
+      Protogynous:
+        text: Protogynous
+      Subandroecious:
+        text: Subandroecious
+      Subdioecious:
+        text: Subdioecious
+      Subgynoecious:
+        text: Subgynoecious
+      Synoecious:
+        text: Synoecious
+      Trimonoecious:
+        text: Trimonoecious
+      Trioecious:
+        text: Trioecious
+      Unisexual:
+        text: Unisexual
+  SEDIMENT_TYPE_ENUM:
+    name: SEDIMENT_TYPE_ENUM
+    permissible_values:
+      biogenous:
+        text: biogenous
+      cosmogenous:
+        text: cosmogenous
+      hydrogenous:
+        text: hydrogenous
+      lithogenous:
+        text: lithogenous
+  TIDAL_STAGE_ENUM:
+    name: TIDAL_STAGE_ENUM
+    permissible_values:
+      ebb tide:
+        text: ebb tide
+      flood tide:
+        text: flood tide
+      high tide:
+        text: high tide
+      low tide:
+        text: low tide
+  TILLAGE_ENUM:
+    name: TILLAGE_ENUM
+    permissible_values:
+      chisel:
+        text: chisel
+      cutting disc:
+        text: cutting disc
+      disc plough:
+        text: disc plough
+      drill:
+        text: drill
+      mouldboard:
+        text: mouldboard
+      ridge till:
+        text: ridge till
+      strip tillage:
+        text: strip tillage
+      tined:
+        text: tined
+      zonal tillage:
+        text: zonal tillage
+  FAO_CLASS_ENUM:
+    name: FAO_CLASS_ENUM
+    permissible_values:
+      Acrisols:
+        text: Acrisols
+      Andosols:
+        text: Andosols
+      Arenosols:
+        text: Arenosols
+      Cambisols:
+        text: Cambisols
+      Chernozems:
+        text: Chernozems
+      Ferralsols:
+        text: Ferralsols
+      Fluvisols:
+        text: Fluvisols
+      Gleysols:
+        text: Gleysols
+      Greyzems:
+        text: Greyzems
+      Gypsisols:
+        text: Gypsisols
+      Histosols:
+        text: Histosols
+      Kastanozems:
+        text: Kastanozems
+      Lithosols:
+        text: Lithosols
+      Luvisols:
+        text: Luvisols
+      Nitosols:
+        text: Nitosols
+      Phaeozems:
+        text: Phaeozems
+      Planosols:
+        text: Planosols
+      Podzols:
+        text: Podzols
+      Podzoluvisols:
+        text: Podzoluvisols
+      Rankers:
+        text: Rankers
+      Regosols:
+        text: Regosols
+      Rendzinas:
+        text: Rendzinas
+      Solonchaks:
+        text: Solonchaks
+      Solonetz:
+        text: Solonetz
+      Vertisols:
+        text: Vertisols
+      Yermosols:
+        text: Yermosols
+  PROFILE_POSITION_ENUM:
+    name: PROFILE_POSITION_ENUM
+    permissible_values:
+      backslope:
+        text: backslope
+      footslope:
+        text: footslope
+      shoulder:
+        text: shoulder
+      summit:
+        text: summit
+      toeslope:
+        text: toeslope
+  DRAINAGE_CLASS_ENUM:
+    name: DRAINAGE_CLASS_ENUM
+    permissible_values:
+      excessively drained:
+        text: excessively drained
+      moderately well:
+        text: moderately well
+      poorly:
+        text: poorly
+      somewhat poorly:
+        text: somewhat poorly
+      very poorly:
+        text: very poorly
+      well:
+        text: well
+  HOST_DEPENDENCE_ENUM:
+    name: HOST_DEPENDENCE_ENUM
+    permissible_values:
+      facultative:
+        text: facultative
+      obligate:
+        text: obligate
+  TYPE_OF_SYMBIOSIS_ENUM:
+    name: TYPE_OF_SYMBIOSIS_ENUM
+    permissible_values:
+      commensalistic:
+        text: commensalistic
+      mutualistic:
+        text: mutualistic
+      parasitic:
+        text: parasitic
+  SYM_LIFE_CYCLE_TYPE_ENUM:
+    name: SYM_LIFE_CYCLE_TYPE_ENUM
+    permissible_values:
+      complex life cycle:
+        text: complex life cycle
+      simple life cycle:
+        text: simple life cycle
+  HOST_SEX_ENUM:
+    name: HOST_SEX_ENUM
+    permissible_values:
+      female:
+        text: female
+      hermaphrodite:
+        text: hermaphrodite
+      male:
+        text: male
+      neuter:
+        text: neuter
+  MODE_TRANSMISSION_ENUM:
+    name: MODE_TRANSMISSION_ENUM
+    permissible_values:
+      horizontal:castrator:
+        text: horizontal:castrator
+      horizontal:directly transmitted:
+        text: horizontal:directly transmitted
+      horizontal:micropredator:
+        text: horizontal:micropredator
+      horizontal:parasitoid:
+        text: horizontal:parasitoid
+      horizontal:trophically transmitted:
+        text: horizontal:trophically transmitted
+      horizontal:vector transmitted:
+        text: horizontal:vector transmitted
+      vertical:
+        text: vertical
+  ROUTE_TRANSMISSION_ENUM:
+    name: ROUTE_TRANSMISSION_ENUM
+    permissible_values:
+      environmental:faecal-oral:
+        text: environmental:faecal-oral
+      transplacental:
+        text: transplacental
+      vector-borne:vector penetration:
+        text: vector-borne:vector penetration
+  HOST_SPECIFICITY_ENUM:
+    name: HOST_SPECIFICITY_ENUM
+    permissible_values:
+      ? ''
+      : text: ''
+      family-specific:
+        text: family-specific
+      generalist:
+        text: generalist
+      genus-specific:
+        text: genus-specific
+      species-specific:
+        text: species-specific
+  SYMBIONT_HOST_ROLE_ENUM:
+    name: SYMBIONT_HOST_ROLE_ENUM
+    permissible_values:
+      accidental:
+        text: accidental
+      dead-end:
+        text: dead-end
+      definitive:
+        text: definitive
+      intermediate:
+        text: intermediate
+      paratenic:
+        text: paratenic
+      reservoir:
+        text: reservoir
+      single host:
+        text: single host
+  HOST_CELLULAR_LOC_ENUM:
+    name: HOST_CELLULAR_LOC_ENUM
+    permissible_values:
+      extracellular:
+        text: extracellular
+      intracellular:
+        text: intracellular
+      not determined:
+        text: not determined
+  CULT_RESULT_ENUM:
+    name: CULT_RESULT_ENUM
+    permissible_values:
+      absent:
+        text: absent
+      active:
+        text: active
+      inactive:
+        text: inactive
+      negative:
+        text: negative
+      'no':
+        text: 'no'
+      positive:
+        text: positive
+      present:
+        text: present
+      'yes':
+        text: 'yes'
+  FOOD_TRACE_LIST_ENUM:
+    name: FOOD_TRACE_LIST_ENUM
+    permissible_values:
+      cheeses-other than hard cheeses:
+        text: cheeses-other than hard cheeses
+      crustaceans:
+        text: crustaceans
+      cucumbers:
+        text: cucumbers
+      finfish-including smoked finfish:
+        text: finfish-including smoked finfish
+      fruits and vegetables-fresh cut:
+        text: fruits and vegetables-fresh cut
+      herbs-fresh:
+        text: herbs-fresh
+      leafy greens-including fresh cut leafy greens:
+        text: leafy greens-including fresh cut leafy greens
+      melons:
+        text: melons
+      mollusks-bivalves:
+        text: mollusks-bivalves
+      nut butter:
+        text: nut butter
+      peppers:
+        text: peppers
+      ready to eat deli salads:
+        text: ready to eat deli salads
+      shell eggs:
+        text: shell eggs
+      sprouts:
+        text: sprouts
+      tomatoes:
+        text: tomatoes
+      tropical tree fruits:
+        text: tropical tree fruits
+  SAMP_TRANSPORT_CONT_ENUM:
+    name: SAMP_TRANSPORT_CONT_ENUM
+    permissible_values:
+      ? ''
+      : text: ''
+      bottle:
+        text: bottle
+      cooler:
+        text: cooler
+      glass vial:
+        text: glass vial
+      plastic vial:
+        text: plastic vial
+      vendor supplied container:
+        text: vendor supplied container
+  ANIMAL_BODY_COND_ENUM:
+    name: ANIMAL_BODY_COND_ENUM
+    permissible_values:
+      normal:
+        text: normal
+      over conditioned:
+        text: over conditioned
+      under conditioned:
+        text: under conditioned
+  ANIMAL_SEX_ENUM:
+    name: ANIMAL_SEX_ENUM
+    permissible_values:
+      castrated female:
+        text: castrated female
+      castrated male:
+        text: castrated male
+      intact female:
+        text: intact female
+      intact male:
+        text: intact male
+  FACILITY_TYPE_ENUM:
+    name: FACILITY_TYPE_ENUM
+    permissible_values:
+      ambient storage:
+        text: ambient storage
+      caterer-catering point:
+        text: caterer-catering point
+      distribution:
+        text: distribution
+      frozen storage:
+        text: frozen storage
+      importer-broker:
+        text: importer-broker
+      interstate conveyance:
+        text: interstate conveyance
+      labeler-relabeler:
+        text: labeler-relabeler
+      manufacturing-processing:
+        text: manufacturing-processing
+      packaging:
+        text: packaging
+      refrigerated storage:
+        text: refrigerated storage
+      storage:
+        text: storage
+  SAMP_SURF_MOISTURE_ENUM:
+    name: SAMP_SURF_MOISTURE_ENUM
+    permissible_values:
+      intermittent moisture:
+        text: intermittent moisture
+      not present:
+        text: not present
+      submerged:
+        text: submerged
+  SAMP_LOC_CONDITION_ENUM:
+    name: SAMP_LOC_CONDITION_ENUM
+    permissible_values:
+      damaged:
+        text: damaged
+      new:
+        text: new
+      rupture:
+        text: rupture
+      visible signs of mold-mildew:
+        text: visible signs of mold-mildew
+      visible weariness repair:
+        text: visible weariness repair
+  FARM_WATER_SOURCE_ENUM:
+    name: FARM_WATER_SOURCE_ENUM
+    permissible_values:
+      brackish:
+        text: brackish
+      canal:
+        text: canal
+      collected rainwater:
+        text: collected rainwater
+      ditch:
+        text: ditch
+      estuary:
+        text: estuary
+      freshwater:
+        text: freshwater
+      lake:
+        text: lake
+      manmade:
+        text: manmade
+      melt pond:
+        text: melt pond
+      municipal:
+        text: municipal
+      natural:
+        text: natural
+      pond:
+        text: pond
+      reservior:
+        text: reservior
+      river:
+        text: river
+      saline:
+        text: saline
+      storage tank:
+        text: storage tank
+      stream:
+        text: stream
+      well:
+        text: well
+  EXTR_WEATHER_EVENT_ENUM:
+    name: EXTR_WEATHER_EVENT_ENUM
+    permissible_values:
+      drought:
+        text: drought
+      dust storm:
+        text: dust storm
+      extreme cold:
+        text: extreme cold
+      extreme heat:
+        text: extreme heat
+      flood:
+        text: flood
+      frost:
+        text: frost
+      hail:
+        text: hail
+      high precipitationhigh winds:
+        text: high precipitationhigh winds
+  PLANT_REPROD_CROP_ENUM:
+    name: PLANT_REPROD_CROP_ENUM
+    permissible_values:
+      plant cutting:
+        text: plant cutting
+      pregerminated seed:
+        text: pregerminated seed
+      ratoon:
+        text: ratoon
+      seed:
+        text: seed
+      seedling:
+        text: seedling
+      whole mature plant:
+        text: whole mature plant
+  SOIL_TEXTURE_CLASS_ENUM:
+    name: SOIL_TEXTURE_CLASS_ENUM
+    permissible_values:
+      clay:
+        text: clay
+      clay loam:
+        text: clay loam
+      loam:
+        text: loam
+      loamy sand:
+        text: loamy sand
+      sand:
+        text: sand
+      sandy clay:
+        text: sandy clay
+      sandy clay loam:
+        text: sandy clay loam
+      sandy loam:
+        text: sandy loam
+      silt:
+        text: silt
+      silt loam:
+        text: silt loam
+      silty clay:
+        text: silty clay
+      silty clay loam:
+        text: silty clay loam
+  FOOD_CLEAN_PROC_ENUM:
+    name: FOOD_CLEAN_PROC_ENUM
+    permissible_values:
+      drum and drain:
+        text: drum and drain
+      manual spinner:
+        text: manual spinner
+      rinsed with sanitizer solution:
+        text: rinsed with sanitizer solution
+      rinsed with water:
+        text: rinsed with water
+      scrubbed with brush:
+        text: scrubbed with brush
+      scrubbed with hand:
+        text: scrubbed with hand
+      soaking:
+        text: soaking
 slots:
   16s_recover:
     name: 16s_recover
@@ -233,9 +2238,9 @@ slots:
     title: aerospace structure
     examples:
     - value: plane
-    string_serialization: '[plane|glider]'
     slot_uri: MIXS:0000773
     multivalued: false
+    range: AERO_STRUC_ENUM
     required: false
     recommended: false
   agrochem_addition:
@@ -628,9 +2633,9 @@ slots:
     title: food animal body condition
     examples:
     - value: under conditioned
-    string_serialization: '[normal|over conditioned|under conditioned]'
     slot_uri: MIXS:0001248
     multivalued: false
+    range: ANIMAL_BODY_COND_ENUM
     required: false
     recommended: false
   animal_diet:
@@ -724,9 +2729,9 @@ slots:
     title: food animal source sex category
     examples:
     - value: castrated male
-    string_serialization: '[castrated female|castrated male|intact female|intact male]'
     slot_uri: MIXS:0001249
     multivalued: false
+    range: ANIMAL_SEX_ENUM
     required: false
     recommended: false
   annot:
@@ -827,9 +2832,9 @@ slots:
     title: architectural structure
     examples:
     - value: shed
-    string_serialization: '[building|shed|home]'
     slot_uri: MIXS:0000774
     multivalued: false
+    range: ARCH_STRUC_ENUM
     required: false
     recommended: false
   area_samp_size:
@@ -1211,9 +3216,9 @@ slots:
     - value: coverage and kmer
     in_subset:
     - sequencing
-    string_serialization: '[homology search|kmer|coverage|codon usage|combination]'
     slot_uri: MIXS:0000077
     multivalued: false
+    range: BIN_PARAM_ENUM
   bin_software:
     name: bin_software
     annotations:
@@ -1311,10 +3316,9 @@ slots:
     title: biological status
     examples:
     - value: natural
-    string_serialization: '[wild|natural|semi-natural|inbred line|breeder''s line|hybrid|clonal
-      selection|mutant]'
     slot_uri: MIXS:0000858
     multivalued: false
+    range: BIOL_STAT_ENUM
     required: false
     recommended: false
   biomass:
@@ -1366,6 +3370,7 @@ slots:
     - nucleic acid sequence source
     slot_uri: MIXS:0000028
     multivalued: false
+    range: BIOTIC_RELATIONSHIP_ENUM
   birth_control:
     name: birth_control
     annotations:
@@ -1472,11 +3477,9 @@ slots:
     title: design, construction, and operation documents
     examples:
     - value: maintenance plans
-    string_serialization: '[building information model|commissioning report|complaint
-      logs|contract administration|cost estimate|janitorial schedules or logs|maintenance
-      plans|schedule|sections|shop drawings|submittals|ventilation system|windows]'
     slot_uri: MIXS:0000787
     multivalued: false
+    range: BUILD_DOCS_ENUM
     required: false
     recommended: false
   build_occup_type:
@@ -1490,10 +3493,9 @@ slots:
     title: building occupancy type
     examples:
     - value: market
-    string_serialization: '[office|market|restaurant|residence|school|residential|commercial|low
-      rise|high rise|wood framed|office|health care|school|airport|sports complex]'
     slot_uri: MIXS:0000761
     multivalued: true
+    range: BUILD_OCCUP_TYPE_ENUM
     required: true
   building_setting:
     name: building_setting
@@ -1505,9 +3507,9 @@ slots:
     title: building setting
     examples:
     - value: rural
-    string_serialization: '[urban|suburban|exurban|rural]'
     slot_uri: MIXS:0000768
     multivalued: false
+    range: BUILDING_SETTING_ENUM
     required: true
   built_struc_age:
     name: built_struc_age
@@ -1538,9 +3540,9 @@ slots:
     title: built structure setting
     examples:
     - value: rural
-    string_serialization: '[urban|rural]'
     slot_uri: MIXS:0000778
     multivalued: false
+    range: BUILT_STRUC_SET_ENUM
     required: false
     recommended: false
   built_struc_type:
@@ -1667,10 +3669,9 @@ slots:
     title: ceiling finish material
     examples:
     - value: stucco
-    string_serialization: '[drywall|mineral fibre|tiles|PVC|plasterboard|metal|fiberglass|stucco|mineral
-      wool/calcium silicate|wood]'
     slot_uri: MIXS:0000780
     multivalued: false
+    range: CEIL_FINISH_MAT_ENUM
     required: false
     recommended: false
   ceil_struc:
@@ -1683,9 +3684,9 @@ slots:
     title: ceiling structure
     examples:
     - value: concrete
-    string_serialization: '[wood frame|concrete]'
     slot_uri: MIXS:0000782
     multivalued: false
+    range: CEIL_STRUC_ENUM
     required: false
     recommended: false
   ceil_texture:
@@ -1698,10 +3699,9 @@ slots:
     title: ceiling texture
     examples:
     - value: popcorn
-    string_serialization: '[crows feet|crows-foot stomp|double skip|hawk and trowel|knockdown|popcorn|orange
-      peel|rosebud stomp|Santa-Fe texture|skip trowel|smooth|stomp knockdown|swirl]'
     slot_uri: MIXS:0000783
     multivalued: false
+    range: CEIL_TEXTURE_ENUM
     required: false
     recommended: false
   ceil_thermal_mass:
@@ -1733,9 +3733,9 @@ slots:
     title: ceiling type
     examples:
     - value: coffered
-    string_serialization: '[cathedral|dropped|concave|barrel-shaped|coffered|cove|stretched]'
     slot_uri: MIXS:0000784
     multivalued: false
+    range: CEIL_TYPE_ENUM
     required: false
     recommended: false
   ceil_water_mold:
@@ -1949,9 +3949,9 @@ slots:
         from the P22virus genus (NCBI RefSeq v83)'
     in_subset:
     - sequencing
-    string_serialization: '[marker gene|reference based|other]'
     slot_uri: MIXS:0000071
     multivalued: false
+    range: COMPL_APPR_ENUM
   compl_score:
     name: compl_score
     annotations:
@@ -2104,9 +4104,9 @@ slots:
     - value: contigs
     in_subset:
     - sequencing
-    string_serialization: '[reads| contigs]'
     slot_uri: MIXS:0000005
     multivalued: false
+    range: CONTAM_SCREEN_INPUT_ENUM
   contam_screen_param:
     name: contam_screen_param
     annotations:
@@ -2187,9 +4187,9 @@ slots:
     title: culture result
     examples:
     - value: positive
-    string_serialization: '[absent|active|inactive|negative|no|present|positive|yes]'
     slot_uri: MIXS:0001117
     multivalued: false
+    range: CULT_RESULT_ENUM
     required: false
     recommended: false
   cult_result_org:
@@ -2332,9 +4332,9 @@ slots:
     - value: anvi'o
     in_subset:
     - sequencing
-    string_serialization: '[checkm/refinem|anvi''o|prodege|bbtools:decontaminate.sh|acdc|combination]'
     slot_uri: MIXS:0000074
     multivalued: false
+    range: DECONTAM_SOFTWARE_ENUM
   density:
     name: density
     annotations:
@@ -2360,12 +4360,9 @@ slots:
     description: Main depositional environment (https://en.wikipedia.org/wiki/Depositional_environment).
       If "other" is specified, please propose entry in "additional info" field
     title: depositional environment
-    string_serialization: '[Continental - Alluvial|Continental - Aeolian|Continental
-      - Fluvial|Continental - Lacustrine|Transitional - Deltaic|Transitional - Tidal|Transitional
-      - Lagoonal|Transitional - Beach|Transitional - Lake|Marine - Shallow|Marine
-      - Deep|Marine - Reef|Other - Evaporite|Other - Glacial|Other - Volcanic|other]'
     slot_uri: MIXS:0000992
     multivalued: false
+    range: DEPOS_ENV_ENUM
     recommended: true
   depth:
     name: depth
@@ -2667,9 +4664,9 @@ slots:
     title: dominant hand
     examples:
     - value: right
-    string_serialization: '[left|right|ambidextrous]'
     slot_uri: MIXS:0000944
     multivalued: false
+    range: DOMINANT_HAND_ENUM
     required: false
     recommended: false
   door_comp_type:
@@ -2682,9 +4679,9 @@ slots:
     title: door type, composite
     examples:
     - value: revolving
-    string_serialization: '[metal covered|revolving|sliding|telescopic]'
     slot_uri: MIXS:0000795
     multivalued: false
+    range: DOOR_COMP_TYPE_ENUM
     required: false
     recommended: false
   door_cond:
@@ -2712,9 +4709,9 @@ slots:
     title: door direction of opening
     examples:
     - value: inward
-    string_serialization: '[inward|outward|sideways]'
     slot_uri: MIXS:0000789
     multivalued: false
+    range: DOOR_DIRECT_ENUM
     required: false
     recommended: false
   door_loc:
@@ -2742,10 +4739,9 @@ slots:
     title: door material
     examples:
     - value: wood
-    string_serialization: '[aluminum|cellular PVC|engineered plastic|fiberboard|fiberglass|metal|thermoplastic
-      alloy|vinyl|wood|wood/plastic composite]'
     slot_uri: MIXS:0000791
     multivalued: false
+    range: DOOR_MAT_ENUM
     required: false
     recommended: false
   door_move:
@@ -2758,9 +4754,9 @@ slots:
     title: door movement
     examples:
     - value: swinging
-    string_serialization: '[collapsible|folding|revolving|rolling shutter|sliding|swinging]'
     slot_uri: MIXS:0000792
     multivalued: false
+    range: DOOR_MOVE_ENUM
     required: false
     recommended: false
   door_size:
@@ -2791,9 +4787,9 @@ slots:
     title: door type
     examples:
     - value: wooden
-    string_serialization: '[composite|metal|wooden]'
     slot_uri: MIXS:0000794
     multivalued: false
+    range: DOOR_TYPE_ENUM
     required: false
     recommended: false
   door_type_metal:
@@ -2806,10 +4802,9 @@ slots:
     title: door type, metal
     examples:
     - value: hollow
-    string_serialization: '[collapsible|corrugated steel|hollow|rolling shutters|steel
-      plate]'
     slot_uri: MIXS:0000796
     multivalued: false
+    range: DOOR_TYPE_METAL_ENUM
     required: false
     recommended: false
   door_type_wood:
@@ -2889,10 +4884,9 @@ slots:
     title: drainage classification
     examples:
     - value: well
-    string_serialization: '[very poorly|poorly|somewhat poorly|moderately well|well|excessively
-      drained]'
     slot_uri: MIXS:0001085
     multivalued: false
+    range: DRAINAGE_CLASS_ENUM
   drawings:
     name: drawings
     annotations:
@@ -2904,10 +4898,9 @@ slots:
     title: drawings
     examples:
     - value: sketch
-    string_serialization: '[operation|as built|construction|bid|design|building navigation
-      map|diagram|sketch]'
     slot_uri: MIXS:0000798
     multivalued: false
+    range: DRAWINGS_ENUM
     required: false
     recommended: false
   drug_usage:
@@ -3236,10 +5229,9 @@ slots:
     title: extreme weather event
     examples:
     - value: hail
-    string_serialization: '[drought|dust storm|extreme cold|extreme heat|flood|frost|hail|high
-      precipitationhigh winds]'
     slot_uri: MIXS:0001141
     multivalued: true
+    range: EXTR_WEATHER_EVENT_ENUM
     required: false
     recommended: false
   extrachrom_elements:
@@ -3281,11 +5273,9 @@ slots:
     title: facility type
     examples:
     - value: manufacturing-processing
-    string_serialization: '[ambient storage|caterer-catering point|distribution|frozen
-      storage|importer-broker|interstate conveyance|labeler-relabeler|manufacturing-processing|packaging|refrigerated
-      storage|storage]'
     slot_uri: MIXS:0001252
     multivalued: true
+    range: FACILITY_TYPE_ENUM
     required: false
     recommended: false
   fao_class:
@@ -3301,6 +5291,7 @@ slots:
     - value: Luvisols
     slot_uri: MIXS:0001083
     multivalued: false
+    range: FAO_CLASS_ENUM
   farm_equip:
     name: farm_equip
     annotations:
@@ -3374,10 +5365,9 @@ slots:
     title: farm watering water source
     examples:
     - value: water well (ENVO:01000002)
-    string_serialization: '[freshwater|brackish|saline|natural|manmade|estuary|lake|pond|canal|stream|river|melt
-      pond|well|ditch|reservior|collected rainwater|municipal|storage tank]'
     slot_uri: MIXS:0001110
     multivalued: true
+    range: FARM_WATER_SOURCE_ENUM
     recommended: true
   feat_pred:
     name: feat_pred
@@ -3619,10 +5609,9 @@ slots:
     title: filter type
     examples:
     - value: HEPA
-    string_serialization: '[particulate air filter|chemical air filter|low-MERV pleated
-      media|HEPA|electrostatic|gas-phase or ultraviolet air treatments]'
     slot_uri: MIXS:0000765
     multivalued: true
+    range: FILTER_TYPE_ENUM
     required: true
   fire:
     name: fire
@@ -3645,9 +5634,9 @@ slots:
     title: fireplace type
     examples:
     - value: wood burning
-    string_serialization: '[gas burning|wood burning]'
     slot_uri: MIXS:0000802
     multivalued: false
+    range: FIREPLACE_TYPE_ENUM
     required: false
     recommended: false
   flooding:
@@ -3751,10 +5740,9 @@ slots:
     title: floor structure
     examples:
     - value: concrete
-    string_serialization: '[balcony|floating floor|glass floor|raised floor|sprung
-      floor|wood-framed|concrete]'
     slot_uri: MIXS:0000806
     multivalued: false
+    range: FLOOR_STRUC_ENUM
     required: false
     recommended: false
   floor_thermal_mass:
@@ -3783,10 +5771,9 @@ slots:
     title: floor signs of water/mold
     examples:
     - value: ceiling discoloration
-    string_serialization: '[mold odor|wet floor|water stains|wall discoloration|floor
-      discoloration|ceiling discoloration|peeling paint or wallpaper|bulging walls|condensation]'
     slot_uri: MIXS:0000805
     multivalued: false
+    range: FLOOR_WATER_MOLD_ENUM
     required: false
     recommended: false
   fluor:
@@ -3865,10 +5852,9 @@ slots:
     title: food cleaning process
     examples:
     - value: rinsed with water|scrubbed with brush
-    string_serialization: '[drum and drain|manual spinner|rinsed with sanitizer solution|rinsed
-      with water|scrubbed with brush|scrubbed with hand|soaking]'
     slot_uri: MIXS:0001182
     multivalued: true
+    range: FOOD_CLEAN_PROC_ENUM
     required: false
     recommended: false
   food_contact_surf:
@@ -4258,12 +6244,9 @@ slots:
     title: food traceability list category
     examples:
     - value: tropical tree fruits
-    string_serialization: '[cheeses-other than hard cheeses|cucumbers|crustaceans|finfish-including
-      smoked finfish|fruits and vegetables-fresh cut|herbs-fresh|leafy greens-including
-      fresh cut leafy greens|melons|mollusks-bivalves|nut butter|peppers|ready to
-      eat deli salads|sprouts|tomatoes|tropical tree fruits|shell eggs]'
     slot_uri: MIXS:0001214
     multivalued: false
+    range: FOOD_TRACE_LIST_ENUM
     required: false
     recommended: false
   food_trav_mode:
@@ -4326,6 +6309,7 @@ slots:
     - value: Daily
     slot_uri: MIXS:0000226
     multivalued: false
+    range: FREQ_CLEAN_ENUM
     required: false
     recommended: false
   freq_cook:
@@ -4366,9 +6350,9 @@ slots:
     title: furniture
     examples:
     - value: chair
-    string_serialization: '[cabinet|chair|desks]'
     slot_uri: MIXS:0000807
     multivalued: false
+    range: FURNITURE_ENUM
     required: false
     recommended: false
   gaseous_environment:
@@ -4428,9 +6412,9 @@ slots:
     title: gender of restroom
     examples:
     - value: male
-    string_serialization: '[all gender|female|gender neurtral|male|male and female|unisex]'
     slot_uri: MIXS:0000808
     multivalued: false
+    range: GENDER_RESTROOM_ENUM
     required: false
     recommended: false
   genetic_mod:
@@ -4553,9 +6537,9 @@ slots:
     title: growth habit
     examples:
     - value: spreading
-    string_serialization: '[erect|semi-erect|spreading|prostrate]'
     slot_uri: MIXS:0001044
     multivalued: false
+    range: GROWTH_HABIT_ENUM
     required: false
     recommended: false
   growth_hormone_regm:
@@ -4635,9 +6619,9 @@ slots:
     title: handidness
     examples:
     - value: right handedness
-    string_serialization: '[ambidexterity|left handedness|mixed-handedness|right handedness]'
     slot_uri: MIXS:0000809
     multivalued: false
+    range: HANDIDNESS_ENUM
     required: false
     recommended: false
   hc_produced:
@@ -4651,9 +6635,9 @@ slots:
     title: hydrocarbon type produced
     examples:
     - value: Gas
-    string_serialization: '[Oil|Gas-Condensate|Gas|Bitumen|Coalbed Methane|other]'
     slot_uri: MIXS:0000989
     multivalued: false
+    range: HC_PRODUCED_ENUM
     required: true
   hcr:
     name: hcr
@@ -4671,10 +6655,9 @@ slots:
     title: hydrocarbon resource type
     examples:
     - value: Oil Sand
-    string_serialization: '[Oil Reservoir|Gas Reservoir|Oil Sand|Coalbed|Shale|Tight
-      Oil Reservoir|Tight Gas Reservoir|other]'
     slot_uri: MIXS:0000988
     multivalued: false
+    range: HCR_ENUM
     required: true
   hcr_fw_salinity:
     name: hcr_fw_salinity
@@ -4749,10 +6732,9 @@ slots:
     title: heating and cooling system type
     examples:
     - value: heat pump
-    string_serialization: '[radiant system|heat pump|forced air system|steam forced
-      heat|wood stove]'
     slot_uri: MIXS:0000766
     multivalued: true
+    range: HEAT_COOL_TYPE_ENUM
     required: true
   heat_deliv_loc:
     name: heat_deliv_loc
@@ -4779,9 +6761,9 @@ slots:
     title: heating system delivery method
     examples:
     - value: radiant
-    string_serialization: '[conductive|radiant]'
     slot_uri: MIXS:0000812
     multivalued: false
+    range: HEAT_SYS_DELIV_METH_ENUM
     required: false
     recommended: false
   heat_system_id:
@@ -4973,8 +6955,8 @@ slots:
     title: host cellular location
     examples:
     - value: extracellular
-    string_serialization: '[intracellular|extracellular|not determined]'
     slot_uri: MIXS:0001313
+    range: HOST_CELLULAR_LOC_ENUM
     recommended: true
   host_color:
     name: host_color
@@ -5006,9 +6988,9 @@ slots:
     title: host dependence
     examples:
     - value: obligate
-    string_serialization: '[facultative|obligate]'
     slot_uri: MIXS:0001315
     multivalued: false
+    range: HOST_DEPENDENCE_ENUM
     required: true
   host_diet:
     name: host_diet
@@ -5444,10 +7426,9 @@ slots:
     - value: CRISPR spacer match
     in_subset:
     - sequencing
-    string_serialization: '[provirus|host sequence similarity|CRISPR spacer match|kmer
-      similarity|co-occurrence|combination|other]'
     slot_uri: MIXS:0000088
     multivalued: false
+    range: HOST_PRED_APPR_ENUM
   host_pred_est_acc:
     name: host_pred_est_acc
     annotations:
@@ -5489,6 +7470,7 @@ slots:
     examples:
     - value: non-binary
     multivalued: false
+    range: HOST_SEX_ENUM
     required: false
     recommended: false
   host_shape:
@@ -5529,9 +7511,9 @@ slots:
     title: host specificity
     examples:
     - value: species-specific
-    string_serialization: '[family-specific|generalist||genus-specific|species-specific]'
     slot_uri: MIXS:0001308
     multivalued: false
+    range: HOST_SPECIFICITY_ENUM
     recommended: true
   host_subject_id:
     name: host_subject_id
@@ -5718,9 +7700,9 @@ slots:
     title: indoor space
     examples:
     - value: foyer
-    string_serialization: '[bedroom|office|bathroom|foyer|kitchen|locker room|hallway|elevator]'
     slot_uri: MIXS:0000763
     multivalued: false
+    range: INDOOR_SPACE_ENUM
     required: true
   indoor_surf:
     name: indoor_surf
@@ -5732,9 +7714,9 @@ slots:
     title: indoor surface
     examples:
     - value: wall
-    string_serialization: '[cabinet|ceiling|counter top|door|shelving|vent cover|window|wall]'
     slot_uri: MIXS:0000764
     multivalued: false
+    range: INDOOR_SURF_ENUM
   indust_eff_percent:
     name: indust_eff_percent
     annotations:
@@ -5920,9 +7902,9 @@ slots:
     - value: paired
     in_subset:
     - sequencing
-    string_serialization: '[paired|single|vector|other]'
     slot_uri: MIXS:0000041
     multivalued: false
+    range: LIB_LAYOUT_ENUM
   lib_reads_seqd:
     name: lib_reads_seqd
     annotations:
@@ -6042,10 +8024,9 @@ slots:
     title: light type
     examples:
     - value: desk lamp
-    string_serialization: '[natural light|electric light|desk lamp|flourescent lights|natural
-      light|none]'
     slot_uri: MIXS:0000769
     multivalued: true
+    range: LIGHT_TYPE_ENUM
     required: true
   link_addit_analys:
     name: link_addit_analys
@@ -6095,9 +8076,9 @@ slots:
     title: lithology
     examples:
     - value: Volcanic
-    string_serialization: '[Basement|Chalk|Chert|Coal|Conglomerate|Diatomite|Dolomite|Limestone|Sandstone|Shale|Siltstone|Volcanic|other]'
     slot_uri: MIXS:0000990
     multivalued: false
+    range: LITHOLOGY_ENUM
     recommended: true
   liver_disord:
     name: liver_disord
@@ -6161,9 +8142,9 @@ slots:
     - value: bbmap
     in_subset:
     - sequencing
-    string_serialization: '[bwa|bbmap|bowtie|other]'
     slot_uri: MIXS:0000080
     multivalued: false
+    range: MAG_COV_SOFTWARE_ENUM
   magnesium:
     name: magnesium
     annotations:
@@ -6255,9 +8236,9 @@ slots:
     title: mechanical structure
     examples:
     - value: elevator
-    string_serialization: '[subway|coach|carriage|elevator|escalator|boat|train|car|bus]'
     slot_uri: MIXS:0000815
     multivalued: false
+    range: MECH_STRUC_ENUM
     required: false
     recommended: false
   mechanical_damage:
@@ -6565,9 +8546,8 @@ slots:
     title: mode of transmission
     examples:
     - value: horizontal:castrator
-    string_serialization: '[horizontal:castrator|horizontal:directly transmitted|horizontal:micropredator|horizontal:parasitoid|horizontal:trophically
-      transmitted|horizontal:vector transmitted|vertical]'
     slot_uri: MIXS:0001312
+    range: MODE_TRANSMISSION_ENUM
     recommended: true
   n_alkanes:
     name: n_alkanes
@@ -6594,10 +8574,9 @@ slots:
     title: negative control type
     in_subset:
     - investigation
-    string_serialization: '[distilled water|phosphate buffer|empty collection device|empty
-      collection tube|DNA-free PCR mix|sterile swab |sterile syringe]'
     slot_uri: MIXS:0001321
     multivalued: false
+    range: NEG_CONT_TYPE_ENUM
     recommended: true
   nitrate:
     name: nitrate
@@ -6850,9 +8829,9 @@ slots:
     title: occupancy documentation
     examples:
     - value: estimate
-    string_serialization: '[automated count|estimate|manual count|videos]'
     slot_uri: MIXS:0000816
     multivalued: false
+    range: OCCUP_DOCUMENT_ENUM
     required: false
     recommended: false
   occup_samp:
@@ -7036,6 +9015,7 @@ slots:
     - value: aerobic
     slot_uri: MIXS:0000753
     multivalued: false
+    range: OXY_STAT_SAMP_ENUM
   oxygen:
     name: oxygen
     annotations:
@@ -7426,10 +9406,9 @@ slots:
     title: plant reproductive part
     examples:
     - value: seedling
-    string_serialization: '[plant cutting|pregerminated seed|ratoon|seed|seedling|whole
-      mature plant]'
     slot_uri: MIXS:0001150
     multivalued: true
+    range: PLANT_REPROD_CROP_ENUM
     required: false
     recommended: false
   plant_sex:
@@ -7443,9 +9422,9 @@ slots:
     title: plant sex
     examples:
     - value: Hermaphroditic
-    string_serialization: '[Androdioecious|Androecious|Androgynous|Androgynomonoecious|Andromonoecious|Bisexual|Dichogamous|Diclinous|Dioecious|Gynodioecious|Gynoecious|Gynomonoecious|Hermaphroditic|Imperfect|Monoclinous|Monoecious|Perfect|Polygamodioecious|Polygamomonoecious|Polygamous|Protandrous|Protogynous|Subandroecious|Subdioecious|Subgynoecious|Synoecious|Trimonoecious|Trioecious|Unisexual]'
     slot_uri: MIXS:0001059
     multivalued: false
+    range: PLANT_SEX_ENUM
     required: false
     recommended: false
   plant_struc:
@@ -7621,9 +9600,9 @@ slots:
     - value: non-segmented
     in_subset:
     - sequencing
-    string_serialization: '[segmented|non-segmented|undetermined]'
     slot_uri: MIXS:0000083
     multivalued: false
+    range: PRED_GENOME_STRUC_ENUM
   pred_genome_type:
     name: pred_genome_type
     annotations:
@@ -7816,9 +9795,9 @@ slots:
     title: profile position
     examples:
     - value: summit
-    string_serialization: '[summit|shoulder|backslope|footslope|toeslope]'
     slot_uri: MIXS:0001084
     multivalued: false
+    range: PROFILE_POSITION_ENUM
   project_name:
     name: project_name
     annotations:
@@ -7879,9 +9858,9 @@ slots:
     title: quadrant position
     examples:
     - value: West side
-    string_serialization: '[North side|West side|South side|East side]'
     slot_uri: MIXS:0000820
     multivalued: false
+    range: QUAD_POS_ENUM
     required: false
     recommended: false
   radiation_regm:
@@ -8070,9 +10049,9 @@ slots:
     title: relative sampling location
     examples:
     - value: center of car
-    string_serialization: '[edge of car|center of car|under a seat]'
     slot_uri: MIXS:0000821
     multivalued: false
+    range: REL_SAMP_LOC_ENUM
     required: false
     recommended: false
   rel_to_oxygen:
@@ -8088,10 +10067,9 @@ slots:
     - value: aerobe
     in_subset:
     - nucleic acid sequence source
-    string_serialization: '[aerobe|anaerobe|facultative|microaerophilic|microanaerobe|obligate
-      aerobe|obligate anaerobe]'
     slot_uri: MIXS:0000015
     multivalued: false
+    range: REL_TO_OXYGEN_ENUM
   repository_name:
     name: repository_name
     description: The name of the institution where the sample or DNA extract is held
@@ -8176,10 +10154,9 @@ slots:
     title: room condition
     examples:
     - value: new
-    string_serialization: '[new|visible wear|needs repair|damaged|rupture|visible
-      signs of mold/mildew]'
     slot_uri: MIXS:0000822
     multivalued: false
+    range: ROOM_CONDT_ENUM
     required: false
     recommended: false
   room_connected:
@@ -8192,10 +10169,9 @@ slots:
     title: rooms connected by a doorway
     examples:
     - value: office
-    string_serialization: '[attic|bathroom|closet|conference room|elevator|examining
-      room|hallway|kitchen|mail room|office|stairwell]'
     slot_uri: MIXS:0000826
     multivalued: false
+    range: ROOM_CONNECTED_ENUM
     required: false
     recommended: false
   room_count:
@@ -8285,9 +10261,9 @@ slots:
     title: room location in building
     examples:
     - value: interior room
-    string_serialization: '[corner room|interior room|exterior wall]'
     slot_uri: MIXS:0000823
     multivalued: false
+    range: ROOM_LOC_ENUM
     required: false
     recommended: false
   room_moist_dam_hist:
@@ -8344,10 +10320,9 @@ slots:
     title: room sampling position
     examples:
     - value: south corner
-    string_serialization: '[north corner|south corner|west corner|east corner|northeast
-      corner|northwest corner|southeast corner|southwest corner|center]'
     slot_uri: MIXS:0000824
     multivalued: false
+    range: ROOM_SAMP_POS_ENUM
     required: false
     recommended: false
   room_type:
@@ -8560,10 +10535,9 @@ slots:
       was observed at the time of sampling) via a mode of transmission (specified
       in mode_transmission)
     title: route of transmission
-    string_serialization: '[environmental:faecal-oral|transplacental|vector-borne:vector
-      penetration]'
     slot_uri: MIXS:0001316
     multivalued: false
+    range: ROUTE_TRANSMISSION_ENUM
     required: false
     recommended: false
   salinity:
@@ -8624,10 +10598,9 @@ slots:
     title: sample capture status
     examples:
     - value: farm sample
-    string_serialization: '[active surveillance in response to an outbreak|active
-      surveillance not initiated by an outbreak|farm sample|market sample|other]'
     slot_uri: MIXS:0000860
     multivalued: false
+    range: SAMP_CAPT_STATUS_ENUM
     required: false
     recommended: false
   samp_collec_device:
@@ -8693,10 +10666,9 @@ slots:
     title: sample collection point
     examples:
     - value: well
-    string_serialization: '[well|test well|drilling rig|wellhead|separator|storage
-      tank|other]'
     slot_uri: MIXS:0001015
     multivalued: false
+    range: SAMP_COLLECT_POINT_ENUM
     required: true
   samp_dis_stage:
     name: samp_dis_stage
@@ -8709,9 +10681,9 @@ slots:
     title: sample disease stage
     examples:
     - value: infection
-    string_serialization: '[dissemination|growth and reproduction|infection|inoculation|penetration|other]'
     slot_uri: MIXS:0000249
     multivalued: false
+    range: SAMP_DIS_STAGE_ENUM
     required: false
     recommended: false
   samp_floor:
@@ -8724,9 +10696,9 @@ slots:
     title: sampling floor
     examples:
     - value: 4th floor
-    string_serialization: '[1st floor|2nd floor|{integer} floor|basement|lobby]'
     slot_uri: MIXS:0000828
     multivalued: false
+    range: SAMP_FLOOR_ENUM
     required: false
     recommended: false
   samp_loc_condition:
@@ -8739,10 +10711,9 @@ slots:
     title: sample location condition
     examples:
     - value: new
-    string_serialization: '[damaged|new|rupture|visible signs of mold-mildew|visible
-      weariness repair]'
     slot_uri: MIXS:0001257
     multivalued: false
+    range: SAMP_LOC_CONDITION_ENUM
     required: false
     recommended: false
   samp_loc_corr_rate:
@@ -9129,9 +11100,9 @@ slots:
     title: sample subtype
     examples:
     - value: biofilm
-    string_serialization: '[oil phase|water phase|biofilm|not applicable|other]'
     slot_uri: MIXS:0000999
     multivalued: false
+    range: SAMP_SUBTYPE_ENUM
     recommended: true
   samp_surf_moisture:
     name: samp_surf_moisture
@@ -9145,9 +11116,9 @@ slots:
     title: sample surface moisture
     examples:
     - value: submerged
-    string_serialization: '[intermittent moisture|not present|submerged]'
     slot_uri: MIXS:0001256
     multivalued: true
+    range: SAMP_SURF_MOISTURE_ENUM
     required: false
     recommended: false
   samp_taxon_id:
@@ -9214,9 +11185,8 @@ slots:
     title: sample transport  container
     examples:
     - value: cooler
-    string_serialization: '[bottle|cooler|glass vial|plastic vial||vendor supplied
-      container]'
     multivalued: false
+    range: SAMP_TRANSPORT_CONT_ENUM
     required: false
     recommended: false
   samp_transport_dur:
@@ -9316,9 +11286,9 @@ slots:
     title: sampling day weather
     examples:
     - value: foggy
-    string_serialization: '[clear sky|cloudy|foggy|hail|rain|snow|sleet|sunny|windy]'
     slot_uri: MIXS:0000827
     multivalued: false
+    range: SAMP_WEATHER_ENUM
     required: false
     recommended: false
   samp_well_name:
@@ -9467,9 +11437,9 @@ slots:
     title: seasonal use
     examples:
     - value: Winter
-    string_serialization: '[Spring|Summer|Fall|Winter]'
     slot_uri: MIXS:0000830
     multivalued: false
+    range: SEASON_USE_ENUM
     required: false
     recommended: false
   secondary_treatment:
@@ -9496,9 +11466,9 @@ slots:
     title: sediment type
     examples:
     - value: biogenous
-    string_serialization: '[biogenous|cosmogenous|hydrogenous|lithogenous]'
     slot_uri: MIXS:0001078
     multivalued: false
+    range: SEDIMENT_TYPE_ENUM
     required: false
     recommended: false
   seq_meth:
@@ -9533,9 +11503,9 @@ slots:
     - value: none
     in_subset:
     - sequencing
-    string_serialization: '[none|manually edited]'
     slot_uri: MIXS:0000051
     multivalued: false
+    range: SEQ_QUALITY_CHECK_ENUM
   sequencing_kit:
     name: sequencing_kit
     annotations:
@@ -9655,9 +11625,9 @@ slots:
     title: shading device location
     examples:
     - value: exterior
-    string_serialization: '[exterior|interior]'
     slot_uri: MIXS:0000832
     multivalued: false
+    range: SHADING_DEVICE_LOC_ENUM
     required: false
     recommended: false
   shading_device_mat:
@@ -9683,11 +11653,9 @@ slots:
     title: shading device type
     examples:
     - value: slatted aluminum awning
-    string_serialization: '[bahama shutters|exterior roll blind|gambrel awning|hood
-      awning|porchroller awning|sarasota shutters|slatted aluminum|solid aluminum
-      awning|sun screen|tree|trellis|venetian awning]'
     slot_uri: MIXS:0000835
     multivalued: false
+    range: SHADING_DEVICE_TYPE_ENUM
     required: false
     recommended: false
   sieving:
@@ -9747,9 +11715,9 @@ slots:
     - value: enzymatic
     in_subset:
     - sequencing
-    string_serialization: '[chemical|enzymatic|physical|combination]'
     slot_uri: MIXS:0000076
     multivalued: false
+    range: SINGLE_CELL_LYSIS_APPR_ENUM
   single_cell_lysis_prot:
     name: single_cell_lysis_prot
     annotations:
@@ -10034,10 +12002,9 @@ slots:
     title: soil texture classification
     examples:
     - value: silty clay loam
-    string_serialization: '[clay|clay loam|loam|loamy sand|sand|sandy clay|sandy clay
-      loam|sandy loam|silt|silty clay|silty clay loam|silt loam]'
     slot_uri: MIXS:0001164
     multivalued: false
+    range: SOIL_TEXTURE_CLASS_ENUM
     required: false
     recommended: false
   soil_texture_meth:
@@ -10171,10 +12138,9 @@ slots:
     - value: optical manipulation
     in_subset:
     - sequencing
-    string_serialization: '[flow cytometric cell sorting|microfluidics|lazer-tweezing|optical
-      manipulation|micromanipulation|other]'
     slot_uri: MIXS:0000075
     multivalued: false
+    range: SORT_TECH_ENUM
   source_mat_id:
     name: source_mat_id
     annotations:
@@ -10231,9 +12197,9 @@ slots:
     title: space typical state
     examples:
     - value: typically occupied
-    string_serialization: '[typically occupied|typically unoccupied]'
     slot_uri: MIXS:0000770
     multivalued: false
+    range: SPACE_TYP_STATE_ENUM
     required: true
   spec_intended_cons:
     name: spec_intended_cons
@@ -10278,9 +12244,9 @@ slots:
     title: specifications
     examples:
     - value: construction
-    string_serialization: '[operation|as built|construction|bid|design|photos]'
     slot_uri: MIXS:0000836
     multivalued: false
+    range: SPECIFIC_ENUM
     required: false
     recommended: false
   specific_host:
@@ -10479,9 +12445,9 @@ slots:
     title: source rock depositional environment
     examples:
     - value: Marine
-    string_serialization: '[Lacustine|Fluvioldeltaic|Fluviomarine|Marine|other]'
     slot_uri: MIXS:0000996
     multivalued: false
+    range: SR_DEP_ENV_ENUM
     required: false
     recommended: false
   sr_geol_age:
@@ -10514,9 +12480,9 @@ slots:
     title: source rock kerogen type
     examples:
     - value: Type IV
-    string_serialization: '[Type I|Type II|Type III|Type IV|other]'
     slot_uri: MIXS:0000994
     multivalued: false
+    range: SR_KEROG_TYPE_ENUM
     required: false
     recommended: false
   sr_lithology:
@@ -10530,9 +12496,9 @@ slots:
     title: source rock lithology
     examples:
     - value: Coal
-    string_serialization: '[Clastic|Carbonate|Coal|Biosilicieous|other]'
     slot_uri: MIXS:0000995
     multivalued: false
+    range: SR_LITHOLOGY_ENUM
     required: false
     recommended: false
   standing_water_regm:
@@ -10717,9 +12683,9 @@ slots:
     title: substructure type
     examples:
     - value: basement
-    string_serialization: '[crawlspace|slab on grade|basement]'
     slot_uri: MIXS:0000767
     multivalued: true
+    range: SUBSTRUCTURE_TYPE_ENUM
     required: false
     recommended: false
   sulfate:
@@ -10778,10 +12744,9 @@ slots:
     title: surface-air contaminant
     examples:
     - value: radon
-    string_serialization: '[dust|organic matter|particulate matter|volatile organic
-      compounds|biological contaminants|radon|nutrients|biocides]'
     slot_uri: MIXS:0000759
     multivalued: true
+    range: SURF_AIR_CONT_ENUM
     recommended: true
   surf_humidity:
     name: surf_humidity
@@ -10810,10 +12775,9 @@ slots:
     title: surface material
     examples:
     - value: wood
-    string_serialization: '[adobe|carpet|cinder blocks|concrete|hay bales|glass|metal|paint|plastic|stainless
-      steel|stone|stucco|tile|vinyl|wood]'
     slot_uri: MIXS:0000758
     multivalued: false
+    range: SURF_MATERIAL_ENUM
   surf_moisture:
     name: surf_moisture
     annotations:
@@ -10910,9 +12874,9 @@ slots:
     title: symbiotic host organism life cycle type
     examples:
     - value: complex life cycle
-    string_serialization: '[complex life cycle | simple life cycle]'
     slot_uri: MIXS:0001300
     multivalued: false
+    range: SYM_LIFE_CYCLE_TYPE_ENUM
     required: true
   symbiont_host_role:
     name: symbiont_host_role
@@ -10924,10 +12888,9 @@ slots:
     title: host of the symbiont role
     examples:
     - value: intermediate
-    string_serialization: '[accidental|dead-end|definitive|intermediate|paratenic|reservoir|single
-      host]'
     slot_uri: MIXS:0001303
     multivalued: false
+    range: SYMBIONT_HOST_ROLE_ENUM
     recommended: true
   tan:
     name: tan
@@ -11008,9 +12971,9 @@ slots:
     - value: 'other: rpoB gene'
     in_subset:
     - sequencing
-    string_serialization: '[16S rRNA gene|multi-marker approach|other]'
     slot_uri: MIXS:0000053
     multivalued: false
+    range: TAX_IDENT_ENUM
   temp:
     name: temp
     annotations:
@@ -11100,9 +13063,9 @@ slots:
     title: tidal stage
     examples:
     - value: high tide
-    string_serialization: '[low tide|ebb tide|flood tide|high tide]'
     slot_uri: MIXS:0000750
     multivalued: false
+    range: TIDAL_STAGE_ENUM
     required: false
     recommended: false
   tillage:
@@ -11115,9 +13078,8 @@ slots:
     title: history/tillage
     examples:
     - value: chisel
-    string_serialization: '[drill|cutting disc|ridge till|strip tillage|zonal tillage|chisel|tined|mouldboard|disc
-      plough]'
     slot_uri: MIXS:0001081
+    range: TILLAGE_ENUM
   time_last_toothbrush:
     name: time_last_toothbrush
     annotations:
@@ -11467,9 +13429,9 @@ slots:
     title: train line
     examples:
     - value: red
-    string_serialization: '[red|green|orange]'
     slot_uri: MIXS:0000837
     multivalued: false
+    range: TRAIN_LINE_ENUM
     required: false
     recommended: false
   train_stat_loc:
@@ -11482,10 +13444,9 @@ slots:
     title: train station collection location
     examples:
     - value: forest hills
-    string_serialization: '[south station above ground|south station underground|south
-      station amtrak|forest hills|riverside]'
     slot_uri: MIXS:0000838
     multivalued: false
+    range: TRAIN_STAT_LOC_ENUM
     required: false
     recommended: false
   train_stop_loc:
@@ -11498,9 +13459,9 @@ slots:
     title: train stop collection location
     examples:
     - value: end
-    string_serialization: '[end|mid|downtown]'
     slot_uri: MIXS:0000839
     multivalued: false
+    range: TRAIN_STOP_LOC_ENUM
     required: false
     recommended: false
   travel_out_six_month:
@@ -11562,6 +13523,7 @@ slots:
     - nucleic acid sequence source
     slot_uri: MIXS:0000032
     multivalued: false
+    range: TROPHIC_LEVEL_ENUM
   turbidity:
     name: turbidity
     annotations:
@@ -11650,9 +13612,9 @@ slots:
     title: type of symbiosis
     examples:
     - value: parasitic
-    string_serialization: '[commensalistic|mutualistic|parasitic]'
     slot_uri: MIXS:0001307
     multivalued: false
+    range: TYPE_OF_SYMBIOSIS_ENUM
     recommended: true
   urine_collect_meth:
     name: urine_collect_meth
@@ -11664,9 +13626,9 @@ slots:
     title: urine/collection method
     examples:
     - value: catheter
-    string_serialization: '[clean catch|catheter]'
     slot_uri: MIXS:0000899
     multivalued: false
+    range: URINE_COLLECT_METH_ENUM
     required: false
     recommended: false
   url:
@@ -11800,11 +13762,9 @@ slots:
     - value: filtration + FeCl Precipitation + ultracentrifugation + DNAse
     in_subset:
     - nucleic acid sequence source
-    string_serialization: '[filtration|ultrafiltration|centrifugation|ultracentrifugation|PEG
-      Precipitation|FeCl Precipitation|CsCl density gradient|DNAse|RNAse|targeted
-      sequence capture|other|none]'
     slot_uri: MIXS:0000036
     multivalued: false
+    range: VIRUS_ENRICH_APPR_ENUM
   vis_media:
     name: vis_media
     annotations:
@@ -11885,10 +13845,9 @@ slots:
     title: wall construction type
     examples:
     - value: fire resistive
-    string_serialization: '[frame construction|joisted masonry|light noncombustible|masonry
-      noncombustible|modified fire resistive|fire resistive]'
     slot_uri: MIXS:0000841
     multivalued: false
+    range: WALL_CONST_TYPE_ENUM
     required: false
     recommended: false
   wall_finish_mat:
@@ -11901,10 +13860,9 @@ slots:
     title: wall finish material
     examples:
     - value: wood
-    string_serialization: '[plaster|gypsum plaster|veneer plaster|gypsum board|tile|terrazzo|stone
-      facing|acoustical treatment|wood|metal|masonry]'
     slot_uri: MIXS:0000842
     multivalued: false
+    range: WALL_FINISH_MAT_ENUM
     required: false
     recommended: false
   wall_height:
@@ -11948,9 +13906,9 @@ slots:
     title: wall surface treatment
     examples:
     - value: paneling
-    string_serialization: '[painted|wall paper|no treatment|paneling|stucco|fabric]'
     slot_uri: MIXS:0000845
     multivalued: false
+    range: WALL_SURF_TREATMENT_ENUM
     required: false
     recommended: false
   wall_texture:
@@ -11963,10 +13921,9 @@ slots:
     title: wall texture
     examples:
     - value: popcorn
-    string_serialization: '[crows feet|crows-foot stomp||double skip|hawk and trowel|knockdown|popcorn|orange
-      peel|rosebud stomp|Santa-Fe texture|skip trowel|smooth|stomp knockdown|swirl]'
     slot_uri: MIXS:0000846
     multivalued: false
+    range: WALL_TEXTURE_ENUM
     required: false
     recommended: false
   wall_thermal_mass:
@@ -12104,9 +14061,9 @@ slots:
     title: water feature type
     examples:
     - value: stream
-    string_serialization: '[fountain|pool|standing feature|stream|waterfall]'
     slot_uri: MIXS:0000847
     multivalued: false
+    range: WATER_FEAT_TYPE_ENUM
     required: false
     recommended: false
   water_frequency:
@@ -12230,9 +14187,9 @@ slots:
     title: weekday
     examples:
     - value: Sunday
-    string_serialization: '[Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday]'
     slot_uri: MIXS:0000848
     multivalued: false
+    range: WEEKDAY_ENUM
     required: false
     recommended: false
   weight_loss_3_month:
@@ -12266,9 +14223,9 @@ slots:
     - value: mda based
     in_subset:
     - sequencing
-    string_serialization: '[pcr based|mda based]'
     slot_uri: MIXS:0000055
     multivalued: false
+    range: WGA_AMP_APPR_ENUM
   wga_amp_kit:
     name: wga_amp_kit
     annotations:
@@ -12349,9 +14306,9 @@ slots:
     title: window covering
     examples:
     - value: curtains
-    string_serialization: '[blinds|curtains|none]'
     slot_uri: MIXS:0000850
     multivalued: false
+    range: WINDOW_COVER_ENUM
     required: false
     recommended: false
   window_horiz_pos:
@@ -12364,9 +14321,9 @@ slots:
     title: window horizontal position
     examples:
     - value: middle
-    string_serialization: '[left|middle|right]'
     slot_uri: MIXS:0000851
     multivalued: false
+    range: WINDOW_HORIZ_POS_ENUM
     required: false
     recommended: false
   window_loc:
@@ -12394,9 +14351,9 @@ slots:
     title: window material
     examples:
     - value: wood
-    string_serialization: '[clad|fiberglass|metal|vinyl|wood]'
     slot_uri: MIXS:0000853
     multivalued: false
+    range: WINDOW_MAT_ENUM
     required: false
     recommended: false
   window_open_freq:
@@ -12439,9 +14396,9 @@ slots:
     title: window status
     examples:
     - value: open
-    string_serialization: '[closed|open]'
     slot_uri: MIXS:0000855
     multivalued: false
+    range: WINDOW_STATUS_ENUM
     required: false
     recommended: false
   window_type:
@@ -12454,9 +14411,9 @@ slots:
     title: window type
     examples:
     - value: fixed window
-    string_serialization: '[single-hung sash window|horizontal sash window|fixed window]'
     slot_uri: MIXS:0000856
     multivalued: false
+    range: WINDOW_TYPE_ENUM
     required: false
     recommended: false
   window_vert_pos:
@@ -12469,9 +14426,9 @@ slots:
     title: window vertical position
     examples:
     - value: middle
-    string_serialization: '[bottom|middle|top|low|middle|high]'
     slot_uri: MIXS:0000857
     multivalued: false
+    range: WINDOW_VERT_POS_ENUM
     required: false
     recommended: false
   window_water_mold:
@@ -17111,67 +19068,67 @@ classes:
         string_serialization: '{float} {unit}'
   Checklist:
     name: Checklist
-  Migs_ba:
-    name: Migs_ba
+  MigsBa:
+    name: MigsBa
     is_a: Checklist
     slots:
-    - alt
-    - extrachrom_elements
-    - samp_vol_we_dna_ext
-    - pos_cont_type
-    - isol_growth_condt
-    - collection_date
-    - samp_collec_device
-    - lib_layout
-    - num_replicons
-    - pathogenicity
-    - experimental_factor
-    - env_broad_scale
-    - tax_class
-    - env_medium
     - neg_cont_type
-    - source_mat_id
-    - adapters
-    - ref_biomaterial
-    - tax_ident
-    - samp_mat_process
-    - host_spec_range
-    - assembly_qual
+    - compl_software
+    - number_contig
+    - lat_lon
     - estimated_size
+    - samp_name
+    - samp_vol_we_dna_ext
+    - tax_ident
+    - rel_to_oxygen
+    - pathogenicity
+    - env_medium
+    - project_name
+    - trophic_level
     - lib_screen
-    - samp_collec_method
+    - elev
+    - samp_taxon_id
+    - num_replicons
+    - collection_date
+    - host_disease_stat
+    - nucl_acid_amp
+    - adapters
+    - biotic_relationship
+    - pos_cont_type
     - subspecf_gen_lin
-    - assembly_name
+    - compl_score
+    - env_broad_scale
+    - source_mat_id
+    - temp
+    - alt
     - annot
+    - experimental_factor
+    - depth
+    - specific_host
+    - ref_db
+    - host_spec_range
+    - lib_vector
+    - samp_collec_device
     - env_local_scale
+    - encoded_traits
+    - extrachrom_elements
+    - samp_collec_method
+    - seq_meth
+    - assembly_qual
+    - assembly_name
+    - feat_pred
+    - lib_layout
+    - geo_loc_name
+    - tax_class
+    - samp_mat_process
+    - samp_size
+    - isol_growth_condt
     - nucl_acid_ext
     - lib_reads_seqd
-    - temp
-    - nucl_acid_amp
-    - lat_lon
-    - encoded_traits
-    - ref_db
-    - project_name
-    - elev
-    - host_disease_stat
-    - trophic_level
-    - biotic_relationship
-    - samp_size
-    - geo_loc_name
-    - samp_taxon_id
-    - lib_size
-    - seq_meth
-    - feat_pred
-    - specific_host
-    - samp_name
-    - compl_score
-    - compl_software
-    - sim_search_meth
-    - rel_to_oxygen
-    - depth
-    - number_contig
     - assembly_software
-    - lib_vector
+    - ref_biomaterial
+    - sim_search_meth
+    - lib_size
     - associated_resource
     - sop
     slot_usage:
@@ -17423,67 +19380,67 @@ classes:
         name: trophic_level
         string_serialization: '[autotroph|carboxydotroph|chemoautotroph|chemoheterotroph|chemolithoautotroph|chemolithotroph|chemoorganoheterotroph|chemoorganotroph|chemosynthetic|chemotroph|copiotroph|diazotroph|facultative|autotroph|heterotroph|lithoautotroph|lithoheterotroph|lithotroph|methanotroph|methylotroph|mixotroph|obligate|chemoautolithotroph|oligotroph|organoheterotroph|organotroph|photoautotroph|photoheterotroph|photolithoautotroph|photolithotroph|photosynthetic|phototroph]'
         recommended: true
-  Migs_eu:
-    name: Migs_eu
+  MigsEu:
+    name: MigsEu
     is_a: Checklist
     slots:
-    - alt
-    - extrachrom_elements
-    - samp_vol_we_dna_ext
-    - pos_cont_type
-    - isol_growth_condt
-    - collection_date
-    - samp_collec_device
-    - lib_layout
-    - num_replicons
-    - pathogenicity
-    - experimental_factor
-    - env_broad_scale
-    - tax_class
-    - env_medium
     - neg_cont_type
-    - source_mat_id
-    - adapters
-    - ref_biomaterial
-    - tax_ident
-    - samp_mat_process
-    - host_spec_range
-    - assembly_qual
+    - compl_software
+    - number_contig
+    - lat_lon
     - estimated_size
+    - samp_name
+    - samp_vol_we_dna_ext
+    - tax_ident
+    - pathogenicity
+    - env_medium
+    - project_name
+    - ploidy
+    - trophic_level
     - lib_screen
-    - samp_collec_method
+    - propagation
+    - elev
+    - samp_taxon_id
+    - num_replicons
+    - collection_date
+    - host_disease_stat
+    - nucl_acid_amp
+    - adapters
+    - biotic_relationship
+    - pos_cont_type
     - subspecf_gen_lin
-    - assembly_name
+    - compl_score
+    - env_broad_scale
+    - source_mat_id
+    - temp
+    - alt
     - annot
+    - experimental_factor
+    - depth
+    - specific_host
+    - ref_db
+    - host_spec_range
+    - lib_vector
+    - samp_collec_device
     - env_local_scale
+    - extrachrom_elements
+    - samp_collec_method
+    - seq_meth
+    - assembly_qual
+    - assembly_name
+    - feat_pred
+    - lib_layout
+    - geo_loc_name
+    - tax_class
+    - samp_mat_process
+    - samp_size
+    - isol_growth_condt
     - nucl_acid_ext
     - lib_reads_seqd
-    - temp
-    - nucl_acid_amp
-    - lat_lon
-    - ploidy
-    - ref_db
-    - project_name
-    - elev
-    - host_disease_stat
-    - trophic_level
-    - biotic_relationship
-    - number_contig
-    - samp_size
-    - geo_loc_name
-    - samp_taxon_id
-    - lib_size
-    - seq_meth
-    - feat_pred
-    - specific_host
-    - samp_name
-    - compl_score
-    - compl_software
-    - sim_search_meth
-    - depth
-    - propagation
     - assembly_software
-    - lib_vector
+    - ref_biomaterial
+    - sim_search_meth
+    - lib_size
     - associated_resource
     - sop
     slot_usage:
@@ -17741,58 +19698,58 @@ classes:
         name: trophic_level
         string_serialization: '[autotroph|carboxydotroph|chemoautotroph|chemoheterotroph|chemolithoautotroph|chemolithotroph|chemoorganoheterotroph|chemoorganotroph|chemosynthetic|chemotroph|copiotroph|diazotroph|facultative|autotroph|heterotroph|lithoautotroph|lithoheterotroph|lithotroph|methanotroph|methylotroph|mixotroph|obligate|chemoautolithotroph|oligotroph|organoheterotroph|organotroph|photoautotroph|photoheterotroph|photolithoautotroph|photolithotroph|photosynthetic|phototroph]'
         recommended: true
-  Migs_org:
-    name: Migs_org
+  MigsOrg:
+    name: MigsOrg
     is_a: Checklist
     slots:
-    - alt
-    - extrachrom_elements
-    - samp_vol_we_dna_ext
-    - pos_cont_type
-    - isol_growth_condt
-    - collection_date
-    - samp_collec_device
-    - lib_layout
-    - experimental_factor
-    - env_broad_scale
-    - tax_class
-    - env_medium
     - neg_cont_type
-    - source_mat_id
-    - adapters
-    - ref_biomaterial
-    - tax_ident
-    - samp_mat_process
-    - assembly_qual
-    - estimated_size
-    - lib_screen
-    - samp_collec_method
-    - subspecf_gen_lin
-    - assembly_name
-    - annot
-    - env_local_scale
-    - nucl_acid_ext
-    - lib_reads_seqd
-    - temp
-    - nucl_acid_amp
+    - compl_software
+    - number_contig
     - lat_lon
-    - ref_db
+    - estimated_size
+    - samp_name
+    - samp_vol_we_dna_ext
+    - tax_ident
+    - env_medium
     - project_name
     - elev
-    - samp_size
-    - geo_loc_name
+    - lib_screen
     - samp_taxon_id
-    - lib_size
-    - seq_meth
-    - feat_pred
+    - collection_date
+    - nucl_acid_amp
+    - adapters
+    - pos_cont_type
+    - subspecf_gen_lin
     - compl_score
-    - samp_name
-    - compl_software
-    - sim_search_meth
+    - env_broad_scale
+    - source_mat_id
+    - temp
+    - alt
+    - annot
+    - experimental_factor
     - depth
-    - number_contig
-    - assembly_software
+    - ref_db
     - lib_vector
+    - samp_collec_device
+    - env_local_scale
+    - extrachrom_elements
+    - samp_collec_method
+    - seq_meth
+    - assembly_qual
+    - assembly_name
+    - feat_pred
+    - lib_layout
+    - geo_loc_name
+    - tax_class
+    - samp_mat_process
+    - samp_size
+    - isol_growth_condt
+    - nucl_acid_ext
+    - lib_reads_seqd
+    - assembly_software
+    - ref_biomaterial
+    - sim_search_meth
+    - lib_size
     - associated_resource
     - sop
     slot_usage:
@@ -18007,61 +19964,61 @@ classes:
       temp:
         name: temp
         recommended: true
-  Migs_pl:
-    name: Migs_pl
+  MigsPl:
+    name: MigsPl
     is_a: Checklist
     slots:
-    - alt
-    - samp_vol_we_dna_ext
-    - pos_cont_type
-    - isol_growth_condt
-    - collection_date
-    - samp_collec_device
-    - lib_layout
-    - experimental_factor
-    - env_broad_scale
-    - tax_class
-    - env_medium
     - neg_cont_type
-    - source_mat_id
-    - adapters
-    - ref_biomaterial
-    - tax_ident
-    - samp_mat_process
-    - host_spec_range
-    - assembly_qual
-    - estimated_size
-    - lib_screen
-    - samp_collec_method
-    - subspecf_gen_lin
-    - assembly_name
-    - annot
-    - env_local_scale
-    - nucl_acid_ext
-    - lib_reads_seqd
-    - temp
-    - nucl_acid_amp
+    - compl_software
+    - number_contig
     - lat_lon
-    - encoded_traits
-    - ref_db
+    - estimated_size
+    - samp_name
+    - samp_vol_we_dna_ext
+    - tax_ident
+    - env_medium
     - project_name
     - elev
-    - number_contig
-    - samp_size
-    - geo_loc_name
-    - samp_taxon_id
-    - lib_size
-    - seq_meth
-    - feat_pred
-    - specific_host
-    - samp_name
-    - compl_score
-    - compl_software
-    - sim_search_meth
-    - depth
+    - lib_screen
     - propagation
-    - assembly_software
+    - samp_taxon_id
+    - collection_date
+    - nucl_acid_amp
+    - adapters
+    - pos_cont_type
+    - subspecf_gen_lin
+    - compl_score
+    - env_broad_scale
+    - source_mat_id
+    - temp
+    - alt
+    - annot
+    - depth
+    - experimental_factor
+    - specific_host
+    - ref_db
+    - host_spec_range
     - lib_vector
+    - samp_collec_device
+    - env_local_scale
+    - encoded_traits
+    - samp_collec_method
+    - seq_meth
+    - assembly_qual
+    - assembly_name
+    - feat_pred
+    - lib_layout
+    - geo_loc_name
+    - tax_class
+    - samp_mat_process
+    - samp_size
+    - isol_growth_condt
+    - nucl_acid_ext
+    - lib_reads_seqd
+    - assembly_software
+    - ref_biomaterial
+    - sim_search_meth
+    - lib_size
     - associated_resource
     - sop
     slot_usage:
@@ -18286,66 +20243,66 @@ classes:
       temp:
         name: temp
         recommended: true
-  Migs_vi:
-    name: Migs_vi
+  MigsVi:
+    name: MigsVi
     is_a: Checklist
     slots:
-    - alt
-    - samp_vol_we_dna_ext
-    - pos_cont_type
-    - isol_growth_condt
-    - collection_date
-    - samp_collec_device
-    - lib_layout
-    - num_replicons
-    - pathogenicity
-    - experimental_factor
-    - env_broad_scale
-    - tax_class
-    - env_medium
     - neg_cont_type
-    - source_mat_id
-    - adapters
-    - ref_biomaterial
-    - tax_ident
-    - samp_mat_process
-    - host_spec_range
-    - assembly_qual
-    - estimated_size
-    - lib_screen
-    - subspecf_gen_lin
-    - samp_collec_method
-    - virus_enrich_appr
-    - assembly_name
-    - annot
-    - env_local_scale
-    - nucl_acid_ext
-    - lib_reads_seqd
-    - temp
-    - nucl_acid_amp
+    - compl_software
+    - number_contig
     - lat_lon
-    - encoded_traits
-    - ref_db
+    - estimated_size
+    - samp_name
+    - samp_vol_we_dna_ext
+    - tax_ident
+    - pathogenicity
+    - env_medium
     - project_name
     - elev
-    - host_disease_stat
-    - biotic_relationship
-    - number_contig
-    - samp_size
-    - geo_loc_name
-    - samp_taxon_id
-    - lib_size
-    - seq_meth
-    - feat_pred
-    - specific_host
-    - samp_name
-    - compl_score
-    - compl_software
-    - sim_search_meth
-    - depth
+    - lib_screen
+    - virus_enrich_appr
     - propagation
-    - assembly_software
+    - samp_taxon_id
+    - num_replicons
+    - collection_date
+    - host_disease_stat
+    - nucl_acid_amp
+    - adapters
+    - biotic_relationship
+    - pos_cont_type
+    - subspecf_gen_lin
+    - compl_score
+    - env_broad_scale
+    - source_mat_id
+    - temp
+    - alt
+    - annot
+    - experimental_factor
+    - depth
+    - specific_host
+    - ref_db
+    - host_spec_range
     - lib_vector
+    - samp_collec_device
+    - env_local_scale
+    - encoded_traits
+    - samp_collec_method
+    - seq_meth
+    - assembly_qual
+    - assembly_name
+    - feat_pred
+    - lib_layout
+    - geo_loc_name
+    - tax_class
+    - samp_mat_process
+    - samp_size
+    - isol_growth_condt
+    - nucl_acid_ext
+    - lib_reads_seqd
+    - assembly_software
+    - ref_biomaterial
+    - sim_search_meth
+    - lib_size
     - associated_resource
     - sop
     slot_usage:
@@ -18599,66 +20556,66 @@ classes:
     name: Mimag
     is_a: Checklist
     slots:
-    - contam_screen_input
-    - alt
-    - samp_vol_we_dna_ext
-    - 16s_recover
-    - pos_cont_type
-    - compl_appr
-    - collection_date
-    - samp_collec_device
-    - lib_layout
-    - experimental_factor
-    - env_broad_scale
-    - tax_class
-    - env_medium
     - neg_cont_type
-    - source_mat_id
-    - adapters
-    - ref_biomaterial
-    - tax_ident
-    - samp_mat_process
-    - assembly_qual
-    - contam_screen_param
-    - assembly_name
-    - lib_screen
-    - samp_collec_method
-    - annot
-    - reassembly_bin
-    - env_local_scale
-    - nucl_acid_ext
-    - lib_reads_seqd
-    - temp
-    - nucl_acid_amp
-    - trnas
+    - compl_software
+    - number_contig
     - lat_lon
-    - ref_db
-    - decontam_software
-    - bin_param
+    - samp_name
+    - samp_vol_we_dna_ext
+    - tax_ident
+    - rel_to_oxygen
+    - 16s_recover
+    - env_medium
     - project_name
     - elev
-    - samp_size
-    - 16s_recover_software
-    - geo_loc_name
+    - lib_screen
     - samp_taxon_id
-    - lib_size
-    - seq_meth
-    - feat_pred
+    - decontam_software
+    - collection_date
+    - compl_appr
+    - nucl_acid_amp
+    - adapters
+    - pos_cont_type
     - compl_score
-    - samp_name
-    - compl_software
+    - env_broad_scale
+    - source_mat_id
+    - contam_screen_input
+    - temp
+    - size_frac
+    - alt
+    - annot
+    - experimental_factor
+    - depth
+    - ref_db
+    - mid
+    - trnas
+    - contam_screen_param
+    - lib_vector
+    - samp_collec_device
+    - env_local_scale
+    - 16s_recover_software
+    - samp_collec_method
+    - seq_meth
+    - assembly_qual
+    - assembly_name
+    - feat_pred
+    - lib_layout
+    - geo_loc_name
+    - tax_class
+    - samp_mat_process
     - trna_ext_software
     - bin_software
-    - size_frac
+    - samp_size
+    - bin_param
     - contam_score
-    - sim_search_meth
-    - rel_to_oxygen
-    - mag_cov_software
-    - depth
-    - number_contig
+    - nucl_acid_ext
+    - lib_reads_seqd
     - assembly_software
-    - lib_vector
-    - mid
+    - ref_biomaterial
+    - sim_search_meth
+    - mag_cov_software
+    - lib_size
+    - reassembly_bin
     - associated_resource
     - sop
     slot_usage:
@@ -18907,47 +20864,47 @@ classes:
         name: trnas
         required: false
         recommended: false
-  Mimarks_c:
-    name: Mimarks_c
+  MimarksC:
+    name: MimarksC
     is_a: Checklist
     slots:
-    - alt
-    - extrachrom_elements
-    - samp_vol_we_dna_ext
-    - pos_cont_type
-    - isol_growth_condt
-    - pcr_primers
-    - collection_date
-    - pcr_cond
-    - samp_collec_device
-    - experimental_factor
-    - env_broad_scale
-    - env_medium
     - neg_cont_type
-    - source_mat_id
-    - samp_mat_process
-    - target_subfragment
-    - subspecf_gen_lin
-    - samp_collec_method
-    - env_local_scale
-    - nucl_acid_ext
-    - chimera_check
-    - temp
-    - nucl_acid_amp
     - lat_lon
-    - seq_quality_check
+    - samp_name
+    - samp_vol_we_dna_ext
+    - rel_to_oxygen
+    - env_medium
+    - chimera_check
+    - trophic_level
     - project_name
     - elev
-    - trophic_level
-    - biotic_relationship
-    - samp_size
-    - geo_loc_name
     - samp_taxon_id
-    - seq_meth
-    - samp_name
+    - collection_date
+    - nucl_acid_amp
+    - biotic_relationship
     - target_gene
-    - rel_to_oxygen
+    - target_subfragment
+    - pos_cont_type
+    - pcr_primers
+    - subspecf_gen_lin
+    - env_broad_scale
+    - source_mat_id
+    - temp
+    - alt
+    - experimental_factor
     - depth
+    - pcr_cond
+    - samp_collec_device
+    - env_local_scale
+    - extrachrom_elements
+    - samp_collec_method
+    - seq_meth
+    - geo_loc_name
+    - samp_mat_process
+    - samp_size
+    - isol_growth_condt
+    - nucl_acid_ext
+    - seq_quality_check
     - associated_resource
     - sop
     slot_usage:
@@ -19115,51 +21072,51 @@ classes:
         name: trophic_level
         string_serialization: '[autotroph|carboxydotroph|chemoautotroph|chemoheterotroph|chemolithoautotroph|chemolithotroph|chemoorganoheterotroph|chemoorganotroph|chemosynthetic|chemotroph|copiotroph|diazotroph|facultative|autotroph|heterotroph|lithoautotroph|lithoheterotroph|lithotroph|methanotroph|methylotroph|mixotroph|obligate|chemoautolithotroph|oligotroph|organoheterotroph|organotroph|photoautotroph|photoheterotroph|photolithoautotroph|photolithotroph|photosynthetic|phototroph]'
         recommended: true
-  Mimarks_s:
-    name: Mimarks_s
+  MimarksS:
+    name: MimarksS
     is_a: Checklist
     slots:
-    - alt
+    - neg_cont_type
+    - lat_lon
+    - samp_name
     - samp_vol_we_dna_ext
+    - rel_to_oxygen
+    - env_medium
+    - chimera_check
+    - project_name
+    - lib_screen
+    - elev
+    - samp_taxon_id
+    - collection_date
+    - nucl_acid_amp
+    - adapters
+    - target_gene
+    - target_subfragment
     - pos_cont_type
     - pcr_primers
-    - collection_date
-    - pcr_cond
-    - samp_collec_device
-    - lib_layout
-    - experimental_factor
     - env_broad_scale
-    - env_medium
-    - neg_cont_type
     - source_mat_id
-    - adapters
-    - samp_mat_process
-    - target_subfragment
-    - lib_screen
-    - samp_collec_method
+    - temp
+    - size_frac
+    - alt
+    - depth
+    - experimental_factor
+    - mid
+    - pcr_cond
+    - lib_vector
+    - samp_collec_device
     - env_local_scale
+    - samp_collec_method
+    - seq_meth
+    - lib_layout
+    - geo_loc_name
+    - samp_mat_process
+    - samp_size
     - nucl_acid_ext
     - lib_reads_seqd
-    - chimera_check
-    - temp
-    - nucl_acid_amp
-    - lat_lon
-    - seq_quality_check
-    - project_name
-    - elev
-    - samp_size
-    - geo_loc_name
-    - samp_taxon_id
-    - lib_size
-    - seq_meth
-    - samp_name
-    - size_frac
-    - target_gene
-    - rel_to_oxygen
-    - depth
     - assembly_software
-    - lib_vector
-    - mid
+    - lib_size
+    - seq_quality_check
     - associated_resource
     - sop
     slot_usage:
@@ -19344,50 +21301,50 @@ classes:
     name: Mims
     is_a: Checklist
     slots:
-    - alt
-    - samp_vol_we_dna_ext
-    - pos_cont_type
-    - collection_date
-    - samp_collec_device
-    - lib_layout
-    - experimental_factor
-    - env_broad_scale
-    - tax_class
-    - env_medium
     - neg_cont_type
-    - source_mat_id
-    - adapters
-    - ref_biomaterial
-    - samp_mat_process
-    - assembly_qual
-    - assembly_name
-    - lib_screen
-    - samp_collec_method
-    - annot
-    - env_local_scale
-    - nucl_acid_ext
-    - lib_reads_seqd
-    - temp
-    - nucl_acid_amp
+    - number_contig
     - lat_lon
-    - ref_db
+    - samp_name
+    - samp_vol_we_dna_ext
+    - rel_to_oxygen
+    - env_medium
     - project_name
     - elev
-    - samp_size
-    - geo_loc_name
+    - lib_screen
     - samp_taxon_id
-    - lib_size
-    - seq_meth
-    - feat_pred
-    - samp_name
+    - collection_date
+    - nucl_acid_amp
+    - adapters
+    - pos_cont_type
+    - env_broad_scale
+    - source_mat_id
+    - temp
     - size_frac
-    - sim_search_meth
-    - rel_to_oxygen
+    - alt
+    - annot
+    - experimental_factor
     - depth
-    - number_contig
-    - assembly_software
-    - lib_vector
+    - ref_db
     - mid
+    - lib_vector
+    - samp_collec_device
+    - env_local_scale
+    - samp_collec_method
+    - seq_meth
+    - assembly_qual
+    - assembly_name
+    - feat_pred
+    - lib_layout
+    - geo_loc_name
+    - tax_class
+    - samp_mat_process
+    - samp_size
+    - nucl_acid_ext
+    - lib_reads_seqd
+    - assembly_software
+    - ref_biomaterial
+    - sim_search_meth
+    - lib_size
     - associated_resource
     - sop
     slot_usage:
@@ -19580,67 +21537,67 @@ classes:
     name: Misag
     is_a: Checklist
     slots:
-    - contam_screen_input
-    - alt
-    - samp_vol_we_dna_ext
-    - 16s_recover
-    - pos_cont_type
-    - compl_appr
-    - collection_date
-    - wga_amp_appr
-    - samp_collec_device
-    - lib_layout
-    - experimental_factor
-    - env_broad_scale
-    - tax_class
-    - env_medium
-    - sort_tech
     - neg_cont_type
-    - source_mat_id
-    - adapters
-    - ref_biomaterial
-    - tax_ident
-    - samp_mat_process
-    - assembly_qual
-    - contam_screen_param
-    - single_cell_lysis_prot
-    - assembly_name
-    - lib_screen
-    - samp_collec_method
-    - annot
-    - env_local_scale
-    - nucl_acid_ext
-    - lib_reads_seqd
-    - temp
-    - nucl_acid_amp
-    - trnas
+    - compl_software
+    - number_contig
     - lat_lon
-    - ref_db
-    - decontam_software
+    - sort_tech
+    - samp_name
+    - samp_vol_we_dna_ext
+    - tax_ident
+    - rel_to_oxygen
+    - 16s_recover
+    - env_medium
+    - wga_amp_appr
     - project_name
     - elev
-    - wga_amp_kit
-    - single_cell_lysis_appr
-    - samp_size
-    - 16s_recover_software
-    - geo_loc_name
+    - lib_screen
     - samp_taxon_id
-    - lib_size
-    - seq_meth
-    - feat_pred
+    - decontam_software
+    - collection_date
+    - compl_appr
+    - single_cell_lysis_prot
+    - nucl_acid_amp
+    - adapters
+    - pos_cont_type
     - compl_score
-    - samp_name
-    - compl_software
-    - trna_ext_software
+    - env_broad_scale
+    - source_mat_id
+    - contam_screen_input
+    - temp
     - size_frac
-    - contam_score
-    - sim_search_meth
-    - rel_to_oxygen
+    - alt
+    - annot
+    - experimental_factor
     - depth
-    - number_contig
-    - assembly_software
-    - lib_vector
+    - ref_db
     - mid
+    - trnas
+    - contam_screen_param
+    - lib_vector
+    - samp_collec_device
+    - wga_amp_kit
+    - env_local_scale
+    - 16s_recover_software
+    - samp_collec_method
+    - seq_meth
+    - assembly_qual
+    - assembly_name
+    - feat_pred
+    - lib_layout
+    - geo_loc_name
+    - tax_class
+    - samp_mat_process
+    - trna_ext_software
+    - samp_size
+    - single_cell_lysis_appr
+    - contam_score
+    - nucl_acid_ext
+    - lib_reads_seqd
+    - assembly_software
+    - ref_biomaterial
+    - sim_search_meth
+    - lib_size
     - associated_resource
     - sop
     slot_usage:
@@ -20066,63 +22023,63 @@ classes:
     name: Miuvig
     is_a: Checklist
     slots:
-    - alt
-    - samp_vol_we_dna_ext
-    - pos_cont_type
-    - compl_appr
-    - collection_date
-    - samp_collec_device
-    - lib_layout
-    - pathogenicity
-    - experimental_factor
-    - env_broad_scale
-    - tax_class
-    - env_medium
     - neg_cont_type
-    - source_mat_id
-    - adapters
-    - ref_biomaterial
-    - tax_ident
-    - samp_mat_process
-    - host_spec_range
-    - assembly_qual
-    - estimated_size
-    - lib_screen
-    - samp_collec_method
-    - virus_enrich_appr
-    - assembly_name
-    - annot
-    - env_local_scale
-    - nucl_acid_ext
-    - lib_reads_seqd
-    - temp
-    - nucl_acid_amp
-    - trnas
+    - compl_software
+    - number_contig
     - lat_lon
-    - ref_db
+    - estimated_size
+    - samp_name
+    - samp_vol_we_dna_ext
+    - tax_ident
+    - pathogenicity
+    - env_medium
     - project_name
     - elev
-    - host_disease_stat
-    - biotic_relationship
-    - samp_size
-    - geo_loc_name
+    - lib_screen
+    - virus_enrich_appr
     - samp_taxon_id
-    - lib_size
-    - seq_meth
-    - feat_pred
-    - specific_host
-    - samp_name
-    - compl_score
-    - trna_ext_software
-    - compl_software
-    - size_frac
-    - sim_search_meth
+    - collection_date
+    - host_disease_stat
+    - compl_appr
+    - nucl_acid_amp
+    - adapters
+    - biotic_relationship
     - source_uvig
+    - pos_cont_type
+    - compl_score
+    - env_broad_scale
+    - source_mat_id
+    - temp
+    - size_frac
+    - alt
+    - annot
     - depth
-    - number_contig
-    - assembly_software
-    - lib_vector
+    - experimental_factor
+    - specific_host
+    - ref_db
     - mid
+    - trnas
+    - host_spec_range
+    - lib_vector
+    - samp_collec_device
+    - env_local_scale
+    - samp_collec_method
+    - seq_meth
+    - assembly_qual
+    - assembly_name
+    - feat_pred
+    - lib_layout
+    - geo_loc_name
+    - tax_class
+    - samp_mat_process
+    - trna_ext_software
+    - samp_size
+    - nucl_acid_ext
+    - lib_reads_seqd
+    - assembly_software
+    - ref_biomaterial
+    - sim_search_meth
+    - lib_size
     - sort_tech
     - single_cell_lysis_appr
     - single_cell_lysis_prot
