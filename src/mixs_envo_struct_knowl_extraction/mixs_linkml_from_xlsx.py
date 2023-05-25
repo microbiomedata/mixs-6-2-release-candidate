@@ -66,7 +66,8 @@ debug_mode = False
 non_ascii_replacement = ' '
 
 base_url = 'https://github.com/GenomicsStandardsConsortium/mixs/raw/main/mixs/excel/'
-file_path = 'mixs_v6.xlsx'
+excel_file_name = 'mixs_v6.xlsx'
+dest_dir = 'generated'
 
 # prior knowledge
 checklists = ['migs_ba', 'migs_eu', 'migs_org', 'migs_pl', 'migs_vi', 'mimag', 'mimarks_c', 'mimarks_s', 'mims',
@@ -77,13 +78,13 @@ scn_key = 'Structured comment name'
 
 consensus_annotation = Annotation(tag="consensus", value="true")
 
-file_url = base_url + file_path
+file_url = base_url + excel_file_name
 
 schema_name = 'GSC_MIxS_6'
 
-schema_file_name = f"{schema_name}.yaml"
+schema_file_name = f"{dest_dir}/{schema_name}.yaml"
 
-harmonized_sheets_file_name = f"{file_path}.harmonized.tsv"
+harmonized_sheets_file_name = f"{dest_dir}/{excel_file_name}.harmonized.tsv"
 
 string_ser_exp_val_to_range_pattern_file = "data/string_ser_exp_val_to range_pattern.tsv"
 
@@ -141,11 +142,11 @@ def instantiate_classes(df: pd.DataFrame) -> None:
 def harmonize_sheets(url: str) -> pd.DataFrame:
     # Download the Excel file
     response = requests.get(url)
-    with open(file_path, 'wb') as file:
+    with open(f"{dest_dir}/{excel_file_name}", 'wb') as file:
         file.write(response.content)
 
     # Open the desired sheets into pandas data frames
-    df_mixs = pd.read_excel(file_path, sheet_name='MIxS')
+    df_mixs = pd.read_excel(f"{dest_dir}/{excel_file_name}", sheet_name='MIxS')
 
     # List of column names to delete
     columns_to_delete = [' ']
@@ -178,7 +179,7 @@ def harmonize_sheets(url: str) -> pd.DataFrame:
 
     by_scn_and_class_col_list = mixs_by_scn_and_class_renamed.columns.tolist()
 
-    df_env_packages = pd.read_excel(file_path, sheet_name='environmental_packages')
+    df_env_packages = pd.read_excel(f"{dest_dir}/{excel_file_name}", sheet_name='environmental_packages')
 
     column_mapping = {
         'Environmental package': 'class',

@@ -1,31 +1,20 @@
-import csv
-import pprint
 import random
-
-from openpyxl import load_workbook
-
-import requests
-
 import re
-
-import pandas as pd
-
-from sklearn.feature_extraction.text import CountVectorizer
-
-from nltk.stem import PorterStemmer
-
-from nltk.corpus import words
+import string
 
 import nltk
-
-import random
-import string
+import pandas as pd
+from nltk.corpus import words
+from nltk.stem import PorterStemmer
+from sklearn.feature_extraction.text import CountVectorizer
 
 nltk.download('words')
 
+dest_dir = "generated"
+
 combined_sheets = "mixs_v6.xlsx.harmonized.tsv"
 
-output_file = f"{combined_sheets}.dtm.tsv"
+output_file = f"{dest_dir}/{combined_sheets}.dtm.tsv"
 
 
 def gen_rand_letter_number(k=2):
@@ -34,8 +23,8 @@ def gen_rand_letter_number(k=2):
     return random_string
 
 
-def replace_punctuation_and_whitespace(string):
-    stripped = string.strip()
+def replace_punctuation_and_whitespace(text):
+    stripped = text.strip()
 
     # Replace punctuation and whitespace with underscores
     replaced = re.sub(r'\W+', '_', stripped)
@@ -48,7 +37,7 @@ def replace_punctuation_and_whitespace(string):
     return final_result
 
 
-df = pd.read_csv(combined_sheets, sep='\t', dtype=str)
+df = pd.read_csv(f"{dest_dir}/{combined_sheets}", sep='\t', dtype=str)
 
 # Create an instance of CountVectorizer with stop word removal, custom tokenizer, and modified token pattern
 vectorizer = CountVectorizer(
