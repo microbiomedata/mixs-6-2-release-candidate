@@ -17,6 +17,7 @@ scikit-learn = "^1.2.2"
 nltk = "^3.8.1"
 linkml = "^1.5.3"
 gen-pop-linkml2sheets = "^0.1.8"
+check-jsonschema = "^0.23.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.1.3"

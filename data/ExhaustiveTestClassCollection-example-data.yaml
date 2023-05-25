@@ -1,0 +1,48 @@
+exhaustive_test_set:
+  - address: "123 Main Street"
+    Food_source: xxx
+    abs_air_humidity: 123 units
+    add_recov_method: xxx
+    alt: 100 meters
+    api: 123 units
+    basin: xxx
+    building_setting: xxx
+    coll_site_geo_feat: xxx
+    collection_date: xxx
+    env_broad_scale: term [ONTOLOGY:123]
+    env_local_scale: term [ONTOLOGY:123]
+    env_medium: term [ONTOLOGY:123]
+    geo_loc_name: xxx
+    hc_produced: xxx
+    hcr: xxx
+    host_dependence: xxx
+    indoor_space: xxx
+    iwf: 123 units
+    lat_lon: xxx
+    microbial_biomass_meth: xxx
+    occup_density_samp: 1.9
+    occup_samp: 1.9
+    project_name: xxx
+    rel_air_humidity: 123 units
+    samp_collect_point: xxx
+    samp_name: xxx
+    samp_taxon_id: xxx
+    samp_type: xxx
+    sample_name: xxx
+    seq_meth: xxx
+    space_typ_state: xxx
+    sym_life_cycle_type: simple life cycle
+    typ_occup_density: 1.9
+    water_cut: 123 units
+    IFSAC_category:
+      - xxx
+    build_occup_type:
+      - xxx
+    filter_type:
+      - xxx
+    food_product_type:
+      - xxx
+    heat_cool_type:
+      - xxx
+    light_type:
+      - xxx
