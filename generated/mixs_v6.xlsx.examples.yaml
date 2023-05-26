@@ -50,6 +50,7 @@ exhaustive_test_set:
   annual_temp: 12.5 degree Celsius
   antibiotic_regm:
   - penicillin;5 milligram;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M
+  api: 31.1 API
   arch_struc: shed
   area_samp_size: 12 centimeter x 12 centimeter
   assembly_name: HuRef, JCVI_ISG_i3_1.0
@@ -67,6 +68,7 @@ exhaustive_test_set:
   bacteria_carb_prod: 2.53 microgram per liter per hour
   bacterial_density: 10 colony forming units per gram dry weight
   barometric_press: 5 millibar
+  basin: Campos
   bathroom_count: 1
   bedroom_count: 2
   bin_param: coverage and kmer
@@ -90,7 +92,7 @@ exhaustive_test_set:
   calcium: 0.2 micromole per liter
   carb_dioxide: 410 parts per million
   carb_monoxide: 0.1 parts per million
-  carb_nitro_ratio: '0.417361111'
+  carb_nitro_ratio: 0.417361111
   ceil_area: 25 square meter
   ceil_cond: damaged
   ceil_finish_mat: stucco
@@ -108,6 +110,8 @@ exhaustive_test_set:
   chlorophyll: 5 milligram per cubic meter
   climate_environment:
   - tropical climate;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M
+  coll_site_geo_feat: farm [ENVO:00000078]
+  collection_date: '2023-01-15 00:00:00'
   compl_appr: 'other: UViG length compared to the average length of reference genomes
     from the P22virus genus (NCBI RefSeq v83)'
   compl_score: med;60%
@@ -174,6 +178,9 @@ exhaustive_test_set:
   encoded_traits: beta-lactamase class A
   enrichment_protocol: 'BAM Chapter 4: Enumeration of Escherichia coli and the Coliform
     Bacteria'
+  env_broad_scale: rangeland biome [ENVO:01000247]
+  env_local_scale: hillside [ENVO:01000333]
+  env_medium: bluegrass field soil [ENVO:00005789]
   env_monitoring_zone: Zone 1
   escalator: 4
   estimated_size: 300000 bp
@@ -294,7 +301,7 @@ exhaustive_test_set:
   herbicide_regm:
   - atrazine;10 milligram per liter;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M
   host_body_mass_index: 22 kilogram per square meter
-  host_body_product: Portion of mucus [fma66938]
+  host_body_product: mucus [FMA:66938]
   host_cellular_loc: extracellular
   host_dependence: obligate
   host_dry_mass: 500 gram
@@ -339,6 +346,7 @@ exhaustive_test_set:
   - 9606 o rsenior as food consumer [FOODON:03510254]
   isol_growth_condt: 'doi: 10.1016/j.syapm.2018.01.009'
   iw_bt_date_well: '2018-05-11 00:00:00'
+  iwf: 87%
   last_clean: 2018-05-11:T14:30Z
   lat_lon: 50.586825 6.408977
   lib_layout: paired
@@ -372,6 +380,7 @@ exhaustive_test_set:
     inoculation
   microb_start_source: backslopped, GetCulture
   microb_start_taxID: Lactobacillus rhamnosus [NCIT:C123495]
+  microbial_biomass_meth: http://dx.doi.org/10.1016/j.soilbio.2005.01.021
   mid: GTGAATAT
   mineral_nutr_regm:
   - potassium;15 gram;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M
@@ -392,8 +401,9 @@ exhaustive_test_set:
   num_replicons: '2'
   num_samp_collect: 116 samples
   number_contig: 40
+  occup_density_samp: 0.1
   occup_document: estimate
-  occup_samp: '10'
+  occup_samp: 10.0
   org_carb: 1.5 microgram per liter
   org_matter: 1.75 milligram per cubic meter
   org_nitro: 4 micromole per liter
@@ -426,7 +436,7 @@ exhaustive_test_set:
   - 2.98 milligram per liter
   photon_flux: 3.926 micromole photons per second per square meter
   photosynt_activ:
-  - ' mol CO2 m-2 s-1'
+  - 0.1 mol CO2 m-2 s-1
   plant_part_maturity: ripe or mature [FOODON:03530052]
   plant_product: xylem sap [PO:0025539]
   plant_reprod_crop:
@@ -673,6 +683,7 @@ exhaustive_test_set:
   wall_texture: popcorn
   wall_water_mold: no presence of mold visible
   water_current: 10 cubic meter per second
+  water_cut: 45%
   water_feat_type: stream
   water_frequency: 2 per day
   water_pH: 7.2
