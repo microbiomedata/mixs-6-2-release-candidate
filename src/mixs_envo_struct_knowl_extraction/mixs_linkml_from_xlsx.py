@@ -7,6 +7,7 @@ import numpy as np
 import pandas as pd
 import requests
 import yaml
+from linkml_runtime import SchemaView
 from linkml_runtime.dumpers import yaml_dumper
 from linkml_runtime.linkml_model import Annotation, SchemaDefinition, SlotDefinition, ClassDefinition, Example, \
     SubsetDefinition, EnumDefinition, PermissibleValue, Prefix
@@ -43,6 +44,8 @@ schema_file_name = f"{dest_dir}/{schema_name}.yaml"
 harmonized_sheets_file_name = f"{dest_dir}/{excel_file_name}.harmonized.tsv"
 
 string_ser_exp_val_to_range_pattern_file = "data/string_ser_exp_val_to_range_pattern.tsv"
+
+proposed_slot_attributes_file = "data/proposed_attribute_replacements_schema.yaml"
 
 extracted_examples_file_name = f"{dest_dir}/{excel_file_name}.examples.yaml"
 
@@ -636,21 +639,39 @@ def dupe_property_report(property_name: str):
     return dupe_values
 
 
-def extract_examples():
-    slots = global_target_schema.slots
+def extract_or_substitute_examples_etc(supplementary_file: str):
+    # not all of the content from the supplementary_file is making it into either
+    #  the inferred LinkML YAML
+    #  the sample data file
+    proposal_view = SchemaView(supplementary_file)
+    proposal_schema = proposal_view.schema
+
+    excel_slots = global_target_schema.slots
+
+    for proposed_k, proposed_v in proposal_schema.slots.items():
+        if proposed_k in excel_slots:
+            if proposed_v.examples:
+                global_target_schema.slots[proposed_k].examples = proposed_v.examples
+            if proposed_v.range:
+                global_target_schema.slots[proposed_k].range = proposed_v.range
+            if proposed_v.pattern:
+                global_target_schema.slots[proposed_k].pattern = proposed_v.pattern
+        else:
+            print(f"{proposed_k} is not in the target schema")
+
     extracted_examples = {}
 
-    for slot_k, slot_v in slots.items():
-        if slot_v["examples"]:
-            the_examples = slot_v["examples"]
+    for excel_k, excel_v in excel_slots.items():
+        if excel_v["examples"]:
+            the_examples = excel_v["examples"]
             examples_len = len(the_examples)
             if examples_len != 1:
-                print(f"{slot_k} has {examples_len} examples")
+                print(f"{excel_k} has {examples_len} examples")
             else:
                 the_example = the_examples[0].value
-                the_range = global_target_schema.slots[slot_k].range
+                the_range = global_target_schema.slots[excel_k].range
 
-                if global_target_schema.slots[slot_k].multivalued:
+                if global_target_schema.slots[excel_k].multivalued:
                     values = [the_example]
                 else:
                     values = the_example
@@ -666,11 +687,11 @@ def extract_examples():
 
                 try:
                     if isinstance(values, list):
-                        extracted_examples[slot_k] = [convert_func(val) for val in values]
+                        extracted_examples[excel_k] = [convert_func(val) for val in values]
                     else:
-                        extracted_examples[slot_k] = convert_func(values)
+                        extracted_examples[excel_k] = convert_func(values)
                 except ValueError:
-                    print(f"Couldn't convert {slot_k} with value {the_example} to {the_range}")
+                    print(f"Couldn't convert {excel_k} with value {the_example} to {the_range}")
 
     return extracted_examples
 
@@ -699,7 +720,7 @@ global_target_schema.comments.append(duplication_comment)
 
 yaml_dumper.dump(global_target_schema, schema_file_name)
 
-extracted_examples_dict = extract_examples()
+extracted_examples_dict = extract_or_substitute_examples_etc(supplementary_file=proposed_slot_attributes_file)
 extracted_examples_collection = {
     "exhaustive_test_set": [extracted_examples_dict]
 }
