@@ -37,7 +37,7 @@ schema_file_name = f"{dest_dir}/{schema_name}.yaml"
 
 harmonized_sheets_file_name = f"{dest_dir}/{excel_file_name}.harmonized.tsv"
 
-string_ser_exp_val_to_range_pattern_file = "data/string_ser_exp_val_to range_pattern.tsv"
+string_ser_exp_val_to_range_pattern_file = "data/string_ser_exp_val_to_range_pattern.tsv"
 
 global_target_schema = SchemaDefinition(
     id=f"http://example.com/{schema_name}",
@@ -102,6 +102,7 @@ def harmonize_sheets(url: str) -> pd.DataFrame:
     columns_to_delete = [' ']
 
     # Delete the columns
+    #   no data loss? Prove it!
     df_mixs_good_cols = df_mixs.drop(columns=columns_to_delete)
 
     # Dictionary with column name mappings
@@ -255,14 +256,6 @@ def process_consensus_value(scn: str, attribute_name: str, value: str) -> None:
         global_target_schema.slots[tidied_slot_name].annotations[tidied_attribute_name] = new_annotation
 
 
-# https://github.com/GenomicsStandardsConsortium/mixs/wiki/5.-MIxS-checklists
-# - not applicable (-): descriptor is not applicable for a given checklist type
-# C conditional mandatory (C): descriptor must be present for compliance with the checklist, but only when applicable to the study, i.e. if this item is not applicable for the study the metadata data will still be checklist compliant even if it is left out
-# E environment-dependent (E): descriptor must be present depending on the environment the original sample was obtained from
-# M mandatory (M): descriptor must be present for compliance with the checklist_
-# X optional (X): descriptor may be present, not mandatory for compliance with checklist
-
-
 def process_contested_value(attributes_by_class: pd.DataFrame) -> None:
     scn = attributes_by_class[scn_key].iloc[0]
     abc = attributes_by_class.copy()
@@ -370,6 +363,8 @@ def requirement_followup(sheet: pd.DataFrame):
             reckless_slots = list(set(reckless_slots) - {tidied_scn})
             global_target_schema.classes[tidied_class].slots = reckless_slots
             if tidied_scn in global_target_schema.classes[tidied_class].slot_usage:
+                # deleting usage of slot that has "-" requirement on a class
+                #   see https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/35
                 del global_target_schema.classes[tidied_class].slot_usage[tidied_scn]
             else:
                 if debug_mode:
@@ -378,6 +373,10 @@ def requirement_followup(sheet: pd.DataFrame):
         elif requirement == "C":
             if tidied_scn in global_target_schema.classes[tidied_class].slot_usage:
                 if "Requirement" in global_target_schema.classes[tidied_class].slot_usage[tidied_scn].annotations:
+                    # deleting requirement annotation from slot usage,
+                    #   since it has been implemented as a LinkML recommended or required attribute
+                    #   I have made judgements about the interpretation of C and E
+                    #   see https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/35
                     del global_target_schema.classes[tidied_class].slot_usage[tidied_scn].annotations['Requirement']
                 else:
                     if debug_mode:
@@ -393,6 +392,10 @@ def requirement_followup(sheet: pd.DataFrame):
                 if tidied_scn in global_target_schema.classes[tidied_class].slot_usage:
                     global_target_schema.classes[tidied_class].slot_usage[tidied_scn].required = True
                     if "Requirement" in global_target_schema.classes[tidied_class].slot_usage[tidied_scn].annotations:
+                        # deleting requirement annotation from slot usage,
+                        #   since it has been implemented as a LinkML recommended or required attribute
+                        #   I have made judgements about the interpretation of C and E
+                        #   see https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/35
                         del global_target_schema.classes[tidied_class].slot_usage[tidied_scn].annotations['Requirement']
                     else:
                         if debug_mode:
@@ -405,6 +408,10 @@ def requirement_followup(sheet: pd.DataFrame):
             elif is_a_parent == "Checklist":
                 if tidied_scn in global_target_schema.classes[tidied_class].slot_usage:
                     if "Requirement" in global_target_schema.classes[tidied_class].slot_usage[tidied_scn].annotations:
+                        # deleting requirement annotation from slot usage,
+                        #   since it has been implemented as a LinkML recommended or required attribute
+                        #   I have made judgements about the interpretation of C and E
+                        #   see https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/35
                         del global_target_schema.classes[tidied_class].slot_usage[tidied_scn].annotations['Requirement']
                     else:
                         if debug_mode:
@@ -415,6 +422,10 @@ def requirement_followup(sheet: pd.DataFrame):
                         print(f"{tidied_class} does not have {tidied_scn} usage")
 
         if "Requirement" in global_target_schema.slots[tidied_scn].annotations:
+            # deleting requirement annotation from slot usage,
+            #   since it has been implemented as a LinkML recommended or required attribute
+            #   I have made judgements about the interpretation of C and E
+            #   see https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/35
             del global_target_schema.slots[tidied_scn].annotations['Requirement']
 
 
@@ -475,11 +486,13 @@ def construct_assign_simple_enumerations(sheet: pd.DataFrame):
 
     for k, v in slot_to_enums_dict.items():
         global_target_schema.slots[k].range = v
+        # deleting temporary LinkML string_serialization since a range was assigned
         del global_target_schema.slots[k].string_serialization
         if "Expected_value" in global_target_schema.slots[k].annotations:
             expected_val = global_target_schema.slots[k].annotations["Expected_value"]
             expected_val_val = expected_val.value
             if expected_val_val == "enumeration":
+                # deleting Expected value since a range was assigned
                 del global_target_schema.slots[k].annotations["Expected_value"]
         else:
             if debug_mode:
@@ -502,11 +515,13 @@ def construct_assign_simple_enumerations(sheet: pd.DataFrame):
         for scn in scns:
             tidied_scn = re.sub(r'\W+', '_', scn)
             global_target_schema.slots[tidied_scn].range = name_for_enum
+            # deleting temporary LinkML string_serialization since a range was assigned
             del global_target_schema.slots[tidied_scn].string_serialization
             if "Expected_value" in global_target_schema.slots[tidied_scn].annotations:
                 expected_val = global_target_schema.slots[tidied_scn].annotations["Expected_value"]
                 expected_val_val = expected_val.value
                 if expected_val_val == "enumeration":
+                    # deleting Expected value since a range was assigned
                     del global_target_schema.slots[tidied_scn].annotations["Expected_value"]
             else:
                 if debug_mode:
@@ -545,8 +560,10 @@ def string_ser_exp_val_to_range_patterns(tsv_file: str):
                     sp = PatternExpression(syntax=s, interpolated=True, partial_match=True)
                     global_target_schema.slots[k].structured_pattern = sp
             if "Expected_value" in global_target_schema.slots[k].annotations:
+                # deleting Expected value since a range was assigned
                 del global_target_schema.slots[k].annotations["Expected_value"]
             if global_target_schema.slots[k].string_serialization:
+                # deleting temporary LinkML string_serialization since a range was assigned
                 del global_target_schema.slots[k].string_serialization
 
         else:
@@ -555,6 +572,34 @@ def string_ser_exp_val_to_range_patterns(tsv_file: str):
             else:
                 print(
                     f"{row_count = }. No full match string serialization of <{ss}> and expected value of <{ev}>")
+
+
+def add_exhasutive_test_class():
+    ExhaustiveTestClass = ClassDefinition(
+        name="ExhaustiveTestClass",
+    )
+    all_slots = global_target_schema.slots
+    for slot_k, slot_v in all_slots.items():
+        ExhaustiveTestClass.slots.append(slot_k)
+
+    exhaustive_test_set = SlotDefinition(
+        inlined=True,
+        inlined_as_list=True,
+        multivalued=True,
+        name="exhaustive_test_set",
+        range="ExhaustiveTestClass",
+    )
+
+    ExhaustiveTestClassCollection = ClassDefinition(
+        name="ExhaustiveTestClassCollection",
+        tree_root=True,
+    )
+
+    ExhaustiveTestClassCollection.slots.append("exhaustive_test_set")
+
+    global_target_schema.classes["ExhaustiveTestClass"] = ExhaustiveTestClass
+    global_target_schema.classes["ExhaustiveTestClassCollection"] = ExhaustiveTestClassCollection
+    global_target_schema.slots["exhaustive_test_set"] = exhaustive_test_set
 
 
 harmonized_sheets = harmonize_sheets(file_url)
@@ -569,30 +614,6 @@ string_ser_exp_val_to_range_patterns(string_ser_exp_val_to_range_pattern_file)
 
 harmonized_sheets.to_csv(harmonized_sheets_file_name, index=False, sep='\t')
 
-ExhaustiveTestClass = ClassDefinition(
-    name="ExhaustiveTestClass",
-)
-all_slots = global_target_schema.slots
-for slot_k, slot_v in all_slots.items():
-    ExhaustiveTestClass.slots.append(slot_k)
-
-exhaustive_test_set = SlotDefinition(
-    inlined=True,
-    inlined_as_list=True,
-    multivalued=True,
-    name="exhaustive_test_set",
-    range="ExhaustiveTestClass",
-)
-
-ExhaustiveTestClassCollection = ClassDefinition(
-    name="ExhaustiveTestClassCollection",
-    tree_root=True,
-)
-
-ExhaustiveTestClassCollection.slots.append("exhaustive_test_set")
-
-global_target_schema.classes["ExhaustiveTestClass"] = ExhaustiveTestClass
-global_target_schema.classes["ExhaustiveTestClassCollection"] = ExhaustiveTestClassCollection
-global_target_schema.slots["exhaustive_test_set"] = exhaustive_test_set
+add_exhasutive_test_class()
 
 yaml_dumper.dump(global_target_schema, schema_file_name)
