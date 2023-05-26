@@ -1,0 +1,53 @@
+name: proposed_mixs_6_term_attribute_replacements_schema
+id: http://example.com/proposed_mixs_6_term_attribute_replacements_schema
+imports:
+  - linkml:types
+prefixes:
+  linkml: http://example.com/GSC_MIxS_6/
+slots:
+  api:
+    examples:
+      - value: 31.1 API
+        value_description: "from slot's description"
+  basin:
+    examples:
+      - value: Campos
+        value_description: "from slot's description"
+
+  coll_site_geo_feat:
+    examples:
+      - value: "farm [ENVO:00000078]"
+        value_description: present in NCBI biosample_set
+
+  collection_date:
+    examples:
+      - value: 2023-01-15T00:00:00
+        value_description: arbitrarily selected ISO 8601 date
+  env_broad_scale:
+    examples:
+      - value: rangeland biome [ENVO:01000247]
+        value_description: arbitrarily selected biome
+  env_local_scale:
+    examples:
+      - value: hillside [ENVO:01000333]
+        value_description: arbitrarily selected landmark
+  env_medium:
+    examples:
+      - value: bluegrass field soil [ENVO:00005789]
+        value_description: arbitrarily selected environmental medium
+  iwf:
+    examples:
+      - value: 87%
+        value_description: "from slot's description"
+  microbial_biomass_meth:
+    examples:
+      - value: http://dx.doi.org/10.1016/j.soilbio.2005.01.021
+        value_description: present in NCBI biosample_set
+  occup_density_samp:
+    examples:
+      - value: 0.1
+        value_description: casual Google search for legislation about occupants per square foot
+  water_cut:
+    examples:
+      - value: 45%
+        value_description: casual Google search for water cut
