@@ -1,28 +1,31 @@
 string_serialization	Expected_value	range	pattern	structured_pattern	notes
+{float} {unit}	measurement value	string	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S.*\S$		
+{float} {unit}		string	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S.*\S$		
+{float}{unit}	measurement value	string	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S.*\S$		
+	measurement value	string	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S.*\S$		
+{integer}	measurement value		^[1-9][0-9]* \S.*\S+$		
+{integer} {unit}	measurement value	string	^[1-9][0-9]* \S.*\S+$		
+{dna}	multiplex identifier sequence		^[ACGTRKSYMWBHDVN]+$		
+{dna},{dna}			^[ACGTRKSYMWBHDVN]+$		
+{dna};{dna}			^[ACGTRKSYMWBHDVN]+$		
+{text} {text}		string	^\S.*\S+ \S.*\S+$		
+{termLabel} {[termID]}		string	^\S+.*\S+ \[[a-zA-Z]{2,}:\d+\]$		
+{duration}	duration		^P(?!$)(\d+Y)?(\d+M)?(\d+W)?(\d+D)?(T(?=\d+[HMS])(\d+H)?(\d+M)?(\d+S)?)?$		
+{duration}			^P(?!$)(\d+Y)?(\d+M)?(\d+W)?(\d+D)?(T(?=\d+[HMS])(\d+H)?(\d+M)?(\d+S)?)?$		
 {boolean}	boolean	boolean			
 {boolean}	hysterectomy status	boolean			
 {boolean}	presence status	boolean			
 {boolean}	smoking status	boolean			
 {boolean}	true or false	boolean			
-{dna}	multiplex identifier sequence		^[ACGTRKSYMWBHDVN]+$		
-{dna},{dna}			^[ACGTRKSYMWBHDVN]+$		
-{dna};{dna}			^[ACGTRKSYMWBHDVN]+$		
-{duration}	duration		^P(?!$)(\d+Y)?(\d+M)?(\d+W)?(\d+D)?(T(?=\d+[HMS])(\d+H)?(\d+M)?(\d+S)?)?$		
-{duration}			^P(?!$)(\d+Y)?(\d+M)?(\d+W)?(\d+D)?(T(?=\d+[HMS])(\d+H)?(\d+M)?(\d+S)?)?$		
 {float}	measurement value	float			
 {float}	value	float			
-{float} {unit}	measurement value	string	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$		
-{float} {unit}		string	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$		
-{float}{unit}	measurement value	string	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$		
-{integer}	for eukaryotes and bacteria: chromosomes (haploid count); for viruses: segments	integer			
+{float} - {float} {unit}	measurement value range			{float} - {float} {unit}	
 {integer}	IHMC code	integer			
-{integer}	measurement value		^[1-9][0-9]* \S.*\S+$		
 {integer}	number of clones	integer			
 {integer}	number of extrachromosmal elements	integer			
 {integer}	number of reads sequenced	integer			
 {integer}	unique identifier	integer			
 {integer}	value	integer			
-{integer} {unit}	measurement value	string	^[1-9][0-9]* \S.*\S+$		
 {PMID} | {DOI} | {URL}	reference to resource			{PMID}|{DOI}|{URL}	
 {PMID}|{DOI}|{URL}	PMID, DOI or URL			{PMID}|{DOI}|{URL}	
 {PMID}|{DOI}|{URL}	PMID,DOI or URL			{PMID}|{DOI}|{URL}	
@@ -31,19 +34,41 @@ string_serialization	Expected_value	range	pattern	structured_pattern	notes
 {PMID}|{DOI}|{URL}|{text}	PMID,DOI,url or free text			{PMID}|{DOI}|{URL}|{text}	
 {PMID}|{DOI}|{URL}|{text}				{PMID}|{DOI}|{URL}|{text}	
 {PMID|DOI|URL}	PMID,DOI or url			{PMID}|{DOI}|{URL}	
-{termLabel} {[termID]}		string	^\S+.*\S+ \[[a-zA-Z]{2,}:\d+\]$		
+{text}	classification method, database name, and other parameters	string			
+{text}	color	string			
+{text}	common name	string			
+{text}	description of method	string			
+{text}	diet type	string			
 {text}	disorder name	string			
+{text}	false discovery rate	string			
 {text}	free text	string			
+{text}	gene fragment name	string			
+{text}	gene name	string			
+{text}	genotype	string			
+{text}	gestation state	string			
+{text}	growth medium	string			
+{text}	gynecological disorder	string			
+{text}	health status	string			
 {text}	name	string			
+{text}	name of the symbiotic organism (host of the samples)	string			
+{text}	rank	string			
+{text}	rank of the symbiotic organism (host of the samples)	string			
 {text}	text	string			
+{text}	unique identifier	string			
+{text}	vector				
 {text}		string			
-{text} {text}		string	^\S.*\S+ \S.*\S+$		
+{text};{float} {unit}	name;measurement value			{name};{float} {unit}	
+{text};{integer}	room name;room number			{room name};{room number}	
 {timestamp}	date	date_or_datetime			
 {timestamp}	date and time	date_or_datetime			
 {timestamp}	timestamp	date_or_datetime			
+{URL}	URL	uriorcurie			
+	adapter A and B sequence			{adapter_a};{adapter_b}	
+	country: region, specific location			{country}: {region}, {specific location}	
+	crop rotation status;schedule			{crop_rotation_status};{schedule}	
 	free text	string			
-	measurement value	string	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S+$		
 	PMID, DOI or URL			{PMID}|{DOI}|{URL}	
 	PMID,DOI or url			{PMID}|{DOI}|{URL}	
 	PMID,DOI or URL			{PMID}|{DOI}|{URL}	
+	storage condition type;duration			{storage_condition_type};{duration}	
 	text	string			

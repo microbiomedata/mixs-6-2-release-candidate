@@ -1,4 +1,4 @@
-.PHONY: all clean squeaky_clean check-jsonschema
+.PHONY: all clean squeaky_clean check-jsonschema-exhaustive check-jsonschema-extracted
 
 RUN = poetry run
 
@@ -7,7 +7,7 @@ DEST_DIR = generated
 all: squeaky_clean \
 generated/GSC_MIxS_6_usage.tsv generated/mixs_v6.xlsx.harmonized.tsv.dtm.tsv generated/GSC_MIxS_6.yaml.schema.json \
 generated/exhaustion_report.yaml \
-check-jsonschema
+check-jsonschema-exhaustive check-jsonschema-extracted
 
 generated/GSC_MIxS_6.yaml:
 	$(RUN) python src/mixs_envo_struct_knowl_extraction/mixs_linkml_from_xlsx.py
@@ -44,11 +44,15 @@ squeaky_clean: clean
 generated/mixs_v6.xlsx.harmonized.tsv.dtm.tsv:
 	$(RUN) python src/mixs_envo_struct_knowl_extraction/mixs_dtm.py
 
-check-jsonschema: generated/GSC_MIxS_6.yaml.schema.json data/ExhaustiveTestClassCollection-example-data.yaml
+check-jsonschema-exhaustive: generated/GSC_MIxS_6.yaml.schema.json data/ExhaustiveTestClassCollection-example-data.yaml
 	$(RUN) check-jsonschema  --schemafile $^
 
+
+check-jsonschema-extracted: generated/GSC_MIxS_6.yaml.schema.json generated/mixs_v6.xlsx.examples.yaml
+	- $(RUN) check-jsonschema  --schemafile $^
+
 generated/single-exhaustive_test-record.yaml: data/ExhaustiveTestClassCollection-example-data.yaml
-	yq e '.exhaustive_test_set[0]' $< | tee $@.raw
+	yq e '.exhaustive_test_set[0]' $< | cat > $@.raw
 	poetry run pretty-sort-yaml \
 		-i $@.raw \
 		-o $@

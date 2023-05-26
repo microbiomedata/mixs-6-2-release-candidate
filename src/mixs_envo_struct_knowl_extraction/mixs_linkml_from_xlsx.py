@@ -1,3 +1,4 @@
+import ast
 import pprint
 import re
 from typing import List
@@ -5,10 +6,14 @@ from typing import List
 import numpy as np
 import pandas as pd
 import requests
+import yaml
 from linkml_runtime.dumpers import yaml_dumper
 from linkml_runtime.linkml_model import Annotation, SchemaDefinition, SlotDefinition, ClassDefinition, Example, \
     SubsetDefinition, EnumDefinition, PermissibleValue, Prefix
 from linkml_runtime.linkml_model.meta import PatternExpression
+from collections import Counter
+
+from distutils.util import strtobool
 
 pd.set_option('display.max_columns', None)
 
@@ -39,6 +44,8 @@ harmonized_sheets_file_name = f"{dest_dir}/{excel_file_name}.harmonized.tsv"
 
 string_ser_exp_val_to_range_pattern_file = "data/string_ser_exp_val_to_range_pattern.tsv"
 
+extracted_examples_file_name = f"{dest_dir}/{excel_file_name}.examples.yaml"
+
 global_target_schema = SchemaDefinition(
     id=f"http://example.com/{schema_name}",
     name=schema_name,
@@ -50,6 +57,14 @@ linkml_prefix = Prefix(prefix_prefix="linkml", prefix_reference="https://w3id.or
 global_target_schema.prefixes["linkml"] = linkml_prefix
 
 global_target_schema.imports.append("linkml:types")
+
+
+def liberally_convert_to_boolean(value):
+    try:
+        converted_value = bool(strtobool(str(value)))
+        return converted_value
+    except ValueError:
+        return value
 
 
 def convert_to_pascal_case(string):
@@ -453,6 +468,7 @@ def construct_assign_simple_enumerations(sheet: pd.DataFrame):
     # add a comment to the schema
     scns_with_contradictory_enums = contradictory_enums['Structured comment name'].unique().tolist()
     scns_with_contradictory_enums = [re.sub(r'\W+', '_', scn) for scn in scns_with_contradictory_enums]
+    scns_with_contradictory_enums.sort()
     global_target_schema.comments.append(
         f"The following slots have  contradictory Value syntaxes so enumerations can not be created for their ranges: {', '.join(scns_with_contradictory_enums)}")
 
@@ -602,6 +618,63 @@ def add_exhasutive_test_class():
     global_target_schema.slots["exhaustive_test_set"] = exhaustive_test_set
 
 
+def dupe_property_report(property_name: str):
+    slots = global_target_schema.slots
+    property_vals = []
+    for slot_k, slot_v in slots.items():
+        if slot_v[property_name]:
+            property_vals.append(slot_v[property_name])
+
+    counter = Counter(property_vals)
+    sorted_elements = counter.most_common()
+    dupe_values = []
+    for element, count in sorted_elements:
+        if count > 1:
+            # print(f"{property_name} {element}: {count}")
+            dupe_values.append(element)
+    dupe_values.sort()
+    return dupe_values
+
+
+def extract_examples():
+    slots = global_target_schema.slots
+    extracted_examples = {}
+
+    for slot_k, slot_v in slots.items():
+        if slot_v["examples"]:
+            the_examples = slot_v["examples"]
+            examples_len = len(the_examples)
+            if examples_len != 1:
+                print(f"{slot_k} has {examples_len} examples")
+            else:
+                the_example = the_examples[0].value
+                the_range = global_target_schema.slots[slot_k].range
+
+                if global_target_schema.slots[slot_k].multivalued:
+                    values = [the_example]
+                else:
+                    values = the_example
+
+                if the_range == "integer":
+                    convert_func = int
+                elif the_range == "float":
+                    convert_func = float
+                elif the_range == "boolean":
+                    convert_func = liberally_convert_to_boolean
+                else:
+                    convert_func = lambda x: x
+
+                try:
+                    if isinstance(values, list):
+                        extracted_examples[slot_k] = [convert_func(val) for val in values]
+                    else:
+                        extracted_examples[slot_k] = convert_func(values)
+                except ValueError:
+                    print(f"Couldn't convert {slot_k} with value {the_example} to {the_range}")
+
+    return extracted_examples
+
+
 harmonized_sheets = harmonize_sheets(file_url)
 
 process_sheet(harmonized_sheets)
@@ -616,4 +689,20 @@ harmonized_sheets.to_csv(harmonized_sheets_file_name, index=False, sep='\t')
 
 add_exhasutive_test_class()
 
+dupe_titles = dupe_property_report("title")
+duplication_comment = f"slot titles that appear more than once in the schema: {', '.join(dupe_titles)}"
+global_target_schema.comments.append(duplication_comment)
+
+dupe_slot_uris = dupe_property_report("slot_uri")
+duplication_comment = f"slot_uris that appear more than once in the schema: {', '.join(dupe_slot_uris)}"
+global_target_schema.comments.append(duplication_comment)
+
 yaml_dumper.dump(global_target_schema, schema_file_name)
+
+extracted_examples_dict = extract_examples()
+extracted_examples_collection = {
+    "exhaustive_test_set": [extracted_examples_dict]
+}
+
+with open(extracted_examples_file_name, 'w') as file:
+    yaml.safe_dump(extracted_examples_collection, file)
