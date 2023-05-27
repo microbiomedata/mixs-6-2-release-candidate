@@ -211,7 +211,7 @@ exhaustive_test_set:
   ferm_headspace_oxy: '0.05'
   ferm_medium: molasses
   ferm_pH: 4.5
-  ferm_rel_humidity: 95% RH
+  ferm_rel_humidity: 95%
   ferm_temp: 22 degrees Celsius
   ferm_time: P10D
   ferm_vessel: steel drum
@@ -310,6 +310,7 @@ exhaustive_test_set:
   host_hiv_stat: yes;yes
   host_length: 1 meter
   host_number: '3'
+  host_occupation: veterinary
   host_of_host_coinf: Maritrema novaezealandense
   host_of_host_disease:
   - rabies [DOID:11260]
@@ -346,7 +347,7 @@ exhaustive_test_set:
   - 9606 o rsenior as food consumer [FOODON:03510254]
   isol_growth_condt: 'doi: 10.1016/j.syapm.2018.01.009'
   iw_bt_date_well: '2018-05-11 00:00:00'
-  iwf: 87%
+  iwf: 0.79
   last_clean: 2018-05-11:T14:30Z
   lat_lon: 50.586825 6.408977
   lib_layout: paired
@@ -470,7 +471,7 @@ exhaustive_test_set:
   redox_potential: 300 millivolt
   ref_biomaterial: doi:10.1016/j.syapm.2018.01.009
   ref_db: pVOGs;5;http://dmk-brain.ecn.uiowa.edu/pVOGs/ Grazziotin et al. 2017 doi:10.1093/nar/gkw975
-  rel_air_humidity: '0.8'
+  rel_air_humidity: 0.8
   rel_humidity_out: 12 per kilogram of air
   rel_location: furrow
   rel_samp_loc: center of car
@@ -537,7 +538,7 @@ exhaustive_test_set:
   season: autumn [NCIT:C94733]
   season_environment:
   - rainy;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M
-  season_humidity: '0.25'
+  season_humidity: 0.25
   season_precpt: 75 millimeters
   season_temp: 18 degree Celsius
   season_use: Winter
@@ -627,7 +628,7 @@ exhaustive_test_set:
   sulfide: 2 micromole per liter
   surf_air_cont:
   - radon
-  surf_humidity: '0.1'
+  surf_humidity: 0.1
   surf_material: wood
   surf_moisture: 0.01 gram per square meter
   surf_moisture_ph: 7.0

@@ -39,3 +39,6 @@ qa: safety lint test ## for CI/CD. Runs all code quality tools
 
 qa-local: format qa ## for local development (before checking in). Formats code and runs qa
 .PHONY: qa-local
+
+# MAM 2023-05-27
+include project.Makefile

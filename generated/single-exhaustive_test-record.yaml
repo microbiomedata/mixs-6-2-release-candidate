@@ -115,7 +115,7 @@ built_struc_type: xxx
 calcium: 1.9 units
 carb_dioxide: 1.9 units
 carb_monoxide: 1.9 units
-carb_nitro_ratio: 1.9 units
+carb_nitro_ratio: 0.417361111
 ceil_area: 1.9 units
 ceil_cond: xxx
 ceil_finish_mat: xxx
@@ -252,7 +252,7 @@ ferm_chem_add_perc:
 ferm_headspace_oxy: xxx
 ferm_medium: xxx
 ferm_pH: 1.9
-ferm_rel_humidity: 1.9 units
+ferm_rel_humidity: 95%
 ferm_temp: 1.9 units
 ferm_time: PT10H30M
 ferm_vessel: xxx
@@ -400,7 +400,7 @@ host_last_meal:
 host_length: 1.9 units
 host_life_stage: xxx
 host_number: xxx
-host_occupation: 123
+host_occupation: veterinary
 host_of_host_coinf: xxx
 host_of_host_disease:
 - xxx
@@ -454,7 +454,7 @@ intended_consumer:
 - xxx
 isol_growth_condt: xxx
 iw_bt_date_well: xxx
-iwf: 123 units
+iwf: 0.79
 kidney_disord:
 - xxx
 last_clean: xxx
@@ -624,7 +624,7 @@ reassembly_bin: true
 redox_potential: 1.9 units
 ref_biomaterial: xxx
 ref_db: xxx
-rel_air_humidity: 123 units
+rel_air_humidity: 0.8
 rel_humidity_out: 1.9 units
 rel_location: xxx
 rel_samp_loc: xxx
@@ -715,10 +715,10 @@ samp_well_name: xxx
 sample_collec_method: xxx
 sample_name: xxx
 saturates_pc: xxx
-season: term [ONTOLOGY:123]
+season: autumn [NCIT:C94733]
 season_environment:
 - xxx
-season_humidity: 1.9 units
+season_humidity: 0.25
 season_precpt: 1.9 units
 season_temp: 1.9 units
 season_use: xxx
@@ -822,7 +822,7 @@ sulfate_fw: 1.9 units
 sulfide: 1.9 units
 surf_air_cont:
 - xxx
-surf_humidity: 1.9 units
+surf_humidity: 0.1
 surf_material: xxx
 surf_moisture: 1.9 units
 surf_moisture_ph: 1.9
@@ -910,7 +910,7 @@ wastewater_type: xxx
 water_cont_soil_meth: xxx
 water_content: 1.9 units
 water_current: 1.9 units
-water_cut: 123 units
+water_cut: 45%
 water_feat_size: 1.9 units
 water_feat_type: xxx
 water_frequency: xxx

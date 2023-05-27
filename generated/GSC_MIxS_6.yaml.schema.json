@@ -543,7 +543,7 @@
                 },
                 "season": {
                     "description": "The season when sampling occurred. Any of the four periods into which the year is divided by the equinoxes and solstices. This field accepts terms listed under season (http://purl.obolibrary.org/obo/NCIT_C94729)",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
+                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:[a-zA-Z0-9]+\\]$",
                     "type": "string"
                 },
                 "season_environment": {
@@ -556,7 +556,7 @@
                 "season_humidity": {
                     "description": "Average humidity of the region throughout the growing season",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
-                    "type": "string"
+                    "type": "number"
                 },
                 "season_precpt": {
                     "description": "The average of all seasonal precipitation values known, or an estimated equivalent value derived by such methods as regional indexes or Isohyetal maps",
@@ -1409,7 +1409,8 @@
                 },
                 "occup_samp": {
                     "description": "Number of occupants present at time of sample within the given space",
-                    "pattern": "^[1-9][0-9]* \\S.*\\S+$"
+                    "pattern": "^[1-9][0-9]* \\S.*\\S+$",
+                    "type": "number"
                 },
                 "organism_count": {
                     "description": "Total cell count of any organism (or group of organisms) per gram, volume or area of sample, should include name of organism followed by count. The method that was used for the enumeration (e.g. qPCR, atp, mpn, etc.) Should also be provided. (example: total prokaryotes; 3.5e7 cells per ml; qpcr)",
@@ -1432,7 +1433,7 @@
                 "rel_air_humidity": {
                     "description": "Partial vapor and air pressure, density of the vapor and air, or by the actual mass of the vapor and air",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
-                    "type": "string"
+                    "type": "number"
                 },
                 "rel_humidity_out": {
                     "description": "The recorded outside relative humidity value at the time of sampling",
@@ -1542,7 +1543,7 @@
                 },
                 "season": {
                     "description": "The season when sampling occurred. Any of the four periods into which the year is divided by the equinoxes and solstices. This field accepts terms listed under season (http://purl.obolibrary.org/obo/NCIT_C94729)",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
+                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:[a-zA-Z0-9]+\\]$",
                     "type": "string"
                 },
                 "season_use": {
@@ -1598,7 +1599,7 @@
                 "surf_humidity": {
                     "description": "Surfaces: water activity as a function of air and material moisture",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
-                    "type": "string"
+                    "type": "number"
                 },
                 "surf_material": {
                     "description": "Surface materials at the point of sampling",
@@ -2459,7 +2460,7 @@
                 "carb_nitro_ratio": {
                     "description": "Ratio of amount or concentrations of carbon to nitrogen",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
-                    "type": "string"
+                    "type": "number"
                 },
                 "ceil_area": {
                     "description": "The area of the ceiling space within the room",
@@ -2955,7 +2956,7 @@
                 },
                 "ferm_rel_humidity": {
                     "description": "The relative humidity of the fermented food fermentation process",
-                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "pattern": "[0-9]*\\.?[0-9]+ ?%",
                     "type": "string"
                 },
                 "ferm_temp": {
@@ -3453,7 +3454,7 @@
                 },
                 "host_occupation": {
                     "description": "Most frequent job performed by subject",
-                    "type": "integer"
+                    "type": "string"
                 },
                 "host_of_host_coinf": {
                     "description": "The taxonomic name of any coinfecting organism observed in a symbiotic relationship with the host of the sampled host organism. e.g. where a sample collected from a host trematode species (A) which was collected from a host_of_host fish (B) that was also infected with a nematode (C), the value here would be (C) the nematode {species name} or {common name}. Multiple co-infecting species may be added in a comma-separated list. For listing symbiotic organisms associated with the host (A) use the term Observed host symbiont"
@@ -3642,7 +3643,7 @@
                 "iwf": {
                     "description": "Proportion of the produced fluids derived from injected water at the time of sampling. (e.g. 87%)",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
-                    "type": "string"
+                    "type": "number"
                 },
                 "kidney_disord": {
                     "description": "History of kidney disorders; can include multiple disorders. The terms should be chosen from the DO (Human Disease Ontology) at http://www.disease-ontology.org, kidney disease (https://disease-ontology.org/?id=DOID:557)",
@@ -3917,7 +3918,8 @@
                 },
                 "occup_samp": {
                     "description": "Number of occupants present at time of sample within the given space",
-                    "pattern": "^[1-9][0-9]* \\S.*\\S+$"
+                    "pattern": "^[1-9][0-9]* \\S.*\\S+$",
+                    "type": "number"
                 },
                 "org_carb": {
                     "description": "Concentration of organic carbon",
@@ -4233,7 +4235,7 @@
                 "rel_air_humidity": {
                     "description": "Partial vapor and air pressure, density of the vapor and air, or by the actual mass of the vapor and air",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
-                    "type": "string"
+                    "type": "number"
                 },
                 "rel_humidity_out": {
                     "description": "The recorded outside relative humidity value at the time of sampling",
@@ -4568,7 +4570,7 @@
                 },
                 "season": {
                     "description": "The season when sampling occurred. Any of the four periods into which the year is divided by the equinoxes and solstices. This field accepts terms listed under season (http://purl.obolibrary.org/obo/NCIT_C94729)",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
+                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:[a-zA-Z0-9]+\\]$",
                     "type": "string"
                 },
                 "season_environment": {
@@ -4581,7 +4583,7 @@
                 "season_humidity": {
                     "description": "Average humidity of the region throughout the growing season",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
-                    "type": "string"
+                    "type": "number"
                 },
                 "season_precpt": {
                     "description": "The average of all seasonal precipitation values known, or an estimated equivalent value derived by such methods as regional indexes or Isohyetal maps",
@@ -4931,7 +4933,7 @@
                 "surf_humidity": {
                     "description": "Surfaces: water activity as a function of air and material moisture",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
-                    "type": "string"
+                    "type": "number"
                 },
                 "surf_material": {
                     "description": "Surface materials at the point of sampling",
@@ -5287,7 +5289,7 @@
                 },
                 "water_cut": {
                     "description": "Current amount of water (%) in a produced fluid stream; or the average of the combined streams",
-                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "pattern": "[0-9]*\\.?[0-9]+ ?%",
                     "type": "string"
                 },
                 "water_feat_size": {
@@ -6620,13 +6622,13 @@
                 },
                 "season": {
                     "description": "The season when sampling occurred. Any of the four periods into which the year is divided by the equinoxes and solstices. This field accepts terms listed under season (http://purl.obolibrary.org/obo/NCIT_C94729)",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
+                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:[a-zA-Z0-9]+\\]$",
                     "type": "string"
                 },
                 "season_humidity": {
                     "description": "Average humidity of the region throughout the growing season",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
-                    "type": "string"
+                    "type": "number"
                 },
                 "season_precpt": {
                     "description": "The average of all seasonal precipitation values known, or an estimated equivalent value derived by such methods as regional indexes or Isohyetal maps",
@@ -7440,7 +7442,7 @@
                 },
                 "ferm_rel_humidity": {
                     "description": "The relative humidity of the fermented food fermentation process",
-                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "pattern": "[0-9]*\\.?[0-9]+ ?%",
                     "type": "string"
                 },
                 "ferm_temp": {
@@ -8333,7 +8335,7 @@
                 },
                 "host_occupation": {
                     "description": "Most frequent job performed by subject",
-                    "type": "integer"
+                    "type": "string"
                 },
                 "host_phenotype": {
                     "description": "Phenotype of human or other host. For phenotypic quality ontology (pato) (v 2018-03-27) terms, please see http://purl.bioontology.org/ontology/pato. For Human Phenotype Ontology (HP) (v 2018-06-13) please see http://purl.bioontology.org/ontology/HP",
@@ -8582,7 +8584,7 @@
                 },
                 "host_occupation": {
                     "description": "Most frequent job performed by subject",
-                    "type": "integer"
+                    "type": "string"
                 },
                 "host_phenotype": {
                     "description": "Phenotype of human or other host. For phenotypic quality ontology (pato) (v 2018-03-27) terms, please see http://purl.bioontology.org/ontology/pato. For Human Phenotype Ontology (HP) (v 2018-06-13) please see http://purl.bioontology.org/ontology/HP",
@@ -8776,7 +8778,7 @@
                 },
                 "host_occupation": {
                     "description": "Most frequent job performed by subject",
-                    "type": "integer"
+                    "type": "string"
                 },
                 "host_phenotype": {
                     "description": "Phenotype of human or other host. For phenotypic quality ontology (pato) (v 2018-03-27) terms, please see http://purl.bioontology.org/ontology/pato. For Human Phenotype Ontology (HP) (v 2018-06-13) please see http://purl.bioontology.org/ontology/HP",
@@ -8980,7 +8982,7 @@
                 },
                 "host_occupation": {
                     "description": "Most frequent job performed by subject",
-                    "type": "integer"
+                    "type": "string"
                 },
                 "host_phenotype": {
                     "description": "Phenotype of human or other host. For phenotypic quality ontology (pato) (v 2018-03-27) terms, please see http://purl.bioontology.org/ontology/pato. For Human Phenotype Ontology (HP) (v 2018-06-13) please see http://purl.bioontology.org/ontology/HP",
@@ -9180,7 +9182,7 @@
                 },
                 "host_occupation": {
                     "description": "Most frequent job performed by subject",
-                    "type": "integer"
+                    "type": "string"
                 },
                 "host_phenotype": {
                     "description": "Phenotype of human or other host. For phenotypic quality ontology (pato) (v 2018-03-27) terms, please see http://purl.bioontology.org/ontology/pato. For Human Phenotype Ontology (HP) (v 2018-06-13) please see http://purl.bioontology.org/ontology/HP",
@@ -9849,7 +9851,7 @@
                 "iwf": {
                     "description": "Proportion of the produced fluids derived from injected water at the time of sampling. (e.g. 87%)",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
-                    "type": "string"
+                    "type": "number"
                 },
                 "lithology": {
                     "description": "Hydrocarbon resource main lithology (Additional information: http://petrowiki.org/Lithology_and_rock_type_determination). If \"other\" is specified, please propose entry in \"additional info\" field",
@@ -10066,7 +10068,7 @@
                 },
                 "water_cut": {
                     "description": "Current amount of water (%) in a produced fluid stream; or the average of the combined streams",
-                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "pattern": "[0-9]*\\.?[0-9]+ ?%",
                     "type": "string"
                 },
                 "water_prod_rate": {
@@ -10270,7 +10272,7 @@
                 "carb_nitro_ratio": {
                     "description": "Ratio of amount or concentrations of carbon to nitrogen",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
-                    "type": "string"
+                    "type": "number"
                 },
                 "chem_administration": {
                     "description": "List of chemical compounds administered to the host or site where sampling occurred, and when (e.g. Antibiotics, n fertilizer, air filter); can include multiple compounds. For chemical entities of biological interest ontology (chebi) (v 163), http://purl.bioontology.org/ontology/chebi",
@@ -10780,22 +10782,22 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "lat_lon",
+                "assembly_qual",
+                "samp_taxon_id",
                 "collection_date",
                 "isol_growth_condt",
+                "lat_lon",
                 "geo_loc_name",
-                "assembly_qual",
                 "env_medium",
-                "assembly_software",
-                "samp_taxon_id",
-                "number_contig",
-                "num_replicons",
-                "project_name",
+                "samp_name",
                 "env_broad_scale",
                 "env_local_scale",
+                "project_name",
                 "ref_biomaterial",
-                "samp_name"
+                "assembly_software",
+                "number_contig",
+                "num_replicons",
+                "seq_meth"
             ],
             "title": "MigsBa",
             "type": "object"
@@ -11033,20 +11035,20 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "lat_lon",
+                "assembly_qual",
+                "samp_taxon_id",
                 "collection_date",
                 "isol_growth_condt",
+                "lat_lon",
                 "geo_loc_name",
-                "assembly_qual",
                 "env_medium",
-                "assembly_software",
-                "samp_taxon_id",
-                "number_contig",
-                "project_name",
+                "samp_name",
                 "env_broad_scale",
                 "env_local_scale",
-                "samp_name"
+                "project_name",
+                "assembly_software",
+                "number_contig",
+                "seq_meth"
             ],
             "title": "MigsEu",
             "type": "object"
@@ -11248,18 +11250,18 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "lat_lon",
+                "samp_taxon_id",
                 "collection_date",
                 "isol_growth_condt",
-                "geo_loc_name",
+                "lat_lon",
                 "env_medium",
-                "assembly_software",
-                "samp_taxon_id",
-                "project_name",
+                "samp_name",
                 "env_broad_scale",
                 "env_local_scale",
-                "samp_name"
+                "project_name",
+                "assembly_software",
+                "geo_loc_name",
+                "seq_meth"
             ],
             "title": "MigsOrg",
             "type": "object"
@@ -11471,19 +11473,19 @@
                 }
             },
             "required": [
-                "propagation",
-                "seq_meth",
-                "lat_lon",
+                "samp_taxon_id",
                 "collection_date",
                 "isol_growth_condt",
-                "geo_loc_name",
+                "lat_lon",
+                "propagation",
                 "env_medium",
-                "assembly_software",
-                "samp_taxon_id",
-                "project_name",
+                "samp_name",
                 "env_broad_scale",
                 "env_local_scale",
-                "samp_name"
+                "project_name",
+                "assembly_software",
+                "geo_loc_name",
+                "seq_meth"
             ],
             "title": "MigsPl",
             "type": "object"
@@ -11717,19 +11719,19 @@
                 }
             },
             "required": [
-                "propagation",
-                "seq_meth",
-                "lat_lon",
+                "samp_taxon_id",
                 "collection_date",
                 "isol_growth_condt",
+                "lat_lon",
                 "geo_loc_name",
+                "propagation",
                 "env_medium",
-                "assembly_software",
-                "samp_taxon_id",
-                "project_name",
+                "samp_name",
                 "env_broad_scale",
                 "env_local_scale",
-                "samp_name"
+                "project_name",
+                "assembly_software",
+                "seq_meth"
             ],
             "title": "MigsVi",
             "type": "object"
@@ -11975,24 +11977,24 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "lat_lon",
-                "collection_date",
-                "geo_loc_name",
+                "contam_score",
                 "assembly_qual",
-                "env_medium",
-                "assembly_software",
+                "compl_score",
                 "samp_taxon_id",
+                "collection_date",
                 "bin_software",
                 "tax_ident",
-                "compl_score",
+                "lat_lon",
+                "env_medium",
+                "samp_name",
+                "env_broad_scale",
+                "bin_param",
+                "env_local_scale",
                 "project_name",
                 "compl_software",
-                "env_broad_scale",
-                "env_local_scale",
-                "contam_score",
-                "samp_name",
-                "bin_param"
+                "assembly_software",
+                "geo_loc_name",
+                "seq_meth"
             ],
             "title": "Mimag",
             "type": "object"
@@ -12159,18 +12161,18 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "lat_lon",
+                "target_gene",
+                "samp_taxon_id",
                 "collection_date",
                 "isol_growth_condt",
-                "target_gene",
-                "geo_loc_name",
+                "lat_lon",
                 "env_medium",
-                "samp_taxon_id",
-                "project_name",
+                "samp_name",
                 "env_broad_scale",
                 "env_local_scale",
-                "samp_name"
+                "project_name",
+                "geo_loc_name",
+                "seq_meth"
             ],
             "title": "MimarksC",
             "type": "object"
@@ -12351,17 +12353,17 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "lat_lon",
-                "collection_date",
                 "target_gene",
-                "geo_loc_name",
-                "env_medium",
                 "samp_taxon_id",
-                "project_name",
+                "collection_date",
+                "lat_lon",
+                "env_medium",
+                "samp_name",
                 "env_broad_scale",
                 "env_local_scale",
-                "samp_name"
+                "project_name",
+                "geo_loc_name",
+                "seq_meth"
             ],
             "title": "MimarksS",
             "type": "object"
@@ -12551,16 +12553,16 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "lat_lon",
-                "collection_date",
-                "geo_loc_name",
-                "env_medium",
                 "samp_taxon_id",
-                "project_name",
+                "collection_date",
+                "lat_lon",
+                "env_medium",
+                "samp_name",
                 "env_broad_scale",
                 "env_local_scale",
-                "samp_name"
+                "project_name",
+                "geo_loc_name",
+                "seq_meth"
             ],
             "title": "Mims",
             "type": "object"
@@ -12809,25 +12811,25 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "lat_lon",
-                "collection_date",
-                "sort_tech",
-                "geo_loc_name",
+                "contam_score",
                 "assembly_qual",
-                "env_medium",
-                "assembly_software",
-                "samp_taxon_id",
-                "tax_ident",
                 "compl_score",
-                "single_cell_lysis_appr",
+                "samp_taxon_id",
+                "collection_date",
+                "wga_amp_appr",
+                "tax_ident",
+                "lat_lon",
+                "env_medium",
+                "samp_name",
+                "env_broad_scale",
+                "sort_tech",
+                "env_local_scale",
                 "project_name",
                 "compl_software",
-                "env_broad_scale",
-                "env_local_scale",
-                "wga_amp_appr",
-                "contam_score",
-                "samp_name"
+                "single_cell_lysis_appr",
+                "assembly_software",
+                "geo_loc_name",
+                "seq_meth"
             ],
             "title": "Misag",
             "type": "object"
@@ -13368,21 +13370,21 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "lat_lon",
-                "collection_date",
-                "geo_loc_name",
                 "assembly_qual",
-                "env_medium",
-                "assembly_software",
                 "samp_taxon_id",
-                "number_contig",
-                "project_name",
+                "collection_date",
                 "source_uvig",
-                "virus_enrich_appr",
+                "lat_lon",
+                "env_medium",
+                "samp_name",
                 "env_broad_scale",
                 "env_local_scale",
-                "samp_name",
+                "virus_enrich_appr",
+                "project_name",
+                "assembly_software",
+                "number_contig",
+                "geo_loc_name",
+                "seq_meth",
                 "vir_ident_software",
                 "pred_genome_type",
                 "pred_genome_struc",
@@ -14462,7 +14464,7 @@
                 "carb_nitro_ratio": {
                     "description": "Ratio of amount or concentrations of carbon to nitrogen",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
-                    "type": "string"
+                    "type": "number"
                 },
                 "chem_administration": {
                     "description": "List of chemical compounds administered to the host or site where sampling occurred, and when (e.g. Antibiotics, n fertilizer, air filter); can include multiple compounds. For chemical entities of biological interest ontology (chebi) (v 163), http://purl.bioontology.org/ontology/chebi",
@@ -15916,7 +15918,7 @@
                 "carb_nitro_ratio": {
                     "description": "Ratio of amount or concentrations of carbon to nitrogen",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
-                    "type": "string"
+                    "type": "number"
                 },
                 "chem_administration": {
                     "description": "List of chemical compounds administered to the host or site where sampling occurred, and when (e.g. Antibiotics, n fertilizer, air filter); can include multiple compounds. For chemical entities of biological interest ontology (chebi) (v 163), http://purl.bioontology.org/ontology/chebi",

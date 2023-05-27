@@ -6,6 +6,7 @@ prefixes:
   linkml: http://example.com/GSC_MIxS_6/
 slots:
   host_occupation:
+    range: string
     comments:
       - "Couldn't convert host_occupation with value veterinary to integer"
       - almost all host_occupation values in the NCBI biosample_set are strings, not integers
@@ -17,12 +18,10 @@ slots:
     examples:
       - value: Campos
         description: "from slot's description"
-
   coll_site_geo_feat:
     examples:
       - value: "farm [ENVO:00000078]"
         description: present in NCBI biosample_set
-
   collection_date:
     examples:
       - value: 2023-01-15T00:00:00
@@ -40,10 +39,11 @@ slots:
       - value: bluegrass field soil [ENVO:00005789]
         description: arbitrarily selected environmental medium
   iwf:
+    range: float
     examples:
-      - value: 87%
-        description: "from slot's description"
-    pattern: "[0-9]*\\.?[0-9]+ ?%"
+      - value: 0.79
+        description: casual Google search
+    # pattern: "[0-9]*\\.?[0-9]+ ?%"
     comments:
       - percent or float?
   microbial_biomass_meth:
@@ -57,7 +57,6 @@ slots:
   carb_nitro_ratio:
     range: float
     pattern: ""
-
   occup_samp:
     range: float
     pattern: ""
@@ -65,13 +64,19 @@ slots:
     pattern: "[0-9]*\\.?[0-9]+ ?%"
     comments:
       - percent or float?
+    examples:
+      - value: 95%
+        description: removed " RH" suffix from XLSX example
   rel_air_humidity:
+    range: float
     comments:
       - percent or float?
   season_humidity:
+    range: float
     comments:
       - percent or float?
   surf_humidity:
+    range: float
     comments:
       - percent or float?
   water_cut:
@@ -87,14 +92,14 @@ slots:
       - P2H45M does not match ^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$
   samp_transport_dur:
     comments:
+      - "{float} {unit} or period?"
       - problematic ISO 8601 period validation
       - P10D does not match ^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$
   season:
     comments:
       - autumn [NCIT:C94733] does not match ^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$
       - would require ^\\S+.*\\S+ \\[[a-zA-Z]{2,}:[a-zA-Z0-9]\\]$
-    pattern: ^\S+.*\S+ \[[a-zA-Z]{2,}:[a-zA-Z0-9]\]$
-
+    pattern: ^\S+.*\S+ \[[a-zA-Z]{2,}:[a-zA-Z0-9]+\]$
   host_body_product:
     examples:
       - value: mucus [FMA:66938]
