@@ -4,6 +4,7 @@ import string
 
 import nltk
 import pandas as pd
+from linkml_runtime import SchemaView
 from nltk.corpus import words
 from nltk.stem import PorterStemmer
 from sklearn.feature_extraction.text import CountVectorizer
@@ -12,32 +13,29 @@ nltk.download('words')
 
 dest_dir = "generated"
 
-combined_sheets = "mixs_v6.xlsx.harmonized.tsv"
+schema_sheet = "GSC_MIxS_6_usage_populated_no_blank_cols.tsv"
 
-output_file = f"{dest_dir}/{combined_sheets}.dtm.tsv"
+schema_sheet_column = "Definition"
 
+output_file = f"{dest_dir}/{schema_sheet}.dtm.tsv"
 
-def gen_rand_letter_number(k=2):
-    characters = string.ascii_letters + string.digits
-    random_string = ''.join(random.choices(characters, k=k))
-    return random_string
+df_raw = pd.read_csv(f"{dest_dir}/{schema_sheet}", sep='\t', dtype=str)
 
+schema_file = f"{dest_dir}/GSC_MIxS_6.yaml"
 
-def replace_punctuation_and_whitespace(text):
-    stripped = text.strip()
+print(df_raw.shape)
 
-    # Replace punctuation and whitespace with underscores
-    replaced = re.sub(r'\W+', '_', stripped)
+df_desc = df_raw[~df_raw['description'].isnull()]
+print(df_desc.shape)
 
-    # Remove consecutive underscores
-    final_result = re.sub(r'_{2,}', '_', replaced)
+dl_slot_desc = df_desc[["slot", "description"]]
+# remove duplicate rows
+dl_slot_desc = dl_slot_desc.drop_duplicates()
+print(dl_slot_desc.shape)
 
-    # trim leading and trailing whitespace
+dl_slot_desc_unique = dl_slot_desc.copy()
 
-    return final_result
-
-
-df = pd.read_csv(f"{dest_dir}/{combined_sheets}", sep='\t', dtype=str)
+dl_slot_desc_unique['unique'] = dl_slot_desc_unique['slot'] + "|" + dl_slot_desc_unique.index.astype(str)
 
 # Create an instance of CountVectorizer with stop word removal, custom tokenizer, and modified token pattern
 vectorizer = CountVectorizer(
@@ -49,7 +47,7 @@ vectorizer = CountVectorizer(
 )
 
 # Fit the vectorizer on the Definition column and transform it into a document-term matrix
-matrix = vectorizer.fit_transform(df['Definition'])
+matrix = vectorizer.fit_transform(dl_slot_desc_unique['description'])
 
 # Get the feature names (terms)
 feature_names = vectorizer.get_feature_names_out()
@@ -67,8 +65,12 @@ stemmed_feature_names = [stemmer.stem(word) for word in dictionary_feature_names
 # Filter the document-term matrix to include only the columns corresponding to the dictionary feature names
 filtered_matrix = matrix[:, [vectorizer.vocabulary_[word] for word in dictionary_feature_names]]
 
-# # Create a new DataFrame for the filtered document-term matrix with the stemmed dictionary feature names
-# dtm_df = pd.DataFrame(filtered_matrix.toarray(), columns=stemmed_feature_names, index=df['unique_id'])
-dtm_df = pd.DataFrame(filtered_matrix.toarray(), columns=stemmed_feature_names)
+dtm_df = pd.DataFrame(filtered_matrix.toarray(), columns=stemmed_feature_names, index=dl_slot_desc_unique['unique'])
+
+row_slot = dtm_df.index.str.split('|', expand=True)
+
+dtm_df.index = row_slot
 
 dtm_df.to_csv(output_file, index=True, sep='\t')
+
+view = SchemaView(schema_file)
