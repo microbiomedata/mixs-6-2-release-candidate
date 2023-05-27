@@ -17,13 +17,13 @@ exhaustive_test_set:
     hcr: xxx
     host_dependence: xxx
     indoor_space: xxx
-    iwf: 123 units
+    iwf: 0.79
     lat_lon: xxx
     microbial_biomass_meth: xxx
     occup_density_samp: 1.9
     occup_samp: 1.9
     project_name: xxx
-    rel_air_humidity: 123 units
+    rel_air_humidity: 0.8
     samp_collect_point: xxx
     samp_name: xxx
     samp_taxon_id: xxx
@@ -33,7 +33,7 @@ exhaustive_test_set:
     space_typ_state: xxx
     sym_life_cycle_type: simple life cycle
     typ_occup_density: 1.9
-    water_cut: 123 units
+    water_cut: 45%
     IFSAC_category:
       - xxx
     build_occup_type:
@@ -152,7 +152,7 @@ exhaustive_test_set:
     calcium: 1.9 units
     carb_dioxide: 1.9 units
     carb_monoxide: 1.9 units
-    carb_nitro_ratio: 1.9 units
+    carb_nitro_ratio: 0.417361111
     ceil_area: 1.9 units
     ceil_cond: xxx
     ceil_finish_mat: xxx
@@ -284,7 +284,7 @@ exhaustive_test_set:
     ferm_headspace_oxy: xxx
     ferm_medium: xxx
     ferm_pH: 1.9
-    ferm_rel_humidity: 1.9 units
+    ferm_rel_humidity: 95%
     ferm_temp: 1.9 units
     ferm_time: PT10H30M
     ferm_vessel: xxx
@@ -422,7 +422,7 @@ exhaustive_test_set:
     host_length: 1.9 units
     host_life_stage: xxx
     host_number: xxx
-    host_occupation: 123
+    host_occupation: veterinary
     host_of_host_coinf: xxx
     host_of_host_disease:
       - xxx
@@ -722,10 +722,10 @@ exhaustive_test_set:
     samp_well_name: xxx
     sample_collec_method: xxx
     saturates_pc: xxx
-    season: term [ONTOLOGY:123]
+    season: autumn [NCIT:C94733]
     season_environment:
       - xxx
-    season_humidity: 1.9 units
+    season_humidity: 0.25
     season_precpt: 1.9 units
     season_temp: 1.9 units
     season_use: xxx
@@ -827,7 +827,7 @@ exhaustive_test_set:
     sulfide: 1.9 units
     surf_air_cont:
       - xxx
-    surf_humidity: 1.9 units
+    surf_humidity: 0.1
     surf_material: xxx
     surf_moisture: 1.9 units
     surf_moisture_ph: 1.9

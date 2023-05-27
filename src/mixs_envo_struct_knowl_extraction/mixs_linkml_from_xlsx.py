@@ -718,12 +718,13 @@ dupe_slot_uris = dupe_property_report("slot_uri")
 duplication_comment = f"slot_uris that appear more than once in the schema: {', '.join(dupe_slot_uris)}"
 global_target_schema.comments.append(duplication_comment)
 
-yaml_dumper.dump(global_target_schema, schema_file_name)
-
 extracted_examples_dict = extract_or_substitute_examples_etc(supplementary_file=proposed_slot_attributes_file)
+
 extracted_examples_collection = {
     "exhaustive_test_set": [extracted_examples_dict]
 }
+
+yaml_dumper.dump(global_target_schema, schema_file_name)
 
 with open(extracted_examples_file_name, 'w') as file:
     yaml.safe_dump(extracted_examples_collection, file)
