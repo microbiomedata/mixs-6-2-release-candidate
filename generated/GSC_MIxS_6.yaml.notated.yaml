@@ -2175,6 +2175,8 @@ slots:
         value: names and versions of software(s), parameters used
     description: Tools used for 16S rRNA gene extraction
     title: 16S recovery software
+    notes:
+    - recover
     examples:
     - value: rambl;v2;default parameters
     in_subset:
@@ -2201,6 +2203,9 @@ slots:
     description: Type of plant or animal from which the food product or its major
       ingredient is derived or a chemical food source [FDA CFSAN 1995]
     title: Food source
+    notes:
+    - food
+    - source
     examples:
     - value: red swamp crayfish; FOODON:03412231
     string_serialization: '{text}'
@@ -2215,6 +2220,8 @@ slots:
     description: Hazard Analysis Critical Control Points (HACCP) food safety terms;
       This field accepts terms listed under HACCP guide food safety term (http://purl.obolibrary.org/obo/FOODON_03530221)
     title: Hazard Analysis Critical Control Points (HACCP) guide food safety term
+    notes:
+    - food
     examples:
     - value: tetrodotoxic poisoning [FOODON:03530249]
     string_serialization: '{termLabel} {[termID]}'
@@ -2241,6 +2248,8 @@ slots:
       dairy products. An IFSAC food category chart is available from https://www.cdc.gov/foodsafety/ifsac/projects/food-categorization-scheme.html
       PMID: 28926300'
     title: Interagency Food Safety Analytics Collaboration (IFSAC) category
+    notes:
+    - food
     examples:
     - value: Plants:Produce:Vegetables:Herbs:Dried Herbs
     string_serialization: '{text}'
@@ -2256,6 +2265,10 @@ slots:
     description: Actual mass of water vapor - mh20 - present in the air water vapor
       mixture
     title: absolute air humidity
+    notes:
+    - absolute
+    - air
+    - humidity
     examples:
     - value: 9 gram per gram
     slot_uri: MIXS:0000122
@@ -2290,6 +2303,11 @@ slots:
       of them. If "other" is specified, please propose entry in "additional info"
       field
     title: secondary and tertiary recovery methods and start date
+    notes:
+    - date
+    - method
+    - recover
+    - start
     examples:
     - value: Polymer Addition;2018-06-21T14:30Z
     string_serialization: '[Water Injection|Dump Flood|Gas Injection|Wag Immiscible
@@ -2302,6 +2320,8 @@ slots:
     description: Information that doesn't fit anywhere else. Can also be used to propose
       new entries for fields with controlled vocabulary
     title: additional info
+    notes:
+    - information
     slot_uri: MIXS:0000300
     multivalued: false
     range: string
@@ -2325,6 +2345,8 @@ slots:
     description: List of rooms (room number, room name) immediately adjacent to the
       sampling room
     title: adjacent rooms
+    notes:
+    - adjacent
     slot_uri: MIXS:0000219
     multivalued: false
     required: false
@@ -2344,6 +2366,10 @@ slots:
       and human construction (http://purl.obolibrary.org/obo/ENVO_00000070). Multiple
       terms can be separated by pipes
     title: environment adjacent to site
+    notes:
+    - adjacent
+    - environment
+    - site
     examples:
     - value: estuarine biome [ENVO:01000020]
     string_serialization: '{termLabel}{[termID]}'
@@ -2375,6 +2401,8 @@ slots:
         value: gram, mole per liter, milligram per liter
     description: Addition of fertilizers, pesticides, etc. - amount and time of applications
     title: history/agrochemical additions
+    notes:
+    - history
     examples:
     - value: roundup;5 milligram per liter;2018-06-21
     string_serialization: '{text};{float} {unit};{timestamp}'
@@ -2415,6 +2443,10 @@ slots:
       comprise mixtures of organic and inorganic substances (PM10 and PM2.5); can
       report multiple PM's by entering numeric values preceded by name of PM
     title: air particulate matter concentration
+    notes:
+    - air
+    - concentration
+    - particulate
     examples:
     - value: PM2.5;10 microgram per cubic meter
     string_serialization: '{text};{float} {unit}'
@@ -2431,6 +2463,8 @@ slots:
     description: Presence of objects in the area that would influence or impede air
       flow through the air filter
     title: local air flow impediments
+    notes:
+    - air
     examples:
     - value: obstructed;hay bales; 2 m
     string_serialization: '[obstructed|unobstructed]; {text}; {measurement value}'
@@ -2446,6 +2480,8 @@ slots:
         value: degree Celsius
     description: Temperature of the air at the time of sampling
     title: air temperature
+    notes:
+    - air
     slot_uri: MIXS:0000124
     multivalued: false
     range: string
@@ -2464,6 +2500,8 @@ slots:
       treatment was repeated, how long each treatment lasted, and the start and end
       time of the entire treatment; can include different temperature regimens
     title: air temperature regimen
+    notes:
+    - air
     examples:
     - value: 25 degree Celsius;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M
     string_serialization: '{float} {unit};{Rn/start_time/end_time/duration}'
@@ -2479,6 +2517,11 @@ slots:
         value: percentage
     description: Aluminum saturation (esp. For tropical soils)
     title: extreme_unusual_properties/Al saturation
+    notes:
+    - extreme
+    - properties
+    - saturation
+    - unusual
     slot_uri: MIXS:0000607
     multivalued: false
     range: string
@@ -2489,6 +2532,12 @@ slots:
     name: al_sat_meth
     description: Reference or method used in determining Al saturation
     title: extreme_unusual_properties/Al saturation method
+    notes:
+    - extreme
+    - method
+    - properties
+    - saturation
+    - unusual
     slot_uri: MIXS:0000324
     multivalued: false
     required: false
@@ -2506,6 +2555,8 @@ slots:
     description: Alkalinity, the ability of a solution to neutralize acids to the
       equivalence point of carbonate or bicarbonate
     title: alkalinity
+    notes:
+    - alkalinity
     examples:
     - value: 50 milligram per liter
     slot_uri: MIXS:0000421
@@ -2518,6 +2569,9 @@ slots:
     name: alkalinity_method
     description: Method used for alkalinity measurement
     title: alkalinity method
+    notes:
+    - alkalinity
+    - method
     examples:
     - value: titration
     slot_uri: MIXS:0000298
@@ -2600,6 +2654,8 @@ slots:
     description: The unit of illuminance and luminous emittance, measuring luminous
       flux per unit area
     title: amount of light
+    notes:
+    - light
     slot_uri: MIXS:0000140
     multivalued: false
     range: string
@@ -2629,6 +2685,11 @@ slots:
       livestock. This field accepts termed listed under water delivery equipment (http://opendata.inra.fr/EOL/EOL_0001653).
       Multiple terms can be separated by pipes
     title: animal water delivery method
+    notes:
+    - animal
+    - delivery
+    - method
+    - water
     examples:
     - value: water trough [EOL:0001618]
     string_serialization: '{termLabel} {[termID]}'
@@ -2641,6 +2702,10 @@ slots:
     description: The name(s) (generic or brand) of the antimicrobial(s) given to the
       food animal within the last 30 days
     title: food animal antimicrobial
+    notes:
+    - animal
+    - antimicrobial
+    - food
     examples:
     - value: tetracycline
     slot_uri: MIXS:0001243
@@ -2657,6 +2722,12 @@ slots:
     description: The duration of time (days) that the antimicrobial was administered
       to the food animal
     title: food animal antimicrobial duration
+    notes:
+    - animal
+    - antimicrobial
+    - duration
+    - food
+    - period
     examples:
     - value: 3 days
     string_serialization: '{float} {day}'
@@ -2673,6 +2744,11 @@ slots:
     description: The frequency per day that the antimicrobial was adminstered to the
       food animal
     title: food animal antimicrobial frequency
+    notes:
+    - animal
+    - antimicrobial
+    - food
+    - frequency
     examples:
     - value: once daily
     string_serialization: '{float} {unit}'
@@ -2685,6 +2761,12 @@ slots:
     description: The route by which the antimicrobial is adminstered into the body
       of the food animal
     title: food animal antimicrobial route of administration
+    notes:
+    - administration
+    - animal
+    - antimicrobial
+    - food
+    - route
     examples:
     - value: oral-feed
     slot_uri: MIXS:0001246
@@ -2697,6 +2779,10 @@ slots:
     description: The prescribed intended use of or the condition treated by the antimicrobial
       given to the food animal by any route of administration
     title: food animal antimicrobial intended use
+    notes:
+    - animal
+    - antimicrobial
+    - food
     examples:
     - value: shipping fever
     slot_uri: MIXS:0001247
@@ -2710,6 +2796,10 @@ slots:
       overall health and nutritional needs of a food animal. Because there are different
       scoring systems, this field is restricted to three categories
     title: food animal body condition
+    notes:
+    - animal
+    - body
+    - food
     examples:
     - value: under conditioned
     slot_uri: MIXS:0001248
@@ -2732,6 +2822,11 @@ slots:
       type. Multiple terms can be separated by one or more pipes. If the proper descriptor
       is not listed please use text to describe the food product type
     title: food animal source diet
+    notes:
+    - animal
+    - diet
+    - food
+    - source
     string_serialization: '{text}'
     slot_uri: MIXS:0001130
     multivalued: true
@@ -2740,6 +2835,9 @@ slots:
   animal_feed_equip:
     name: animal_feed_equip
     title: animal feeding equipment
+    notes:
+    - animal
+    - equipment
     examples:
     - value: self feeding [EOL:0001645]| straight feed trough [EOL:0001661]
     slot_uri: MIXS:0001113
@@ -2752,6 +2850,9 @@ slots:
     description: The number of food animals of the same species that are maintained
       together as a unit, i.e. a herd or flock
     title: food animal group size
+    notes:
+    - animal
+    - food
     examples:
     - value: '80'
     slot_uri: MIXS:0001129
@@ -2768,6 +2869,8 @@ slots:
     description: Description of the housing system of the livestock. This field accepts
       terms listed under terrestrial management housing system (http://opendata.inra.fr/EOL/EOL_0001605)
     title: animal housing system
+    notes:
+    - animal
     examples:
     - value: pen rearing system [EOL:0001636]
     string_serialization: '{termLabel} {[termID]}'
@@ -2788,6 +2891,10 @@ slots:
       numbers from NCBI under https://www.ncbi.nlm.nih.gov/taxonomy. Multiple terms
       can be separated by pipes
     title: animal intrusion near sample source
+    notes:
+    - animal
+    - sample
+    - source
     examples:
     - value: Thripidae [NCBITaxon:45053]
     string_serialization: '{termLabel} {[termID]}|{integer}'
@@ -2799,6 +2906,10 @@ slots:
     name: animal_sex
     description: The sex and reproductive status of the food animal
     title: food animal source sex category
+    notes:
+    - animal
+    - food
+    - source
     examples:
     - value: castrated male
     slot_uri: MIXS:0001249
@@ -2828,6 +2939,8 @@ slots:
     description: The average of all annual precipitation values known, or an estimated
       equivalent value derived by such methods as regional indexes or Isohyetal maps
     title: mean annual precipitation
+    notes:
+    - mean
     slot_uri: MIXS:0000644
     multivalued: false
     range: string
@@ -2842,6 +2955,8 @@ slots:
         value: degree Celsius
     description: Mean annual temperature
     title: mean annual temperature
+    notes:
+    - mean
     examples:
     - value: 12.5 degree Celsius
     slot_uri: MIXS:0000642
@@ -2914,6 +3029,8 @@ slots:
     description: The total amount or size (volume (ml), mass (g) or area (m2) ) of
       sample collected
     title: area sampled size
+    notes:
+    - sample
     examples:
     - value: 12 centimeter x 12 centimeter
     string_serialization: '{integer} {unit} x {integer} {unit}'
@@ -3051,6 +3168,11 @@ slots:
     description: Time spent in host of the symbiotic organism at the time of sampling;
       relevant scale depends on symbiotic organism and study
     title: duration of association with the host
+    notes:
+    - duration
+    - host
+    - host.
+    - period
     string_serialization: '{float} {unit}'
     slot_uri: MIXS:0001299
     multivalued: false
@@ -3080,6 +3202,8 @@ slots:
     description: The average of dew point measures taken at the beginning of every
       hour over a 24 hour period on the sampling day
     title: average dew point
+    notes:
+    - average
     examples:
     - value: 25.5 degree Celsius
     slot_uri: MIXS:0000141
@@ -3093,6 +3217,8 @@ slots:
     description: Daily average occupancy of room. Indicate the number of person(s)
       daily occupying the sampling room
     title: average daily occupancy
+    notes:
+    - average
     slot_uri: MIXS:0000775
     multivalued: false
     range: float
@@ -3107,6 +3233,8 @@ slots:
     description: The average of temperatures taken at the beginning of every hour
       over a 24 hour period on the sampling day
     title: average temperature
+    notes:
+    - average
     examples:
     - value: 12.5 degree Celsius
     slot_uri: MIXS:0000142
@@ -3151,6 +3279,8 @@ slots:
     name: bacteria_carb_prod
     description: Measurement of bacterial carbon production
     title: bacterial carbon production
+    notes:
+    - carbon
     examples:
     - value: 2.53 microgram per liter per hour
     slot_uri: MIXS:0000173
@@ -3168,6 +3298,8 @@ slots:
           of dry weight
     description: Number of bacteria in sample, as defined by bacteria density (http://purl.obolibrary.org/obo/GENEPIO_0000043)
     title: bacteria density
+    notes:
+    - density
     examples:
     - value: 10 colony forming units per gram dry weight
     slot_uri: MIXS:0001194
@@ -3208,6 +3340,8 @@ slots:
     name: bathroom_count
     description: The number of bathrooms in the building
     title: bathroom count
+    notes:
+    - count
     examples:
     - value: '1'
     slot_uri: MIXS:0000776
@@ -3219,6 +3353,8 @@ slots:
     name: bedroom_count
     description: The number of bedrooms in the building
     title: bedroom count
+    notes:
+    - count
     examples:
     - value: '2'
     slot_uri: MIXS:0000777
@@ -3277,6 +3413,8 @@ slots:
       in a body of water to break down organic material present in a given water sample
       at certain temperature over a specific time period
     title: biochemical oxygen demand
+    notes:
+    - oxygen
     slot_uri: MIXS:0000653
     multivalued: false
     range: string
@@ -3292,6 +3430,8 @@ slots:
     description: List of biocides (commercial name of product and supplier) and date
       of administration
     title: biocide administration
+    notes:
+    - administration
     examples:
     - value: ALPHA 1427;Baker Hughes;2008-01-23
     string_serialization: '{text};{text};{timestamp}'
@@ -3311,6 +3451,9 @@ slots:
       elapsed between last biociding and sampling) (e.g. 150 mg/l; weekly; 4 hr; 3
       days)
     title: biocide administration method
+    notes:
+    - administration
+    - method
     string_serialization: '{float} {unit};{Rn/start_time/end_time/duration};{duration}'
     slot_uri: MIXS:0000456
     multivalued: false
@@ -3359,6 +3502,8 @@ slots:
     description: Amount of biomass; should include the name for the part of biomass
       measured, e.g. Microbial, total. Can include multiple measurements
     title: biomass
+    notes:
+    - biomass
     examples:
     - value: total;20 gram
     string_serialization: '{text};{float} {unit}'
@@ -3424,6 +3569,8 @@ slots:
       terms should be chosen from the DO (Human Disease Ontology) at http://www.disease-ontology.org,
       hematopoietic system disease (https://disease-ontology.org/?id=DOID:74)
     title: blood/blood disorder
+    notes:
+    - disorder
     slot_uri: MIXS:0000271
     multivalued: true
     range: string
@@ -3437,6 +3584,9 @@ slots:
         value: millimeter mercury
     description: Resting diastolic blood pressure, measured as mm mercury
     title: host blood pressure diastolic
+    notes:
+    - host
+    - host.
     slot_uri: MIXS:0000258
     multivalued: false
     range: string
@@ -3451,6 +3601,9 @@ slots:
         value: millimeter mercury
     description: Resting systolic blood pressure, measured as mm mercury
     title: host blood pressure systolic
+    notes:
+    - host
+    - host.
     slot_uri: MIXS:0000259
     multivalued: false
     range: string
@@ -3477,6 +3630,8 @@ slots:
     name: build_docs
     description: The building design, construction and operation documents
     title: design, construction, and operation documents
+    notes:
+    - documents
     examples:
     - value: maintenance plans
     slot_uri: MIXS:0000787
@@ -3569,6 +3724,8 @@ slots:
         value: micromole per liter, parts per million
     description: Carbon dioxide (gas) amount or concentration at the time of sampling
     title: carbon dioxide
+    notes:
+    - carbon
     examples:
     - value: 410 parts per million
     slot_uri: MIXS:0000097
@@ -3583,6 +3740,8 @@ slots:
         value: micromole per liter, parts per million
     description: Carbon monoxide (gas) amount or concentration at the time of sampling
     title: carbon monoxide
+    notes:
+    - carbon
     examples:
     - value: 0.1 parts per million
     slot_uri: MIXS:0000098
@@ -3595,6 +3754,10 @@ slots:
     name: carb_nitro_ratio
     description: Ratio of amount or concentrations of carbon to nitrogen
     title: carbon/nitrogen ratio
+    notes:
+    - carbon
+    - nitrogen
+    - ratio
     examples:
     - value: '0.417361111'
     slot_uri: MIXS:0000310
@@ -3635,6 +3798,8 @@ slots:
     name: ceil_finish_mat
     description: The type of material used to finish a ceiling
     title: ceiling finish material
+    notes:
+    - material
     examples:
     - value: stucco
     slot_uri: MIXS:0000780
@@ -3675,6 +3840,8 @@ slots:
       supports a concrete slab will act thermally as long as it is exposed to room
       air flow
     title: ceiling thermal mass
+    notes:
+    - mass
     slot_uri: MIXS:0000143
     multivalued: false
     range: string
@@ -3710,6 +3877,8 @@ slots:
         tag: Expected_value
         value: CHEBI;timestamp
     title: chemical administration
+    notes:
+    - administration
     examples:
     - value: agar [CHEBI:2509];2018-05-11T20:00Z
     string_serialization: '{termLabel} {[termID]};{timestamp}'
@@ -3746,6 +3915,8 @@ slots:
       of organic matter and the oxidation of inorganic chemicals such as ammonia and
       nitrite
     title: chemical oxygen demand
+    notes:
+    - oxygen
     slot_uri: MIXS:0000656
     multivalued: false
     range: string
@@ -3765,6 +3936,8 @@ slots:
       elapsed between administration and sampling) (e.g. 50 mg/l; twice a week; 1
       hr; 0 days)
     title: chemical treatment method
+    notes:
+    - method
     string_serialization: '{float} {unit};{Rn/start_time/end_time/duration};{duration};{duration}'
     slot_uri: MIXS:0000457
     multivalued: false
@@ -3840,6 +4013,8 @@ slots:
       lasted, and the start and end time of the entire treatment; can include multiple
       climates
     title: climate environment
+    notes:
+    - environment
     examples:
     - value: tropical climate;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M
     slot_uri: MIXS:0001040
@@ -3858,6 +4033,10 @@ slots:
       or any of its subclasses; market [ENVO:01000987]; water well [ENVO:01000002];
       or human construction (http://purl.obolibrary.org/obo/ENVO_00000070)'
     title: collection site geographic feature
+    notes:
+    - feature
+    - geographic
+    - site
     examples:
     - value: farm [ENVO:00000078]
       description: present in NCBI biosample_set
@@ -3872,6 +4051,8 @@ slots:
       truncated i.e. all of these are valid times: 2008-01-23T19:23:10+00:00; 2008-01-23T19:23:10;
       2008-01-23; 2008-01; 2008; Except: 2008-01; 2008 all are ISO8601 compliant'
     title: collection date
+    notes:
+    - date
     examples:
     - value: '2023-01-15 00:00:00'
       description: arbitrarily selected ISO 8601 date
@@ -3956,6 +4137,10 @@ slots:
       to onset of illness or sample collection.  Indicate the timepoint written in
       ISO 8601 format
     title: food stored by consumer (storage duration)
+    notes:
+    - consumer
+    - duration)
+    - food
     examples:
     - value: P5D
     slot_uri: MIXS:0001195
@@ -3975,6 +4160,9 @@ slots:
     description: Temperature at which food commodity was stored by the consumer, prior
       to onset of illness or sample collection
     title: food stored by consumer (storage temperature)
+    notes:
+    - consumer
+    - food
     examples:
     - value: 4 degree Celsius
     string_serialization: '{float} {unit}|{text}'
@@ -3986,6 +4174,8 @@ slots:
     name: cons_purch_date
     description: The date a food product was purchased by consumer
     title: purchase date
+    notes:
+    - date
     examples:
     - value: '2019-11-30 00:00:00'
     slot_uri: MIXS:0001197
@@ -4056,6 +4246,8 @@ slots:
     name: cool_syst_id
     description: The cooling system identifier
     title: cooling system identifier
+    notes:
+    - identifier
     examples:
     - value: '12345'
     slot_uri: MIXS:0000785
@@ -4067,6 +4259,8 @@ slots:
     name: crop_rotation
     description: Whether or not crop is rotated, and if yes, rotation schedule
     title: history/crop rotation
+    notes:
+    - history
     examples:
     - value: yes;R2/2017-01-01/2018-12-31/P6M
     slot_uri: MIXS:0000318
@@ -4083,6 +4277,8 @@ slots:
         value: kilogram per metre square
     description: Amount of crop produced per unit or area of land
     title: crop yield
+    notes:
+    - crop
     examples:
     - value: 570 kilogram per metre square
     slot_uri: MIXS:0001116
@@ -4094,6 +4290,10 @@ slots:
   cult_isol_date:
     name: cult_isol_date
     title: culture isolation date
+    notes:
+    - culture
+    - date
+    - isolation
     slot_uri: MIXS:0001181
     multivalued: false
     range: string
@@ -4104,6 +4304,8 @@ slots:
     description: Any result of a bacterial culture experiment reported as a binary
       assessment such as positive/negative, active/inactive
     title: culture result
+    notes:
+    - culture
     examples:
     - value: positive
     slot_uri: MIXS:0001117
@@ -4119,6 +4321,8 @@ slots:
         value: NCIT:C14250 or NCBI taxid
     description: Taxonomic information about the cultured organism(s)
     title: culture result organism
+    notes:
+    - culture
     examples:
     - value: Listeria monocytogenes [NCIT:C86502]
     slot_uri: MIXS:0001118
@@ -4136,6 +4340,8 @@ slots:
       medium, e.g. Murashige and Skoog medium. If the medium has not been formally
       published, use the rooting medium descriptors
     title: culture rooting medium
+    notes:
+    - culture
     examples:
     - value: http://himedialabs.com/TD/PT158.pdf
     string_serialization: '{text}|{PMID}|{DOI}|{URL}'
@@ -4153,6 +4359,9 @@ slots:
       field accepts terms under organism (http://purl.obolibrary.org/obo/NCIT_C14250).
       This field also accepts identification numbers from NCBI under https://www.ncbi.nlm.nih.gov/taxonomy
     title: culture target microbial analyte
+    notes:
+    - culture
+    - microbial
     examples:
     - value: Listeria monocytogenes [NCIT:C86502]
     slot_uri: MIXS:0001119
@@ -4167,6 +4376,8 @@ slots:
         value: enumeration
     description: Present state of sample site
     title: current land use
+    notes:
+    - land
     examples:
     - value: conifers
     string_serialization: '[cities|farmstead|industrial areas|roads/railroads|rock|sand|gravel|mudflats|salt
@@ -4202,6 +4413,8 @@ slots:
     name: cur_vegetation_meth
     description: Reference or method used in vegetation classification
     title: current vegetation method
+    notes:
+    - method
     slot_uri: MIXS:0000314
     multivalued: false
     structured_pattern:
@@ -4213,6 +4426,9 @@ slots:
     description: Date of unusual weather events that may have affected microbial populations.
       Multiple terms can be separated by pipes, listed in reverse chronological order
     title: extreme weather date
+    notes:
+    - date
+    - extreme
     examples:
     - value: 2018-05-11:T14:30Z
     slot_uri: MIXS:0001142
@@ -4224,6 +4440,8 @@ slots:
     name: date_last_rain
     description: The date of the last time it rained
     title: date last rain
+    notes:
+    - date
     examples:
     - value: 2018-05-11:T14:30Z
     slot_uri: MIXS:0000786
@@ -4247,6 +4465,8 @@ slots:
     description: Density of the sample, which is its mass per unit volume (aka volumetric
       mass density)
     title: density
+    notes:
+    - density
     examples:
     - value: 1000 kilogram per cubic meter
     slot_uri: MIXS:0000435
@@ -4260,6 +4480,8 @@ slots:
     description: Main depositional environment (https://en.wikipedia.org/wiki/Depositional_environment).
       If "other" is specified, please propose entry in "additional info" field
     title: depositional environment
+    notes:
+    - environment
     slot_uri: MIXS:0000992
     multivalued: false
     range: string
@@ -4271,6 +4493,8 @@ slots:
         tag: Preferred_unit
         value: meter
     title: depth
+    notes:
+    - depth
     examples:
     - value: 10 meter
     in_subset:
@@ -4285,6 +4509,8 @@ slots:
       The terms should be chosen from the DO (Human Disease Ontology) at http://www.disease-ontology.org,
       skin disease (https://disease-ontology.org/?id=DOID:37)
     title: dermatology disorder
+    notes:
+    - disorder
     slot_uri: MIXS:0000284
     multivalued: true
     range: string
@@ -4331,6 +4557,8 @@ slots:
     description: Specification of major diet changes in the last six months, if yes
       the change should be specified
     title: major diet change in last six months
+    notes:
+    - diet
     examples:
     - value: yes;vegetarian diet
     string_serialization: '{boolean};{text}'
@@ -4351,6 +4579,8 @@ slots:
       can be separated by one or more pipes, but please consider limiting this list
       to the most prominent dietary claim or use
     title: dietary claim or use
+    notes:
+    - diet
     examples:
     - value: No preservatives [FOODON:03510113]
     string_serialization: '{text}|{termLabel} {[termID]}'
@@ -4386,6 +4616,9 @@ slots:
     description: Concentration of dissolved carbon dioxide in the sample or liquid
       portion of the sample
     title: dissolved carbon dioxide
+    notes:
+    - carbon
+    - dissolved
     examples:
     - value: 5 milligram per liter
     slot_uri: MIXS:0000436
@@ -4402,6 +4635,8 @@ slots:
         value: micromole per liter
     description: Concentration of dissolved hydrogen
     title: dissolved hydrogen
+    notes:
+    - dissolved
     examples:
     - value: 0.3 micromole per liter
     slot_uri: MIXS:0000179
@@ -4415,6 +4650,10 @@ slots:
     description: Dissolved inorganic carbon concentration in the sample, typically
       measured after filtering the sample using a 0.45 micrometer filter
     title: dissolved inorganic carbon
+    notes:
+    - carbon
+    - dissolved
+    - inorganic
     examples:
     - value: 2059 micromole per kilogram
     slot_uri: MIXS:0000434
@@ -4431,6 +4670,10 @@ slots:
         value: microgram per liter, micromole per liter
     description: Concentration of dissolved inorganic nitrogen
     title: dissolved inorganic nitrogen
+    notes:
+    - dissolved
+    - inorganic
+    - nitrogen
     examples:
     - value: 761 micromole per liter
     slot_uri: MIXS:0000698
@@ -4443,6 +4686,10 @@ slots:
     name: diss_inorg_phosp
     description: Concentration of dissolved inorganic phosphorus in the sample
     title: dissolved inorganic phosphorus
+    notes:
+    - dissolved
+    - inorganic
+    - phosphorus
     examples:
     - value: 56.5 micromole per liter
     slot_uri: MIXS:0000106
@@ -4457,6 +4704,8 @@ slots:
         value: milligram per liter
     description: Concentration of dissolved iron in the sample
     title: dissolved iron
+    notes:
+    - dissolved
     slot_uri: MIXS:0000139
     multivalued: false
     range: string
@@ -4471,6 +4720,10 @@ slots:
     description: Concentration of dissolved organic carbon in the sample, liquid portion
       of the sample, or aqueous phase of the fluid
     title: dissolved organic carbon
+    notes:
+    - carbon
+    - dissolved
+    - organic
     examples:
     - value: 197 micromole per liter
     slot_uri: MIXS:0000433
@@ -4484,6 +4737,10 @@ slots:
     description: Dissolved organic nitrogen concentration measured as; total dissolved
       nitrogen - NH4 - NO3 - NO2
     title: dissolved organic nitrogen
+    notes:
+    - dissolved
+    - nitrogen
+    - organic
     examples:
     - value: 0.05 micromole per liter
     slot_uri: MIXS:0000162
@@ -4500,6 +4757,9 @@ slots:
         value: micromole per kilogram, milligram per liter
     description: Concentration of dissolved oxygen
     title: dissolved oxygen
+    notes:
+    - dissolved
+    - oxygen
     examples:
     - value: 175 micromole per kilogram
     slot_uri: MIXS:0000119
@@ -4517,6 +4777,9 @@ slots:
     description: Concentration of dissolved oxygen in the oil field produced fluids
       as it contributes to oxgen-corrosion and microbial activity (e.g. Mic)
     title: dissolved oxygen in fluids
+    notes:
+    - dissolved
+    - oxygen
     slot_uri: MIXS:0000438
     multivalued: false
     range: string
@@ -4538,6 +4801,8 @@ slots:
     name: door_comp_type
     description: The composite type of the door
     title: door type, composite
+    notes:
+    - door
     examples:
     - value: revolving
     slot_uri: MIXS:0000795
@@ -4549,6 +4814,8 @@ slots:
     name: door_cond
     description: The phsical condition of the door
     title: door condition
+    notes:
+    - door
     examples:
     - value: new
     slot_uri: MIXS:0000788
@@ -4560,6 +4827,9 @@ slots:
     name: door_direct
     description: The direction the door opens
     title: door direction of opening
+    notes:
+    - direction
+    - door
     examples:
     - value: inward
     slot_uri: MIXS:0000789
@@ -4571,6 +4841,9 @@ slots:
     name: door_loc
     description: The relative location of the door in the room
     title: door location
+    notes:
+    - door
+    - location
     examples:
     - value: north
     slot_uri: MIXS:0000790
@@ -4582,6 +4855,9 @@ slots:
     name: door_mat
     description: The material the door is composed of
     title: door material
+    notes:
+    - door
+    - material
     examples:
     - value: wood
     slot_uri: MIXS:0000791
@@ -4593,6 +4869,8 @@ slots:
     name: door_move
     description: The type of movement of the door
     title: door movement
+    notes:
+    - door
     examples:
     - value: swinging
     slot_uri: MIXS:0000792
@@ -4608,6 +4886,8 @@ slots:
         value: square meter
     description: The size of the door
     title: door area or size
+    notes:
+    - door
     examples:
     - value: 2.5 square meter
     slot_uri: MIXS:0000158
@@ -4620,6 +4900,8 @@ slots:
     name: door_type
     description: The type of door material
     title: door type
+    notes:
+    - door
     examples:
     - value: wooden
     slot_uri: MIXS:0000794
@@ -4631,6 +4913,8 @@ slots:
     name: door_type_metal
     description: The type of metal door
     title: door type, metal
+    notes:
+    - door
     examples:
     - value: hollow
     slot_uri: MIXS:0000796
@@ -4646,6 +4930,8 @@ slots:
         value: enumeration
     description: The type of wood door
     title: door type, wood
+    notes:
+    - door
     examples:
     - value: battened
     string_serialization: '[bettened and ledged|battened|ledged and braced|battened|ledged
@@ -4659,6 +4945,8 @@ slots:
     name: door_water_mold
     description: Signs of the presence of mold or mildew on a door
     title: door signs of water/mold
+    notes:
+    - door
     examples:
     - value: presence of mold visible
     slot_uri: MIXS:0000793
@@ -4699,6 +4987,8 @@ slots:
     name: drainage_class
     description: Drainage classification from a standard system such as the USDA system
     title: drainage classification
+    notes:
+    - classification
     examples:
     - value: well
     slot_uri: MIXS:0001085
@@ -4709,6 +4999,8 @@ slots:
     description: The buildings architectural drawings; if design is chosen, indicate
       phase-conceptual, schematic, design development, and construction documents
     title: drawings
+    notes:
+    - drawings
     examples:
     - value: sketch
     slot_uri: MIXS:0000798
@@ -4725,6 +5017,8 @@ slots:
     description: Any drug used by subject and the frequency of usage; can include
       multiple drugs used
     title: drug usage
+    notes:
+    - drug
     examples:
     - value: Lipitor;2/day
     string_serialization: '{text};{integer}/[year|month|week|day|hour]'
@@ -4740,6 +5034,8 @@ slots:
         value: micromole per liter
     description: Percentage of volatile solids removed from the anaerobic digestor
     title: efficiency percent
+    notes:
+    - percent
     slot_uri: MIXS:0000657
     multivalued: false
     range: string
@@ -4757,6 +5053,8 @@ slots:
       to points on the earth's surface, while altitude is used for points above the
       surface, such as an aircraft in flight or a spacecraft in orbit
     title: elevation
+    notes:
+    - elevation
     examples:
     - value: 100 meter
     in_subset:
@@ -4769,6 +5067,8 @@ slots:
     name: elevator
     description: The number of elevators within the built structure
     title: elevator count
+    notes:
+    - count
     examples:
     - value: '2'
     slot_uri: MIXS:0000799
@@ -4813,6 +5113,8 @@ slots:
   enrichment_protocol:
     name: enrichment_protocol
     title: enrichment protocol
+    notes:
+    - enrichment
     examples:
     - value: 'BAM Chapter 4: Enumeration of Escherichia coli and the Coliform Bacteria'
     slot_uri: MIXS:0001177
@@ -4824,6 +5126,9 @@ slots:
   env_broad_scale:
     name: env_broad_scale
     title: broad-scale environmental context
+    notes:
+    - context
+    - environmental
     examples:
     - value: rangeland biome [ENVO:01000247]
       description: arbitrarily selected biome
@@ -4837,6 +5142,9 @@ slots:
   env_local_scale:
     name: env_local_scale
     title: local environmental context
+    notes:
+    - context
+    - environmental
     examples:
     - value: hillside [ENVO:01000333]
       description: arbitrarily selected landmark
@@ -4850,6 +5158,8 @@ slots:
   env_medium:
     name: env_medium
     title: environmental medium
+    notes:
+    - environmental
     examples:
     - value: bluegrass field soil [ENVO:00005789]
       description: arbitrarily selected environmental medium
@@ -4874,6 +5184,9 @@ slots:
       Please add a term to indicate the environmental monitoring zone the sample was
       taken from
     title: food production environmental monitoring zone
+    notes:
+    - environmental
+    - food
     examples:
     - value: Zone 1
     string_serialization: '{termLabel} {[termID]}'
@@ -4885,6 +5198,8 @@ slots:
     name: escalator
     description: The number of escalators within the built structure
     title: escalator count
+    notes:
+    - count
     examples:
     - value: '4'
     slot_uri: MIXS:0000800
@@ -4975,6 +5290,9 @@ slots:
       a browser of EFO (v 2.95) terms, please see http://purl.bioontology.org/ontology/EFO;
       for a browser of OBI (v 2018-02-12) terms please see http://purl.bioontology.org/ontology/OBI
     title: experimental factor
+    notes:
+    - experimental
+    - factor
     in_subset:
     - investigation
     string_serialization: '{termLabel} {[termID]}|{text}'
@@ -4983,6 +5301,10 @@ slots:
     name: ext_door
     description: The number of exterior doors in the built structure
     title: exterior door count
+    notes:
+    - count
+    - door
+    - exterior
     slot_uri: MIXS:0000170
     multivalued: false
     range: integer
@@ -4992,6 +5314,8 @@ slots:
     name: ext_wall_orient
     description: The orientation of the exterior wall
     title: orientations of exterior wall
+    notes:
+    - exterior
     examples:
     - value: northwest
     slot_uri: MIXS:0000817
@@ -5003,6 +5327,8 @@ slots:
     name: ext_window_orient
     description: The compass direction the exterior window of the room is facing
     title: orientations of exterior window
+    notes:
+    - exterior
     examples:
     - value: southwest
     slot_uri: MIXS:0000818
@@ -5015,6 +5341,9 @@ slots:
     description: Unusual weather events that may have affected microbial populations.
       Multiple terms can be separated by pipes, listed in reverse chronological order
     title: extreme weather event
+    notes:
+    - event
+    - extreme
     examples:
     - value: hail
     slot_uri: MIXS:0001141
@@ -5039,6 +5368,9 @@ slots:
     name: extreme_event
     description: Unusual physical events that may have affected microbial populations
     title: history/extreme events
+    notes:
+    - event
+    - history
     slot_uri: MIXS:0000320
     multivalued: false
     range: date_or_datetime
@@ -5047,6 +5379,8 @@ slots:
     description: Establishment details about the type of facility where the sample
       was taken. This is independent of the specific product(s) within the facility
     title: facility type
+    notes:
+    - facility
     examples:
     - value: manufacturing-processing
     slot_uri: MIXS:0001252
@@ -5059,6 +5393,8 @@ slots:
     description: Soil classification from the FAO World Reference Database for Soil
       Resources. The list can be found at http://www.fao.org/nr/land/sols/soil/wrb-soil-maps/reference-groups
     title: soil_taxonomic/FAO classification
+    notes:
+    - classification
     examples:
     - value: Luvisols
     slot_uri: MIXS:0001083
@@ -5071,6 +5407,9 @@ slots:
         tag: Expected_value
         value: AGRO:00000416
     title: farm equipment used
+    notes:
+    - equipment
+    - farm
     examples:
     - value: combine harvester [AGRO:00000473]
     string_serialization: '{termLabel} {[termID]}'
@@ -5089,6 +5428,9 @@ slots:
         tag: Preferred_unit
         value: parts per million
     title: farm equipment sanitization
+    notes:
+    - equipment
+    - farm
     examples:
     - value: hot water pressure wash, hypochlorite solution, 50 parts per million
     string_serialization: '{text} {float} {unit}'
@@ -5101,6 +5443,10 @@ slots:
     description: The number of times farm equipment is cleaned. Frequency of cleaning
       might be on a Daily basis, Weekly, Monthly, Quarterly or Annually
     title: farm equipment sanitization frequency
+    notes:
+    - equipment
+    - farm
+    - frequency
     examples:
     - value: Biweekly
     slot_uri: MIXS:0001125
@@ -5115,6 +5461,9 @@ slots:
         tag: Expected_value
         value: AGRO:00000416
     title: equipment shared with other farms
+    notes:
+    - equipment
+    - farm
     examples:
     - value: combine harvester [AGRO:00000473]
     string_serialization: '{termLabel} {[termID]}'
@@ -5127,6 +5476,10 @@ slots:
     description: Source of water used on the farm for irrigation of crops or watering
       of livestock
     title: farm watering water source
+    notes:
+    - farm
+    - source
+    - water
     examples:
     - value: water well (ENVO:01000002)
     slot_uri: MIXS:0001110
@@ -5142,6 +5495,8 @@ slots:
     description: Method used to predict UViGs features such as ORFs, integration site,
       etc
     title: feature prediction
+    notes:
+    - feature
     examples:
     - value: Prodigal;2.6.3;default parameters
     in_subset:
@@ -5175,6 +5530,8 @@ slots:
         value: percentage
     description: The amount of chemical added to the fermentation process
     title: fermentation chemical additives percentage
+    notes:
+    - percent
     examples:
     - value: '0.01'
     string_serialization: '{float} percentage'
@@ -5192,6 +5549,8 @@ slots:
         value: percentage
     description: The amount of headspace oxygen in a fermentation vessel
     title: fermentation headspace oxygen
+    notes:
+    - oxygen
     examples:
     - value: '0.05'
     string_serialization: '{float} percentage'
@@ -5228,6 +5587,9 @@ slots:
         value: percentage
     description: The relative humidity of the fermented food fermentation process
     title: fermentation relative humidity
+    notes:
+    - humidity
+    - relative
     examples:
     - value: 95%
       description: removed " RH" suffix from XLSX example
@@ -5259,6 +5621,8 @@ slots:
         value: days
     description: The time duration of the fermented food fermentation process
     title: fermentation time
+    notes:
+    - time
     examples:
     - value: P10D
     slot_uri: MIXS:0001192
@@ -5287,6 +5651,8 @@ slots:
       Multiple terms may apply and can be separated by pipes, listing in reverse chronological
       order
     title: fertilizer administration
+    notes:
+    - administration
     examples:
     - value: fish emulsion [AGRO:00000082]
     string_serialization: '{termLabel} {[termID]}'
@@ -5300,6 +5666,9 @@ slots:
       terms may apply and can be separated by pipes, listing in reverse chronological
       order
     title: fertilizer administration date
+    notes:
+    - administration
+    - date
     examples:
     - value: '2018-05-11T10:00:00+01:00'
     slot_uri: MIXS:0001128
@@ -5341,6 +5710,8 @@ slots:
     name: filter_type
     description: A device which removes solid particulates or airborne molecular contaminants
     title: filter type
+    notes:
+    - filter
     examples:
     - value: HEPA
     slot_uri: MIXS:0000765
@@ -5351,6 +5722,8 @@ slots:
     name: fire
     description: Historical and/or physical evidence of fire
     title: history/fire
+    notes:
+    - history
     slot_uri: MIXS:0001086
     multivalued: false
     range: date_or_datetime
@@ -5369,6 +5742,8 @@ slots:
     name: flooding
     description: Historical and/or physical evidence of flooding
     title: history/flooding
+    notes:
+    - history
     slot_uri: MIXS:0000319
     multivalued: false
     range: date_or_datetime
@@ -5383,6 +5758,8 @@ slots:
         value: years, weeks, days
     description: The time period since installment of the carpet or flooring
     title: floor age
+    notes:
+    - floor
     string_serialization: '{float} {unit}'
     slot_uri: MIXS:0000164
     multivalued: false
@@ -5396,6 +5773,8 @@ slots:
         value: square meter
     description: The area of the floor space within the room
     title: floor area
+    notes:
+    - floor
     slot_uri: MIXS:0000165
     multivalued: false
     range: string
@@ -5407,6 +5786,8 @@ slots:
     description: The physical condition of the floor at the time of sampling; photos
       or video preferred; use drawings to indicate location of damaged areas
     title: floor condition
+    notes:
+    - floor
     examples:
     - value: new
     slot_uri: MIXS:0000803
@@ -5419,6 +5800,9 @@ slots:
     description: The number of floors in the building, including basements and mechanical
       penthouse
     title: floor count
+    notes:
+    - count
+    - floor
     slot_uri: MIXS:0000225
     multivalued: false
     range: integer
@@ -5432,6 +5816,9 @@ slots:
         value: enumeration
     description: The floor covering type; the finished surface that is walked on
     title: floor finish material
+    notes:
+    - floor
+    - material
     examples:
     - value: carpet
     string_serialization: '[tile|wood strip or parquet|carpet|rug|laminate wood|lineoleum|vinyl
@@ -5446,6 +5833,8 @@ slots:
     description: Refers to the structural elements and subfloor upon which the finish
       flooring is installed
     title: floor structure
+    notes:
+    - floor
     examples:
     - value: concrete
     slot_uri: MIXS:0000806
@@ -5461,6 +5850,9 @@ slots:
         value: joule per degree Celsius
     description: The ability of the floor to provide inertia against temperature fluctuations
     title: floor thermal mass
+    notes:
+    - floor
+    - mass
     slot_uri: MIXS:0000166
     multivalued: false
     range: string
@@ -5471,6 +5863,8 @@ slots:
     name: floor_water_mold
     description: Signs of the presence of mold or mildew in a room
     title: floor signs of water/mold
+    notes:
+    - floor
     examples:
     - value: ceiling discoloration
     slot_uri: MIXS:0000805
@@ -5516,6 +5910,8 @@ slots:
       this list to the top 5 ingredients listed in order as on the food label.  See
       also, https://www.fda.gov/food/food-ingredients-packaging/overview-food-ingredients-additives-colors
     title: food additive
+    notes:
+    - food
     string_serialization: '{text}|{termLabel} {[termID]}'
     slot_uri: MIXS:0001200
     multivalued: true
@@ -5530,6 +5926,8 @@ slots:
     description: A label indication that the product contains a recognized allergen.
       This field accepts terms listed under dietary claim or use (http://purl.obolibrary.org/obo/FOODON_03510213)
     title: food allergen labeling
+    notes:
+    - food
     examples:
     - value: food allergen labelling about crustaceans and products thereof [FOODON:03510215]
     string_serialization: '{text}|{termLabel} {[termID]}'
@@ -5542,6 +5940,8 @@ slots:
     description: The process of cleaning food to separate other environmental materials
       from the food source. Multiple terms can be separated by pipes
     title: food cleaning process
+    notes:
+    - food
     examples:
     - value: rinsed with water|scrubbed with brush
     slot_uri: MIXS:0001182
@@ -5559,6 +5959,8 @@ slots:
       the food. Multiple values can be assigned.  This field accepts terms listed
       under food contact surface (http://purl.obolibrary.org/obo/FOODON_03500010)
     title: food contact surface
+    notes:
+    - food
     examples:
     - value: cellulose acetate [FOODON:03500034]
     string_serialization: '{text}|{termLabel} {[termID]}'
@@ -5575,6 +5977,8 @@ slots:
       container or wrapping by form; prefer description by material first, then by
       form. This field accepts terms listed under food container or wrapping (http://purl.obolibrary.org/obo/FOODON_03490100)
     title: food container or wrapping
+    notes:
+    - food
     examples:
     - value: Plastic shrink-pack [FOODON:03490137]
     string_serialization: '{text}|{termLabel} {[termID]}'
@@ -5591,6 +5995,8 @@ slots:
     description: The transformation of raw food by the application of heat. This field
       accepts terms listed under food cooking (http://purl.obolibrary.org/obo/FOODON_03450002)
     title: food cooking process
+    notes:
+    - food
     examples:
     - value: food blanching [FOODON:03470175]
     string_serialization: '{text}|{termLabel} {[termID]}'
@@ -5601,6 +6007,10 @@ slots:
   food_dis_point:
     name: food_dis_point
     title: food distribution point geographic location
+    notes:
+    - food
+    - geographic
+    - location
     string_serialization: '{term}: {term}, {text}'
     slot_uri: MIXS:0001203
     multivalued: true
@@ -5619,6 +6029,10 @@ slots:
       in Regional Food Distribution. U.S. Dept. of Agriculture, Agricultural Marketing
       Service. Washington, DC. March 2012. http://dx.doi.org/10.9752/MS045.03-2012'
     title: food distribution point geographic location (city)
+    notes:
+    - food
+    - geographic
+    - location
     examples:
     - value: Atlanta[GAZ:00004445]
     string_serialization: '{text}|{termLabel} {[termID]}'
@@ -5633,6 +6047,8 @@ slots:
       and time, and outputs a precursor or consumable food product. This may include
       a part of an organism or the whole, and may involve killing the organism
     title: Food harvesting process
+    notes:
+    - food
     examples:
     - value: hand-picked
     slot_uri: MIXS:0001133
@@ -5652,6 +6068,9 @@ slots:
       or more pipes |, but please consider limiting this list to the top 5 ingredients
       listed in order as on the food label.  See also, https://www.fda.gov/food/food-ingredients-packaging/overview-food-ingredients-additives-colors
     title: food ingredient
+    notes:
+    - food
+    - ingredient
     examples:
     - value: bean (whole) [FOODON:00002753]
     string_serialization: '{text}|{termLabel} {[termID]}'
@@ -5669,6 +6088,8 @@ slots:
       some legal jurisdiction. This field accepts terms listed under food product
       name legal status (http://purl.obolibrary.org/obo/FOODON_03530087)
     title: food product name legal status
+    notes:
+    - food
     examples:
     - value: protected geographic indication [FOODON:03530256]
     string_serialization: '{termLabel} {[termID]}'
@@ -5683,6 +6104,10 @@ slots:
       its cultivation or production. This field accepts terms listed under geographic
       location (http://purl.obolibrary.org/obo/GAZ_00000448)
     title: food product origin geographic location
+    notes:
+    - food
+    - geographic
+    - location
     slot_uri: MIXS:0001207
     multivalued: false
     structured_pattern:
@@ -5697,6 +6122,8 @@ slots:
         value: grams
     description: The maximum number of product units within a package
     title: food package capacity
+    notes:
+    - food
     examples:
     - value: 454 grams
     slot_uri: MIXS:0001208
@@ -5715,6 +6142,8 @@ slots:
       and text to explain the exact condition.  This field accepts terms listed under
       food packing medium integrity (http://purl.obolibrary.org/obo/FOODON_03530218)
     title: food packing medium integrity
+    notes:
+    - food
     examples:
     - value: food packing medium compromised [FOODON:00002517]
     string_serialization: '{text}|{termLabel} {[termID]}'
@@ -5737,6 +6166,8 @@ slots:
       food packing medium (http://purl.obolibrary.org/obo/FOODON_03480020). Multiple
       terms may apply and can be separated by pipes
     title: food packing medium
+    notes:
+    - food
     string_serialization: '{text}|{termLabel} {[termID]}'
     slot_uri: MIXS:0001134
     multivalued: true
@@ -5752,6 +6183,8 @@ slots:
       enzymatic or oxidative spoilage and thus to the extension of shelf life. This
       field accepts terms listed under food preservation process (http://purl.obolibrary.org/obo/FOODON_03470107)
     title: food preservation process
+    notes:
+    - food
     examples:
     - value: food slow freezing [FOODON:03470128]
     string_serialization: '{text}|{termLabel} {[termID]}'
@@ -5771,6 +6204,9 @@ slots:
       descriptor is not listed please use text to describe the material of contact
       prior to food packaging
     title: material of contact prior to food packaging
+    notes:
+    - food
+    - material
     examples:
     - value: processed in stainless steel container [FOODON:03530081]
     string_serialization: '{text}|{termLabel} {[termID]}'
@@ -5785,6 +6221,8 @@ slots:
         tag: Expected_value
         value: FOODON:03530206
     title: food production system characteristics
+    notes:
+    - food
     examples:
     - value: organic plant cultivation [FOODON:03530253]
     string_serialization: '{termLabel} {[termID]}'
@@ -5795,6 +6233,8 @@ slots:
     description: Descriptors of the food production system such as wild caught, free-range,
       organic, free-range, industrial, dairy, beef
     title: food production characteristics
+    notes:
+    - food
     examples:
     - value: wild caught
     slot_uri: MIXS:0001136
@@ -5807,6 +6247,8 @@ slots:
     description: Other names by which the food product is known by (e.g., regional
       or non-English names)
     title: food product synonym
+    notes:
+    - food
     examples:
     - value: pinot gris
     slot_uri: MIXS:0001212
@@ -5826,6 +6268,8 @@ slots:
       quality descriptor and the output of a process. This field accepts terms listed
       under food product by quality (http://purl.obolibrary.org/obo/FOODON_00002454)
     title: food product by quality
+    notes:
+    - food
     examples:
     - value: raw [FOODON:03311126]
     string_serialization: '{termLabel} {[termID]}'
@@ -5846,6 +6290,8 @@ slots:
       If the proper descriptor is not listed please use text to describe the food
       type. Multiple terms can be separated by one or more pipes
     title: food product type
+    notes:
+    - food
     examples:
     - value: shrimp (peeled, deep-frozen) [FOODON:03317171]
     string_serialization: '{text}|{termLabel} {[termID]}'
@@ -5863,6 +6309,9 @@ slots:
       is not a reflection of safety and is typically labeled on a food product as
       "best if used by," best by," "use by," or "freeze by."
     title: food quality date
+    notes:
+    - date
+    - food
     examples:
     - value: best by 2020-05-24
     string_serialization: '[best by|best if used by|freeze by||use by]; date'
@@ -5879,6 +6328,9 @@ slots:
     description: Type of plant or animal from which the food product or its major
       ingredient is derived or a chemical food source [FDA CFSAN 1995]
     title: food source
+    notes:
+    - food
+    - source
     examples:
     - value: giant tiger prawn [FOODON:03412612]
     string_serialization: '{termLabel} {[termID]}'
@@ -5898,6 +6350,9 @@ slots:
     description: The age of the food source host organim. Depending on the type of
       host organism, age may be more appropriate to report in days, weeks, or years
     title: food source age
+    notes:
+    - food
+    - source
     examples:
     - value: P6M
     string_serialization: '{float} {unit}'
@@ -5916,6 +6371,8 @@ slots:
       to the foods specifically listed (https://www.fda.gov/media/142303/download),
       but also to any foods that contain listed foods as ingredients
     title: food traceability list category
+    notes:
+    - food
     examples:
     - value: tropical tree fruits
     slot_uri: MIXS:0001214
@@ -5930,6 +6387,9 @@ slots:
         tag: Expected_value
         value: GENEPIO:0001064
     title: food shipping transportation method
+    notes:
+    - food
+    - method
     examples:
     - value: train travel [GENEPIO:0001060]
     string_serialization: '{termLabel} {[termID]}'
@@ -5948,6 +6408,8 @@ slots:
       under vehicle (http://purl.obolibrary.org/obo/ENVO_01000604). If the proper
       descrptor is not listed please use text to describe the mode of travel. Multiple
       terms can be separated by one or more pipes
+    notes:
+    - food
     examples:
     - value: aircraft [ENVO:01001488]|car [ENVO:01000605]
     string_serialization: '{text}|{termLabel} {[termID]}'
@@ -5967,6 +6429,8 @@ slots:
       component, e.g., through fermentation. Multiple values can be assigned. This
       fields accepts terms listed under food treatment process (http://purl.obolibrary.org/obo/FOODON_03460111)
     title: food treatment process
+    notes:
+    - food
     examples:
     - value: gluten removal process [FOODON:03460750]
     string_serialization: '{text}|{termLabel} {[termID]}'
@@ -5979,6 +6443,8 @@ slots:
     description: The number of times the sample location is cleaned. Frequency of
       cleaning might be on a Daily basis, Weekly, Monthly, Quarterly or Annually
     title: frequency of cleaning
+    notes:
+    - frequency
     examples:
     - value: Daily
     slot_uri: MIXS:0000226
@@ -5990,6 +6456,8 @@ slots:
     name: freq_cook
     description: The number of times a meal is cooked per week
     title: frequency of cooking
+    notes:
+    - frequency
     slot_uri: MIXS:0000227
     multivalued: false
     required: false
@@ -6032,6 +6500,8 @@ slots:
       the name of gaseous compound, amount administered, treatment duration, interval
       and total experimental duration; can include multiple gaseous environment regimens
     title: gaseous environment
+    notes:
+    - environment
     examples:
     - value: nitric oxide;0.5 micromole per liter;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M
     slot_uri: MIXS:0000558
@@ -6061,6 +6531,8 @@ slots:
       terms should be chosen from the DO (Human Disease Ontology) at http://www.disease-ontology.org,
       gastrointestinal system disease (https://disease-ontology.org/?id=DOID:77)
     title: gastrointestinal tract disorder
+    notes:
+    - disorder
     slot_uri: MIXS:0000280
     multivalued: true
     range: string
@@ -6098,6 +6570,9 @@ slots:
         value: 'country or sea name (INSDC or GAZ): region(GAZ), specific location
           name'
     title: geographic location (country and/or sea,region)
+    notes:
+    - geographic
+    - location
     examples:
     - value: 'USA: Maryland, Bethesda'
     in_subset:
@@ -6175,6 +6650,8 @@ slots:
       growth chamber, open top chamber, glasshouse, experimental garden, field. Alternatively
       use Crop Ontology (CO) terms, see http://www.cropontology.org/ontology/CO_715/Crop%20Research'
     title: growth facility
+    notes:
+    - facility
     examples:
     - value: Growth chamber [CO_715:0000189]
     string_serialization: '{text}|{termLabel} {[termID]}'
@@ -6234,6 +6711,8 @@ slots:
       The terms should be chosen from the DO (Human Disease Ontology) at http://www.disease-ontology.org,
       female reproductive system disease (https://disease-ontology.org/?id=DOID:229)
     title: gynecological disorder
+    notes:
+    - disorder
     slot_uri: MIXS:0000288
     multivalued: true
     range: string
@@ -6243,6 +6722,10 @@ slots:
     name: hall_count
     description: The total count of hallways and cooridors in the built structure
     title: hallway/corridor count
+    notes:
+    - corridor
+    - count
+    - hallway
     slot_uri: MIXS:0000228
     multivalued: false
     range: integer
@@ -6264,6 +6747,8 @@ slots:
     description: Main hydrocarbon type produced from resource (i.e. Oil, gas, condensate,
       etc). If "other" is specified, please propose entry in "additional info" field
     title: hydrocarbon type produced
+    notes:
+    - hydrocarbon
     examples:
     - value: Gas
     slot_uri: MIXS:0000989
@@ -6280,6 +6765,8 @@ slots:
       such as seeps, outcrops, gas hydrates etc. If "other" is specified, please propose
       entry in "additional info" field
     title: hydrocarbon resource type
+    notes:
+    - hydrocarbon
     examples:
     - value: Oil Sand
     slot_uri: MIXS:0000988
@@ -6295,6 +6782,8 @@ slots:
     description: Original formation water salinity (prior to secondary recovery e.g.
       Waterflooding) expressed as TDS
     title: formation water salinity
+    notes:
+    - water
     slot_uri: MIXS:0000406
     multivalued: false
     range: string
@@ -6305,6 +6794,8 @@ slots:
     description: 'Geological age of hydrocarbon resource (Additional info: https://en.wikipedia.org/wiki/Period_(geology)).
       If "other" is specified, please propose entry in "additional info" field'
     title: hydrocarbon resource geological age
+    notes:
+    - hydrocarbon
     examples:
     - value: Silurian
     slot_uri: MIXS:0000993
@@ -6319,6 +6810,8 @@ slots:
         value: atmosphere, kilopascal
     description: Original pressure of the hydrocarbon resource
     title: hydrocarbon resource original pressure
+    notes:
+    - hydrocarbon
     slot_uri: MIXS:0000395
     multivalued: false
     required: false
@@ -6335,6 +6828,8 @@ slots:
         value: degree Celsius
     description: Original temperature of the hydrocarbon resource
     title: hydrocarbon resource original temperature
+    notes:
+    - hydrocarbon
     examples:
     - value: 150-295 degree Celsius
     slot_uri: MIXS:0000393
@@ -6357,6 +6852,10 @@ slots:
     name: heat_deliv_loc
     description: The location of heat delivery within the room
     title: heating delivery locations
+    notes:
+    - delivery
+    - location
+    - locations
     examples:
     - value: north
     slot_uri: MIXS:0000810
@@ -6368,6 +6867,9 @@ slots:
     name: heat_sys_deliv_meth
     description: The method by which the heat is delivered through the system
     title: heating system delivery method
+    notes:
+    - delivery
+    - method
     examples:
     - value: radiant
     slot_uri: MIXS:0000812
@@ -6379,6 +6881,8 @@ slots:
     name: heat_system_id
     description: The heating system identifier
     title: heating system identifier
+    notes:
+    - identifier
     slot_uri: MIXS:0000833
     multivalued: false
     range: integer
@@ -6396,6 +6900,10 @@ slots:
     description: Heavy metals present in the sequenced sample and their concentrations.
       For multiple heavy metals and concentrations, add multiple copies of this field
     title: extreme_unusual_properties/heavy metals
+    notes:
+    - extreme
+    - properties
+    - unusual
     examples:
     - value: mercury;0.09 micrograms per gram
     string_serialization: '{text};{float} {unit}'
@@ -6406,6 +6914,12 @@ slots:
   heavy_metals_meth:
     name: heavy_metals_meth
     description: Reference or method used in determining heavy metals
+    notes:
+    - conditions
+    - extreme
+    - method
+    - properties
+    - unusual
     slot_uri: MIXS:0000343
     multivalued: false
     structured_pattern:
@@ -6423,6 +6937,8 @@ slots:
         value: centimeter
     description: The average carpet fiber height in the indoor environment
     title: height carpet fiber mat
+    notes:
+    - height
     string_serialization: '{float} {unit}'
     slot_uri: MIXS:0000167
     multivalued: false
@@ -6451,6 +6967,8 @@ slots:
       surface and possesses physical characteristics which differ from the layers
       above and beneath
     title: horizon
+    notes:
+    - horizon
     slot_uri: MIXS:0001082
     multivalued: false
     range: string
@@ -6458,6 +6976,9 @@ slots:
   horizon_meth:
     name: horizon_meth
     description: Reference or method used in determining the horizon
+    notes:
+    - horizon
+    - method
     slot_uri: MIXS:0000321
     multivalued: false
     structured_pattern:
@@ -6473,6 +6994,9 @@ slots:
     description: Age of host at the time of sampling; relevant scale depends on species
       and study, e.g. Could be seconds for amoebae or centuries for trees
     title: host age
+    notes:
+    - host
+    - host.
     slot_uri: MIXS:0000255
     multivalued: false
     range: string
@@ -6481,6 +7005,11 @@ slots:
     name: host_body_habitat
     description: Original body habitat where the sample was obtained from
     title: host body habitat
+    notes:
+    - body
+    - habitat
+    - host
+    - host.
     slot_uri: MIXS:0000866
     multivalued: false
     range: string
@@ -6494,6 +7023,9 @@ slots:
         value: kilogram per square meter
     description: Body mass index, calculated as weight/(height)squared
     title: host body-mass index
+    notes:
+    - host
+    - host.
     examples:
     - value: 22 kilogram per square meter
     slot_uri: MIXS:0000317
@@ -6509,6 +7041,10 @@ slots:
       ontology (UBERON) terms, please see https://www.ebi.ac.uk/ols/ontologies/fma
       or https://www.ebi.ac.uk/ols/ontologies/uberon
     title: host body product
+    notes:
+    - body
+    - host
+    - host.
     examples:
     - value: mucus [FMA:66938]
       description: reformatted the example form the XLSX file, "Portion of mucus [fma66938]"
@@ -6524,6 +7060,11 @@ slots:
       (fma) (v 4.11.0) or Uber-anatomy ontology (UBERON) (v releases/2014-06-15) terms,
       please see http://purl.bioontology.org/ontology/FMA or http://purl.bioontology.org/ontology/UBERON
     title: host body site
+    notes:
+    - body
+    - host
+    - host.
+    - site
     slot_uri: MIXS:0000867
     multivalued: false
     range: string
@@ -6538,6 +7079,10 @@ slots:
         value: degree Celsius
     description: Core body temperature of the host when sample was collected
     title: host body temperature
+    notes:
+    - body
+    - host
+    - host.
     slot_uri: MIXS:0000274
     multivalued: false
     range: string
@@ -6551,6 +7096,10 @@ slots:
       is localized within the cells or extracellular if the symbiotic host organism
       is localized outside of cells'
     title: host cellular location
+    notes:
+    - host
+    - host.
+    - location
     examples:
     - value: extracellular
     slot_uri: MIXS:0001313
@@ -6560,6 +7109,9 @@ slots:
     name: host_color
     description: The color of host
     title: host color
+    notes:
+    - host
+    - host.
     slot_uri: MIXS:0000260
     multivalued: false
     range: string
@@ -6573,6 +7125,9 @@ slots:
         value: ''
     description: Common name of the host
     title: host common name
+    notes:
+    - host
+    - host.
     slot_uri: MIXS:0000248
     multivalued: false
     range: string
@@ -6580,6 +7135,9 @@ slots:
     name: host_dependence
     description: Type of host dependence for the symbiotic host organism to its host
     title: host dependence
+    notes:
+    - host
+    - host.
     examples:
     - value: obligate
     slot_uri: MIXS:0001315
@@ -6591,6 +7149,10 @@ slots:
     description: Type of diet depending on the host, for animals omnivore, herbivore
       etc., for humans high-fat, meditteranean etc.; can include multiple diet types
     title: host diet
+    notes:
+    - diet
+    - host
+    - host.
     slot_uri: MIXS:0000869
     multivalued: true
     range: string
@@ -6599,6 +7161,10 @@ slots:
   host_disease_stat:
     name: host_disease_stat
     title: host disease status
+    notes:
+    - disease
+    - host
+    - host.
     in_subset:
     - nucleic acid sequence source
     slot_uri: MIXS:0000031
@@ -6611,6 +7177,11 @@ slots:
         value: kilogram, gram
     description: Measurement of dry mass
     title: host dry mass
+    notes:
+    - dry
+    - host
+    - host.
+    - mass
     examples:
     - value: 500 gram
     slot_uri: MIXS:0000257
@@ -6626,6 +7197,10 @@ slots:
         tag: Expected_value
         value: relationship type;arbitrary identifier
     title: host family relationship
+    notes:
+    - family
+    - host
+    - host.
     string_serialization: '{text};{text}'
     slot_uri: MIXS:0000872
     multivalued: true
@@ -6641,6 +7216,10 @@ slots:
     description: Relationships to other hosts in the same study; can include multiple
       relationships
     title: host family relationship
+    notes:
+    - family
+    - host
+    - host.
     examples:
     - value: clone;P15
     string_serialization: '{text};{text}'
@@ -6652,6 +7231,9 @@ slots:
     name: host_genotype
     description: Observed genotype
     title: host genotype
+    notes:
+    - host
+    - host.
     slot_uri: MIXS:0000365
     multivalued: false
     range: string
@@ -6659,6 +7241,10 @@ slots:
     name: host_growth_cond
     description: Literature reference giving growth conditions of the host
     title: host growth conditions
+    notes:
+    - conditions
+    - host
+    - host.
     examples:
     - value: https://academic.oup.com/icesjms/article/68/2/349/617247
     slot_uri: MIXS:0000871
@@ -6673,6 +7259,10 @@ slots:
     name: host_height
     description: The height of subject
     title: host height
+    notes:
+    - height
+    - host
+    - host.
     slot_uri: MIXS:0000264
     multivalued: false
     range: string
@@ -6686,6 +7276,9 @@ slots:
     description: HIV status of subject, if yes HAART initiation status should also
       be indicated as [YES or NO]
     title: host HIV status
+    notes:
+    - host
+    - host.
     examples:
     - value: yes;yes
     string_serialization: '{boolean};{boolean}'
@@ -6697,6 +7290,9 @@ slots:
     name: host_infra_specific_name
     description: Taxonomic information about the host below subspecies level
     title: host infra-specific name
+    notes:
+    - host
+    - host.
     slot_uri: MIXS:0000253
     multivalued: false
     range: string
@@ -6707,6 +7303,9 @@ slots:
     description: Taxonomic rank information about the host below subspecies level,
       such as variety, form, rank etc
     title: host infra-specific rank
+    notes:
+    - host
+    - host.
     slot_uri: MIXS:0000254
     multivalued: false
     range: string
@@ -6717,6 +7316,9 @@ slots:
     description: Content of last meal and time since feeding; can include multiple
       values
     title: host last meal
+    notes:
+    - host
+    - host.
     string_serialization: '{text};{duration}'
     slot_uri: MIXS:0000870
     multivalued: true
@@ -6726,6 +7328,10 @@ slots:
     name: host_length
     description: The length of subject
     title: host length
+    notes:
+    - host
+    - host.
+    - length
     examples:
     - value: 1 meter
     slot_uri: MIXS:0000256
@@ -6736,6 +7342,10 @@ slots:
     name: host_life_stage
     description: Description of life stage of host
     title: host life stage
+    notes:
+    - host
+    - host.
+    - life
     slot_uri: MIXS:0000251
     multivalued: false
     range: string
@@ -6747,6 +7357,10 @@ slots:
         value: count
     description: Number of symbiotic host individuals pooled at the time of collection
     title: host number individual
+    notes:
+    - host
+    - host.
+    - number
     examples:
     - value: '3'
     string_serialization: '{float} m'
@@ -6758,6 +7372,9 @@ slots:
     name: host_occupation
     description: Most frequent job performed by subject
     title: host occupation
+    notes:
+    - host
+    - host.
     examples:
     - value: veterinary
     slot_uri: MIXS:0000896
@@ -6779,6 +7396,9 @@ slots:
       may be added in a comma-separated list. For listing symbiotic organisms associated
       with the host (A) use the term Observed host symbiont
     title: observed coinfecting organisms in host of host
+    notes:
+    - host
+    - host.
     examples:
     - value: Maritrema novaezealandense
     string_serialization: '{text}'
@@ -6797,6 +7417,10 @@ slots:
       on host; for humans the terms should be chosen from the DO (Human Disease Ontology)
       at https://www.disease-ontology.org, non-human host diseases are free text
     title: host of the symbiotic host disease status
+    notes:
+    - disease
+    - host
+    - host.
     examples:
     - value: rabies [DOID:11260]
     string_serialization: '{termLabel} {[termID]}|{text}'
@@ -6817,6 +7441,11 @@ slots:
       example, if the symbiotic host organism being sampled is an intestinal worm,
       its local environmental context will be the term for intestine from UBERON (http://uberon.github.io/)
     title: host of the symbiotic host local environmental context
+    notes:
+    - context
+    - environmental
+    - host
+    - host.
     examples:
     - value: small intestine[uberon:0002108]
     string_serialization: '{termLabel} {[termID]}'
@@ -6842,6 +7471,10 @@ slots:
       as long as they reference mass/volume nouns (e.g. air, water, blood) and not
       discrete, countable entities (e.g. intestines, heart)'
     title: host of the symbiotic host environemental medium
+    notes:
+    - environmental
+    - host
+    - host.
     examples:
     - value: feces[uberon:0001988]
     string_serialization: '{termLabel} {[termID]}'
@@ -6858,6 +7491,10 @@ slots:
       to other hosts of symbiotic host organism in the same study; can include multiple
       relationships
     title: host of the symbiotic host family relationship
+    notes:
+    - family
+    - host
+    - host.
     string_serialization: '{text};{text}'
     slot_uri: MIXS:0001328
     multivalued: true
@@ -6867,6 +7504,9 @@ slots:
     name: host_of_host_geno
     description: Observed genotype of the host of the symbiotic host organism
     title: host of the symbiotic host genotype
+    notes:
+    - host
+    - host.
     slot_uri: MIXS:0001331
     multivalued: false
     range: string
@@ -6881,6 +7521,9 @@ slots:
     description: Whether or not the host of the symbiotic host organism is gravid,
       and if yes date due or date post-conception, specifying which is used
     title: host of the symbiotic host gravidity
+    notes:
+    - host
+    - host.
     string_serialization: '{boolean};{timestamp}'
     slot_uri: MIXS:0001333
     multivalued: false
@@ -6891,6 +7534,9 @@ slots:
     description: Taxonomic name information of the host of the symbiotic host organism
       below subspecies level
     title: host of the symbiotic host infra-specific name
+    notes:
+    - host
+    - host.
     slot_uri: MIXS:0001329
     multivalued: false
     range: string
@@ -6901,6 +7547,9 @@ slots:
     description: Taxonomic rank information about the host of the symbiotic host organism
       below subspecies level, such as variety, form, rank etc
     title: host of the symbiotic host infra-specific rank
+    notes:
+    - host
+    - host.
     slot_uri: MIXS:0001330
     multivalued: false
     range: string
@@ -6910,6 +7559,9 @@ slots:
     name: host_of_host_name
     description: Common name of the host of the symbiotic host organism
     title: host of the symbiotic host common name
+    notes:
+    - host
+    - host.
     examples:
     - value: snail
     slot_uri: MIXS:0001324
@@ -6925,6 +7577,9 @@ slots:
     description: Phenotype of the host of the symbiotic host organism. For phenotypic
       quality ontology (PATO) terms, see http://purl.bioontology.org/ontology/pato
     title: host of the symbiotic host phenotype
+    notes:
+    - host
+    - host.
     string_serialization: '{term}'
     slot_uri: MIXS:0001332
     multivalued: false
@@ -6935,6 +7590,10 @@ slots:
     description: 'A unique identifier by which each host of the symbiotic host organism
       subject can be referred to, de-identified, e.g. #H14'
     title: host of the symbiotic host subject id
+    notes:
+    - host
+    - host.
+    - identifier
     examples:
     - value: H3
     slot_uri: MIXS:0001327
@@ -6950,6 +7609,10 @@ slots:
         value: NCBI taxon identifier of the host of the symbiotic taxon organism
     description: NCBI taxon id of the host of the symbiotic host organism
     title: host of the symbiotic host taxon id
+    notes:
+    - host
+    - host.
+    - identifier
     examples:
     - value: '145637'
     string_serialization: '{integer}'
@@ -6962,6 +7625,11 @@ slots:
     description: Total mass of the host of the symbiotic host organism at collection,
       the unit depends on the host
     title: host of the symbiotic host total mass
+    notes:
+    - host
+    - host.
+    - mass
+    - total
     slot_uri: MIXS:0001334
     multivalued: false
     range: string
@@ -6974,6 +7642,9 @@ slots:
       (pato) (v 2018-03-27) terms, please see http://purl.bioontology.org/ontology/pato.
       For Human Phenotype Ontology (HP) (v 2018-06-13) please see http://purl.bioontology.org/ontology/HP
     title: host phenotype
+    notes:
+    - host
+    - host.
     slot_uri: MIXS:0000874
     multivalued: false
     range: string
@@ -6981,6 +7652,9 @@ slots:
     name: host_pred_appr
     description: Tool or approach used for host prediction
     title: host prediction approach
+    notes:
+    - host
+    - host.
     examples:
     - value: CRISPR spacer match
     in_subset:
@@ -6993,6 +7667,9 @@ slots:
     description: For each tool or approach used for host prediction, estimated false
       discovery rates should be included, either computed de novo or from the literature
     title: host prediction estimated accuracy
+    notes:
+    - host
+    - host.
     examples:
     - value: 'CRISPR spacer match: 0 or 1 mismatches, estimated 8% FDR at the host
         genus rank (Edwards et al. 2016 doi:10.1093/femsre/fuv048)'
@@ -7009,6 +7686,9 @@ slots:
         value: beats per minute
     description: Resting pulse, measured as beats per minute
     title: host pulse
+    notes:
+    - host
+    - host.
     examples:
     - value: 65 beats per minute
     slot_uri: MIXS:0000333
@@ -7020,6 +7700,9 @@ slots:
   host_sex:
     name: host_sex
     title: host sex
+    notes:
+    - host
+    - host.
     examples:
     - value: non-binary
     multivalued: false
@@ -7030,6 +7713,9 @@ slots:
     name: host_shape
     description: Morphological shape of host
     title: host shape
+    notes:
+    - host
+    - host.
     examples:
     - value: round
     slot_uri: MIXS:0000261
@@ -7046,6 +7732,9 @@ slots:
     description: The range and diversity of host species that an organism is capable
       of infecting, defined by NCBI taxonomy identifier
     title: host specificity or range
+    notes:
+    - host
+    - host.
     examples:
     - value: '9606'
     in_subset:
@@ -7058,6 +7747,9 @@ slots:
     description: 'Level of specificity of symbiont-host interaction: e.g. generalist
       (symbiont able to establish associations with distantly related hosts) or species-specific'
     title: host specificity
+    notes:
+    - host
+    - host.
     examples:
     - value: species-specific
     slot_uri: MIXS:0001308
@@ -7068,6 +7760,10 @@ slots:
     name: host_subject_id
     description: A unique identifier by which each subject can be referred to, de-identified
     title: host subject id
+    notes:
+    - host
+    - host.
+    - identifier
     slot_uri: MIXS:0000861
     multivalued: false
     range: string
@@ -7086,6 +7782,10 @@ slots:
       not be recorded in this term, but in the NCBI taxonomy. Supply both the lineage
       name and the lineage rank separated by a colon, e.g., biovar:abc123
     title: host subspecific genetic lineage
+    notes:
+    - host
+    - host.
+    - lineage
     examples:
     - value: 'serovar:Newport, variety:glabrum, cultivar: Red Delicious'
     string_serialization: '{rank name}:{text}'
@@ -7097,6 +7797,9 @@ slots:
     name: host_substrate
     description: The growth substrate of the host
     title: host substrate
+    notes:
+    - host
+    - host.
     examples:
     - value: rock
     slot_uri: MIXS:0000252
@@ -7107,12 +7810,18 @@ slots:
   host_symbiont:
     name: host_symbiont
     title: observed host symbionts
+    notes:
+    - host
+    - host.
     range: string
     required: false
     recommended: false
   host_taxid:
     name: host_taxid
     title: host taxid
+    notes:
+    - host
+    - host.
     slot_uri: MIXS:0000250
     multivalued: false
     range: string
@@ -7120,6 +7829,11 @@ slots:
     name: host_tot_mass
     description: Total mass of the host at collection, the unit depends on host
     title: host total mass
+    notes:
+    - host
+    - host.
+    - mass
+    - total
     slot_uri: MIXS:0000263
     multivalued: false
     range: string
@@ -7132,6 +7846,10 @@ slots:
         value: kilogram, gram
     description: Measurement of wet mass
     title: host wet mass
+    notes:
+    - host
+    - host.
+    - mass
     examples:
     - value: 1500 gram
     slot_uri: MIXS:0000567
@@ -7156,6 +7874,8 @@ slots:
     name: humidity
     description: Amount of water vapour in the air, at the time of sampling
     title: humidity
+    notes:
+    - humidity
     slot_uri: MIXS:0000100
     multivalued: false
     range: string
@@ -7175,6 +7895,8 @@ slots:
       times the treatment was repeated, how long each treatment lasted, and the start
       and end time of the entire treatment; can include multiple regimens
     title: humidity regimen
+    notes:
+    - humidity
     examples:
     - value: 25 gram per cubic meter;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M
     string_serialization: '{float} {unit};{Rn/start_time/end_time/duration}'
@@ -7194,6 +7916,8 @@ slots:
       most accurately indicates the hygienic area your sample was taken from according
       to the definitions provided
     title: hygienic food production area
+    notes:
+    - food
     examples:
     - value: Low Hygiene Area
     string_serialization: '{termLabel} {[termID]}'
@@ -7216,6 +7940,8 @@ slots:
     name: ihmc_medication_code
     description: Can include multiple medication codes
     title: IHMC medication code
+    notes:
+    - code
     examples:
     - value: '810'
     slot_uri: MIXS:0000884
@@ -7228,6 +7954,8 @@ slots:
     description: A distinguishable space within a structure, the purpose for which
       discrete areas of a building is used
     title: indoor space
+    notes:
+    - indoor
     examples:
     - value: foyer
     slot_uri: MIXS:0000763
@@ -7238,6 +7966,8 @@ slots:
     name: indoor_surf
     description: Type of indoor surface
     title: indoor surface
+    notes:
+    - indoor
     examples:
     - value: wall
     slot_uri: MIXS:0000764
@@ -7252,6 +7982,8 @@ slots:
     description: Percentage of industrial effluents received by wastewater treatment
       plant
     title: industrial effluent percent
+    notes:
+    - percent
     slot_uri: MIXS:0000662
     multivalued: false
     range: string
@@ -7270,6 +8002,8 @@ slots:
     description: Concentration of particles such as sand, grit, metal particles, ceramics,
       etc.; can include multiple particles
     title: inorganic particles
+    notes:
+    - inorganic
     string_serialization: '{text};{float} {unit}'
     slot_uri: MIXS:0000664
     multivalued: true
@@ -7283,6 +8017,9 @@ slots:
         value: kilowatt per square metre
     description: The recorded value at sampling time (power density)
     title: inside lux light
+    notes:
+    - inside
+    - light
     slot_uri: MIXS:0000168
     multivalued: false
     range: string
@@ -7294,6 +8031,8 @@ slots:
     description: The physical condition of the wall at the time of sampling; photos
       or video preferred; use drawings to indicate location of damaged areas
     title: interior wall condition
+    notes:
+    - interior
     examples:
     - value: damaged
     slot_uri: MIXS:0000813
@@ -7311,6 +8050,8 @@ slots:
       produced and marketed. This field accepts terms listed under food consumer group
       (http://purl.obolibrary.org/obo/FOODON_03510136) or NCBI taxid
     title: intended consumer
+    notes:
+    - consumer
     examples:
     - value: 9606 o rsenior as food consumer [FOODON:03510254]
     string_serialization: '{integer}|{termLabel} {[termID]}'
@@ -7322,6 +8063,8 @@ slots:
       identifier (doi) or url for isolation and growth condition specifications of
       the organism/material
     title: isolation and growth condition
+    notes:
+    - isolation
     examples:
     - value: 'doi: 10.1016/j.syapm.2018.01.009'
     in_subset:
@@ -7337,6 +8080,9 @@ slots:
     description: Injection water breakthrough date per well following a secondary
       and/or tertiary recovery
     title: injection water breakthrough date of specific well
+    notes:
+    - date
+    - water
     examples:
     - value: '2018-05-11 00:00:00'
     slot_uri: MIXS:0001010
@@ -7353,6 +8099,9 @@ slots:
     description: Proportion of the produced fluids derived from injected water at
       the time of sampling. (e.g. 87%)
     title: injection water fraction
+    notes:
+    - fraction
+    - water
     examples:
     - value: '0.79'
       description: casual Google search
@@ -7367,6 +8116,8 @@ slots:
       terms should be chosen from the DO (Human Disease Ontology) at http://www.disease-ontology.org,
       kidney disease (https://disease-ontology.org/?id=DOID:557)
     title: urine/kidney disorder
+    notes:
+    - disorder
     slot_uri: MIXS:0000277
     multivalued: true
     range: string
@@ -7376,6 +8127,8 @@ slots:
     name: last_clean
     description: The last time the floor was cleaned (swept, mopped, vacuumed)
     title: last time swept/mopped/vacuumed
+    notes:
+    - time
     examples:
     - value: 2018-05-11:T14:30Z
     slot_uri: MIXS:0000814
@@ -7388,6 +8141,9 @@ slots:
     description: The geographical origin of the sample as defined by latitude and
       longitude. The values should be reported in decimal degrees and in WGS84 system
     title: geographic location (latitude and longitude)
+    notes:
+    - geographic
+    - location
     examples:
     - value: 50.586825 6.408977
     in_subset:
@@ -7459,6 +8215,8 @@ slots:
   library_prep_kit:
     name: library_prep_kit
     title: library preparation kit
+    notes:
+    - kit
     slot_uri: MIXS:0001145
     multivalued: false
     range: string
@@ -7472,6 +8230,9 @@ slots:
         value: lux
     description: Measurement of light intensity
     title: light intensity
+    notes:
+    - intensity
+    - light
     examples:
     - value: 0.3 lux
     slot_uri: MIXS:0000706
@@ -7492,6 +8253,8 @@ slots:
     description: Information about treatment(s) involving exposure to light, including
       both light intensity and quality
     title: light regimen
+    notes:
+    - light
     examples:
     - value: incandescant light;10 lux;450 nanometer
     string_serialization: '{text};{float} {unit};{float} {unit}'
@@ -7506,6 +8269,8 @@ slots:
       light fixtures, as well as natural illumination by capturing daylight. Can also
       include absence of light
     title: light type
+    notes:
+    - light
     examples:
     - value: desk lamp
     slot_uri: MIXS:0000769
@@ -7516,6 +8281,8 @@ slots:
     name: link_addit_analys
     description: Link to additional analysis results performed on the sample
     title: links to additional analysis
+    notes:
+    - link
     slot_uri: MIXS:0000340
     multivalued: false
     range: string
@@ -7529,6 +8296,10 @@ slots:
     name: link_class_info
     description: Link to digitized soil maps or other soil classification information
     title: link to classification information
+    notes:
+    - classification
+    - information
+    - link
     slot_uri: MIXS:0000329
     multivalued: false
     required: false
@@ -7541,6 +8312,9 @@ slots:
     name: link_climate_info
     description: Link to climate resource
     title: link to climate information
+    notes:
+    - information
+    - link
     slot_uri: MIXS:0000328
     multivalued: false
     required: false
@@ -7554,6 +8328,8 @@ slots:
     description: 'Hydrocarbon resource main lithology (Additional information: http://petrowiki.org/Lithology_and_rock_type_determination).
       If "other" is specified, please propose entry in "additional info" field'
     title: lithology
+    notes:
+    - lithology
     examples:
     - value: Volcanic
     slot_uri: MIXS:0000990
@@ -7566,6 +8342,8 @@ slots:
       should be chosen from the DO (Human Disease Ontology) at http://www.disease-ontology.org,
       liver disease (https://disease-ontology.org/?id=DOID:409)
     title: liver disorder
+    notes:
+    - disorder
     slot_uri: MIXS:0000282
     multivalued: true
     range: string
@@ -7579,6 +8357,8 @@ slots:
         value: local classification name
     description: Soil classification based on local soil classification system
     title: soil_taxonomic/local classification
+    notes:
+    - classification
     string_serialization: '{text}'
     slot_uri: MIXS:0000330
     multivalued: false
@@ -7586,6 +8366,9 @@ slots:
     name: local_class_meth
     description: Reference or method used in determining the local soil classification
     title: soil_taxonomic/local classification method
+    notes:
+    - classification
+    - method
     slot_uri: MIXS:0000331
     multivalued: false
     structured_pattern:
@@ -7598,6 +8381,8 @@ slots:
       Expected_value:
         tag: Expected_value
         value: lot number, item
+    notes:
+    - number
     examples:
     - value: 1239ABC01A, split Cornish hens
     string_serialization: '{integer}, {text}'
@@ -7647,6 +8432,8 @@ slots:
     name: max_occup
     description: The maximum amount of people allowed in the indoor environment
     title: maximum occupancy
+    notes:
+    - maximum
     slot_uri: MIXS:0000229
     multivalued: false
     required: false
@@ -7660,6 +8447,8 @@ slots:
         value: meter per second
     description: Measurement of mean friction velocity
     title: mean friction velocity
+    notes:
+    - mean
     examples:
     - value: 0.5 meter per second
     slot_uri: MIXS:0000498
@@ -7676,6 +8465,8 @@ slots:
         value: meter per second
     description: Measurement of mean peak friction velocity
     title: mean peak friction velocity
+    notes:
+    - mean
     examples:
     - value: 1 meter per second
     slot_uri: MIXS:0000502
@@ -7715,6 +8506,8 @@ slots:
     name: medic_hist_perform
     description: Whether full medical history was collected
     title: medical history performed
+    notes:
+    - history
     examples:
     - value: '1'
     slot_uri: MIXS:0000897
@@ -7762,6 +8555,10 @@ slots:
     name: micro_biomass_meth
     description: Reference or method used in determining microbial biomass
     title: microbial biomass method
+    notes:
+    - biomass
+    - method
+    - microbial
     slot_uri: MIXS:0000339
     multivalued: false
     range: string
@@ -7783,6 +8580,8 @@ slots:
       (http://purl.obolibrary.org/obo/MICRO_0000067). If the proper descriptor is
       not listed please use text to describe the culture medium
     title: microbiological culture medium
+    notes:
+    - culture
     examples:
     - value: brain heart infusion agar [MICRO:0000566]
     string_serialization: '{text}|{termLabel} {[termID]}'
@@ -7799,6 +8598,8 @@ slots:
     description: Any type of microorganisms used in food production.  This field accepts
       terms listed under live organisms for food production (http://purl.obolibrary.org/obo/FOODON_0344453)
     title: microbial starter
+    notes:
+    - microbial
     examples:
     - value: starter cultures [FOODON:03544454]
     string_serialization: '{term label} {[termID]}|{text}'
@@ -7821,6 +8622,9 @@ slots:
       etc.) should also be provided. (example : total prokaryotes; 3.5e7 cells per
       ml; qPCR)'
     title: microbial starter organism count
+    notes:
+    - count
+    - microbial
     examples:
     - value: total prokaryotes;3.5e9 colony forming units per milliliter;spread plate
     string_serialization: '{text};{float} {unit};[ATP|MPN|qPCR|spread plate|other]'
@@ -7839,6 +8643,8 @@ slots:
         value: milligram or gram
     description: The amount of starter culture used to inoculate a new batch
     title: microbial starter inoculation
+    notes:
+    - microbial
     examples:
     - value: 100 milligrams
     string_serialization: '{float} {unit}'
@@ -7851,6 +8657,8 @@ slots:
     description: Information about the protocol or method used to prepare the starter
       inoculum
     title: microbial starter preparation
+    notes:
+    - microbial
     examples:
     - value: liquid starter culture, propagated 3 cycles in milk prior to inoculation
     slot_uri: MIXS:0001220
@@ -7863,6 +8671,9 @@ slots:
     description: The source from which the microbial starter culture was sourced.  If
       commercially supplied, list supplier
     title: microbial starter source
+    notes:
+    - microbial
+    - source
     examples:
     - value: backslopped, GetCulture
     slot_uri: MIXS:0001221
@@ -7880,6 +8691,9 @@ slots:
       used in food production. For complex communities, pipes can be used to separate
       two or more microbes
     title: microbial starter NCBI taxonomy ID
+    notes:
+    - identifier
+    - microbial
     examples:
     - value: Lactobacillus rhamnosus [NCIT:C123495]
     string_serialization: '{termLabel} {[termID]}|{integer}'
@@ -7897,6 +8711,9 @@ slots:
       microorganisms smaller than 5-10 micrometer. If you keep this, you would need
       to have correction factors used for conversion to the final units
     title: microbial biomass
+    notes:
+    - biomass
+    - microbial
     slot_uri: MIXS:0000650
     multivalued: false
     range: string
@@ -7905,6 +8722,10 @@ slots:
     name: microbial_biomass_meth
     description: Reference or method used in determining microbial biomass
     title: microbial biomass method
+    notes:
+    - biomass
+    - method
+    - microbial
     examples:
     - value: http://dx.doi.org/10.1016/j.soilbio.2005.01.021
       description: present in NCBI biosample_set
@@ -7921,6 +8742,8 @@ slots:
       used to specifically tag unique samples in a sequencing run. Sequence should
       be reported in uppercase letters
     title: multiplex identifiers
+    notes:
+    - identifier
     examples:
     - value: GTGAATAT
     in_subset:
@@ -8030,6 +8853,8 @@ slots:
         value: micromole per liter
     description: Concentration of nitrogen (total)
     title: nitrogen
+    notes:
+    - nitrogen
     examples:
     - value: 4.2 micromole per liter
     slot_uri: MIXS:0000504
@@ -8083,6 +8908,8 @@ slots:
     recommended: true
   nose_throat_disord:
     name: nose_throat_disord
+    notes:
+    - disorder
     multivalued: true
     range: string
     required: false
@@ -8125,6 +8952,8 @@ slots:
     description: The name of the extraction kit used to recover the nucleic acid fraction
       of an input material is performed
     title: nucleic acid extraction kit
+    notes:
+    - kit
     examples:
     - value: Qiagen PowerSoil Kit
     string_serialization: '{text}'
@@ -8143,6 +8972,8 @@ slots:
       in the genome of a bacterium or archaea or the number of segments in a segmented
       virus. Always applied to the haploid chromosome count of a eukaryote
     title: number of replicons
+    notes:
+    - number
     examples:
     - value: '2'
     in_subset:
@@ -8154,6 +8985,9 @@ slots:
     name: num_samp_collect
     description: The number of samples collected during the current sampling event
     title: number of samples collected
+    notes:
+    - number
+    - sample
     examples:
     - value: 116 samples
     slot_uri: MIXS:0001224
@@ -8167,6 +9001,8 @@ slots:
     description: Total number of contigs in the cleaned/submitted assembly that makes
       up a given genome, SAG, MAG, or UViG
     title: number of contigs
+    notes:
+    - number
     examples:
     - value: '40'
     in_subset:
@@ -8178,6 +9014,8 @@ slots:
     name: number_pets
     description: The number of pets residing in the sampled space
     title: number of pets
+    notes:
+    - number
     slot_uri: MIXS:0000231
     multivalued: false
     required: false
@@ -8187,6 +9025,8 @@ slots:
     name: number_plants
     description: The number of plant(s) in the sampling space
     title: number of houseplants
+    notes:
+    - number
     slot_uri: MIXS:0000230
     multivalued: false
     required: false
@@ -8196,6 +9036,8 @@ slots:
     name: number_resident
     description: The number of individuals currently occupying in the sampling location
     title: number of residents
+    notes:
+    - number
     slot_uri: MIXS:0000232
     multivalued: false
     required: false
@@ -8205,6 +9047,8 @@ slots:
     name: occup_density_samp
     description: Average number of occupants at time of sampling per square footage
     title: occupant density at sampling
+    notes:
+    - density
     examples:
     - value: '0.1'
       description: casual Google search for legislation about occupants per square
@@ -8217,6 +9061,8 @@ slots:
     name: occup_document
     description: The type of documentation of occupancy
     title: occupancy documentation
+    notes:
+    - documentation
     examples:
     - value: estimate
     slot_uri: MIXS:0000816
@@ -8239,6 +9085,9 @@ slots:
     name: org_carb
     description: Concentration of organic carbon
     title: organic carbon
+    notes:
+    - carbon
+    - organic
     examples:
     - value: 1.5 microgram per liter
     slot_uri: MIXS:0000508
@@ -8264,6 +9113,9 @@ slots:
       annealing:52C_30 sec; elongation:72C_30 sec; 90 C for 1 min; final elongation:72C_5min;
       30 cycles)'
     title: organism count qPCR information
+    notes:
+    - count
+    - information
     string_serialization: '{text};FWD:{dna};REV:{dna};initial denaturation:degrees_minutes;denaturation:degrees_minutes;annealing:degrees_minutes;elongation:degrees_minutes;final
       elongation:degrees_minutes; total cycles'
     slot_uri: MIXS:0000099
@@ -8274,6 +9126,8 @@ slots:
     name: org_matter
     description: Concentration of organic matter
     title: organic matter
+    notes:
+    - organic
     examples:
     - value: 1.75 milligram per cubic meter
     slot_uri: MIXS:0000204
@@ -8286,6 +9140,9 @@ slots:
     name: org_nitro
     description: Concentration of organic nitrogen
     title: organic nitrogen
+    notes:
+    - nitrogen
+    - organic
     examples:
     - value: 4 micromole per liter
     slot_uri: MIXS:0000205
@@ -8306,6 +9163,8 @@ slots:
     description: Concentration of particles such as faeces, hairs, food, vomit, paper
       fibers, plant material, humus, etc
     title: organic particles
+    notes:
+    - organic
     string_serialization: '{text};{float} {unit}'
     slot_uri: MIXS:0000665
     multivalued: true
@@ -8314,6 +9173,8 @@ slots:
   organism_count:
     name: organism_count
     title: organism count
+    notes:
+    - count
     slot_uri: MIXS:0000103
     range: string
   otu_class_appr:
@@ -8327,6 +9188,8 @@ slots:
       OTUS defined from another set of thresholds, even if the latter are the ones
       primarily used during the analysis
     title: OTU classification approach
+    notes:
+    - classification
     examples:
     - value: 95% ANI;85% AF; greedy incremental clustering
     in_subset:
@@ -8343,6 +9206,8 @@ slots:
     description: Reference database (i.e. sequences not generated as part of the current
       study) used to cluster new genomes in "species-level" OTUs, if any
     title: OTU database
+    notes:
+    - database
     examples:
     - value: NCBI Viral RefSeq;83
     in_subset:
@@ -8374,6 +9239,9 @@ slots:
         value: meter
     description: Depth of the original oil water contact (OWC) zone (average) (m TVDSS)
     title: oil water contact depth
+    notes:
+    - depth
+    - water
     slot_uri: MIXS:0000405
     multivalued: false
     range: string
@@ -8384,6 +9252,8 @@ slots:
     name: oxy_stat_samp
     description: Oxygenation status of sample
     title: oxygenation status of sample
+    notes:
+    - sample
     examples:
     - value: aerobic
     slot_uri: MIXS:0000753
@@ -8397,6 +9267,8 @@ slots:
         value: milligram per liter, parts per million
     description: Oxygen (gas) amount or concentration at the time of sampling
     title: oxygen
+    notes:
+    - oxygen
     examples:
     - value: 600 parts per million
     slot_uri: MIXS:0000104
@@ -8409,6 +9281,10 @@ slots:
     name: part_org_carb
     description: Concentration of particulate organic carbon
     title: particulate organic carbon
+    notes:
+    - carbon
+    - organic
+    - particulate
     examples:
     - value: 1.92 micromole per liter
     slot_uri: MIXS:0000515
@@ -8425,6 +9301,10 @@ slots:
         value: microgram per liter, micromole per liter
     description: Concentration of particulate organic nitrogen
     title: particulate organic nitrogen
+    notes:
+    - nitrogen
+    - organic
+    - particulate
     examples:
     - value: 0.3 micromole per liter
     slot_uri: MIXS:0000719
@@ -8443,6 +9323,8 @@ slots:
       or consumption; e.g., a carrot is the root of the plant (root vegetable). This
       field accepts terms listed under part of plant or animal (http://purl.obolibrary.org/obo/FOODON_03420116)
     title: part of plant or animal
+    notes:
+    - animal
     examples:
     - value: chuck [FOODON:03530021]
     string_serialization: '{text}|{termLabel} {[termID]}'
@@ -8463,6 +9345,8 @@ slots:
       silt, sand, gravel, cobbles, and boulders; should include amount of particle
       preceded by the name of the particle type; can include multiple values
     title: particle classification
+    notes:
+    - classification
     string_serialization: '{text};{float} {unit}'
     slot_uri: MIXS:0000206
     multivalued: true
@@ -8484,6 +9368,8 @@ slots:
     description: Description of reaction conditions and components of PCR in the form
       of 'initial denaturation:94degC_1.5min; annealing=...'
     title: pcr conditions
+    notes:
+    - conditions
     examples:
     - value: initial denaturation:94_3;annealing:50_1;elongation:72_1.5;final elongation:72_10;35
     in_subset:
@@ -8559,6 +9445,9 @@ slots:
       of subject, if yes the animals should be specified; can include multiple animals
       present
     title: presence of pets or farm animals
+    notes:
+    - animal
+    - farm
     examples:
     - value: yes; 5 cats
     string_serialization: '{boolean};{text}'
@@ -8574,6 +9463,8 @@ slots:
         value: micromole per liter
     description: Concentration of petroleum hydrocarbon
     title: petroleum hydrocarbon
+    notes:
+    - hydrocarbon
     examples:
     - value: 0.05 micromole per liter
     slot_uri: MIXS:0000516
@@ -8593,6 +9484,8 @@ slots:
   ph_meth:
     name: ph_meth
     title: pH method
+    notes:
+    - method
     examples:
     - value: https://www.epa.gov/sites/production/files/2015-12/documents/9040c.pdf
     slot_uri: MIXS:0001106
@@ -8639,6 +9532,8 @@ slots:
         value: micromole per liter
     description: Concentration of phosphate
     title: phosphate
+    notes:
+    - phosphate
     examples:
     - value: 0.7 micromole per liter
     slot_uri: MIXS:0000505
@@ -8701,6 +9596,8 @@ slots:
     name: photosynt_activ_meth
     description: Reference or method used in measurement of photosythetic activity
     title: photosynthetic activity method
+    notes:
+    - method
     slot_uri: MIXS:0001336
     multivalued: true
     recommended: true
@@ -8735,6 +9632,8 @@ slots:
       based on maturity or ripeness. This field accepts terms listed under degree
       of plant maturity (http://purl.obolibrary.org/obo/FOODON_03530050)
     title: degree of plant part maturity
+    notes:
+    - degree
     examples:
     - value: ripe or mature [FOODON:03530052]
     string_serialization: '{term label}{term ID}'
@@ -8805,6 +9704,10 @@ slots:
       crops. This field accepts termed listed under irrigation process (http://purl.obolibrary.org/obo/AGRO_00000006).
       Multiple terms can be separated by pipes
     title: plant water delivery method
+    notes:
+    - delivery
+    - method
+    - water
     examples:
     - value: drip irrigation process [AGRO:00000056]
     string_serialization: '{termLabel} {[termID]}'
@@ -8860,6 +9763,8 @@ slots:
     description: Indicate whether multiple DNA extractions were mixed. If the answer
       yes, the number of extracts that were pooled should be given
     title: pooling of DNA extracts (if done)
+    notes:
+    - dna
     slot_uri: MIXS:0000325
     range: string
   porosity:
@@ -8983,6 +9888,8 @@ slots:
     description: The type and number of animals or insects present in the sampling
       space
     title: presence of pets, animals, or insects
+    notes:
+    - animal
     examples:
     - value: cat;5
     string_serialization: '[cat|dog|rodent|snake|other];{integer}'
@@ -9010,6 +9917,10 @@ slots:
     name: prev_land_use_meth
     description: Reference or method used in determining previous land use and dates
     title: history/previous land use method
+    notes:
+    - history
+    - land
+    - method
     slot_uri: MIXS:0000316
     multivalued: false
     range: string
@@ -9027,6 +9938,9 @@ slots:
         value: land use name;date
     description: Previous land use and dates
     title: history/previous land use
+    notes:
+    - history
+    - land
     examples:
     - value: fallow; 2018-05-11:T14:30Z
     string_serialization: '{text};{timestamp}'
@@ -9036,6 +9950,10 @@ slots:
     name: previous_land_use_meth
     description: Reference or method used in determining previous land use and dates
     title: history/previous land use method
+    notes:
+    - history
+    - land
+    - method
     slot_uri: MIXS:0000316
     multivalued: false
     recommended: true
@@ -9095,6 +10013,8 @@ slots:
         value: cubic meter per day
     description: Oil and/or gas production rates per well (e.g. 524 m3 / day)
     title: production rate
+    notes:
+    - rate
     slot_uri: MIXS:0000452
     multivalued: false
     range: string
@@ -9104,6 +10024,9 @@ slots:
     name: prod_start_date
     description: Date of field's first production
     title: production start date
+    notes:
+    - date
+    - start
     examples:
     - value: '2018-05-11 00:00:00'
     slot_uri: MIXS:0001008
@@ -9157,6 +10080,8 @@ slots:
       terms should be chosen from the DO (Human Disease Ontology) at http://www.disease-ontology.org,
       lung disease (https://disease-ontology.org/?id=DOID:850)
     title: lung/pulmonary disorder
+    notes:
+    - disorder
     slot_uri: MIXS:0000269
     multivalued: true
     range: string
@@ -9284,6 +10209,8 @@ slots:
     description: List of database(s) used for ORF annotation, along with version number
       and reference to website or publication
     title: reference database(s)
+    notes:
+    - database
     examples:
     - value: pVOGs;5;http://dmk-brain.ecn.uiowa.edu/pVOGs/ Grazziotin et al. 2017
         doi:10.1093/nar/gkw975
@@ -9301,6 +10228,10 @@ slots:
     description: Partial vapor and air pressure, density of the vapor and air, or
       by the actual mass of the vapor and air
     title: relative air humidity
+    notes:
+    - air
+    - humidity
+    - relative
     examples:
     - value: '0.8'
     slot_uri: MIXS:0000121
@@ -9316,6 +10247,9 @@ slots:
         value: gram of air, kilogram of air
     description: The recorded outside relative humidity value at the time of sampling
     title: outside relative humidity
+    notes:
+    - humidity
+    - relative
     examples:
     - value: 12 per kilogram of air
     slot_uri: MIXS:0000188
@@ -9329,6 +10263,10 @@ slots:
     description: Location of sampled soil to other parts of the farm e.g. under crop
       plant, near irrigation ditch, from the dirt road
     title: relative location of sample
+    notes:
+    - location
+    - relative
+    - sample
     examples:
     - value: furrow
     slot_uri: MIXS:0001161
@@ -9338,6 +10276,9 @@ slots:
     name: rel_samp_loc
     description: The sampling location within the train car
     title: relative sampling location
+    notes:
+    - location
+    - relative
     examples:
     - value: center of car
     slot_uri: MIXS:0000821
@@ -9350,6 +10291,8 @@ slots:
     description: Is this organism an aerobe, anaerobe? Please note that aerobic and
       anaerobic are valid descriptors for microbial environments
     title: relationship to oxygen
+    notes:
+    - oxygen
     examples:
     - value: aerobe
     in_subset:
@@ -9405,6 +10348,9 @@ slots:
         value: liter per hour
     description: The rate at which outside air replaces indoor air in a given space
     title: room air exchange rate
+    notes:
+    - air
+    - rate
     slot_uri: MIXS:0000169
     multivalued: false
     range: string
@@ -9436,6 +10382,8 @@ slots:
     name: room_connected
     description: List of rooms connected to the sampling room by a doorway
     title: rooms connected by a doorway
+    notes:
+    - doorway
     examples:
     - value: office
     slot_uri: MIXS:0000826
@@ -9448,6 +10396,8 @@ slots:
     description: The total count of rooms in the built structure including all room
       types
     title: room count
+    notes:
+    - count
     slot_uri: MIXS:0000234
     multivalued: false
     range: integer
@@ -9464,6 +10414,8 @@ slots:
         value: meter
     description: The length, width and height of sampling room
     title: room dimensions
+    notes:
+    - dimensions
     examples:
     - value: 4 meter x 4 meter x 4 meter
     string_serialization: '{integer} {unit} x {integer} {unit} x {integer} {unit}'
@@ -9480,6 +10432,9 @@ slots:
     description: Distance between doors (meters) in the hallway between the sampling
       room and adjacent rooms
     title: room door distance
+    notes:
+    - distance
+    - door
     slot_uri: MIXS:0000193
     multivalued: false
     range: string
@@ -9491,6 +10446,8 @@ slots:
     description: List of room(s) (room number, room name) sharing a door with the
       sampling room
     title: rooms that share a door with sampling room
+    notes:
+    - door
     slot_uri: MIXS:0000242
     multivalued: false
     required: false
@@ -9504,6 +10461,8 @@ slots:
     description: List of room(s) (room number, room name) located in the same hallway
       as sampling room
     title: rooms that are on the same hallway
+    notes:
+    - hallway
     slot_uri: MIXS:0000238
     multivalued: false
     required: false
@@ -9516,6 +10475,8 @@ slots:
     name: room_loc
     description: The position of the room within the building
     title: room location in building
+    notes:
+    - location
     examples:
     - value: interior room
     slot_uri: MIXS:0000823
@@ -9528,6 +10489,8 @@ slots:
     description: The history of moisture damage or mold in the past 12 months. Number
       of events of moisture damage or mold observed
     title: room moisture damage or mold history
+    notes:
+    - history
     slot_uri: MIXS:0000235
     multivalued: false
     range: integer
@@ -9617,6 +10580,8 @@ slots:
     name: room_window_count
     description: Number of windows in the room
     title: room window count
+    notes:
+    - count
     slot_uri: MIXS:0000237
     multivalued: false
     range: integer
@@ -9627,6 +10592,8 @@ slots:
     description: Relevant rooting conditions such as field plot size, sowing density,
       container dimensions, number of plants per container
     title: rooting conditions
+    notes:
+    - conditions
     examples:
     - value: http://himedialabs.com/TD/PT158.pdf
     slot_uri: MIXS:0001061
@@ -9648,6 +10615,8 @@ slots:
         value: milligram per liter
     description: Source of organic carbon in the culture rooting medium; e.g. sucrose
     title: rooting medium carbon
+    notes:
+    - carbon
     examples:
     - value: sucrose
     string_serialization: '{text};{float} {unit}'
@@ -9665,6 +10634,8 @@ slots:
         tag: Preferred_unit
         value: milligram per liter
     title: rooting medium macronutrients
+    notes:
+    - macronutrients
     examples:
     - value: KH2PO4;170  milligram per liter
     string_serialization: '{text};{float} {unit}'
@@ -9744,6 +10715,8 @@ slots:
       amino acids, organic acids, antibiotics activated charcoal; e.g. nicotinic acid
       (0.5  mg/L)
     title: rooting medium organic supplements
+    notes:
+    - organic
     examples:
     - value: nicotinic acid;0.5 milligram per liter
     string_serialization: '{text};{float} {unit}'
@@ -9758,6 +10731,8 @@ slots:
       was observed at the time of sampling) via a mode of transmission (specified
       in mode_transmission)
     title: route of transmission
+    notes:
+    - route
     slot_uri: MIXS:0001316
     multivalued: false
     range: string
@@ -9782,6 +10757,8 @@ slots:
     name: salinity_meth
     description: Reference or method used in determining salinity
     title: salinity method
+    notes:
+    - method
     examples:
     - value: 'PMID: 22895776'
     slot_uri: MIXS:0000341
@@ -9814,6 +10791,8 @@ slots:
     name: samp_capt_status
     description: Reason for the sample
     title: sample capture status
+    notes:
+    - sample
     examples:
     - value: farm sample
     slot_uri: MIXS:0000860
@@ -9831,6 +10810,9 @@ slots:
       terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO).
       This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094)
     title: sample collection device
+    notes:
+    - device
+    - sample
     examples:
     - value: swab, biopsy, niskin bottle, push core, drag swab [GENEPIO:0002713]
     in_subset:
@@ -9842,6 +10824,9 @@ slots:
     name: samp_collec_method
     description: The method employed for collecting the sample
     title: sample collection method
+    notes:
+    - method
+    - sample
     examples:
     - value: swabbing
     in_subset:
@@ -9854,6 +10839,10 @@ slots:
       partial_match: true
   samp_collect_device:
     name: samp_collect_device
+    notes:
+    - device
+    - method
+    - sample
     slot_uri: MIXS:0000002
     multivalued: false
     range: string
@@ -9861,6 +10850,9 @@ slots:
     name: samp_collect_method
     description: The method employed for collecting the sample
     title: sample collection method
+    notes:
+    - method
+    - sample
     examples:
     - value: environmental swab sampling
     slot_uri: MIXS:0001225
@@ -9877,6 +10869,8 @@ slots:
       storage tank, separator, etc). If "other" is specified, please propose entry
       in "additional info" field
     title: sample collection point
+    notes:
+    - sample
     examples:
     - value: well
     slot_uri: MIXS:0001015
@@ -9888,6 +10882,9 @@ slots:
     description: Stage of the disease at the time of sample collection, e.g. inoculation,
       penetration, infection, growth and reproduction, dissemination of pathogen
     title: sample disease stage
+    notes:
+    - disease
+    - sample
     examples:
     - value: infection
     slot_uri: MIXS:0000249
@@ -9899,6 +10896,8 @@ slots:
     name: samp_floor
     description: The floor of the building, where the sampling room is located
     title: sampling floor
+    notes:
+    - floor
     examples:
     - value: 4th floor
     slot_uri: MIXS:0000828
@@ -9910,6 +10909,9 @@ slots:
     name: samp_loc_condition
     description: The condition of the sample location at the time of sampling
     title: sample location condition
+    notes:
+    - location
+    - sample
     examples:
     - value: new
     slot_uri: MIXS:0001257
@@ -9931,6 +10933,10 @@ slots:
       provide insights into the involvement of certain microbial community members
       in MIC as well as potential microbial interplays
     title: corrosion rate at sample location
+    notes:
+    - location
+    - rate
+    - sample
     slot_uri: MIXS:0000136
     multivalued: false
     recommended: true
@@ -9944,6 +10950,9 @@ slots:
       or after retrieving the sample from environment, or a link to the relevant protocol(s)
       performed
     title: sample material processing
+    notes:
+    - material
+    - sample
     examples:
     - value: filtering of seawater, storing samples in ethanol
     in_subset:
@@ -9967,6 +10976,10 @@ slots:
       rig floor (DF), rotary table (RT), kelly bushing (KB) and mean sea level (MSL).
       If "other" is specified, please propose entry in "additional info" field
     title: sample measured depth
+    notes:
+    - depth
+    - measurement
+    - sample
     examples:
     - value: 1534 meter;MSL
     string_serialization: '{float} {unit};[GL|DF|RT|KB|MSL|other]'
@@ -9988,6 +11001,8 @@ slots:
       a single Submitter to be unique. Use of a globally unique identifier for the
       field source_mat_id is recommended in addition to sample_name
     title: sample name
+    notes:
+    - sample
     examples:
     - value: ISDsoil1
     in_subset:
@@ -10002,6 +11017,8 @@ slots:
       RNA extracted from samples or dishes of cell cultures into one big aliquot of
       cells. Please provide a short description of the samples that were pooled
     title: sample pooling
+    notes:
+    - sample
     examples:
     - value: 5uL of extracted genomic DNA from 5 leaves were pooled
     slot_uri: MIXS:0001153
@@ -10016,6 +11033,8 @@ slots:
     description: Preservative added to the sample (e.g. Rnalater, alcohol, formaldehyde,
       etc.). Where appropriate include volume added (e.g. Rnalater; 2 ml)
     title: preservative added to sample
+    notes:
+    - sample
     slot_uri: MIXS:0000463
     multivalued: false
     required: false
@@ -10046,6 +11065,8 @@ slots:
     description: Measurements of biologically distinct samples that show biological
       variation
     title: biological sample replicate
+    notes:
+    - sample
     examples:
     - value: 6 replicates
     slot_uri: MIXS:0001226
@@ -10059,6 +11080,8 @@ slots:
     description: Repeated measurements of the same sample that show independent measures
       of the noise associated with the equipment and the protocols
     title: technical sample replicate
+    notes:
+    - sample
     examples:
     - value: 10 replicates
     slot_uri: MIXS:0001227
@@ -10072,6 +11095,8 @@ slots:
     description: Sampling room number. This ID should be consistent with the designations
       on the building floor plans
     title: sampling room ID or name
+    notes:
+    - identifier
     slot_uri: MIXS:0000244
     multivalued: false
     range: integer
@@ -10090,6 +11115,8 @@ slots:
       measurement. This is known as practical salinity. These derivations compare
       the specific conductance of the sample to a salinity standard such as seawater
     title: sample salinity
+    notes:
+    - sample
     examples:
     - value: 1 milligram per liter
     slot_uri: MIXS:0000109
@@ -10103,6 +11130,8 @@ slots:
     description: The total amount or size (volume (ml), mass (g) or area (m2) ) of
       sample collected
     title: amount or size of sample collected
+    notes:
+    - sample
     in_subset:
     - nucleic acid sequence source
     slot_uri: MIXS:0000001
@@ -10116,6 +11145,9 @@ slots:
       in diameter, where common values of X would be 10 and 2.5 full size sorting
       in a cascade impactor
     title: sample size sorting method
+    notes:
+    - method
+    - sample
     slot_uri: MIXS:0000216
     multivalued: true
     range: string
@@ -10124,6 +11156,10 @@ slots:
   samp_source_mat_cat:
     name: samp_source_mat_cat
     title: sample source material category
+    notes:
+    - material
+    - sample
+    - source
     slot_uri: MIXS:0001154
     multivalued: false
     range: string
@@ -10138,6 +11174,9 @@ slots:
       listed under container (http://purl.obolibrary.org/obo/NCIT_C43186). If the
       proper descriptor is not listed please use text to describe the storage device
     title: sample storage device
+    notes:
+    - device
+    - sample
     examples:
     - value: Whirl Pak sampling bag [GENEPIO:0002122]
     string_serialization: '{text}|{termLabel} {[termID]}'
@@ -10148,6 +11187,10 @@ slots:
     description: Duration for which the sample was stored. Indicate the duration for
       which the sample was stored written in ISO 8601 format
     title: sample storage duration
+    notes:
+    - duration
+    - period
+    - sample
     examples:
     - value: P1Y6M
     slot_uri: MIXS:0000116
@@ -10160,6 +11203,9 @@ slots:
     description: Location at which sample was stored, usually name of a specific freezer/room.
       Indicate the location name
     title: sample storage location
+    notes:
+    - location
+    - sample
     examples:
     - value: freezer 5
     slot_uri: MIXS:0000755
@@ -10180,6 +11226,8 @@ slots:
       If the proper descriptor is not listed please use text to describe the sample
       storage media
     title: sample storage media
+    notes:
+    - sample
     examples:
     - value: peptone water medium [MICRO:0000548]
     string_serialization: '{text}|{termLabel} {[termID]}'
@@ -10193,6 +11241,8 @@ slots:
         value: degree Celsius
     description: Temperature at which sample was stored, e.g. -80 degree Celsius
     title: sample storage temperature
+    notes:
+    - sample
     examples:
     - value: -80 degree Celsius
     slot_uri: MIXS:0000110
@@ -10205,6 +11255,10 @@ slots:
     name: samp_store_dur
     description: Duration for which the sample was stored
     title: sample storage duration
+    notes:
+    - duration
+    - period
+    - sample
     examples:
     - value: P1Y6M
     slot_uri: MIXS:0000116
@@ -10218,6 +11272,9 @@ slots:
         value: location name
     description: Location at which sample was stored, usually name of a specific freezer/room
     title: sample storage location
+    notes:
+    - location
+    - sample
     examples:
     - value: Freezer no:5
     string_serialization: '{text}'
@@ -10231,6 +11288,8 @@ slots:
         value: solution name
     description: Solution within which sample was stored, if any
     title: sample storage solution
+    notes:
+    - sample
     examples:
     - value: 5% ethanol
     string_serialization: '{text}'
@@ -10246,6 +11305,8 @@ slots:
         value: degree Celsius
     description: Temperature at which sample was stored, e.g. -80 degree Celsius
     title: sample storage temperature
+    notes:
+    - sample
     examples:
     - value: -80 degree Celsius
     slot_uri: MIXS:0000110
@@ -10260,6 +11321,8 @@ slots:
       Water" then subtype could be "Oil Phase" or "Water Phase". If "other" is specified,
       please propose entry in "additional info" field
     title: sample subtype
+    notes:
+    - sample
     examples:
     - value: biofilm
     slot_uri: MIXS:0000999
@@ -10272,6 +11335,8 @@ slots:
       state the degree of water held on surface (intermittent moisture, submerged).
       If no surface moisture is present indicate not present
     title: sample surface moisture
+    notes:
+    - sample
     examples:
     - value: submerged
     slot_uri: MIXS:0001256
@@ -10289,6 +11354,10 @@ slots:
       sample. Use 'synthetic metagenome  for mock community/positive controls, or
       'blank sample' for negative controls
     title: taxonomy ID of DNA sample
+    notes:
+    - dna
+    - identifier
+    - sample
     examples:
     - value: Gut Metagenome [NCBI:txid749906]
     in_subset:
@@ -10308,6 +11377,8 @@ slots:
         value: hour
     description: The recent and long term history of outside sampling
     title: sampling time outside
+    notes:
+    - time
     string_serialization: '{float}'
     slot_uri: MIXS:0000196
     multivalued: false
@@ -10325,6 +11396,9 @@ slots:
     description: Sample transport duration (in days or hrs) and temperature the sample
       was exposed to (e.g. 5.5 days; 20   C)
     title: sample transport conditions
+    notes:
+    - conditions
+    - sample
     examples:
     - value: 5 days;-20 degree Celsius
     string_serialization: '{float} {unit};{float} {unit}'
@@ -10337,6 +11411,8 @@ slots:
     description: Conatiner in which the sample was stored during transport. Indicate
       the location name
     title: sample transport  container
+    notes:
+    - sample
     examples:
     - value: cooler
     multivalued: false
@@ -10352,6 +11428,10 @@ slots:
     description: The duration of time from when the sample was collected until processed.
       Indicate the duration for which the sample was stored written in ISO 8601 format
     title: sample transport duration
+    notes:
+    - duration
+    - period
+    - sample
     examples:
     - value: P10D
     slot_uri: MIXS:0001231
@@ -10372,6 +11452,8 @@ slots:
     description: Temperature at which sample was transported, e.g. -20 or 4 degree
       Celsius
     title: sample transport temperature
+    notes:
+    - sample
     examples:
     - value: 4 degree Celsius
     string_serialization: '{float} {unit} {text}'
@@ -10392,6 +11474,9 @@ slots:
       and the sampled position in the subsurface. Depth can be reported as an interval
       for subsurface samples e.g. 1325.75-1362.25 m
     title: sample true vertical depth subsea
+    notes:
+    - depth
+    - sample
     string_serialization: '{float}-{float} {unit}'
     slot_uri: MIXS:0000409
     multivalued: false
@@ -10408,6 +11493,10 @@ slots:
       produced water, injected water, swabs, etc. For the Food Package, samples are
       usually categorized as food, body products or tissues, or environmental material.
       This field accepts terms listed under environmental specimen (http://purl.obolibrary.org/obo/GENEPIO_0001246)
+    notes:
+    - context
+    - environmental
+    - sample
     examples:
     - value: built environment sample [GENEPIO:0001248]
     string_serialization: '{termLabel} {[termID]}'
@@ -10417,6 +11506,9 @@ slots:
   samp_vol_we_dna_ext:
     name: samp_vol_we_dna_ext
     title: sample volume or weight for DNA extraction
+    notes:
+    - dna
+    - sample
     examples:
     - value: 1500 milliliter
     in_subset:
@@ -10429,6 +11521,8 @@ slots:
     name: samp_weather
     description: The weather on the sampling day
     title: sampling day weather
+    notes:
+    - day
     examples:
     - value: foggy
     slot_uri: MIXS:0000827
@@ -10440,6 +11534,8 @@ slots:
     name: samp_well_name
     description: Name of the well (e.g. BXA1123) where sample was taken
     title: sample well name
+    notes:
+    - sample
     slot_uri: MIXS:0000296
     multivalued: false
     range: string
@@ -10448,6 +11544,9 @@ slots:
     name: sample_collec_method
     description: The method employed for collecting the sample
     title: sample collection method
+    notes:
+    - method
+    - sample
     examples:
     - value: environmental swab sampling
     slot_uri: MIXS:0001225
@@ -10465,6 +11564,8 @@ slots:
       your lab, and as informative as possible. Every Sample Name from a single Submitter
       must be unique
     title: sample name
+    notes:
+    - sample
     examples:
     - value: ISDsoil1
     slot_uri: MIXS:0001107
@@ -10496,6 +11597,8 @@ slots:
       the year is divided by the equinoxes and solstices. This field accepts terms
       listed under season (http://purl.obolibrary.org/obo/NCIT_C94729)
     title: season
+    notes:
+    - season
     examples:
     - value: autumn [NCIT:C94733]
     slot_uri: MIXS:0000829
@@ -10511,6 +11614,9 @@ slots:
       was repeated, how long each treatment lasted, and the start and end time of
       the entire treatment
     title: seasonal environment
+    notes:
+    - environment
+    - season
     examples:
     - value: rainy;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M
     slot_uri: MIXS:0001068
@@ -10520,6 +11626,10 @@ slots:
     name: season_humidity
     description: Average humidity of the region throughout the growing season
     title: mean seasonal humidity
+    notes:
+    - humidity
+    - mean
+    - season
     examples:
     - value: '0.25'
     slot_uri: MIXS:0001148
@@ -10537,6 +11647,9 @@ slots:
     description: The average of all seasonal precipitation values known, or an estimated
       equivalent value derived by such methods as regional indexes or Isohyetal maps
     title: mean seasonal precipitation
+    notes:
+    - mean
+    - season
     examples:
     - value: 75 millimeters
     slot_uri: MIXS:0000645
@@ -10550,6 +11663,10 @@ slots:
       Preferred_unit:
         tag: Preferred_unit
         value: degree Celsius
+    notes:
+    - air
+    - mean
+    - season
     examples:
     - value: 18 degree Celsius
     slot_uri: MIXS:0000643
@@ -10562,6 +11679,8 @@ slots:
     name: season_use
     description: The seasons the space is occupied
     title: seasonal use
+    notes:
+    - season
     examples:
     - value: Winter
     slot_uri: MIXS:0000830
@@ -10603,6 +11722,8 @@ slots:
     description: Sequencing machine used. Where possible the term should be taken
       from the OBI list of DNA sequencers (http://purl.obolibrary.org/obo/OBI_0400103)
     title: sequencing method
+    notes:
+    - method
     examples:
     - value: 454 Genome Sequencer FLX [OBI:0000702]
     in_subset:
@@ -10641,6 +11762,8 @@ slots:
       compatibility with user-defined applications. Indicate name of the sequencing
       kit
     title: sequencing kit
+    notes:
+    - kit
     examples:
     - value: NextSeq 500/550 High Output Kit v2.5 (75 Cycles)
     string_serialization: '{text}'
@@ -10653,6 +11776,8 @@ slots:
     description: The location the sequencing run was performed. Indicate the name
       of the lab or core facility where samples were sequenced
     title: sequencing location
+    notes:
+    - location
     examples:
     - value: University of Maryland Genomics Resource Center
     slot_uri: MIXS:0001156
@@ -10708,6 +11833,8 @@ slots:
     name: shad_dev_water_mold
     description: Signs of the presence of mold or mildew on the shading device
     title: shading device signs of water/mold
+    notes:
+    - device
     examples:
     - value: no presence of mold visible
     slot_uri: MIXS:0000834
@@ -10719,6 +11846,8 @@ slots:
     name: shading_device_cond
     description: The physical condition of the shading device at the time of sampling
     title: shading device condition
+    notes:
+    - device
     examples:
     - value: new
     slot_uri: MIXS:0000831
@@ -10730,6 +11859,9 @@ slots:
     name: shading_device_loc
     description: The location of the shading device in relation to the built structure
     title: shading device location
+    notes:
+    - device
+    - location
     examples:
     - value: exterior
     slot_uri: MIXS:0000832
@@ -10745,6 +11877,9 @@ slots:
         value: material name
     description: The material the shading device is composed of
     title: shading device material
+    notes:
+    - device
+    - material
     string_serialization: '{text}'
     slot_uri: MIXS:0000245
     multivalued: false
@@ -10754,6 +11889,8 @@ slots:
     name: shading_device_type
     description: The type of shading device
     title: shading device type
+    notes:
+    - device
     examples:
     - value: slatted aluminum awning
     slot_uri: MIXS:0000835
@@ -10797,6 +11934,8 @@ slots:
     description: Tool used to compare ORFs with database, along with version and cutoffs
       used
     title: similarity search method
+    notes:
+    - method
     examples:
     - value: HMMER3;3.1b2;hmmsearch, cutoff of 50 on score
     in_subset:
@@ -10824,6 +11963,8 @@ slots:
     description: Name of the kit or standard protocol used for cell(s) or particle(s)
       lysis
     title: single cell or viral particle lysis kit protocol
+    notes:
+    - kit
     examples:
     - value: ambion single cell lysis kit
     in_subset:
@@ -10839,6 +11980,8 @@ slots:
         value: filter size value range
     description: Filtering pore size used in sample preparation
     title: size fraction selected
+    notes:
+    - fraction
     examples:
     - value: 0-0.22 micrometer
     in_subset:
@@ -10921,6 +12064,8 @@ slots:
         value: hours
     description: The time activated sludge remains in reactor
     title: sludge retention time
+    notes:
+    - time
     slot_uri: MIXS:0000669
     multivalued: false
     range: string
@@ -10994,6 +12139,8 @@ slots:
       samples depth is measured from sediment or soil surface, respectively. Depth
       can be reported as an interval for subsurface samples
     title: soil depth
+    notes:
+    - depth
     examples:
     - value: 5 cm
     string_serialization: '{float} {unit}'
@@ -11002,6 +12149,8 @@ slots:
   soil_horizon:
     name: soil_horizon
     title: soil horizon
+    notes:
+    - horizon
     multivalued: false
     range: string
   soil_pH:
@@ -11055,6 +12204,8 @@ slots:
       2 mm), silt (2 um to 50 um), and clay (<2 um) with textural name (e.g., silty
       clay loam) optional
     title: soil texture measurement
+    notes:
+    - measurement
     slot_uri: MIXS:0000335
     multivalued: false
     range: string
@@ -11067,6 +12218,8 @@ slots:
       on the relative proportion of different grain sizes  of mineral particles [sand
       (50 um to 2 mm), silt (2 um to 50 um), and clay (<2 um)] in a soil
     title: soil texture classification
+    notes:
+    - classification
     examples:
     - value: silty clay loam
     slot_uri: MIXS:0001164
@@ -11077,6 +12230,8 @@ slots:
   soil_texture_meth:
     name: soil_texture_meth
     title: soil texture method
+    notes:
+    - method
     examples:
     - value: https://uwlab.soils.wisc.edu/wp-content/uploads/sites/17/2015/09/particle_size.pdf
         (hydrometer method)
@@ -11101,6 +12256,8 @@ slots:
     description: Reference or method used in determining soil series name or other
       lower-level classification
     title: soil type method
+    notes:
+    - method
     examples:
     - value: Frederick series; Weikert series
     slot_uri: MIXS:0000334
@@ -11118,6 +12275,9 @@ slots:
           second
     description: The amount of solar energy that arrives at a specific area of a surface
       during a specific time interval
+    notes:
+    - mean
+    - season
     examples:
     - value: 1.36 kilowatts per square meter per day
     slot_uri: MIXS:0000112
@@ -11137,6 +12297,9 @@ slots:
     description: Concentration of substances such as ammonia, road-salt, sea-salt,
       cyanide, hydrogen sulfide, thiocyanates, thiosulfates, etc
     title: soluble inorganic material
+    notes:
+    - inorganic
+    - material
     string_serialization: '{text};{float} {unit}'
     slot_uri: MIXS:0000672
     multivalued: true
@@ -11154,6 +12317,9 @@ slots:
     description: Concentration of substances such as urea, fruit sugars, soluble proteins,
       drugs, pharmaceuticals, etc
     title: soluble organic material
+    notes:
+    - material
+    - organic
     string_serialization: '{text};{float} {unit}'
     slot_uri: MIXS:0000673
     multivalued: true
@@ -11167,6 +12333,8 @@ slots:
         value: micromole per liter, milligram per liter, parts per million
     description: Concentration of soluble reactive phosphorus
     title: soluble reactive phosphorus
+    notes:
+    - phosphorus
     examples:
     - value: 0.1 milligram per liter
     slot_uri: MIXS:0000738
@@ -11221,6 +12389,10 @@ slots:
       would refer to an identifier from some derived culture from which the nucleic
       acids were extracted (e.g. xatc123 or ark:/2154/R2)
     title: source material identifiers
+    notes:
+    - identifier
+    - material
+    - source
     examples:
     - value: MPI012345
     in_subset:
@@ -11236,6 +12408,8 @@ slots:
         value: enumeration
     description: Type of dataset from which the UViG was obtained
     title: source of UViGs
+    notes:
+    - source
     examples:
     - value: viral fraction metagenome (virome)
     in_subset:
@@ -11267,6 +12441,8 @@ slots:
       produced and marketed. This field accepts terms listed under food consumer group
       (http://purl.obolibrary.org/obo/FOODON_03510136)
     title: specific intended consumer
+    notes:
+    - consumer
     examples:
     - value: senior as food consumer [FOODON:03510254]
     string_serialization: '{termLabel} {[termID]}'
@@ -11282,6 +12458,8 @@ slots:
         value: enumeration
     description: Specification of special diet; can include multiple special diets
     title: special diet
+    notes:
+    - diet
     examples:
     - value: other:vegan
     string_serialization: '[low carb|reduced calorie|vegetarian|other(to be specified)]'
@@ -11309,6 +12487,9 @@ slots:
         value: host scientific name, taxonomy ID
     description: Report the host's taxonomic name and/or NCBI taxonomy ID
     title: host scientific name
+    notes:
+    - host
+    - host.
     examples:
     - value: Homo sapiens and/or 9606
     in_subset:
@@ -11326,6 +12507,8 @@ slots:
       as grams of vapour per kilogram of air, or, in air conditioning, as grains per
       pound
     title: specific humidity
+    notes:
+    - humidity
     examples:
     - value: 15 per kilogram of air
     slot_uri: MIXS:0000214
@@ -11345,6 +12528,8 @@ slots:
       drugs or drug classes, with several intermediate states or phases. This field
       accepts terms under antimicrobial phenotype (http://purl.obolibrary.org/obo/ARO_3004299)
     title: antimicrobial phenotype of spike-in bacteria
+    notes:
+    - antimicrobial
     examples:
     - value: wild type [ARO:3004432]
     string_serialization: '{float} {unit};{termLabel} {[termID]}'
@@ -11384,6 +12569,8 @@ slots:
       The method that was used for the enumeration (e.g. qPCR, atp, mpn, etc.) should
       also be provided (example: total prokaryotes; 3.5e7 cells per ml; qPCR)'
     title: spike-in organism count
+    notes:
+    - count
     examples:
     - value: total prokaryotes;3.5e7 colony forming units per milliliter;qPCR
     string_serialization: '{text};{float} {unit};[ATP|MPN|qPCR|other]'
@@ -11423,6 +12610,8 @@ slots:
       on microbiome of a specific site.  Please list heavy metals and concentration
       used for spike-in
     title: spike-in with heavy metals
+    notes:
+    - heavy
     examples:
     - value: Cd at 20 ppm
     string_serialization: '{text} {integer}'
@@ -11477,6 +12666,8 @@ slots:
       This field also accepts identification numbers from NCBI under https://www.ncbi.nlm.nih.gov/taxonomy.
       Multiple terms can be separated by pipes
     title: spike-in microbial strain
+    notes:
+    - microbial
     examples:
     - value: '169963'
     string_serialization: '{termLabel} {[termID]}|{integer}'
@@ -11489,6 +12680,9 @@ slots:
     description: Source rock depositional environment (https://en.wikipedia.org/wiki/Source_rock).
       If "other" is specified, please propose entry in "additional info" field
     title: source rock depositional environment
+    notes:
+    - environment
+    - source
     examples:
     - value: Marine
     slot_uri: MIXS:0000996
@@ -11501,6 +12695,8 @@ slots:
     description: 'Geological age of source rock (Additional info: https://en.wikipedia.org/wiki/Period_(geology)).
       If "other" is specified, please propose entry in "additional info" field'
     title: source rock geological age
+    notes:
+    - source
     examples:
     - value: Silurian
     slot_uri: MIXS:0000997
@@ -11516,6 +12712,8 @@ slots:
       (terrestrial) (additional information: https://en.wikipedia.org/wiki/Kerogen).
       If "other" is specified, please propose entry in "additional info" field'
     title: source rock kerogen type
+    notes:
+    - source
     examples:
     - value: Type IV
     slot_uri: MIXS:0000994
@@ -11528,6 +12726,9 @@ slots:
     description: Lithology of source rock (https://en.wikipedia.org/wiki/Source_rock).
       If "other" is specified, please propose entry in "additional info" field
     title: source rock lithology
+    notes:
+    - lithology
+    - source
     examples:
     - value: Coal
     slot_uri: MIXS:0000995
@@ -11542,6 +12743,8 @@ slots:
       how many times the treatment was repeated, how long each treatment lasted, and
       the start and end time of the entire treatment; can include multiple regimens
     title: standing water regimen
+    notes:
+    - water
     examples:
     - value: standing water;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M
     slot_uri: MIXS:0001069
@@ -11558,6 +12761,8 @@ slots:
       If the proper descriptor is not listed, please use text to describe the sampling
       room sterilization method. Multiple terms can be separated by pipes
     title: sampling room sterilization method
+    notes:
+    - method
     examples:
     - value: ultraviolet radiation [ENVO:21001216]|infrared radiation [ENVO:21001214]
     string_serialization: '{text}|{termLabel} {[termID]}'
@@ -11569,6 +12774,8 @@ slots:
     name: store_cond
     description: Explain how and for how long the soil sample was stored before DNA
       extraction (fresh/frozen/other)
+    notes:
+    - conditions
     examples:
     - value: -20 degree Celsius freezer;P2Y10D
     slot_uri: MIXS:0000327
@@ -11627,6 +12834,10 @@ slots:
     description: Sample incubation duration if unpublished or unvalidated method is
       used. Indicate the timepoint written in ISO 8601 format
     title: study incubation duration
+    notes:
+    - duration
+    - incubation
+    - period
     examples:
     - value: P24H
     string_serialization: '{float} {unit}'
@@ -11643,6 +12854,8 @@ slots:
     description: Sample incubation temperature if unpublished or unvalidated method
       is used
     title: study incubation temperature
+    notes:
+    - incubation
     examples:
     - value: 37 degree Celsius
     slot_uri: MIXS:0001238
@@ -11660,6 +12873,9 @@ slots:
     description: For time-course research studies involving samples of the food commodity,
       indicate the total duration of the time-course study
     title: time-course duration
+    notes:
+    - duration
+    - period
     examples:
     - value: 2 days post inoculation
     slot_uri: MIXS:0001239
@@ -11696,6 +12912,8 @@ slots:
       be recorded in this term, but in the NCBI taxonomy. Supply both the lineage
       name and the lineage rank separated by a colon, e.g., biovar:abc123
     title: subspecific genetic lineage
+    notes:
+    - lineage
     examples:
     - value: serovar:Newport
     in_subset:
@@ -11737,6 +12955,8 @@ slots:
         value: milligram per liter
     description: Original sulfate concentration in the hydrocarbon resource
     title: sulfate in formation water
+    notes:
+    - water
     slot_uri: MIXS:0000407
     multivalued: false
     range: string
@@ -11773,6 +12993,8 @@ slots:
         value: percentage
     description: 'Surfaces: water activity as a function of air and material moisture'
     title: surface humidity
+    notes:
+    - humidity
     examples:
     - value: '0.1'
     slot_uri: MIXS:0000123
@@ -11784,6 +13006,8 @@ slots:
     name: surf_material
     description: Surface materials at the point of sampling
     title: surface material
+    notes:
+    - material
     examples:
     - value: wood
     slot_uri: MIXS:0000758
@@ -11837,6 +13061,8 @@ slots:
         value: milligram per liter
     description: Concentration of suspended particulate matter
     title: suspended particulate matter
+    notes:
+    - particulate
     examples:
     - value: 0.5 milligram per liter
     slot_uri: MIXS:0000741
@@ -11873,6 +13099,10 @@ slots:
       sampled). Simple life cycles occur within a single host, complex ones within
       multiple different hosts over the course of their normal life cycle
     title: symbiotic host organism life cycle type
+    notes:
+    - host
+    - host.
+    - life
     examples:
     - value: complex life cycle
     slot_uri: MIXS:0001300
@@ -11883,6 +13113,9 @@ slots:
     name: symbiont_host_role
     description: Role of the host in the life cycle of the symbiotic organism
     title: host of the symbiont role
+    notes:
+    - host
+    - host.
     examples:
     - value: intermediate
     slot_uri: MIXS:0001303
@@ -11900,6 +13133,9 @@ slots:
       the acids in one gram of oil.  It is an important quality measurement of  crude
       oil. (source: https://en.wikipedia.org/wiki/Total_acid_number)'
     title: total acid number
+    notes:
+    - number
+    - total
     slot_uri: MIXS:0000120
     multivalued: false
     range: string
@@ -11933,6 +13169,8 @@ slots:
     description: Method used for taxonomic classification, along with reference database
       used, classification rank, and thresholds used to classify new genomes
     title: taxonomic classification
+    notes:
+    - classification
     examples:
     - value: vConTACT vContact2 (references from NCBI RefSeq v83, genus rank classification,
         default parameters)
@@ -11946,6 +13184,9 @@ slots:
     description: The phylogenetic marker(s) used to assign an organism name to the
       SAG or MAG
     title: taxonomic identity marker
+    notes:
+    - identifier
+    - marker
     examples:
     - value: 'other: rpoB gene'
     in_subset:
@@ -11977,6 +13218,8 @@ slots:
         value: degree Celsius
     description: The recorded temperature value at sampling time outside
     title: temperature outside house
+    notes:
+    - house
     examples:
     - value: 5 degree Celsius
     slot_uri: MIXS:0000197
@@ -12016,6 +13259,8 @@ slots:
     name: texture_meth
     description: Reference or method used in determining soil texture
     title: texture method
+    notes:
+    - method
     slot_uri: MIXS:0000336
     multivalued: false
     range: string
@@ -12040,6 +13285,8 @@ slots:
     name: tillage
     description: Note method(s) used for tilling
     title: history/tillage
+    notes:
+    - history
     examples:
     - value: chisel
     slot_uri: MIXS:0001081
@@ -12048,6 +13295,8 @@ slots:
     name: time_last_toothbrush
     description: Specification of the time since last toothbrushing
     title: time since last toothbrushing
+    notes:
+    - time
     examples:
     - value: P2H45M
     slot_uri: MIXS:0000924
@@ -12059,6 +13308,8 @@ slots:
     name: time_since_last_wash
     description: Specification of the time since last wash
     title: time since last wash
+    notes:
+    - time
     examples:
     - value: P1D
     slot_uri: MIXS:0000943
@@ -12090,6 +13341,8 @@ slots:
     name: tiss_cult_growth_med
     description: Description of plant tissue culture growth media used
     title: tissue culture growth media
+    notes:
+    - culture
     examples:
     - value: https://link.springer.com/content/pdf/10.1007/BF02796489.pdf
     slot_uri: MIXS:0001070
@@ -12121,6 +13374,9 @@ slots:
         value: microgram per liter, micromole per liter
     description: Total carbon content
     title: total carbon
+    notes:
+    - carbon
+    - total
     slot_uri: MIXS:0000525
     multivalued: false
     range: string
@@ -12134,6 +13390,9 @@ slots:
         value: microgram per liter
     description: Total carbon content
     title: total carbon
+    notes:
+    - carbon
+    - total
     slot_uri: MIXS:0000525
     multivalued: false
     range: string
@@ -12148,6 +13407,10 @@ slots:
         value: meter
     description: Measurement of total depth of water column
     title: total depth of water column
+    notes:
+    - depth
+    - total
+    - water
     examples:
     - value: 500 meter
     slot_uri: MIXS:0000634
@@ -12165,6 +13428,10 @@ slots:
     description: 'Total dissolved nitrogen concentration, reported as nitrogen, measured
       by: total dissolved nitrogen = NH4 + NO3NO2 + dissolved organic nitrogen'
     title: total dissolved nitrogen
+    notes:
+    - dissolved
+    - nitrogen
+    - total
     examples:
     - value: 40 microgram per liter
     slot_uri: MIXS:0000744
@@ -12181,6 +13448,10 @@ slots:
         value: microgram per liter
     description: Total inorganic nitrogen content
     title: total inorganic nitrogen
+    notes:
+    - inorganic
+    - nitrogen
+    - total
     examples:
     - value: 40 microgram per liter
     slot_uri: MIXS:0000745
@@ -12197,6 +13468,8 @@ slots:
         value: milligram per liter, milligram per kilogram
     description: Concentration of total iron in the sample
     title: total iron
+    notes:
+    - total
     slot_uri: MIXS:0000105
     multivalued: false
     range: string
@@ -12206,6 +13479,10 @@ slots:
     name: tot_n_meth
     description: Reference or method used in determining the total nitrogen
     title: total nitrogen method
+    notes:
+    - method
+    - nitrogen
+    - total
     slot_uri: MIXS:0000338
     multivalued: false
     recommended: true
@@ -12215,6 +13492,10 @@ slots:
       partial_match: true
   tot_nitro:
     name: tot_nitro
+    notes:
+    - concentration
+    - nitrogen
+    - total
     examples:
     - value: 50 micromole per liter
     multivalued: false
@@ -12224,6 +13505,11 @@ slots:
     name: tot_nitro_cont_meth
     description: Reference or method used in determining the total nitrogen
     title: total nitrogen content method
+    notes:
+    - content
+    - method
+    - nitrogen
+    - total
     examples:
     - value: https://currentprotocols.onlinelibrary.wiley.com/doi/abs/10.1002/0471142913.fab0102s00
     slot_uri: MIXS:0000338
@@ -12238,6 +13524,10 @@ slots:
     name: tot_nitro_content
     description: Total nitrogen content of the sample
     title: total nitrogen content
+    notes:
+    - content
+    - nitrogen
+    - total
     examples:
     - value: 35 milligrams Nitrogen per kilogram of soil
     slot_uri: MIXS:0000530
@@ -12249,6 +13539,11 @@ slots:
     name: tot_org_c_meth
     description: Reference or method used in determining total organic carbon
     title: total organic carbon method
+    notes:
+    - carbon
+    - method
+    - organic
+    - total
     examples:
     - value: https://www.epa.gov/sites/production/files/2015-12/documents/9060a.pdf
     slot_uri: MIXS:0000337
@@ -12266,6 +13561,10 @@ slots:
     description: 'Definition for soil: total organic carbon content of the soil, definition
       otherwise: total organic carbon content'
     title: total organic carbon
+    notes:
+    - carbon
+    - organic
+    - total
     examples:
     - value: '0.02'
     slot_uri: MIXS:0000533
@@ -12279,6 +13578,10 @@ slots:
         value: microgram per liter, micromole per liter
     description: Total particulate carbon content
     title: total particulate carbon
+    notes:
+    - carbon
+    - particulate
+    - total
     examples:
     - value: 35 micromole per liter
     slot_uri: MIXS:0000747
@@ -12295,6 +13598,8 @@ slots:
         value: microgram per liter, micromole per liter
     description: Total amount or concentration of phosphate
     title: total phosphorous
+    notes:
+    - total
     slot_uri: MIXS:0000689
     multivalued: false
     range: string
@@ -12309,6 +13614,9 @@ slots:
     description: 'Total phosphorus concentration in the sample, calculated by: total
       phosphorus = total dissolved phosphorus + particulate phosphorus'
     title: total phosphorus
+    notes:
+    - phosphorus
+    - total
     examples:
     - value: 0.03 milligram per liter
     slot_uri: MIXS:0000117
@@ -12325,6 +13633,9 @@ slots:
         value: microgram per liter, micromole per liter
     description: Total amount or concentration of phosphate
     title: total phosphate
+    notes:
+    - phosphate
+    - total
     slot_uri: MIXS:0000689
     multivalued: false
     range: string
@@ -12339,6 +13650,8 @@ slots:
         value: milligram per liter, parts per million
     description: Concentration of total sulfur in the sample
     title: total sulfur
+    notes:
+    - total
     slot_uri: MIXS:0000419
     multivalued: false
     range: string
@@ -12359,6 +13672,8 @@ slots:
     name: train_stat_loc
     description: The train station collection location
     title: train station collection location
+    notes:
+    - location
     examples:
     - value: forest hills
     slot_uri: MIXS:0000838
@@ -12370,6 +13685,9 @@ slots:
     name: train_stop_loc
     description: The train stop collection location
     title: train stop collection location
+    notes:
+    - location
+    - stop
     examples:
     - value: end
     slot_uri: MIXS:0000839
@@ -12414,6 +13732,8 @@ slots:
         value: value from 0-21
     description: The total number of tRNAs identified from the SAG or MAG
     title: number of standard tRNAs extracted
+    notes:
+    - number
     examples:
     - value: '18'
     in_subset:
@@ -12426,6 +13746,8 @@ slots:
     description: Trophic levels are the feeding position in a food chain. Microbes
       can be a range of producers (e.g. chemolithotroph)
     title: trophic level
+    notes:
+    - level
     examples:
     - value: heterotroph
     in_subset:
@@ -12453,6 +13775,9 @@ slots:
         tag: Preferred_unit
         value: meter
     title: depth (TVDSS) of hydrocarbon resource pressure
+    notes:
+    - depth
+    - hydrocarbon
     slot_uri: MIXS:0000397
     multivalued: false
     range: string
@@ -12468,6 +13793,9 @@ slots:
     description: True vertical depth subsea (TVDSS) of the hydrocarbon resource where
       the original temperature was measured (e.g. 1345 m)
     title: depth (TVDSS) of hydrocarbon resource temperature
+    notes:
+    - depth
+    - hydrocarbon
     slot_uri: MIXS:0000394
     multivalued: false
     range: string
@@ -12489,6 +13817,8 @@ slots:
     name: typ_occup_density
     description: Customary or normal density of occupants
     title: typical occupant density
+    notes:
+    - density
     examples:
     - value: '25'
     slot_uri: MIXS:0000771
@@ -12510,6 +13840,8 @@ slots:
     name: urine_collect_meth
     description: Specification of urine collection method
     title: urine/collection method
+    notes:
+    - method
     examples:
     - value: catheter
     slot_uri: MIXS:0000899
@@ -12533,6 +13865,8 @@ slots:
       reproductive system disease (https://disease-ontology.org/?id=DOID:15) or urinary
       system disease (https://disease-ontology.org/?id=DOID:18)
     title: urogenital disorder
+    notes:
+    - disorder
     slot_uri: MIXS:0000289
     multivalued: true
     range: string
@@ -12544,6 +13878,8 @@ slots:
       The terms should be chosen from the DO (Human Disease Ontology) at http://www.disease-ontology.org,
       urinary system disease (https://disease-ontology.org/?id=DOID:18)
     title: urine/urogenital tract disorder
+    notes:
+    - disorder
     slot_uri: MIXS:0000278
     multivalued: true
     range: string
@@ -12557,6 +13893,8 @@ slots:
         value: cubic meter per minute, liters per second
     description: Ventilation rate of the system in the sampled premises
     title: ventilation rate
+    notes:
+    - rate
     examples:
     - value: 750 cubic meter per minute
     slot_uri: MIXS:0000114
@@ -12598,6 +13936,8 @@ slots:
         value: milligram per liter
     description: Original volatile fatty acid concentration in the hydrocarbon resource
     title: vfa in formation water
+    notes:
+    - water
     slot_uri: MIXS:0000408
     multivalued: false
     range: string
@@ -12611,6 +13951,8 @@ slots:
     description: Tool(s) used for the identification of UViG as a viral genome, software
       or protocol name including version number, parameters, and cutoffs used
     title: viral identification software
+    notes:
+    - identifier
     examples:
     - value: VirSorter; 1.0.4; Virome database, category 2
     in_subset:
@@ -12622,6 +13964,8 @@ slots:
     name: virus_enrich_appr
     description: List of approaches used to enrich the sample for viruses, if any
     title: virus enrichment approach
+    notes:
+    - enrichment
     examples:
     - value: filtration + FeCl Precipitation + ultracentrifugation + DNAse
     in_subset:
@@ -12675,6 +14019,8 @@ slots:
       room temperature; can report multiple volatile organic compounds by entering
       numeric values preceded by name of compound
     title: volatile organic compounds
+    notes:
+    - organic
     examples:
     - value: formaldehyde;500 nanogram per liter
     string_serialization: '{text};{float} {unit}'
@@ -12712,6 +14058,8 @@ slots:
     name: wall_finish_mat
     description: The material utilized to finish the outer most layer of the wall
     title: wall finish material
+    notes:
+    - material
     examples:
     - value: wood
     slot_uri: MIXS:0000842
@@ -12730,6 +14078,8 @@ slots:
         value: centimeter
     description: The average height of the walls in the sampled room
     title: wall height
+    notes:
+    - height
     string_serialization: '{float} {unit}'
     slot_uri: MIXS:0000221
     multivalued: false
@@ -12739,6 +14089,8 @@ slots:
     name: wall_loc
     description: The relative location of the wall within the room
     title: wall location
+    notes:
+    - location
     examples:
     - value: north
     slot_uri: MIXS:0000843
@@ -12778,6 +14130,8 @@ slots:
       Generally this means concrete or concrete block that is either exposed or covered
       only with paint
     title: wall thermal mass
+    notes:
+    - mass
     slot_uri: MIXS:0000222
     multivalued: false
     range: string
@@ -12813,6 +14167,10 @@ slots:
     name: water_cont_soil_meth
     description: Reference or method used in determining the water content of soil
     title: water content method
+    notes:
+    - content
+    - method
+    - water
     slot_uri: MIXS:0000323
     multivalued: false
     range: string
@@ -12830,6 +14188,9 @@ slots:
         value: gram per gram or cubic centimeter per cubic centimeter
     description: Water content measurement
     title: water content
+    notes:
+    - content
+    - water
     slot_uri: MIXS:0000185
     multivalued: false
     range: string
@@ -12844,6 +14205,8 @@ slots:
         value: cubic meter per second, knots
     description: Measurement of magnitude and direction of flow within a fluid
     title: water current
+    notes:
+    - water
     examples:
     - value: 10 cubic meter per second
     slot_uri: MIXS:0000203
@@ -12861,6 +14224,8 @@ slots:
     description: Current amount of water (%) in a produced fluid stream; or the average
       of the combined streams
     title: water cut
+    notes:
+    - water
     examples:
     - value: 45%
       description: casual Google search for water cut
@@ -12877,6 +14242,9 @@ slots:
         value: square meter
     description: The size of the water feature
     title: water feature size
+    notes:
+    - feature
+    - water
     slot_uri: MIXS:0000223
     multivalued: false
     range: string
@@ -12887,6 +14255,9 @@ slots:
     name: water_feat_type
     description: The type of water feature present within the building being sampled
     title: water feature type
+    notes:
+    - feature
+    - water
     examples:
     - value: stream
     slot_uri: MIXS:0000847
@@ -12905,6 +14276,10 @@ slots:
         value: per day, per week, per month
     description: Number of water delivery events within a given period of time
     title: water delivery frequency
+    notes:
+    - delivery
+    - frequency
+    - water
     examples:
     - value: 2 per day
     string_serialization: '{float}{unit}'
@@ -12915,6 +14290,8 @@ slots:
   water_pH:
     name: water_pH
     title: water pH
+    notes:
+    - water
     examples:
     - value: '7.2'
     slot_uri: MIXS:0001175
@@ -12930,6 +14307,9 @@ slots:
         value: cubic meter per day
     description: Water production rates per well (e.g. 987 m3 / day)
     title: water production rate
+    notes:
+    - rate
+    - water
     slot_uri: MIXS:0000453
     multivalued: false
     range: string
@@ -12946,6 +14326,12 @@ slots:
       and human construction (http://purl.obolibrary.org/obo/ENVO_00000070). Multiple
       terms can be separated by pipes
     title: environmental feature adjacent water source
+    notes:
+    - adjacent
+    - environmental
+    - feature
+    - source
+    - water
     examples:
     - value: feedlot [ENVO:01000627]
     string_serialization: '{text}'
@@ -12962,6 +14348,9 @@ slots:
     description: Other users sharing access to the same water source. Multiple terms
       can be separated by one or more pipes
     title: water source shared
+    notes:
+    - source
+    - water
     examples:
     - value: no sharing
     string_serialization: '[multiple users, agricutural|multiple users, other|no sharing]'
@@ -12980,6 +14369,8 @@ slots:
       was repeated, how long each treatment lasted, and the start and end time of
       the entire treatment; can include multiple regimens
     title: water temperature regimen
+    notes:
+    - water
     examples:
     - value: 15 degree Celsius;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M
     slot_uri: MIXS:0000590
@@ -13050,6 +14441,8 @@ slots:
         value: kit name
     description: Kit used to amplify genomic DNA in preparation for sequencing
     title: WGA amplification kit
+    notes:
+    - kit
     examples:
     - value: qiagen repli-g
     in_subset:
@@ -13064,6 +14457,9 @@ slots:
       Petroleum Data Management Association (PPDM) in an effort to improve well identification
       systems. (Supporting information: https://ppdm.org/ and http://dl.ppdm.org/dl/690)'
     title: well identification number
+    notes:
+    - identifier
+    - number
     slot_uri: MIXS:0000297
     multivalued: false
     range: string
@@ -13076,6 +14472,8 @@ slots:
         value: degrees or cardinal direction
     description: Wind direction is the direction from which a wind originates
     title: wind direction
+    notes:
+    - direction
     slot_uri: MIXS:0000757
     multivalued: false
     range: string
@@ -13127,6 +14525,8 @@ slots:
     name: window_loc
     description: The relative location of the window within the room
     title: window location
+    notes:
+    - location
     examples:
     - value: west
     slot_uri: MIXS:0000852
@@ -13138,6 +14538,8 @@ slots:
     name: window_mat
     description: The type of material used to finish a window
     title: window material
+    notes:
+    - material
     examples:
     - value: wood
     slot_uri: MIXS:0000853
@@ -13149,6 +14551,8 @@ slots:
     name: window_open_freq
     description: The number of times windows are opened per week
     title: window open frequency
+    notes:
+    - frequency
     slot_uri: MIXS:0000246
     multivalued: false
     range: integer
@@ -23425,3 +24829,4 @@ classes:
     slots:
     - exhaustive_test_set
     tree_root: true
+source_file: generated/GSC_MIxS_6.yaml
