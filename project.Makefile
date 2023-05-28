@@ -43,6 +43,7 @@ squeaky_clean: clean
 
 generated/mixs_v6.xlsx.harmonized.tsv.dtm.tsv:
 	$(RUN) python src/mixs_envo_struct_knowl_extraction/mixs_dtm.py
+	#| tee $@.log
 
 check-jsonschema-exhaustive: generated/GSC_MIxS_6.yaml.schema.json data/ExhaustiveTestClassCollection-example-data.yaml
 	$(RUN) check-jsonschema  --schemafile $^
