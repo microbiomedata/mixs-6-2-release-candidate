@@ -1,8 +1,6 @@
 exhaustive_test_set:
 - 16s_recover: true
   16s_recover_software: rambl;v2;default parameters
-  Food_Product_type: delicatessen salad; FOODON:03316276
-  Food_source: red swamp crayfish; FOODON:03412231
   HACCP_term:
   - tetrodotoxic poisoning [FOODON:03530249]
   IFSAC_category:
@@ -19,8 +17,6 @@ exhaustive_test_set:
   - PM2.5;10 microgram per cubic meter
   air_flow_impede:
   - obstructed;hay bales; 2 m
-  air_particulate_matter_concentration:
-  - PM2.5;10 microgram per cubic meter
   air_temp_regm:
   - 25 degree Celsius;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M
   alkalinity: 50 milligram per liter
@@ -34,7 +30,7 @@ exhaustive_test_set:
   - water trough [EOL:0001618]
   animal_am: tetracycline
   animal_am_dur: 3 days
-  animal_am_freq: once daily
+  animal_am_freq: 1.5
   animal_am_route: oral-feed
   animal_am_use: shipping fever
   animal_body_cond: under conditioned
@@ -54,9 +50,6 @@ exhaustive_test_set:
   arch_struc: shed
   area_samp_size: 12 centimeter x 12 centimeter
   assembly_name: HuRef, JCVI_ISG_i3_1.0
-  assembly_qual: High-quality draft genome
-  assembly_quality: metaSPAdes;3.11.0;kmer set 21,33,55,77,99,121, default parameters
-    otherwise
   associated_resource:
   - http://www.earthmicrobiome.org/
   atmospheric_data:
@@ -87,7 +80,7 @@ exhaustive_test_set:
   build_occup_type:
   - market
   building_setting: rural
-  built_struc_age: '15'
+  built_struc_age: 15 years
   built_struc_set: rural
   calcium: 0.2 micromole per liter
   carb_dioxide: 410 parts per million
@@ -139,7 +132,6 @@ exhaustive_test_set:
   date_last_rain: 2018-05-11:T14:30Z
   decontam_software: anvi'o
   density: 1000 kilogram per cubic meter
-  depth: 10 meter
   detec_type: independent sequence (UViG)
   dew_point: 22 degree Celsius
   diet_last_six_month: yes;vegetarian diet
@@ -257,10 +249,7 @@ exhaustive_test_set:
   food_prod_synonym:
   - pinot gris
   food_product_qual: raw [FOODON:03311126]
-  food_product_type:
-  - shrimp (peeled, deep-frozen) [FOODON:03317171]
   food_quality_date: best by 2020-05-24
-  food_source: giant tiger prawn [FOODON:03412612]
   food_source_age: P6M
   food_trace_list: tropical tree fruits
   food_trav_mode:
@@ -305,7 +294,6 @@ exhaustive_test_set:
   host_cellular_loc: extracellular
   host_dependence: obligate
   host_dry_mass: 500 gram
-  host_family_relationship: clone;P15
   host_growth_cond: https://academic.oup.com/icesjms/article/68/2/349/617247
   host_hiv_stat: yes;yes
   host_length: 1 meter
@@ -372,6 +360,7 @@ exhaustive_test_set:
   medic_hist_perform: true
   menarche: '2018-05-11 00:00:00'
   menopause: '2018-05-11 00:00:00'
+  micro_biomass_meth: http://dx.doi.org/10.1016/j.soilbio.2005.01.021
   microb_cult_med: brain heart infusion agar [MICRO:0000566]
   microb_start: starter cultures [FOODON:03544454]
   microb_start_count: total prokaryotes;3.5e9 colony forming units per milliliter;spread
@@ -381,7 +370,6 @@ exhaustive_test_set:
     inoculation
   microb_start_source: backslopped, GetCulture
   microb_start_taxID: Lactobacillus rhamnosus [NCIT:C123495]
-  microbial_biomass_meth: http://dx.doi.org/10.1016/j.soilbio.2005.01.021
   mid: GTGAATAT
   mineral_nutr_regm:
   - potassium;15 gram;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M
@@ -436,8 +424,7 @@ exhaustive_test_set:
   phosplipid_fatt_acid:
   - 2.98 milligram per liter
   photon_flux: 3.926 micromole photons per second per square meter
-  photosynt_activ:
-  - 0.1 mol CO2 m-2 s-1
+  photosynt_activ: 0.1 mol CO2 m-2 s-1
   plant_part_maturity: ripe or mature [FOODON:03530052]
   plant_product: xylem sap [PO:0025539]
   plant_reprod_crop:
@@ -493,13 +480,9 @@ exhaustive_test_set:
   root_med_solid: agar
   root_med_suppl: nicotinic acid;0.5 milligram per liter
   salinity: 25 practical salinity unit
-  salinity_meth: 'PMID: 22895776'
   salt_regm:
   - NaCl;5 gram per liter;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M
   samp_capt_status: farm sample
-  samp_collec_device: swab, biopsy, niskin bottle, push core, drag swab [GENEPIO:0002713]
-  samp_collec_method: swabbing
-  samp_collect_method: environmental swab sampling
   samp_collect_point: well
   samp_dis_stage: infection
   samp_floor: 4th floor
@@ -512,14 +495,9 @@ exhaustive_test_set:
   samp_purpose: field trial
   samp_rep_biol: 6 replicates
   samp_rep_tech: 10 replicates
-  samp_salinity: 1 milligram per liter
   samp_stor_device: Whirl Pak sampling bag [GENEPIO:0002122]
-  samp_stor_dur: P1Y6M
-  samp_stor_loc: freezer 5
   samp_stor_media: peptone water medium [MICRO:0000548]
-  samp_stor_temp: -80 degree Celsius
   samp_store_dur: P1Y6M
-  samp_store_loc: Freezer no:5
   samp_store_sol: 5% ethanol
   samp_store_temp: -80 degree Celsius
   samp_subtype: biofilm
@@ -533,8 +511,8 @@ exhaustive_test_set:
   samp_type: built environment sample [GENEPIO:0001248]
   samp_vol_we_dna_ext: 1500 milliliter
   samp_weather: foggy
-  sample_collec_method: environmental swab sampling
-  sample_name: ISDsoil1
+  sc_lysis_approach: enzymatic
+  sc_lysis_method: ambion single cell lysis kit
   season: autumn [NCIT:C94733]
   season_environment:
   - rainy;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M
@@ -555,8 +533,6 @@ exhaustive_test_set:
   shading_device_type: slatted aluminum awning
   silicate: 0.05 micromole per liter
   sim_search_meth: HMMER3;3.1b2;hmmsearch, cutoff of 50 on score
-  single_cell_lysis_appr: enzymatic
-  single_cell_lysis_prot: ambion single cell lysis kit
   size_frac: 0-0.22 micrometer
   size_frac_low: 0.2 micrometer
   size_frac_up: 20 micrometer
@@ -564,7 +540,6 @@ exhaustive_test_set:
   sodium: 10.5 milligram per liter
   soil_conductivity: 10 milliSiemens per centimeter
   soil_cover: bare soil [ENVO01001616]
-  soil_depth: 5 cm
   soil_pH: 7.2
   soil_porosity: '0.2'
   soil_temp: 25 degrees Celsius

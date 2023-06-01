@@ -1,7 +1,5 @@
 16s_recover: true
 16s_recover_software: xxx
-Food_Product_type: xxx
-Food_source: xxx
 HACCP_term:
 - xxx
 IFSAC_category:
@@ -21,8 +19,6 @@ air_PM_concen:
 - xxx
 air_flow_impede:
 - xxx
-air_particulate_matter_concentration:
-- xxx
 air_temp: 1.9 units
 air_temp_regm:
 - xxx
@@ -41,7 +37,7 @@ anim_water_method:
 - xxx
 animal_am: xxx
 animal_am_dur: xxx
-animal_am_freq: xxx
+animal_am_freq: 1.5
 animal_am_route: xxx
 animal_am_use: xxx
 animal_body_cond: xxx
@@ -67,11 +63,10 @@ aromatics_pc: xxx
 asphaltenes_pc: xxx
 assembly_name: xxx xxx
 assembly_qual: xxx
-assembly_quality: xxx
 assembly_software: xxx
 associated_resource:
 - xxx
-association_duration: xxx
+association_duration: 90 minutes
 atmospheric_data:
 - xxx
 avg_dew_point: 1.9 units
@@ -109,7 +104,7 @@ build_docs: xxx
 build_occup_type:
 - xxx
 building_setting: xxx
-built_struc_age: xxx
+built_struc_age: 15 years
 built_struc_set: xxx
 built_struc_type: xxx
 calcium: 1.9 units
@@ -266,7 +261,7 @@ filter_type:
 fire: xxx
 fireplace_type: xxx
 flooding: xxx
-floor_age: xxx
+floor_age: 8 years
 floor_area: 1.9 units
 floor_cond: xxx
 floor_count: 123
@@ -317,7 +312,7 @@ food_product_type:
 - xxx
 food_quality_date: xxx
 food_source: xxx
-food_source_age: xxx
+food_source_age: 6 months
 food_trace_list: xxx
 food_trav_mode:
 - xxx
@@ -367,7 +362,7 @@ heat_system_id: 123
 heavy_metals:
 - xxx
 heavy_metals_meth: xxx
-height_carper_fiber: xxx
+height_carper_fiber: 1.9 units
 herbicide_regm:
 - xxx
 horizon: xxx
@@ -386,15 +381,14 @@ host_diet:
 - xxx
 host_disease_stat: xxx
 host_dry_mass: 1.9 units
-host_family_relation:
+host_fam_rel:
 - xxx
-host_family_relationship: xxx
 host_genotype: xxx
 host_growth_cond: xxx
 host_height: 1.9 units
 host_hiv_stat: xxx
-host_infra_specific_name: xxx
-host_infra_specific_rank: xxx
+host_infra_spec_name: xxx
+host_infra_spec_rank: xxx
 host_last_meal:
 - xxx
 host_length: 1.9 units
@@ -496,12 +490,11 @@ micro_biomass_meth: xxx
 microb_cult_med: xxx
 microb_start: xxx
 microb_start_count: xxx
-microb_start_inoc: xxx
+microb_start_inoc: 1.9 units
 microb_start_prep: xxx
 microb_start_source: xxx
 microb_start_taxID: xxx
 microbial_biomass: 1.9 units
-microbial_biomass_meth: xxx
 mid: ACGT
 mineral_nutr_regm:
 - xxx
@@ -515,8 +508,6 @@ nitrate: 1.9 units
 nitrite: 1.9 units
 nitro: 1.9 units
 non_min_nutr_regm:
-- xxx
-non_mineral_nutr_regm:
 - xxx
 nose_throat_disord:
 - xxx
@@ -574,8 +565,7 @@ phosphate: 1.9 units
 phosplipid_fatt_acid:
 - xxx
 photon_flux: 1.9 units
-photosynt_activ:
-- 1.9 units
+photosynt_activ: 1.9 units
 photosynt_activ_meth:
 - xxx
 plant_growth_med: xxx
@@ -602,7 +592,6 @@ pres_animal_insect: xxx
 pressure: 1.9 units
 prev_land_use_meth: xxx
 previous_land_use: xxx
-previous_land_use_meth: xxx
 primary_prod: 1.9 units
 primary_treatment: xxx
 prod_label_claims:
@@ -661,12 +650,9 @@ root_med_solid: xxx
 root_med_suppl: xxx
 route_transmission: xxx
 salinity: 1.9 units
-salinity_meth: xxx
 salt_regm:
 - xxx
 samp_capt_status: xxx
-samp_collec_device: xxx
-samp_collec_method: xxx
 samp_collect_device: xxx
 samp_collect_method: xxx
 samp_collect_point: xxx
@@ -684,16 +670,12 @@ samp_purpose: xxx
 samp_rep_biol: 1.9 units
 samp_rep_tech: 1.9 units
 samp_room_id: 123
-samp_salinity: 1.9 units
 samp_size: 1.9 units
 samp_sort_meth:
 - xxx
 samp_source_mat_cat: term [ONTOLOGY:123]
 samp_stor_device: xxx
-samp_stor_dur: PT10H30M
-samp_stor_loc: xxx
 samp_stor_media: xxx
-samp_stor_temp: 1.9 units
 samp_store_dur: PT10H30M
 samp_store_loc: xxx
 samp_store_sol: xxx
@@ -705,16 +687,16 @@ samp_taxon_id: xxx
 samp_time_out: xxx
 samp_transport_cond: xxx
 samp_transport_cont: xxx
-samp_transport_dur: 1.9 units
+samp_transport_dur: PT10H30M
 samp_transport_temp: xxx
 samp_tvdss: xxx
 samp_type: xxx
 samp_vol_we_dna_ext: 1.9 units
 samp_weather: xxx
 samp_well_name: xxx
-sample_collec_method: xxx
-sample_name: xxx
 saturates_pc: xxx
+sc_lysis_approach: xxx
+sc_lysis_method: xxx
 season: autumn [NCIT:C94733]
 season_environment:
 - xxx
@@ -740,11 +722,9 @@ shading_device_type: xxx
 sieving: xxx
 silicate: 1.9 units
 sim_search_meth: xxx
-single_cell_lysis_appr: xxx
-single_cell_lysis_prot: xxx
 size_frac: xxx
-size_frac_low: xxx
-size_frac_up: xxx
+size_frac_low: 1.9 units
+size_frac_up: 1.9 units
 slope_aspect: 1.9 units
 slope_gradient: 1.9 units
 sludge_retent_time: 1.9 units
@@ -752,7 +732,6 @@ smoker: true
 sodium: 1.9 units
 soil_conductivity: 1.9 units
 soil_cover: xxx
-soil_depth: xxx
 soil_horizon: xxx
 soil_pH: 1.9
 soil_porosity: xxx
@@ -809,7 +788,7 @@ store_cond: xxx
 study_complt_stat: xxx
 study_design:
 - xxx
-study_inc_dur: xxx
+study_inc_dur: P10D
 study_inc_temp: 1.9 units
 study_timecourse: 1.9 units
 study_tmnt:
@@ -841,28 +820,24 @@ temp: 1.9 units
 temp_out: 1.9 units
 tertiary_treatment: xxx
 texture: 1.9 units
-texture_meth: xxx
 tidal_stage: xxx
 tillage: xxx
 time_last_toothbrush: PT10H30M
 time_since_last_wash: PT10H30M
-timepoint: xxx
+timepoint: PT10H30M
 tiss_cult_growth_med: xxx
 toluene: 1.9 units
-tot_car: 1.9 units
 tot_carb: 1.9 units
 tot_depth_water_col: 1.9 units
 tot_diss_nitro: 1.9 units
 tot_inorg_nitro: 1.9 units
 tot_iron: 1.9 units
-tot_n_meth: xxx
 tot_nitro: 1.9 units
 tot_nitro_cont_meth: xxx
 tot_nitro_content: 1.9 units
 tot_org_c_meth: xxx
 tot_org_carb: xxx
 tot_part_carb: 1.9 units
-tot_phos: 1.9 units
 tot_phosp: 1.9 units
 tot_phosphate: 1.9 units
 tot_sulfur: 1.9 units
@@ -881,8 +856,6 @@ twin_sibling: true
 typ_occup_density: 1.9
 type_of_symbiosis: xxx
 urine_collect_meth: xxx
-url:
-- xxx
 urogenit_disord:
 - xxx
 urogenit_tract_disor:
@@ -900,7 +873,7 @@ volatile_org_comp:
 wall_area: 1.9 units
 wall_const_type: xxx
 wall_finish_mat: xxx
-wall_height: xxx
+wall_height: 5 meters
 wall_loc: xxx
 wall_surf_treatment: xxx
 wall_texture: xxx

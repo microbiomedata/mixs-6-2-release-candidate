@@ -22,7 +22,9 @@ debug_mode = False
 
 non_ascii_replacement = ' '
 
-base_url = 'https://github.com/GenomicsStandardsConsortium/mixs/raw/main/mixs/excel/'
+# base_url = 'https://github.com/GenomicsStandardsConsortium/mixs/raw/main/mixs/excel/'
+base_url = 'https://github.com/only1chunts/mixs-cih-fork/raw/main/mixs/excel/'
+
 excel_file_name = 'mixs_v6.xlsx'
 dest_dir = 'generated'
 
@@ -48,6 +50,10 @@ string_ser_exp_val_to_range_pattern_file = "data/string_ser_exp_val_to_range_pat
 proposed_slot_attributes_file = "data/proposed_attribute_replacements_schema.yaml"
 
 extracted_examples_file_name = f"{dest_dir}/{excel_file_name}.examples.yaml"
+
+# these could be considered changes to the MIxS XLSX file, like @only1chunts applied recently,
+#   although we apply them to the harmonized TSV file instead
+jit_fixes_file_name = f"data/jit_xlsx_fixes_in_tsv.tsv"
 
 global_target_schema = SchemaDefinition(
     id=f"http://example.com/{schema_name}",
@@ -117,7 +123,8 @@ def harmonize_sheets(url: str) -> pd.DataFrame:
     df_mixs = pd.read_excel(f"{dest_dir}/{excel_file_name}", sheet_name='MIxS')
 
     # List of column names to delete
-    columns_to_delete = [' ']
+    # columns_to_delete = [' ']
+    columns_to_delete = []
 
     # Delete the columns
     #   no data loss? Prove it!
@@ -170,6 +177,17 @@ def harmonize_sheets(url: str) -> pd.DataFrame:
     from_gsc = from_gsc.drop_duplicates()
 
     return from_gsc
+
+
+def apply_jit_fixes(fixes_file: str, df: pd.DataFrame) -> pd.DataFrame:
+    fixes_sheet = pd.read_csv(fixes_file, sep='\t')
+    fixes_lod = fixes_sheet.to_dict('records')
+    for fix in fixes_lod:
+        if fix['apply']:
+            # pprint.pprint(fix)
+            # print(df.loc[df[fix['key']] == fix['key_val']])
+            df.loc[df[fix['key']] == fix['key_val'], fix['target']] = fix['target_val']
+    return df
 
 
 def process_sheet(df: pd.DataFrame) -> List[str]:
@@ -292,7 +310,10 @@ def process_contested_value(attributes_by_class: pd.DataFrame) -> None:
         duplication_comment = f"Classes {', '.join(duplicated_classes)} has/have duplicate values in {value_name} for {scn}: {', '.join(all_values)}"
         print(duplication_comment)
         print(dupe_frame)
-        global_target_schema.comments.append(duplication_comment)
+        if global_target_schema.comments:
+            global_target_schema.comments.append(duplication_comment)
+        else:
+            global_target_schema.comments = [duplication_comment]
     else:
         abc_dict = abc.to_dict('records')
         for slot_usage_dict in abc_dict:
@@ -472,8 +493,9 @@ def construct_assign_simple_enumerations(sheet: pd.DataFrame):
     scns_with_contradictory_enums = contradictory_enums['Structured comment name'].unique().tolist()
     scns_with_contradictory_enums = [re.sub(r'\W+', '_', scn) for scn in scns_with_contradictory_enums]
     scns_with_contradictory_enums.sort()
-    global_target_schema.comments.append(
-        f"The following slots have  contradictory Value syntaxes so enumerations can not be created for their ranges: {', '.join(scns_with_contradictory_enums)}")
+    if len(scns_with_contradictory_enums) > 0:
+        global_target_schema.comments.append(
+            f"The following slots have  contradictory Value syntaxes so enumerations can not be created for their ranges: {', '.join(scns_with_contradictory_enums)}")
 
     possible_enums_no_scn_dupes = possible_enums_sheet[
         ~possible_enums_sheet['Structured comment name'].isin(duplicated_scns)]
@@ -590,7 +612,7 @@ def string_ser_exp_val_to_range_patterns(tsv_file: str):
                 global_target_schema.slots[k].range = "string"
             else:
                 print(
-                    f"{row_count = }. No full match string serialization of <{ss}> and expected value of <{ev}>")
+                    f"{row_count = }. No single, full match string serialization of <{ss}> and expected value of <{ev}>")
 
 
 def add_exhasutive_test_class():
@@ -656,6 +678,8 @@ def extract_or_substitute_examples_etc(supplementary_file: str):
                 global_target_schema.slots[proposed_k].range = proposed_v.range
             if proposed_v.pattern:
                 global_target_schema.slots[proposed_k].pattern = proposed_v.pattern
+            if proposed_v.multivalued != global_target_schema.slots[proposed_k].multivalued:
+                global_target_schema.slots[proposed_k].multivalued = proposed_v.multivalued
         else:
             print(f"{proposed_k} is not in the target schema")
 
@@ -698,6 +722,8 @@ def extract_or_substitute_examples_etc(supplementary_file: str):
 
 harmonized_sheets = harmonize_sheets(file_url)
 
+harmonized_sheets = apply_jit_fixes(jit_fixes_file_name, harmonized_sheets)
+
 process_sheet(harmonized_sheets)
 
 requirement_followup(harmonized_sheets)
@@ -711,12 +737,20 @@ harmonized_sheets.to_csv(harmonized_sheets_file_name, index=False, sep='\t')
 add_exhasutive_test_class()
 
 dupe_titles = dupe_property_report("title")
-duplication_comment = f"slot titles that appear more than once in the schema: {', '.join(dupe_titles)}"
-global_target_schema.comments.append(duplication_comment)
+if len(dupe_titles) > 0:
+    duplication_comment = f"slot titles that are associated with more than one slot name/SCN: {', '.join(dupe_titles)}"
+    if global_target_schema.comments:
+        global_target_schema.comments.append(duplication_comment)
+    else:
+        global_target_schema.comments = [duplication_comment]
 
 dupe_slot_uris = dupe_property_report("slot_uri")
-duplication_comment = f"slot_uris that appear more than once in the schema: {', '.join(dupe_slot_uris)}"
-global_target_schema.comments.append(duplication_comment)
+if len(dupe_slot_uris) > 0:
+    duplication_comment = f"slot_uris that are associated with more than one slot name/SCN: {', '.join(dupe_slot_uris)}"
+    if global_target_schema.comments:
+        global_target_schema.comments.append(duplication_comment)
+    else:
+        global_target_schema.comments = [duplication_comment]
 
 extracted_examples_dict = extract_or_substitute_examples_etc(supplementary_file=proposed_slot_attributes_file)
 

@@ -1,0 +1,29 @@
+key	key_val	target	target_val	apply	eliminates	notes	
+Item	total phosphorous	Item	total phosphorus	FALSE		"will have to apply this fix though some other method, otherwise ordering of the fixes will matter"	
+MIXS ID	MIXS:0000335	Structured comment name		FALSE		soil: soil_text_measure; agriculture: texture. NCBI considers both legitimate structured comment names	
+Item	assembly quality	Structured comment name	assembly_qual	TRUE	assembly_quality	"all checklists say assembly_qual, but env package agriculture says assembly_quality"	
+Item	relevant electronic resources	Structured comment name	associated_resource	TRUE	url		
+Item	sample collection method	Structured comment name	samp_collect_method	TRUE	sample_collec_method		
+Item	sample name	Structured comment name	samp_name	TRUE	sample_name		
+Item	sample storage duration	Structured comment name	samp_store_dur	TRUE	samp_stor_dur		
+Item	sample storage location	Structured comment name	samp_store_loc	TRUE	samp_stor_loc		
+Item	sample storage temperature	Structured comment name	samp_store_temp	TRUE	samp_stor_temp		
+Item	total carbon	Structured comment name	tot_carb	TRUE	tot_car		
+Item	total phosphorous	Definition	"Total phosphorus concentration in the sample, calculated by: total phosphorus = total dissolved phosphorus + particulate phosphorus"	TRUE		"wastewater/sludge is totally consistent: total phosphate, MIXS:0000689. Agriculture has SCN = tot_phos, item = total phosphorous and Definition = Total amount or concentration of phosphate. MIXS:0000117 is total phosphorus"	
+Item	total phosphorous	MIXS ID	MIXS:0000117	TRUE		"wastewater/sludge is totally consistent: total phosphate, MIXS:0000689. Agriculture has SCN = tot_phos, item = total phosphorous and Definition = Total amount or concentration of phosphate. MIXS:0000117 is total phosphorus"	
+Item	total phosphorous	Structured comment name	tot_phosp	TRUE		"wastewater/sludge is totally consistent: total phosphate, MIXS:0000689. Agriculture has SCN = tot_phos, item = total phosphorous and Definition = Total amount or concentration of phosphate. MIXS:0000117 is total phosphorus"	
+MIXS ID	MIXS:0000018	Structured comment name	depth	TRUE	soil_depth	"NCBI does recognize soil_depth: The vertical distance below local surface, e.g., for sediment or soil samples depth is measured from sediment or soil surface, respectively. Depth can be reported as an interval for subsurface samples. only Agriculture has soil_depth out of most packages. there is no other ID assignment of soil_depth anywhere else in the MIxS XLSX."	
+MIXS ID	MIXS:0000091	Structured comment name	associated_resource	TRUE	url	only agriculture uses url	
+MIXS ID	MIXS:0000110	Structured comment name	samp_store_temp	TRUE	samp_stor_temp		
+MIXS ID	MIXS:0000116	Structured comment name	samp_store_dur	TRUE	samp_stor_dur		
+MIXS ID	MIXS:0000336	Structured comment name	soil_texture_meth	TRUE	texture_meth	soil: soil_text_measure &agriculture: texture	
+MIXS ID	MIXS:0000338	Structured comment name	tot_nitro_cont_meth	TRUE	tot_n_meth	agriculture: tot_n_meth &soil/ffe:  tot_nitro_cont_meth	
+MIXS ID	MIXS:0000525	Structured comment name	tot_carb	TRUE	tot_car		
+MIXS ID	MIXS:0000755	Structured comment name	samp_store_loc	TRUE	samp_stor_loc		
+MIXS ID	MIXS:0001107	Structured comment name	samp_name	TRUE	sample_name	"samp_name & (sample_name = NCBI's choice, but only symbiont-associated  uses that)"	
+MIXS ID	MIXS:0001139	Structured comment name	food_source	TRUE	Food_source & food_sourc		
+MIXS ID	MIXS:0001184	Structured comment name	food_product_type	TRUE	Food_Product_type		
+MIXS ID	MIXS:0001225	Structured comment name	samp_collect_method	TRUE	sample_collec_method		
+Structured comment name	biotic_relationship	Value syntax	[free living|parasitism|commensalism|symbiotic|mutualism]	TRUE	[free living|parasite|commensal|symbiont]	only agriculture says [free living|parasite|commensal|symbiont]	
+Structured comment name	oxy_stat_samp	Value syntax	[aerobic|anaerobic|other]	TRUE	[aerobic|anaerobic]	only symbiont-associated and agriculture say [aerobic|anaerobic]	
+Structured comment name	trophic_level	Value syntax	[autotroph|carboxydotroph|chemoautotroph|chemoheterotroph|chemolithoautotroph|chemolithotroph|chemoorganoheterotroph|chemoorganotroph|chemosynthetic|chemotroph|copiotroph|diazotroph|facultative|autotroph|heterotroph|lithoautotroph|lithoheterotroph|lithotroph|methanotroph|methylotroph|mixotroph|obligate|chemoautolithotroph|oligotroph|organoheterotroph|organotroph|photoautotroph|photoheterotroph|photolithoautotroph|photolithotroph|photosynthetic|phototroph]	TRUE	[autotroph|carboxydotroph|chemoautotroph|chemoheterotroph|chemolithoautotroph|chemolithotroph|chemoorganoheterotroph|chemoorganotroph|chemosynthetic|chemotroph|copiotroph|diazotroph|facultative|autotroph|heterotroph|lithoautotroph|lithoheterotroph|lithotroph|methanotroph|methylotroph|mixotroph|obligate|chemoautolithotroph|oligotroph|organoheterotroph|organotroph|photoautotroph|photoheterotroph|photolithoautotroph|photolithotroph|photosynthetic|phototroph]	agriculture has some extra whitespace that makes it look like the permissible value are different	

@@ -30,14 +30,17 @@ slots:
     examples:
       - value: rangeland biome [ENVO:01000247]
         description: arbitrarily selected biome
+    multivalued: false
   env_local_scale:
     examples:
       - value: hillside [ENVO:01000333]
         description: arbitrarily selected landmark
+    multivalued: false
   env_medium:
     examples:
       - value: bluegrass field soil [ENVO:00005789]
         description: arbitrarily selected environmental medium
+    multivalued: false
   iwf:
     range: float
     examples:
@@ -46,7 +49,7 @@ slots:
     # pattern: "[0-9]*\\.?[0-9]+ ?%"
     comments:
       - percent or float?
-  microbial_biomass_meth:
+  micro_biomass_meth: # was microbial_biomass_meth
     examples:
       - value: http://dx.doi.org/10.1016/j.soilbio.2005.01.021
         description: present in NCBI biosample_set
@@ -103,8 +106,18 @@ slots:
   host_body_product:
     examples:
       - value: mucus [FMA:66938]
-        description: reformatted the example form the XLSX file, "Portion of mucus [fma66938]"
+        description: reformatted the example from the XLSX file, "Portion of mucus [fma66938]"
   photosynt_activ:
     examples:
       - value: 0.1 mol CO2 m-2 s-1
-        description: added a magnitude to the example form the XLSX file, " mol CO2 m-2 s-1"
+        description: added a magnitude to the example from the XLSX file, " mol CO2 m-2 s-1"
+  animal_am_freq:
+    range: float
+    pattern: ""
+    examples:
+      - value: 1.5
+        description: completely made up
+  built_struc_age:
+    examples:
+      - value: 15 years
+        description: completely made up
