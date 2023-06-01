@@ -1,6 +1,6 @@
 exhaustive_test_set:
   - address: "123 Main Street"
-    Food_source: xxx
+    #    Food_source: xxx # see food_source
     abs_air_humidity: 123 units
     add_recov_method: xxx
     alt: 100 meters
@@ -19,7 +19,7 @@ exhaustive_test_set:
     indoor_space: xxx
     iwf: 0.79
     lat_lon: xxx
-    microbial_biomass_meth: xxx
+    #    microbial_biomass_meth: xxx # deprecated with replacement micro_biomass_meth
     occup_density_samp: 1.9
     occup_samp: 1.9
     project_name: xxx
@@ -28,7 +28,7 @@ exhaustive_test_set:
     samp_name: xxx
     samp_taxon_id: xxx
     samp_type: xxx
-    sample_name: xxx
+    #    sample_name: xxx # deprecated with replacement samp_name
     seq_meth: xxx
     space_typ_state: xxx
     sym_life_cycle_type: simple life cycle
@@ -49,7 +49,7 @@ exhaustive_test_set:
 
     16s_recover: true
     16s_recover_software: xxx
-    Food_Product_type: xxx
+    #    Food_Product_type: xxx # see food_product_type
     HACCP_term:
       - xxx
     adapters: xxx
@@ -64,8 +64,8 @@ exhaustive_test_set:
       - xxx
     air_flow_impede:
       - xxx
-    air_particulate_matter_concentration:
-      - xxx
+    #    air_particulate_matter_concentration:  # deprecated with replacement air_PM_concen # todo should be all lower case
+    #      - xxx
     air_temp: 1.9 units
     air_temp_regm:
       - xxx
@@ -83,7 +83,7 @@ exhaustive_test_set:
       - xxx
     animal_am: xxx
     animal_am_dur: xxx
-    animal_am_freq: xxx
+    animal_am_freq: 1.5
     animal_am_route: xxx
     animal_am_use: xxx
     animal_body_cond: xxx
@@ -108,11 +108,11 @@ exhaustive_test_set:
     asphaltenes_pc: xxx
     assembly_name: xxx xxx
     assembly_qual: xxx
-    assembly_quality: xxx
+    #    assembly_quality: xxx # see also assembly_qual
     assembly_software: xxx
     associated_resource:
       - xxx
-    association_duration: xxx
+    association_duration: 90 minutes
     atmospheric_data:
       - xxx
     avg_dew_point: 1.9 units
@@ -146,7 +146,7 @@ exhaustive_test_set:
     blood_press_syst: 1.9 units
     bromide: 1.9 units
     build_docs: xxx
-    built_struc_age: xxx
+    built_struc_age: 15 years
     built_struc_set: xxx
     built_struc_type: xxx
     calcium: 1.9 units
@@ -296,7 +296,7 @@ exhaustive_test_set:
     fire: xxx
     fireplace_type: xxx
     flooding: xxx
-    floor_age: xxx
+    floor_age: 8 years
     floor_area: 1.9 units
     floor_cond: xxx
     floor_count: 123
@@ -345,7 +345,7 @@ exhaustive_test_set:
     food_product_qual: xxx
     food_quality_date: xxx
     food_source: xxx
-    food_source_age: xxx
+    food_source_age: 6 months
     food_trace_list: xxx
     food_trav_mode:
       - xxx
@@ -390,7 +390,7 @@ exhaustive_test_set:
     heavy_metals:
       - xxx
     heavy_metals_meth: xxx
-    height_carper_fiber: xxx
+    height_carper_fiber: 1.9 units
     herbicide_regm:
       - xxx
     horizon: xxx
@@ -408,15 +408,17 @@ exhaustive_test_set:
       - xxx
     host_disease_stat: xxx
     host_dry_mass: 1.9 units
-    host_family_relation:
+    #    host_family_relation:  # deprecated with replacement host_fam_rel
+    #      - xxx
+    #    host_family_relationship: xxx
+    host_fam_rel:
       - xxx
-    host_family_relationship: xxx
     host_genotype: xxx
     host_growth_cond: xxx
     host_height: 1.9 units
     host_hiv_stat: xxx
-    host_infra_specific_name: xxx
-    host_infra_specific_rank: xxx
+    host_infra_spec_name: xxx # was host_infra_specific_name
+    host_infra_spec_rank: xxx # was host_infra_specific_rank
     host_last_meal:
       - xxx
     host_length: 1.9 units
@@ -513,7 +515,7 @@ exhaustive_test_set:
     microb_cult_med: xxx
     microb_start: xxx
     microb_start_count: xxx
-    microb_start_inoc: xxx
+    microb_start_inoc: 1.9 units
     microb_start_prep: xxx
     microb_start_source: xxx
     microb_start_taxID: xxx
@@ -532,8 +534,8 @@ exhaustive_test_set:
     nitro: 1.9 units
     non_min_nutr_regm:
       - xxx
-    non_mineral_nutr_regm:
-      - xxx
+    #    non_mineral_nutr_regm:  # deprecated with replacement non_min_nutr_regm
+    #      - xxx
     nose_throat_disord:
       - xxx
     nucl_acid_amp: xxx
@@ -588,8 +590,7 @@ exhaustive_test_set:
     phosplipid_fatt_acid:
       - xxx
     photon_flux: 1.9 units
-    photosynt_activ:
-      - 1.9 units
+    photosynt_activ: 1.9 units
     photosynt_activ_meth:
       - xxx
     plant_growth_med: xxx
@@ -616,7 +617,7 @@ exhaustive_test_set:
     pressure: 1.9 units
     prev_land_use_meth: xxx
     previous_land_use: xxx
-    previous_land_use_meth: xxx
+    #    previous_land_use_meth: xxx  # deprecated with replacement prev_land_use_meth
     primary_prod: 1.9 units
     primary_treatment: xxx
     prod_label_claims:
@@ -673,12 +674,12 @@ exhaustive_test_set:
     root_med_suppl: xxx
     route_transmission: xxx
     salinity: 1.9 units
-    salinity_meth: xxx
+    #    salinity_meth: xxx # todo is there a replacement for this? MIXS:0000341
     salt_regm:
       - xxx
     samp_capt_status: xxx
-    samp_collec_device: xxx
-    samp_collec_method: xxx
+    #    samp_collec_device: xxx  # deprecated with replacement samp_collect_device
+    #    samp_collec_method: xxx  # deprecated with replacement samp_collect_method
     samp_collect_device: xxx
     samp_collect_method: xxx
     samp_dis_stage: xxx
@@ -694,16 +695,16 @@ exhaustive_test_set:
     samp_rep_biol: 1.9 units
     samp_rep_tech: 1.9 units
     samp_room_id: 123
-    samp_salinity: 1.9 units
+    #    samp_salinity: 1.9 units # todo is there a replacement for this? MIXS:0000109
     samp_size: 1.9 units
     samp_sort_meth:
       - xxx
     samp_source_mat_cat: term [ONTOLOGY:123]
     samp_stor_device: xxx
-    samp_stor_dur: PT10H30M
-    samp_stor_loc: xxx
+    #    samp_stor_dur: PT10H30M # see samp_store_dur
+    #    samp_stor_loc: xxx # see samp_store_loc
     samp_stor_media: xxx
-    samp_stor_temp: 1.9 units
+    #    samp_stor_temp: 1.9 units # see samp_store_temp
     samp_store_dur: PT10H30M
     samp_store_loc: xxx
     samp_store_sol: xxx
@@ -714,13 +715,13 @@ exhaustive_test_set:
     samp_time_out: xxx
     samp_transport_cond: xxx
     samp_transport_cont: xxx
-    samp_transport_dur: 1.9 units
+    samp_transport_dur: PT10H30M
     samp_transport_temp: xxx
     samp_tvdss: xxx
     samp_vol_we_dna_ext: 1.9 units
     samp_weather: xxx
     samp_well_name: xxx
-    sample_collec_method: xxx
+    #    sample_collec_method: xxx # see samp_collect_method
     saturates_pc: xxx
     season: autumn [NCIT:C94733]
     season_environment:
@@ -746,11 +747,11 @@ exhaustive_test_set:
     sieving: xxx
     silicate: 1.9 units
     sim_search_meth: xxx
-    single_cell_lysis_appr: xxx
-    single_cell_lysis_prot: xxx
+    sc_lysis_approach: xxx # was single_cell_lysis_appr
+    sc_lysis_method: xxx # was single_cell_lysis_prot
     size_frac: xxx
-    size_frac_low: xxx
-    size_frac_up: xxx
+    size_frac_low: 1.9 units
+    size_frac_up: 1.9 units
     slope_aspect: 1.9 units
     slope_gradient: 1.9 units
     sludge_retent_time: 1.9 units
@@ -758,7 +759,7 @@ exhaustive_test_set:
     sodium: 1.9 units
     soil_conductivity: 1.9 units
     soil_cover: xxx
-    soil_depth: xxx
+    #    soil_depth: xxx # see depth
     soil_horizon: xxx
     soil_pH: 1.9
     soil_porosity: xxx
@@ -814,7 +815,7 @@ exhaustive_test_set:
     study_complt_stat: xxx
     study_design:
       - xxx
-    study_inc_dur: xxx
+    study_inc_dur: P10D
     study_inc_temp: 1.9 units
     study_timecourse: 1.9 units
     study_tmnt:
@@ -845,28 +846,28 @@ exhaustive_test_set:
     temp_out: 1.9 units
     tertiary_treatment: xxx
     texture: 1.9 units
-    texture_meth: xxx
+    #    texture_meth: xxx # see soil_texture_meth
     tidal_stage: xxx
     tillage: xxx
     time_last_toothbrush: PT10H30M
     time_since_last_wash: PT10H30M
-    timepoint: xxx
+    timepoint: PT10H30M
     tiss_cult_growth_med: xxx
     toluene: 1.9 units
-    tot_car: 1.9 units
+    #    tot_car: 1.9 units # see tot_carb
     tot_carb: 1.9 units
     tot_depth_water_col: 1.9 units
     tot_diss_nitro: 1.9 units
     tot_inorg_nitro: 1.9 units
     tot_iron: 1.9 units
-    tot_n_meth: xxx
+    #    tot_n_meth: xxx # see tot_nitro_cont_meth
     tot_nitro: 1.9 units
     tot_nitro_cont_meth: xxx
     tot_nitro_content: 1.9 units
     tot_org_c_meth: xxx
     tot_org_carb: xxx
     tot_part_carb: 1.9 units
-    tot_phos: 1.9 units
+    #    tot_phos: 1.9 units see tot_phosp
     tot_phosp: 1.9 units
     tot_phosphate: 1.9 units
     tot_sulfur: 1.9 units
@@ -884,8 +885,8 @@ exhaustive_test_set:
     twin_sibling: true
     type_of_symbiosis: xxx
     urine_collect_meth: xxx
-    url:
-      - xxx
+    #    url: # see also associated_resource
+    #      - xxx
     urogenit_disord:
       - xxx
     urogenit_tract_disor:
@@ -903,7 +904,7 @@ exhaustive_test_set:
     wall_area: 1.9 units
     wall_const_type: xxx
     wall_finish_mat: xxx
-    wall_height: xxx
+    wall_height: 5 meters # todo '^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$' validation doesn't accept single character units
     wall_loc: xxx
     wall_surf_treatment: xxx
     wall_texture: xxx

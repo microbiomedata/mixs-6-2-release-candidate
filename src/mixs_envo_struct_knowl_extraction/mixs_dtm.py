@@ -14,7 +14,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 # todo: ONE example task: find slots that are ambiguous about phosphate vs phosphorus
 #  another: update slot names so that the tokens that represent the concepts in the notes are more consistent
 
-# todo this current technique includes all slot usages in the mining, even duplicate
+# todo this current technique includes all slot usages in the mining, even duplicates
 #  what are the performance and signal:noise costs/benefits of making input unique first?
 #  do we really even want to include slot usage at all?
 #  are there slots which don't have a global definition?
@@ -122,8 +122,8 @@ for dtm_to_note_dict in dtm_to_notes_lod:
             index_values = filtered_df.index.values
             for index_tuple in index_values:
                 slot_name = index_tuple[0]
-                print(
-                    f"slot {slot_name} has the string '{dtm_val}' in it's {dtm_input_slot} so gets the note '{note_val}'")
+                # print(
+                #     f"slot {slot_name} has the string '{dtm_val}' in it's {dtm_input_slot} so gets the note '{note_val}'")
 
                 if target_schema.slots[slot_name].notes and len(target_schema.slots[slot_name].notes) > 0:
                     temp_notes = target_schema.slots[slot_name].notes
@@ -138,11 +138,14 @@ for dtm_to_note_dict in dtm_to_notes_lod:
                 target_schema.slots[slot_name].notes = temp_notes
 
         else:
-            print(f"{dtm_val}: no matches")
+            pass
+            # print(f"{dtm_val}: no matches")
     except ValueError:
-        print(f"{dtm_val}: no matches")
+        pass
+        # print(f"{dtm_val}: no matches")
     except KeyError:
-        print(f"{dtm_val}: no matches")
+        pass
+        # print(f"{dtm_val}: no matches")
 
 dtm_df.to_csv(output_file, index=True, sep='\t')
 
