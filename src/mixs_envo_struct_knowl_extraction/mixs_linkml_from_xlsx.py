@@ -27,6 +27,7 @@ base_url = 'https://github.com/only1chunts/mixs-cih-fork/raw/main/mixs/excel/'
 
 excel_file_name = 'mixs_v6.xlsx'
 dest_dir = 'generated'
+config_dir = 'config'
 
 # prior knowledge
 checklists = ['migs_ba', 'migs_eu', 'migs_org', 'migs_pl', 'migs_vi', 'mimag', 'mimarks_c', 'mimarks_s', 'mims',
@@ -45,15 +46,15 @@ schema_file_name = f"{dest_dir}/{schema_name}.yaml"
 
 harmonized_sheets_file_name = f"{dest_dir}/{excel_file_name}.harmonized.tsv"
 
-string_ser_exp_val_to_range_pattern_file = "data/string_ser_exp_val_to_range_pattern.tsv"
+string_ser_exp_val_to_range_pattern_file = f"{config_dir}/string_ser_exp_val_to_range_pattern.tsv"
 
-proposed_slot_attributes_file = "data/proposed_attribute_replacements_schema.yaml"
+proposed_slot_attributes_file = f"{config_dir}/proposed_attribute_replacements_schema.yaml"
 
 extracted_examples_file_name = f"{dest_dir}/{excel_file_name}.examples.yaml"
 
 # these could be considered changes to the MIxS XLSX file, like @only1chunts applied recently,
 #   although we apply them to the harmonized TSV file instead
-jit_fixes_file_name = f"data/jit_xlsx_fixes_in_tsv.tsv"
+jit_fixes_file_name = f"{config_dir}/jit_xlsx_fixes_in_tsv.tsv"
 
 global_target_schema = SchemaDefinition(
     id=f"http://example.com/{schema_name}",
