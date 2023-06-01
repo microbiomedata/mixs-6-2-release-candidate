@@ -528,7 +528,7 @@ exhaustive_test_set:
   samp_taxon_id: Gut Metagenome [NCBI:txid749906]
   samp_transport_cond: 5 days;-20 degree Celsius
   samp_transport_cont: cooler
-  samp_transport_dur: P10D
+  samp_transport_dur: 10 days
   samp_transport_temp: 4 degree Celsius
   samp_type: built environment sample [GENEPIO:0001248]
   samp_vol_we_dna_ext: 1500 milliliter
@@ -645,7 +645,7 @@ exhaustive_test_set:
   temp_out: 5 degree Celsius
   tidal_stage: high tide
   tillage: chisel
-  time_last_toothbrush: P2H45M
+  time_last_toothbrush: PT2H45M
   time_since_last_wash: P1D
   timepoint: P24H
   tiss_cult_growth_med: https://link.springer.com/content/pdf/10.1007/BF02796489.pdf

@@ -90,11 +90,17 @@ slots:
     comments:
       - problematic ISO 8601 period validation
       - P2H45M does not match ^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$
+    examples:
+      - value: PT2H45M
+        description: "from slot's description"
   samp_transport_dur:
     comments:
       - "{float} {unit} or period?"
       - problematic ISO 8601 period validation
       - P10D does not match ^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$
+    examples:
+      - value: 10 days
+        description: converted slot's ISO 8601 period to a measurement value string
   season:
     comments:
       - autumn [NCIT:C94733] does not match ^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$
