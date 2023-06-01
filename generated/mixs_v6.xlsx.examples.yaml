@@ -250,7 +250,7 @@ exhaustive_test_set:
   - pinot gris
   food_product_qual: raw [FOODON:03311126]
   food_quality_date: best by 2020-05-24
-  food_source_age: P6M
+  food_source_age: 6 months
   food_trace_list: tropical tree fruits
   food_trav_mode:
   - train travel [GENEPIO:0001060]
@@ -506,7 +506,7 @@ exhaustive_test_set:
   samp_taxon_id: Gut Metagenome [NCBI:txid749906]
   samp_transport_cond: 5 days;-20 degree Celsius
   samp_transport_cont: cooler
-  samp_transport_dur: 10 days
+  samp_transport_dur: P10D
   samp_transport_temp: 4 degree Celsius
   samp_type: built environment sample [GENEPIO:0001248]
   samp_vol_we_dna_ext: 1500 milliliter
@@ -591,7 +591,7 @@ exhaustive_test_set:
   study_complt_stat: no;non-compliance
   study_design:
   - in vitro design [OBI:0001285]
-  study_inc_dur: P24H
+  study_inc_dur: PT24H
   study_inc_temp: 37 degree Celsius
   study_timecourse: 2 days post inoculation
   study_tmnt:
@@ -622,7 +622,7 @@ exhaustive_test_set:
   tillage: chisel
   time_last_toothbrush: PT2H45M
   time_since_last_wash: P1D
-  timepoint: P24H
+  timepoint: PT24H
   tiss_cult_growth_med: https://link.springer.com/content/pdf/10.1007/BF02796489.pdf
   tot_depth_water_col: 500 meter
   tot_diss_nitro: 40 microgram per liter

@@ -40,8 +40,9 @@ dtm_input_slot = "title"
 
 schema_sheet = "GSC_MIxS_6_usage_populated_no_blank_cols.tsv"
 dest_dir = "generated"
+config_dir = 'config'
 
-dtm_to_notes_file = "data/dtm_to_slot_notes.tsv"
+dtm_to_notes_file = f"{config_dir}/dtm_to_slot_notes.tsv"
 
 output_file = f"{dest_dir}/{schema_sheet}.dtm.tsv"
 schema_file = f"{dest_dir}/GSC_MIxS_6.yaml"
