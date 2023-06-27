@@ -33,8 +33,6 @@ generated/GSC_MIxS_6_usage.tsv: generated/GSC_MIxS_6.yaml
 
 generated/GSC_MIxS_6.yaml.notated_usage.tsv: generated/GSC_MIxS_6.yaml.notated.yaml
 	$(RUN) generate_and_populate_template \
-		 --base-class enum_definition \
-		 --base-class permissible_value \
 		 --base-class slot_definition \
 		 --columns-to-insert class \
 		 --columns-to-insert enum \
