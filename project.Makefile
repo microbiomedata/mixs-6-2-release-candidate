@@ -82,7 +82,6 @@ generated/GSC_MIxS_6.yaml.notated_usage.tsv: generated/GSC_MIxS_6.yaml.notated.y
 	$(RUN) generate_and_populate_template \
 		 --base-class slot_definition \
 		 --columns-to-insert class \
-		 --columns-to-insert enum \
 		 --columns-to-insert slot \
 		 --columns-to-insert permissible_value \
 		 --destination-template $@ \
