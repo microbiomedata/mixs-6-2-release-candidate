@@ -1,8 +1,6 @@
 (city)
 (country
-(fresh/frozen/other)
 (haccp)
-(host
 (if
 (ifsac)
 (latitude
@@ -47,7 +45,6 @@ annual
 antibiotic
 antibiotics
 antimicrobial
-any)
 api
 approach
 architectural
@@ -134,7 +131,6 @@ contaminant
 contamination
 content
 context
-context)
 contigs
 control
 cooking
@@ -230,7 +226,6 @@ extracted
 extraction
 extracts
 extreme
-extreme_unusual_conditions
 extreme_unusual_properties/al
 extreme_unusual_properties/heavy
 facility
@@ -258,7 +253,6 @@ fluids
 fluorescence
 flux
 food
-foodon
 formation
 fraction
 frequency
@@ -375,7 +369,6 @@ locations
 longitude)
 loss
 lot
-lot_number
 lower
 lung/nose-throat
 lung/pulmonary
@@ -395,7 +388,6 @@ maximum
 meal
 mean
 measured
-measurement
 mechanical
 media
 medical

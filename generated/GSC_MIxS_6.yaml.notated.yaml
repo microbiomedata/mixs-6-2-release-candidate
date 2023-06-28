@@ -1,6 +1,4 @@
 name: GSC_MIxS_6
-comments:
-- 'slot_uris that are associated with more than one slot name/SCN: MIXS:0000335'
 source: https://github.com/only1chunts/mixs-cih-fork/raw/main/mixs/excel/mixs_v6.xlsx
 id: http://example.com/GSC_MIxS_6
 imports:
@@ -3001,22 +2999,55 @@ slots:
     pattern: ^\S.*\S+ \S.*\S+$
   assembly_qual:
     name: assembly_qual
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: enumeration
+    description: 'The assembly quality category is based on sets of criteria outlined
+      for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated,
+      contiguous sequence per replicon without gaps or ambiguities with a consensus
+      error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments
+      where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes
+      and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no
+      review of assembly other than reporting of standard assembly statistics. Low
+      Quality Draft:Many fragments with little to no review of assembly other than
+      reporting of standard assembly statistics. Assembly statistics include, but
+      are not limited to total assembly size, number of contigs, contig N50/L50, and
+      maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence
+      per replicon without gaps or ambiguities, with extensive manual review and editing
+      to annotate putative gene functions and transcriptional units. High-quality
+      draft genome: One or multiple fragments, totaling   90% of the expected genome
+      or replicon sequence or predicted complete. Genome fragment(s): One or multiple
+      fragments, totalling < 90% of the expected genome or replicon sequence, or for
+      which no genome size could be estimated'
     title: assembly quality
     notes:
     - quality
+    examples:
+    - value: High-quality draft genome
     in_subset:
     - sequencing
+    string_serialization: '[Finished genome|High-quality draft genome|Medium-quality
+      draft genome|Low-quality draft genome|Genome fragment(s)]'
+    slot_uri: MIXS:0000056
     multivalued: false
-    range: string
   assembly_software:
     name: assembly_software
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: name and version of software, parameters used
+    description: Tool(s) used for assembly, including version number and parameters
     title: assembly software
     notes:
     - software
+    examples:
+    - value: metaSPAdes;3.11.0;kmer set 21,33,55,77,99,121, default parameters otherwise
     in_subset:
     - sequencing
+    string_serialization: '{software};{version};{parameters}'
+    slot_uri: MIXS:0000058
     multivalued: false
-    range: string
   associated_resource:
     name: associated_resource
     description: A related resource that is referenced, cited, or otherwise associated
@@ -3880,18 +3911,23 @@ slots:
     recommended: false
   chimera_check:
     name: chimera_check
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: name and version of software, parameters used
     description: Tool(s) used for chimera checking, including version number and parameters,
       to discover and remove chimeric sequences. A chimeric sequence is comprised
       of two or more phylogenetically distinct parent sequences
+    title: chimera check software
     notes:
     - software
     examples:
     - value: uchime;v4.1;default parameters
     in_subset:
     - sequencing
+    string_serialization: '{software};{version};{parameters}'
     slot_uri: MIXS:0000052
     multivalued: false
-    range: string
   chloride:
     name: chloride
     annotations:
@@ -6308,12 +6344,22 @@ slots:
       Expected_value:
         tag: Expected_value
         value: FOODON:00001002 or FOODON:03309997
+    description: A food product type is a class of food products that is differentiated
+      by its food composition (e.g., single- or multi-ingredient), processing and/or
+      consumption characteristics. This does not include brand name products but it
+      may include generic food dish categories. This field accepts terms under food
+      product type (http://purl.obolibrary.org/obo/FOODON:03400361). For terms related
+      to food product for an animal, consult food product for animal (http://purl.obolibrary.org/obo/FOODON_03309997).
+      If the proper descriptor is not listed please use text to describe the food
+      type. Multiple terms can be separated by one or more pipes
+    title: food product type
     notes:
     - food
     - product
     - type
+    string_serialization: '{text}|{termLabel} [{termID}]'
     slot_uri: MIXS:0001184
-    multivalued: true
+    multivalued: false
   food_quality_date:
     name: food_quality_date
     annotations:
@@ -6950,8 +6996,8 @@ slots:
   heavy_metals_meth:
     name: heavy_metals_meth
     description: Reference or method used in determining heavy metals
+    title: extreme_unusual_properties/heavy metals method
     notes:
-    - conditions
     - extreme
     - method
     - properties
@@ -7012,6 +7058,7 @@ slots:
   horizon_meth:
     name: horizon_meth
     description: Reference or method used in determining the horizon
+    title: soil horizon method
     notes:
     - horizon
     - method
@@ -8447,6 +8494,7 @@ slots:
       Expected_value:
         tag: Expected_value
         value: lot number, item
+    title: lot number
     notes:
     - number
     examples:
@@ -10938,15 +10986,22 @@ slots:
     recommended: false
   samp_collect_device:
     name: samp_collect_device
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: device name
+    description: The device used to collect an environmental sample. This field accepts
+      terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO).
+      This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094)
+    title: sample collection device
     notes:
     - device
-    - method
     - sample
     in_subset:
     - nucleic acid sequence source
+    string_serialization: '{termLabel} [{termID}]|{text}'
     slot_uri: MIXS:0000002
     multivalued: false
-    range: string
   samp_collect_method:
     name: samp_collect_method
     description: The method employed for collecting the sample
@@ -11094,6 +11149,13 @@ slots:
       Preferred_unit:
         tag: Preferred_unit
         value: ''
+    description: A local identifier or name that for the material sample used for
+      extracting nucleic acids, and subsequent sequencing. It can refer either to
+      the original material collected or to any derived sub-samples. It can have any
+      format, but we suggest that you make it concise, unique and consistent within
+      your lab, and as informative as possible. INSDC requires every sample name from
+      a single Submitter to be unique. Use of a globally unique identifier for the
+      field source_mat_id is recommended in addition to sample_name
     title: sample name
     notes:
     - sample
@@ -11527,9 +11589,8 @@ slots:
       produced water, injected water, swabs, etc. For the Food Package, samples are
       usually categorized as food, body products or tissues, or environmental material.
       This field accepts terms listed under environmental specimen (http://purl.obolibrary.org/obo/GENEPIO_0001246)
+    title: sample type
     notes:
-    - context
-    - environmental
     - sample
     - type
     examples:
@@ -11702,8 +11763,9 @@ slots:
       Preferred_unit:
         tag: Preferred_unit
         value: degree Celsius
+    description: Mean seasonal temperature
+    title: mean seasonal temperature
     notes:
-    - air
     - mean
     - season
     - temperature
@@ -11959,6 +12021,7 @@ slots:
         value: design name and/or size;amount
     description: Collection design of pooled samples and/or sieve size and amount
       of sample sieved
+    title: composite design/sieving
     string_serialization: '{text};{float} {unit}'
     slot_uri: MIXS:0000322
     multivalued: false
@@ -12223,23 +12286,6 @@ slots:
     required: false
     recommended: false
     pattern: ^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S.*\S$
-  soil_text_measure:
-    name: soil_text_measure
-    description: The relative proportion of different grain sizes of mineral particles
-      in a soil, as described using a standard system; express as % sand (50 um to
-      2 mm), silt (2 um to 50 um), and clay (<2 um) with textural name (e.g., silty
-      clay loam) optional
-    title: soil texture measurement
-    notes:
-    - measurement
-    - soil
-    - texture
-    slot_uri: MIXS:0000335
-    multivalued: false
-    range: string
-    required: false
-    recommended: false
-    pattern: ^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S.*\S$
   soil_texture_class:
     name: soil_texture_class
     description: One of the 12 soil texture classes use to describe soil texture based
@@ -12311,12 +12357,14 @@ slots:
           second
     description: The amount of solar energy that arrives at a specific area of a surface
       during a specific time interval
+    title: mean seasonal solar irradiance
     notes:
     - mean
     - season
     examples:
     - value: 1.36 kilowatts per square meter per day
     slot_uri: MIXS:0000112
+    multivalued: true
     range: string
     required: false
     recommended: false
@@ -12829,19 +12877,21 @@ slots:
     recommended: false
   store_cond:
     name: store_cond
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: storage condition type;duration
     description: Explain how and for how long the soil sample was stored before DNA
       extraction (fresh/frozen/other)
+    title: storage conditions
     notes:
     - condition
     - storage
     examples:
     - value: -20 degree Celsius freezer;P2Y10D
+    string_serialization: '{text};{period}'
     slot_uri: MIXS:0000327
     multivalued: false
-    structured_pattern:
-      syntax: '{storage_condition_type};{duration}'
-      interpolated: true
-      partial_match: true
   study_complt_stat:
     name: study_complt_stat
     annotations:
@@ -13342,21 +13392,6 @@ slots:
     multivalued: false
     required: false
     recommended: false
-  texture:
-    name: texture
-    description: The relative proportion of different grain sizes of mineral particles
-      in a soil, as described using a standard system; express as % sand (50 um to
-      2 mm), silt (2 um to 50 um), and clay (<2 um) with textural name (e.g., silty
-      clay loam) optional
-    title: texture
-    notes:
-    - texture
-    slot_uri: MIXS:0000335
-    multivalued: false
-    range: string
-    required: false
-    recommended: false
-    pattern: ^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S.*\S$
   tidal_stage:
     name: tidal_stage
     description: Stage of tide
@@ -13543,18 +13578,30 @@ slots:
     pattern: ^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S.*\S$
   tot_nitro:
     name: tot_nitro
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: microgram per liter, micromole per liter, milligram per liter
+    description: 'Total nitrogen concentration of water samples, calculated by: total
+      nitrogen = total dissolved nitrogen + particulate nitrogen. Can also be measured
+      without filtering, reported as nitrogen'
+    title: total nitrogen concentration
     notes:
     - concentration
     - nitrogen
     - total
     examples:
     - value: 50 micromole per liter
+    slot_uri: MIXS:0000102
     multivalued: false
     range: string
+    required: false
+    recommended: false
     pattern: ^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S.*\S$
   tot_nitro_cont_meth:
     name: tot_nitro_cont_meth
     description: Reference or method used in determining the total nitrogen
+    title: total nitrogen content method
     notes:
     - content
     - method
@@ -13563,6 +13610,7 @@ slots:
     examples:
     - value: https://currentprotocols.onlinelibrary.wiley.com/doi/abs/10.1002/0471142913.fab0102s00
     slot_uri: MIXS:0000338
+    multivalued: false
     structured_pattern:
       syntax: '{PMID}|{DOI}|{URL}'
       interpolated: true
@@ -13579,8 +13627,6 @@ slots:
     - value: 35 milligrams Nitrogen per kilogram of soil
     slot_uri: MIXS:0000530
     range: string
-    required: false
-    recommended: false
     pattern: ^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)? \S.*\S$
   tot_org_c_meth:
     name: tot_org_c_meth
@@ -14754,7 +14800,6 @@ classes:
     - rel_location
     - soil_cover
     - porosity
-    - texture
     - soil_texture_meth
     - host_symbiont
     - host_disease_stat
@@ -14853,8 +14898,8 @@ classes:
     - seq_quality_check
     - chimera_check
     - assembly_name
-    - assembly_software
     - assembly_qual
+    - assembly_software
     - annot
     - associated_resource
     - sop
@@ -14891,7 +14936,7 @@ classes:
     - cur_vegetation_meth
     - tot_org_carb
     - tot_org_c_meth
-    - tot_nitro
+    - tot_nitro_content
     - tot_nitro_cont_meth
     - microbial_biomass
     - micro_biomass_meth
@@ -14920,40 +14965,12 @@ classes:
           Requirement:
             tag: Requirement
             value: nan
-        description: Tool(s) used for assembly, including version number and parameters
-        examples:
-        - value: metaSPAdes;3.11.0;kmer set 21,33,55,77,99,121, default parameters
-            otherwise
-        string_serialization: '{software};{version};{parameters}'
-        slot_uri: MIXS:0000058
       assembly_software:
         name: assembly_software
         annotations:
           Requirement:
             tag: Requirement
             value: nan
-        description: 'The assembly quality category is based on sets of criteria outlined
-          for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated,
-          contiguous sequence per replicon without gaps or ambiguities with a consensus
-          error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments
-          where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA
-          genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little
-          to no review of assembly other than reporting of standard assembly statistics.
-          Low Quality Draft:Many fragments with little to no review of assembly other
-          than reporting of standard assembly statistics. Assembly statistics include,
-          but are not limited to total assembly size, number of contigs, contig N50/L50,
-          and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous
-          sequence per replicon without gaps or ambiguities, with extensive manual
-          review and editing to annotate putative gene functions and transcriptional
-          units. High-quality draft genome: One or multiple fragments, totaling ≥
-          90% of the expected genome or replicon sequence or predicted complete. Genome
-          fragment(s): One or multiple fragments, totalling < 90% of the expected
-          genome or replicon sequence, or for which no genome size could be estimated'
-        examples:
-        - value: High-quality draft genome
-        string_serialization: '[Finished genome|High-quality draft genome|Medium-quality
-          draft genome|Low-quality draft genome|Genome fragment(s)]'
-        slot_uri: MIXS:0000056
       associated_resource:
         name: associated_resource
         string_serialization: '{URL}'
@@ -14969,8 +14986,6 @@ classes:
         required: true
       chimera_check:
         name: chimera_check
-        title: chimera check
-        string_serialization: '{text} {text}'
         required: true
       climate_environment:
         name: climate_environment
@@ -15057,11 +15072,8 @@ classes:
         recommended: false
       food_product_type:
         name: food_product_type
-        description: new food product categories and food products themselves
-        title: Foodon product type
         examples:
         - value: delicatessen salad; FOODON:03316276
-        string_serialization: '{text}'
         required: false
         recommended: false
       food_source:
@@ -15095,7 +15107,6 @@ classes:
         multivalued: false
       heavy_metals_meth:
         name: heavy_metals_meth
-        title: extreme_unusual_conditions
         string_serialization: '{PMID|DOI|URL}'
         recommended: true
       herbicide_regm:
@@ -15104,7 +15115,6 @@ classes:
         recommended: true
       horizon_meth:
         name: horizon_meth
-        title: horizon method
         string_serialization: '{PMID|DOI|URL}'
         recommended: true
       host_age:
@@ -15234,7 +15244,6 @@ classes:
           or product within a batch. Synonym: Batch Number. The submitter should provide
           lot number of the item followed by the item name for which the lot number
           was provided.'
-        title: lot_number
       micro_biomass_meth:
         name: micro_biomass_meth
         string_serialization: '{PMID|DOI|URL}'
@@ -15346,13 +15355,8 @@ classes:
         recommended: true
       samp_collect_device:
         name: samp_collect_device
-        description: The device used to collect an environmental sample. This field
-          accepts terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO).
-          This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094).
-        title: sample collection device or method
         examples:
         - value: biopsy, niskin bottle, push core
-        string_serialization: '{text}'
         required: true
       samp_collect_method:
         name: samp_collect_method
@@ -15399,17 +15403,12 @@ classes:
       season_precpt:
         name: season_precpt
         multivalued: false
-      season_temp:
-        name: season_temp
-        description: Mean seasonal temperature
-        title: mean seasonal temperature
       seq_quality_check:
         name: seq_quality_check
         required: false
         recommended: false
       sieving:
         name: sieving
-        title: composite design/sieving (if any)
         required: true
       slope_aspect:
         name: slope_aspect
@@ -15456,10 +15455,6 @@ classes:
         name: soil_type_meth
         string_serialization: '{PMID|DOI|URL}'
         required: true
-      solar_irradiance:
-        name: solar_irradiance
-        title: mean seasonal solar irradiance
-        multivalued: true
       sop:
         name: sop
         string_serialization: '{PMID|DOI|URL}'
@@ -15478,8 +15473,6 @@ classes:
         recommended: true
       store_cond:
         name: store_cond
-        title: storage conditions (fresh/frozen/other)
-        string_serialization: '{text};{period}'
         required: true
       target_gene:
         name: target_gene
@@ -15497,16 +15490,12 @@ classes:
       tot_carb:
         name: tot_carb
         recommended: true
-      tot_nitro:
-        name: tot_nitro
-        description: Total nitrogen content of the sample
-        title: total nitrogen
-        slot_uri: MIXS:0000530
-        recommended: true
       tot_nitro_cont_meth:
         name: tot_nitro_cont_meth
-        title: total nitrogen method
         string_serialization: '{PMID|DOI|URL}'
+        recommended: true
+      tot_nitro_content:
+        name: tot_nitro_content
         multivalued: false
         recommended: true
       tot_org_c_meth:
@@ -15633,15 +15622,6 @@ classes:
       salinity:
         name: salinity
         multivalued: false
-      samp_name:
-        name: samp_name
-        description: A local identifier or name that for the material sample used
-          for extracting nucleic acids, and subsequent sequencing. It can refer either
-          to the original material collected or to any derived sub-samples. It can
-          have any format, but we suggest that you make it concise, unique and consistent
-          within your lab, and as informative as possible. INSDC requires every sample
-          name from a single Submitter to be unique. Use of a globally unique identifier
-          for the field source_mat_id is recommended in addition to sample_name.
       samp_store_dur:
         name: samp_store_dur
         description: Duration for which the sample was stored
@@ -15663,10 +15643,6 @@ classes:
           the term Sample Size (MIXS:0000001).'
         required: false
         recommended: false
-      solar_irradiance:
-        name: solar_irradiance
-        title: solar irradiance
-        multivalued: false
       temp:
         name: temp
         required: false
@@ -15883,15 +15859,6 @@ classes:
         string_serialization: '{text};{float} {unit};[qPCR|ATP|MPN|other]'
         multivalued: true
         required: true
-      samp_name:
-        name: samp_name
-        description: A local identifier or name that for the material sample used
-          for extracting nucleic acids, and subsequent sequencing. It can refer either
-          to the original material collected or to any derived sub-samples. It can
-          have any format, but we suggest that you make it concise, unique and consistent
-          within your lab, and as informative as possible. INSDC requires every sample
-          name from a single Submitter to be unique. Use of a globally unique identifier
-          for the field source_mat_id is recommended in addition to sample_name.
       season:
         name: season
       surf_material:
@@ -16097,19 +16064,8 @@ classes:
         recommended: false
       food_product_type:
         name: food_product_type
-        description: A food product type is a class of food products that is differentiated
-          by its food composition (e.g., single- or multi-ingredient), processing
-          and/or consumption characteristics. This does not include brand name products
-          but it may include generic food dish categories. This field accepts terms
-          under food product type (http://purl.obolibrary.org/obo/FOODON:03400361).
-          For terms related to food product for an animal, consult food product for
-          animal (http://purl.obolibrary.org/obo/FOODON_03309997). If the proper descriptor
-          is not listed please use text to describe the food type. Multiple terms
-          can be separated by one or more pipes.
-        title: food product type
         examples:
         - value: shrimp (peeled, deep-frozen) [FOODON:03317171]
-        string_serialization: '{text}|{termLabel} [{termID}]'
         required: true
       food_source:
         name: food_source
@@ -16155,7 +16111,6 @@ classes:
           or product within a batch. Synonym: Batch Number.  The submitter should
           provide lot number of the item followed by the item name for which the lot
           number was provided.'
-        title: lot number
       misc_param:
         name: misc_param
       nucl_acid_ext:
@@ -16193,13 +16148,8 @@ classes:
         name: repository_name
       samp_collect_device:
         name: samp_collect_device
-        description: The device used to collect an environmental sample. This field
-          accepts terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO).
-          This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094).
-        title: sample collection device
         examples:
         - value: swab, biopsy, niskin bottle, push core, drag swab [GENEPIO:0002713]
-        string_serialization: '{termLabel} [{termID}]|{text}'
         required: false
         recommended: false
       samp_collect_method:
@@ -16208,15 +16158,6 @@ classes:
         - value: environmental swab sampling
         required: false
         recommended: false
-      samp_name:
-        name: samp_name
-        description: A local identifier or name that for the material sample used
-          for extracting nucleic acids, and subsequent sequencing. It can refer either
-          to the original material collected or to any derived sub-samples. It can
-          have any format, but we suggest that you make it concise, unique and consistent
-          within your lab, and as informative as possible. INSDC requires every sample
-          name from a single Submitter to be unique. Use of a globally unique identifier
-          for the field source_mat_id is recommended in addition to sample_name.
       samp_pooling:
         name: samp_pooling
         required: false
@@ -16518,19 +16459,8 @@ classes:
         - value: vacuum-packed [FOODON:03480027]
       food_product_type:
         name: food_product_type
-        description: A food product type is a class of food products that is differentiated
-          by its food composition (e.g., single- or multi-ingredient), processing
-          and/or consumption characteristics. This does not include brand name products
-          but it may include generic food dish categories. This field accepts terms
-          under food product type (http://purl.obolibrary.org/obo/FOODON:03400361).
-          For terms related to food product for an animal, consult food product for
-          animal (http://purl.obolibrary.org/obo/FOODON_03309997). If the proper descriptor
-          is not listed please use text to describe the food type. Multiple terms
-          can be separated by one or more pipes.
-        title: food product type
         examples:
         - value: shrimp (peeled, deep-frozen) [FOODON:03317171]
-        string_serialization: '{text}|{termLabel} [{termID}]'
         required: true
       food_source:
         name: food_source
@@ -16643,7 +16573,6 @@ classes:
           or product within a batch. Synonym: Batch Number.  The submitter should
           provide lot number of the item followed by the item name for which the lot
           number was provided.'
-        title: lot number
       misc_param:
         name: misc_param
       nucl_acid_ext:
@@ -16709,24 +16638,10 @@ classes:
         multivalued: false
       samp_collect_device:
         name: samp_collect_device
-        description: The device used to collect an environmental sample. This field
-          accepts terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO).
-          This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094).
-        title: sample collection device
         examples:
         - value: swab, biopsy, niskin bottle, push core, drag swab [GENEPIO:0002713]
-        string_serialization: '{termLabel} [{termID}]|{text}'
         required: false
         recommended: false
-      samp_name:
-        name: samp_name
-        description: A local identifier or name that for the material sample used
-          for extracting nucleic acids, and subsequent sequencing. It can refer either
-          to the original material collected or to any derived sub-samples. It can
-          have any format, but we suggest that you make it concise, unique and consistent
-          within your lab, and as informative as possible. INSDC requires every sample
-          name from a single Submitter to be unique. Use of a globally unique identifier
-          for the field source_mat_id is recommended in addition to sample_name.
       samp_pooling:
         name: samp_pooling
         required: false
@@ -16758,9 +16673,6 @@ classes:
         string_serialization: '{duration}'
         required: false
         recommended: false
-      samp_type:
-        name: samp_type
-        title: sample type (host or environmental context)
       samp_vol_we_dna_ext:
         name: samp_vol_we_dna_ext
         description: 'Volume (ml) or mass (g) of total collected sample processed
@@ -16773,10 +16685,6 @@ classes:
       season_precpt:
         name: season_precpt
         multivalued: true
-      season_temp:
-        name: season_temp
-        description: Mean seasonal air temperature.
-        title: mean seasonal air temperature
       soil_conductivity:
         name: soil_conductivity
         description: Conductivity of soil at time of sampling.
@@ -16808,10 +16716,6 @@ classes:
         string_serialization: '{PMID}|{DOI}|{URL}'
         required: false
         recommended: false
-      solar_irradiance:
-        name: solar_irradiance
-        title: mean seasonal solar irradiance
-        multivalued: true
       spikein_count:
         name: spikein_count
         description: 'Total cell count of any organism (or group of organisms) per
@@ -16830,14 +16734,14 @@ classes:
         recommended: false
       tot_nitro_cont_meth:
         name: tot_nitro_cont_meth
-        title: total nitrogen content method
         string_serialization: '{PMID}|{DOI}|{URL}'
-        multivalued: true
         required: false
         recommended: false
       tot_nitro_content:
         name: tot_nitro_content
         multivalued: true
+        required: false
+        recommended: false
       tot_org_c_meth:
         name: tot_org_c_meth
         string_serialization: '{PMID}|{DOI}|{URL}'
@@ -17063,19 +16967,8 @@ classes:
         required: true
       food_product_type:
         name: food_product_type
-        description: A food product type is a class of food products that is differentiated
-          by its food composition (e.g., single- or multi-ingredient), processing
-          and/or consumption characteristics. This does not include brand name products
-          but it may include generic food dish categories. This field accepts terms
-          under food product type (http://purl.obolibrary.org/obo/FOODON:03400361).
-          For terms related to food product for an animal, consult food product for
-          animal (http://purl.obolibrary.org/obo/FOODON_03309997). If the proper descriptor
-          is not listed please use text to describe the food type. Multiple terms
-          can be separated by one or more pipes.
-        title: food product type
         examples:
         - value: shrimp (peeled, deep-frozen) [FOODON:03317171]
-        string_serialization: '{text}|{termLabel} [{termID}]'
         required: true
       food_source:
         name: food_source
@@ -17133,7 +17026,6 @@ classes:
           or product within a batch. Synonym: Batch Number.  The submitter should
           provide lot number of the item followed by the item name for which the lot
           number was provided.'
-        title: lot number
       misc_param:
         name: misc_param
       nucl_acid_ext:
@@ -17166,11 +17058,8 @@ classes:
         name: repository_name
       samp_collect_device:
         name: samp_collect_device
-        description: The device employed for collecting the sample.
-        title: sample collection device
         examples:
         - value: biopsy, niskin bottle, push core
-        string_serialization: '{text}'
         required: false
         recommended: false
       samp_collect_method:
@@ -17179,15 +17068,6 @@ classes:
         - value: environmental swab sampling
         required: false
         recommended: false
-      samp_name:
-        name: samp_name
-        description: A local identifier or name that for the material sample used
-          for extracting nucleic acids, and subsequent sequencing. It can refer either
-          to the original material collected or to any derived sub-samples. It can
-          have any format, but we suggest that you make it concise, unique and consistent
-          within your lab, and as informative as possible. INSDC requires every sample
-          name from a single Submitter to be unique. Use of a globally unique identifier
-          for the field source_mat_id is recommended in addition to sample_name.
       samp_pooling:
         name: samp_pooling
         required: false
@@ -17232,9 +17112,6 @@ classes:
         - value: freezer 5
         required: false
         recommended: false
-      samp_type:
-        name: samp_type
-        title: sample type
       samp_vol_we_dna_ext:
         name: samp_vol_we_dna_ext
         description: 'Volume (ml) or mass (g) of total collected sample processed
@@ -17447,19 +17324,8 @@ classes:
         recommended: false
       food_product_type:
         name: food_product_type
-        description: A food product type is a class of food products that is differentiated
-          by its food composition (e.g., single- or multi-ingredient), processing
-          and/or consumption characteristics. This does not include brand name products
-          but it may include generic food dish categories. This field accepts terms
-          under food product type (http://purl.obolibrary.org/obo/FOODON:03400361).
-          For terms related to food product for an animal, consult food product for
-          animal (http://purl.obolibrary.org/obo/FOODON_03309997). If the proper descriptor
-          is not listed please use text to describe the food type. Multiple terms
-          can be separated by one or more pipes.
-        title: food product type
         examples:
         - value: shrimp (peeled, deep-frozen) [FOODON:03317171]
-        string_serialization: '{text}|{termLabel} [{termID}]'
         required: true
       food_source:
         name: food_source
@@ -17510,7 +17376,6 @@ classes:
           or product within a batch. Synonym: Batch Number.  The submitter should
           provide lot number of the item followed by the item name for which the lot
           number was provided.'
-        title: lot number
       misc_param:
         name: misc_param
       nucl_acid_ext:
@@ -17548,13 +17413,8 @@ classes:
         name: repository_name
       samp_collect_device:
         name: samp_collect_device
-        description: The device used to collect an environmental sample. This field
-          accepts terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO).
-          This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094).
-        title: sample collection device
         examples:
         - value: swab, biopsy, niskin bottle, push core, drag swab [GENEPIO:0002713]
-        string_serialization: '{termLabel} [{termID}]|{text}'
         required: false
         recommended: false
       samp_collect_method:
@@ -17563,15 +17423,6 @@ classes:
         - value: environmental swab sampling
         required: false
         recommended: false
-      samp_name:
-        name: samp_name
-        description: A local identifier or name that for the material sample used
-          for extracting nucleic acids, and subsequent sequencing. It can refer either
-          to the original material collected or to any derived sub-samples. It can
-          have any format, but we suggest that you make it concise, unique and consistent
-          within your lab, and as informative as possible. INSDC requires every sample
-          name from a single Submitter to be unique. Use of a globally unique identifier
-          for the field source_mat_id is recommended in addition to sample_name.
       samp_pooling:
         name: samp_pooling
         required: false
@@ -17881,15 +17732,6 @@ classes:
       salinity:
         name: salinity
         multivalued: false
-      samp_name:
-        name: samp_name
-        description: A local identifier or name that for the material sample used
-          for extracting nucleic acids, and subsequent sequencing. It can refer either
-          to the original material collected or to any derived sub-samples. It can
-          have any format, but we suggest that you make it concise, unique and consistent
-          within your lab, and as informative as possible. INSDC requires every sample
-          name from a single Submitter to be unique. Use of a globally unique identifier
-          for the field source_mat_id is recommended in addition to sample_name.
       samp_store_dur:
         name: samp_store_dur
         description: Duration for which the sample was stored
@@ -18104,15 +17946,6 @@ classes:
       salinity:
         name: salinity
         multivalued: false
-      samp_name:
-        name: samp_name
-        description: A local identifier or name that for the material sample used
-          for extracting nucleic acids, and subsequent sequencing. It can refer either
-          to the original material collected or to any derived sub-samples. It can
-          have any format, but we suggest that you make it concise, unique and consistent
-          within your lab, and as informative as possible. INSDC requires every sample
-          name from a single Submitter to be unique. Use of a globally unique identifier
-          for the field source_mat_id is recommended in addition to sample_name.
       samp_store_dur:
         name: samp_store_dur
         description: Duration for which the sample was stored
@@ -18303,15 +18136,6 @@ classes:
       salinity:
         name: salinity
         multivalued: false
-      samp_name:
-        name: samp_name
-        description: A local identifier or name that for the material sample used
-          for extracting nucleic acids, and subsequent sequencing. It can refer either
-          to the original material collected or to any derived sub-samples. It can
-          have any format, but we suggest that you make it concise, unique and consistent
-          within your lab, and as informative as possible. INSDC requires every sample
-          name from a single Submitter to be unique. Use of a globally unique identifier
-          for the field source_mat_id is recommended in addition to sample_name.
       samp_store_dur:
         name: samp_store_dur
         description: Duration for which the sample was stored
@@ -18511,15 +18335,6 @@ classes:
       salinity:
         name: salinity
         multivalued: false
-      samp_name:
-        name: samp_name
-        description: A local identifier or name that for the material sample used
-          for extracting nucleic acids, and subsequent sequencing. It can refer either
-          to the original material collected or to any derived sub-samples. It can
-          have any format, but we suggest that you make it concise, unique and consistent
-          within your lab, and as informative as possible. INSDC requires every sample
-          name from a single Submitter to be unique. Use of a globally unique identifier
-          for the field source_mat_id is recommended in addition to sample_name.
       samp_store_dur:
         name: samp_store_dur
         description: Duration for which the sample was stored
@@ -18710,15 +18525,6 @@ classes:
       salinity:
         name: salinity
         multivalued: false
-      samp_name:
-        name: samp_name
-        description: A local identifier or name that for the material sample used
-          for extracting nucleic acids, and subsequent sequencing. It can refer either
-          to the original material collected or to any derived sub-samples. It can
-          have any format, but we suggest that you make it concise, unique and consistent
-          within your lab, and as informative as possible. INSDC requires every sample
-          name from a single Submitter to be unique. Use of a globally unique identifier
-          for the field source_mat_id is recommended in addition to sample_name.
       samp_store_dur:
         name: samp_store_dur
         description: Duration for which the sample was stored
@@ -18916,15 +18722,6 @@ classes:
       salinity:
         name: salinity
         multivalued: false
-      samp_name:
-        name: samp_name
-        description: A local identifier or name that for the material sample used
-          for extracting nucleic acids, and subsequent sequencing. It can refer either
-          to the original material collected or to any derived sub-samples. It can
-          have any format, but we suggest that you make it concise, unique and consistent
-          within your lab, and as informative as possible. INSDC requires every sample
-          name from a single Submitter to be unique. Use of a globally unique identifier
-          for the field source_mat_id is recommended in addition to sample_name.
       samp_store_dur:
         name: samp_store_dur
         description: Duration for which the sample was stored
@@ -19090,15 +18887,6 @@ classes:
       salinity:
         name: salinity
         multivalued: false
-      samp_name:
-        name: samp_name
-        description: A local identifier or name that for the material sample used
-          for extracting nucleic acids, and subsequent sequencing. It can refer either
-          to the original material collected or to any derived sub-samples. It can
-          have any format, but we suggest that you make it concise, unique and consistent
-          within your lab, and as informative as possible. INSDC requires every sample
-          name from a single Submitter to be unique. Use of a globally unique identifier
-          for the field source_mat_id is recommended in addition to sample_name.
       samp_store_dur:
         name: samp_store_dur
         description: Duration for which the sample was stored
@@ -19113,9 +18901,6 @@ classes:
         - value: Freezer no:5
         required: false
         recommended: false
-      samp_type:
-        name: samp_type
-        title: sample type
       samp_vol_we_dna_ext:
         name: samp_vol_we_dna_ext
         description: 'Volume (ml) or mass (g) of total collected sample processed
@@ -19134,15 +18919,6 @@ classes:
       temp:
         name: temp
         required: true
-      tot_nitro:
-        name: tot_nitro
-        description: 'Total nitrogen concentration of water samples, calculated by:
-          total nitrogen = total dissolved nitrogen + particulate nitrogen. Can also
-          be measured without filtering, reported as nitrogen'
-        title: total nitrogen concentration
-        slot_uri: MIXS:0000102
-        required: false
-        recommended: false
       tot_phosp:
         name: tot_phosp
         title: total phosphorus
@@ -19295,15 +19071,6 @@ classes:
       salinity:
         name: salinity
         multivalued: false
-      samp_name:
-        name: samp_name
-        description: A local identifier or name that for the material sample used
-          for extracting nucleic acids, and subsequent sequencing. It can refer either
-          to the original material collected or to any derived sub-samples. It can
-          have any format, but we suggest that you make it concise, unique and consistent
-          within your lab, and as informative as possible. INSDC requires every sample
-          name from a single Submitter to be unique. Use of a globally unique identifier
-          for the field source_mat_id is recommended in addition to sample_name.
       samp_store_dur:
         name: samp_store_dur
         description: Duration for which the sample was stored
@@ -19318,9 +19085,6 @@ classes:
         - value: Freezer no:5
         required: false
         recommended: false
-      samp_type:
-        name: samp_type
-        title: sample type
       samp_vol_we_dna_ext:
         name: samp_vol_we_dna_ext
         description: 'Volume (ml) or mass (g) of total collected sample processed
@@ -19339,15 +19103,6 @@ classes:
       temp:
         name: temp
         required: true
-      tot_nitro:
-        name: tot_nitro
-        description: 'Total nitrogen concentration of water samples, calculated by:
-          total nitrogen = total dissolved nitrogen + particulate nitrogen. Can also
-          be measured without filtering, reported as nitrogen'
-        title: total nitrogen concentration
-        slot_uri: MIXS:0000102
-        required: false
-        recommended: false
       tot_phosp:
         name: tot_phosp
         title: total phosphorus
@@ -19521,15 +19276,6 @@ classes:
       salinity:
         name: salinity
         multivalued: false
-      samp_name:
-        name: samp_name
-        description: A local identifier or name that for the material sample used
-          for extracting nucleic acids, and subsequent sequencing. It can refer either
-          to the original material collected or to any derived sub-samples. It can
-          have any format, but we suggest that you make it concise, unique and consistent
-          within your lab, and as informative as possible. INSDC requires every sample
-          name from a single Submitter to be unique. Use of a globally unique identifier
-          for the field source_mat_id is recommended in addition to sample_name.
       samp_store_dur:
         name: samp_store_dur
         description: Duration for which the sample was stored
@@ -19570,6 +19316,8 @@ classes:
       tot_nitro_content:
         name: tot_nitro_content
         multivalued: false
+        required: false
+        recommended: false
       tot_org_carb:
         name: tot_org_carb
         string_serialization: '{float} {unit}'
@@ -19586,63 +19334,63 @@ classes:
     name: MigsBa
     is_a: Checklist
     slots:
-    - nucl_acid_ext
     - samp_mat_process
-    - env_broad_scale
-    - tax_ident
-    - estimated_size
-    - samp_name
-    - env_medium
-    - host_disease_stat
-    - source_mat_id
-    - temp
-    - compl_score
-    - biotic_relationship
-    - encoded_traits
-    - collection_date
-    - alt
-    - adapters
-    - pos_cont_type
-    - samp_collect_method
-    - extrachrom_elements
-    - samp_vol_we_dna_ext
-    - lib_screen
-    - specific_host
-    - assembly_software
-    - depth
-    - trophic_level
-    - env_local_scale
-    - feat_pred
-    - neg_cont_type
-    - assembly_qual
-    - annot
-    - elev
-    - nucl_acid_amp
-    - lib_layout
-    - samp_collect_device
-    - project_name
-    - geo_loc_name
     - number_contig
-    - seq_meth
-    - ref_biomaterial
-    - lib_size
-    - pathogenicity
-    - sim_search_meth
-    - lib_vector
-    - samp_taxon_id
-    - assembly_name
-    - compl_software
-    - subspecf_gen_lin
-    - lib_reads_seqd
-    - ref_db
-    - tax_class
-    - host_spec_range
+    - specific_host
+    - neg_cont_type
+    - lib_screen
+    - depth
+    - temp
     - samp_size
     - rel_to_oxygen
-    - lat_lon
+    - samp_collect_device
+    - adapters
+    - lib_size
+    - lib_layout
+    - trophic_level
+    - env_local_scale
+    - lib_reads_seqd
     - num_replicons
+    - pathogenicity
+    - alt
+    - assembly_software
+    - nucl_acid_ext
+    - subspecf_gen_lin
+    - samp_name
+    - pos_cont_type
+    - ref_db
+    - elev
+    - extrachrom_elements
+    - env_medium
+    - samp_vol_we_dna_ext
+    - annot
+    - feat_pred
+    - lat_lon
+    - tax_ident
+    - estimated_size
+    - samp_collect_method
+    - biotic_relationship
+    - source_mat_id
+    - seq_meth
+    - env_broad_scale
     - isol_growth_condt
+    - compl_score
+    - assembly_name
+    - collection_date
+    - nucl_acid_amp
+    - assembly_qual
+    - geo_loc_name
+    - host_disease_stat
+    - tax_class
+    - samp_taxon_id
+    - lib_vector
     - experimental_factor
+    - project_name
+    - sim_search_meth
+    - ref_biomaterial
+    - compl_software
+    - encoded_traits
+    - host_spec_range
     - associated_resource
     - sop
     slot_usage:
@@ -19667,37 +19415,9 @@ classes:
         recommended: true
       assembly_qual:
         name: assembly_qual
-        description: 'The assembly quality category is based on sets of criteria outlined
-          for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated,
-          contiguous sequence per replicon without gaps or ambiguities with a consensus
-          error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments
-          where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA
-          genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little
-          to no review of assembly other than reporting of standard assembly statistics.
-          Low Quality Draft:Many fragments with little to no review of assembly other
-          than reporting of standard assembly statistics. Assembly statistics include,
-          but are not limited to total assembly size, number of contigs, contig N50/L50,
-          and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous
-          sequence per replicon without gaps or ambiguities, with extensive manual
-          review and editing to annotate putative gene functions and transcriptional
-          units. High-quality draft genome: One or multiple fragments, totaling ≥
-          90% of the expected genome or replicon sequence or predicted complete. Genome
-          fragment(s): One or multiple fragments, totalling < 90% of the expected
-          genome or replicon sequence, or for which no genome size could be estimated'
-        examples:
-        - value: High-quality draft genome
-        string_serialization: '[Finished genome|High-quality draft genome|Medium-quality
-          draft genome|Low-quality draft genome|Genome fragment(s)]'
-        slot_uri: MIXS:0000056
         required: true
       assembly_software:
         name: assembly_software
-        description: Tool(s) used for assembly, including version number and parameters
-        examples:
-        - value: metaSPAdes;3.11.0;kmer set 21,33,55,77,99,121, default parameters
-            otherwise
-        string_serialization: '{software};{version};{parameters}'
-        slot_uri: MIXS:0000058
         required: true
       associated_resource:
         name: associated_resource
@@ -19828,13 +19548,8 @@ classes:
         recommended: true
       samp_collect_device:
         name: samp_collect_device
-        description: The device used to collect an environmental sample. This field
-          accepts terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO).
-          This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094).
-        title: sample collection device
         examples:
         - value: swab, biopsy, niskin bottle, push core, drag swab [GENEPIO:0002713]
-        string_serialization: '{termLabel} [{termID}]|{text}'
         required: false
         recommended: false
       samp_collect_method:
@@ -19848,15 +19563,6 @@ classes:
         string_serialization: '{text}'
         required: false
         recommended: false
-      samp_name:
-        name: samp_name
-        description: A local identifier or name that for the material sample used
-          for extracting nucleic acids, and subsequent sequencing. It can refer either
-          to the original material collected or to any derived sub-samples. It can
-          have any format, but we suggest that you make it concise, unique and consistent
-          within your lab, and as informative as possible. INSDC requires every sample
-          name from a single Submitter to be unique. Use of a globally unique identifier
-          for the field source_mat_id is recommended in addition to sample_name.
       samp_size:
         name: samp_size
         examples:
@@ -19904,63 +19610,63 @@ classes:
     name: MigsEu
     is_a: Checklist
     slots:
-    - nucl_acid_ext
     - samp_mat_process
-    - env_broad_scale
-    - tax_ident
-    - estimated_size
-    - samp_name
-    - env_medium
-    - host_disease_stat
-    - source_mat_id
-    - temp
-    - compl_score
-    - biotic_relationship
-    - collection_date
-    - alt
-    - adapters
-    - pos_cont_type
-    - samp_collect_method
-    - extrachrom_elements
-    - samp_vol_we_dna_ext
-    - lib_screen
+    - number_contig
     - specific_host
-    - assembly_software
+    - neg_cont_type
+    - lib_screen
     - depth
+    - temp
+    - samp_size
+    - samp_collect_device
+    - adapters
+    - lib_size
+    - lib_layout
     - trophic_level
     - env_local_scale
-    - feat_pred
-    - neg_cont_type
-    - assembly_qual
-    - annot
-    - elev
-    - nucl_acid_amp
-    - lib_layout
-    - samp_collect_device
-    - project_name
-    - geo_loc_name
-    - number_contig
-    - seq_meth
-    - ref_biomaterial
-    - lib_size
-    - pathogenicity
-    - sim_search_meth
-    - lib_vector
-    - ploidy
-    - samp_taxon_id
-    - assembly_name
-    - compl_software
-    - subspecf_gen_lin
     - lib_reads_seqd
-    - ref_db
-    - propagation
-    - tax_class
-    - host_spec_range
-    - samp_size
-    - lat_lon
     - num_replicons
+    - pathogenicity
+    - alt
+    - assembly_software
+    - nucl_acid_ext
+    - subspecf_gen_lin
+    - samp_name
+    - pos_cont_type
+    - ref_db
+    - elev
+    - extrachrom_elements
+    - env_medium
+    - samp_vol_we_dna_ext
+    - annot
+    - propagation
+    - feat_pred
+    - lat_lon
+    - tax_ident
+    - estimated_size
+    - samp_collect_method
+    - biotic_relationship
+    - source_mat_id
+    - seq_meth
+    - env_broad_scale
     - isol_growth_condt
+    - ploidy
+    - assembly_name
+    - compl_score
+    - collection_date
+    - nucl_acid_amp
+    - assembly_qual
+    - geo_loc_name
+    - host_disease_stat
+    - tax_class
+    - samp_taxon_id
+    - lib_vector
     - experimental_factor
+    - project_name
+    - sim_search_meth
+    - ref_biomaterial
+    - compl_software
+    - host_spec_range
     - associated_resource
     - sop
     slot_usage:
@@ -19985,37 +19691,9 @@ classes:
         recommended: true
       assembly_qual:
         name: assembly_qual
-        description: 'The assembly quality category is based on sets of criteria outlined
-          for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated,
-          contiguous sequence per replicon without gaps or ambiguities with a consensus
-          error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments
-          where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA
-          genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little
-          to no review of assembly other than reporting of standard assembly statistics.
-          Low Quality Draft:Many fragments with little to no review of assembly other
-          than reporting of standard assembly statistics. Assembly statistics include,
-          but are not limited to total assembly size, number of contigs, contig N50/L50,
-          and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous
-          sequence per replicon without gaps or ambiguities, with extensive manual
-          review and editing to annotate putative gene functions and transcriptional
-          units. High-quality draft genome: One or multiple fragments, totaling ≥
-          90% of the expected genome or replicon sequence or predicted complete. Genome
-          fragment(s): One or multiple fragments, totalling < 90% of the expected
-          genome or replicon sequence, or for which no genome size could be estimated'
-        examples:
-        - value: High-quality draft genome
-        string_serialization: '[Finished genome|High-quality draft genome|Medium-quality
-          draft genome|Low-quality draft genome|Genome fragment(s)]'
-        slot_uri: MIXS:0000056
         required: true
       assembly_software:
         name: assembly_software
-        description: Tool(s) used for assembly, including version number and parameters
-        examples:
-        - value: metaSPAdes;3.11.0;kmer set 21,33,55,77,99,121, default parameters
-            otherwise
-        string_serialization: '{software};{version};{parameters}'
-        slot_uri: MIXS:0000058
         required: true
       associated_resource:
         name: associated_resource
@@ -20151,13 +19829,8 @@ classes:
         recommended: false
       samp_collect_device:
         name: samp_collect_device
-        description: The device used to collect an environmental sample. This field
-          accepts terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO).
-          This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094).
-        title: sample collection device
         examples:
         - value: swab, biopsy, niskin bottle, push core, drag swab [GENEPIO:0002713]
-        string_serialization: '{termLabel} [{termID}]|{text}'
         required: false
         recommended: false
       samp_collect_method:
@@ -20171,15 +19844,6 @@ classes:
         string_serialization: '{text}'
         required: false
         recommended: false
-      samp_name:
-        name: samp_name
-        description: A local identifier or name that for the material sample used
-          for extracting nucleic acids, and subsequent sequencing. It can refer either
-          to the original material collected or to any derived sub-samples. It can
-          have any format, but we suggest that you make it concise, unique and consistent
-          within your lab, and as informative as possible. INSDC requires every sample
-          name from a single Submitter to be unique. Use of a globally unique identifier
-          for the field source_mat_id is recommended in addition to sample_name.
       samp_size:
         name: samp_size
         examples:
@@ -20228,54 +19892,54 @@ classes:
     name: MigsOrg
     is_a: Checklist
     slots:
-    - nucl_acid_ext
     - samp_mat_process
-    - env_broad_scale
+    - number_contig
+    - neg_cont_type
+    - lib_screen
+    - depth
+    - temp
+    - samp_size
+    - samp_collect_device
+    - adapters
+    - lib_size
+    - lib_layout
+    - env_local_scale
+    - lib_reads_seqd
+    - alt
+    - assembly_software
+    - nucl_acid_ext
+    - subspecf_gen_lin
+    - samp_name
+    - pos_cont_type
+    - ref_db
+    - elev
+    - extrachrom_elements
+    - env_medium
+    - samp_vol_we_dna_ext
+    - annot
+    - feat_pred
+    - lat_lon
     - tax_ident
     - estimated_size
-    - samp_name
-    - env_medium
-    - source_mat_id
-    - temp
-    - compl_score
-    - collection_date
-    - alt
-    - tax_class
-    - pos_cont_type
     - samp_collect_method
-    - adapters
-    - samp_vol_we_dna_ext
-    - lib_screen
-    - assembly_software
-    - extrachrom_elements
-    - depth
-    - env_local_scale
-    - feat_pred
-    - neg_cont_type
-    - assembly_qual
-    - annot
-    - elev
-    - nucl_acid_amp
-    - lib_layout
-    - samp_collect_device
-    - project_name
-    - geo_loc_name
-    - number_contig
+    - compl_score
+    - source_mat_id
     - seq_meth
-    - ref_biomaterial
-    - lib_size
-    - sim_search_meth
-    - lib_vector
-    - samp_taxon_id
-    - assembly_name
-    - compl_software
-    - subspecf_gen_lin
-    - lib_reads_seqd
-    - ref_db
-    - samp_size
-    - lat_lon
+    - env_broad_scale
     - isol_growth_condt
+    - assembly_name
+    - collection_date
+    - nucl_acid_amp
+    - assembly_qual
+    - geo_loc_name
+    - tax_class
+    - samp_taxon_id
+    - lib_vector
     - experimental_factor
+    - project_name
+    - sim_search_meth
+    - ref_biomaterial
+    - compl_software
     - associated_resource
     - sop
     slot_usage:
@@ -20300,38 +19964,10 @@ classes:
         recommended: true
       assembly_qual:
         name: assembly_qual
-        description: 'The assembly quality category is based on sets of criteria outlined
-          for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated,
-          contiguous sequence per replicon without gaps or ambiguities with a consensus
-          error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments
-          where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA
-          genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little
-          to no review of assembly other than reporting of standard assembly statistics.
-          Low Quality Draft:Many fragments with little to no review of assembly other
-          than reporting of standard assembly statistics. Assembly statistics include,
-          but are not limited to total assembly size, number of contigs, contig N50/L50,
-          and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous
-          sequence per replicon without gaps or ambiguities, with extensive manual
-          review and editing to annotate putative gene functions and transcriptional
-          units. High-quality draft genome: One or multiple fragments, totaling ≥
-          90% of the expected genome or replicon sequence or predicted complete. Genome
-          fragment(s): One or multiple fragments, totalling < 90% of the expected
-          genome or replicon sequence, or for which no genome size could be estimated'
-        examples:
-        - value: High-quality draft genome
-        string_serialization: '[Finished genome|High-quality draft genome|Medium-quality
-          draft genome|Low-quality draft genome|Genome fragment(s)]'
-        slot_uri: MIXS:0000056
         required: false
         recommended: false
       assembly_software:
         name: assembly_software
-        description: Tool(s) used for assembly, including version number and parameters
-        examples:
-        - value: metaSPAdes;3.11.0;kmer set 21,33,55,77,99,121, default parameters
-            otherwise
-        string_serialization: '{software};{version};{parameters}'
-        slot_uri: MIXS:0000058
         required: true
       associated_resource:
         name: associated_resource
@@ -20432,13 +20068,8 @@ classes:
         recommended: false
       samp_collect_device:
         name: samp_collect_device
-        description: The device used to collect an environmental sample. This field
-          accepts terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO).
-          This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094).
-        title: sample collection device
         examples:
         - value: swab, biopsy, niskin bottle, push core, drag swab [GENEPIO:0002713]
-        string_serialization: '{termLabel} [{termID}]|{text}'
         required: false
         recommended: false
       samp_collect_method:
@@ -20452,15 +20083,6 @@ classes:
         string_serialization: '{text}'
         required: false
         recommended: false
-      samp_name:
-        name: samp_name
-        description: A local identifier or name that for the material sample used
-          for extracting nucleic acids, and subsequent sequencing. It can refer either
-          to the original material collected or to any derived sub-samples. It can
-          have any format, but we suggest that you make it concise, unique and consistent
-          within your lab, and as informative as possible. INSDC requires every sample
-          name from a single Submitter to be unique. Use of a globally unique identifier
-          for the field source_mat_id is recommended in addition to sample_name.
       samp_size:
         name: samp_size
         examples:
@@ -20502,57 +20124,57 @@ classes:
     name: MigsPl
     is_a: Checklist
     slots:
-    - nucl_acid_ext
     - samp_mat_process
-    - env_broad_scale
+    - number_contig
+    - specific_host
+    - neg_cont_type
+    - lib_screen
+    - depth
+    - temp
+    - samp_size
+    - samp_collect_device
+    - adapters
+    - lib_size
+    - lib_layout
+    - env_local_scale
+    - lib_reads_seqd
+    - alt
+    - assembly_software
+    - nucl_acid_ext
+    - subspecf_gen_lin
+    - samp_name
+    - pos_cont_type
+    - ref_db
+    - elev
+    - env_medium
+    - samp_vol_we_dna_ext
+    - annot
+    - propagation
+    - feat_pred
+    - lat_lon
     - tax_ident
     - estimated_size
-    - samp_name
-    - env_medium
-    - source_mat_id
-    - temp
-    - compl_score
-    - encoded_traits
-    - collection_date
-    - alt
-    - tax_class
-    - pos_cont_type
     - samp_collect_method
-    - adapters
-    - samp_vol_we_dna_ext
-    - lib_screen
-    - specific_host
-    - assembly_software
-    - depth
-    - env_local_scale
-    - feat_pred
-    - neg_cont_type
-    - assembly_qual
-    - annot
-    - elev
-    - nucl_acid_amp
-    - lib_layout
-    - samp_collect_device
-    - project_name
-    - geo_loc_name
-    - number_contig
+    - compl_score
+    - source_mat_id
     - seq_meth
-    - ref_biomaterial
-    - lib_size
-    - sim_search_meth
-    - lib_vector
-    - samp_taxon_id
-    - assembly_name
-    - compl_software
-    - subspecf_gen_lin
-    - lib_reads_seqd
-    - ref_db
-    - propagation
-    - host_spec_range
-    - samp_size
-    - lat_lon
+    - env_broad_scale
     - isol_growth_condt
+    - assembly_name
+    - collection_date
+    - nucl_acid_amp
+    - assembly_qual
+    - geo_loc_name
+    - tax_class
+    - samp_taxon_id
+    - lib_vector
     - experimental_factor
+    - project_name
+    - sim_search_meth
+    - ref_biomaterial
+    - compl_software
+    - encoded_traits
+    - host_spec_range
     - associated_resource
     - sop
     slot_usage:
@@ -20577,38 +20199,10 @@ classes:
         recommended: true
       assembly_qual:
         name: assembly_qual
-        description: 'The assembly quality category is based on sets of criteria outlined
-          for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated,
-          contiguous sequence per replicon without gaps or ambiguities with a consensus
-          error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments
-          where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA
-          genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little
-          to no review of assembly other than reporting of standard assembly statistics.
-          Low Quality Draft:Many fragments with little to no review of assembly other
-          than reporting of standard assembly statistics. Assembly statistics include,
-          but are not limited to total assembly size, number of contigs, contig N50/L50,
-          and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous
-          sequence per replicon without gaps or ambiguities, with extensive manual
-          review and editing to annotate putative gene functions and transcriptional
-          units. High-quality draft genome: One or multiple fragments, totaling ≥
-          90% of the expected genome or replicon sequence or predicted complete. Genome
-          fragment(s): One or multiple fragments, totalling < 90% of the expected
-          genome or replicon sequence, or for which no genome size could be estimated'
-        examples:
-        - value: High-quality draft genome
-        string_serialization: '[Finished genome|High-quality draft genome|Medium-quality
-          draft genome|Low-quality draft genome|Genome fragment(s)]'
-        slot_uri: MIXS:0000056
         required: false
         recommended: false
       assembly_software:
         name: assembly_software
-        description: Tool(s) used for assembly, including version number and parameters
-        examples:
-        - value: metaSPAdes;3.11.0;kmer set 21,33,55,77,99,121, default parameters
-            otherwise
-        string_serialization: '{software};{version};{parameters}'
-        slot_uri: MIXS:0000058
         required: true
       associated_resource:
         name: associated_resource
@@ -20716,13 +20310,8 @@ classes:
         recommended: false
       samp_collect_device:
         name: samp_collect_device
-        description: The device used to collect an environmental sample. This field
-          accepts terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO).
-          This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094).
-        title: sample collection device
         examples:
         - value: swab, biopsy, niskin bottle, push core, drag swab [GENEPIO:0002713]
-        string_serialization: '{termLabel} [{termID}]|{text}'
         required: false
         recommended: false
       samp_collect_method:
@@ -20736,15 +20325,6 @@ classes:
         string_serialization: '{text}'
         required: false
         recommended: false
-      samp_name:
-        name: samp_name
-        description: A local identifier or name that for the material sample used
-          for extracting nucleic acids, and subsequent sequencing. It can refer either
-          to the original material collected or to any derived sub-samples. It can
-          have any format, but we suggest that you make it concise, unique and consistent
-          within your lab, and as informative as possible. INSDC requires every sample
-          name from a single Submitter to be unique. Use of a globally unique identifier
-          for the field source_mat_id is recommended in addition to sample_name.
       samp_size:
         name: samp_size
         examples:
@@ -20789,62 +20369,62 @@ classes:
     name: MigsVi
     is_a: Checklist
     slots:
-    - nucl_acid_ext
     - samp_mat_process
-    - env_broad_scale
+    - number_contig
+    - specific_host
+    - neg_cont_type
+    - lib_screen
+    - depth
+    - temp
+    - samp_size
+    - samp_collect_device
+    - adapters
+    - lib_size
+    - lib_layout
+    - env_local_scale
+    - lib_reads_seqd
+    - num_replicons
+    - pathogenicity
+    - alt
+    - assembly_software
+    - nucl_acid_ext
+    - subspecf_gen_lin
+    - samp_name
+    - pos_cont_type
+    - ref_db
+    - elev
+    - env_medium
+    - samp_vol_we_dna_ext
+    - annot
+    - propagation
+    - feat_pred
+    - lat_lon
     - tax_ident
     - estimated_size
-    - samp_name
-    - env_medium
-    - host_disease_stat
-    - source_mat_id
-    - temp
-    - compl_score
-    - biotic_relationship
-    - encoded_traits
-    - collection_date
     - samp_collect_method
-    - tax_class
-    - pos_cont_type
-    - alt
-    - adapters
-    - samp_vol_we_dna_ext
-    - lib_screen
-    - specific_host
-    - assembly_software
-    - virus_enrich_appr
-    - depth
-    - env_local_scale
-    - feat_pred
-    - neg_cont_type
-    - assembly_qual
-    - annot
-    - elev
-    - nucl_acid_amp
-    - lib_layout
-    - samp_collect_device
-    - project_name
-    - geo_loc_name
-    - number_contig
+    - biotic_relationship
+    - source_mat_id
     - seq_meth
-    - ref_biomaterial
-    - lib_size
-    - pathogenicity
-    - sim_search_meth
-    - lib_vector
-    - samp_taxon_id
-    - assembly_name
-    - compl_software
-    - subspecf_gen_lin
-    - lib_reads_seqd
-    - ref_db
-    - propagation
-    - host_spec_range
-    - samp_size
-    - lat_lon
-    - num_replicons
+    - env_broad_scale
     - isol_growth_condt
+    - compl_score
+    - assembly_name
+    - collection_date
+    - nucl_acid_amp
+    - assembly_qual
+    - geo_loc_name
+    - virus_enrich_appr
+    - host_disease_stat
+    - tax_class
+    - samp_taxon_id
+    - lib_vector
     - experimental_factor
+    - project_name
+    - sim_search_meth
+    - ref_biomaterial
+    - compl_software
+    - encoded_traits
+    - host_spec_range
     - associated_resource
     - sop
     slot_usage:
@@ -20869,38 +20449,10 @@ classes:
         recommended: true
       assembly_qual:
         name: assembly_qual
-        description: 'The assembly quality category is based on sets of criteria outlined
-          for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated,
-          contiguous sequence per replicon without gaps or ambiguities with a consensus
-          error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments
-          where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA
-          genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little
-          to no review of assembly other than reporting of standard assembly statistics.
-          Low Quality Draft:Many fragments with little to no review of assembly other
-          than reporting of standard assembly statistics. Assembly statistics include,
-          but are not limited to total assembly size, number of contigs, contig N50/L50,
-          and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous
-          sequence per replicon without gaps or ambiguities, with extensive manual
-          review and editing to annotate putative gene functions and transcriptional
-          units. High-quality draft genome: One or multiple fragments, totaling ≥
-          90% of the expected genome or replicon sequence or predicted complete. Genome
-          fragment(s): One or multiple fragments, totalling < 90% of the expected
-          genome or replicon sequence, or for which no genome size could be estimated'
-        examples:
-        - value: High-quality draft genome
-        string_serialization: '[Finished genome|High-quality draft genome|Medium-quality
-          draft genome|Low-quality draft genome|Genome fragment(s)]'
-        slot_uri: MIXS:0000056
         required: false
         recommended: false
       assembly_software:
         name: assembly_software
-        description: Tool(s) used for assembly, including version number and parameters
-        examples:
-        - value: metaSPAdes;3.11.0;kmer set 21,33,55,77,99,121, default parameters
-            otherwise
-        string_serialization: '{software};{version};{parameters}'
-        slot_uri: MIXS:0000058
         required: true
       associated_resource:
         name: associated_resource
@@ -21029,13 +20581,8 @@ classes:
         recommended: false
       samp_collect_device:
         name: samp_collect_device
-        description: The device used to collect an environmental sample. This field
-          accepts terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO).
-          This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094).
-        title: sample collection device
         examples:
         - value: swab, biopsy, niskin bottle, push core, drag swab [GENEPIO:0002713]
-        string_serialization: '{termLabel} [{termID}]|{text}'
         required: false
         recommended: false
       samp_collect_method:
@@ -21049,15 +20596,6 @@ classes:
         string_serialization: '{text}'
         required: false
         recommended: false
-      samp_name:
-        name: samp_name
-        description: A local identifier or name that for the material sample used
-          for extracting nucleic acids, and subsequent sequencing. It can refer either
-          to the original material collected or to any derived sub-samples. It can
-          have any format, but we suggest that you make it concise, unique and consistent
-          within your lab, and as informative as possible. INSDC requires every sample
-          name from a single Submitter to be unique. Use of a globally unique identifier
-          for the field source_mat_id is recommended in addition to sample_name.
       samp_size:
         name: samp_size
         examples:
@@ -21105,66 +20643,66 @@ classes:
     name: Mimag
     is_a: Checklist
     slots:
-    - nucl_acid_ext
     - samp_mat_process
-    - env_broad_scale
-    - tax_ident
-    - samp_name
-    - env_medium
-    - mag_cov_software
-    - source_mat_id
-    - temp
-    - compl_score
-    - decontam_software
-    - tax_class
-    - samp_collect_method
-    - collection_date
-    - pos_cont_type
-    - alt
-    - adapters
-    - samp_vol_we_dna_ext
-    - lib_screen
-    - assembly_software
-    - trnas
-    - depth
-    - contam_screen_param
-    - env_local_scale
-    - feat_pred
-    - neg_cont_type
-    - assembly_qual
-    - 16s_recover
-    - annot
-    - 16s_recover_software
-    - trna_ext_software
-    - elev
-    - lib_layout
-    - nucl_acid_amp
-    - samp_collect_device
-    - reassembly_bin
-    - project_name
-    - geo_loc_name
-    - bin_param
     - number_contig
-    - seq_meth
-    - ref_biomaterial
-    - lib_size
-    - bin_software
-    - sim_search_meth
-    - lib_vector
-    - contam_screen_input
-    - samp_taxon_id
-    - assembly_name
-    - compl_software
-    - lib_reads_seqd
-    - ref_db
-    - size_frac
+    - neg_cont_type
+    - lib_screen
+    - decontam_software
+    - depth
+    - reassembly_bin
+    - temp
     - samp_size
-    - contam_score
     - rel_to_oxygen
+    - bin_param
+    - samp_collect_device
+    - lib_size
+    - adapters
+    - lib_layout
+    - contam_score
+    - env_local_scale
+    - lib_reads_seqd
+    - trna_ext_software
+    - trnas
+    - alt
+    - assembly_software
+    - nucl_acid_ext
+    - samp_name
+    - pos_cont_type
+    - ref_db
+    - elev
+    - env_medium
+    - samp_vol_we_dna_ext
+    - annot
+    - feat_pred
     - lat_lon
-    - compl_appr
+    - contam_screen_input
     - mid
+    - tax_ident
+    - samp_collect_method
+    - compl_score
+    - source_mat_id
+    - seq_meth
+    - env_broad_scale
+    - 16s_recover
+    - mag_cov_software
+    - assembly_name
+    - 16s_recover_software
+    - collection_date
+    - nucl_acid_amp
+    - assembly_qual
+    - geo_loc_name
+    - tax_class
+    - samp_taxon_id
+    - bin_software
+    - lib_vector
     - experimental_factor
+    - size_frac
+    - project_name
+    - sim_search_meth
+    - ref_biomaterial
+    - compl_software
+    - contam_screen_param
+    - compl_appr
     - associated_resource
     - sop
     slot_usage:
@@ -21198,37 +20736,9 @@ classes:
         recommended: true
       assembly_qual:
         name: assembly_qual
-        description: 'The assembly quality category is based on sets of criteria outlined
-          for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated,
-          contiguous sequence per replicon without gaps or ambiguities with a consensus
-          error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments
-          where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA
-          genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little
-          to no review of assembly other than reporting of standard assembly statistics.
-          Low Quality Draft:Many fragments with little to no review of assembly other
-          than reporting of standard assembly statistics. Assembly statistics include,
-          but are not limited to total assembly size, number of contigs, contig N50/L50,
-          and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous
-          sequence per replicon without gaps or ambiguities, with extensive manual
-          review and editing to annotate putative gene functions and transcriptional
-          units. High-quality draft genome: One or multiple fragments, totaling ≥
-          90% of the expected genome or replicon sequence or predicted complete. Genome
-          fragment(s): One or multiple fragments, totalling < 90% of the expected
-          genome or replicon sequence, or for which no genome size could be estimated'
-        examples:
-        - value: High-quality draft genome
-        string_serialization: '[Finished genome|High-quality draft genome|Medium-quality
-          draft genome|Low-quality draft genome|Genome fragment(s)]'
-        slot_uri: MIXS:0000056
         required: true
       assembly_software:
         name: assembly_software
-        description: Tool(s) used for assembly, including version number and parameters
-        examples:
-        - value: metaSPAdes;3.11.0;kmer set 21,33,55,77,99,121, default parameters
-            otherwise
-        string_serialization: '{software};{version};{parameters}'
-        slot_uri: MIXS:0000058
         required: true
       associated_resource:
         name: associated_resource
@@ -21350,13 +20860,8 @@ classes:
         recommended: false
       samp_collect_device:
         name: samp_collect_device
-        description: The device used to collect an environmental sample. This field
-          accepts terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO).
-          This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094).
-        title: sample collection device
         examples:
         - value: swab, biopsy, niskin bottle, push core, drag swab [GENEPIO:0002713]
-        string_serialization: '{termLabel} [{termID}]|{text}'
         recommended: true
       samp_collect_method:
         name: samp_collect_method
@@ -21367,15 +20872,6 @@ classes:
         name: samp_mat_process
         string_serialization: '{text}'
         recommended: true
-      samp_name:
-        name: samp_name
-        description: A local identifier or name that for the material sample used
-          for extracting nucleic acids, and subsequent sequencing. It can refer either
-          to the original material collected or to any derived sub-samples. It can
-          have any format, but we suggest that you make it concise, unique and consistent
-          within your lab, and as informative as possible. INSDC requires every sample
-          name from a single Submitter to be unique. Use of a globally unique identifier
-          for the field source_mat_id is recommended in addition to sample_name.
       samp_size:
         name: samp_size
         examples:
@@ -21425,43 +20921,43 @@ classes:
     name: MimarksC
     is_a: Checklist
     slots:
-    - nucl_acid_ext
     - samp_mat_process
-    - env_broad_scale
-    - samp_name
-    - env_medium
-    - source_mat_id
-    - temp
-    - pcr_cond
-    - biotic_relationship
-    - collection_date
-    - alt
-    - samp_collect_method
-    - pos_cont_type
-    - extrachrom_elements
-    - samp_vol_we_dna_ext
-    - depth
-    - trophic_level
-    - env_local_scale
     - neg_cont_type
-    - elev
-    - nucl_acid_amp
-    - samp_collect_device
-    - target_gene
-    - project_name
-    - geo_loc_name
-    - seq_meth
-    - seq_quality_check
-    - samp_taxon_id
-    - subspecf_gen_lin
-    - chimera_check
+    - depth
+    - temp
     - samp_size
     - rel_to_oxygen
-    - target_subfragment
-    - lat_lon
+    - samp_collect_device
+    - pcr_cond
     - pcr_primers
+    - trophic_level
+    - env_local_scale
+    - seq_quality_check
+    - alt
+    - nucl_acid_ext
+    - subspecf_gen_lin
+    - samp_name
+    - pos_cont_type
+    - elev
+    - extrachrom_elements
+    - chimera_check
+    - target_subfragment
+    - env_medium
+    - samp_vol_we_dna_ext
+    - lat_lon
+    - samp_collect_method
+    - biotic_relationship
+    - source_mat_id
+    - seq_meth
+    - env_broad_scale
     - isol_growth_condt
+    - target_gene
+    - collection_date
+    - nucl_acid_amp
+    - geo_loc_name
+    - samp_taxon_id
     - experimental_factor
+    - project_name
     - associated_resource
     - sop
     slot_usage:
@@ -21482,8 +20978,6 @@ classes:
         recommended: true
       chimera_check:
         name: chimera_check
-        title: chimera check software
-        string_serialization: '{software};{version};{parameters}'
         recommended: true
       collection_date:
         name: collection_date
@@ -21547,13 +21041,8 @@ classes:
         recommended: true
       samp_collect_device:
         name: samp_collect_device
-        description: The device used to collect an environmental sample. This field
-          accepts terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO).
-          This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094).
-        title: sample collection device
         examples:
         - value: swab, biopsy, niskin bottle, push core, drag swab [GENEPIO:0002713]
-        string_serialization: '{termLabel} [{termID}]|{text}'
         required: false
         recommended: false
       samp_collect_method:
@@ -21566,15 +21055,6 @@ classes:
         name: samp_mat_process
         string_serialization: '{text}'
         recommended: true
-      samp_name:
-        name: samp_name
-        description: A local identifier or name that for the material sample used
-          for extracting nucleic acids, and subsequent sequencing. It can refer either
-          to the original material collected or to any derived sub-samples. It can
-          have any format, but we suggest that you make it concise, unique and consistent
-          within your lab, and as informative as possible. INSDC requires every sample
-          name from a single Submitter to be unique. Use of a globally unique identifier
-          for the field source_mat_id is recommended in addition to sample_name.
       samp_size:
         name: samp_size
         examples:
@@ -21617,47 +21097,47 @@ classes:
     name: MimarksS
     is_a: Checklist
     slots:
-    - nucl_acid_ext
     - samp_mat_process
-    - env_broad_scale
-    - samp_name
-    - env_medium
-    - source_mat_id
-    - temp
-    - pcr_cond
-    - collection_date
-    - samp_collect_method
-    - alt
-    - pos_cont_type
-    - adapters
-    - samp_vol_we_dna_ext
-    - lib_screen
-    - assembly_software
-    - depth
-    - env_local_scale
     - neg_cont_type
-    - elev
-    - nucl_acid_amp
-    - lib_layout
-    - samp_collect_device
-    - target_gene
-    - project_name
-    - geo_loc_name
-    - seq_meth
-    - seq_quality_check
-    - lib_size
-    - lib_vector
-    - samp_taxon_id
-    - lib_reads_seqd
-    - chimera_check
-    - size_frac
+    - lib_screen
+    - depth
+    - temp
     - samp_size
     - rel_to_oxygen
-    - target_subfragment
-    - lat_lon
+    - samp_collect_device
+    - pcr_cond
+    - adapters
+    - lib_size
+    - lib_layout
     - pcr_primers
+    - env_local_scale
+    - lib_reads_seqd
+    - seq_quality_check
+    - alt
+    - assembly_software
+    - nucl_acid_ext
+    - samp_name
+    - pos_cont_type
+    - elev
+    - chimera_check
+    - target_subfragment
+    - env_medium
+    - samp_vol_we_dna_ext
+    - lat_lon
     - mid
+    - samp_collect_method
+    - source_mat_id
+    - seq_meth
+    - env_broad_scale
+    - target_gene
+    - collection_date
+    - nucl_acid_amp
+    - geo_loc_name
+    - samp_taxon_id
+    - lib_vector
     - experimental_factor
+    - size_frac
+    - project_name
     - associated_resource
     - sop
     slot_usage:
@@ -21676,20 +21156,12 @@ classes:
         recommended: true
       assembly_software:
         name: assembly_software
-        description: Tool(s) used for assembly, including version number and parameters
-        examples:
-        - value: metaSPAdes;3.11.0;kmer set 21,33,55,77,99,121, default parameters
-            otherwise
-        string_serialization: '{software};{version};{parameters}'
-        slot_uri: MIXS:0000058
         recommended: true
       associated_resource:
         name: associated_resource
         string_serialization: '{PMID} | {DOI} | {URL}'
       chimera_check:
         name: chimera_check
-        title: chimera check software
-        string_serialization: '{software};{version};{parameters}'
         recommended: true
       collection_date:
         name: collection_date
@@ -21763,13 +21235,8 @@ classes:
         recommended: false
       samp_collect_device:
         name: samp_collect_device
-        description: The device used to collect an environmental sample. This field
-          accepts terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO).
-          This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094).
-        title: sample collection device
         examples:
         - value: swab, biopsy, niskin bottle, push core, drag swab [GENEPIO:0002713]
-        string_serialization: '{termLabel} [{termID}]|{text}'
         recommended: true
       samp_collect_method:
         name: samp_collect_method
@@ -21780,15 +21247,6 @@ classes:
         name: samp_mat_process
         string_serialization: '{text}'
         recommended: true
-      samp_name:
-        name: samp_name
-        description: A local identifier or name that for the material sample used
-          for extracting nucleic acids, and subsequent sequencing. It can refer either
-          to the original material collected or to any derived sub-samples. It can
-          have any format, but we suggest that you make it concise, unique and consistent
-          within your lab, and as informative as possible. INSDC requires every sample
-          name from a single Submitter to be unique. Use of a globally unique identifier
-          for the field source_mat_id is recommended in addition to sample_name.
       samp_size:
         name: samp_size
         examples:
@@ -21828,50 +21286,50 @@ classes:
     name: Mims
     is_a: Checklist
     slots:
-    - nucl_acid_ext
     - samp_mat_process
-    - env_broad_scale
-    - samp_name
-    - env_medium
-    - source_mat_id
-    - temp
-    - collection_date
-    - samp_collect_method
-    - tax_class
-    - pos_cont_type
-    - alt
-    - adapters
-    - samp_vol_we_dna_ext
-    - lib_screen
-    - assembly_software
-    - depth
-    - env_local_scale
-    - feat_pred
-    - neg_cont_type
-    - assembly_qual
-    - annot
-    - lib_layout
-    - elev
-    - nucl_acid_amp
-    - samp_collect_device
-    - project_name
-    - geo_loc_name
     - number_contig
-    - seq_meth
-    - ref_biomaterial
-    - lib_size
-    - sim_search_meth
-    - lib_vector
-    - samp_taxon_id
-    - assembly_name
-    - lib_reads_seqd
-    - ref_db
-    - size_frac
+    - neg_cont_type
+    - lib_screen
+    - depth
+    - temp
     - samp_size
     - rel_to_oxygen
+    - samp_collect_device
+    - lib_size
+    - adapters
+    - lib_layout
+    - env_local_scale
+    - lib_reads_seqd
+    - alt
+    - assembly_software
+    - nucl_acid_ext
+    - samp_name
+    - pos_cont_type
+    - ref_db
+    - elev
+    - env_medium
+    - samp_vol_we_dna_ext
+    - annot
+    - feat_pred
     - lat_lon
     - mid
+    - samp_collect_method
+    - source_mat_id
+    - seq_meth
+    - env_broad_scale
+    - assembly_name
+    - collection_date
+    - nucl_acid_amp
+    - assembly_qual
+    - geo_loc_name
+    - tax_class
+    - samp_taxon_id
+    - lib_vector
     - experimental_factor
+    - size_frac
+    - project_name
+    - sim_search_meth
+    - ref_biomaterial
     - associated_resource
     - sop
     slot_usage:
@@ -21896,37 +21354,9 @@ classes:
         recommended: true
       assembly_qual:
         name: assembly_qual
-        description: 'The assembly quality category is based on sets of criteria outlined
-          for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated,
-          contiguous sequence per replicon without gaps or ambiguities with a consensus
-          error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments
-          where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA
-          genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little
-          to no review of assembly other than reporting of standard assembly statistics.
-          Low Quality Draft:Many fragments with little to no review of assembly other
-          than reporting of standard assembly statistics. Assembly statistics include,
-          but are not limited to total assembly size, number of contigs, contig N50/L50,
-          and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous
-          sequence per replicon without gaps or ambiguities, with extensive manual
-          review and editing to annotate putative gene functions and transcriptional
-          units. High-quality draft genome: One or multiple fragments, totaling ≥
-          90% of the expected genome or replicon sequence or predicted complete. Genome
-          fragment(s): One or multiple fragments, totalling < 90% of the expected
-          genome or replicon sequence, or for which no genome size could be estimated'
-        examples:
-        - value: High-quality draft genome
-        string_serialization: '[Finished genome|High-quality draft genome|Medium-quality
-          draft genome|Low-quality draft genome|Genome fragment(s)]'
-        slot_uri: MIXS:0000056
         recommended: true
       assembly_software:
         name: assembly_software
-        description: Tool(s) used for assembly, including version number and parameters
-        examples:
-        - value: metaSPAdes;3.11.0;kmer set 21,33,55,77,99,121, default parameters
-            otherwise
-        string_serialization: '{software};{version};{parameters}'
-        slot_uri: MIXS:0000058
         recommended: true
       associated_resource:
         name: associated_resource
@@ -22008,13 +21438,8 @@ classes:
         recommended: false
       samp_collect_device:
         name: samp_collect_device
-        description: The device used to collect an environmental sample. This field
-          accepts terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO).
-          This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094).
-        title: sample collection device
         examples:
         - value: swab, biopsy, niskin bottle, push core, drag swab [GENEPIO:0002713]
-        string_serialization: '{termLabel} [{termID}]|{text}'
         recommended: true
       samp_collect_method:
         name: samp_collect_method
@@ -22025,15 +21450,6 @@ classes:
         name: samp_mat_process
         string_serialization: '{text}'
         recommended: true
-      samp_name:
-        name: samp_name
-        description: A local identifier or name that for the material sample used
-          for extracting nucleic acids, and subsequent sequencing. It can refer either
-          to the original material collected or to any derived sub-samples. It can
-          have any format, but we suggest that you make it concise, unique and consistent
-          within your lab, and as informative as possible. INSDC requires every sample
-          name from a single Submitter to be unique. Use of a globally unique identifier
-          for the field source_mat_id is recommended in addition to sample_name.
       samp_size:
         name: samp_size
         examples:
@@ -22072,67 +21488,67 @@ classes:
     name: Misag
     is_a: Checklist
     slots:
-    - nucl_acid_ext
     - samp_mat_process
-    - env_broad_scale
     - sc_lysis_approach
-    - tax_ident
-    - sc_lysis_method
-    - samp_name
-    - env_medium
-    - source_mat_id
-    - temp
-    - compl_score
-    - decontam_software
-    - wga_amp_appr
-    - samp_collect_method
-    - collection_date
-    - pos_cont_type
-    - tax_class
-    - alt
-    - adapters
-    - samp_vol_we_dna_ext
-    - lib_screen
-    - assembly_software
-    - trnas
-    - depth
-    - contam_screen_param
-    - env_local_scale
-    - feat_pred
-    - neg_cont_type
-    - assembly_qual
-    - 16s_recover
-    - annot
-    - trna_ext_software
-    - elev
-    - lib_layout
-    - nucl_acid_amp
-    - samp_collect_device
-    - project_name
-    - geo_loc_name
-    - compl_appr
-    - wga_amp_kit
     - number_contig
-    - sort_tech
-    - seq_meth
-    - ref_biomaterial
-    - lib_size
-    - sim_search_meth
-    - lib_vector
-    - contam_screen_input
-    - samp_taxon_id
-    - assembly_name
-    - compl_software
-    - lib_reads_seqd
-    - ref_db
-    - size_frac
+    - neg_cont_type
+    - lib_screen
+    - decontam_software
+    - depth
+    - temp
     - samp_size
-    - contam_score
     - rel_to_oxygen
+    - samp_collect_device
+    - adapters
+    - lib_size
+    - lib_layout
+    - contam_score
+    - env_local_scale
+    - lib_reads_seqd
+    - trna_ext_software
+    - trnas
+    - alt
+    - assembly_software
+    - nucl_acid_ext
+    - samp_name
+    - pos_cont_type
+    - ref_db
+    - elev
+    - wga_amp_kit
+    - env_medium
+    - samp_vol_we_dna_ext
+    - annot
+    - feat_pred
     - lat_lon
-    - 16s_recover_software
+    - contam_screen_input
     - mid
+    - tax_ident
+    - samp_collect_method
+    - compl_score
+    - source_mat_id
+    - seq_meth
+    - env_broad_scale
+    - 16s_recover
+    - sc_lysis_method
+    - assembly_name
+    - wga_amp_appr
+    - 16s_recover_software
+    - collection_date
+    - nucl_acid_amp
+    - assembly_qual
+    - geo_loc_name
+    - tax_class
+    - samp_taxon_id
+    - lib_vector
     - experimental_factor
+    - size_frac
+    - project_name
+    - sort_tech
+    - sim_search_meth
+    - ref_biomaterial
+    - compl_software
+    - contam_screen_param
+    - compl_appr
     - associated_resource
     - sop
     slot_usage:
@@ -22166,37 +21582,9 @@ classes:
         recommended: true
       assembly_qual:
         name: assembly_qual
-        description: 'The assembly quality category is based on sets of criteria outlined
-          for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated,
-          contiguous sequence per replicon without gaps or ambiguities with a consensus
-          error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments
-          where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA
-          genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little
-          to no review of assembly other than reporting of standard assembly statistics.
-          Low Quality Draft:Many fragments with little to no review of assembly other
-          than reporting of standard assembly statistics. Assembly statistics include,
-          but are not limited to total assembly size, number of contigs, contig N50/L50,
-          and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous
-          sequence per replicon without gaps or ambiguities, with extensive manual
-          review and editing to annotate putative gene functions and transcriptional
-          units. High-quality draft genome: One or multiple fragments, totaling ≥
-          90% of the expected genome or replicon sequence or predicted complete. Genome
-          fragment(s): One or multiple fragments, totalling < 90% of the expected
-          genome or replicon sequence, or for which no genome size could be estimated'
-        examples:
-        - value: High-quality draft genome
-        string_serialization: '[Finished genome|High-quality draft genome|Medium-quality
-          draft genome|Low-quality draft genome|Genome fragment(s)]'
-        slot_uri: MIXS:0000056
         required: true
       assembly_software:
         name: assembly_software
-        description: Tool(s) used for assembly, including version number and parameters
-        examples:
-        - value: metaSPAdes;3.11.0;kmer set 21,33,55,77,99,121, default parameters
-            otherwise
-        string_serialization: '{software};{version};{parameters}'
-        slot_uri: MIXS:0000058
         required: true
       associated_resource:
         name: associated_resource
@@ -22304,13 +21692,8 @@ classes:
         recommended: false
       samp_collect_device:
         name: samp_collect_device
-        description: The device used to collect an environmental sample. This field
-          accepts terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO).
-          This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094).
-        title: sample collection device
         examples:
         - value: swab, biopsy, niskin bottle, push core, drag swab [GENEPIO:0002713]
-        string_serialization: '{termLabel} [{termID}]|{text}'
         recommended: true
       samp_collect_method:
         name: samp_collect_method
@@ -22321,15 +21704,6 @@ classes:
         name: samp_mat_process
         string_serialization: '{text}'
         recommended: true
-      samp_name:
-        name: samp_name
-        description: A local identifier or name that for the material sample used
-          for extracting nucleic acids, and subsequent sequencing. It can refer either
-          to the original material collected or to any derived sub-samples. It can
-          have any format, but we suggest that you make it concise, unique and consistent
-          within your lab, and as informative as possible. INSDC requires every sample
-          name from a single Submitter to be unique. Use of a globally unique identifier
-          for the field source_mat_id is recommended in addition to sample_name.
       samp_size:
         name: samp_size
         examples:
@@ -22531,15 +21905,6 @@ classes:
       salinity:
         name: salinity
         multivalued: false
-      samp_name:
-        name: samp_name
-        description: A local identifier or name that for the material sample used
-          for extracting nucleic acids, and subsequent sequencing. It can refer either
-          to the original material collected or to any derived sub-samples. It can
-          have any format, but we suggest that you make it concise, unique and consistent
-          within your lab, and as informative as possible. INSDC requires every sample
-          name from a single Submitter to be unique. Use of a globally unique identifier
-          for the field source_mat_id is recommended in addition to sample_name.
       samp_store_dur:
         name: samp_store_dur
         description: Duration for which the sample was stored
@@ -22577,63 +21942,63 @@ classes:
     name: Miuvig
     is_a: Checklist
     slots:
-    - nucl_acid_ext
     - samp_mat_process
-    - env_broad_scale
-    - tax_ident
-    - estimated_size
-    - samp_name
-    - env_medium
-    - host_disease_stat
-    - source_mat_id
-    - temp
-    - compl_score
-    - biotic_relationship
-    - tax_class
-    - samp_collect_method
-    - collection_date
-    - pos_cont_type
-    - alt
-    - adapters
-    - samp_vol_we_dna_ext
-    - lib_screen
-    - specific_host
-    - assembly_software
-    - trnas
-    - virus_enrich_appr
-    - depth
-    - env_local_scale
-    - feat_pred
-    - neg_cont_type
-    - assembly_qual
-    - annot
-    - trna_ext_software
-    - elev
-    - nucl_acid_amp
-    - lib_layout
-    - samp_collect_device
-    - project_name
-    - geo_loc_name
-    - number_contig
-    - seq_meth
-    - ref_biomaterial
-    - lib_size
-    - pathogenicity
-    - sim_search_meth
-    - lib_vector
-    - samp_taxon_id
-    - assembly_name
-    - compl_software
-    - lib_reads_seqd
-    - ref_db
-    - size_frac
     - host_spec_range
+    - number_contig
+    - specific_host
+    - neg_cont_type
+    - lib_screen
+    - depth
+    - temp
     - samp_size
-    - source_uvig
+    - samp_collect_device
+    - lib_size
+    - adapters
+    - lib_layout
+    - env_local_scale
+    - lib_reads_seqd
+    - trna_ext_software
+    - trnas
+    - pathogenicity
+    - alt
+    - assembly_software
+    - nucl_acid_ext
+    - samp_name
+    - pos_cont_type
+    - ref_db
+    - elev
+    - env_medium
+    - samp_vol_we_dna_ext
+    - annot
+    - feat_pred
     - lat_lon
-    - compl_appr
     - mid
+    - estimated_size
+    - tax_ident
+    - samp_collect_method
+    - biotic_relationship
+    - source_mat_id
+    - seq_meth
+    - env_broad_scale
+    - source_uvig
+    - compl_score
+    - assembly_name
+    - collection_date
+    - nucl_acid_amp
+    - assembly_qual
+    - geo_loc_name
+    - virus_enrich_appr
+    - host_disease_stat
+    - tax_class
+    - samp_taxon_id
+    - lib_vector
     - experimental_factor
+    - size_frac
+    - project_name
+    - sim_search_meth
+    - ref_biomaterial
+    - compl_software
+    - compl_appr
     - sort_tech
     - sc_lysis_approach
     - sc_lysis_method
@@ -22677,37 +22042,9 @@ classes:
         recommended: true
       assembly_qual:
         name: assembly_qual
-        description: 'The assembly quality category is based on sets of criteria outlined
-          for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated,
-          contiguous sequence per replicon without gaps or ambiguities with a consensus
-          error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments
-          where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA
-          genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little
-          to no review of assembly other than reporting of standard assembly statistics.
-          Low Quality Draft:Many fragments with little to no review of assembly other
-          than reporting of standard assembly statistics. Assembly statistics include,
-          but are not limited to total assembly size, number of contigs, contig N50/L50,
-          and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous
-          sequence per replicon without gaps or ambiguities, with extensive manual
-          review and editing to annotate putative gene functions and transcriptional
-          units. High-quality draft genome: One or multiple fragments, totaling ≥
-          90% of the expected genome or replicon sequence or predicted complete. Genome
-          fragment(s): One or multiple fragments, totalling < 90% of the expected
-          genome or replicon sequence, or for which no genome size could be estimated'
-        examples:
-        - value: High-quality draft genome
-        string_serialization: '[Finished genome|High-quality draft genome|Medium-quality
-          draft genome|Low-quality draft genome|Genome fragment(s)]'
-        slot_uri: MIXS:0000056
         required: true
       assembly_software:
         name: assembly_software
-        description: Tool(s) used for assembly, including version number and parameters
-        examples:
-        - value: metaSPAdes;3.11.0;kmer set 21,33,55,77,99,121, default parameters
-            otherwise
-        string_serialization: '{software};{version};{parameters}'
-        slot_uri: MIXS:0000058
         required: true
       associated_resource:
         name: associated_resource
@@ -22858,13 +22195,8 @@ classes:
         recommended: true
       samp_collect_device:
         name: samp_collect_device
-        description: The device used to collect an environmental sample. This field
-          accepts terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO).
-          This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094).
-        title: sample collection device
         examples:
         - value: swab, biopsy, niskin bottle, push core, drag swab [GENEPIO:0002713]
-        string_serialization: '{termLabel} [{termID}]|{text}'
         recommended: true
       samp_collect_method:
         name: samp_collect_method
@@ -22875,15 +22207,6 @@ classes:
         name: samp_mat_process
         string_serialization: '{text}'
         recommended: true
-      samp_name:
-        name: samp_name
-        description: A local identifier or name that for the material sample used
-          for extracting nucleic acids, and subsequent sequencing. It can refer either
-          to the original material collected or to any derived sub-samples. It can
-          have any format, but we suggest that you make it concise, unique and consistent
-          within your lab, and as informative as possible. INSDC requires every sample
-          name from a single Submitter to be unique. Use of a globally unique identifier
-          for the field source_mat_id is recommended in addition to sample_name.
       samp_size:
         name: samp_size
         examples:
@@ -23233,15 +22556,6 @@ classes:
         string_serialization: '{text};{float} {unit};{Rn/start_time/end_time/duration}'
         required: false
         recommended: false
-      samp_name:
-        name: samp_name
-        description: A local identifier or name that for the material sample used
-          for extracting nucleic acids, and subsequent sequencing. It can refer either
-          to the original material collected or to any derived sub-samples. It can
-          have any format, but we suggest that you make it concise, unique and consistent
-          within your lab, and as informative as possible. INSDC requires every sample
-          name from a single Submitter to be unique. Use of a globally unique identifier
-          for the field source_mat_id is recommended in addition to sample_name.
       samp_store_dur:
         name: samp_store_dur
         description: Duration for which the sample was stored
@@ -23456,15 +22770,6 @@ classes:
       salinity:
         name: salinity
         multivalued: false
-      samp_name:
-        name: samp_name
-        description: A local identifier or name that for the material sample used
-          for extracting nucleic acids, and subsequent sequencing. It can refer either
-          to the original material collected or to any derived sub-samples. It can
-          have any format, but we suggest that you make it concise, unique and consistent
-          within your lab, and as informative as possible. INSDC requires every sample
-          name from a single Submitter to be unique. Use of a globally unique identifier
-          for the field source_mat_id is recommended in addition to sample_name.
       samp_store_dur:
         name: samp_store_dur
         description: Duration for which the sample was stored
@@ -23505,6 +22810,8 @@ classes:
       tot_nitro_content:
         name: tot_nitro_content
         multivalued: false
+        required: false
+        recommended: false
       tot_org_carb:
         name: tot_org_carb
         string_serialization: '{float} {unit}'
@@ -23559,7 +22866,6 @@ classes:
     - slope_aspect
     - profile_position
     - drainage_class
-    - soil_text_measure
     - soil_texture_meth
     - ph
     - ph_meth
@@ -23626,13 +22932,11 @@ classes:
         recommended: false
       heavy_metals_meth:
         name: heavy_metals_meth
-        title: extreme_unusual_properties/heavy metals method
         string_serialization: '{PMID}|{DOI}|{URL}'
         required: false
         recommended: false
       horizon_meth:
         name: horizon_meth
-        title: soil horizon method
         string_serialization: '{PMID}|{DOI}|{URL}'
         required: false
         recommended: false
@@ -23699,15 +23003,6 @@ classes:
         name: profile_position
         required: false
         recommended: false
-      samp_name:
-        name: samp_name
-        description: A local identifier or name that for the material sample used
-          for extracting nucleic acids, and subsequent sequencing. It can refer either
-          to the original material collected or to any derived sub-samples. It can
-          have any format, but we suggest that you make it concise, unique and consistent
-          within your lab, and as informative as possible. INSDC requires every sample
-          name from a single Submitter to be unique. Use of a globally unique identifier
-          for the field source_mat_id is recommended in addition to sample_name.
       samp_vol_we_dna_ext:
         name: samp_vol_we_dna_ext
         description: 'Volume (ml) or mass (g) of total collected sample processed
@@ -23718,13 +23013,8 @@ classes:
       season_precpt:
         name: season_precpt
         multivalued: false
-      season_temp:
-        name: season_temp
-        description: Mean seasonal temperature
-        title: mean seasonal temperature
       sieving:
         name: sieving
-        title: composite design/sieving
         required: false
         recommended: false
       slope_aspect:
@@ -23769,8 +23059,6 @@ classes:
         recommended: false
       store_cond:
         name: store_cond
-        title: storage conditions
-        string_serialization: '{text};{duration}'
         required: false
         recommended: false
       temp:
@@ -23784,14 +23072,14 @@ classes:
         recommended: false
       tot_nitro_cont_meth:
         name: tot_nitro_cont_meth
-        title: total nitrogen content method
         string_serialization: '{PMID}|{DOI}|{URL}'
-        multivalued: false
         required: false
         recommended: false
       tot_nitro_content:
         name: tot_nitro_content
         multivalued: false
+        required: false
+        recommended: false
       tot_org_c_meth:
         name: tot_org_c_meth
         string_serialization: '{PMID}|{DOI}|{URL}'
@@ -24049,12 +23337,6 @@ classes:
       salinity:
         name: salinity
         multivalued: true
-      samp_name:
-        name: samp_name
-        description: Sample Name is a name that you choose for the sample. It can
-          have any format, but we suggest that you make it concise, unique and consistent
-          within your lab, and as informative as possible. Every Sample Name from
-          a single Submitter must be unique.
       samp_store_dur:
         name: samp_store_dur
         description: Duration for which the sample was stored.
@@ -24182,15 +23464,6 @@ classes:
       salinity:
         name: salinity
         multivalued: false
-      samp_name:
-        name: samp_name
-        description: A local identifier or name that for the material sample used
-          for extracting nucleic acids, and subsequent sequencing. It can refer either
-          to the original material collected or to any derived sub-samples. It can
-          have any format, but we suggest that you make it concise, unique and consistent
-          within your lab, and as informative as possible. INSDC requires every sample
-          name from a single Submitter to be unique. Use of a globally unique identifier
-          for the field source_mat_id is recommended in addition to sample_name.
       samp_store_dur:
         name: samp_store_dur
         description: Duration for which the sample was stored
@@ -24214,15 +23487,6 @@ classes:
         recommended: false
       temp:
         name: temp
-        required: false
-        recommended: false
-      tot_nitro:
-        name: tot_nitro
-        description: 'Total nitrogen concentration of water samples, calculated by:
-          total nitrogen = total dissolved nitrogen + particulate nitrogen. Can also
-          be measured without filtering, reported as nitrogen'
-        title: total nitrogen concentration
-        slot_uri: MIXS:0000102
         required: false
         recommended: false
   Water:
@@ -24409,15 +23673,6 @@ classes:
       salinity:
         name: salinity
         multivalued: false
-      samp_name:
-        name: samp_name
-        description: A local identifier or name that for the material sample used
-          for extracting nucleic acids, and subsequent sequencing. It can refer either
-          to the original material collected or to any derived sub-samples. It can
-          have any format, but we suggest that you make it concise, unique and consistent
-          within your lab, and as informative as possible. INSDC requires every sample
-          name from a single Submitter to be unique. Use of a globally unique identifier
-          for the field source_mat_id is recommended in addition to sample_name.
       samp_store_dur:
         name: samp_store_dur
         description: Duration for which the sample was stored
@@ -24449,15 +23704,6 @@ classes:
         recommended: false
       temp:
         name: temp
-        required: false
-        recommended: false
-      tot_nitro:
-        name: tot_nitro
-        description: 'Total nitrogen concentration of water samples, calculated by:
-          total nitrogen = total dissolved nitrogen + particulate nitrogen. Can also
-          be measured without filtering, reported as nitrogen'
-        title: total nitrogen concentration
-        slot_uri: MIXS:0000102
         required: false
         recommended: false
       tot_phosp:
@@ -25090,7 +24336,6 @@ classes:
     - soil_pH
     - soil_porosity
     - soil_temp
-    - soil_text_measure
     - soil_texture_class
     - soil_texture_meth
     - soil_type
@@ -25153,7 +24398,6 @@ classes:
     - temp
     - temp_out
     - tertiary_treatment
-    - texture
     - tidal_stage
     - tillage
     - time_last_toothbrush
