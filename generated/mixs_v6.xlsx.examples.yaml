@@ -50,6 +50,9 @@ exhaustive_test_set:
   arch_struc: shed
   area_samp_size: 12 centimeter x 12 centimeter
   assembly_name: HuRef, JCVI_ISG_i3_1.0
+  assembly_qual: High-quality draft genome
+  assembly_software: metaSPAdes;3.11.0;kmer set 21,33,55,77,99,121, default parameters
+    otherwise
   associated_resource:
   - http://www.earthmicrobiome.org/
   atmospheric_data:
@@ -548,7 +551,8 @@ exhaustive_test_set:
     (hydrometer method)
   soil_type: plinthosol [ENVO:00002250]
   soil_type_meth: Frederick series; Weikert series
-  solar_irradiance: 1.36 kilowatts per square meter per day
+  solar_irradiance:
+  - 1.36 kilowatts per square meter per day
   soluble_react_phosp: 0.1 milligram per liter
   sop:
   - http://press.igsb.anl.gov/earthmicrobiome/protocols-and-standards/its/
