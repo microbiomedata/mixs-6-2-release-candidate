@@ -1,8 +1,10 @@
-import ast
+# import ast
+# import pprint
 import pprint
 import re
 from typing import List
 
+import click
 import numpy as np
 import pandas as pd
 import requests
@@ -17,56 +19,6 @@ from collections import Counter
 from distutils.util import strtobool
 
 pd.set_option('display.max_columns', None)
-
-debug_mode = False
-
-non_ascii_replacement = ' '
-
-# base_url = 'https://github.com/GenomicsStandardsConsortium/mixs/raw/main/mixs/excel/'
-base_url = 'https://github.com/only1chunts/mixs-cih-fork/raw/main/mixs/excel/'
-
-excel_file_name = 'mixs_v6.xlsx'
-dest_dir = 'generated'
-config_dir = 'config'
-
-# prior knowledge
-checklists = ['migs_ba', 'migs_eu', 'migs_org', 'migs_pl', 'migs_vi', 'mimag', 'mimarks_c', 'mimarks_s', 'mims',
-              'misag', 'miuvig']
-
-# prior knowledge
-scn_key = 'Structured comment name'
-
-consensus_annotation = Annotation(tag="consensus", value="true")
-
-file_url = base_url + excel_file_name
-
-schema_name = 'GSC_MIxS_6'
-
-schema_file_name = f"{dest_dir}/{schema_name}.yaml"
-
-harmonized_sheets_file_name = f"{dest_dir}/{excel_file_name}.harmonized.tsv"
-
-string_ser_exp_val_to_range_pattern_file = f"{config_dir}/string_ser_exp_val_to_range_pattern.tsv"
-
-proposed_slot_attributes_file = f"{config_dir}/proposed_attribute_replacements_schema.yaml"
-
-extracted_examples_file_name = f"{dest_dir}/{excel_file_name}.examples.yaml"
-
-# these could be considered changes to the MIxS XLSX file, like @only1chunts applied recently,
-#   although we apply them to the harmonized TSV file instead
-jit_fixes_file_name = f"{config_dir}/jit_xlsx_fixes_in_tsv.tsv"
-
-global_target_schema = SchemaDefinition(
-    id=f"http://example.com/{schema_name}",
-    name=schema_name,
-    source=file_url,
-)
-
-linkml_prefix = Prefix(prefix_prefix="linkml", prefix_reference="https://w3id.org/linkml/")
-
-global_target_schema.prefixes["linkml"] = linkml_prefix
-
-global_target_schema.imports.append("linkml:types")
 
 
 def liberally_convert_to_boolean(value):
@@ -89,11 +41,11 @@ def convert_to_upper_snake_case(string):
     return '_'.join(pascal_case_words)
 
 
-def remove_non_ascii(text):
+def remove_non_ascii(text, non_ascii_replacement):
     return ''.join([i if ord(i) < 128 else non_ascii_replacement for i in text])
 
 
-def instantiate_classes(df: pd.DataFrame) -> None:
+def instantiate_classes(df: pd.DataFrame, checklists, global_target_schema) -> None:
     classes_list = df['class'].unique().tolist()
     classes_list.sort()
 
@@ -114,7 +66,11 @@ def instantiate_classes(df: pd.DataFrame) -> None:
             global_target_schema.classes[class_name] = new_class
 
 
-def harmonize_sheets(url: str) -> pd.DataFrame:
+def harmonize_sheets(url: str, dest_dir, excel_file_name, scn_key, checklists) -> pd.DataFrame:
+    # todo parameterize the column dropping and renaming
+
+    checklists = list(checklists)
+
     # Download the Excel file
     response = requests.get(url)
     with open(f"{dest_dir}/{excel_file_name}", 'wb') as file:
@@ -152,6 +108,7 @@ def harmonize_sheets(url: str) -> pd.DataFrame:
 
     mixs_by_scn_and_class = pd.merge(mixs_checklists_requirements_renamed, mixs_constants,
                                      on=[scn_key])
+
     mixs_by_scn_and_class_renamed = mixs_by_scn_and_class.rename(columns={"key": "class"})
 
     by_scn_and_class_col_list = mixs_by_scn_and_class_renamed.columns.tolist()
@@ -185,24 +142,37 @@ def apply_jit_fixes(fixes_file: str, df: pd.DataFrame) -> pd.DataFrame:
     fixes_lod = fixes_sheet.to_dict('records')
     for fix in fixes_lod:
         if fix['apply']:
-            # pprint.pprint(fix)
-            # print(df.loc[df[fix['key']] == fix['key_val']])
+            print("APPLYING")
+            pprint.pprint(fix)
+            print(df.loc[df[fix['key']] == fix['key_val']])
             df.loc[df[fix['key']] == fix['key_val'], fix['target']] = fix['target_val']
+            print(df.loc[df[fix['key']] == fix['key_val']])
+        else:
+            pass
+            # print("SKIPPING")
+            # pprint.pprint(fix)
     return df
 
 
-def process_sheet(df: pd.DataFrame) -> List[str]:
-    instantiate_classes(df)
+def process_sheet(df: pd.DataFrame, checklists, global_target_schema, scn_key, non_ascii_replacement) -> List[str]:
+    instantiate_classes(df, checklists, global_target_schema)
     slots_list = df[scn_key].unique().tolist()
+
+    for s in slots_list:
+        if type(s) is not str:
+            # todo how would a nan/float "slot" get in here?
+            print(f"{s} has type {type(s)}")
+            slots_list.remove(s)
+
     slots_list.sort()
 
     for slot in slots_list:
-        process_scn(df, slot)
+        process_scn(df, slot, scn_key, global_target_schema, non_ascii_replacement)
 
     return slots_list
 
 
-def process_scn(df: pd.DataFrame, scn: str) -> None:
+def process_scn(df: pd.DataFrame, scn: str, scn_key, global_target_schema, non_ascii_replacement) -> None:
     scn_sheet_original = df[df[scn_key] == scn]
     scn_sheet = scn_sheet_original.copy()
     scn_sheet.drop(scn_key, axis=1, inplace=True)
@@ -210,10 +180,11 @@ def process_scn(df: pd.DataFrame, scn: str) -> None:
     attribute_names = scn_sheet.columns.tolist()
     attribute_names.remove('class')
     for attribute_name in attribute_names:
-        process_attribute(df, scn, attribute_name)
+        process_attribute(df, scn, attribute_name, non_ascii_replacement, scn_key, global_target_schema)
 
 
-def process_attribute(df: pd.DataFrame, scn: str, attribute_name: str) -> None:
+def process_attribute(df: pd.DataFrame, scn: str, attribute_name: str, non_ascii_replacement, scn_key,
+                      global_target_schema) -> None:
     # Filter the DataFrame based on the condition
     filtered_df = df[df[scn_key] == scn]
 
@@ -227,7 +198,7 @@ def process_attribute(df: pd.DataFrame, scn: str, attribute_name: str) -> None:
             sanitized_value = value.strip()
             sanitized_value = sanitized_value.rstrip('.')  # Remove trailing periods
             sanitized_value = sanitized_value.strip()
-            sanitized_value = remove_non_ascii(sanitized_value)
+            sanitized_value = remove_non_ascii(sanitized_value, non_ascii_replacement)
             sanitized_values.append(sanitized_value)
             # also want to collapse multiple spaces into one
         else:
@@ -236,13 +207,13 @@ def process_attribute(df: pd.DataFrame, scn: str, attribute_name: str) -> None:
         sanitized_values = list(set(sanitized_values))
 
     if len(sanitized_values) == 1:
-        process_consensus_value(scn, attribute_name, sanitized_values[0])
+        process_consensus_value(scn, attribute_name, sanitized_values[0], global_target_schema)
     else:
         attributes_by_class = filtered_df[[scn_key, 'class', attribute_name]]
-        process_contested_value(attributes_by_class)
+        process_contested_value(attributes_by_class, scn_key, global_target_schema)
 
 
-def process_consensus_value(scn: str, attribute_name: str, value: str) -> None:
+def process_consensus_value(scn: str, attribute_name: str, value: str, global_target_schema) -> None:
     tidied_attribute_name = re.sub(r'\W+', '_', attribute_name)
     tidied_slot_name = re.sub(r'\W+', '_', scn)
     new_annotation = Annotation(tag=tidied_attribute_name, value=value)
@@ -293,7 +264,7 @@ def process_consensus_value(scn: str, attribute_name: str, value: str) -> None:
         global_target_schema.slots[tidied_slot_name].annotations[tidied_attribute_name] = new_annotation
 
 
-def process_contested_value(attributes_by_class: pd.DataFrame) -> None:
+def process_contested_value(attributes_by_class: pd.DataFrame, scn_key, global_target_schema) -> None:
     scn = attributes_by_class[scn_key].iloc[0]
     abc = attributes_by_class.copy()
     abc.drop(scn_key, axis=1, inplace=True)
@@ -378,20 +349,27 @@ def process_contested_value(attributes_by_class: pd.DataFrame) -> None:
                         tidied_attribute_name] = new_annotation
 
 
-def requirement_followup(sheet: pd.DataFrame):
+def requirement_followup(sheet: pd.DataFrame, global_target_schema, debug_mode):
     """
     Iterate over the slot/scn and class columns in the sheet.
     Check if there is already a slot usage for that combination.
     If the requirement variable in the usage is "-", remove the slot usage.
     Otherwise, associate the slot with the class.
     """
+
+    # todo parameterize
     relevant_columns = ['Structured comment name', 'class', 'Requirement']
+
     relevant_sheet = sheet[relevant_columns].copy()
+
     relevant_sheet.drop_duplicates(inplace=True)
 
     relevant_dicts = relevant_sheet.to_dict('records')
 
     for relevant_dict in relevant_dicts:
+        if type(relevant_dict['Structured comment name']) is not str:
+            pprint.pprint(relevant_dict)
+            continue
         tidied_scn = re.sub(r'\W+', '_', relevant_dict['Structured comment name'])
         tidied_class = convert_to_pascal_case(relevant_dict['class'])
         requirement = relevant_dict['Requirement']
@@ -469,7 +447,7 @@ def requirement_followup(sheet: pd.DataFrame):
             del global_target_schema.slots[tidied_scn].annotations['Requirement']
 
 
-def construct_assign_simple_enumerations(sheet: pd.DataFrame):
+def construct_assign_simple_enumerations(sheet: pd.DataFrame, debug_mode: bool, global_target_schema) -> None:
     relevant_columns = ['Structured comment name', 'Value syntax']
 
     relevant_sheet = sheet[relevant_columns].copy()
@@ -571,7 +549,7 @@ def construct_assign_simple_enumerations(sheet: pd.DataFrame):
         index += 1
 
 
-def string_ser_exp_val_to_range_patterns(tsv_file: str):
+def string_ser_exp_val_to_range_patterns(tsv_file: str, global_target_schema):
     df_raw = pd.read_csv(tsv_file, sep='\t')
     df = df_raw.replace(np.nan, '')
 
@@ -616,7 +594,7 @@ def string_ser_exp_val_to_range_patterns(tsv_file: str):
                     f"{row_count = }. No single, full match string serialization of <{ss}> and expected value of <{ev}>")
 
 
-def add_exhasutive_test_class():
+def add_exhasutive_test_class(global_target_schema):
     ExhaustiveTestClass = ClassDefinition(
         name="ExhaustiveTestClass",
     )
@@ -644,7 +622,7 @@ def add_exhasutive_test_class():
     global_target_schema.slots["exhaustive_test_set"] = exhaustive_test_set
 
 
-def dupe_property_report(property_name: str):
+def dupe_property_report(property_name: str, global_target_schema):
     slots = global_target_schema.slots
     property_vals = []
     for slot_k, slot_v in slots.items():
@@ -662,7 +640,7 @@ def dupe_property_report(property_name: str):
     return dupe_values
 
 
-def extract_or_substitute_examples_etc(supplementary_file: str):
+def extract_or_substitute_examples_etc(supplementary_file: str, global_target_schema):
     # not all of the content from the supplementary_file is making it into either
     #  the inferred LinkML YAML
     #  the sample data file
@@ -721,45 +699,97 @@ def extract_or_substitute_examples_etc(supplementary_file: str):
     return extracted_examples
 
 
-harmonized_sheets = harmonize_sheets(file_url)
+@click.command()
+@click.option('--config-dir', default='config')
+@click.option('--debug/--no-debug', default=False, help='Enable debug mode')
+@click.option('--dest-dir', default='generated')
+@click.option('--excel-file-name', default='mixs_v6.xlsx')
+@click.option('--non-ascii-replacement', default=' ')
+@click.option('--schema-name', default='GSC_MIxS_6')
+@click.option('--scn-key', default='Structured comment name')
+@click.option('--base-url', default='https://github.com/only1chunts/mixs-cih-fork/raw/main/mixs/excel/',
+              help='Base URL for the MIxS Excel file. Last release = https://github.com/GenomicsStandardsConsortium/mixs/raw/main/mixs/excel/')
+@click.option('--checklists', multiple=True, help='Requires prior knowledge about current MIxS checklists',
+              default=['migs_ba', 'migs_eu', 'migs_org', 'migs_pl', 'migs_vi', 'mimag', 'mimarks_c', 'mimarks_s',
+                       'mims', 'misag', 'miuvig'])
+@click.option('--jit-fixes-file', default='config/jit_xlsx_fixes_in_tsv.tsv',
+              help="Could be considered changes to the MIxS XLSX file, like @only1chunts applied recently, although we apply them to the harmonized TSV file instead")
+def create_schema(non_ascii_replacement, debug, base_url, excel_file_name, dest_dir, config_dir, scn_key, schema_name,
+                  checklists, jit_fixes_file):
+    consensus_annotation = Annotation(tag="consensus", value="true")
 
-harmonized_sheets = apply_jit_fixes(jit_fixes_file_name, harmonized_sheets)
+    file_url = base_url + excel_file_name
 
-process_sheet(harmonized_sheets)
+    global_target_schema = SchemaDefinition(
+        id=f"http://example.com/{schema_name}",
+        name=schema_name,
+        source=file_url,
+    )
 
-requirement_followup(harmonized_sheets)
+    harmonized_sheets = harmonize_sheets(file_url, dest_dir, excel_file_name, scn_key, checklists)
 
-construct_assign_simple_enumerations(harmonized_sheets)
+    print(harmonized_sheets)
 
-string_ser_exp_val_to_range_patterns(string_ser_exp_val_to_range_pattern_file)
+    harmonized_sheets = apply_jit_fixes(jit_fixes_file, harmonized_sheets)
 
-harmonized_sheets.to_csv(harmonized_sheets_file_name, index=False, sep='\t')
+    harmonized_sheets.to_csv(f"{dest_dir}/partially_harmonized.tsv", sep="\t", index=False)
 
-add_exhasutive_test_class()
+    returned_slot_list = process_sheet(harmonized_sheets, checklists, global_target_schema, scn_key,
+                                       non_ascii_replacement)
 
-dupe_titles = dupe_property_report("title")
-if len(dupe_titles) > 0:
-    duplication_comment = f"slot titles that are associated with more than one slot name/SCN: {', '.join(dupe_titles)}"
-    if global_target_schema.comments:
-        global_target_schema.comments.append(duplication_comment)
-    else:
-        global_target_schema.comments = [duplication_comment]
+    requirement_followup(harmonized_sheets, global_target_schema, debug)
 
-dupe_slot_uris = dupe_property_report("slot_uri")
-if len(dupe_slot_uris) > 0:
-    duplication_comment = f"slot_uris that are associated with more than one slot name/SCN: {', '.join(dupe_slot_uris)}"
-    if global_target_schema.comments:
-        global_target_schema.comments.append(duplication_comment)
-    else:
-        global_target_schema.comments = [duplication_comment]
+    construct_assign_simple_enumerations(harmonized_sheets, debug, global_target_schema)
 
-extracted_examples_dict = extract_or_substitute_examples_etc(supplementary_file=proposed_slot_attributes_file)
+    schema_file_name = f"{dest_dir}/{schema_name}.yaml"
 
-extracted_examples_collection = {
-    "exhaustive_test_set": [extracted_examples_dict]
-}
+    harmonized_sheets_file_name = f"{dest_dir}/{excel_file_name}.harmonized.tsv"
 
-yaml_dumper.dump(global_target_schema, schema_file_name)
+    string_ser_exp_val_to_range_pattern_file = f"{config_dir}/string_ser_exp_val_to_range_pattern.tsv"
 
-with open(extracted_examples_file_name, 'w') as file:
-    yaml.safe_dump(extracted_examples_collection, file)
+    proposed_slot_attributes_file = f"{config_dir}/proposed_attribute_replacements_schema.yaml"
+
+    extracted_examples_file_name = f"{dest_dir}/{excel_file_name}.examples.yaml"
+
+    string_ser_exp_val_to_range_patterns(string_ser_exp_val_to_range_pattern_file, global_target_schema)
+
+    harmonized_sheets.to_csv(harmonized_sheets_file_name, index=False, sep='\t')
+
+    add_exhasutive_test_class(global_target_schema)
+
+    linkml_prefix = Prefix(prefix_prefix="linkml", prefix_reference="https://w3id.org/linkml/")
+
+    global_target_schema.prefixes["linkml"] = linkml_prefix
+
+    global_target_schema.imports.append("linkml:types")
+
+    dupe_titles = dupe_property_report("title", global_target_schema)
+    if len(dupe_titles) > 0:
+        duplication_comment = f"slot titles that are associated with more than one slot name/SCN: {', '.join(dupe_titles)}"
+        if global_target_schema.comments:
+            global_target_schema.comments.append(duplication_comment)
+        else:
+            global_target_schema.comments = [duplication_comment]
+
+    dupe_slot_uris = dupe_property_report("slot_uri", global_target_schema)
+    if len(dupe_slot_uris) > 0:
+        duplication_comment = f"slot_uris that are associated with more than one slot name/SCN: {', '.join(dupe_slot_uris)}"
+        if global_target_schema.comments:
+            global_target_schema.comments.append(duplication_comment)
+        else:
+            global_target_schema.comments = [duplication_comment]
+
+    extracted_examples_dict = extract_or_substitute_examples_etc(supplementary_file=proposed_slot_attributes_file,
+                                                                 global_target_schema=global_target_schema)
+    extracted_examples_collection = {
+        "exhaustive_test_set": [extracted_examples_dict]
+    }
+
+    yaml_dumper.dump(global_target_schema, schema_file_name)
+
+    with open(extracted_examples_file_name, 'w') as file:
+        yaml.safe_dump(extracted_examples_collection, file)
+
+
+if __name__ == '__main__':
+    create_schema()
