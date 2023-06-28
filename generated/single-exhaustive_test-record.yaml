@@ -736,12 +736,12 @@ soil_horizon: xxx
 soil_pH: 1.9
 soil_porosity: xxx
 soil_temp: 1.9 units
-soil_text_measure: 1.9 units
 soil_texture_class: xxx
 soil_texture_meth: xxx
 soil_type: xxx
 soil_type_meth: xxx
-solar_irradiance: 1.9 units
+solar_irradiance:
+- 1.9 units
 soluble_inorg_mat:
 - xxx
 soluble_org_mat:
@@ -819,7 +819,6 @@ tax_ident: xxx
 temp: 1.9 units
 temp_out: 1.9 units
 tertiary_treatment: xxx
-texture: 1.9 units
 tidal_stage: xxx
 tillage: xxx
 time_last_toothbrush: PT10H30M
