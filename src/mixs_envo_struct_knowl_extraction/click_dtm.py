@@ -20,7 +20,7 @@ pd.set_option('display.max_columns', None)
 @click.option('--dtm-output', required=True)
 @click.option('--output-schema-file', required=True)
 @click.option('--input-col-vals-file', required=True)
-def main(dtm_input_slot, input_usage_report, input_dtm_notes_mapping, input_col_vals_file, dtm_output,
+def cli(dtm_input_slot, input_usage_report, input_dtm_notes_mapping, input_col_vals_file, dtm_output,
          input_schema_file, output_schema_file):
     # Read input data
     df_raw = pd.read_csv(f"{input_usage_report}", sep='\t', dtype=str)
@@ -105,4 +105,4 @@ def main(dtm_input_slot, input_usage_report, input_dtm_notes_mapping, input_col_
 
 
 if __name__ == '__main__':
-    main()
+    cli()

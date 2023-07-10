@@ -8,7 +8,7 @@ exhaustive_test_set:
     basin: xxx
     building_setting: xxx
     coll_site_geo_feat: xxx
-    collection_date: xxx
+    collection_date: "2013-03-25T12:42:31+00:32"
     env_broad_scale: term [ONTOLOGY:123]
     env_local_scale: term [ONTOLOGY:123]
     env_medium: term [ONTOLOGY:123]
@@ -47,8 +47,8 @@ exhaustive_test_set:
     light_type:
       - xxx
 
-    16s_recover: true
-    16s_recover_software: xxx
+    x16s_recover: true
+    x16s_recover_software: xxx
     #    Food_Product_type: xxx # see food_product_type
     HACCP_term:
       - xxx
@@ -179,7 +179,7 @@ exhaustive_test_set:
     conduc: 1.9 units
     cons_food_stor_dur: PT10H30M
     cons_food_stor_temp: xxx
-    cons_purch_date: xxx
+    cons_purch_date: "2013-03-25T12:42:31+00:32"
     cons_qty_purchased: 123 units
     contam_score: xxx
     contam_screen_input: xxx
@@ -198,8 +198,8 @@ exhaustive_test_set:
     cur_vegetation: xxx
     cur_vegetation_meth: xxx
     date_extr_weath:
-      - xxx
-    date_last_rain: xxx
+      - "2013-03-25T12:42:31+00:32"
+    date_last_rain: "2013-03-25T12:42:31+00:32"
     decontam_software: xxx
     density: 1.9 units
     depos_env: xxx
@@ -235,7 +235,7 @@ exhaustive_test_set:
     door_type_metal: xxx
     door_type_wood: xxx
     door_water_mold: xxx
-    douche: xxx
+    douche: "2013-03-25T12:42:31+00:32"
     down_par: 1.9 units
     drainage_class: xxx
     drawings: xxx
@@ -263,7 +263,7 @@ exhaustive_test_set:
     extr_weather_event:
       - xxx
     extrachrom_elements: 123
-    extreme_event: xxx
+    extreme_event: "2013-03-25T12:42:31+00:32"
     facility_type:
       - xxx
     fao_class: xxx
@@ -289,13 +289,13 @@ exhaustive_test_set:
     ferm_time: PT10H30M
     ferm_vessel: xxx
     fertilizer_admin: xxx
-    fertilizer_date: xxx
+    fertilizer_date: "2013-03-25T12:42:31+00:32"
     fertilizer_regm:
       - xxx
     field: xxx
-    fire: xxx
+    fire: "2013-03-25T12:42:31+00:32"
     fireplace_type: xxx
-    flooding: xxx
+    flooding: "2013-03-25T12:42:31+00:32"
     floor_age: 8 years
     floor_area: 1.9 units
     floor_cond: xxx
@@ -459,7 +459,7 @@ exhaustive_test_set:
     host_taxid: xxx
     host_tot_mass: 1.9 units
     host_wet_mass: 1.9 units
-    hrt: xxx
+    hrt: "2013-03-25T12:42:31+00:32"
     humidity: 1.9 units
     humidity_regm:
       - xxx
@@ -476,10 +476,10 @@ exhaustive_test_set:
     intended_consumer:
       - xxx
     isol_growth_condt: xxx
-    iw_bt_date_well: xxx
+    iw_bt_date_well: "2013-03-25T12:42:31+00:32"
     kidney_disord:
       - xxx
-    last_clean: xxx
+    last_clean: "2013-03-25T12:42:31+00:32"
     lib_layout: xxx
     lib_reads_seqd: 123
     lib_screen: xxx
@@ -508,8 +508,8 @@ exhaustive_test_set:
     mechanical_damage:
       - xxx
     medic_hist_perform: true
-    menarche: xxx
-    menopause: xxx
+    menarche: "2013-03-25T12:42:31+00:32"
+    menopause: "2013-03-25T12:42:31+00:32"
     methane: 1.9 units
     micro_biomass_meth: xxx
     microb_cult_med: xxx
@@ -612,7 +612,7 @@ exhaustive_test_set:
     pre_treatment: xxx
     pred_genome_struc: xxx
     pred_genome_type: xxx
-    pregnancy: xxx
+    pregnancy: "2013-03-25T12:42:31+00:32"
     pres_animal_insect: xxx
     pressure: 1.9 units
     prev_land_use_meth: xxx
@@ -623,7 +623,7 @@ exhaustive_test_set:
     prod_label_claims:
       - xxx
     prod_rate: 1.9 units
-    prod_start_date: xxx
+    prod_start_date: "2013-03-25T12:42:31+00:32"
     profile_position: xxx
     propagation: xxx
     pulmonary_disord:

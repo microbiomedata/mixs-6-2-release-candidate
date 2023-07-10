@@ -1,0 +1,71 @@
+name: linkml_stage_mixs_modifications
+id: http://example.com/linkml_stage_mixs_modifications
+imports:
+  - linkml:types
+prefixes:
+  linkml: https://w3id.org/linkml/
+slots:
+  animal_am_freq:
+    range: float
+  carb_nitro_ratio:
+    range: float
+  ferm_rel_humidity:
+    comments:
+      - percent or float?
+    pattern: "[0-9]*\\.?[0-9]+ ?%"
+  food_source_age:
+    comments:
+      - ISO 8601 period or measurement value?
+  host_occupation:
+    comments:
+      - "Couldn't convert host_occupation with value veterinary to integer"
+      - almost all host_occupation values in the NCBI biosample_set are strings, not integers
+    range: string
+  iwf:
+    comments:
+      - pattern was "[0-9]*\\.?[0-9]+ ?%"
+      - percent or float?
+    range: float
+  micro_biomass_meth:
+    comments:
+      - slot name/scn was microbial_biomass_meth
+  occup_samp:
+    range: float
+  photosynt_activ:
+    examples:
+      - value: 0.1 mol CO2 m-2 s-1
+        description: added a magnitude to the example from the XLSX file, " mol CO2 m-2 s-1"
+  rel_air_humidity:
+    comments:
+      - percent or float?
+    range: float
+  season:
+    comments:
+      - autumn [NCIT:C94733] does not match ^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$
+      - would require ^\\S+.*\\S+ \\[[a-zA-Z]{2,}:[a-zA-Z0-9]\\]$
+    pattern: ^\S+.*\S+ \[[a-zA-Z]{2,}:[a-zA-Z0-9]+\]$
+  season_humidity:
+    comments:
+      - percent or float?
+    range: float
+  surf_humidity:
+    comments:
+      - percent or float?
+    range: float
+  time_last_toothbrush:
+    comments:
+      - P2H45M does not match ^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$
+      - problematic ISO 8601 period validation
+  water_cut:
+    comments:
+      - percent or float?
+    pattern: "[0-9]*\\.?[0-9]+ ?%"
+  #  samp_transport_dur:
+  #    comments:
+  #      - "{float} {unit} or period?"
+  #      - problematic ISO 8601 period validation
+  #      - P10D does not match ^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$
+  #  #    examples:
+  #  #      - value: 10 days
+  #  #        description: converted slot's ISO 8601 period to a measurement value string
+
