@@ -108,3 +108,8 @@ use_parentheses = true
 [tool.black]
 line_length = 88
 include = '\.pyi?$'
+
+[tool.poetry.scripts]
+write_mixs_linkml = "mixs_envo_struct_knowl_extraction.mixs_linkml_from_xlsx:create_schema"
+add_dtm_slot_notes = "mixs_envo_struct_knowl_extraction.click_dtm:cli"
+find_Xs_with_multiple_Ys = "mixs_envo_struct_knowl_extraction.find_Xs_with_multiple_Ys:main"

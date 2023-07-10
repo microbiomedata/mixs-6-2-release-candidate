@@ -59,9 +59,9 @@ string_serialization	Expected_value	range	pattern	structured_pattern	notes
 {text}		string			
 {text};{float} {unit}	name;measurement value			{name};{float} {unit}	
 {text};{integer}	room name;room number			{room name};{room number}	
-{timestamp}	date	date_or_datetime			
-{timestamp}	date and time	date_or_datetime			
-{timestamp}	timestamp	date_or_datetime			
+{timestamp}	date	datetime
+{timestamp}	date and time	datetime
+{timestamp}	timestamp	datetime
 {URL}	URL	uriorcurie			
 	adapter A and B sequence			{adapter_a};{adapter_b}	
 	country: region, specific location			{country}: {region}, {specific location}	

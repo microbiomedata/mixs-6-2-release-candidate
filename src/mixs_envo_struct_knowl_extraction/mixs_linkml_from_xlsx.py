@@ -1,8 +1,9 @@
 # import ast
 # import pprint
+import os
 import pprint
 import re
-from typing import List
+from typing import List, Tuple, Union, Any
 
 import click
 import numpy as np
@@ -18,7 +19,23 @@ from collections import Counter
 
 from distutils.util import strtobool
 
+from pandas import DataFrame, Series
+
 pd.set_option('display.max_columns', None)
+
+
+# todo switch from printing to logging
+
+
+# todo: modify slot names if the begin with a number
+#  Chris M's fix: prepend with x
+#  there was some discussion at some point that number first slot names would be tolerated
+#  in at least some subset of linkml functionality
+#  but now they don't pass validation
+#  How extensively have these slots like 16s_recover_software been used in a INSDC database?
+#  see https://portal.nersc.gov/project/m3513/biosample/?C=M;O=D last updated 2022-11-08
+#  MAM has a more recent database locally
+#  16S recovered attribute name present, but not harmonized
 
 
 def liberally_convert_to_boolean(value):
@@ -27,6 +44,10 @@ def liberally_convert_to_boolean(value):
         return converted_value
     except ValueError:
         return value
+
+
+def return_as_is(value):
+    return value
 
 
 def convert_to_pascal_case(string):
@@ -66,26 +87,22 @@ def instantiate_classes(df: pd.DataFrame, checklists, global_target_schema) -> N
             global_target_schema.classes[class_name] = new_class
 
 
-def harmonize_sheets(url: str, dest_dir, excel_file_name, scn_key, checklists) -> pd.DataFrame:
+def del_and_rename_cols(df, columns_to_delete, column_mapping):
+    return df.drop(columns=columns_to_delete).rename(columns=column_mapping)
+
+
+def harmonize_sheets(url: str, excel_file_path, scn_key, checklists) -> pd.DataFrame:
     # todo parameterize the column dropping and renaming
 
     checklists = list(checklists)
 
     # Download the Excel file
     response = requests.get(url)
-    with open(f"{dest_dir}/{excel_file_name}", 'wb') as file:
+    with open(excel_file_path, 'wb') as file:
         file.write(response.content)
 
     # Open the desired sheets into pandas data frames
-    df_mixs = pd.read_excel(f"{dest_dir}/{excel_file_name}", sheet_name='MIxS')
-
-    # List of column names to delete
-    # columns_to_delete = [' ']
-    columns_to_delete = []
-
-    # Delete the columns
-    #   no data loss? Prove it!
-    df_mixs_good_cols = df_mixs.drop(columns=columns_to_delete)
+    df_mixs_raw = pd.read_excel(excel_file_path, sheet_name='MIxS')
 
     # Dictionary with column name mappings
     column_mapping = {
@@ -93,8 +110,10 @@ def harmonize_sheets(url: str, dest_dir, excel_file_name, scn_key, checklists) -
         'Occurence': 'Occurrence',
     }
 
-    # Rename the columns
-    df_mixs_renamed = df_mixs_good_cols.rename(columns=column_mapping)
+    # previously needed to delete ' '
+    df_mixs_renamed = del_and_rename_cols(df_mixs_raw, [], column_mapping)
+
+    # # # #
 
     mixs_melted = pd.melt(df_mixs_renamed, id_vars=[scn_key], var_name='key',
                           value_name='value')
@@ -111,23 +130,36 @@ def harmonize_sheets(url: str, dest_dir, excel_file_name, scn_key, checklists) -
 
     mixs_by_scn_and_class_renamed = mixs_by_scn_and_class.rename(columns={"key": "class"})
 
-    by_scn_and_class_col_list = mixs_by_scn_and_class_renamed.columns.tolist()
+    mixs_sheet_col_list = mixs_by_scn_and_class_renamed.columns.tolist()
 
-    df_env_packages = pd.read_excel(f"{dest_dir}/{excel_file_name}", sheet_name='environmental_packages')
+    # # # #
+
+    df_env_packages = pd.read_excel(excel_file_path, sheet_name='environmental_packages')
 
     column_mapping = {
         'Environmental package': 'class',
         'Package item': 'Item',
     }
 
-    # Rename the columns
-    df_env_packages_renamed = df_env_packages.rename(columns=column_mapping)
+    df_env_packages_renamed = del_and_rename_cols(df_env_packages, [], column_mapping)
+
+    # # # #
 
     env_packages_renamed_col_list = df_env_packages_renamed.columns.tolist()
 
-    applicable_col_list = list(set(by_scn_and_class_col_list).intersection(env_packages_renamed_col_list))
+    applicable_col_list = list(set(mixs_sheet_col_list).intersection(env_packages_renamed_col_list))
+
+    env_pack_only = set(env_packages_renamed_col_list) - set(mixs_sheet_col_list)
+
+    mixs_sheet_only = set(mixs_sheet_col_list) - set(env_packages_renamed_col_list)
+
+    print(f"MIxS sheet only cols: {mixs_sheet_only}")
+
+    print(f"environmental_packages only cols: {env_pack_only}")
 
     df_env_packages_renamed = df_env_packages_renamed[applicable_col_list]
+
+    # # # #
 
     # Stack DataFrames vertically
     from_gsc = pd.concat([mixs_by_scn_and_class_renamed, df_env_packages_renamed])
@@ -137,21 +169,35 @@ def harmonize_sheets(url: str, dest_dir, excel_file_name, scn_key, checklists) -
     return from_gsc
 
 
-def apply_jit_fixes(fixes_file: str, df: pd.DataFrame) -> pd.DataFrame:
+def apply_jit_fixes(fixes_file: str, df: pd.DataFrame) -> tuple[DataFrame, Union[Union[Series, DataFrame, None], Any]]:
     fixes_sheet = pd.read_csv(fixes_file, sep='\t')
     fixes_lod = fixes_sheet.to_dict('records')
+    reports = []
     for fix in fixes_lod:
         if fix['apply']:
-            print("APPLYING")
-            pprint.pprint(fix)
-            print(df.loc[df[fix['key']] == fix['key_val']])
+            reportable = df.loc[df[fix['key']] == fix['key_val']].copy()
+
+            reportable = reportable[['class', fix['key'], fix['target']]]
+            reportable.columns = ['class', 'key_value', 'original_target_value']
+            reportable['key'] = fix['key']
+            reportable['target'] = fix['target']
+            reportable = reportable[['class', 'key', 'key_value', 'target', 'original_target_value']]
+            reportable['replacement_target_value'] = fix['target_val']
+            # reportable = reportable.loc[reportable['original_target_value'] != reportable['replacement_target_value']]
+            reportable = reportable[
+                reportable['original_target_value'].astype(str) != reportable['replacement_target_value'].astype(str)]
+            reports.append(reportable)
+
             df.loc[df[fix['key']] == fix['key_val'], fix['target']] = fix['target_val']
-            print(df.loc[df[fix['key']] == fix['key_val']])
         else:
             pass
-            # print("SKIPPING")
-            # pprint.pprint(fix)
-    return df
+
+    if len(reports) > 0:
+        reports_df = pd.concat(reports)
+    else:
+        reports_df = None
+
+    return df, reports_df
 
 
 def process_sheet(df: pd.DataFrame, checklists, global_target_schema, scn_key, non_ascii_replacement) -> List[str]:
@@ -641,24 +687,37 @@ def dupe_property_report(property_name: str, global_target_schema):
 
 
 def extract_or_substitute_examples_etc(supplementary_file: str, global_target_schema):
-    # not all of the content from the supplementary_file is making it into either
-    #  the inferred LinkML YAML
-    #  the sample data file
+    # requires explicit handlers for each attribute of a slot
     proposal_view = SchemaView(supplementary_file)
+
+    print(yaml_dumper.dumps(proposal_view.schema))
+
     proposal_schema = proposal_view.schema
 
     excel_slots = global_target_schema.slots
 
     for proposed_k, proposed_v in proposal_schema.slots.items():
         if proposed_k in excel_slots:
+            if proposed_v.comments:
+                for comment in proposed_v.comments:
+                    print(global_target_schema.slots[proposed_k].comments)
+                    print(f"attempting to ADD comment {comment} to {proposed_k}")
+                    global_target_schema.slots[proposed_k].comments.append(comment)
             if proposed_v.examples:
                 global_target_schema.slots[proposed_k].examples = proposed_v.examples
-            if proposed_v.range:
-                global_target_schema.slots[proposed_k].range = proposed_v.range
-            if proposed_v.pattern:
-                global_target_schema.slots[proposed_k].pattern = proposed_v.pattern
             if proposed_v.multivalued != global_target_schema.slots[proposed_k].multivalued:
                 global_target_schema.slots[proposed_k].multivalued = proposed_v.multivalued
+            if proposed_v.pattern:
+                print(
+                    f"attempting to update {proposed_k}'s pattern from {global_target_schema.slots[proposed_k].pattern} to {proposed_v.pattern} and range to string")
+                global_target_schema.slots[proposed_k].pattern = proposed_v.pattern
+                global_target_schema.slots[proposed_k].range = "string"
+            if proposed_v.range:
+                global_target_schema.slots[proposed_k].range = proposed_v.range
+                if proposed_v.range != "string" and global_target_schema.slots[proposed_k].pattern:
+                    print(f"attempting to remove {proposed_k}'s pattern from {proposed_v.range} slot")
+                    del global_target_schema.slots[proposed_k].pattern
+
         else:
             print(f"{proposed_k} is not in the target schema")
 
@@ -686,7 +745,7 @@ def extract_or_substitute_examples_etc(supplementary_file: str, global_target_sc
                 elif the_range == "boolean":
                     convert_func = liberally_convert_to_boolean
                 else:
-                    convert_func = lambda x: x
+                    convert_func = return_as_is
 
                 try:
                     if isinstance(values, list):
@@ -700,11 +759,14 @@ def extract_or_substitute_examples_etc(supplementary_file: str, global_target_sc
 
 
 @click.command()
-@click.option('--config-dir', default='config')
 @click.option('--debug/--no-debug', default=False, help='Enable debug mode')
-@click.option('--dest-dir', default='generated')
-@click.option('--excel-file-name', default='mixs_v6.xlsx')
+@click.option('--extracted-examples-out', default='generated/mixs_v6.xlsx.examples.yaml')
+@click.option('--linkml-stage-mods-file', default='config/linkml_stage_mixs_modifications.yaml')
+@click.option('--harmonized-mixs-tables-file', default='generated/mixs_v6.xlsx.harmonized.tsv')
+@click.option('--repaired-mixs-tables-file', default='generated/mixs_v6.xlsx.repaired.tsv')
+@click.option('--mixs-excel-output-file', default='generated/mixs_v6.xlsx')
 @click.option('--non-ascii-replacement', default=' ')
+@click.option('--schema-file-out', default='generated/GSC_MIxS_6.yaml')
 @click.option('--schema-name', default='GSC_MIxS_6')
 @click.option('--scn-key', default='Structured comment name')
 @click.option('--base-url', default='https://github.com/only1chunts/mixs-cih-fork/raw/main/mixs/excel/',
@@ -712,11 +774,15 @@ def extract_or_substitute_examples_etc(supplementary_file: str, global_target_sc
 @click.option('--checklists', multiple=True, help='Requires prior knowledge about current MIxS checklists',
               default=['migs_ba', 'migs_eu', 'migs_org', 'migs_pl', 'migs_vi', 'mimag', 'mimarks_c', 'mimarks_s',
                        'mims', 'misag', 'miuvig'])
-@click.option('--jit-fixes-file', default='config/jit_xlsx_fixes_in_tsv.tsv',
+@click.option('--range-pattern-inference-file',
+              default='config/mixs_string_ser_and_exp_val_to_linkml_range_and_pattern.tsv')
+@click.option('--tables-stage-mods-file', default='config/mixs_tables_stage_modifications.tsv',
               help="Could be considered changes to the MIxS XLSX file, like @only1chunts applied recently, although we apply them to the harmonized TSV file instead")
-def create_schema(non_ascii_replacement, debug, base_url, excel_file_name, dest_dir, config_dir, scn_key, schema_name,
-                  checklists, jit_fixes_file):
-    consensus_annotation = Annotation(tag="consensus", value="true")
+def create_schema(non_ascii_replacement, debug, base_url, scn_key, schema_name,
+                  checklists, tables_stage_mods_file, linkml_stage_mods_file, range_pattern_inference_file,
+                  mixs_excel_output_file, harmonized_mixs_tables_file, repaired_mixs_tables_file, schema_file_out,
+                  extracted_examples_out):
+    dest_dir, excel_file_name = os.path.split(mixs_excel_output_file)
 
     file_url = base_url + excel_file_name
 
@@ -726,13 +792,12 @@ def create_schema(non_ascii_replacement, debug, base_url, excel_file_name, dest_
         source=file_url,
     )
 
-    harmonized_sheets = harmonize_sheets(file_url, dest_dir, excel_file_name, scn_key, checklists)
+    harmonized_sheets = harmonize_sheets(file_url, mixs_excel_output_file, scn_key, checklists)
+    harmonized_sheets.to_csv(harmonized_mixs_tables_file, index=False, sep='\t')
 
-    print(harmonized_sheets)
+    harmonized_sheets, repair_report_df = apply_jit_fixes(tables_stage_mods_file, harmonized_sheets)
 
-    harmonized_sheets = apply_jit_fixes(jit_fixes_file, harmonized_sheets)
-
-    harmonized_sheets.to_csv(f"{dest_dir}/partially_harmonized.tsv", sep="\t", index=False)
+    repair_report_df.to_csv("generated/mixs_v6.xlsx.repair_report.tsv", index=False, sep='\t')
 
     returned_slot_list = process_sheet(harmonized_sheets, checklists, global_target_schema, scn_key,
                                        non_ascii_replacement)
@@ -741,25 +806,17 @@ def create_schema(non_ascii_replacement, debug, base_url, excel_file_name, dest_
 
     construct_assign_simple_enumerations(harmonized_sheets, debug, global_target_schema)
 
-    schema_file_name = f"{dest_dir}/{schema_name}.yaml"
+    string_ser_exp_val_to_range_patterns(range_pattern_inference_file, global_target_schema)
 
-    harmonized_sheets_file_name = f"{dest_dir}/{excel_file_name}.harmonized.tsv"
-
-    string_ser_exp_val_to_range_pattern_file = f"{config_dir}/string_ser_exp_val_to_range_pattern.tsv"
-
-    proposed_slot_attributes_file = f"{config_dir}/proposed_attribute_replacements_schema.yaml"
-
-    extracted_examples_file_name = f"{dest_dir}/{excel_file_name}.examples.yaml"
-
-    string_ser_exp_val_to_range_patterns(string_ser_exp_val_to_range_pattern_file, global_target_schema)
-
-    harmonized_sheets.to_csv(harmonized_sheets_file_name, index=False, sep='\t')
+    harmonized_sheets.to_csv(repaired_mixs_tables_file, index=False, sep='\t')
 
     add_exhasutive_test_class(global_target_schema)
 
+    # todo put these two prefix definitions into a dictionary
     linkml_prefix = Prefix(prefix_prefix="linkml", prefix_reference="https://w3id.org/linkml/")
-
+    MIXS_prefix = Prefix(prefix_prefix="MIXS", prefix_reference="https://w3id.org/mixs/")
     global_target_schema.prefixes["linkml"] = linkml_prefix
+    global_target_schema.prefixes["MIXS"] = MIXS_prefix
 
     global_target_schema.imports.append("linkml:types")
 
@@ -779,15 +836,15 @@ def create_schema(non_ascii_replacement, debug, base_url, excel_file_name, dest_
         else:
             global_target_schema.comments = [duplication_comment]
 
-    extracted_examples_dict = extract_or_substitute_examples_etc(supplementary_file=proposed_slot_attributes_file,
+    extracted_examples_dict = extract_or_substitute_examples_etc(supplementary_file=linkml_stage_mods_file,
                                                                  global_target_schema=global_target_schema)
     extracted_examples_collection = {
         "exhaustive_test_set": [extracted_examples_dict]
     }
 
-    yaml_dumper.dump(global_target_schema, schema_file_name)
+    yaml_dumper.dump(global_target_schema, schema_file_out)
 
-    with open(extracted_examples_file_name, 'w') as file:
+    with open(extracted_examples_out, 'w') as file:
         yaml.safe_dump(extracted_examples_collection, file)
 
 
