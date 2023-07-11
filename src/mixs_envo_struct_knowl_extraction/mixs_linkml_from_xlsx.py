@@ -183,7 +183,7 @@ def apply_jit_fixes(fixes_file: str, df: pd.DataFrame) -> tuple[DataFrame, Union
             reportable['target'] = fix['target']
             reportable = reportable[['class', 'key', 'key_value', 'target', 'original_target_value']]
             reportable['replacement_target_value'] = fix['target_val']
-            # reportable = reportable.loc[reportable['original_target_value'] != reportable['replacement_target_value']]
+
             reportable = reportable[
                 reportable['original_target_value'].astype(str) != reportable['replacement_target_value'].astype(str)]
             reports.append(reportable)
@@ -207,7 +207,7 @@ def process_sheet(df: pd.DataFrame, checklists, global_target_schema, scn_key, n
     for s in slots_list:
         if type(s) is not str:
             # todo how would a nan/float "slot" get in here?
-            print(f"{s} has type {type(s)}")
+            print(f"slot {s} has type {type(s)}")
             slots_list.remove(s)
 
     slots_list.sort()
@@ -596,48 +596,80 @@ def construct_assign_simple_enumerations(sheet: pd.DataFrame, debug_mode: bool, 
 
 
 def string_ser_exp_val_to_range_patterns(tsv_file: str, global_target_schema):
-    df_raw = pd.read_csv(tsv_file, sep='\t')
-    df = df_raw.replace(np.nan, '')
+    """
+    Assigns ranges and patterns to slots in the target schema based on the string serialization and expected value annotations.
+
+    Args:
+        tsv_file: The path to the TSV file containing the string serialization and expected value annotations.
+        global_target_schema: The target schema to update.
+
+    Returns:
+        A dictionary of unmapped string serialization and expected value pairs.
+    """
+
+    df = pd.read_csv(tsv_file, sep='\t')
+    df.fillna('', inplace=True)
 
     slots = global_target_schema.slots
+    unmapped = {}
+
     for k, v in slots.items():
-
-        ss = ""
-        if v.string_serialization:
-            ss = v.string_serialization
-        ev = ""
-        if "Expected_value" in v.annotations:
-            ev = v.annotations["Expected_value"].value
-
-        string_ser_exp_val_row = df[(df['string_serialization'] == ss) & (df['Expected_value'] == ev)]
-        row_count = string_ser_exp_val_row.shape[0]
-        if row_count == 1:
-            if not pd.isna(string_ser_exp_val_row.iloc[0]['range']):
-                r = string_ser_exp_val_row.iloc[0]['range']
-                if r != "":
-                    global_target_schema.slots[k].range = r
-            if not pd.isna(string_ser_exp_val_row.iloc[0]['pattern']):
-                p = string_ser_exp_val_row.iloc[0]['pattern']
-                if p != "":
-                    global_target_schema.slots[k].pattern = p
-            if not pd.isna(string_ser_exp_val_row.iloc[0]['structured_pattern']):
-                s = string_ser_exp_val_row.iloc[0]['structured_pattern']
-                if s != "":
-                    sp = PatternExpression(syntax=s, interpolated=True, partial_match=True)
-                    global_target_schema.slots[k].structured_pattern = sp
-            if "Expected_value" in global_target_schema.slots[k].annotations:
-                # deleting Expected value since a range was assigned
-                del global_target_schema.slots[k].annotations["Expected_value"]
-            if global_target_schema.slots[k].string_serialization:
-                # deleting temporary LinkML string_serialization since a range was assigned
-                del global_target_schema.slots[k].string_serialization
-
+        ss = v.string_serialization or ''
+        ev = v.annotations.get('Expected_value')
+        if ev:
+            ev = ev.value
         else:
-            if ss == "" and ev == "":
-                global_target_schema.slots[k].range = "string"
+            ev = ''
+        # if ss == '{text}':
+        #     print(f"Processing slot {k} with string serialization <{ss}> and expected value <{ev}>")
+
+        row = df[(df['string_serialization'] == ss) & (df['Expected_value'] == ev)]
+        row_count = row.shape[0]
+
+        if row_count == 1:
+            r = row.iloc[0]['range']
+            p = row.iloc[0]['pattern']
+            sp = row.iloc[0]['structured_pattern']
+
+            if r != '':
+                v.range = r
+            if p != '':
+                v.pattern = p
+            if sp != '':
+                v.structured_pattern = PatternExpression(syntax=sp, interpolated=True, partial_match=True)
+
+            # Delete the Expected_value annotation since a range was assigned.
+            if 'Expected_value' in v.annotations:
+                del v.annotations['Expected_value']
+
+            # Delete the temporary LinkML string_serialization since a range was assigned.
+            if v.string_serialization:
+                del v.string_serialization
+
+        elif row_count > 1:
+            print(
+                f"There are {row_count} different mappings for string serialization of <{ss}> and expected value of <{ev}>")
+
+        elif row_count == 0:
+            if ss == '' and ev == '':
+                # if ss == '{text}':
+                #     print("assigning range string to slot")
+                v.range = 'string'
             else:
-                print(
-                    f"{row_count = }. No single, full match string serialization of <{ss}> and expected value of <{ev}>")
+                # if ss == '{text}':
+                #     print("no mapping found")
+                unmapped[(ss, ev)] = unmapped.get((ss, ev), 0) + 1
+    unmapped_lod = []
+    for i in unmapped:
+        unmapped_lod.append(
+            {
+                'string_serialization': i[0],
+                'Expected_value': i[1],
+                'count': unmapped[i]
+            }
+        )
+
+    return unmapped_lod
 
 
 def add_exhasutive_test_class(global_target_schema):
@@ -690,32 +722,34 @@ def extract_or_substitute_examples_etc(supplementary_file: str, global_target_sc
     # requires explicit handlers for each attribute of a slot
     proposal_view = SchemaView(supplementary_file)
 
-    print(yaml_dumper.dumps(proposal_view.schema))
+    # print(yaml_dumper.dumps(proposal_view.schema))
 
     proposal_schema = proposal_view.schema
 
     excel_slots = global_target_schema.slots
 
+    # todo make a report file instead of printing
+    #  or maybe this is just restating the obvious from the supplementary_file?
     for proposed_k, proposed_v in proposal_schema.slots.items():
         if proposed_k in excel_slots:
             if proposed_v.comments:
                 for comment in proposed_v.comments:
-                    print(global_target_schema.slots[proposed_k].comments)
-                    print(f"attempting to ADD comment {comment} to {proposed_k}")
+                    # print(global_target_schema.slots[proposed_k].comments)
+                    # print(f"attempting to ADD comment {comment} to {proposed_k}")
                     global_target_schema.slots[proposed_k].comments.append(comment)
             if proposed_v.examples:
                 global_target_schema.slots[proposed_k].examples = proposed_v.examples
             if proposed_v.multivalued != global_target_schema.slots[proposed_k].multivalued:
                 global_target_schema.slots[proposed_k].multivalued = proposed_v.multivalued
             if proposed_v.pattern:
-                print(
-                    f"attempting to update {proposed_k}'s pattern from {global_target_schema.slots[proposed_k].pattern} to {proposed_v.pattern} and range to string")
+                # print(
+                #     f"attempting to update {proposed_k}'s pattern from {global_target_schema.slots[proposed_k].pattern} to {proposed_v.pattern} and range to string")
                 global_target_schema.slots[proposed_k].pattern = proposed_v.pattern
                 global_target_schema.slots[proposed_k].range = "string"
             if proposed_v.range:
                 global_target_schema.slots[proposed_k].range = proposed_v.range
                 if proposed_v.range != "string" and global_target_schema.slots[proposed_k].pattern:
-                    print(f"attempting to remove {proposed_k}'s pattern from {proposed_v.range} slot")
+                    # print(f"attempting to remove {proposed_k}'s pattern from {proposed_v.range} slot")
                     del global_target_schema.slots[proposed_k].pattern
 
         else:
@@ -797,6 +831,7 @@ def create_schema(non_ascii_replacement, debug, base_url, scn_key, schema_name,
 
     harmonized_sheets, repair_report_df = apply_jit_fixes(tables_stage_mods_file, harmonized_sheets)
 
+    # todo use a parameter
     repair_report_df.to_csv("generated/mixs_v6.xlsx.repair_report.tsv", index=False, sep='\t')
 
     returned_slot_list = process_sheet(harmonized_sheets, checklists, global_target_schema, scn_key,
@@ -806,7 +841,11 @@ def create_schema(non_ascii_replacement, debug, base_url, scn_key, schema_name,
 
     construct_assign_simple_enumerations(harmonized_sheets, debug, global_target_schema)
 
-    string_ser_exp_val_to_range_patterns(range_pattern_inference_file, global_target_schema)
+    unmapped = string_ser_exp_val_to_range_patterns(range_pattern_inference_file, global_target_schema)
+    unmapped_frame = pd.DataFrame(unmapped)
+
+    # todo use a parameter
+    unmapped_frame.to_csv("generated/unmapped_frame.tsv", index=False, sep='\t')
 
     harmonized_sheets.to_csv(repaired_mixs_tables_file, index=False, sep='\t')
 

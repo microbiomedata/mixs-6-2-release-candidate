@@ -203,3 +203,9 @@ TRUE	Structured comment name	tot_nitro_cont_meth	Item	total nitrogen content met
 TRUE	Structured comment name	tot_nitro_cont_meth	Occurrence	1			food-farm environment has m
 TRUE	Structured comment name	trophic_level	Value syntax	[autotroph|carboxydotroph|chemoautotroph|chemoheterotroph|chemolithoautotroph|chemolithotroph|chemoorganoheterotroph|chemoorganotroph|chemosynthetic|chemotroph|copiotroph|diazotroph|facultative|autotroph|heterotroph|lithoautotroph|lithoheterotroph|lithotroph|methanotroph|methylotroph|mixotroph|obligate|chemoautolithotroph|oligotroph|organoheterotroph|organotroph|photoautotroph|photoheterotroph|photolithoautotroph|photolithotroph|photosynthetic|phototroph]			agriculture has some permissible values but with additional whitespace
 TRUE	Structured comment name	water_cut	Example	45%			casual Google search
+TRUE	MIXS ID	MIXS:0001325	Value syntax	small intestine [UBERON:0002108]			agriculture has some permissible values but with additional whitespace
+TRUE	MIXS ID	MIXS:0001159	Value syntax	bare soil [ENVO:01001616]			agriculture has some permissible values but with additional whitespace
+TRUE	MIXS ID	MIXS:0001253	Value syntax	{text}			agriculture has some permissible values but with additional whitespace
+TRUE	MIXS ID	MIXS:0001254	Value syntax	{text}			agriculture has some permissible values but with additional whitespace
+TRUE	MIXS ID	MIXS:0001253	Expected value	""			agriculture has some permissible values but with additional whitespace
+TRUE	MIXS ID	MIXS:0001254	Expected value	""			agriculture has some permissible values but with additional whitespace
