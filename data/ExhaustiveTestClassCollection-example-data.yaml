@@ -27,7 +27,7 @@ exhaustive_test_set:
     samp_collect_point: xxx
     samp_name: xxx
     samp_taxon_id: xxx
-    samp_type: xxx
+    samp_type: term [ONTOLOGY:123]
     #    sample_name: xxx # deprecated with replacement samp_name
     seq_meth: xxx
     space_typ_state: xxx
@@ -51,7 +51,7 @@ exhaustive_test_set:
     x16s_recover_software: xxx
     #    Food_Product_type: xxx # see food_product_type
     HACCP_term:
-      - xxx
+      - term [ONTOLOGY:123]
     adapters: xxx
     additional_info: xxx
     adj_room: xxx
@@ -80,7 +80,7 @@ exhaustive_test_set:
     amount_light: 1.9 units
     ances_data: xxx
     anim_water_method:
-      - xxx
+      - term [ONTOLOGY:123]
     animal_am: xxx
     animal_am_dur: xxx
     animal_am_freq: 1.5
@@ -93,7 +93,7 @@ exhaustive_test_set:
       - xxx
     animal_group_size: 123
     animal_housing:
-      - xxx
+      - term [ONTOLOGY:123]
     animal_intrusion:
       - xxx
     animal_sex: xxx
@@ -248,7 +248,7 @@ exhaustive_test_set:
       - xxx
     encoded_traits: xxx
     enrichment_protocol: xxx
-    env_monitoring_zone: xxx
+    env_monitoring_zone: term [ONTOLOGY:123]
     escalator: 123
     estimated_size: xxx
     ethnicity:
@@ -268,12 +268,12 @@ exhaustive_test_set:
       - xxx
     fao_class: xxx
     farm_equip:
-      - xxx
+      - term [ONTOLOGY:123]
     farm_equip_san:
       - xxx
     farm_equip_san_freq: xxx
     farm_equip_shared:
-      - xxx
+      - term [ONTOLOGY:123]
     farm_water_source:
       - xxx
     feat_pred: xxx
@@ -288,7 +288,7 @@ exhaustive_test_set:
     ferm_temp: 1.9 units
     ferm_time: PT10H30M
     ferm_vessel: xxx
-    fertilizer_admin: xxx
+    fertilizer_admin: term [ONTOLOGY:123]
     fertilizer_date: "2013-03-25T12:42:31+00:32"
     fertilizer_regm:
       - xxx
@@ -325,7 +325,7 @@ exhaustive_test_set:
       - xxx
     food_ingredient:
       - xxx
-    food_name_status: xxx
+    food_name_status: term [ONTOLOGY:123]
     food_origin: xxx
     food_pack_capacity: 1.9 units
     food_pack_integrity:
@@ -337,18 +337,18 @@ exhaustive_test_set:
     food_prior_contact:
       - xxx
     food_prod:
-      - xxx
+      - term [ONTOLOGY:123]
     food_prod_char:
       - xxx
     food_prod_synonym:
       - xxx
-    food_product_qual: xxx
+    food_product_qual: term [ONTOLOGY:123]
     food_quality_date: xxx
     food_source: xxx
     food_source_age: 6 months
     food_trace_list: xxx
     food_trav_mode:
-      - xxx
+      - term [ONTOLOGY:123]
     food_trav_vehic:
       - xxx
     food_treat_proc:
@@ -429,7 +429,7 @@ exhaustive_test_set:
     host_of_host_disease:
       - xxx
     host_of_host_env_loc:
-      - xxx
+      - term [ONTOLOGY:123]
     host_of_host_env_med: xxx
     host_of_host_fam_rel:
       - xxx
@@ -463,7 +463,7 @@ exhaustive_test_set:
     humidity: 1.9 units
     humidity_regm:
       - xxx
-    hygienic_area: xxx
+    hygienic_area: term [ONTOLOGY:123]
     hysterectomy: true
     ihmc_medication_code:
       - 123
@@ -539,8 +539,7 @@ exhaustive_test_set:
     nose_throat_disord:
       - xxx
     nucl_acid_amp: xxx
-    nucl_acid_ext:
-      - xxx
+    nucl_acid_ext: term [ONTOLOGY:123]
     nucl_acid_ext_kit:
       - xxx
     num_replicons: 123
@@ -599,9 +598,9 @@ exhaustive_test_set:
     plant_reprod_crop:
       - xxx
     plant_sex: xxx
-    plant_struc: xxx
-    plant_water_method: xxx
-    ploidy: xxx
+    plant_struc: term [ONTOLOGY:123]
+    plant_water_method: term [ONTOLOGY:123]
+    ploidy: term [ONTOLOGY:123]
     pollutants:
       - xxx
     pool_dna_extracts: xxx
@@ -758,7 +757,7 @@ exhaustive_test_set:
     smoker: true
     sodium: 1.9 units
     soil_conductivity: 1.9 units
-    soil_cover: xxx
+    soil_cover: term [ONTOLOGY:123]
     #    soil_depth: xxx # see depth
     soil_horizon: xxx
     soil_pH: 1.9
@@ -783,7 +782,7 @@ exhaustive_test_set:
       - xxx
     source_uvig: xxx
     spec_intended_cons:
-      - xxx
+      - term [ONTOLOGY:123]
     special_diet:
       - xxx
     specific: xxx
