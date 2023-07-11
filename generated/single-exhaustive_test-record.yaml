@@ -1,0 +1,916 @@
+HACCP_term:
+- term [ONTOLOGY:123]
+IFSAC_category:
+- xxx
+abs_air_humidity: 123 units
+adapters: xxx
+add_recov_method: xxx
+additional_info: xxx
+address: 123 Main Street
+adj_room: xxx
+adjacent_environment:
+- xxx
+aero_struc: xxx
+agrochem_addition:
+- xxx
+air_PM_concen:
+- xxx
+air_flow_impede:
+- xxx
+air_temp: 1.9 units
+air_temp_regm:
+- xxx
+al_sat: 1.9 units
+al_sat_meth: xxx
+alkalinity: 1.9 units
+alkalinity_method: xxx
+alkyl_diethers: 1.9 units
+alt: 100 meters
+aminopept_act: 1.9 units
+ammonium: 1.9 units
+amniotic_fluid_color: xxx
+amount_light: 1.9 units
+ances_data: xxx
+anim_water_method:
+- term [ONTOLOGY:123]
+animal_am: xxx
+animal_am_dur: xxx
+animal_am_freq: 1.5
+animal_am_route: xxx
+animal_am_use: xxx
+animal_body_cond: xxx
+animal_diet:
+- xxx
+animal_feed_equip:
+- xxx
+animal_group_size: 123
+animal_housing:
+- term [ONTOLOGY:123]
+animal_intrusion:
+- xxx
+animal_sex: xxx
+annot: xxx
+annual_precpt: 1.9 units
+annual_temp: 1.9 units
+antibiotic_regm:
+- xxx
+api: 123 units
+arch_struc: xxx
+area_samp_size: xxx
+aromatics_pc: xxx
+asphaltenes_pc: xxx
+assembly_name: xxx xxx
+assembly_qual: xxx
+assembly_software: xxx
+associated_resource:
+- xxx
+association_duration: 90 minutes
+atmospheric_data:
+- xxx
+avg_dew_point: 1.9 units
+avg_occup: 1.9
+avg_temp: 1.9 units
+bac_prod: 1.9 units
+bac_resp: 1.9 units
+bacteria_carb_prod: 1.9 units
+bacterial_density: 1.9 units
+barometric_press: 1.9 units
+basin: xxx
+bathroom_count: 123
+bedroom_count: 123
+benzene: 1.9 units
+bin_param: xxx
+bin_software: xxx
+biochem_oxygen_dem: 1.9 units
+biocide: xxx
+biocide_admin_method: xxx
+biocide_used:
+- xxx
+biol_stat: xxx
+biomass:
+- xxx
+biotic_regm: xxx
+biotic_relationship: xxx
+birth_control: xxx
+bishomohopanol: 1.9 units
+blood_blood_disord:
+- xxx
+blood_press_diast: 1.9 units
+blood_press_syst: 1.9 units
+bromide: 1.9 units
+build_docs: xxx
+build_occup_type:
+- xxx
+building_setting: xxx
+built_struc_age: 15 years
+built_struc_set: xxx
+built_struc_type: xxx
+calcium: 1.9 units
+carb_dioxide: 1.9 units
+carb_monoxide: 1.9 units
+carb_nitro_ratio: 0.417361111
+ceil_area: 1.9 units
+ceil_cond: xxx
+ceil_finish_mat: xxx
+ceil_struc: xxx
+ceil_texture: xxx
+ceil_thermal_mass: 1.9 units
+ceil_type: xxx
+ceil_water_mold: xxx
+chem_administration:
+- xxx
+chem_mutagen:
+- xxx
+chem_oxygen_dem: 1.9 units
+chem_treat_method: xxx
+chem_treatment: xxx
+chimera_check: xxx
+chloride: 1.9 units
+chlorophyll: 1.9 units
+climate_environment:
+- xxx
+coll_site_geo_feat: xxx
+collection_date: '2013-03-25T12:42:31+00:32'
+compl_appr: xxx
+compl_score: xxx
+compl_software: xxx
+conduc: 1.9 units
+cons_food_stor_dur: PT10H30M
+cons_food_stor_temp: xxx
+cons_purch_date: '2013-03-25T12:42:31+00:32'
+cons_qty_purchased: 123 units
+contam_score: xxx
+contam_screen_input: xxx
+contam_screen_param: xxx
+cool_syst_id: 123
+crop_rotation: xxx
+crop_yield: 1.9 units
+cult_isol_date: xxx
+cult_result: xxx
+cult_result_org:
+- xxx
+cult_root_med: xxx
+cult_target:
+- xxx
+cur_land_use: xxx
+cur_vegetation: xxx
+cur_vegetation_meth: xxx
+date_extr_weath:
+- '2013-03-25T12:42:31+00:32'
+date_last_rain: '2013-03-25T12:42:31+00:32'
+decontam_software: xxx
+density: 1.9 units
+depos_env: xxx
+depth: 1.9 units
+dermatology_disord:
+- xxx
+detec_type: xxx
+dew_point: 1.9 units
+diet_last_six_month: xxx
+dietary_claim_use:
+- xxx
+diether_lipids:
+- xxx
+diss_carb_dioxide: 1.9 units
+diss_hydrogen: 1.9 units
+diss_inorg_carb: 1.9 units
+diss_inorg_nitro: 1.9 units
+diss_inorg_phosp: 1.9 units
+diss_iron: 1.9 units
+diss_org_carb: 1.9 units
+diss_org_nitro: 1.9 units
+diss_oxygen: 1.9 units
+diss_oxygen_fluid: 1.9 units
+dominant_hand: xxx
+door_comp_type: xxx
+door_cond: xxx
+door_direct: xxx
+door_loc: xxx
+door_mat: xxx
+door_move: xxx
+door_size: 1.9 units
+door_type: xxx
+door_type_metal: xxx
+door_type_wood: xxx
+door_water_mold: xxx
+douche: '2013-03-25T12:42:31+00:32'
+down_par: 1.9 units
+drainage_class: xxx
+drawings: xxx
+drug_usage:
+- xxx
+efficiency_percent: 1.9 units
+elev: 1.9 units
+elevator: 123
+emulsions:
+- xxx
+encoded_traits: xxx
+enrichment_protocol: xxx
+env_broad_scale: term [ONTOLOGY:123]
+env_local_scale: term [ONTOLOGY:123]
+env_medium: term [ONTOLOGY:123]
+env_monitoring_zone: term [ONTOLOGY:123]
+escalator: 123
+estimated_size: xxx
+ethnicity:
+- xxx
+ethylbenzene: 1.9 units
+exp_duct: 1.9 units
+exp_pipe: 123 units
+experimental_factor: xxx
+ext_door: 123
+ext_wall_orient: xxx
+ext_window_orient: xxx
+extr_weather_event:
+- xxx
+extrachrom_elements: 123
+extreme_event: '2013-03-25T12:42:31+00:32'
+facility_type:
+- xxx
+fao_class: xxx
+farm_equip:
+- term [ONTOLOGY:123]
+farm_equip_san:
+- xxx
+farm_equip_san_freq: xxx
+farm_equip_shared:
+- term [ONTOLOGY:123]
+farm_water_source:
+- xxx
+feat_pred: xxx
+ferm_chem_add:
+- xxx
+ferm_chem_add_perc:
+- xxx
+ferm_headspace_oxy: xxx
+ferm_medium: xxx
+ferm_pH: 1.9
+ferm_rel_humidity: 95%
+ferm_temp: 1.9 units
+ferm_time: PT10H30M
+ferm_vessel: xxx
+fertilizer_admin: term [ONTOLOGY:123]
+fertilizer_date: '2013-03-25T12:42:31+00:32'
+fertilizer_regm:
+- xxx
+field: xxx
+filter_type:
+- xxx
+fire: '2013-03-25T12:42:31+00:32'
+fireplace_type: xxx
+flooding: '2013-03-25T12:42:31+00:32'
+floor_age: 8 years
+floor_area: 1.9 units
+floor_cond: xxx
+floor_count: 123
+floor_finish_mat: xxx
+floor_struc: xxx
+floor_thermal_mass: 1.9 units
+floor_water_mold: xxx
+fluor: 1.9 units
+foetal_health_stat: xxx
+food_additive:
+- xxx
+food_allergen_label:
+- xxx
+food_clean_proc:
+- xxx
+food_contact_surf:
+- xxx
+food_contain_wrap: xxx
+food_cooking_proc:
+- xxx
+food_dis_point:
+- xxx
+food_dis_point_city:
+- xxx
+food_harvest_proc:
+- xxx
+food_ingredient:
+- xxx
+food_name_status: term [ONTOLOGY:123]
+food_origin: xxx
+food_pack_capacity: 1.9 units
+food_pack_integrity:
+- xxx
+food_pack_medium:
+- xxx
+food_preserv_proc:
+- xxx
+food_prior_contact:
+- xxx
+food_prod:
+- term [ONTOLOGY:123]
+food_prod_char:
+- xxx
+food_prod_synonym:
+- xxx
+food_product_qual: term [ONTOLOGY:123]
+food_product_type:
+- xxx
+food_quality_date: xxx
+food_source: xxx
+food_source_age: 6 months
+food_trace_list: xxx
+food_trav_mode:
+- term [ONTOLOGY:123]
+food_trav_vehic:
+- xxx
+food_treat_proc:
+- xxx
+freq_clean: xxx
+freq_cook: 123 units
+fungicide_regm:
+- xxx
+furniture: xxx
+gaseous_environment:
+- xxx
+gaseous_substances:
+- xxx
+gastrointest_disord:
+- xxx
+gender_restroom: xxx
+genetic_mod: xxx
+geo_loc_name: xxx
+gestation_state: xxx
+glucosidase_act: 1.9 units
+gravidity: xxx
+gravity:
+- xxx
+growth_facil: xxx
+growth_habit: xxx
+growth_hormone_regm:
+- xxx
+growth_medium: xxx
+gynecologic_disord:
+- xxx
+hall_count: 123
+handidness: xxx
+hc_produced: xxx
+hcr: xxx
+hcr_fw_salinity: 1.9 units
+hcr_geol_age: xxx
+hcr_pressure: xxx
+hcr_temp: xxx
+heat_cool_type:
+- xxx
+heat_deliv_loc: xxx
+heat_sys_deliv_meth: xxx
+heat_system_id: 123
+heavy_metals:
+- xxx
+heavy_metals_meth: xxx
+height_carper_fiber: 1.9 units
+herbicide_regm:
+- xxx
+horizon: xxx
+horizon_meth: xxx
+host_age: 1.9 units
+host_body_habitat: xxx
+host_body_mass_index: 1.9 units
+host_body_product: term [ONTOLOGY:123]
+host_body_site: term [ONTOLOGY:123]
+host_body_temp: 1.9 units
+host_cellular_loc: xxx
+host_color: xxx
+host_common_name: xxx
+host_dependence: xxx
+host_diet:
+- xxx
+host_disease_stat: xxx
+host_dry_mass: 1.9 units
+host_fam_rel:
+- xxx
+host_genotype: xxx
+host_growth_cond: xxx
+host_height: 1.9 units
+host_hiv_stat: xxx
+host_infra_spec_name: xxx
+host_infra_spec_rank: xxx
+host_last_meal:
+- xxx
+host_length: 1.9 units
+host_life_stage: xxx
+host_number: xxx
+host_occupation: veterinary
+host_of_host_coinf: xxx
+host_of_host_disease:
+- xxx
+host_of_host_env_loc:
+- term [ONTOLOGY:123]
+host_of_host_env_med: xxx
+host_of_host_fam_rel:
+- xxx
+host_of_host_geno: xxx
+host_of_host_gravid: xxx
+host_of_host_infname: xxx
+host_of_host_infrank: xxx
+host_of_host_name: xxx
+host_of_host_pheno: xxx
+host_of_host_sub_id: xxx
+host_of_host_taxid: xxx
+host_of_host_totmass: 1.9 units
+host_phenotype: xxx
+host_pred_appr: xxx
+host_pred_est_acc: xxx
+host_pulse: 1.9 units
+host_sex: xxx
+host_shape: xxx
+host_spec_range:
+- xxx
+host_specificity: xxx
+host_subject_id: xxx
+host_subspecf_genlin:
+- xxx
+host_substrate: xxx
+host_symbiont: xxx
+host_taxid: xxx
+host_tot_mass: 1.9 units
+host_wet_mass: 1.9 units
+hrt: '2013-03-25T12:42:31+00:32'
+humidity: 1.9 units
+humidity_regm:
+- xxx
+hygienic_area: term [ONTOLOGY:123]
+hysterectomy: true
+ihmc_medication_code:
+- 123
+indoor_space: xxx
+indoor_surf: xxx
+indust_eff_percent: 1.9 units
+inorg_particles:
+- xxx
+inside_lux: 1.9 units
+int_wall_cond: xxx
+intended_consumer:
+- xxx
+isol_growth_condt: xxx
+iw_bt_date_well: '2013-03-25T12:42:31+00:32'
+iwf: 0.79
+kidney_disord:
+- xxx
+last_clean: '2013-03-25T12:42:31+00:32'
+lat_lon: xxx
+lib_layout: xxx
+lib_reads_seqd: 123
+lib_screen: xxx
+lib_size: 123
+lib_vector: xxx
+library_prep_kit: xxx
+light_intensity: 1.9 units
+light_regm: xxx
+light_type:
+- xxx
+link_addit_analys: xxx
+link_class_info: xxx
+link_climate_info: xxx
+lithology: xxx
+liver_disord:
+- xxx
+local_class: xxx
+local_class_meth: xxx
+lot_number:
+- xxx
+mag_cov_software: xxx
+magnesium: 1.9 units
+maternal_health_stat: xxx
+max_occup: 123 units
+mean_frict_vel: 1.9 units
+mean_peak_frict_vel: 1.9 units
+mech_struc: xxx
+mechanical_damage:
+- xxx
+medic_hist_perform: true
+menarche: '2013-03-25T12:42:31+00:32'
+menopause: '2013-03-25T12:42:31+00:32'
+methane: 1.9 units
+micro_biomass_meth: xxx
+microb_cult_med: xxx
+microb_start: xxx
+microb_start_count: xxx
+microb_start_inoc: 1.9 units
+microb_start_prep: xxx
+microb_start_source: xxx
+microb_start_taxID: xxx
+microbial_biomass: 1.9 units
+mid: ACGT
+mineral_nutr_regm:
+- xxx
+misc_param:
+- xxx
+mode_transmission: xxx
+n_alkanes:
+- xxx
+neg_cont_type: distilled water
+nitrate: 1.9 units
+nitrite: 1.9 units
+nitro: 1.9 units
+non_min_nutr_regm:
+- xxx
+nose_throat_disord:
+- xxx
+nucl_acid_amp: xxx
+nucl_acid_ext: term [ONTOLOGY:123]
+nucl_acid_ext_kit:
+- xxx
+num_replicons: 123
+num_samp_collect: 1.9 units
+number_contig: 123
+number_pets: 123 units
+number_plants: 123 units
+number_resident: 123 units
+occup_density_samp: 1.9
+occup_document: xxx
+occup_samp: 1.9
+org_carb: 1.9 units
+org_count_qpcr_info: xxx
+org_matter: 1.9 units
+org_nitro: 1.9 units
+org_particles:
+- xxx
+organism_count: xxx
+otu_class_appr: xxx
+otu_db: xxx
+otu_seq_comp_appr: xxx
+owc_tvdss: 1.9 units
+oxy_stat_samp: xxx
+oxygen: 1.9 units
+part_org_carb: 1.9 units
+part_org_nitro: 1.9 units
+part_plant_animal:
+- xxx
+particle_class:
+- xxx
+pathogenicity: xxx
+pcr_cond: xxx
+pcr_primers: xxx
+permeability: xxx
+perturbation:
+- xxx
+pesticide_regm:
+- xxx
+pet_farm_animal:
+- xxx
+petroleum_hydrocarb: 1.9 units
+ph: 1.9
+ph_meth: xxx
+ph_regm:
+- xxx
+phaeopigments:
+- xxx
+phosphate: 1.9 units
+phosplipid_fatt_acid:
+- xxx
+photon_flux: 1.9 units
+photosynt_activ: 1.9 units
+photosynt_activ_meth:
+- xxx
+plant_growth_med: xxx
+plant_part_maturity: xxx
+plant_product: xxx
+plant_reprod_crop:
+- xxx
+plant_sex: xxx
+plant_struc: term [ONTOLOGY:123]
+plant_water_method: term [ONTOLOGY:123]
+ploidy: term [ONTOLOGY:123]
+pollutants:
+- xxx
+pool_dna_extracts: xxx
+porosity: xxx
+pos_cont_type: xxx
+potassium: 1.9 units
+pour_point: 1.9 units
+pre_treatment: xxx
+pred_genome_struc: xxx
+pred_genome_type: xxx
+pregnancy: '2013-03-25T12:42:31+00:32'
+pres_animal_insect: xxx
+pressure: 1.9 units
+prev_land_use_meth: xxx
+previous_land_use: xxx
+primary_prod: 1.9 units
+primary_treatment: xxx
+prod_label_claims:
+- xxx
+prod_rate: 1.9 units
+prod_start_date: '2013-03-25T12:42:31+00:32'
+profile_position: xxx
+project_name: xxx
+propagation: xxx
+pulmonary_disord:
+- xxx
+quad_pos: xxx
+radiation_regm:
+- xxx
+rainfall_regm:
+- xxx
+reactor_type: xxx
+reassembly_bin: true
+redox_potential: 1.9 units
+ref_biomaterial: xxx
+ref_db: xxx
+rel_air_humidity: 0.8
+rel_humidity_out: 1.9 units
+rel_location: xxx
+rel_samp_loc: xxx
+rel_to_oxygen: xxx
+repository_name:
+- xxx
+reservoir: xxx
+resins_pc: xxx
+room_air_exch_rate: 1.9 units
+room_architec_elem: xxx
+room_condt: xxx
+room_connected: xxx
+room_count: 123
+room_dim: xxx
+room_door_dist: 123 units
+room_door_share: xxx
+room_hallway: xxx
+room_loc: xxx
+room_moist_dam_hist: 123
+room_net_area: 123 units
+room_occup: 123 units
+room_samp_pos: xxx
+room_type: xxx
+room_vol: 123 units
+room_wall_share: xxx
+room_window_count: 123
+root_cond: xxx
+root_med_carbon: xxx
+root_med_macronutr: xxx
+root_med_micronutr: xxx
+root_med_ph: 1.9
+root_med_regl: xxx
+root_med_solid: xxx
+root_med_suppl: xxx
+route_transmission: xxx
+salinity: 1.9 units
+salt_regm:
+- xxx
+samp_capt_status: xxx
+samp_collect_device: xxx
+samp_collect_method: xxx
+samp_collect_point: xxx
+samp_dis_stage: xxx
+samp_floor: xxx
+samp_loc_condition: xxx
+samp_loc_corr_rate: xxx
+samp_mat_process: xxx
+samp_md: xxx
+samp_name: xxx
+samp_pooling:
+- xxx
+samp_preserv: xxx
+samp_purpose: xxx
+samp_rep_biol: 1.9 units
+samp_rep_tech: 1.9 units
+samp_room_id: 123
+samp_size: 1.9 units
+samp_sort_meth:
+- xxx
+samp_source_mat_cat: term [ONTOLOGY:123]
+samp_stor_device: xxx
+samp_stor_media: xxx
+samp_store_dur: PT10H30M
+samp_store_loc: xxx
+samp_store_sol: xxx
+samp_store_temp: 1.9 units
+samp_subtype: xxx
+samp_surf_moisture:
+- xxx
+samp_taxon_id: xxx
+samp_time_out: xxx
+samp_transport_cond: xxx
+samp_transport_cont: xxx
+samp_transport_dur: PT10H30M
+samp_transport_temp: xxx
+samp_tvdss: xxx
+samp_type: term [ONTOLOGY:123]
+samp_vol_we_dna_ext: 1.9 units
+samp_weather: xxx
+samp_well_name: xxx
+saturates_pc: xxx
+sc_lysis_approach: xxx
+sc_lysis_method: xxx
+season: autumn [NCIT:C94733]
+season_environment:
+- xxx
+season_humidity: 0.25
+season_precpt: 1.9 units
+season_temp: 1.9 units
+season_use: xxx
+secondary_treatment: xxx
+sediment_type: xxx
+seq_meth: xxx
+seq_quality_check: manually edited
+sequencing_kit: xxx
+sequencing_location: xxx
+serovar_or_serotype:
+- xxx
+sewage_type: xxx
+sexual_act: xxx
+shad_dev_water_mold: xxx
+shading_device_cond: xxx
+shading_device_loc: xxx
+shading_device_mat: xxx
+shading_device_type: xxx
+sieving: xxx
+silicate: 1.9 units
+sim_search_meth: xxx
+size_frac: xxx
+size_frac_low: 1.9 units
+size_frac_up: 1.9 units
+slope_aspect: 1.9 units
+slope_gradient: 1.9 units
+sludge_retent_time: 1.9 units
+smoker: true
+sodium: 1.9 units
+soil_conductivity: 1.9 units
+soil_cover: term [ONTOLOGY:123]
+soil_horizon: xxx
+soil_pH: 1.9
+soil_porosity: xxx
+soil_temp: 1.9 units
+soil_texture_class: xxx
+soil_texture_meth: xxx
+soil_type: xxx
+soil_type_meth: xxx
+solar_irradiance:
+- 1.9 units
+soluble_inorg_mat:
+- xxx
+soluble_org_mat:
+- xxx
+soluble_react_phosp: 1.9 units
+sop:
+- xxx
+sort_tech: xxx
+source_mat_id:
+- xxx
+source_uvig: xxx
+space_typ_state: xxx
+spec_intended_cons:
+- term [ONTOLOGY:123]
+special_diet:
+- xxx
+specific: xxx
+specific_host: xxx
+specific_humidity: 1.9 units
+spikein_AMR:
+- xxx
+spikein_antibiotic:
+- xxx
+spikein_count: xxx
+spikein_growth_med:
+- xxx
+spikein_metal:
+- xxx
+spikein_org:
+- xxx
+spikein_serovar:
+- xxx
+spikein_strain:
+- xxx
+sr_dep_env: xxx
+sr_geol_age: xxx
+sr_kerog_type: xxx
+sr_lithology: xxx
+standing_water_regm:
+- xxx
+ster_meth_samp_room:
+- xxx
+store_cond: xxx
+study_complt_stat: xxx
+study_design:
+- xxx
+study_inc_dur: P10D
+study_inc_temp: 1.9 units
+study_timecourse: 1.9 units
+study_tmnt:
+- xxx
+subspecf_gen_lin: xxx
+substructure_type:
+- xxx
+sulfate: 1.9 units
+sulfate_fw: 1.9 units
+sulfide: 1.9 units
+surf_air_cont:
+- xxx
+surf_humidity: 0.1
+surf_material: xxx
+surf_moisture: 1.9 units
+surf_moisture_ph: 1.9
+surf_temp: 1.9 units
+suspend_part_matter: 1.9 units
+suspend_solids:
+- xxx
+sym_life_cycle_type: simple life cycle
+symbiont_host_role: xxx
+tan: 1.9 units
+target_gene: xxx
+target_subfragment: xxx
+tax_class: xxx
+tax_ident: xxx
+temp: 1.9 units
+temp_out: 1.9 units
+tertiary_treatment: xxx
+tidal_stage: xxx
+tillage: xxx
+time_last_toothbrush: PT10H30M
+time_since_last_wash: PT10H30M
+timepoint: PT10H30M
+tiss_cult_growth_med: xxx
+toluene: 1.9 units
+tot_carb: 1.9 units
+tot_depth_water_col: 1.9 units
+tot_diss_nitro: 1.9 units
+tot_inorg_nitro: 1.9 units
+tot_iron: 1.9 units
+tot_nitro: 1.9 units
+tot_nitro_cont_meth: xxx
+tot_nitro_content: 1.9 units
+tot_org_c_meth: xxx
+tot_org_carb: xxx
+tot_part_carb: 1.9 units
+tot_phosp: 1.9 units
+tot_phosphate: 1.9 units
+tot_sulfur: 1.9 units
+train_line: xxx
+train_stat_loc: xxx
+train_stop_loc: xxx
+travel_out_six_month:
+- xxx
+trna_ext_software: xxx
+trnas: xxx
+trophic_level: xxx
+turbidity: 1.9 units
+tvdss_of_hcr_press: 1.9 units
+tvdss_of_hcr_temp: 1.9 units
+twin_sibling: true
+typ_occup_density: 1.9
+type_of_symbiosis: xxx
+urine_collect_meth: xxx
+urogenit_disord:
+- xxx
+urogenit_tract_disor:
+- xxx
+ventilation_rate: 1.9 units
+ventilation_type: xxx
+vfa: 1.9 units
+vfa_fw: 1.9 units
+vir_ident_software: xxx
+virus_enrich_appr: xxx
+vis_media: xxx
+viscosity: xxx
+volatile_org_comp:
+- xxx
+wall_area: 1.9 units
+wall_const_type: xxx
+wall_finish_mat: xxx
+wall_height: 5 meters
+wall_loc: xxx
+wall_surf_treatment: xxx
+wall_texture: xxx
+wall_thermal_mass: 1.9 units
+wall_water_mold: xxx
+wastewater_type: xxx
+water_cont_soil_meth: xxx
+water_content: 1.9 units
+water_current: 1.9 units
+water_cut: 45%
+water_feat_size: 1.9 units
+water_feat_type: xxx
+water_frequency: xxx
+water_pH: 1.9
+water_prod_rate: 1.9 units
+water_source_adjac:
+- xxx
+water_source_shared:
+- xxx
+water_temp_regm:
+- xxx
+watering_regm:
+- xxx
+weekday: xxx
+weight_loss_3_month: xxx
+wga_amp_appr: xxx
+wga_amp_kit: xxx
+win: xxx
+wind_direction: xxx
+wind_speed: 1.9 units
+window_cond: xxx
+window_cover: xxx
+window_horiz_pos: xxx
+window_loc: xxx
+window_mat: xxx
+window_open_freq: 123
+window_size: xxx
+window_status: xxx
+window_type: xxx
+window_vert_pos: xxx
+window_water_mold: xxx
+x16s_recover: true
+x16s_recover_software: xxx
+xylene: 1.9 units
