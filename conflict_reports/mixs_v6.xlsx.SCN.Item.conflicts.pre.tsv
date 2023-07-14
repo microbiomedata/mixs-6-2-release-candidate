@@ -1,0 +1,32 @@
+class	Structured comment name	Item	Frequency
+food-farm environment	depth	depth	0.9545454545454546
+host-associated	depth	depth	0.9545454545454546
+microbial mat/biofilm	depth	depth	0.9545454545454546
+migs_ba	depth	depth	0.9545454545454546
+migs_eu	depth	depth	0.9545454545454546
+migs_org	depth	depth	0.9545454545454546
+migs_pl	depth	depth	0.9545454545454546
+migs_vi	depth	depth	0.9545454545454546
+mimag	depth	depth	0.9545454545454546
+mimarks_c	depth	depth	0.9545454545454546
+mimarks_s	depth	depth	0.9545454545454546
+mims	depth	depth	0.9545454545454546
+misag	depth	depth	0.9545454545454546
+miscellaneous natural or artificial environment	depth	depth	0.9545454545454546
+miuvig	depth	depth	0.9545454545454546
+plant-associated	depth	depth	0.9545454545454546
+sediment	depth	depth	0.9545454545454546
+soil	depth	depth	0.9545454545454546
+symbiont-associated	depth	depth	0.9545454545454546
+wastewater/sludge	depth	depth	0.9545454545454546
+water	depth	depth	0.9545454545454546
+agriculture	depth	soil depth	0.045454545454545456
+human-associated	nose_throat_disord	lung/nose-throat disorder	0.5
+human-oral	nose_throat_disord	nose/mouth/teeth/throat disorder	0.5
+food-farm environment	soil_texture_meth	soil texture method	0.6666666666666666
+soil	soil_texture_meth	soil texture method	0.6666666666666666
+agriculture	soil_texture_meth	texture method	0.3333333333333333
+agriculture	tot_phosp	total phosphorous	0.25
+hydrocarbon resources-cores	tot_phosp	total phosphorus	0.75
+hydrocarbon resources-fluids/swabs	tot_phosp	total phosphorus	0.75
+water	tot_phosp	total phosphorus	0.75

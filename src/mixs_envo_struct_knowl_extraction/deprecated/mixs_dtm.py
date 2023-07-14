@@ -19,7 +19,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 #  do we really even want to include slot usage at all?
 #  are there slots which don't have a global definition?
 
-# todo would preprocessing decrease the number of associations we need to make in data/dtm_to_slot_notes.tsv ?
+# todo would preprocessing decrease the number of associations we need to make in data/curated_slot_notes_by_text_mining.tsv ?
 
 # todo what kind of string preprocessing would be ideal for the dtm?
 #  - remove punctuation?
