@@ -1,15 +1,8 @@
 import click
-
-# import nltk
 import pandas as pd
 from linkml_runtime import SchemaView
 from linkml_runtime.dumpers import yaml_dumper
 from sklearn.feature_extraction.text import CountVectorizer
-
-# # Download NLTK words corpus
-# nltk.download('words')
-
-pd.set_option('display.max_columns', None)
 
 
 @click.command()
@@ -21,56 +14,54 @@ pd.set_option('display.max_columns', None)
 @click.option('--output-schema-file', required=True)
 @click.option('--input-col-vals-file', required=True)
 def cli(dtm_input_slot, input_usage_report, input_dtm_notes_mapping, input_col_vals_file, dtm_output,
-         input_schema_file, output_schema_file):
-    # Read input data
-    df_raw = pd.read_csv(f"{input_usage_report}", sep='\t', dtype=str)
+        input_schema_file, output_schema_file):
+    """
+    Script to create a document-term matrix from a usage report, and add notes to the corresponding slots in a schema.
 
-    print(df_raw.shape)
+    Args:
+        dtm_input_slot (str): The name of the slot in the usage report to use for the document-term matrix.
+        input_usage_report (str): The path to the usage report file.
+        input_dtm_notes_mapping (str): The path to the file mapping DTM values to notes.
+        input_col_vals_file (str): The path to the file to write the raw DTM column names to.
+        dtm_output (str): The path to the file to write the DTM to.
+        input_schema_file (str): The path to the schema file.
+        output_schema_file (str): The path to the file to write the updated schema to.
+    """
+
+    df_raw = pd.read_csv(f"{input_usage_report}", sep='\t', dtype=str)
+    print(f"Dimensions of {input_usage_report} before deduplication: {df_raw.shape}")
 
     df_desc = df_raw[~df_raw[dtm_input_slot].isnull()].copy()
-
     df_desc['unique'] = df_desc['slot'] + "|" + df_desc.index.astype(str)
+    print(f"Dimensions of {input_usage_report} after deduplication: {df_desc.shape}")
 
-    print(df_desc.shape)
+    # todo: UserWarning: The parameter 'token_pattern' will not be used since 'tokenizer' is not None'
 
-    # Create an instance of CountVectorizer with stop word removal, custom tokenizer, and modified token pattern
     vectorizer = CountVectorizer(
         stop_words='english',
         tokenizer=lambda text: text.split(),
-        # token_pattern=r'[a-zA-Z]{2,}',
-        # max_features=2500,
-        # max_df=0.01
     )
-
-    # Fit the vectorizer on the Definition column and transform it into a document-term matrix
     matrix = vectorizer.fit_transform(df_desc[dtm_input_slot])
-
-    # Get the feature names (terms)
     feature_names = vectorizer.get_feature_names_out()
-
     dtm_df = pd.DataFrame(matrix.toarray(), columns=feature_names, index=df_desc['unique'])
-
     row_slot = dtm_df.index.str.split('|', expand=True)
-
     dtm_df.index = row_slot
 
     view = SchemaView(input_schema_file)
     target_schema = view.schema
 
     dtm_to_notes_frame = pd.read_csv(input_dtm_notes_mapping, sep='\t', dtype=str)
-
-    dtm_to_notes_frame.dropna(subset=['note'], inplace=True)
-
-    # dump dtm_to_notes_frame to a list of dictionaries
+    dtm_to_notes_frame.dropna(subset=['slot_note_to_insert'], inplace=True)
     dtm_to_notes_lod = dtm_to_notes_frame.to_dict('records')
 
     for dtm_to_note_dict in dtm_to_notes_lod:
-        dtm_val = dtm_to_note_dict['dtm']
-        note_val = dtm_to_note_dict['note']
+        dtm_val = dtm_to_note_dict['token_from_text_mining']
+        note_val = dtm_to_note_dict['slot_note_to_insert']
         try:
             filtered_df = dtm_df.loc[dtm_df[dtm_val] > 0]
             matched_rows = filtered_df.shape[0]
             if matched_rows > 0:
+                # print(f"Found {matched_rows} rows for {dtm_val} with note {note_val}")
                 index_values = filtered_df.index.values
                 for index_tuple in index_values:
                     slot_name = index_tuple[0]
@@ -88,9 +79,12 @@ def cli(dtm_input_slot, input_usage_report, input_dtm_notes_mapping, input_col_v
 
             else:
                 pass
-        except ValueError:
+        except ValueError as e:
+            print(e)
             pass
-        except KeyError:
+
+        except KeyError as e:
+            # print(f"token {e} not found in input")
             pass
 
     dtm_df.to_csv(dtm_output, index=True, sep='\t')
