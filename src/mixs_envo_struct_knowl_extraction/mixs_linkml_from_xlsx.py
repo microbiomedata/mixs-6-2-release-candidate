@@ -153,9 +153,11 @@ def harmonize_sheets(url: str, excel_file_path, scn_key, checklists) -> pd.DataF
 
     mixs_sheet_only = set(mixs_sheet_col_list) - set(env_packages_renamed_col_list)
 
-    print(f"MIxS sheet only cols: {mixs_sheet_only}")
+    print(f"Columns only found in the MIxS sheet: {list(mixs_sheet_only)}")
 
-    print(f"environmental_packages only cols: {env_pack_only}")
+    print(f"Columns only found in the environmental_packages sheet: {list(env_pack_only)}")
+
+    print("\n")
 
     df_env_packages_renamed = df_env_packages_renamed[applicable_col_list]
 
@@ -207,8 +209,9 @@ def process_sheet(df: pd.DataFrame, checklists, global_target_schema, scn_key, n
     for s in slots_list:
         if type(s) is not str:
             # todo how would a nan/float "slot" get in here?
-            print(f"slot {s} has type {type(s)}")
+            print(f"Ignoring slot '{s}' with type {s.__class__.__name__}")
             slots_list.remove(s)
+    print("\n")
 
     slots_list.sort()
 
@@ -326,8 +329,9 @@ def process_contested_value(attributes_by_class: pd.DataFrame, scn_key, global_t
         dupe_frame[scn_key] = scn
         all_values = dupe_frame[value_name].unique().tolist()
         duplication_comment = f"Classes {', '.join(duplicated_classes)} has/have duplicate values in {value_name} for {scn}: {', '.join(all_values)}"
-        print(duplication_comment)
-        print(dupe_frame)
+        print(f"duplication_comment: {duplication_comment}")
+        print(f"dupe_frame: {dupe_frame}")
+        print("\n")
         if global_target_schema.comments:
             global_target_schema.comments.append(duplication_comment)
         else:
@@ -414,6 +418,7 @@ def requirement_followup(sheet: pd.DataFrame, global_target_schema, debug_mode):
 
     for relevant_dict in relevant_dicts:
         if type(relevant_dict['Structured comment name']) is not str:
+            print("Requirement specification is lacking a string-typed Structured comment name:")
             pprint.pprint(relevant_dict)
             continue
         tidied_scn = re.sub(r'\W+', '_', relevant_dict['Structured comment name'])
@@ -491,6 +496,7 @@ def requirement_followup(sheet: pd.DataFrame, global_target_schema, debug_mode):
             #   I have made judgements about the interpretation of C and E
             #   see https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/35
             del global_target_schema.slots[tidied_scn].annotations['Requirement']
+    print("\n")
 
 
 def construct_assign_simple_enumerations(sheet: pd.DataFrame, debug_mode: bool, global_target_schema) -> None:
@@ -512,7 +518,8 @@ def construct_assign_simple_enumerations(sheet: pd.DataFrame, debug_mode: bool, 
     duplicated_scns = duplicated_scn_val_counts.index.tolist()
 
     contradictory_enums = possible_enums_sheet[possible_enums_sheet['Structured comment name'].isin(duplicated_scns)]
-    print(contradictory_enums)
+    print(f"{contradictory_enums = }")
+    print("\n")
 
     # add a comment to the schema
     scns_with_contradictory_enums = contradictory_enums['Structured comment name'].unique().tolist()
@@ -754,6 +761,7 @@ def extract_or_substitute_examples_etc(supplementary_file: str, global_target_sc
 
         else:
             print(f"{proposed_k} is not in the target schema")
+    print("\n")
 
     extracted_examples = {}
 
@@ -795,6 +803,8 @@ def extract_or_substitute_examples_etc(supplementary_file: str, global_target_sc
 @click.command()
 @click.option('--debug/--no-debug', default=False, help='Enable debug mode')
 @click.option('--extracted-examples-out', default='generated/mixs_v6.xlsx.examples.yaml')
+@click.option('--repair-report', default='conflict_reports/repair_report.tsv')
+@click.option('--unmapped-report', default='other_reports/unmapped_report.tsv')
 @click.option('--linkml-stage-mods-file', default='config/linkml_stage_mixs_modifications.yaml')
 @click.option('--harmonized-mixs-tables-file', default='generated/mixs_v6.xlsx.harmonized.tsv')
 @click.option('--repaired-mixs-tables-file', default='generated/mixs_v6.xlsx.repaired.tsv')
@@ -809,13 +819,13 @@ def extract_or_substitute_examples_etc(supplementary_file: str, global_target_sc
               default=['migs_ba', 'migs_eu', 'migs_org', 'migs_pl', 'migs_vi', 'mimag', 'mimarks_c', 'mimarks_s',
                        'mims', 'misag', 'miuvig'])
 @click.option('--range-pattern-inference-file',
-              default='config/mixs_string_ser_and_exp_val_to_linkml_range_and_pattern.tsv')
+              default='config/mixs_stringsers_expvals_to_linkml_ranges_patterns.tsv')
 @click.option('--tables-stage-mods-file', default='config/mixs_tables_stage_modifications.tsv',
               help="Could be considered changes to the MIxS XLSX file, like @only1chunts applied recently, although we apply them to the harmonized TSV file instead")
 def create_schema(non_ascii_replacement, debug, base_url, scn_key, schema_name,
                   checklists, tables_stage_mods_file, linkml_stage_mods_file, range_pattern_inference_file,
                   mixs_excel_output_file, harmonized_mixs_tables_file, repaired_mixs_tables_file, schema_file_out,
-                  extracted_examples_out):
+                  extracted_examples_out, repair_report, unmapped_report):
     dest_dir, excel_file_name = os.path.split(mixs_excel_output_file)
 
     file_url = base_url + excel_file_name
@@ -831,8 +841,7 @@ def create_schema(non_ascii_replacement, debug, base_url, scn_key, schema_name,
 
     harmonized_sheets, repair_report_df = apply_jit_fixes(tables_stage_mods_file, harmonized_sheets)
 
-    # todo use a parameter
-    repair_report_df.to_csv("generated/mixs_v6.xlsx.repair_report.tsv", index=False, sep='\t')
+    repair_report_df.to_csv(repair_report, index=False, sep='\t')
 
     returned_slot_list = process_sheet(harmonized_sheets, checklists, global_target_schema, scn_key,
                                        non_ascii_replacement)
@@ -844,8 +853,7 @@ def create_schema(non_ascii_replacement, debug, base_url, scn_key, schema_name,
     unmapped = string_ser_exp_val_to_range_patterns(range_pattern_inference_file, global_target_schema)
     unmapped_frame = pd.DataFrame(unmapped)
 
-    # todo use a parameter
-    unmapped_frame.to_csv("generated/unmapped_frame.tsv", index=False, sep='\t')
+    unmapped_frame.to_csv(unmapped_report, index=False, sep='\t')
 
     harmonized_sheets.to_csv(repaired_mixs_tables_file, index=False, sep='\t')
 
