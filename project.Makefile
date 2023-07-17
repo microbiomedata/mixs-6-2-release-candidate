@@ -11,35 +11,9 @@ clean:
 	rm -rf schemasheets_to_usage/GSC_MIxS_6_usage.tsv
 	rm -rf generated_schema/GSC_MIxS_6_usage_populated_raw.tsv
 	rm -rf generated_schema/meta.xlsx
-	rm -rf other_reports
-	mkdir -p other_reports
-	touch other_reports/.gitkeep
-	rm -rf conflict_reports
-	mkdir -p conflict_reports
-	touch conflict_reports/.gitkeep
-
-#squeaky-clean: clean
-#	rm -rf generated_schema/*
-#	mkdir -p generated_schema
-#	touch generated_schema/.gitkeep
-#	rm -rf extracted_data/*
-#	mkdir -p extracted_data
-#	touch extracted_data/.gitkeep
-#	rm -rf downloads/*
-#	mkdir -p downloads
-#	touch downloads/.gitkeep
-#	rm -rf mixs_excel_harmonized_repaired/*
-#	mkdir -p mixs_excel_harmonized_repaired
-#	touch mixs_excel_harmonized_repaired/.gitkeep
-#	rm -rf text_mining_results
-#	mkdir -p text_mining_results
-#	touch text_mining_results/.gitkeep
-#	rm -rf schemasheets_to_usage
-#	mkdir -p schemasheets_to_usage
-#	touch schemasheets_to_usage/.gitkeep
 
 squeaky-clean: clean
-	@for dir in generated_schema extracted_data downloads mixs_excel_harmonized_repaired text_mining_results schemasheets_to_usage; do \
+	@for dir in conflict_reports downloads extracted_data generated_schema mixs_excel_harmonized_repaired other_reports schemasheets_to_usage text_mining_results ; do \
 		rm -rf $$dir/*; \
 		mkdir -p $$dir; \
 		touch $$dir/.gitkeep; \
@@ -76,12 +50,7 @@ generated_schema/GSC_MIxS_6.yaml:
 schemasheets_to_usage/GSC_MIxS_6_usage_populated_no_blank_cols.tsv: schemasheets_to_usage/GSC_MIxS_6_usage.tsv
 schemasheets_to_usage/GSC_MIxS_6_usage_populated_raw.tsv: schemasheets_to_usage/GSC_MIxS_6_usage.tsv
 
-
-## add back in at some point?
-# --base-class enum_definition \
-# --base-class permissible_value
-# --columns-to-insert enum
-# --columns-to-insert permissible_value
+# https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/62
 schemasheets_to_usage/GSC_MIxS_6_usage.tsv: generated_schema/GSC_MIxS_6.yaml
 	$(RUN) generate_and_populate_template \
 		 --base-class slot_definition \
@@ -92,12 +61,9 @@ schemasheets_to_usage/GSC_MIxS_6_usage.tsv: generated_schema/GSC_MIxS_6.yaml
 		 --meta-path https://raw.githubusercontent.com/linkml/linkml-model/main/linkml_model/model/schema/meta.yaml \
 		 --source-schema-path $<
 
-## may still conatin some good ideas for vectorizing
-#text_mining_results/mixs_v6_repaired_term_title_token_matrix.tsv:
-#	$(RUN) python src/mixs_envo_struct_knowl_extraction/mixs_dtm.py
-
 generated_schema/GSC_MIxS_6.yaml.notated.yaml: text_mining_results/mixs_v6_repaired_term_title_token_matrix.tsv
 
+# https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/63
 text_mining_results/mixs_v6_repaired_term_title_token_matrix.tsv: config/curated_slot_notes_by_text_mining.tsv \
 generated_schema/GSC_MIxS_6.yaml schemasheets_to_usage/GSC_MIxS_6_usage_populated_no_blank_cols.tsv
 	$(RUN) add_notes_from_text_mining \
@@ -108,10 +74,6 @@ generated_schema/GSC_MIxS_6.yaml schemasheets_to_usage/GSC_MIxS_6_usage_populate
 		--dtm-output $@ \
 		--output-schema-file generated_schema/GSC_MIxS_6.yaml.notated.yaml \
 		--input-col-vals-file text_mining_results/mixs_v6_repaired_term_title_token_list.tsv
-
-#generated_schema/GSC_MIxS_6.yaml.schema.json: generated_schema/GSC_MIxS_6.yaml
-#	$(RUN) gen-json-schema \
-#		--closed $< > $@
 
 other_reports/curated_data_coverage_report.yaml: curated_data/unwrapped_curated_data_for_slot_coverage_check.yaml generated_schema/GSC_MIxS_6.yaml
 	poetry run exhaustion-check \
@@ -126,7 +88,7 @@ linkml-validate-exhaustive: generated_schema/GSC_MIxS_6.yaml curated_data/Exhaus
 linkml-validate-extracted: generated_schema/GSC_MIxS_6.yaml extracted_data/mixs_v6.xlsx.extracted_examples.yaml
 	$(RUN) linkml-validate --schema $^
 
-curated_data/unwrapped_curated_data_for_slot_coverage_check.yaml: curated_data/ExhaustiveTestClassCollection-wrapped-example-data.yaml
+yq: curated_data/ExhaustiveTestClassCollection-wrapped-example-data.yaml
 	yq e '.exhaustive_test_set[0]' $< | cat > $@.raw
 	poetry run pretty-sort-yaml \
 		-i $@.raw \
@@ -164,13 +126,7 @@ conflict_reports/mixs_v6.xlsx.ID.prefunit.conflicts.post.tsv \
 conflict_reports/mixs_v6.xlsx.SCN.Item.conflicts.pre.tsv \
 conflict_reports/mixs_v6.xlsx.SCN.Item.conflicts.post.tsv
 
-
-# todo: Expected value,Value syntax
-# primary key: MIXS ID
-# class indicator: class (environmental package or checklist)
-# invariant between classes: Structured comment name, Item, Definition, Occurrence, Section
-# allowed to vary between classes: Requirement, Example
-
+#https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/66
 conflict_reports/mixs_v6.xlsx.ID.SCN.conflicts.pre.tsv: mixs_excel_harmonized_repaired/mixs_v6.xlsx.harmonized.tsv
 	$(RUN) find_Xs_with_multiple_Ys \
 		--input-file $< \
@@ -202,10 +158,7 @@ conflict_reports/mixs_v6.xlsx.ID.Item.conflicts.post.tsv: mixs_excel_harmonized_
 		--output-file $@
 
 
-# inter-class definitional differences should be expressed with LinkML comments
-# these may include the nams of ontologies whose terns are acceptable values
-#   or root terms from an ontology
-#   keep/ditch version information?
+# https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/64
 conflict_reports/mixs_v6.xlsx.ID.Def.conflicts.pre.tsv: mixs_excel_harmonized_repaired/mixs_v6.xlsx.harmonized.tsv
 	$(RUN) find_Xs_with_multiple_Ys \
 		--input-file $< \
@@ -221,7 +174,7 @@ conflict_reports/mixs_v6.xlsx.ID.Def.conflicts.post.tsv: mixs_excel_harmonized_r
 		--output-file $@
 
 
-# there are null Occurrences!
+# https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/64
 conflict_reports/mixs_v6.xlsx.ID.Occurrence.conflicts.pre.tsv: mixs_excel_harmonized_repaired/mixs_v6.xlsx.harmonized.tsv
 	$(RUN) find_Xs_with_multiple_Ys \
 		--input-file $< \
@@ -244,13 +197,13 @@ conflict_reports/mixs_v6.xlsx.ID.Section.conflicts.pre.tsv: mixs_excel_harmonize
 		--y-column 'Section' \
 		--output-file $@
 
-
 conflict_reports/mixs_v6.xlsx.ID.Section.conflicts.post.tsv: mixs_excel_harmonized_repaired/mixs_v6.xlsx.repaired.tsv
 	$(RUN) find_Xs_with_multiple_Ys \
 		--input-file $< \
 		--x-column 'MIXS ID' \
 		--y-column 'Section' \
 		--output-file $@
+
 
 conflict_reports/mixs_v6.xlsx.ID.prefunit.conflicts.pre.tsv: mixs_excel_harmonized_repaired/mixs_v6.xlsx.harmonized.tsv
 	$(RUN) find_Xs_with_multiple_Ys \
@@ -280,6 +233,7 @@ conflict_reports/mixs_v6.xlsx.SCN.Item.conflicts.post.tsv: mixs_excel_harmonized
 		--x-column 'Structured comment name' \
 		--y-column Item \
 		--output-file $@
+
 
 final_cleanup: schemasheets_to_usage/GSC_MIxS_6.yaml.notated_usage_populated_raw.tsv \
 schemasheets_to_usage/GSC_MIxS_6.yaml.notated_usage_populated_no_blank_cols.tsv \
