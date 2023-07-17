@@ -76,14 +76,14 @@ def instantiate_classes(df: pd.DataFrame, checklists, global_target_schema) -> N
                 new_super = ClassDefinition(name="Checklist")
                 global_target_schema.classes["Checklist"] = new_super
             class_name = convert_to_pascal_case(class_name)
-            new_class = ClassDefinition(name=class_name, is_a="Checklist")
+            new_class = ClassDefinition(name=class_name, is_a="Checklist", mixin=True)
             global_target_schema.classes[class_name] = new_class
         else:
             if "EnvironmentalPackage" not in global_target_schema.classes:
                 new_super = ClassDefinition(name="EnvironmentalPackage")
                 global_target_schema.classes["EnvironmentalPackage"] = new_super
             class_name = convert_to_pascal_case(class_name)
-            new_class = ClassDefinition(name=class_name, is_a="EnvironmentalPackage")
+            new_class = ClassDefinition(name=class_name, is_a="EnvironmentalPackage", mixin=False)
             global_target_schema.classes[class_name] = new_class
 
 

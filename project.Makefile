@@ -2,15 +2,17 @@
 
 RUN = poetry run
 
-all: squeaky-clean generated_schema/GSC_MIxS_6.yaml linkml-validate-exhaustive linkml-validate-extracted \
-other_reports/curated_data_coverage_report.yaml text_mining_results/mixs_v6_repaired_term_title_token_matrix.tsv \
-schemasheets_to_usage/GSC_MIxS_6.yaml.notated_usage.tsv \
+all: squeaky-clean generated_schema/GSC_MIxS_6.yaml \
+linkml-validate-exhaustive linkml-validate-extracted \
+other_reports/curated_data_coverage_report.yaml other_reports/extracted_data_coverage_report.yaml \
+text_mining_results/mixs_v6_repaired_term_title_token_matrix.tsv \
+schemasheets_to_usage/GSC_MIxS_6.yaml.exhaustive.usage-report.tsv schemasheets_to_usage/GSC_MIxS_6.yaml.concise.usage-report.tsv \
 conflicts-all final_cleanup
 
 clean:
-	rm -rf schemasheets_to_usage/GSC_MIxS_6_usage.tsv
 	rm -rf generated_schema/GSC_MIxS_6_usage_populated_raw.tsv
 	rm -rf generated_schema/meta.xlsx
+	rm -rf schemasheets_to_usage/GSC_MIxS_6_usage.tsv
 
 squeaky-clean: clean
 	@for dir in conflict_reports downloads extracted_data generated_schema mixs_excel_harmonized_repaired other_reports schemasheets_to_usage text_mining_results ; do \
@@ -18,6 +20,7 @@ squeaky-clean: clean
 		mkdir -p $$dir; \
 		touch $$dir/.gitkeep; \
 	done
+	rm -rf curated_data/unwrapped_curated_data_for_slot_coverage_check.yaml
 
 generated_schema/GSC_MIxS_6.yaml:
 	$(RUN) write_mixs_linkml \
@@ -47,35 +50,28 @@ generated_schema/GSC_MIxS_6.yaml:
 		 --schema-file-out generated_schema/GSC_MIxS_6.yaml \
 		 --unmapped-report other_reports/un-handled_stringsers_expvals.tsv \
 
-schemasheets_to_usage/GSC_MIxS_6_usage_populated_no_blank_cols.tsv: schemasheets_to_usage/GSC_MIxS_6_usage.tsv
-schemasheets_to_usage/GSC_MIxS_6_usage_populated_raw.tsv: schemasheets_to_usage/GSC_MIxS_6_usage.tsv
-
-# https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/62
-schemasheets_to_usage/GSC_MIxS_6_usage.tsv: generated_schema/GSC_MIxS_6.yaml
-	$(RUN) generate_and_populate_template \
-		 --base-class slot_definition \
-		 --columns-to-insert class \
-		 --columns-to-insert slot \
-		 --destination-template $@ \
-		 --meta-model-excel-file downloads/meta.xlsx \
-		 --meta-path https://raw.githubusercontent.com/linkml/linkml-model/main/linkml_model/model/schema/meta.yaml \
-		 --source-schema-path $<
-
 generated_schema/GSC_MIxS_6.yaml.notated.yaml: text_mining_results/mixs_v6_repaired_term_title_token_matrix.tsv
 
 # https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/63
 text_mining_results/mixs_v6_repaired_term_title_token_matrix.tsv: config/curated_slot_notes_by_text_mining.tsv \
-generated_schema/GSC_MIxS_6.yaml schemasheets_to_usage/GSC_MIxS_6_usage_populated_no_blank_cols.tsv
+generated_schema/GSC_MIxS_6.yaml schemasheets_to_usage/GSC_MIxS_6_concise_usage.tsv
 	$(RUN) add_notes_from_text_mining \
 		--dtm-input-slot title \
+		--input-col-vals-file text_mining_results/mixs_v6_repaired_term_title_token_list.tsv \
 		--input-dtm-notes-mapping $(word 1,$^) \
 		--input-schema-file $(word 2,$^) \
 		--input-usage-report $(word 3,$^) \
-		--dtm-output $@ \
 		--output-schema-file generated_schema/GSC_MIxS_6.yaml.notated.yaml \
-		--input-col-vals-file text_mining_results/mixs_v6_repaired_term_title_token_list.tsv
+		--dtm-output $@
 
 other_reports/curated_data_coverage_report.yaml: curated_data/unwrapped_curated_data_for_slot_coverage_check.yaml generated_schema/GSC_MIxS_6.yaml
+	poetry run exhaustion-check \
+		--class-name "ExhaustiveTestClass" \
+		--instance-yaml-file $(word 1,$^) \
+		--output-yaml-file $@ \
+		--schema-path $(word 2,$^)
+
+other_reports/extracted_data_coverage_report.yaml: extracted_data/unwrapped.mixs_v6.xlsx.extracted_examples.yaml generated_schema/GSC_MIxS_6.yaml
 	poetry run exhaustion-check \
 		--class-name "ExhaustiveTestClass" \
 		--instance-yaml-file $(word 1,$^) \
@@ -88,22 +84,59 @@ linkml-validate-exhaustive: generated_schema/GSC_MIxS_6.yaml curated_data/Exhaus
 linkml-validate-extracted: generated_schema/GSC_MIxS_6.yaml extracted_data/mixs_v6.xlsx.extracted_examples.yaml
 	$(RUN) linkml-validate --schema $^
 
-yq: curated_data/ExhaustiveTestClassCollection-wrapped-example-data.yaml
-	yq e '.exhaustive_test_set[0]' $< | cat > $@.raw
-	poetry run pretty-sort-yaml \
-		-i $@.raw \
+curated_data/unwrapped_curated_data_for_slot_coverage_check.yaml: curated_data/ExhaustiveTestClassCollection-wrapped-example-data.yaml
+	$(RUN) get-first-of-first \
+		--input_data $< \
+		--output_data $@.temp
+	$(RUN) pretty-sort-yaml \
+		-i $@.temp \
 		-o $@
-	rm -rf $@.raw
+	rm -rf $@.temp
 
-schemasheets_to_usage/GSC_MIxS_6.yaml.notated_usage.tsv: generated_schema/GSC_MIxS_6.yaml.notated.yaml
-	$(RUN) generate_and_populate_template \
-		 --base-class slot_definition \
-		 --columns-to-insert class \
-		 --columns-to-insert slot \
-		 --destination-template $@ \
-		 --meta-model-excel-file downloads/meta.xlsx \
-		 --meta-path https://raw.githubusercontent.com/linkml/linkml-model/main/linkml_model/model/schema/meta.yaml \
-		 --source-schema-path $<
+extracted_data/unwrapped.mixs_v6.xlsx.extracted_examples.yaml: extracted_data/mixs_v6.xlsx.extracted_examples.yaml
+	$(RUN) get-first-of-first \
+		--input_data $< \
+		--output_data $@.temp
+	$(RUN) pretty-sort-yaml \
+		-i $@.temp \
+		-o $@
+	rm -rf $@.temp
+
+
+# https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/62
+schemasheets_to_usage/GSC_MIxS_6_concise_usage.tsv: generated_schema/GSC_MIxS_6.yaml
+	$(RUN) generate-populate \
+		--debug-report-path other_reports/populated-generated-debug-report.yaml \
+		--log-file other_reports/populated-with-generated-spec-log.txt \
+		--output-path $@.tmp \
+		--report-style concise \
+		--source-path $<
+	grep -v -e '^>' $@.tmp > $@
+	rm -rf $@.tmp
+
+schemasheets_to_usage/GSC_MIxS_6.yaml.exhaustive.schemasheet.tsv: generated_schema/GSC_MIxS_6.yaml.notated.yaml
+	$(RUN) generate-populate \
+		--debug-report-path other_reports/notated_populated-generated-debug-report.yaml \
+		--log-file other_reports/notated_populated-with-generated-spec-log.txt \
+		--output-path $@ \
+		--report-style exhaustive \
+		--source-path $<
+
+schemasheets_to_usage/GSC_MIxS_6.yaml.exhaustive.usage-report.tsv: schemasheets_to_usage/GSC_MIxS_6.yaml.exhaustive.schemasheet.tsv
+	grep -v -e '^>' $< > $@
+
+schemasheets_to_usage/GSC_MIxS_6.yaml.concise.schemasheet.tsv: generated_schema/GSC_MIxS_6.yaml.notated.yaml
+	$(RUN) generate-populate \
+		--debug-report-path other_reports/notated_populated-generated-debug-report.yaml \
+		--log-file other_reports/notated_populated-with-generated-spec-log.txt \
+		--output-path $@ \
+		--report-style exhaustive \
+		--source-path $<
+
+schemasheets_to_usage/GSC_MIxS_6.yaml.concise.usage-report.tsv: schemasheets_to_usage/GSC_MIxS_6.yaml.concise.schemasheet.tsv
+	grep -v -e '^>' $< > $@
+
+
 
 # # # #
 
@@ -234,18 +267,11 @@ conflict_reports/mixs_v6.xlsx.SCN.Item.conflicts.post.tsv: mixs_excel_harmonized
 		--y-column Item \
 		--output-file $@
 
+# # # #
 
-final_cleanup: schemasheets_to_usage/GSC_MIxS_6.yaml.notated_usage_populated_raw.tsv \
-schemasheets_to_usage/GSC_MIxS_6.yaml.notated_usage_populated_no_blank_cols.tsv \
-generated_schema/GSC_MIxS_6.yaml \
-generated_schema/GSC_MIxS_6.yaml.notated.yaml \
-text_mining_results/mixs_v6_repaired_term_title_token_matrix.tsv
-	mv $(word 1,$^) schemasheets_to_usage/GSC_MIxS_6_partial_schemasheet.tsv
-	mv $(word 2,$^) schemasheets_to_usage/GSC_MIxS_6_concise_slot_usage_report.tsv
-	rm -rf downloads/meta.xlsx
-	rm -rf $(word 3,$^)
-	mv $(word 4,$^) $(word 3,$^)
-	rm -rf schemasheets_to_usage/GSC_MIxS_6.yaml.notated_usage.tsv \
-		schemasheets_to_usage/GSC_MIxS_6.yaml.notated_usage.tsv \
-		schemasheets_to_usage/GSC_MIxS_6_usage.tsv \
-		schemasheets_to_usage/GSC_MIxS_6_usage_populated_no_blank_cols.tsv
+final_cleanup:
+	rm -rf curated_data/unwrapped_curated_data_for_slot_coverage_check.yaml
+	rm -rf extracted_data/unwrapped.mixs_v6.xlsx.extracted_examples.yaml
+	rm -rf generated_schema/GSC_MIxS_6.yaml
+	mv generated_schema/GSC_MIxS_6.yaml.notated.yaml generated_schema/GSC_MIxS_6.yaml
+	rm -rf schemasheets_to_usage/GSC_MIxS_6_concise_usage.tsv
