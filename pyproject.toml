@@ -9,16 +9,17 @@ homepage = "https://github.com/turbomam/mixs-envo-struct-knowl-extraction"
 repository = "https://github.com/turbomam/mixs-envo-struct-knowl-extraction"
 
 [tool.poetry.dependencies]
-exhaustion-check = "^0.1.3"
-gen-pop-linkml2sheets = "^0.1.9"
+exhaustion-check = "^0.1.4"
+#gen-pop-linkml2sheets = "^0.1.9" # replace generate_and_populate_template with generate-populate from exporting-without-tsv-templ branch of schemasheets
 #gen-pop-linkml2sheets = { path = "/home/mark/gitrepos/gen-pop-linkml2sheets", develop = true }
+#schemasheets = { path = "/home/mark/gitrepos/schemasheets", develop = true }
+schemasheets = { git = "https://github.com/linkml/schemasheets.git", branch = "exporting-without-tsv-templ" }
 linkml = "^1.5.3"
 nltk = "^3.8.1"
 openpyxl = "^3.1.2"
-#pandas = "^1.5.3"  # Because gen-pop-linkml2sheets (0.1.8) depends on pandas (>=1.3.4,<2.0.0)
 pandas = "^2.0"
 python = "^3.9"
-scikit-learn = "^1.2.2"
+scikit-learn = "^1.2.2" # for text mining. possibly heavyweight
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.1.3"
