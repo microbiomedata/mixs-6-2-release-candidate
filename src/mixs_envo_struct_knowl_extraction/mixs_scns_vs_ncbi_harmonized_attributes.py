@@ -1,41 +1,62 @@
-import pprint
-
-import pandas as pd
 import csv
+import yaml
 
-df = pd.read_csv('../../ncbi_biosample_sql/20230705_harmonized_attribute_usage.csv', sep=',', header=0)
+from click import command, option
 
-# read ../../20230705_harmonized_attribute_usage.csv with csv dictreader into a dictionary using harmonized_name as the key and count as the value`
-# https://stackoverflow.com/questions/21572175/convert-csv-file-to-list-of-dictionaries
 
-with open('../../ncbi_biosample_sql/20230705_harmonized_attribute_usage.csv', mode='r') as infile:
-    reader = csv.reader(infile)
-    mydict = {rows[0]: rows[1] for rows in reader if rows[0] != ''}  # exclude counts if the key is ''
+@command()
+@option("--ncbi-harmonized-names-file", "-n", required=True,
+        help="The path to the table of NCBI Biosample harmonized names.")
+@option("--mixs-scns-file", "-m", required=True, help="The path to the harmonized MixS v6.xlsx spreadsheet.")
+@option("--output-file", "-o", required=True, help="The path to the output YAML file.")
+def cli(ncbi_harmonized_names_file, mixs_scns_file, output_file):
+    """
+    A CLI tool to compare the terms in the NCBI Biosample Harmonized Attribute Usage spreadsheet and the MixS v6.xlsx spreadsheet.
+    """
 
-with open('../../generated/mixs_v6.xlsx.harmonized.tsv', mode='r') as infile:
-    reader = csv.DictReader(infile, delimiter="\t")
-    mixs_scns = set()
-    for row in reader:
-        if 'Structured comment name' in row:
-            mixs_scns.add(row['Structured comment name'])
+    with open(mixs_scns_file, mode='r') as infile:
+        reader = csv.DictReader(infile, delimiter="\t")
+        mixs_scns = set()
+        for row in reader:
+            if 'Structured comment name' in row:
+                mixs_scns.add(row['Structured comment name'])
 
-mixs_scns = list(mixs_scns)
-mixs_scns.sort()
+    with open(ncbi_harmonized_names_file, mode='r') as infile:
+        reader = csv.reader(infile)
+        mydict = {rows[0]: rows[1] for rows in reader if rows[0] != ''}  # exclude counts if the key is ''
 
-ncbi_harmonized_names = list(mydict.keys())
-ncbi_harmonized_names.sort()
+    mixs_scns = list(mixs_scns)
+    mixs_scns.sort()
 
-mixs_only = list(set(mixs_scns) - set(ncbi_harmonized_names))
+    ncbi_harmonized_names = list(mydict.keys())
+    ncbi_harmonized_names.sort()
 
-mixs_only.sort()
-pprint.pprint(mixs_only)
+    mixs_only = list(set(mixs_scns) - set(ncbi_harmonized_names))
 
-print(len(mixs_scns))
-print(len(mixs_only))
+    mixs_only.sort()
 
-ncbi_only = list(set(ncbi_harmonized_names) - set(mixs_scns))
-ncbi_only.sort()
-pprint.pprint(ncbi_only)
+    ncbi_only = list(set(ncbi_harmonized_names) - set(mixs_scns))
+    ncbi_only.sort()
 
-print(len(ncbi_harmonized_names))
-print(len(ncbi_only))
+    output_dict = {
+        "mixs_only": {
+            "mixs_term_count": len(mixs_scns),
+            "mixs_only_terms": mixs_only,
+            "mixs_only_term_count": len(mixs_only)
+        },
+        "ncbi_only": {
+            "ncbi_harmonized_name_count": len(ncbi_harmonized_names),
+            "ncbi_only_terms": ncbi_only,
+            "ncbi_only_term_count": len(ncbi_only)
+        },
+    }
+
+    try:
+        with open(output_file, "w") as output_file:
+            yaml.dump(output_dict, output_file)
+    except Exception as e:
+        print(e)
+
+
+if __name__ == "__main__":
+    cli()
