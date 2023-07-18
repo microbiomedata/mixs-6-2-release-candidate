@@ -13,7 +13,8 @@ exhaustion-check = "^0.1.4"
 #gen-pop-linkml2sheets = "^0.1.9" # replace generate_and_populate_template with generate-populate from exporting-without-tsv-templ branch of schemasheets
 #gen-pop-linkml2sheets = { path = "/home/mark/gitrepos/gen-pop-linkml2sheets", develop = true }
 #schemasheets = { path = "/home/mark/gitrepos/schemasheets", develop = true }
-schemasheets = { git = "https://github.com/linkml/schemasheets.git", branch = "exporting-without-tsv-templ" }
+#schemasheets = { git = "https://github.com/linkml/schemasheets.git", branch = "exporting-without-tsv-templ" }
+schemasheets = "^0.1.23"
 linkml = "^1.5.3"
 nltk = "^3.8.1"
 openpyxl = "^3.1.2"
@@ -114,3 +115,4 @@ include = '\.pyi?$'
 write_mixs_linkml = "mixs_envo_struct_knowl_extraction.mixs_linkml_from_xlsx:create_schema"
 add_notes_from_text_mining = "mixs_envo_struct_knowl_extraction.slot_text_mining:cli"
 find_Xs_with_multiple_Ys = "mixs_envo_struct_knowl_extraction.find_Xs_with_multiple_Ys:main"
+mixs-scns-vs-ncbi-harmonized-attributes = "mixs_envo_struct_knowl_extraction.mixs_scns_vs_ncbi_harmonized_attributes:cli"
