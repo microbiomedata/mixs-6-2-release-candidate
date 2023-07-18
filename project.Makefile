@@ -7,7 +7,7 @@ linkml-validate-exhaustive linkml-validate-extracted \
 other_reports/curated_data_coverage_report.yaml other_reports/extracted_data_coverage_report.yaml \
 text_mining_results/mixs_v6_repaired_term_title_token_matrix.tsv \
 schemasheets_to_usage/GSC_MIxS_6.yaml.exhaustive.usage-report.tsv schemasheets_to_usage/GSC_MIxS_6.yaml.concise.usage-report.tsv \
-conflicts-all final_cleanup
+conflicts-all other_reports/mixs-scns-vs-ncbi-harmonized-attributes.yaml final_cleanup
 
 clean:
 	rm -rf generated_schema/GSC_MIxS_6_usage_populated_raw.tsv
@@ -105,7 +105,7 @@ extracted_data/unwrapped.mixs_v6.xlsx.extracted_examples.yaml: extracted_data/mi
 
 # https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/62
 schemasheets_to_usage/GSC_MIxS_6_concise_usage.tsv: generated_schema/GSC_MIxS_6.yaml
-	$(RUN) generate-populate \
+	$(RUN) linkml2schemasheets-template \
 		--debug-report-path other_reports/populated-generated-debug-report.yaml \
 		--log-file other_reports/populated-with-generated-spec-log.txt \
 		--output-path $@.tmp \
@@ -115,7 +115,7 @@ schemasheets_to_usage/GSC_MIxS_6_concise_usage.tsv: generated_schema/GSC_MIxS_6.
 	rm -rf $@.tmp
 
 schemasheets_to_usage/GSC_MIxS_6.yaml.exhaustive.schemasheet.tsv: generated_schema/GSC_MIxS_6.yaml.notated.yaml
-	$(RUN) generate-populate \
+	$(RUN) linkml2schemasheets-template \
 		--debug-report-path other_reports/notated_populated-generated-debug-report.yaml \
 		--log-file other_reports/notated_populated-with-generated-spec-log.txt \
 		--output-path $@ \
@@ -126,7 +126,7 @@ schemasheets_to_usage/GSC_MIxS_6.yaml.exhaustive.usage-report.tsv: schemasheets_
 	grep -v -e '^>' $< > $@
 
 schemasheets_to_usage/GSC_MIxS_6.yaml.concise.schemasheet.tsv: generated_schema/GSC_MIxS_6.yaml.notated.yaml
-	$(RUN) generate-populate \
+	$(RUN) linkml2schemasheets-template \
 		--debug-report-path other_reports/notated_populated-generated-debug-report.yaml \
 		--log-file other_reports/notated_populated-with-generated-spec-log.txt \
 		--output-path $@ \
@@ -275,3 +275,10 @@ final_cleanup:
 	rm -rf generated_schema/GSC_MIxS_6.yaml
 	mv generated_schema/GSC_MIxS_6.yaml.notated.yaml generated_schema/GSC_MIxS_6.yaml
 	rm -rf schemasheets_to_usage/GSC_MIxS_6_concise_usage.tsv
+
+other_reports/mixs-scns-vs-ncbi-harmonized-attributes.yaml: mixs_excel_harmonized_repaired/mixs_v6.xlsx.harmonized.tsv \
+ncbi_biosample_sql/20230705_harmonized_attribute_usage.csv
+	$(RUN) mixs-scns-vs-ncbi-harmonized-attributes \
+		--mixs-scns-file $(word 1,$^) \
+		--ncbi-harmonized-names-file $(word 2,$^) \
+		--output-file $@
