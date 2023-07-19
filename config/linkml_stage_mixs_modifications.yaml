@@ -60,6 +60,47 @@ slots:
     comments:
       - percent or float?
     pattern: "[0-9]*\\.?[0-9]+ ?%"
+  bin_param:
+    examples:
+      - value: coverage
+        description: was 'coverage and kmer'
+      - value: kmer
+        description: 'was coverage and kmer'
+  compl_appr:
+    examples:
+      - value: other
+        description: was other <colon> UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)
+  farm_water_source:
+    examples:
+      - value: well
+        description: was water well (ENVO:01000002)
+  food_clean_proc:
+    examples:
+      - value: rinsed with water
+        description: was rinsed with water|scrubbed with brush
+      - value: scrubbed with brush
+        description: was rinsed with water|scrubbed with brush
+  host_sex:
+    comments: example of non-binary from Excel sheets does not match any of the enumerated values
+  shading_device_type:
+    examples:
+      - value: slatted aluminum
+        description: was slatted aluminum awning
+  tax_ident:
+    examples:
+      - value: other
+        description: was other <colon> rpoB gene
+  virus_enrich_appr:
+    examples:
+      - value: filtration
+        description: was filtration + FeCl Precipitation + ultracentrifugation + DNAse
+      - value: FeCl Precipitation
+        description: was filtration + FeCl Precipitation + ultracentrifugation + DNAse
+      - value: ultracentrifugation
+        description: was filtration + FeCl Precipitation + ultracentrifugation + DNAse
+      - value: DNAse
+        description: was filtration + FeCl Precipitation + ultracentrifugation + DNAse
+
   #  samp_transport_dur:
   #    comments:
   #      - "{float} {unit} or period?"

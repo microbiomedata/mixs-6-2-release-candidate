@@ -207,5 +207,13 @@ TRUE	MIXS ID	MIXS:0001325	Value syntax	small intestine [UBERON:0002108]			agricu
 TRUE	MIXS ID	MIXS:0001159	Value syntax	bare soil [ENVO:01001616]			agriculture has some permissible values but with additional whitespace
 TRUE	MIXS ID	MIXS:0001253	Value syntax	{text}			agriculture has some permissible values but with additional whitespace
 TRUE	MIXS ID	MIXS:0001254	Value syntax	{text}			agriculture has some permissible values but with additional whitespace
-TRUE	MIXS ID	MIXS:0001253	Expected value	""			agriculture has some permissible values but with additional whitespace
-TRUE	MIXS ID	MIXS:0001254	Expected value	""			agriculture has some permissible values but with additional whitespace
+TRUE	MIXS ID	MIXS:0001253	Expected value				agriculture has some permissible values but with additional whitespace
+TRUE	MIXS ID	MIXS:0001254	Expected value				agriculture has some permissible values but with additional whitespace
+TRUE	Structured comment name	bin_param	Example				
+TRUE	Structured comment name	compl_appr	Example				
+TRUE	Structured comment name	farm_water_source	Example				
+TRUE	Structured comment name	food_clean_proc	Example				
+TRUE	Structured comment name	host_sex	Example				
+TRUE	Structured comment name	shading_device_type	Example				
+TRUE	Structured comment name	tax_ident	Example				
+TRUE	Structured comment name	virus_enrich_appr	Example				
