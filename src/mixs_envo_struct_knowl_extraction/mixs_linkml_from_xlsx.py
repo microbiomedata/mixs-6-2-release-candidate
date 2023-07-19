@@ -23,6 +23,11 @@ from pandas import DataFrame, Series
 
 pd.set_option('display.max_columns', None)
 
+root_class_name = "MixsCompliantData"
+
+
+# TODO do we have a term that could take the identifier role?
+
 
 # todo switch from printing to logging
 
@@ -56,6 +61,13 @@ def convert_to_pascal_case(string):
     return ''.join(pascal_case_words)
 
 
+def pascal_case_to_lower_snake_case(pascal_string):
+    # Use regular expression to split the string by uppercase letters
+    words = re.findall(r'[A-Z][a-z0-9]*', pascal_string)
+    # Join the words with underscores and convert to lowercase
+    return '_'.join(words).lower()
+
+
 def convert_to_upper_snake_case(string):
     words = re.findall(r'\w+', string.replace('_', ' '))
     pascal_case_words = [word.upper() for word in words]
@@ -66,25 +78,74 @@ def remove_non_ascii(text, non_ascii_replacement):
     return ''.join([i if ord(i) < 128 else non_ascii_replacement for i in text])
 
 
-def instantiate_classes(df: pd.DataFrame, checklists, global_target_schema) -> None:
+def instantiate_classes(df: pd.DataFrame, checklists, global_target_schema, minimal_combos) -> None:
     classes_list = df['class'].unique().tolist()
     classes_list.sort()
+
+    # presumably environmental packages
+    non_checklist_classes = list(set(classes_list) - set(checklists))
+
+    class_name = root_class_name
+    new_class = ClassDefinition(
+        name=class_name,
+        title="MIxS compliant data",
+        description="A collection of data that complies with some combination of a MIxS checklist and environmental package",
+        tree_root=True,
+    )
+    global_target_schema.classes[class_name] = new_class
 
     for class_name in classes_list:
         if class_name in checklists:
             if "Checklist" not in global_target_schema.classes:
                 new_super = ClassDefinition(name="Checklist")
                 global_target_schema.classes["Checklist"] = new_super
+                class_title = class_name
             class_name = convert_to_pascal_case(class_name)
-            new_class = ClassDefinition(name=class_name, is_a="Checklist", mixin=True)
+            new_class = ClassDefinition(name=class_name, title=class_title, is_a="Checklist", mixin=True)
             global_target_schema.classes[class_name] = new_class
         else:
             if "EnvironmentalPackage" not in global_target_schema.classes:
                 new_super = ClassDefinition(name="EnvironmentalPackage")
                 global_target_schema.classes["EnvironmentalPackage"] = new_super
             class_name = convert_to_pascal_case(class_name)
-            new_class = ClassDefinition(name=class_name, is_a="EnvironmentalPackage", mixin=False)
+            class_title = class_name
+            new_class = ClassDefinition(name=class_name, title=class_title, is_a="EnvironmentalPackage", mixin=False)
             global_target_schema.classes[class_name] = new_class
+
+    if minimal_combos:
+        selected_checklists = ["Mims"]
+        selected_eps = ["Soil"]
+    else:
+        selected_checklists = checklists
+        selected_eps = non_checklist_classes
+
+    # todo validation (and other steps) are slow with all of the combination classes
+    for checklist in selected_checklists:
+        for ep in selected_eps:
+            checklist_name = convert_to_pascal_case(checklist)
+            ep_name = convert_to_pascal_case(ep)
+            combo_name = f"{checklist_name}{ep_name}"
+            combo_title = f"{checklist_name} combined with {ep_name}"
+
+            new_class = ClassDefinition(name=combo_name, title=combo_title, is_a=ep_name, mixins=[checklist_name])
+            global_target_schema.classes[combo_name] = new_class
+
+            slot_name = f"{pascal_case_to_lower_snake_case(combo_name)}_data"
+
+            # range is getting assigned as or modified to string!
+            new_slot = SlotDefinition(
+                description=f"Data that complies with {checklist_name} combined with {ep_name}",
+                domain=root_class_name,
+                inlined=True,
+                inlined_as_list=True,
+                multivalued=True,
+                name=slot_name,
+                range=combo_name,
+                title=f"{combo_name} data",
+            )
+            global_target_schema.slots[slot_name] = new_slot
+
+            global_target_schema.classes[root_class_name].slots.append(slot_name)
 
 
 def del_and_rename_cols(df, columns_to_delete, column_mapping):
@@ -202,8 +263,9 @@ def apply_jit_fixes(fixes_file: str, df: pd.DataFrame) -> tuple[DataFrame, Union
     return df, reports_df
 
 
-def process_sheet(df: pd.DataFrame, checklists, global_target_schema, scn_key, non_ascii_replacement) -> List[str]:
-    instantiate_classes(df, checklists, global_target_schema)
+def process_sheet(df: pd.DataFrame, checklists, global_target_schema, scn_key, non_ascii_replacement, minimal_combos) -> \
+        List[str]:
+    instantiate_classes(df, checklists, global_target_schema, minimal_combos=minimal_combos)
     slots_list = df[scn_key].unique().tolist()
 
     for s in slots_list:
@@ -509,7 +571,7 @@ def construct_assign_simple_enumerations(sheet: pd.DataFrame, debug_mode: bool, 
     relevant_sheet['Value syntax'] = relevant_sheet['Value syntax'].astype(str)
 
     possible_enums_sheet = relevant_sheet[relevant_sheet['Value syntax'].str.contains(r'^\[.*\|.*\]$') &
-                                          ~relevant_sheet['Value syntax'].str.contains(r'[,;]|\(')]
+                                          ~relevant_sheet['Value syntax'].str.contains(r'[,;\'(){}]')]
 
     scn_val_counts = possible_enums_sheet['Structured comment name'].value_counts()
 
@@ -572,6 +634,7 @@ def construct_assign_simple_enumerations(sheet: pd.DataFrame, debug_mode: bool, 
                 print(f"{k} has no Expected_value annotation")
 
     index = 0
+    # pprint.pprint(duplicated_val_syntaxes)
     for val_syntax in duplicated_val_syntaxes:
         subset_frame = shared_enums[shared_enums['Value syntax'] == val_syntax]
         pvs = [x.strip() for x in val_syntax.strip('[]').split('|')]
@@ -621,6 +684,8 @@ def string_ser_exp_val_to_range_patterns(tsv_file: str, global_target_schema):
     unmapped = {}
 
     for k, v in slots.items():
+        if v.range:
+            continue
         ss = v.string_serialization or ''
         ev = v.annotations.get('Expected_value')
         if ev:
@@ -697,7 +762,7 @@ def add_exhasutive_test_class(global_target_schema):
 
     ExhaustiveTestClassCollection = ClassDefinition(
         name="ExhaustiveTestClassCollection",
-        tree_root=True,
+        # tree_root=True,
     )
 
     ExhaustiveTestClassCollection.slots.append("exhaustive_test_set")
@@ -771,37 +836,39 @@ def extract_or_substitute_examples_etc(supplementary_file: str, global_target_sc
             examples_len = len(the_examples)
             if examples_len != 1:
                 print(f"{excel_k} has {examples_len} examples")
+            # else:
+            the_example = the_examples[0].value
+            the_range = global_target_schema.slots[excel_k].range
+
+            if global_target_schema.slots[excel_k].multivalued:
+                values = [the_example]
             else:
-                the_example = the_examples[0].value
-                the_range = global_target_schema.slots[excel_k].range
+                values = the_example
 
-                if global_target_schema.slots[excel_k].multivalued:
-                    values = [the_example]
+            if the_range == "integer":
+                convert_func = int
+            elif the_range == "float":
+                convert_func = float
+            elif the_range == "boolean":
+                convert_func = liberally_convert_to_boolean
+            else:
+                convert_func = return_as_is
+
+            try:
+                if isinstance(values, list):
+                    extracted_examples[excel_k] = [convert_func(val) for val in values]
                 else:
-                    values = the_example
-
-                if the_range == "integer":
-                    convert_func = int
-                elif the_range == "float":
-                    convert_func = float
-                elif the_range == "boolean":
-                    convert_func = liberally_convert_to_boolean
-                else:
-                    convert_func = return_as_is
-
-                try:
-                    if isinstance(values, list):
-                        extracted_examples[excel_k] = [convert_func(val) for val in values]
-                    else:
-                        extracted_examples[excel_k] = convert_func(values)
-                except ValueError:
-                    print(f"Couldn't convert {excel_k} with value {the_example} to {the_range}")
+                    extracted_examples[excel_k] = convert_func(values)
+            except ValueError:
+                print(f"Couldn't convert {excel_k} with value {the_example} to {the_range}")
 
     return extracted_examples
 
 
 @click.command()
 @click.option('--debug/--no-debug', default=False, help='Enable debug mode')
+@click.option('--minimal-combos/--all-combos', default=False,
+              help='Should we just generate a minimal set of checklist/environmental package combinationss (or generate all combos)')
 @click.option('--extracted-examples-out', default='generated/mixs_v6.xlsx.examples.yaml')
 @click.option('--repair-report', default='conflict_reports/repair_report.tsv')
 @click.option('--unmapped-report', default='other_reports/unmapped_report.tsv')
@@ -825,7 +892,7 @@ def extract_or_substitute_examples_etc(supplementary_file: str, global_target_sc
 def create_schema(non_ascii_replacement, debug, base_url, scn_key, schema_name,
                   checklists, tables_stage_mods_file, linkml_stage_mods_file, range_pattern_inference_file,
                   mixs_excel_output_file, harmonized_mixs_tables_file, repaired_mixs_tables_file, schema_file_out,
-                  extracted_examples_out, repair_report, unmapped_report):
+                  extracted_examples_out, repair_report, unmapped_report, minimal_combos):
     dest_dir, excel_file_name = os.path.split(mixs_excel_output_file)
 
     file_url = base_url + excel_file_name
@@ -843,8 +910,8 @@ def create_schema(non_ascii_replacement, debug, base_url, scn_key, schema_name,
 
     repair_report_df.to_csv(repair_report, index=False, sep='\t')
 
-    returned_slot_list = process_sheet(harmonized_sheets, checklists, global_target_schema, scn_key,
-                                       non_ascii_replacement)
+    process_sheet(harmonized_sheets, checklists, global_target_schema, scn_key,
+                  non_ascii_replacement, minimal_combos=minimal_combos)
 
     requirement_followup(harmonized_sheets, global_target_schema, debug)
 
