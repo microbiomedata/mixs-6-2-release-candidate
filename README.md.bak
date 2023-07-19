@@ -1,6 +1,29 @@
+<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
+
+<a name="readme-top"></a>
+
+<!--
+*** Thanks for checking out the Best-README-Template. If you have a suggestion
+*** that would make this better, please fork the repo and create a pull request
+*** or simply open an issue with the tag "enhancement".
+*** Don't forget to give the project a star!
+*** Thanks again! Now go create something AMAZING! :D
+-->
+
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
+
+<!-- PROJECT LOGO -->
+
 <h1>MIxS/EnvO Structured Knowledge Extraction</h1>
 
-<p>Extracting structured knowledge from MIxS and finding EnvO terms that would be reasonable answers to scoped MIxS questions</p>
+<p>Extracting structured knowledge from MIxS and finding EnvO terms that would be reasonalbe answers to scoped MIxS questions</p>
 <nav>
   <a href="https://github.com/turbomam/mixs-envo-struct-knowl-extraction">Repo</a>
   |
@@ -55,8 +78,9 @@ This is a standard Python project that runs on the CLI.
 
 ### Installation
 
-1. Install dependencies `> poetry install`
-1. Run with `> make all`
+1. Install dependencies `> poetry install && poetry shell`
+1. Install the language model `> python -m spacy download de_core_news_sm`
+1. Run with [TODO]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -70,8 +94,14 @@ This is a standard Python project that runs on the CLI.
 
 <!-- ROADMAP -->
 
-See the [open issues](https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues) for a full list of proposed
-features (and known issues).
+## Roadmap
+
+- [ ] Feature 1
+- [ ] Feature 2
+- [ ] Feature 3
+  - [ ] Nested Feature
+
+See the [open issues](https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -79,11 +109,9 @@ features (and known issues).
 
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any
-contributions you make are **greatly appreciated**.
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also
-simply open an issue with the tag "enhancement".
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
@@ -106,6 +134,8 @@ Distributed under the MIT License. See [LICENSE.md](./LICENSE.md) for more infor
 
 ## Contact
 
-[TODO]
+Fritz, [@your_name@mastodon.social](https://mastodon.social/@your_name)
+
+Project Link: [https://github.com/gotofritz/german-learning](https://github.com/gotofritz/german-learning)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
