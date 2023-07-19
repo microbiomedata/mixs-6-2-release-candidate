@@ -1,3 +1,6 @@
+include local/.env # for PGPASSWORD, BIOSAMPLE_DB_USER etc
+export $(shell sed 's/=.*//'  local/.env)
+
 .PHONY: all clean squeaky-clean conflicts-cleanup conflicts-all
 
 RUN = poetry run
@@ -7,20 +10,30 @@ linkml-validate-exhaustive linkml-validate-extracted \
 other_reports/curated_data_coverage_report.yaml other_reports/extracted_data_coverage_report.yaml \
 text_mining_results/mixs_v6_repaired_term_title_token_matrix.tsv \
 schemasheets_to_usage/GSC_MIxS_6.yaml.exhaustive.usage-report.tsv schemasheets_to_usage/GSC_MIxS_6.yaml.concise.usage-report.tsv \
-conflicts-all other_reports/mixs-scns-vs-ncbi-harmonized-attributes.yaml final_cleanup
+conflicts-all other_reports/mixs-scns-vs-ncbi-harmonized-attributes.yaml \
+schema_derivatives/GSC_MIxS_6.owl.ttl schema_derivatives/GSC_MIxS_6.schema.json \
+final_cleanup validate_multiple_mims_soil \
+converted_data/MimsSoil_example.csv
+
+# converted_data/MimsSoil_example.ttl
 
 clean:
 	rm -rf generated_schema/GSC_MIxS_6_usage_populated_raw.tsv
 	rm -rf generated_schema/meta.xlsx
 	rm -rf schemasheets_to_usage/GSC_MIxS_6_usage.tsv
+	rm -rf curated_data/MimsSoil_example.csv
 
+# might not want to automatically clean/delete slow-to generate ncbi_biosample_sql/results files
 squeaky-clean: clean
-	@for dir in conflict_reports downloads extracted_data generated_schema mixs_excel_harmonized_repaired other_reports schemasheets_to_usage text_mining_results ; do \
+	@for dir in conflict_reports downloads extracted_data generated_schema mixs_excel_harmonized_repaired \
+		other_reports schemasheets_to_usage text_mining_results schema_derivatives converted_data ; do \
 		rm -rf $$dir/*; \
 		mkdir -p $$dir; \
 		touch $$dir/.gitkeep; \
 	done
 	rm -rf curated_data/unwrapped_curated_data_for_slot_coverage_check.yaml
+
+labor_saving: squeaky-clean generated_schema/GSC_MIxS_6.yaml
 
 generated_schema/GSC_MIxS_6.yaml:
 	$(RUN) write_mixs_linkml \
@@ -42,6 +55,7 @@ generated_schema/GSC_MIxS_6.yaml:
 		 --linkml-stage-mods-file config/linkml_stage_mixs_modifications.yaml \
 		 --range-pattern-inference-file config/mixs_stringsers_expvals_to_linkml_ranges_patterns.tsv \
 		 --tables-stage-mods-file config/mixs_tables_stage_modifications.tsv \
+		 --minimal-combos \
 		 --extracted-examples-out extracted_data/mixs_v6.xlsx.extracted_examples.yaml \
 		 --harmonized-mixs-tables-file mixs_excel_harmonized_repaired/mixs_v6.xlsx.harmonized.tsv \
 		 --mixs-excel-output-file downloads/mixs_v6.xlsx \
@@ -79,10 +93,10 @@ other_reports/extracted_data_coverage_report.yaml: extracted_data/unwrapped.mixs
 		--schema-path $(word 2,$^)
 
 linkml-validate-exhaustive: generated_schema/GSC_MIxS_6.yaml curated_data/ExhaustiveTestClassCollection-wrapped-example-data.yaml
-	$(RUN) linkml-validate --schema $^
+	$(RUN) linkml-validate --target-class ExhaustiveTestClassCollection --schema $^
 
 linkml-validate-extracted: generated_schema/GSC_MIxS_6.yaml extracted_data/mixs_v6.xlsx.extracted_examples.yaml
-	$(RUN) linkml-validate --schema $^
+	$(RUN) linkml-validate --target-class ExhaustiveTestClassCollection --schema $^
 
 curated_data/unwrapped_curated_data_for_slot_coverage_check.yaml: curated_data/ExhaustiveTestClassCollection-wrapped-example-data.yaml
 	$(RUN) get-first-of-first \
@@ -269,6 +283,47 @@ conflict_reports/mixs_v6.xlsx.SCN.Item.conflicts.post.tsv: mixs_excel_harmonized
 
 # # # #
 
+# todo how to communicate/save download date?
+ncbi_biosample_sql/results/minimal.csv: ncbi_biosample_sql/queries/minimal.sql
+	# ~ 5 minutes
+	date
+	psql --csv \
+		-U $(BIOSAMPLE_DB_USER) \
+		-h $(BIOSAMPLE_DB_HOST) -p $(BIOSAMPLE_DB_PORT) \
+		-d $(BIOSAMPLE_DB_DB_NAME) \
+		-f $< > $@
+	date
+
+ncbi_biosample_sql/results/ncbi_biosample_harmonized_attribute_usage.csv: ncbi_biosample_sql/queries/harmonized_name_usage_counts.sql
+	# ~ 5 minutes
+	date
+	psql --csv \
+		-U $(BIOSAMPLE_DB_USER) \
+		-h $(BIOSAMPLE_DB_HOST) -p $(BIOSAMPLE_DB_PORT) \
+		-d $(BIOSAMPLE_DB_DB_NAME) \
+		-f $< > $@
+	date
+
+mixs_excel_harmonized_repaired/mixs_v6.xlsx.harmonized.tsv: generated_schema/GSC_MIxS_6.yaml
+
+# note one TSV and one CSV
+other_reports/mixs-scns-vs-ncbi-harmonized-attributes.yaml: mixs_excel_harmonized_repaired/mixs_v6.xlsx.harmonized.tsv \
+ncbi_biosample_sql/results/ncbi_biosample_harmonized_attribute_usage.csv
+	$(RUN) mixs-scns-vs-ncbi-harmonized-attributes \
+		--mixs-scns-file $(word 1,$^) \
+		--ncbi-harmonized-names-file $(word 2,$^) \
+		--output-file $@
+
+schema_derivatives/GSC_MIxS_6.owl.ttl: generated_schema/GSC_MIxS_6.yaml
+	$(RUN) gen-owl \
+		--output $@ \
+		--format ttl \
+		--metadata-profile rdfs $<
+
+# --top-class
+schema_derivatives/GSC_MIxS_6.schema.json: generated_schema/GSC_MIxS_6.yaml
+	$(RUN) gen-json-schema --closed $< > $@
+
 final_cleanup:
 	rm -rf curated_data/unwrapped_curated_data_for_slot_coverage_check.yaml
 	rm -rf extracted_data/unwrapped.mixs_v6.xlsx.extracted_examples.yaml
@@ -276,9 +331,26 @@ final_cleanup:
 	mv generated_schema/GSC_MIxS_6.yaml.notated.yaml generated_schema/GSC_MIxS_6.yaml
 	rm -rf schemasheets_to_usage/GSC_MIxS_6_concise_usage.tsv
 
-other_reports/mixs-scns-vs-ncbi-harmonized-attributes.yaml: mixs_excel_harmonized_repaired/mixs_v6.xlsx.harmonized.tsv \
-ncbi_biosample_sql/20230705_harmonized_attribute_usage.csv
-	$(RUN) mixs-scns-vs-ncbi-harmonized-attributes \
-		--mixs-scns-file $(word 1,$^) \
-		--ncbi-harmonized-names-file $(word 2,$^) \
-		--output-file $@
+.PHONY: validate_multiple_mims_soil
+
+validate_multiple_mims_soil: generated_schema/GSC_MIxS_6.yaml curated_data/MimsSoil_example.yaml
+	$(RUN) linkml-validate \
+		--schema $^
+
+converted_data/MimsSoil_example.csv: generated_schema/GSC_MIxS_6.yaml curated_data/MimsSoil_example.yaml
+	$(RUN) linkml-convert \
+		--output $@ \
+		--target-class MixsCompliantData \
+		--index-slot mims_soil_data \
+		--schema $^
+
+#     raise ValueError(f'No such class as "{class_name}"')
+  #ValueError: No such class as "None"
+converted_data/MimsSoil_example.ttl: generated_schema/GSC_MIxS_6.yaml curated_data/MimsSoil_example.yaml
+	$(RUN) linkml-convert \
+		--output $@ \
+		--target-class MixsCompliantData \
+		--index-slot mims_soil_data \
+		--schema $^
+
+
