@@ -11,7 +11,7 @@ other_reports/curated_data_coverage_report.yaml other_reports/extracted_data_cov
 text_mining_results/mixs_v6_repaired_term_title_token_matrix.tsv \
 schemasheets_to_usage/GSC_MIxS_6.yaml.exhaustive.usage-report.tsv schemasheets_to_usage/GSC_MIxS_6.yaml.concise.usage-report.tsv \
 conflicts-all other_reports/mixs-scns-vs-ncbi-harmonized-attributes.yaml \
-schema_derivatives/GSC_MIxS_6.owl.ttl schema_derivatives/GSC_MIxS_6.schema.json \
+schema_derivatives/GSC_MIxS_6.owl.ttl schema_derivatives/GSC_MIxS_6.schema.json schema_derivatives/GSC_MIxS_6.form.xlsx \
 final_cleanup validate_multiple_mims_soil \
 converted_data/MimsSoil_example.csv
 
@@ -320,9 +320,11 @@ schema_derivatives/GSC_MIxS_6.owl.ttl: generated_schema/GSC_MIxS_6.yaml
 		--format ttl \
 		--metadata-profile rdfs $<
 
-# --top-class
 schema_derivatives/GSC_MIxS_6.schema.json: generated_schema/GSC_MIxS_6.yaml
 	$(RUN) gen-json-schema --closed $< > $@
+
+schema_derivatives/GSC_MIxS_6.form.xlsx: generated_schema/GSC_MIxS_6.yaml
+	$(RUN) gen-excel --output $@ $<
 
 final_cleanup:
 	rm -rf curated_data/unwrapped_curated_data_for_slot_coverage_check.yaml
@@ -344,13 +346,11 @@ converted_data/MimsSoil_example.csv: generated_schema/GSC_MIxS_6.yaml curated_da
 		--index-slot mims_soil_data \
 		--schema $^
 
-#     raise ValueError(f'No such class as "{class_name}"')
-  #ValueError: No such class as "None"
+# https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/76
 converted_data/MimsSoil_example.ttl: generated_schema/GSC_MIxS_6.yaml curated_data/MimsSoil_example.yaml
 	$(RUN) linkml-convert \
 		--output $@ \
 		--target-class MixsCompliantData \
 		--index-slot mims_soil_data \
 		--schema $^
-
 
