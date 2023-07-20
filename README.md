@@ -1,4 +1,6 @@
-<h1>MIxS/EnvO Structured Knowledge Extraction</h1>
+<h1>Proposed, Harmonized MIxS 6.2 Proposal</h1>
+
+<h2>And future site of MIxS/EnvO Structured Knowledge Extraction</h2>
 
 <p>Extracting structured knowledge from MIxS and finding EnvO terms that would be reasonable answers to scoped MIxS questions</p>
 <nav>
