@@ -142,6 +142,7 @@ def instantiate_classes(df: pd.DataFrame, checklists, global_target_schema, mini
                 name=slot_name,
                 range=combo_name,
                 title=f"{combo_name} data",
+                slot_uri=f"MIXS:{slot_name}",
             )
             global_target_schema.slots[slot_name] = new_slot
 
@@ -898,6 +899,7 @@ def create_schema(non_ascii_replacement, debug, base_url, scn_key, schema_name,
     file_url = base_url + excel_file_name
 
     global_target_schema = SchemaDefinition(
+        default_range="string",
         id=f"http://example.com/{schema_name}",
         name=schema_name,
         source=file_url,

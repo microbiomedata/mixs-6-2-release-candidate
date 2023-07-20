@@ -65,7 +65,7 @@ exhaustive_test_set:
   basin: Campos
   bathroom_count: 1
   bedroom_count: 2
-  bin_param: coverage and kmer
+  bin_param: coverage
   bin_software: MetaCluster-TA (RRID:SCR_004599), MaxBin (biotools:maxbin)
   biocide: ALPHA 1427;Baker Hughes;2008-01-23
   biocide_used:
@@ -106,8 +106,7 @@ exhaustive_test_set:
   - tropical climate;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M
   coll_site_geo_feat: farm [ENVO:00000078]
   collection_date: '2013-03-25T12:42:31+00:32'
-  compl_appr: 'other: UViG length compared to the average length of reference genomes
-    from the P22virus genus (NCBI RefSeq v83)'
+  compl_appr: other
   compl_score: med;60%
   compl_software: checkm
   conduc: 10 milliSiemens per centimeter
@@ -194,8 +193,7 @@ exhaustive_test_set:
   farm_equip_san_freq: Biweekly
   farm_equip_shared:
   - combine harvester [AGRO:00000473]
-  farm_water_source:
-  - water well (ENVO:01000002)
+  farm_water_source: well
   feat_pred: Prodigal;2.6.3;default parameters
   ferm_chem_add:
   - salt
@@ -222,8 +220,7 @@ exhaustive_test_set:
   fluor: 2.5 volts
   food_allergen_label:
   - food allergen labelling about crustaceans and products thereof [FOODON:03510215]
-  food_clean_proc:
-  - rinsed with water|scrubbed with brush
+  food_clean_proc: rinsed with water
   food_contact_surf:
   - cellulose acetate [FOODON:03500034]
   food_contain_wrap: Plastic shrink-pack [FOODON:03490137]
@@ -313,7 +310,6 @@ exhaustive_test_set:
   host_pred_est_acc: 'CRISPR spacer match: 0 or 1 mismatches, estimated 8% FDR at
     the host genus rank (Edwards et al. 2016 doi:10.1093/femsre/fuv048)'
   host_pulse: 65 beats per minute
-  host_sex: non-binary
   host_shape: round
   host_spec_range:
   - '9606'
@@ -388,7 +384,7 @@ exhaustive_test_set:
   nucl_acid_ext: https://mobio.com/media/wysiwyg/pdfs/protocols/12888.pdf
   nucl_acid_ext_kit:
   - Qiagen PowerSoil Kit
-  num_replicons: '2'
+  num_replicons: 2
   num_samp_collect: 116 samples
   number_contig: 40
   occup_density_samp: 0.1
@@ -531,7 +527,7 @@ exhaustive_test_set:
   shad_dev_water_mold: no presence of mold visible
   shading_device_cond: new
   shading_device_loc: exterior
-  shading_device_type: slatted aluminum awning
+  shading_device_type: slatted aluminum
   silicate: 0.05 micromole per liter
   sim_search_meth: HMMER3;3.1b2;hmmsearch, cutoff of 50 on score
   size_frac: 0-0.22 micrometer
@@ -617,7 +613,7 @@ exhaustive_test_set:
   target_subfragment: V6, V9, ITS
   tax_class: vConTACT vContact2 (references from NCBI RefSeq v83, genus rank classification,
     default parameters)
-  tax_ident: 'other: rpoB gene'
+  tax_ident: other
   temp: 25 degree Celsius
   temp_out: 5 degree Celsius
   tidal_stage: high tide
@@ -650,7 +646,7 @@ exhaustive_test_set:
   ventilation_rate: 750 cubic meter per minute
   ventilation_type: Operable windows
   vir_ident_software: VirSorter; 1.0.4; Virome database, category 2
-  virus_enrich_appr: filtration + FeCl Precipitation + ultracentrifugation + DNAse
+  virus_enrich_appr: filtration
   vis_media: 3D scans
   volatile_org_comp:
   - formaldehyde;500 nanogram per liter

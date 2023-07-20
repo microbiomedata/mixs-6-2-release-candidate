@@ -570,3 +570,57 @@ food-food production facility	MIXS ID	MIXS:0001253	Value syntax	{termLabel} [{te
 food-food production facility	MIXS ID	MIXS:0001254	Value syntax	{termLabel} [{termID}]	{text}
 food-food production facility	MIXS ID	MIXS:0001253	Expected value	ENVO	
 food-food production facility	MIXS ID	MIXS:0001254	Expected value	ENVO	
+migs_eu	Structured comment name	bin_param	Example	coverage and kmer	
+migs_ba	Structured comment name	bin_param	Example	coverage and kmer	
+migs_pl	Structured comment name	bin_param	Example	coverage and kmer	
+migs_vi	Structured comment name	bin_param	Example	coverage and kmer	
+migs_org	Structured comment name	bin_param	Example	coverage and kmer	
+mims	Structured comment name	bin_param	Example	coverage and kmer	
+mimarks_s	Structured comment name	bin_param	Example	coverage and kmer	
+mimarks_c	Structured comment name	bin_param	Example	coverage and kmer	
+misag	Structured comment name	bin_param	Example	coverage and kmer	
+mimag	Structured comment name	bin_param	Example	coverage and kmer	
+miuvig	Structured comment name	bin_param	Example	coverage and kmer	
+migs_eu	Structured comment name	compl_appr	Example	other: UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)	
+migs_ba	Structured comment name	compl_appr	Example	other: UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)	
+migs_pl	Structured comment name	compl_appr	Example	other: UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)	
+migs_vi	Structured comment name	compl_appr	Example	other: UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)	
+migs_org	Structured comment name	compl_appr	Example	other: UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)	
+mims	Structured comment name	compl_appr	Example	other: UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)	
+mimarks_s	Structured comment name	compl_appr	Example	other: UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)	
+mimarks_c	Structured comment name	compl_appr	Example	other: UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)	
+misag	Structured comment name	compl_appr	Example	other: UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)	
+mimag	Structured comment name	compl_appr	Example	other: UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)	
+miuvig	Structured comment name	compl_appr	Example	other: UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)	
+food-farm environment	Structured comment name	farm_water_source	Example	water well (ENVO:01000002)	
+agriculture	Structured comment name	farm_water_source	Example	water well (ENVO:01000002)	
+food-farm environment	Structured comment name	food_clean_proc	Example	rinsed with water|scrubbed with brush	
+host-associated	Structured comment name	host_sex	Example	non-binary	
+human-associated	Structured comment name	host_sex	Example	non-binary	
+human-gut	Structured comment name	host_sex	Example	non-binary	
+human-oral	Structured comment name	host_sex	Example	non-binary	
+human-skin	Structured comment name	host_sex	Example	non-binary	
+human-vaginal	Structured comment name	host_sex	Example	non-binary	
+built environment	Structured comment name	shading_device_type	Example	slatted aluminum awning	
+migs_eu	Structured comment name	tax_ident	Example	other: rpoB gene	
+migs_ba	Structured comment name	tax_ident	Example	other: rpoB gene	
+migs_pl	Structured comment name	tax_ident	Example	other: rpoB gene	
+migs_vi	Structured comment name	tax_ident	Example	other: rpoB gene	
+migs_org	Structured comment name	tax_ident	Example	other: rpoB gene	
+mims	Structured comment name	tax_ident	Example	other: rpoB gene	
+mimarks_s	Structured comment name	tax_ident	Example	other: rpoB gene	
+mimarks_c	Structured comment name	tax_ident	Example	other: rpoB gene	
+misag	Structured comment name	tax_ident	Example	other: rpoB gene	
+mimag	Structured comment name	tax_ident	Example	other: rpoB gene	
+miuvig	Structured comment name	tax_ident	Example	other: rpoB gene	
+migs_eu	Structured comment name	virus_enrich_appr	Example	filtration + FeCl Precipitation + ultracentrifugation + DNAse	
+migs_ba	Structured comment name	virus_enrich_appr	Example	filtration + FeCl Precipitation + ultracentrifugation + DNAse	
+migs_pl	Structured comment name	virus_enrich_appr	Example	filtration + FeCl Precipitation + ultracentrifugation + DNAse	
+migs_vi	Structured comment name	virus_enrich_appr	Example	filtration + FeCl Precipitation + ultracentrifugation + DNAse	
+migs_org	Structured comment name	virus_enrich_appr	Example	filtration + FeCl Precipitation + ultracentrifugation + DNAse	
+mims	Structured comment name	virus_enrich_appr	Example	filtration + FeCl Precipitation + ultracentrifugation + DNAse	
+mimarks_s	Structured comment name	virus_enrich_appr	Example	filtration + FeCl Precipitation + ultracentrifugation + DNAse	
+mimarks_c	Structured comment name	virus_enrich_appr	Example	filtration + FeCl Precipitation + ultracentrifugation + DNAse	
+misag	Structured comment name	virus_enrich_appr	Example	filtration + FeCl Precipitation + ultracentrifugation + DNAse	
+mimag	Structured comment name	virus_enrich_appr	Example	filtration + FeCl Precipitation + ultracentrifugation + DNAse	
+miuvig	Structured comment name	virus_enrich_appr	Example	filtration + FeCl Precipitation + ultracentrifugation + DNAse	

@@ -11,6 +11,7 @@ prefixes:
     prefix_prefix: MIXS
     prefix_reference: https://w3id.org/mixs/
 default_prefix: http://example.com/GSC_MIxS_6/
+default_range: string
 subsets:
   sequencing:
     name: sequencing
@@ -203,21 +204,6 @@ enums:
         text: contigs
       reads:
         text: reads
-  DECONTAM_SOFTWARE_ENUM:
-    name: DECONTAM_SOFTWARE_ENUM
-    permissible_values:
-      acdc:
-        text: acdc
-      anvi'o:
-        text: anvi'o
-      bbtools:decontaminate.sh:
-        text: bbtools:decontaminate.sh
-      checkm/refinem:
-        text: checkm/refinem
-      combination:
-        text: combination
-      prodege:
-        text: prodege
   SORT_TECH_ENUM:
     name: SORT_TECH_ENUM
     permissible_values:
@@ -940,19 +926,6 @@ enums:
         text: sunny
       windy:
         text: windy
-  SAMP_FLOOR_ENUM:
-    name: SAMP_FLOOR_ENUM
-    permissible_values:
-      1st floor:
-        text: 1st floor
-      2nd floor:
-        text: 2nd floor
-      basement:
-        text: basement
-      lobby:
-        text: lobby
-      '{integer} floor':
-        text: '{integer} floor'
   SEASON_USE_ENUM:
     name: SEASON_USE_ENUM
     permissible_values:
@@ -1189,25 +1162,6 @@ enums:
         text: middle
       top:
         text: top
-  BIOL_STAT_ENUM:
-    name: BIOL_STAT_ENUM
-    permissible_values:
-      breeder's line:
-        text: breeder's line
-      clonal selection:
-        text: clonal selection
-      hybrid:
-        text: hybrid
-      inbred line:
-        text: inbred line
-      mutant:
-        text: mutant
-      natural:
-        text: natural
-      semi-natural:
-        text: semi-natural
-      wild:
-        text: wild
   SAMP_CAPT_STATUS_ENUM:
     name: SAMP_CAPT_STATUS_ENUM
     permissible_values:
@@ -2020,6 +1974,52 @@ enums:
   SHARED_ENUM_4:
     name: SHARED_ENUM_4
     permissible_values:
+      A horizon:
+        text: A horizon
+      B horizon:
+        text: B horizon
+      C horizon:
+        text: C horizon
+      E horizon:
+        text: E horizon
+      O horizon:
+        text: O horizon
+      Permafrost:
+        text: Permafrost
+      R layer:
+        text: R layer
+  SHARED_ENUM_5:
+    name: SHARED_ENUM_5
+    permissible_values:
+      Santa-Fe texture:
+        text: Santa-Fe texture
+      crows feet:
+        text: crows feet
+      crows-foot stomp:
+        text: crows-foot stomp
+      double skip:
+        text: double skip
+      hawk and trowel:
+        text: hawk and trowel
+      knockdown:
+        text: knockdown
+      orange peel:
+        text: orange peel
+      popcorn:
+        text: popcorn
+      rosebud stomp:
+        text: rosebud stomp
+      skip trowel:
+        text: skip trowel
+      smooth:
+        text: smooth
+      stomp knockdown:
+        text: stomp knockdown
+      swirl:
+        text: swirl
+  SHARED_ENUM_6:
+    name: SHARED_ENUM_6
+    permissible_values:
       Archean:
         text: Archean
       Cambrian:
@@ -2056,53 +2056,17 @@ enums:
         text: Triassic
       other:
         text: other
-  SHARED_ENUM_5:
-    name: SHARED_ENUM_5
-    permissible_values:
-      A horizon:
-        text: A horizon
-      B horizon:
-        text: B horizon
-      C horizon:
-        text: C horizon
-      E horizon:
-        text: E horizon
-      O horizon:
-        text: O horizon
-      Permafrost:
-        text: Permafrost
-      R layer:
-        text: R layer
-  SHARED_ENUM_6:
-    name: SHARED_ENUM_6
-    permissible_values:
-      Santa-Fe texture:
-        text: Santa-Fe texture
-      crows feet:
-        text: crows feet
-      crows-foot stomp:
-        text: crows-foot stomp
-      double skip:
-        text: double skip
-      hawk and trowel:
-        text: hawk and trowel
-      knockdown:
-        text: knockdown
-      orange peel:
-        text: orange peel
-      popcorn:
-        text: popcorn
-      rosebud stomp:
-        text: rosebud stomp
-      skip trowel:
-        text: skip trowel
-      smooth:
-        text: smooth
-      stomp knockdown:
-        text: stomp knockdown
-      swirl:
-        text: swirl
 slots:
+  mims_soil_data:
+    name: mims_soil_data
+    description: Data that complies with Mims combined with Soil
+    title: MimsSoil data
+    domain: MixsCompliantData
+    slot_uri: MIXS:mims_soil_data
+    multivalued: true
+    range: MimsSoil
+    inlined: true
+    inlined_as_list: true
   HACCP_term:
     name: HACCP_term
     description: Hazard Analysis Critical Control Points (HACCP) food safety terms;
@@ -2281,7 +2245,7 @@ slots:
     - value: plane
     slot_uri: MIXS:0000773
     multivalued: false
-    range: string
+    range: AERO_STRUC_ENUM
     required: false
     recommended: false
   agrochem_addition:
@@ -2679,7 +2643,7 @@ slots:
     - value: under conditioned
     slot_uri: MIXS:0001248
     multivalued: false
-    range: string
+    range: ANIMAL_BODY_COND_ENUM
     required: false
     recommended: false
   animal_diet:
@@ -2790,7 +2754,7 @@ slots:
     - value: castrated male
     slot_uri: MIXS:0001249
     multivalued: false
-    range: string
+    range: ANIMAL_SEX_ENUM
     required: false
     recommended: false
   annot:
@@ -2892,7 +2856,7 @@ slots:
     - value: shed
     slot_uri: MIXS:0000774
     multivalued: false
-    range: string
+    range: ARCH_STRUC_ENUM
     required: false
     recommended: false
   area_samp_size:
@@ -3265,12 +3229,14 @@ slots:
     notes:
     - parameter
     examples:
-    - value: coverage and kmer
+    - value: coverage
+      description: was 'coverage and kmer'
+    - value: kmer
+      description: was coverage and kmer
     in_subset:
     - sequencing
     slot_uri: MIXS:0000077
-    multivalued: false
-    range: string
+    range: BIN_PARAM_ENUM
   bin_software:
     name: bin_software
     annotations:
@@ -3367,15 +3333,20 @@ slots:
     recommended: false
   biol_stat:
     name: biol_stat
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: enumeration
     description: The level of genome modification
     title: biological status
     notes:
     - status
     examples:
     - value: natural
+    string_serialization: '[wild|natural|semi-natural|inbred line|breeder''s line|hybrid|clonal
+      selection|mutant]'
     slot_uri: MIXS:0000858
     multivalued: false
-    range: string
     required: false
     recommended: false
   biomass:
@@ -3426,7 +3397,7 @@ slots:
     - nucleic acid sequence source
     slot_uri: MIXS:0000028
     multivalued: false
-    range: string
+    range: BIOTIC_RELATIONSHIP_ENUM
   birth_control:
     name: birth_control
     annotations:
@@ -3531,7 +3502,7 @@ slots:
     - value: maintenance plans
     slot_uri: MIXS:0000787
     multivalued: false
-    range: string
+    range: BUILD_DOCS_ENUM
     required: false
     recommended: false
   build_occup_type:
@@ -3545,7 +3516,7 @@ slots:
     - value: market
     slot_uri: MIXS:0000761
     multivalued: true
-    range: string
+    range: BUILD_OCCUP_TYPE_ENUM
     required: true
   building_setting:
     name: building_setting
@@ -3555,7 +3526,7 @@ slots:
     - value: rural
     slot_uri: MIXS:0000768
     multivalued: false
-    range: string
+    range: BUILDING_SETTING_ENUM
     required: true
   built_struc_age:
     name: built_struc_age
@@ -3584,7 +3555,7 @@ slots:
     - value: rural
     slot_uri: MIXS:0000778
     multivalued: false
-    range: string
+    range: BUILT_STRUC_SET_ENUM
     required: false
     recommended: false
   built_struc_type:
@@ -3694,7 +3665,7 @@ slots:
     - value: damaged
     slot_uri: MIXS:0000779
     multivalued: false
-    range: string
+    range: SHARED_ENUM_2
     required: false
     recommended: false
   ceil_finish_mat:
@@ -3708,7 +3679,7 @@ slots:
     - value: stucco
     slot_uri: MIXS:0000780
     multivalued: false
-    range: string
+    range: CEIL_FINISH_MAT_ENUM
     required: false
     recommended: false
   ceil_struc:
@@ -3721,7 +3692,7 @@ slots:
     - value: concrete
     slot_uri: MIXS:0000782
     multivalued: false
-    range: string
+    range: CEIL_STRUC_ENUM
     required: false
     recommended: false
   ceil_texture:
@@ -3735,7 +3706,7 @@ slots:
     - value: popcorn
     slot_uri: MIXS:0000783
     multivalued: false
-    range: string
+    range: SHARED_ENUM_5
     required: false
     recommended: false
   ceil_thermal_mass:
@@ -3769,7 +3740,7 @@ slots:
     - value: coffered
     slot_uri: MIXS:0000784
     multivalued: false
-    range: string
+    range: CEIL_TYPE_ENUM
     required: false
     recommended: false
   ceil_water_mold:
@@ -3782,7 +3753,7 @@ slots:
     - value: presence of mold visible
     slot_uri: MIXS:0000781
     multivalued: false
-    range: string
+    range: SHARED_ENUM_1
     required: false
     recommended: false
   chem_administration:
@@ -3991,19 +3962,23 @@ slots:
     required: true
   compl_appr:
     name: compl_appr
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: text
     description: The approach used to determine the completeness of a given genomic
       assembly, which would typically make use of a set of conserved marker genes
       or a closely related reference genome. For UViG completeness, include reference
       genome or group used, and contig feature suggesting a complete genome
     title: completeness approach
     examples:
-    - value: 'other: UViG length compared to the average length of reference genomes
-        from the P22virus genus (NCBI RefSeq v83)'
+    - value: other
+      description: was other <colon> UViG length compared to the average length of
+        reference genomes from the P22virus genus (NCBI RefSeq v83)
     in_subset:
     - sequencing
     slot_uri: MIXS:0000071
-    multivalued: false
-    range: string
+    range: COMPL_APPR_ENUM
   compl_score:
     name: compl_score
     annotations:
@@ -4163,7 +4138,7 @@ slots:
     - sequencing
     slot_uri: MIXS:0000005
     multivalued: false
-    range: string
+    range: CONTAM_SCREEN_INPUT_ENUM
   contam_screen_param:
     name: contam_screen_param
     annotations:
@@ -4255,7 +4230,7 @@ slots:
     - value: positive
     slot_uri: MIXS:0001117
     multivalued: false
-    range: string
+    range: CULT_RESULT_ENUM
     required: false
     recommended: false
   cult_result_org:
@@ -4405,6 +4380,10 @@ slots:
     recommended: false
   decontam_software:
     name: decontam_software
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: enumeration
     description: Tool(s) used in contamination screening
     title: decontamination software
     notes:
@@ -4413,9 +4392,9 @@ slots:
     - value: anvi'o
     in_subset:
     - sequencing
+    string_serialization: '[checkm/refinem|anvi''o|prodege|bbtools:decontaminate.sh|acdc|combination]'
     slot_uri: MIXS:0000074
     multivalued: false
-    range: string
   density:
     name: density
     description: Density of the sample, which is its mass per unit volume (aka volumetric
@@ -4440,7 +4419,7 @@ slots:
     - environment
     slot_uri: MIXS:0000992
     multivalued: false
-    range: string
+    range: DEPOS_ENV_ENUM
     recommended: true
   depth:
     name: depth
@@ -4751,7 +4730,7 @@ slots:
     - value: right
     slot_uri: MIXS:0000944
     multivalued: false
-    range: string
+    range: DOMINANT_HAND_ENUM
     required: false
     recommended: false
   door_comp_type:
@@ -4765,7 +4744,7 @@ slots:
     - value: revolving
     slot_uri: MIXS:0000795
     multivalued: false
-    range: string
+    range: DOOR_COMP_TYPE_ENUM
     required: false
     recommended: false
   door_cond:
@@ -4779,7 +4758,7 @@ slots:
     - value: new
     slot_uri: MIXS:0000788
     multivalued: false
-    range: string
+    range: SHARED_ENUM_3
     required: false
     recommended: false
   door_direct:
@@ -4793,7 +4772,7 @@ slots:
     - value: inward
     slot_uri: MIXS:0000789
     multivalued: false
-    range: string
+    range: DOOR_DIRECT_ENUM
     required: false
     recommended: false
   door_loc:
@@ -4807,7 +4786,7 @@ slots:
     - value: north
     slot_uri: MIXS:0000790
     multivalued: false
-    range: string
+    range: SHARED_ENUM_0
     required: false
     recommended: false
   door_mat:
@@ -4821,7 +4800,7 @@ slots:
     - value: wood
     slot_uri: MIXS:0000791
     multivalued: false
-    range: string
+    range: DOOR_MAT_ENUM
     required: false
     recommended: false
   door_move:
@@ -4834,7 +4813,7 @@ slots:
     - value: swinging
     slot_uri: MIXS:0000792
     multivalued: false
-    range: string
+    range: DOOR_MOVE_ENUM
     required: false
     recommended: false
   door_size:
@@ -4868,7 +4847,7 @@ slots:
     - value: wooden
     slot_uri: MIXS:0000794
     multivalued: false
-    range: string
+    range: DOOR_TYPE_ENUM
     required: false
     recommended: false
   door_type_metal:
@@ -4882,7 +4861,7 @@ slots:
     - value: hollow
     slot_uri: MIXS:0000796
     multivalued: false
-    range: string
+    range: DOOR_TYPE_METAL_ENUM
     required: false
     recommended: false
   door_type_wood:
@@ -4915,7 +4894,7 @@ slots:
     - value: presence of mold visible
     slot_uri: MIXS:0000793
     multivalued: false
-    range: string
+    range: SHARED_ENUM_1
     required: false
     recommended: false
   douche:
@@ -4957,7 +4936,7 @@ slots:
     - value: well
     slot_uri: MIXS:0001085
     multivalued: false
-    range: string
+    range: DRAINAGE_CLASS_ENUM
   drawings:
     name: drawings
     description: The buildings architectural drawings; if design is chosen, indicate
@@ -4969,7 +4948,7 @@ slots:
     - value: sketch
     slot_uri: MIXS:0000798
     multivalued: false
-    range: string
+    range: DRAWINGS_ENUM
     required: false
     recommended: false
   drug_usage:
@@ -5312,7 +5291,7 @@ slots:
     - value: northwest
     slot_uri: MIXS:0000817
     multivalued: false
-    range: string
+    range: SHARED_ENUM_0
     required: false
     recommended: false
   ext_window_orient:
@@ -5326,7 +5305,7 @@ slots:
     - value: southwest
     slot_uri: MIXS:0000818
     multivalued: false
-    range: string
+    range: SHARED_ENUM_0
     required: false
     recommended: false
   extr_weather_event:
@@ -5342,7 +5321,7 @@ slots:
     - value: hail
     slot_uri: MIXS:0001141
     multivalued: true
-    range: string
+    range: EXTR_WEATHER_EVENT_ENUM
     required: false
     recommended: false
   extrachrom_elements:
@@ -5380,7 +5359,7 @@ slots:
     - value: manufacturing-processing
     slot_uri: MIXS:0001252
     multivalued: true
-    range: string
+    range: FACILITY_TYPE_ENUM
     required: false
     recommended: false
   fao_class:
@@ -5394,7 +5373,7 @@ slots:
     - value: Luvisols
     slot_uri: MIXS:0001083
     multivalued: false
-    range: string
+    range: FAO_CLASS_ENUM
   farm_equip:
     name: farm_equip
     title: farm equipment used
@@ -5471,10 +5450,10 @@ slots:
     - source
     - water
     examples:
-    - value: water well (ENVO:01000002)
+    - value: well
+      description: was water well (ENVO:01000002)
     slot_uri: MIXS:0001110
-    multivalued: true
-    range: string
+    range: FARM_WATER_SOURCE_ENUM
     recommended: true
   feat_pred:
     name: feat_pred
@@ -5724,7 +5703,7 @@ slots:
     - value: HEPA
     slot_uri: MIXS:0000765
     multivalued: true
-    range: string
+    range: FILTER_TYPE_ENUM
     required: true
   fire:
     name: fire
@@ -5745,7 +5724,7 @@ slots:
     - value: wood burning
     slot_uri: MIXS:0000802
     multivalued: false
-    range: string
+    range: FIREPLACE_TYPE_ENUM
     required: false
     recommended: false
   flooding:
@@ -5803,7 +5782,7 @@ slots:
     - value: new
     slot_uri: MIXS:0000803
     multivalued: false
-    range: string
+    range: SHARED_ENUM_2
     required: false
     recommended: false
   floor_count:
@@ -5850,7 +5829,7 @@ slots:
     - value: concrete
     slot_uri: MIXS:0000806
     multivalued: false
-    range: string
+    range: FLOOR_STRUC_ENUM
     required: false
     recommended: false
   floor_thermal_mass:
@@ -5880,7 +5859,7 @@ slots:
     - value: ceiling discoloration
     slot_uri: MIXS:0000805
     multivalued: false
-    range: string
+    range: FLOOR_WATER_MOLD_ENUM
     required: false
     recommended: false
   fluor:
@@ -5957,10 +5936,12 @@ slots:
     - food
     - process
     examples:
-    - value: rinsed with water|scrubbed with brush
+    - value: rinsed with water
+      description: was rinsed with water|scrubbed with brush
+    - value: scrubbed with brush
+      description: was rinsed with water|scrubbed with brush
     slot_uri: MIXS:0001182
-    multivalued: true
-    range: string
+    range: FOOD_CLEAN_PROC_ENUM
     required: false
     recommended: false
   food_contact_surf:
@@ -6392,7 +6373,7 @@ slots:
     - value: tropical tree fruits
     slot_uri: MIXS:0001214
     multivalued: false
-    range: string
+    range: FOOD_TRACE_LIST_ENUM
     required: false
     recommended: false
   food_trav_mode:
@@ -6466,7 +6447,7 @@ slots:
     - value: Daily
     slot_uri: MIXS:0000226
     multivalued: false
-    range: string
+    range: FREQ_CLEAN_ENUM
     required: false
     recommended: false
   freq_cook:
@@ -6507,7 +6488,7 @@ slots:
     - value: chair
     slot_uri: MIXS:0000807
     multivalued: false
-    range: string
+    range: FURNITURE_ENUM
     required: false
     recommended: false
   gaseous_environment:
@@ -6566,7 +6547,7 @@ slots:
     - value: male
     slot_uri: MIXS:0000808
     multivalued: false
-    range: string
+    range: GENDER_RESTROOM_ENUM
     required: false
     recommended: false
   genetic_mod:
@@ -6690,7 +6671,7 @@ slots:
     - value: spreading
     slot_uri: MIXS:0001044
     multivalued: false
-    range: string
+    range: GROWTH_HABIT_ENUM
     required: false
     recommended: false
   growth_hormone_regm:
@@ -6767,7 +6748,7 @@ slots:
     - value: right handedness
     slot_uri: MIXS:0000809
     multivalued: false
-    range: string
+    range: HANDIDNESS_ENUM
     required: false
     recommended: false
   hc_produced:
@@ -6782,7 +6763,7 @@ slots:
     - value: Gas
     slot_uri: MIXS:0000989
     multivalued: false
-    range: string
+    range: HC_PRODUCED_ENUM
     required: true
   hcr:
     name: hcr
@@ -6802,7 +6783,7 @@ slots:
     - value: Oil Sand
     slot_uri: MIXS:0000988
     multivalued: false
-    range: string
+    range: HCR_ENUM
     required: true
   hcr_fw_salinity:
     name: hcr_fw_salinity
@@ -6834,7 +6815,7 @@ slots:
     - value: Silurian
     slot_uri: MIXS:0000993
     multivalued: false
-    range: string
+    range: SHARED_ENUM_6
     recommended: true
   hcr_pressure:
     name: hcr_pressure
@@ -6888,7 +6869,7 @@ slots:
     - value: heat pump
     slot_uri: MIXS:0000766
     multivalued: true
-    range: string
+    range: HEAT_COOL_TYPE_ENUM
     required: true
   heat_deliv_loc:
     name: heat_deliv_loc
@@ -6902,7 +6883,7 @@ slots:
     - value: north
     slot_uri: MIXS:0000810
     multivalued: false
-    range: string
+    range: SHARED_ENUM_0
     required: false
     recommended: false
   heat_sys_deliv_meth:
@@ -6916,7 +6897,7 @@ slots:
     - value: radiant
     slot_uri: MIXS:0000812
     multivalued: false
-    range: string
+    range: HEAT_SYS_DELIV_METH_ENUM
     required: false
     recommended: false
   heat_system_id:
@@ -7014,7 +6995,7 @@ slots:
     - horizon
     slot_uri: MIXS:0001082
     multivalued: false
-    range: string
+    range: SHARED_ENUM_4
     recommended: true
   horizon_meth:
     name: horizon_meth
@@ -7151,7 +7132,7 @@ slots:
     examples:
     - value: extracellular
     slot_uri: MIXS:0001313
-    range: string
+    range: HOST_CELLULAR_LOC_ENUM
     recommended: true
   host_color:
     name: host_color
@@ -7186,7 +7167,7 @@ slots:
     - value: obligate
     slot_uri: MIXS:0001315
     multivalued: false
-    range: string
+    range: HOST_DEPENDENCE_ENUM
     required: true
   host_diet:
     name: host_diet
@@ -7710,7 +7691,7 @@ slots:
     - sequencing
     slot_uri: MIXS:0000088
     multivalued: false
-    range: string
+    range: HOST_PRED_APPR_ENUM
   host_pred_est_acc:
     name: host_pred_est_acc
     description: For each tool or approach used for host prediction, estimated false
@@ -7753,10 +7734,10 @@ slots:
     notes:
     - host
     - host.
-    examples:
-    - value: non-binary
-    multivalued: false
-    range: string
+    comments:
+    - example of non-binary from Excel sheets does not match any of the enumerated
+      values
+    range: HOST_SEX_ENUM
     required: false
     recommended: false
   host_shape:
@@ -7805,7 +7786,7 @@ slots:
     - value: species-specific
     slot_uri: MIXS:0001308
     multivalued: false
-    range: string
+    range: HOST_SPECIFICITY_ENUM
     recommended: true
   host_subject_id:
     name: host_subject_id
@@ -8014,7 +7995,7 @@ slots:
     - value: foyer
     slot_uri: MIXS:0000763
     multivalued: false
-    range: string
+    range: INDOOR_SPACE_ENUM
     required: true
   indoor_surf:
     name: indoor_surf
@@ -8027,7 +8008,7 @@ slots:
     - value: wall
     slot_uri: MIXS:0000764
     multivalued: false
-    range: string
+    range: INDOOR_SURF_ENUM
   indust_eff_percent:
     name: indust_eff_percent
     annotations:
@@ -8095,7 +8076,7 @@ slots:
     - value: damaged
     slot_uri: MIXS:0000813
     multivalued: false
-    range: string
+    range: SHARED_ENUM_2
     required: false
     recommended: false
   intended_consumer:
@@ -8226,7 +8207,7 @@ slots:
     - sequencing
     slot_uri: MIXS:0000041
     multivalued: false
-    range: string
+    range: LIB_LAYOUT_ENUM
   lib_reads_seqd:
     name: lib_reads_seqd
     description: Total number of clones sequenced from the library
@@ -8356,7 +8337,7 @@ slots:
     - value: desk lamp
     slot_uri: MIXS:0000769
     multivalued: true
-    range: string
+    range: LIGHT_TYPE_ENUM
     required: true
   link_addit_analys:
     name: link_addit_analys
@@ -8417,7 +8398,7 @@ slots:
     - value: Volcanic
     slot_uri: MIXS:0000990
     multivalued: false
-    range: string
+    range: LITHOLOGY_ENUM
     recommended: true
   liver_disord:
     name: liver_disord
@@ -8488,7 +8469,7 @@ slots:
     - sequencing
     slot_uri: MIXS:0000080
     multivalued: false
-    range: string
+    range: MAG_COV_SOFTWARE_ENUM
   magnesium:
     name: magnesium
     annotations:
@@ -8576,7 +8557,7 @@ slots:
     - value: elevator
     slot_uri: MIXS:0000815
     multivalued: false
-    range: string
+    range: MECH_STRUC_ENUM
     required: false
     recommended: false
   mechanical_damage:
@@ -8880,7 +8861,7 @@ slots:
     examples:
     - value: horizontal:castrator
     slot_uri: MIXS:0001312
-    range: string
+    range: MODE_TRANSMISSION_ENUM
     recommended: true
   n_alkanes:
     name: n_alkanes
@@ -9051,7 +9032,7 @@ slots:
     - nucleic acid sequence source
     string_serialization: '{integer}'
     slot_uri: MIXS:0000022
-    multivalued: false
+    range: integer
   num_samp_collect:
     name: num_samp_collect
     description: The number of samples collected during the current sampling event
@@ -9139,7 +9120,7 @@ slots:
     - value: estimate
     slot_uri: MIXS:0000816
     multivalued: false
-    range: string
+    range: OCCUP_DOCUMENT_ENUM
     required: false
     recommended: false
   occup_samp:
@@ -9338,7 +9319,7 @@ slots:
     - value: aerobic
     slot_uri: MIXS:0000753
     multivalued: false
-    range: string
+    range: OXY_STAT_SAMP_ENUM
   oxygen:
     name: oxygen
     annotations:
@@ -9772,7 +9753,7 @@ slots:
     - value: seedling
     slot_uri: MIXS:0001150
     multivalued: true
-    range: string
+    range: PLANT_REPROD_CROP_ENUM
     required: false
     recommended: false
   plant_sex:
@@ -9786,7 +9767,7 @@ slots:
     - value: Hermaphroditic
     slot_uri: MIXS:0001059
     multivalued: false
-    range: string
+    range: PLANT_SEX_ENUM
     required: false
     recommended: false
   plant_struc:
@@ -9964,7 +9945,7 @@ slots:
     - sequencing
     slot_uri: MIXS:0000083
     multivalued: false
-    range: string
+    range: PRED_GENOME_STRUC_ENUM
   pred_genome_type:
     name: pred_genome_type
     annotations:
@@ -10155,7 +10136,7 @@ slots:
     - value: summit
     slot_uri: MIXS:0001084
     multivalued: false
-    range: string
+    range: PROFILE_POSITION_ENUM
   project_name:
     name: project_name
     description: Name of the project within which the sequencing was organized
@@ -10210,7 +10191,7 @@ slots:
     - value: West side
     slot_uri: MIXS:0000820
     multivalued: false
-    range: string
+    range: QUAD_POS_ENUM
     required: false
     recommended: false
   radiation_regm:
@@ -10408,7 +10389,7 @@ slots:
     - value: center of car
     slot_uri: MIXS:0000821
     multivalued: false
-    range: string
+    range: REL_SAMP_LOC_ENUM
     required: false
     recommended: false
   rel_to_oxygen:
@@ -10425,7 +10406,7 @@ slots:
     - nucleic acid sequence source
     slot_uri: MIXS:0000015
     multivalued: false
-    range: string
+    range: REL_TO_OXYGEN_ENUM
   repository_name:
     name: repository_name
     description: The name of the institution where the sample or DNA extract is held
@@ -10507,7 +10488,7 @@ slots:
     - value: new
     slot_uri: MIXS:0000822
     multivalued: false
-    range: string
+    range: ROOM_CONDT_ENUM
     required: false
     recommended: false
   room_connected:
@@ -10521,7 +10502,7 @@ slots:
     - value: office
     slot_uri: MIXS:0000826
     multivalued: false
-    range: string
+    range: ROOM_CONNECTED_ENUM
     required: false
     recommended: false
   room_count:
@@ -10622,7 +10603,7 @@ slots:
     - value: interior room
     slot_uri: MIXS:0000823
     multivalued: false
-    range: string
+    range: ROOM_LOC_ENUM
     required: false
     recommended: false
   room_moist_dam_hist:
@@ -10679,7 +10660,7 @@ slots:
     - value: south corner
     slot_uri: MIXS:0000824
     multivalued: false
-    range: string
+    range: ROOM_SAMP_POS_ENUM
     required: false
     recommended: false
   room_type:
@@ -10903,7 +10884,7 @@ slots:
     - route
     slot_uri: MIXS:0001316
     multivalued: false
-    range: string
+    range: ROUTE_TRANSMISSION_ENUM
     required: false
     recommended: false
   salinity:
@@ -10959,7 +10940,7 @@ slots:
     - value: farm sample
     slot_uri: MIXS:0000860
     multivalued: false
-    range: string
+    range: SAMP_CAPT_STATUS_ENUM
     required: false
     recommended: false
   samp_collect_device:
@@ -11008,7 +10989,7 @@ slots:
     - value: well
     slot_uri: MIXS:0001015
     multivalued: false
-    range: string
+    range: SAMP_COLLECT_POINT_ENUM
     required: true
   samp_dis_stage:
     name: samp_dis_stage
@@ -11022,20 +11003,24 @@ slots:
     - value: infection
     slot_uri: MIXS:0000249
     multivalued: false
-    range: string
+    range: SAMP_DIS_STAGE_ENUM
     required: false
     recommended: false
   samp_floor:
     name: samp_floor
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: enumeration
     description: The floor of the building, where the sampling room is located
     title: sampling floor
     notes:
     - floor
     examples:
     - value: 4th floor
+    string_serialization: '[1st floor|2nd floor|{integer} floor|basement|lobby]'
     slot_uri: MIXS:0000828
     multivalued: false
-    range: string
     required: false
     recommended: false
   samp_loc_condition:
@@ -11050,7 +11035,7 @@ slots:
     - value: new
     slot_uri: MIXS:0001257
     multivalued: false
-    range: string
+    range: SAMP_LOC_CONDITION_ENUM
     required: false
     recommended: false
   samp_loc_corr_rate:
@@ -11393,7 +11378,7 @@ slots:
     - value: biofilm
     slot_uri: MIXS:0000999
     multivalued: false
-    range: string
+    range: SAMP_SUBTYPE_ENUM
     recommended: true
   samp_surf_moisture:
     name: samp_surf_moisture
@@ -11409,7 +11394,7 @@ slots:
     - value: submerged
     slot_uri: MIXS:0001256
     multivalued: true
-    range: string
+    range: SAMP_SURF_MOISTURE_ENUM
     required: false
     recommended: false
   samp_taxon_id:
@@ -11488,7 +11473,7 @@ slots:
     - value: cooler
     slot_uri: MIXS:0001230
     multivalued: false
-    range: string
+    range: SAMP_TRANSPORT_CONT_ENUM
     required: false
     recommended: false
   samp_transport_dur:
@@ -11602,7 +11587,7 @@ slots:
     - value: foggy
     slot_uri: MIXS:0000827
     multivalued: false
-    range: string
+    range: SAMP_WEATHER_ENUM
     required: false
     recommended: false
   samp_well_name:
@@ -11647,7 +11632,7 @@ slots:
     - sequencing
     slot_uri: MIXS:0000076
     multivalued: false
-    range: string
+    range: SC_LYSIS_APPROACH_ENUM
   sc_lysis_method:
     name: sc_lysis_method
     annotations:
@@ -11768,7 +11753,7 @@ slots:
     - value: Winter
     slot_uri: MIXS:0000830
     multivalued: false
-    range: string
+    range: SEASON_USE_ENUM
     required: false
     recommended: false
   secondary_treatment:
@@ -11799,7 +11784,7 @@ slots:
     - value: biogenous
     slot_uri: MIXS:0001078
     multivalued: false
-    range: string
+    range: SEDIMENT_TYPE_ENUM
     required: false
     recommended: false
   seq_meth:
@@ -11932,7 +11917,7 @@ slots:
     - value: no presence of mold visible
     slot_uri: MIXS:0000834
     multivalued: false
-    range: string
+    range: SHARED_ENUM_1
     required: false
     recommended: false
   shading_device_cond:
@@ -11946,7 +11931,7 @@ slots:
     - value: new
     slot_uri: MIXS:0000831
     multivalued: false
-    range: string
+    range: SHARED_ENUM_3
     required: false
     recommended: false
   shading_device_loc:
@@ -11960,7 +11945,7 @@ slots:
     - value: exterior
     slot_uri: MIXS:0000832
     multivalued: false
-    range: string
+    range: SHADING_DEVICE_LOC_ENUM
     required: false
     recommended: false
   shading_device_mat:
@@ -11987,10 +11972,10 @@ slots:
     - device
     - type
     examples:
-    - value: slatted aluminum awning
+    - value: slatted aluminum
+      description: was slatted aluminum awning
     slot_uri: MIXS:0000835
-    multivalued: false
-    range: string
+    range: SHADING_DEVICE_TYPE_ENUM
     required: false
     recommended: false
   sieving:
@@ -12211,7 +12196,7 @@ slots:
     - horizon
     - soil
     multivalued: false
-    range: string
+    range: SHARED_ENUM_4
   soil_pH:
     name: soil_pH
     title: soil pH
@@ -12280,7 +12265,7 @@ slots:
     - value: silty clay loam
     slot_uri: MIXS:0001164
     multivalued: false
-    range: string
+    range: SOIL_TEXTURE_CLASS_ENUM
     required: false
     recommended: false
   soil_texture_meth:
@@ -12438,7 +12423,7 @@ slots:
     - sequencing
     slot_uri: MIXS:0000075
     multivalued: false
-    range: string
+    range: SORT_TECH_ENUM
   source_mat_id:
     name: source_mat_id
     annotations:
@@ -12499,7 +12484,7 @@ slots:
     - value: typically occupied
     slot_uri: MIXS:0000770
     multivalued: false
-    range: string
+    range: SPACE_TYP_STATE_ENUM
     required: true
   spec_intended_cons:
     name: spec_intended_cons
@@ -12543,7 +12528,7 @@ slots:
     - value: construction
     slot_uri: MIXS:0000836
     multivalued: false
-    range: string
+    range: SPECIFIC_ENUM
     required: false
     recommended: false
   specific_host:
@@ -12766,7 +12751,7 @@ slots:
     - value: Marine
     slot_uri: MIXS:0000996
     multivalued: false
-    range: string
+    range: SR_DEP_ENV_ENUM
     required: false
     recommended: false
   sr_geol_age:
@@ -12781,7 +12766,7 @@ slots:
     - value: Silurian
     slot_uri: MIXS:0000997
     multivalued: false
-    range: string
+    range: SHARED_ENUM_6
     required: false
     recommended: false
   sr_kerog_type:
@@ -12799,7 +12784,7 @@ slots:
     - value: Type IV
     slot_uri: MIXS:0000994
     multivalued: false
-    range: string
+    range: SR_KEROG_TYPE_ENUM
     required: false
     recommended: false
   sr_lithology:
@@ -12814,7 +12799,7 @@ slots:
     - value: Coal
     slot_uri: MIXS:0000995
     multivalued: false
-    range: string
+    range: SR_LITHOLOGY_ENUM
     required: false
     recommended: false
   standing_water_regm:
@@ -13022,7 +13007,7 @@ slots:
     - value: basement
     slot_uri: MIXS:0000767
     multivalued: true
-    range: string
+    range: SUBSTRUCTURE_TYPE_ENUM
     required: false
     recommended: false
   sulfate:
@@ -13080,7 +13065,7 @@ slots:
     - value: radon
     slot_uri: MIXS:0000759
     multivalued: true
-    range: string
+    range: SURF_AIR_CONT_ENUM
     recommended: true
   surf_humidity:
     name: surf_humidity
@@ -13111,7 +13096,7 @@ slots:
     - value: wood
     slot_uri: MIXS:0000758
     multivalued: false
-    range: string
+    range: SURF_MATERIAL_ENUM
   surf_moisture:
     name: surf_moisture
     annotations:
@@ -13238,7 +13223,7 @@ slots:
     - value: intermediate
     slot_uri: MIXS:0001303
     multivalued: false
-    range: string
+    range: SYMBIONT_HOST_ROLE_ENUM
     recommended: true
   tan:
     name: tan
@@ -13312,12 +13297,12 @@ slots:
     - marker
     - taxon
     examples:
-    - value: 'other: rpoB gene'
+    - value: other
+      description: was other <colon> rpoB gene
     in_subset:
     - sequencing
     slot_uri: MIXS:0000053
-    multivalued: false
-    range: string
+    range: TAX_IDENT_ENUM
   temp:
     name: temp
     annotations:
@@ -13379,7 +13364,7 @@ slots:
     - value: high tide
     slot_uri: MIXS:0000750
     multivalued: false
-    range: string
+    range: TIDAL_STAGE_ENUM
     required: false
     recommended: false
   tillage:
@@ -13391,7 +13376,7 @@ slots:
     examples:
     - value: chisel
     slot_uri: MIXS:0001081
-    range: string
+    range: TILLAGE_ENUM
   time_last_toothbrush:
     name: time_last_toothbrush
     description: Specification of the time since last toothbrushing
@@ -13727,7 +13712,7 @@ slots:
     - value: red
     slot_uri: MIXS:0000837
     multivalued: false
-    range: string
+    range: TRAIN_LINE_ENUM
     required: false
     recommended: false
   train_stat_loc:
@@ -13741,7 +13726,7 @@ slots:
     - value: forest hills
     slot_uri: MIXS:0000838
     multivalued: false
-    range: string
+    range: TRAIN_STAT_LOC_ENUM
     required: false
     recommended: false
   train_stop_loc:
@@ -13756,7 +13741,7 @@ slots:
     - value: end
     slot_uri: MIXS:0000839
     multivalued: false
-    range: string
+    range: TRAIN_STOP_LOC_ENUM
     required: false
     recommended: false
   travel_out_six_month:
@@ -13822,7 +13807,7 @@ slots:
     - nucleic acid sequence source
     slot_uri: MIXS:0000032
     multivalued: false
-    range: string
+    range: TROPHIC_LEVEL_ENUM
   turbidity:
     name: turbidity
     description: Measure of the amount of cloudiness or haziness in water caused by
@@ -13911,7 +13896,7 @@ slots:
     - value: parasitic
     slot_uri: MIXS:0001307
     multivalued: false
-    range: string
+    range: TYPE_OF_SYMBIOSIS_ENUM
     recommended: true
   urine_collect_meth:
     name: urine_collect_meth
@@ -13923,7 +13908,7 @@ slots:
     - value: catheter
     slot_uri: MIXS:0000899
     multivalued: false
-    range: string
+    range: URINE_COLLECT_METH_ENUM
     required: false
     recommended: false
   urogenit_disord:
@@ -14038,12 +14023,18 @@ slots:
     notes:
     - enrichment
     examples:
-    - value: filtration + FeCl Precipitation + ultracentrifugation + DNAse
+    - value: filtration
+      description: was filtration + FeCl Precipitation + ultracentrifugation + DNAse
+    - value: FeCl Precipitation
+      description: was filtration + FeCl Precipitation + ultracentrifugation + DNAse
+    - value: ultracentrifugation
+      description: was filtration + FeCl Precipitation + ultracentrifugation + DNAse
+    - value: DNAse
+      description: was filtration + FeCl Precipitation + ultracentrifugation + DNAse
     in_subset:
     - nucleic acid sequence source
     slot_uri: MIXS:0000036
-    multivalued: false
-    range: string
+    range: VIRUS_ENRICH_APPR_ENUM
   vis_media:
     name: vis_media
     annotations:
@@ -14128,7 +14119,7 @@ slots:
     - value: fire resistive
     slot_uri: MIXS:0000841
     multivalued: false
-    range: string
+    range: WALL_CONST_TYPE_ENUM
     required: false
     recommended: false
   wall_finish_mat:
@@ -14142,7 +14133,7 @@ slots:
     - value: wood
     slot_uri: MIXS:0000842
     multivalued: false
-    range: string
+    range: WALL_FINISH_MAT_ENUM
     required: false
     recommended: false
   wall_height:
@@ -14173,7 +14164,7 @@ slots:
     - value: north
     slot_uri: MIXS:0000843
     multivalued: false
-    range: string
+    range: SHARED_ENUM_0
     required: false
     recommended: false
   wall_surf_treatment:
@@ -14188,7 +14179,7 @@ slots:
     - value: paneling
     slot_uri: MIXS:0000845
     multivalued: false
-    range: string
+    range: WALL_SURF_TREATMENT_ENUM
     required: false
     recommended: false
   wall_texture:
@@ -14202,7 +14193,7 @@ slots:
     - value: popcorn
     slot_uri: MIXS:0000846
     multivalued: false
-    range: string
+    range: SHARED_ENUM_5
     required: false
     recommended: false
   wall_thermal_mass:
@@ -14234,7 +14225,7 @@ slots:
     - value: no presence of mold visible
     slot_uri: MIXS:0000844
     multivalued: false
-    range: string
+    range: SHARED_ENUM_1
     required: false
     recommended: false
   wastewater_type:
@@ -14354,7 +14345,7 @@ slots:
     - value: stream
     slot_uri: MIXS:0000847
     multivalued: false
-    range: string
+    range: WATER_FEAT_TYPE_ENUM
     required: false
     recommended: false
   water_frequency:
@@ -14499,7 +14490,7 @@ slots:
     - value: Sunday
     slot_uri: MIXS:0000848
     multivalued: false
-    range: string
+    range: WEEKDAY_ENUM
     required: false
     recommended: false
   weight_loss_3_month:
@@ -14534,7 +14525,7 @@ slots:
     - sequencing
     slot_uri: MIXS:0000055
     multivalued: false
-    range: string
+    range: WGA_AMP_APPR_ENUM
   wga_amp_kit:
     name: wga_amp_kit
     annotations:
@@ -14605,7 +14596,7 @@ slots:
     - value: rupture
     slot_uri: MIXS:0000849
     multivalued: false
-    range: string
+    range: SHARED_ENUM_3
     required: false
     recommended: false
   window_cover:
@@ -14618,7 +14609,7 @@ slots:
     - value: curtains
     slot_uri: MIXS:0000850
     multivalued: false
-    range: string
+    range: WINDOW_COVER_ENUM
     required: false
     recommended: false
   window_horiz_pos:
@@ -14631,7 +14622,7 @@ slots:
     - value: middle
     slot_uri: MIXS:0000851
     multivalued: false
-    range: string
+    range: WINDOW_HORIZ_POS_ENUM
     required: false
     recommended: false
   window_loc:
@@ -14645,7 +14636,7 @@ slots:
     - value: west
     slot_uri: MIXS:0000852
     multivalued: false
-    range: string
+    range: SHARED_ENUM_0
     required: false
     recommended: false
   window_mat:
@@ -14659,7 +14650,7 @@ slots:
     - value: wood
     slot_uri: MIXS:0000853
     multivalued: false
-    range: string
+    range: WINDOW_MAT_ENUM
     required: false
     recommended: false
   window_open_freq:
@@ -14704,7 +14695,7 @@ slots:
     - value: open
     slot_uri: MIXS:0000855
     multivalued: false
-    range: string
+    range: WINDOW_STATUS_ENUM
     required: false
     recommended: false
   window_type:
@@ -14718,7 +14709,7 @@ slots:
     - value: fixed window
     slot_uri: MIXS:0000856
     multivalued: false
-    range: string
+    range: WINDOW_TYPE_ENUM
     required: false
     recommended: false
   window_vert_pos:
@@ -14731,7 +14722,7 @@ slots:
     - value: middle
     slot_uri: MIXS:0000857
     multivalued: false
-    range: string
+    range: WINDOW_VERT_POS_ENUM
     required: false
     recommended: false
   window_water_mold:
@@ -14744,7 +14735,7 @@ slots:
     - value: no presence of mold visible
     slot_uri: MIXS:0000854
     multivalued: false
-    range: string
+    range: SHARED_ENUM_1
     required: false
     recommended: false
   x16s_recover:
@@ -14798,10 +14789,19 @@ slots:
     inlined: true
     inlined_as_list: true
 classes:
+  MixsCompliantData:
+    name: MixsCompliantData
+    description: A collection of data that complies with some combination of a MIxS
+      checklist and environmental package
+    title: MIxS compliant data
+    slots:
+    - mims_soil_data
+    tree_root: true
   EnvironmentalPackage:
     name: EnvironmentalPackage
   Agriculture:
     name: Agriculture
+    title: Agriculture
     is_a: EnvironmentalPackage
     mixin: false
     slots:
@@ -15529,6 +15529,7 @@ classes:
         recommended: true
   Air:
     name: Air
+    title: Air
     is_a: EnvironmentalPackage
     mixin: false
     slots:
@@ -15656,6 +15657,7 @@ classes:
         - value: 21 kilometer per hour
   BuiltEnvironment:
     name: BuiltEnvironment
+    title: BuiltEnvironment
     is_a: EnvironmentalPackage
     mixin: false
     slots:
@@ -15865,6 +15867,7 @@ classes:
         required: true
   FoodAnimalAndAnimalFeed:
     name: FoodAnimalAndAnimalFeed
+    title: FoodAnimalAndAnimalFeed
     is_a: EnvironmentalPackage
     mixin: false
     slots:
@@ -16198,6 +16201,7 @@ classes:
         recommended: false
   FoodFarmEnvironment:
     name: FoodFarmEnvironment
+    title: FoodFarmEnvironment
     is_a: EnvironmentalPackage
     mixin: false
     slots:
@@ -16725,6 +16729,7 @@ classes:
         - value: 1.6 kilometers per hour
   FoodFoodProductionFacility:
     name: FoodFoodProductionFacility
+    title: FoodFoodProductionFacility
     is_a: EnvironmentalPackage
     mixin: false
     slots:
@@ -17065,6 +17070,7 @@ classes:
         recommended: false
   FoodHumanFoods:
     name: FoodHumanFoods
+    title: FoodHumanFoods
     is_a: EnvironmentalPackage
     mixin: false
     slots:
@@ -17407,6 +17413,7 @@ classes:
         recommended: false
   HostAssociated:
     name: HostAssociated
+    title: HostAssociated
     is_a: EnvironmentalPackage
     mixin: false
     slots:
@@ -17664,6 +17671,7 @@ classes:
         recommended: false
   HumanAssociated:
     name: HumanAssociated
+    title: HumanAssociated
     is_a: EnvironmentalPackage
     mixin: false
     slots:
@@ -17875,6 +17883,7 @@ classes:
         recommended: false
   HumanGut:
     name: HumanGut
+    title: HumanGut
     is_a: EnvironmentalPackage
     mixin: false
     slots:
@@ -18062,6 +18071,7 @@ classes:
         recommended: false
   HumanOral:
     name: HumanOral
+    title: HumanOral
     is_a: EnvironmentalPackage
     mixin: false
     slots:
@@ -18258,6 +18268,7 @@ classes:
         recommended: false
   HumanSkin:
     name: HumanSkin
+    title: HumanSkin
     is_a: EnvironmentalPackage
     mixin: false
     slots:
@@ -18445,6 +18456,7 @@ classes:
         recommended: false
   HumanVaginal:
     name: HumanVaginal
+    title: HumanVaginal
     is_a: EnvironmentalPackage
     mixin: false
     slots:
@@ -18639,6 +18651,7 @@ classes:
         recommended: false
   HydrocarbonResourcesCores:
     name: HydrocarbonResourcesCores
+    title: HydrocarbonResourcesCores
     is_a: EnvironmentalPackage
     mixin: false
     slots:
@@ -18824,6 +18837,7 @@ classes:
         required: true
   HydrocarbonResourcesFluidsSwabs:
     name: HydrocarbonResourcesFluidsSwabs
+    title: HydrocarbonResourcesFluidsSwabs
     is_a: EnvironmentalPackage
     mixin: false
     slots:
@@ -19009,6 +19023,7 @@ classes:
         recommended: true
   MicrobialMatBiofilm:
     name: MicrobialMatBiofilm
+    title: MicrobialMatBiofilm
     is_a: EnvironmentalPackage
     mixin: false
     slots:
@@ -19218,66 +19233,67 @@ classes:
     name: Checklist
   MigsBa:
     name: MigsBa
+    title: migs_ba
     is_a: Checklist
     mixin: true
     slots:
-    - rel_to_oxygen
-    - compl_score
-    - compl_software
-    - feat_pred
+    - estimated_size
+    - annot
     - project_name
     - env_local_scale
-    - elev
-    - temp
-    - geo_loc_name
-    - alt
-    - samp_size
-    - num_replicons
-    - host_disease_stat
-    - samp_vol_we_dna_ext
-    - encoded_traits
-    - number_contig
-    - adapters
-    - source_mat_id
-    - estimated_size
-    - ref_biomaterial
-    - env_medium
-    - extrachrom_elements
-    - tax_ident
-    - samp_mat_process
-    - samp_collect_device
-    - neg_cont_type
-    - seq_meth
-    - pos_cont_type
-    - host_spec_range
-    - nucl_acid_ext
-    - sim_search_meth
-    - lib_screen
-    - collection_date
-    - lat_lon
-    - lib_reads_seqd
-    - lib_layout
-    - assembly_qual
-    - biotic_relationship
-    - samp_taxon_id
-    - samp_name
-    - pathogenicity
-    - isol_growth_condt
-    - lib_vector
-    - env_broad_scale
-    - depth
     - trophic_level
-    - ref_db
-    - subspecf_gen_lin
-    - samp_collect_method
     - assembly_software
     - tax_class
-    - lib_size
-    - annot
-    - specific_host
+    - subspecf_gen_lin
+    - tax_ident
+    - host_disease_stat
+    - sim_search_meth
+    - samp_collect_method
     - experimental_factor
+    - extrachrom_elements
+    - pos_cont_type
+    - lat_lon
+    - specific_host
+    - lib_size
+    - num_replicons
+    - samp_taxon_id
+    - neg_cont_type
+    - isol_growth_condt
+    - compl_score
+    - compl_software
+    - seq_meth
+    - number_contig
+    - samp_size
+    - pathogenicity
+    - feat_pred
+    - depth
+    - lib_vector
+    - ref_db
+    - samp_mat_process
+    - adapters
+    - lib_layout
+    - geo_loc_name
     - nucl_acid_amp
+    - source_mat_id
+    - biotic_relationship
+    - samp_collect_device
+    - collection_date
+    - lib_screen
+    - ref_biomaterial
+    - elev
+    - rel_to_oxygen
+    - nucl_acid_ext
     - assembly_name
+    - samp_name
+    - assembly_qual
+    - env_medium
+    - host_spec_range
+    - samp_vol_we_dna_ext
+    - alt
+    - temp
+    - lib_reads_seqd
+    - encoded_traits
+    - env_broad_scale
     - associated_resource
     - sop
     slot_usage:
@@ -19482,66 +19498,67 @@ classes:
         recommended: true
   MigsEu:
     name: MigsEu
+    title: migs_ba
     is_a: Checklist
     mixin: true
     slots:
-    - compl_score
-    - compl_software
-    - feat_pred
+    - estimated_size
+    - annot
     - project_name
     - env_local_scale
-    - geo_loc_name
-    - temp
-    - elev
-    - alt
-    - samp_size
-    - num_replicons
-    - host_disease_stat
-    - samp_vol_we_dna_ext
-    - number_contig
-    - adapters
-    - source_mat_id
-    - estimated_size
-    - ref_biomaterial
-    - tax_ident
-    - extrachrom_elements
-    - env_medium
-    - samp_mat_process
-    - samp_collect_device
-    - neg_cont_type
-    - seq_meth
-    - pos_cont_type
-    - propagation
-    - host_spec_range
-    - nucl_acid_ext
-    - sim_search_meth
-    - lib_screen
-    - collection_date
-    - lat_lon
-    - lib_reads_seqd
-    - lib_layout
-    - assembly_qual
-    - biotic_relationship
-    - samp_taxon_id
-    - samp_name
-    - pathogenicity
-    - isol_growth_condt
-    - lib_vector
-    - env_broad_scale
-    - depth
-    - ploidy
     - trophic_level
-    - subspecf_gen_lin
-    - samp_collect_method
     - assembly_software
-    - ref_db
-    - lib_size
     - tax_class
-    - annot
-    - specific_host
+    - subspecf_gen_lin
+    - tax_ident
+    - host_disease_stat
+    - sim_search_meth
+    - samp_collect_method
     - experimental_factor
+    - extrachrom_elements
+    - pos_cont_type
+    - lat_lon
+    - specific_host
+    - lib_size
+    - num_replicons
+    - samp_taxon_id
+    - neg_cont_type
+    - isol_growth_condt
+    - compl_score
+    - compl_software
+    - seq_meth
+    - number_contig
+    - samp_size
+    - pathogenicity
+    - feat_pred
+    - depth
+    - lib_vector
+    - ref_db
+    - samp_mat_process
+    - adapters
+    - lib_layout
+    - geo_loc_name
     - nucl_acid_amp
+    - source_mat_id
+    - propagation
+    - ploidy
+    - biotic_relationship
+    - samp_collect_device
+    - collection_date
+    - lib_screen
+    - ref_biomaterial
+    - elev
+    - nucl_acid_ext
     - assembly_name
+    - samp_name
+    - assembly_qual
+    - env_medium
+    - host_spec_range
+    - samp_vol_we_dna_ext
+    - alt
+    - temp
+    - lib_reads_seqd
+    - env_broad_scale
     - associated_resource
     - sop
     slot_usage:
@@ -19752,57 +19769,58 @@ classes:
         recommended: true
   MigsOrg:
     name: MigsOrg
+    title: migs_ba
     is_a: Checklist
     mixin: true
     slots:
+    - estimated_size
+    - annot
+    - env_local_scale
+    - tax_class
+    - assembly_software
+    - subspecf_gen_lin
+    - tax_ident
+    - sim_search_meth
+    - samp_collect_method
+    - experimental_factor
+    - extrachrom_elements
+    - pos_cont_type
+    - lat_lon
+    - lib_size
+    - samp_taxon_id
+    - neg_cont_type
+    - isol_growth_condt
     - compl_score
     - compl_software
-    - feat_pred
-    - project_name
-    - env_local_scale
-    - geo_loc_name
-    - temp
-    - elev
-    - alt
-    - samp_size
-    - samp_vol_we_dna_ext
-    - number_contig
-    - adapters
-    - source_mat_id
-    - estimated_size
-    - ref_biomaterial
-    - tax_ident
-    - extrachrom_elements
-    - env_medium
-    - samp_mat_process
-    - samp_collect_device
-    - neg_cont_type
     - seq_meth
-    - pos_cont_type
-    - nucl_acid_ext
-    - sim_search_meth
-    - lib_screen
-    - collection_date
-    - lat_lon
-    - lib_reads_seqd
-    - lib_layout
-    - assembly_qual
-    - isol_growth_condt
-    - samp_taxon_id
-    - samp_name
+    - number_contig
+    - samp_size
+    - feat_pred
     - lib_vector
-    - env_broad_scale
     - depth
     - ref_db
-    - tax_class
-    - subspecf_gen_lin
-    - samp_collect_method
-    - assembly_software
-    - lib_size
-    - annot
-    - experimental_factor
+    - samp_mat_process
+    - adapters
+    - lib_layout
+    - geo_loc_name
     - nucl_acid_amp
+    - source_mat_id
+    - samp_collect_device
+    - collection_date
+    - lib_screen
+    - ref_biomaterial
+    - elev
+    - nucl_acid_ext
     - assembly_name
+    - samp_name
+    - assembly_qual
+    - env_medium
+    - samp_vol_we_dna_ext
+    - alt
+    - temp
+    - env_broad_scale
+    - lib_reads_seqd
+    - project_name
     - associated_resource
     - sop
     slot_usage:
@@ -19972,60 +19990,61 @@ classes:
         recommended: true
   MigsPl:
     name: MigsPl
+    title: migs_ba
     is_a: Checklist
     mixin: true
     slots:
+    - estimated_size
+    - annot
+    - env_local_scale
+    - tax_class
+    - assembly_software
+    - subspecf_gen_lin
+    - tax_ident
+    - sim_search_meth
+    - samp_collect_method
+    - experimental_factor
+    - pos_cont_type
+    - lat_lon
+    - specific_host
+    - lib_size
+    - samp_taxon_id
+    - neg_cont_type
+    - isol_growth_condt
     - compl_score
     - compl_software
-    - feat_pred
-    - project_name
-    - env_local_scale
-    - geo_loc_name
-    - temp
-    - elev
-    - alt
-    - samp_size
-    - encoded_traits
-    - samp_vol_we_dna_ext
-    - number_contig
-    - adapters
-    - source_mat_id
-    - estimated_size
-    - ref_biomaterial
-    - tax_ident
-    - env_medium
-    - samp_mat_process
-    - samp_collect_device
-    - neg_cont_type
     - seq_meth
-    - pos_cont_type
-    - propagation
-    - host_spec_range
-    - nucl_acid_ext
-    - sim_search_meth
-    - lib_screen
-    - collection_date
-    - lat_lon
-    - lib_reads_seqd
-    - lib_layout
-    - assembly_qual
-    - isol_growth_condt
-    - samp_name
-    - samp_taxon_id
+    - number_contig
+    - samp_size
+    - feat_pred
     - lib_vector
-    - env_broad_scale
     - depth
     - ref_db
-    - tax_class
-    - subspecf_gen_lin
-    - samp_collect_method
-    - assembly_software
-    - lib_size
-    - annot
-    - specific_host
-    - experimental_factor
+    - samp_mat_process
+    - adapters
+    - lib_layout
+    - geo_loc_name
     - nucl_acid_amp
+    - source_mat_id
+    - propagation
+    - samp_collect_device
+    - collection_date
+    - lib_screen
+    - ref_biomaterial
+    - elev
+    - nucl_acid_ext
     - assembly_name
+    - samp_name
+    - assembly_qual
+    - env_medium
+    - host_spec_range
+    - samp_vol_we_dna_ext
+    - alt
+    - temp
+    - env_broad_scale
+    - lib_reads_seqd
+    - encoded_traits
+    - project_name
     - associated_resource
     - sop
     slot_usage:
@@ -20205,65 +20224,66 @@ classes:
         recommended: true
   MigsVi:
     name: MigsVi
+    title: migs_ba
     is_a: Checklist
     mixin: true
     slots:
-    - compl_score
-    - virus_enrich_appr
-    - feat_pred
+    - estimated_size
+    - annot
     - project_name
     - env_local_scale
-    - compl_software
-    - geo_loc_name
-    - temp
-    - elev
-    - alt
-    - samp_size
-    - num_replicons
-    - host_disease_stat
-    - samp_vol_we_dna_ext
-    - encoded_traits
-    - number_contig
-    - adapters
-    - source_mat_id
-    - estimated_size
-    - ref_biomaterial
-    - env_medium
-    - tax_ident
-    - samp_mat_process
-    - samp_collect_device
-    - neg_cont_type
-    - seq_meth
-    - pos_cont_type
-    - propagation
-    - host_spec_range
-    - nucl_acid_ext
-    - sim_search_meth
-    - lib_screen
-    - collection_date
-    - lat_lon
-    - lib_reads_seqd
-    - lib_layout
-    - assembly_qual
-    - biotic_relationship
-    - samp_taxon_id
-    - samp_name
-    - pathogenicity
-    - isol_growth_condt
-    - lib_vector
-    - env_broad_scale
-    - depth
-    - ref_db
     - tax_class
-    - subspecf_gen_lin
-    - samp_collect_method
     - assembly_software
-    - lib_size
-    - annot
-    - specific_host
+    - subspecf_gen_lin
+    - tax_ident
+    - host_disease_stat
+    - sim_search_meth
+    - samp_collect_method
     - experimental_factor
+    - pos_cont_type
+    - lat_lon
+    - virus_enrich_appr
+    - specific_host
+    - lib_size
+    - num_replicons
+    - samp_taxon_id
+    - neg_cont_type
+    - isol_growth_condt
+    - compl_score
+    - compl_software
+    - seq_meth
+    - number_contig
+    - samp_size
+    - pathogenicity
+    - feat_pred
+    - depth
+    - lib_vector
+    - ref_db
+    - samp_mat_process
+    - adapters
+    - lib_layout
+    - geo_loc_name
     - nucl_acid_amp
+    - source_mat_id
+    - propagation
+    - biotic_relationship
+    - samp_collect_device
+    - collection_date
+    - lib_screen
+    - ref_biomaterial
+    - elev
+    - nucl_acid_ext
     - assembly_name
+    - samp_name
+    - assembly_qual
+    - env_medium
+    - host_spec_range
+    - samp_vol_we_dna_ext
+    - alt
+    - temp
+    - lib_reads_seqd
+    - encoded_traits
+    - env_broad_scale
     - associated_resource
     - sop
     slot_usage:
@@ -20467,69 +20487,70 @@ classes:
         recommended: true
   Mimag:
     name: Mimag
+    title: migs_ba
     is_a: Checklist
     mixin: true
     slots:
-    - rel_to_oxygen
-    - decontam_software
-    - compl_score
-    - feat_pred
-    - compl_software
-    - project_name
-    - env_local_scale
-    - contam_screen_param
-    - elev
-    - temp
-    - geo_loc_name
-    - alt
-    - samp_size
-    - bin_param
-    - compl_appr
-    - samp_vol_we_dna_ext
-    - x16s_recover
-    - number_contig
-    - adapters
-    - size_frac
-    - source_mat_id
-    - ref_biomaterial
-    - mag_cov_software
-    - trna_ext_software
-    - env_medium
-    - tax_ident
-    - samp_mat_process
-    - samp_collect_device
-    - neg_cont_type
-    - seq_meth
-    - pos_cont_type
-    - contam_score
-    - nucl_acid_ext
-    - sim_search_meth
-    - lib_screen
-    - collection_date
-    - lat_lon
-    - lib_reads_seqd
-    - lib_layout
-    - assembly_qual
-    - samp_taxon_id
-    - samp_name
-    - bin_software
-    - x16s_recover_software
-    - contam_screen_input
-    - lib_vector
-    - reassembly_bin
-    - env_broad_scale
-    - depth
-    - ref_db
-    - tax_class
-    - samp_collect_method
-    - assembly_software
-    - mid
-    - trnas
-    - lib_size
     - annot
+    - bin_software
+    - env_local_scale
+    - tax_class
+    - assembly_software
+    - decontam_software
+    - project_name
+    - size_frac
+    - tax_ident
+    - sim_search_meth
+    - samp_collect_method
     - experimental_factor
+    - x16s_recover
+    - pos_cont_type
+    - lat_lon
+    - mag_cov_software
+    - compl_appr
+    - lib_size
+    - reassembly_bin
+    - samp_taxon_id
+    - neg_cont_type
+    - mid
+    - x16s_recover_software
+    - compl_score
+    - seq_meth
+    - compl_software
+    - number_contig
+    - samp_size
+    - feat_pred
+    - contam_screen_param
+    - depth
+    - lib_vector
+    - ref_db
+    - samp_mat_process
+    - contam_screen_input
+    - adapters
+    - lib_layout
+    - geo_loc_name
+    - trna_ext_software
+    - contam_score
     - nucl_acid_amp
+    - source_mat_id
+    - samp_collect_device
+    - collection_date
+    - trnas
+    - lib_screen
+    - ref_biomaterial
+    - elev
+    - rel_to_oxygen
+    - nucl_acid_ext
     - assembly_name
+    - samp_name
+    - assembly_qual
+    - env_medium
+    - samp_vol_we_dna_ext
+    - alt
+    - temp
+    - bin_param
+    - lib_reads_seqd
+    - env_broad_scale
     - associated_resource
     - sop
     slot_usage:
@@ -20733,46 +20754,47 @@ classes:
         recommended: false
   MimarksC:
     name: MimarksC
+    title: migs_ba
     is_a: Checklist
     mixin: true
     slots:
-    - rel_to_oxygen
-    - project_name
-    - chimera_check
     - env_local_scale
-    - elev
-    - temp
-    - geo_loc_name
-    - alt
-    - target_subfragment
-    - target_gene
-    - samp_size
-    - pcr_cond
-    - samp_vol_we_dna_ext
-    - source_mat_id
-    - extrachrom_elements
-    - env_medium
-    - samp_mat_process
-    - samp_collect_device
-    - neg_cont_type
-    - seq_meth
-    - pos_cont_type
-    - nucl_acid_ext
-    - pcr_primers
-    - seq_quality_check
-    - collection_date
-    - lat_lon
-    - biotic_relationship
-    - samp_taxon_id
-    - isol_growth_condt
-    - samp_name
-    - env_broad_scale
-    - depth
     - trophic_level
+    - seq_quality_check
     - subspecf_gen_lin
     - samp_collect_method
     - experimental_factor
+    - extrachrom_elements
+    - pos_cont_type
+    - lat_lon
+    - samp_taxon_id
+    - neg_cont_type
+    - isol_growth_condt
+    - seq_meth
+    - samp_size
+    - depth
+    - pcr_primers
+    - samp_mat_process
+    - geo_loc_name
+    - target_subfragment
     - nucl_acid_amp
+    - source_mat_id
+    - pcr_cond
+    - biotic_relationship
+    - samp_collect_device
+    - collection_date
+    - chimera_check
+    - elev
+    - rel_to_oxygen
+    - nucl_acid_ext
+    - samp_name
+    - env_medium
+    - target_gene
+    - samp_vol_we_dna_ext
+    - alt
+    - temp
+    - env_broad_scale
+    - project_name
     - associated_resource
     - sop
     slot_usage:
@@ -20897,50 +20919,51 @@ classes:
         recommended: true
   MimarksS:
     name: MimarksS
+    title: migs_ba
     is_a: Checklist
     mixin: true
     slots:
-    - rel_to_oxygen
     - project_name
-    - chimera_check
     - env_local_scale
-    - elev
-    - temp
-    - geo_loc_name
-    - alt
-    - target_subfragment
-    - target_gene
-    - samp_size
-    - pcr_cond
-    - samp_vol_we_dna_ext
-    - adapters
-    - size_frac
-    - source_mat_id
-    - env_medium
-    - samp_mat_process
-    - samp_collect_device
-    - neg_cont_type
-    - seq_meth
-    - pos_cont_type
-    - nucl_acid_ext
-    - pcr_primers
-    - seq_quality_check
-    - lib_screen
-    - collection_date
-    - lat_lon
-    - lib_reads_seqd
-    - lib_layout
-    - samp_taxon_id
-    - samp_name
-    - lib_vector
-    - env_broad_scale
-    - depth
-    - samp_collect_method
     - assembly_software
-    - mid
-    - lib_size
+    - seq_quality_check
+    - size_frac
+    - samp_collect_method
     - experimental_factor
+    - pos_cont_type
+    - lat_lon
+    - lib_size
+    - samp_taxon_id
+    - neg_cont_type
+    - mid
+    - seq_meth
+    - samp_size
+    - lib_vector
+    - depth
+    - pcr_primers
+    - samp_mat_process
+    - adapters
+    - lib_layout
+    - geo_loc_name
+    - target_subfragment
     - nucl_acid_amp
+    - source_mat_id
+    - pcr_cond
+    - samp_collect_device
+    - collection_date
+    - chimera_check
+    - lib_screen
+    - elev
+    - rel_to_oxygen
+    - nucl_acid_ext
+    - samp_name
+    - env_medium
+    - target_gene
+    - samp_vol_we_dna_ext
+    - alt
+    - temp
+    - lib_reads_seqd
+    - env_broad_scale
     - associated_resource
     - sop
     slot_usage:
@@ -21074,53 +21097,54 @@ classes:
         recommended: true
   Mims:
     name: Mims
+    title: migs_ba
     is_a: Checklist
     mixin: true
     slots:
-    - rel_to_oxygen
-    - feat_pred
+    - annot
     - project_name
     - env_local_scale
-    - elev
-    - temp
-    - geo_loc_name
-    - alt
-    - samp_size
-    - samp_vol_we_dna_ext
-    - number_contig
-    - adapters
+    - tax_class
+    - assembly_software
     - size_frac
-    - source_mat_id
-    - ref_biomaterial
-    - env_medium
-    - samp_mat_process
-    - samp_collect_device
-    - neg_cont_type
-    - seq_meth
-    - pos_cont_type
-    - nucl_acid_ext
     - sim_search_meth
-    - lib_screen
-    - collection_date
+    - samp_collect_method
+    - experimental_factor
+    - pos_cont_type
     - lat_lon
-    - lib_reads_seqd
-    - lib_layout
-    - assembly_qual
+    - lib_size
     - samp_taxon_id
-    - samp_name
+    - neg_cont_type
+    - mid
+    - seq_meth
+    - number_contig
+    - samp_size
+    - feat_pred
     - lib_vector
-    - env_broad_scale
     - depth
     - ref_db
-    - tax_class
-    - samp_collect_method
-    - assembly_software
-    - mid
-    - lib_size
-    - annot
-    - experimental_factor
+    - samp_mat_process
+    - adapters
+    - lib_layout
+    - geo_loc_name
     - nucl_acid_amp
+    - source_mat_id
+    - samp_collect_device
+    - collection_date
+    - lib_screen
+    - ref_biomaterial
+    - elev
+    - rel_to_oxygen
+    - nucl_acid_ext
     - assembly_name
+    - samp_name
+    - assembly_qual
+    - env_medium
+    - samp_vol_we_dna_ext
+    - alt
+    - temp
+    - lib_reads_seqd
+    - env_broad_scale
     - associated_resource
     - sop
     slot_usage:
@@ -21264,70 +21288,71 @@ classes:
         recommended: true
   Misag:
     name: Misag
+    title: migs_ba
     is_a: Checklist
     mixin: true
     slots:
-    - rel_to_oxygen
-    - decontam_software
-    - compl_score
-    - feat_pred
-    - compl_software
-    - project_name
+    - annot
     - env_local_scale
-    - contam_screen_param
-    - elev
+    - tax_class
+    - assembly_software
+    - decontam_software
+    - size_frac
+    - tax_ident
+    - sim_search_meth
+    - samp_collect_method
+    - experimental_factor
+    - x16s_recover
+    - pos_cont_type
+    - sort_tech
+    - lat_lon
     - temp
+    - compl_appr
+    - lib_size
+    - samp_taxon_id
+    - neg_cont_type
+    - mid
+    - x16s_recover_software
+    - compl_score
+    - seq_meth
+    - compl_software
+    - number_contig
+    - samp_size
+    - sc_lysis_method
+    - feat_pred
+    - contam_screen_param
+    - depth
+    - lib_vector
+    - ref_db
+    - samp_mat_process
+    - contam_screen_input
+    - adapters
+    - lib_layout
     - geo_loc_name
-    - alt
+    - trna_ext_software
+    - contam_score
+    - nucl_acid_amp
+    - source_mat_id
+    - samp_collect_device
+    - collection_date
+    - trnas
+    - env_broad_scale
+    - lib_screen
+    - ref_biomaterial
+    - elev
+    - rel_to_oxygen
+    - nucl_acid_ext
+    - assembly_name
+    - assembly_qual
+    - env_medium
     - wga_amp_appr
     - wga_amp_kit
-    - samp_size
-    - compl_appr
     - samp_vol_we_dna_ext
-    - x16s_recover
-    - number_contig
-    - adapters
-    - sc_lysis_approach
-    - size_frac
-    - source_mat_id
-    - sc_lysis_method
-    - ref_biomaterial
-    - sort_tech
-    - trna_ext_software
-    - env_medium
-    - tax_ident
-    - samp_mat_process
-    - samp_collect_device
-    - neg_cont_type
-    - seq_meth
-    - pos_cont_type
-    - contam_score
-    - nucl_acid_ext
-    - sim_search_meth
-    - lib_screen
-    - collection_date
-    - lat_lon
-    - lib_reads_seqd
-    - lib_layout
-    - assembly_qual
-    - samp_taxon_id
+    - alt
     - samp_name
-    - x16s_recover_software
-    - contam_screen_input
-    - lib_vector
-    - env_broad_scale
-    - depth
-    - ref_db
-    - tax_class
-    - samp_collect_method
-    - assembly_software
-    - mid
-    - trnas
-    - lib_size
-    - annot
-    - experimental_factor
-    - nucl_acid_amp
-    - assembly_name
+    - sc_lysis_approach
+    - lib_reads_seqd
+    - project_name
     - associated_resource
     - sop
     slot_usage:
@@ -21534,6 +21559,7 @@ classes:
         recommended: false
   MiscellaneousNaturalOrArtificialEnvironment:
     name: MiscellaneousNaturalOrArtificialEnvironment
+    title: MiscellaneousNaturalOrArtificialEnvironment
     is_a: EnvironmentalPackage
     mixin: false
     slots:
@@ -21694,66 +21720,67 @@ classes:
         recommended: false
   Miuvig:
     name: Miuvig
+    title: MiscellaneousNaturalOrArtificialEnvironment
     is_a: Checklist
     mixin: true
     slots:
-    - compl_score
-    - virus_enrich_appr
-    - feat_pred
-    - project_name
-    - env_local_scale
-    - compl_software
-    - elev
-    - temp
-    - geo_loc_name
-    - alt
-    - samp_size
-    - compl_appr
-    - samp_vol_we_dna_ext
-    - host_disease_stat
-    - number_contig
-    - adapters
-    - size_frac
-    - source_mat_id
     - estimated_size
-    - ref_biomaterial
-    - trna_ext_software
-    - tax_ident
-    - env_medium
-    - samp_mat_process
-    - samp_collect_device
-    - neg_cont_type
-    - seq_meth
-    - pos_cont_type
-    - host_spec_range
-    - nucl_acid_ext
-    - sim_search_meth
-    - lib_screen
-    - collection_date
-    - lat_lon
-    - source_uvig
-    - lib_reads_seqd
-    - lib_layout
-    - assembly_qual
-    - biotic_relationship
-    - samp_taxon_id
-    - samp_name
-    - pathogenicity
-    - lib_vector
-    - env_broad_scale
-    - depth
-    - ref_db
-    - tax_class
-    - samp_collect_method
-    - assembly_software
-    - mid
-    - trnas
-    - lib_size
     - annot
-    - specific_host
+    - env_local_scale
+    - tax_class
+    - assembly_software
+    - size_frac
+    - tax_ident
+    - host_disease_stat
+    - sim_search_meth
+    - samp_collect_method
     - experimental_factor
+    - temp
+    - pos_cont_type
+    - lat_lon
+    - virus_enrich_appr
+    - specific_host
+    - compl_appr
+    - lib_size
+    - samp_taxon_id
+    - neg_cont_type
+    - mid
+    - compl_score
+    - compl_software
+    - seq_meth
+    - number_contig
+    - samp_size
+    - pathogenicity
+    - feat_pred
+    - depth
+    - lib_vector
+    - ref_db
+    - source_uvig
+    - samp_mat_process
+    - adapters
+    - lib_layout
+    - geo_loc_name
+    - trna_ext_software
     - nucl_acid_amp
+    - source_mat_id
+    - biotic_relationship
+    - samp_collect_device
+    - collection_date
+    - trnas
+    - lib_screen
+    - ref_biomaterial
+    - elev
+    - nucl_acid_ext
     - assembly_name
+    - assembly_qual
+    - env_medium
+    - host_spec_range
+    - samp_vol_we_dna_ext
+    - alt
+    - samp_name
+    - env_broad_scale
+    - lib_reads_seqd
+    - project_name
     - sort_tech
     - sc_lysis_approach
     - sc_lysis_method
@@ -22022,6 +22049,7 @@ classes:
         recommended: true
   PlantAssociated:
     name: PlantAssociated
+    title: PlantAssociated
     is_a: EnvironmentalPackage
     mixin: false
     slots:
@@ -22339,6 +22367,7 @@ classes:
         recommended: false
   Sediment:
     name: Sediment
+    title: Sediment
     is_a: EnvironmentalPackage
     mixin: false
     slots:
@@ -22554,6 +22583,7 @@ classes:
         string_serialization: '{float} {unit}'
   Soil:
     name: Soil
+    title: Soil
     is_a: EnvironmentalPackage
     mixin: false
     slots:
@@ -22823,6 +22853,7 @@ classes:
         string_serialization: '{float}'
   SymbiontAssociated:
     name: SymbiontAssociated
+    title: SymbiontAssociated
     is_a: EnvironmentalPackage
     mixin: false
     slots:
@@ -23079,6 +23110,7 @@ classes:
         recommended: false
   WastewaterSludge:
     name: WastewaterSludge
+    title: WastewaterSludge
     is_a: EnvironmentalPackage
     mixin: false
     slots:
@@ -23197,6 +23229,7 @@ classes:
         recommended: false
   Water:
     name: Water
+    title: Water
     is_a: EnvironmentalPackage
     mixin: false
     slots:
@@ -23413,9 +23446,16 @@ classes:
         recommended: false
       turbidity:
         name: turbidity
+  MimsSoil:
+    name: MimsSoil
+    title: Mims combined with Soil
+    is_a: Soil
+    mixins:
+    - Mims
   ExhaustiveTestClass:
     name: ExhaustiveTestClass
     slots:
+    - mims_soil_data
     - HACCP_term
     - IFSAC_category
     - abs_air_humidity
@@ -24190,5 +24230,4 @@ classes:
     name: ExhaustiveTestClassCollection
     slots:
     - exhaustive_test_set
-    tree_root: true
 source_file: generated_schema/GSC_MIxS_6.yaml

@@ -19,6 +19,7 @@ string_serialization	Expected_value	count
 {text};{text};{timestamp}	name;name;timestamp	2
 {float} {unit};{Rn/start_time/end_time/duration};{duration}	measurement value;frequency;duration;duration	1
 {text}	commercial name of biocide, active ingredient in biocide or class of biocide	1
+[wild|natural|semi-natural|inbred line|breeder's line|hybrid|clonal selection|mutant]	enumeration	1
 {text};{float} {unit}	biomass type;measurement value	1
 {text}	medication name	1
 {termLabel} [{termID}];{timestamp}	CHEBI;timestamp	1
@@ -35,6 +36,7 @@ string_serialization	Expected_value	count
 	NCIT:C14250 or NCBI taxid or culture independent	1
 [cities|farmstead|industrial areas|roads/railroads|rock|sand|gravel|mudflats|salt flats|badlands|permanent snow or ice|saline seeps|mines/quarries|oil waste areas|small grains|row crops|vegetable crops|horticultural plants (e.g. tulips)|marshlands (grass,sedges,rushes)|tundra (mosses,lichens)|rangeland|pastureland (grasslands used for livestock grazing)|hayland|meadows (grasses,alfalfa,fescue,bromegrass,timothy)|shrub land (e.g. mesquite,sage-brush,creosote bush,shrub oak,eucalyptus)|successional shrub land (tree saplings,hazels,sumacs,chokecherry,shrub dogwoods,blackberries)|shrub crops (blueberries,nursery ornamentals,filberts)|vine crops (grapes)|conifers (e.g. pine,spruce,fir,cypress)|hardwoods (e.g. oak,hickory,elm,aspen)|intermixed hardwood and conifers|tropical (e.g. mangrove,palms)|rainforest (evergreen forest receiving >406 cm annual rainfall)|swamp (permanent or semi-permanent water body dominated by woody plants)|crop trees (nuts,fruit,christmas trees,nursery trees)]	enumeration	1
 {text}	current vegetation type	1
+[checkm/refinem|anvi'o|prodege|bbtools:decontaminate.sh|acdc|combination]	enumeration	1
 [independent sequence (UViG)|provirus (UpViG)]	enumeration	1
 {boolean};{text}	diet change;current diet	1
 {text}|{termLabel} [{termID}]	FOODON:03510023	1
@@ -106,7 +108,6 @@ small intestine [UBERON:0002108]	UBERON term(s), multiple values can be separate
 {text};{float} {unit};{Rn/start_time/end_time/duration}	mineral nutrient name;mineral nutrient amount;treatment interval and duration	1
 {text};{float} {unit}		1
 {text};{float} {unit}	n-alkane name;measurement value	1
-	enumeration or text	1
 {text}	The name of an extraction kit	1
 {integer}	for eukaryotes and bacteria: chromosomes (haploid count); for viruses: segments	1
 {text};FWD:{dna};REV:{dna};initial denaturation:degrees_minutes;denaturation:degrees_minutes;annealing:degrees_minutes;elongation:degrees_minutes;final elongation:degrees_minutes; total cycles	gene name;FWD:forward primer sequence;REV:reverse primer sequence;initial denaturation:degrees_minutes;denaturation:degrees_minutes;annealing:degrees_minutes;elongation:degrees_minutes;final elongation:degrees_minutes; total cycles	1
@@ -144,6 +145,7 @@ FWD:{dna};REV:{dna}		1
 {text};{float} {unit}	regulator name;measurement value	1
 {text};{float} {unit}	supplement name;measurement value	1
 {termLabel} [{termID}]|{text}	device name	1
+[1st floor|2nd floor|{integer} floor|basement|lobby]	enumeration	1
 {float} {unit};[GL|DF|RT|KB|MSL|other]	measurement value;enumeration	1
 [active surveillance in response to an outbreak|active surveillance not initiated by an outbreak|clinical trial|cluster investigation|environmental assessment|farm sample|field trial|for cause|industry internal investigation|market sample|passive surveillance|population based studies|research|research and development] or {text}	enumeration or {text}	1
 {text}|{termLabel} [{termID}]	NCIT:C4318	1
@@ -156,7 +158,6 @@ FWD:{dna};REV:{dna}		1
 {text}	kit, protocol name	1
 {text}	secondary treatment type	1
 {termLabel} [{termID}]|{text}	Text or OBI	1
-	none or manually edited	1
 {text}	name of sequencing kit used	1
 {text}	sewage type name	1
 {text}	partner sex;frequency	1
@@ -185,7 +186,6 @@ bare soil [ENVO:01001616]	subclass of 'environmental material', http://purl.obol
 {text}|{termLabel} [{termID}]	MCO:0000866	1
 {rank name}:{text}		1
 {text};{float} {unit}	suspended solid name;measurement value	1
-	type of life cycle of the symbiotic organism (host of the samples)	1
 {text}	tertiary treatment type	1
 {text}	country name	1
 {integer}	value from 0-21	1
