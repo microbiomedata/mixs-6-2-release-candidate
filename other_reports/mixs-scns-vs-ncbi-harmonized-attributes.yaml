@@ -1,5 +1,5 @@
 mixs_only:
-  mixs_only_term_count: 383
+  mixs_only_term_count: 377
   mixs_only_terms:
   - 16s_recover
   - 16s_recover_software
@@ -9,11 +9,13 @@ mixs_only:
   - IFSAC_category
   - adapters
   - add_recov_method
+  - adjacent_environment
   - aero_struc
   - air_PM_concen
   - air_flow_impede
   - alt
   - amount_light
+  - anim_water_method
   - animal_am
   - animal_am_dur
   - animal_am_freq
@@ -37,7 +39,6 @@ mixs_only:
   - associated resource
   - avg_dew_point
   - avg_occup
-  - bacterial_density
   - basin
   - bathroom_count
   - bedroom_count
@@ -65,21 +66,17 @@ mixs_only:
   - compl_appr
   - compl_score
   - compl_software
-  - cons_food_stor_temp
-  - cons_purch_date
-  - cons_qty_purchased
   - contam_score
   - contam_screen_input
   - contam_screen_param
   - cool_syst_id
-  - cult_result_org
+  - crop_yield
   - cult_target
   - date_extr_weath
   - date_last_rain
   - decontam_software
   - depos_env
   - detec_type
-  - dietary_claim_use
   - diss_iron
   - diss_oxygen_fluid
   - door_comp_type
@@ -108,10 +105,8 @@ mixs_only:
   - ferm_chem_add
   - ferm_chem_add_perc
   - ferm_headspace_oxy
-  - ferm_medium
   - ferm_pH
   - ferm_rel_humidity
-  - ferm_vessel
   - fertilizer_date
   - fireplace_type
   - floor_age
@@ -130,7 +125,6 @@ mixs_only:
   - food_dis_point
   - food_dis_point_city
   - food_harvest_proc
-  - food_ingredient
   - food_name_status
   - food_pack_capacity
   - food_pack_integrity
@@ -144,7 +138,6 @@ mixs_only:
   - food_trace_list
   - food_trav_mode
   - food_trav_vehic
-  - food_treat_proc
   - freq_clean
   - freq_cook
   - furniture
@@ -310,6 +303,7 @@ mixs_only:
   - sop
   - sort_tech
   - source_mat_id
+  - spec_intended_cons
   - specific_host
   - specific_humidity
   - spikein_AMR
@@ -386,8 +380,8 @@ mixs_only:
   - xylene
   mixs_term_count: 786
 ncbi_only:
-  ncbi_harmonized_name_count: 646
-  ncbi_only_term_count: 243
+  ncbi_harmonized_name_count: 653
+  ncbi_only_term_count: 244
   ncbi_only_terms:
   - affection_status
   - age
@@ -480,6 +474,7 @@ ncbi_only:
   - host_disease_outcome
   - host_disease_stage
   - host_family_relationship
+  - host_group_size
   - host_health_state
   - host_housing
   - host_infra_specific_name

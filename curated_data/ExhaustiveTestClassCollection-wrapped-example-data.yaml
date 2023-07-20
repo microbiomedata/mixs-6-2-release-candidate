@@ -6,17 +6,17 @@ exhaustive_test_set:
     alt: 123 units
     api: 123 units
     basin: absolutely any text
-    building_setting: absolutely any text
+    building_setting: exurban
     coll_site_geo_feat: absolutely any text
     collection_date: "2013-03-25T12:42:31+00:32"
     env_broad_scale: term [ONTOLOGY:123]
     env_local_scale: term [ONTOLOGY:123]
     env_medium: term [ONTOLOGY:123]
     geo_loc_name: absolutely any text
-    hc_produced: absolutely any text
-    hcr: absolutely any text
-    host_dependence: absolutely any text
-    indoor_space: absolutely any text
+    hc_produced: Bitumen
+    hcr: Coalbed
+    host_dependence: obligate
+    indoor_space: bathroom
     iwf: 0.999
     lat_lon: absolutely any text
     #    microbial_biomass_meth: absolutely any text # deprecated with replacement micro_biomass_meth
@@ -24,28 +24,27 @@ exhaustive_test_set:
     occup_samp: 0.999
     project_name: absolutely any text
     rel_air_humidity: 0.999
-    samp_collect_point: absolutely any text
+    samp_collect_point: well
     samp_name: absolutely any text
     samp_taxon_id: absolutely any text
     samp_type: term [ONTOLOGY:123]
     #    sample_name: absolutely any text # deprecated with replacement samp_name
     seq_meth: absolutely any text
-    space_typ_state: absolutely any text
+    space_typ_state: typically occupied
     sym_life_cycle_type: simple life cycle
     typ_occup_density: 0.999
     water_cut: 99%
     IFSAC_category:
       - absolutely any text
     build_occup_type:
-      - absolutely any text
+      - airport
     filter_type:
-      - absolutely any text
-    food_product_type:
-      - absolutely any text
+      - HEPA
+    food_product_type: absolutely any text
     heat_cool_type:
-      - absolutely any text
+      - heat pump
     light_type:
-      - absolutely any text
+      - natural light
 
     x16s_recover: true
     x16s_recover_software: absolutely any text
@@ -57,7 +56,7 @@ exhaustive_test_set:
     adj_room: absolutely any text
     adjacent_environment:
       - absolutely any text
-    aero_struc: absolutely any text
+    aero_struc: glider
     agrochem_addition:
       - absolutely any text
     air_PM_concen:
@@ -86,7 +85,7 @@ exhaustive_test_set:
     animal_am_freq: 1.5
     animal_am_route: absolutely any text
     animal_am_use: absolutely any text
-    animal_body_cond: absolutely any text
+    animal_body_cond: normal
     animal_diet:
       - absolutely any text
     animal_feed_equip:
@@ -96,13 +95,13 @@ exhaustive_test_set:
       - term [ONTOLOGY:123]
     animal_intrusion:
       - absolutely any text
-    animal_sex: absolutely any text
+    animal_sex: intact female
     annot: absolutely any text
     annual_precpt: 1.234 units
     annual_temp: 1.234 units
     antibiotic_regm:
       - absolutely any text
-    arch_struc: absolutely any text
+    arch_struc: shed
     area_samp_size: absolutely any text
     aromatics_pc: absolutely any text
     asphaltenes_pc: absolutely any text
@@ -126,7 +125,7 @@ exhaustive_test_set:
     bathroom_count: 123
     bedroom_count: 123
     benzene: 1.234 units
-    bin_param: absolutely any text
+    bin_param: kmer
     bin_software: absolutely any text
     biochem_oxygen_dem: 1.234 units
     biocide: absolutely any text
@@ -137,7 +136,7 @@ exhaustive_test_set:
     biomass:
       - absolutely any text
     biotic_regm: absolutely any text
-    biotic_relationship: absolutely any text
+    biotic_relationship: commensalism
     birth_control: absolutely any text
     bishomohopanol: 1.234 units
     blood_blood_disord:
@@ -145,22 +144,22 @@ exhaustive_test_set:
     blood_press_diast: 1.234 units
     blood_press_syst: 1.234 units
     bromide: 1.234 units
-    build_docs: absolutely any text
+    build_docs: shop drawings
     built_struc_age: 99 years
-    built_struc_set: absolutely any text
+    built_struc_set: urban
     built_struc_type: absolutely any text
     calcium: 1.234 units
     carb_dioxide: 1.234 units
     carb_monoxide: 1.234 units
     carb_nitro_ratio: 0.999
     ceil_area: 1.234 units
-    ceil_cond: absolutely any text
-    ceil_finish_mat: absolutely any text
-    ceil_struc: absolutely any text
-    ceil_texture: absolutely any text
+    ceil_cond: damaged
+    ceil_finish_mat: fiberglass
+    ceil_struc: concrete
+    ceil_texture: popcorn
     ceil_thermal_mass: 1.234 units
-    ceil_type: absolutely any text
-    ceil_water_mold: absolutely any text
+    ceil_type: cathedral
+    ceil_water_mold: presence of mold visible
     chem_administration:
       - absolutely any text
     chem_mutagen:
@@ -173,7 +172,7 @@ exhaustive_test_set:
     chlorophyll: 1.234 units
     climate_environment:
       - absolutely any text
-    compl_appr: absolutely any text
+    compl_appr: marker gene
     compl_score: absolutely any text
     compl_software: absolutely any text
     conduc: 1.234 units
@@ -182,13 +181,13 @@ exhaustive_test_set:
     cons_purch_date: "2013-03-25T12:42:31+00:32"
     cons_qty_purchased: 123 units
     contam_score: absolutely any text
-    contam_screen_input: absolutely any text
+    contam_screen_input: contigs
     contam_screen_param: absolutely any text
     cool_syst_id: 123
     crop_rotation: absolutely any text
     crop_yield: 1.234 units
     cult_isol_date: absolutely any text
-    cult_result: absolutely any text
+    cult_result: negative # todo decrease the number of essentailly boolean options
     cult_result_org:
       - absolutely any text
     cult_root_med: absolutely any text
@@ -202,7 +201,7 @@ exhaustive_test_set:
     date_last_rain: "2013-03-25T12:42:31+00:32"
     decontam_software: absolutely any text
     density: 1.234 units
-    depos_env: absolutely any text
+    depos_env: Other - Volcanic
     depth: 1.234 units
     dermatology_disord:
       - absolutely any text
@@ -223,22 +222,22 @@ exhaustive_test_set:
     diss_org_nitro: 1.234 units
     diss_oxygen: 1.234 units
     diss_oxygen_fluid: 1.234 units
-    dominant_hand: absolutely any text
-    door_comp_type: absolutely any text
-    door_cond: absolutely any text
-    door_direct: absolutely any text
-    door_loc: absolutely any text
-    door_mat: absolutely any text
-    door_move: absolutely any text
+    dominant_hand: left
+    door_comp_type: telescopic # todo all of these door type enums overlap a lot
+    door_cond: damaged
+    door_direct: sideways
+    door_loc: southwest
+    door_mat: aluminum
+    door_move: sliding
     door_size: 1.234 units
-    door_type: absolutely any text
-    door_type_metal: absolutely any text
+    door_type: metal
+    door_type_metal: hollow
     door_type_wood: absolutely any text
-    door_water_mold: absolutely any text
+    door_water_mold: presence of mold visible
     douche: "2013-03-25T12:42:31+00:32"
     down_par: 1.234 units
-    drainage_class: absolutely any text
-    drawings: absolutely any text
+    drainage_class: poorly
+    drawings: design
     drug_usage:
       - absolutely any text
     efficiency_percent: 1.234 units
@@ -258,15 +257,15 @@ exhaustive_test_set:
     exp_pipe: 123 units
     experimental_factor: absolutely any text
     ext_door: 123
-    ext_wall_orient: absolutely any text
-    ext_window_orient: absolutely any text
+    ext_wall_orient: southwest # todo these should be using a shared enum
+    ext_window_orient: southwest
     extr_weather_event:
-      - absolutely any text
+      - drought
     extrachrom_elements: 123
     extreme_event: "2013-03-25T12:42:31+00:32"
     facility_type:
-      - absolutely any text
-    fao_class: absolutely any text
+      - packaging
+    fao_class: Acrisols
     farm_equip:
       - term [ONTOLOGY:123]
     farm_equip_san:
@@ -274,8 +273,7 @@ exhaustive_test_set:
     farm_equip_san_freq: absolutely any text
     farm_equip_shared:
       - term [ONTOLOGY:123]
-    farm_water_source:
-      - absolutely any text
+    farm_water_source: freshwater
     feat_pred: absolutely any text
     ferm_chem_add:
       - absolutely any text
@@ -294,24 +292,23 @@ exhaustive_test_set:
       - absolutely any text
     field: absolutely any text
     fire: "2013-03-25T12:42:31+00:32"
-    fireplace_type: absolutely any text
+    fireplace_type: wood burning
     flooding: "2013-03-25T12:42:31+00:32"
     floor_age: 1.234 units
     floor_area: 1.234 units
-    floor_cond: absolutely any text
+    floor_cond: damaged
     floor_count: 123
     floor_finish_mat: absolutely any text
-    floor_struc: absolutely any text
+    floor_struc: balcony
     floor_thermal_mass: 1.234 units
-    floor_water_mold: absolutely any text
+    floor_water_mold: condensation
     fluor: 1.234 units
     foetal_health_stat: absolutely any text
     food_additive:
       - absolutely any text
     food_allergen_label:
       - absolutely any text
-    food_clean_proc:
-      - absolutely any text
+    food_clean_proc: rinsed with water
     food_contact_surf:
       - absolutely any text
     food_contain_wrap: absolutely any text
@@ -346,25 +343,25 @@ exhaustive_test_set:
     food_quality_date: absolutely any text
     food_source: absolutely any text
     food_source_age: 1.234 units
-    food_trace_list: absolutely any text
+    food_trace_list: peppers
     food_trav_mode:
       - term [ONTOLOGY:123]
     food_trav_vehic:
       - absolutely any text
     food_treat_proc:
       - absolutely any text
-    freq_clean: absolutely any text
+    freq_clean: Daily
     freq_cook: 123 units
     fungicide_regm:
       - absolutely any text
-    furniture: absolutely any text
+    furniture: cabinet
     gaseous_environment:
       - absolutely any text
     gaseous_substances:
       - absolutely any text
     gastrointest_disord:
       - absolutely any text
-    gender_restroom: absolutely any text
+    gender_restroom: unisex
     genetic_mod: absolutely any text
     gestation_state: absolutely any text
     glucosidase_act: 1.234 units
@@ -372,20 +369,20 @@ exhaustive_test_set:
     gravity:
       - absolutely any text
     growth_facil: absolutely any text
-    growth_habit: absolutely any text
+    growth_habit: erect
     growth_hormone_regm:
       - absolutely any text
     growth_medium: absolutely any text
     gynecologic_disord:
       - absolutely any text
     hall_count: 123
-    handidness: absolutely any text
+    handidness: ambidexterity # todo what about dominant_hand?
     hcr_fw_salinity: 1.234 units
-    hcr_geol_age: absolutely any text
+    hcr_geol_age: Jurassic
     hcr_pressure: absolutely any text
     hcr_temp: absolutely any text
-    heat_deliv_loc: absolutely any text
-    heat_sys_deliv_meth: absolutely any text
+    heat_deliv_loc: southwest
+    heat_sys_deliv_meth: conductive
     heat_system_id: 123
     heavy_metals:
       - absolutely any text
@@ -393,7 +390,7 @@ exhaustive_test_set:
     height_carper_fiber: 1.234 units
     herbicide_regm:
       - absolutely any text
-    horizon: absolutely any text
+    horizon: O horizon
     horizon_meth: absolutely any text
     host_age: 1.234 units
     host_body_habitat: absolutely any text
@@ -401,7 +398,7 @@ exhaustive_test_set:
     host_body_product: term [ONTOLOGY:123]
     host_body_site: term [ONTOLOGY:123]
     host_body_temp: 1.234 units
-    host_cellular_loc: absolutely any text
+    host_cellular_loc: extracellular
     host_color: absolutely any text
     host_common_name: absolutely any text
     host_diet:
@@ -411,8 +408,7 @@ exhaustive_test_set:
     #    host_family_relation:  # deprecated with replacement host_fam_rel
     #      - absolutely any text
     #    host_family_relationship: absolutely any text
-    host_fam_rel:
-      - absolutely any text
+    host_fam_rel: absolutely any text
     host_genotype: absolutely any text
     host_growth_cond: absolutely any text
     host_height: 1.234 units
@@ -443,14 +439,14 @@ exhaustive_test_set:
     host_of_host_taxid: absolutely any text
     host_of_host_totmass: 1.234 units
     host_phenotype: absolutely any text
-    host_pred_appr: absolutely any text
+    host_pred_appr: provirus
     host_pred_est_acc: absolutely any text
     host_pulse: 1.234 units
-    host_sex: absolutely any text
+    host_sex: neuter
     host_shape: absolutely any text
     host_spec_range:
       - absolutely any text
-    host_specificity: absolutely any text
+    host_specificity: generalist
     host_subject_id: absolutely any text
     host_subspecf_genlin:
       - absolutely any text
@@ -467,12 +463,12 @@ exhaustive_test_set:
     hysterectomy: true
     ihmc_medication_code:
       - 123
-    indoor_surf: absolutely any text
+    indoor_surf: cabinet
     indust_eff_percent: 1.234 units
     inorg_particles:
       - absolutely any text
     inside_lux: 1.234 units
-    int_wall_cond: absolutely any text
+    int_wall_cond: damaged
     intended_consumer:
       - absolutely any text
     isol_growth_condt: absolutely any text
@@ -480,7 +476,7 @@ exhaustive_test_set:
     kidney_disord:
       - absolutely any text
     last_clean: "2013-03-25T12:42:31+00:32"
-    lib_layout: absolutely any text
+    lib_layout: paired
     lib_reads_seqd: 123
     lib_screen: absolutely any text
     lib_size: 123
@@ -491,20 +487,20 @@ exhaustive_test_set:
     link_addit_analys: absolutely any text
     link_class_info: absolutely any text
     link_climate_info: absolutely any text
-    lithology: absolutely any text
+    lithology: Dolomite
     liver_disord:
       - absolutely any text
     local_class: absolutely any text
     local_class_meth: absolutely any text
     lot_number:
       - absolutely any text
-    mag_cov_software: absolutely any text
+    mag_cov_software: bowtie
     magnesium: 1.234 units
     maternal_health_stat: absolutely any text
     max_occup: 123 units
     mean_frict_vel: 1.234 units
     mean_peak_frict_vel: 1.234 units
-    mech_struc: absolutely any text
+    mech_struc: subway
     mechanical_damage:
       - absolutely any text
     medic_hist_perform: true
@@ -525,7 +521,7 @@ exhaustive_test_set:
       - absolutely any text
     misc_param:
       - absolutely any text
-    mode_transmission: absolutely any text
+    mode_transmission: vertical # some of these PVs include colons
     n_alkanes:
       - absolutely any text
     neg_cont_type: distilled water
@@ -548,7 +544,7 @@ exhaustive_test_set:
     number_pets: 123 units
     number_plants: 123 units
     number_resident: 123 units
-    occup_document: absolutely any text
+    occup_document: estimate
     org_carb: 1.234 units
     org_count_qpcr_info: absolutely any text
     org_matter: 1.234 units
@@ -560,7 +556,7 @@ exhaustive_test_set:
     otu_db: absolutely any text
     otu_seq_comp_appr: absolutely any text
     owc_tvdss: 1.234 units
-    oxy_stat_samp: absolutely any text
+    oxy_stat_samp: aerobic
     oxygen: 1.234 units
     part_org_carb: 1.234 units
     part_org_nitro: 1.234 units
@@ -596,8 +592,8 @@ exhaustive_test_set:
     plant_part_maturity: absolutely any text
     plant_product: absolutely any text
     plant_reprod_crop:
-      - absolutely any text
-    plant_sex: absolutely any text
+      - seed
+    plant_sex: Androgynous
     plant_struc: term [ONTOLOGY:123]
     plant_water_method: term [ONTOLOGY:123]
     ploidy: term [ONTOLOGY:123]
@@ -609,7 +605,7 @@ exhaustive_test_set:
     potassium: 1.234 units
     pour_point: 1.234 units
     pre_treatment: absolutely any text
-    pred_genome_struc: absolutely any text
+    pred_genome_struc: segmented
     pred_genome_type: absolutely any text
     pregnancy: "2013-03-25T12:42:31+00:32"
     pres_animal_insect: absolutely any text
@@ -623,11 +619,11 @@ exhaustive_test_set:
       - absolutely any text
     prod_rate: 1.234 units
     prod_start_date: "2013-03-25T12:42:31+00:32"
-    profile_position: absolutely any text
+    profile_position: backslope
     propagation: absolutely any text
     pulmonary_disord:
       - absolutely any text
-    quad_pos: absolutely any text
+    quad_pos: South side
     radiation_regm:
       - absolutely any text
     rainfall_regm:
@@ -639,26 +635,26 @@ exhaustive_test_set:
     ref_db: absolutely any text
     rel_humidity_out: 1.234 units
     rel_location: absolutely any text
-    rel_samp_loc: absolutely any text
-    rel_to_oxygen: absolutely any text
+    rel_samp_loc: under a seat
+    rel_to_oxygen: aerobe # see also oxy_stat_samp
     repository_name:
       - absolutely any text
     reservoir: absolutely any text
     resins_pc: absolutely any text
     room_air_exch_rate: 1.234 units
     room_architec_elem: absolutely any text
-    room_condt: absolutely any text
-    room_connected: absolutely any text
+    room_condt: damaged
+    room_connected: attic
     room_count: 123
     room_dim: absolutely any text
     room_door_dist: 123 units
     room_door_share: absolutely any text
     room_hallway: absolutely any text
-    room_loc: absolutely any text
+    room_loc: corner room
     room_moist_dam_hist: 123
     room_net_area: 123 units
     room_occup: 123 units
-    room_samp_pos: absolutely any text
+    room_samp_pos: southwest corner
     room_type: absolutely any text
     room_vol: 123 units
     room_wall_share: absolutely any text
@@ -671,19 +667,19 @@ exhaustive_test_set:
     root_med_regl: absolutely any text
     root_med_solid: absolutely any text
     root_med_suppl: absolutely any text
-    route_transmission: absolutely any text
+    route_transmission: transplacental
     salinity: 1.234 units
     #    salinity_meth: absolutely any text # todo is there a replacement for this? MIXS:0000341
     salt_regm:
       - absolutely any text
-    samp_capt_status: absolutely any text
+    samp_capt_status: farm sample
     #    samp_collec_device: absolutely any text  # deprecated with replacement samp_collect_device
     #    samp_collec_method: absolutely any text  # deprecated with replacement samp_collect_method
     samp_collect_device: absolutely any text
     samp_collect_method: absolutely any text
-    samp_dis_stage: absolutely any text
+    samp_dis_stage: infection
     samp_floor: absolutely any text
-    samp_loc_condition: absolutely any text
+    samp_loc_condition: damaged
     samp_loc_corr_rate: absolutely any text
     samp_mat_process: absolutely any text
     samp_md: absolutely any text
@@ -708,17 +704,17 @@ exhaustive_test_set:
     samp_store_loc: absolutely any text
     samp_store_sol: absolutely any text
     samp_store_temp: 1.234 units
-    samp_subtype: absolutely any text
+    samp_subtype: biofilm
     samp_surf_moisture:
-      - absolutely any text
+      - submerged
     samp_time_out: absolutely any text
     samp_transport_cond: absolutely any text
-    samp_transport_cont: absolutely any text
+    samp_transport_cont: bottle
     samp_transport_dur: PT10H30M
     samp_transport_temp: absolutely any text
     samp_tvdss: absolutely any text
     samp_vol_we_dna_ext: 1.234 units
-    samp_weather: absolutely any text
+    samp_weather: cloudy
     samp_well_name: absolutely any text
     #    sample_collec_method: absolutely any text # see samp_collect_method
     saturates_pc: absolutely any text
@@ -728,9 +724,9 @@ exhaustive_test_set:
     season_humidity: 0.99
     season_precpt: 1.234 units
     season_temp: 1.234 units
-    season_use: absolutely any text
+    season_use: Fall
     secondary_treatment: absolutely any text
-    sediment_type: absolutely any text
+    sediment_type: lithogenous
     seq_quality_check: manually edited
     sequencing_kit: absolutely any text
     sequencing_location: absolutely any text
@@ -738,15 +734,15 @@ exhaustive_test_set:
       - absolutely any text
     sewage_type: absolutely any text
     sexual_act: absolutely any text
-    shad_dev_water_mold: absolutely any text
-    shading_device_cond: absolutely any text
-    shading_device_loc: absolutely any text
+    shad_dev_water_mold: presence of mold visible
+    shading_device_cond: damaged
+    shading_device_loc: exterior
     shading_device_mat: absolutely any text
-    shading_device_type: absolutely any text
+    shading_device_type: trellis
     sieving: absolutely any text
     silicate: 1.234 units
     sim_search_meth: absolutely any text
-    sc_lysis_approach: absolutely any text # was single_cell_lysis_appr
+    sc_lysis_approach: enzymatic # was single_cell_lysis_appr
     sc_lysis_method: absolutely any text # was single_cell_lysis_prot
     size_frac: absolutely any text
     size_frac_low: 1.234 units
@@ -759,12 +755,12 @@ exhaustive_test_set:
     soil_conductivity: 1.234 units
     soil_cover: term [ONTOLOGY:123]
     #    soil_depth: absolutely any text # see depth
-    soil_horizon: absolutely any text
+    soil_horizon: O horizon # vs horizon
     soil_pH: 1.9
     soil_porosity: absolutely any text
     soil_temp: 1.234 units
     #    soil_text_measure: 1.234 units
-    soil_texture_class: absolutely any text
+    soil_texture_class: clay
     soil_texture_meth: absolutely any text
     soil_type: absolutely any text
     soil_type_meth: absolutely any text
@@ -777,7 +773,7 @@ exhaustive_test_set:
     soluble_react_phosp: 1.234 units
     sop:
       - absolutely any text
-    sort_tech: absolutely any text
+    sort_tech: lazer-tweezing
     source_mat_id:
       - absolutely any text
     source_uvig: absolutely any text
@@ -785,7 +781,7 @@ exhaustive_test_set:
       - term [ONTOLOGY:123]
     special_diet:
       - absolutely any text
-    specific: absolutely any text
+    specific: photos
     specific_host: absolutely any text
     specific_humidity: 1.234 units
     spikein_AMR:
@@ -803,10 +799,10 @@ exhaustive_test_set:
       - absolutely any text
     spikein_strain:
       - absolutely any text
-    sr_dep_env: absolutely any text
-    sr_geol_age: absolutely any text
-    sr_kerog_type: absolutely any text
-    sr_lithology: absolutely any text
+    sr_dep_env: Marine
+    sr_geol_age: Jurassic # look for other slots with value Jurassic
+    sr_kerog_type: Type I
+    sr_lithology: Clastic
     standing_water_regm:
       - absolutely any text
     ster_meth_samp_room:
@@ -822,33 +818,33 @@ exhaustive_test_set:
       - absolutely any text
     subspecf_gen_lin: absolutely any text
     substructure_type:
-      - absolutely any text
+      - crawlspace
     sulfate: 1.234 units
     sulfate_fw: 1.234 units
     sulfide: 1.234 units
     surf_air_cont:
-      - absolutely any text
+      - radon
     surf_humidity: 0.1
-    surf_material: absolutely any text
+    surf_material: stucco
     surf_moisture: 1.234 units
     surf_moisture_ph: 1.9
     surf_temp: 1.234 units
     suspend_part_matter: 1.234 units
     suspend_solids:
       - absolutely any text
-    symbiont_host_role: absolutely any text
+    symbiont_host_role: reservoir
     tan: 1.234 units
     target_gene: absolutely any text
     target_subfragment: absolutely any text
     tax_class: absolutely any text
-    tax_ident: absolutely any text
+    tax_ident: 16S rRNA gene
     temp: 1.234 units
     temp_out: 1.234 units
     tertiary_treatment: absolutely any text
     #    texture: 1.234 units
     #    texture_meth: absolutely any text # see soil_texture_meth
-    tidal_stage: absolutely any text
-    tillage: absolutely any text
+    tidal_stage: ebb tide
+    tillage: chisel
     time_last_toothbrush: PT10H30M
     time_since_last_wash: PT10H30M
     timepoint: PT10H30M
@@ -871,20 +867,20 @@ exhaustive_test_set:
     tot_phosp: 1.234 units
     tot_phosphate: 1.234 units
     tot_sulfur: 1.234 units
-    train_line: absolutely any text
-    train_stat_loc: absolutely any text
-    train_stop_loc: absolutely any text
+    train_line: orange # to whom is this of any use? it doesn't seem to apply ot any location other than Boston
+    train_stat_loc: forest hills
+    train_stop_loc: downtown
     travel_out_six_month:
       - absolutely any text
     trna_ext_software: absolutely any text
     trnas: absolutely any text
-    trophic_level: absolutely any text
+    trophic_level: chemoautotroph
     turbidity: 1.234 units
     tvdss_of_hcr_press: 1.234 units
     tvdss_of_hcr_temp: 1.234 units
     twin_sibling: true
-    type_of_symbiosis: absolutely any text
-    urine_collect_meth: absolutely any text
+    type_of_symbiosis: parasitic
+    urine_collect_meth: catheter
     #    url: # see also associated_resource
     #      - absolutely any text
     urogenit_disord:
@@ -896,26 +892,26 @@ exhaustive_test_set:
     vfa: 1.234 units
     vfa_fw: 1.234 units
     vir_ident_software: absolutely any text
-    virus_enrich_appr: absolutely any text
+    virus_enrich_appr: ultracentrifugation
     vis_media: absolutely any text
     viscosity: absolutely any text
     volatile_org_comp:
       - absolutely any text
     wall_area: 1.234 units
-    wall_const_type: absolutely any text
-    wall_finish_mat: absolutely any text
+    wall_const_type: joisted masonry
+    wall_finish_mat: terrazzo
     wall_height: 99 meters # todo '^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$' validation doesn't accept single character units
-    wall_loc: absolutely any text
-    wall_surf_treatment: absolutely any text
-    wall_texture: absolutely any text
+    wall_loc: southwest
+    wall_surf_treatment: paneling
+    wall_texture: Santa-Fe texture
     wall_thermal_mass: 1.234 units
-    wall_water_mold: absolutely any text
+    wall_water_mold: presence of mold visible
     wastewater_type: absolutely any text
     water_cont_soil_meth: absolutely any text
     water_content: 1.234 units
     water_current: 1.234 units
     water_feat_size: 1.234 units
-    water_feat_type: absolutely any text
+    water_feat_type: pool
     water_frequency: absolutely any text
     water_pH: 9.999
     water_prod_rate: 1.234 units
@@ -927,22 +923,22 @@ exhaustive_test_set:
       - absolutely any text
     watering_regm:
       - absolutely any text
-    weekday: absolutely any text
+    weekday: Saturday
     weight_loss_3_month: absolutely any text
-    wga_amp_appr: absolutely any text
+    wga_amp_appr: mda based
     wga_amp_kit: absolutely any text
     win: absolutely any text
     wind_direction: absolutely any text
     wind_speed: 1.234 units
-    window_cond: absolutely any text
-    window_cover: absolutely any text
-    window_horiz_pos: absolutely any text
-    window_loc: absolutely any text
-    window_mat: absolutely any text
+    window_cond: damaged
+    window_cover: curtains
+    window_horiz_pos: right
+    window_loc: southwest
+    window_mat: fiberglass
     window_open_freq: 123
     window_size: absolutely any text
-    window_status: absolutely any text
-    window_type: absolutely any text
-    window_vert_pos: absolutely any text
-    window_water_mold: absolutely any text
+    window_status: closed
+    window_type: horizontal sash window
+    window_vert_pos: high
+    window_water_mold: presence of mold visible
     xylene: 1.234 units
