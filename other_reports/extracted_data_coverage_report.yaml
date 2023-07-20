@@ -80,6 +80,7 @@ optional_not_present:
 - host_of_host_pheno
 - host_of_host_totmass
 - host_phenotype
+- host_sex
 - host_subject_id
 - host_symbiont
 - host_taxid
@@ -100,6 +101,7 @@ optional_not_present:
 - max_occup
 - methane
 - microbial_biomass
+- mims_soil_data
 - nose_throat_disord
 - number_pets
 - number_plants
