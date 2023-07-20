@@ -13,7 +13,7 @@ schemasheets_to_usage/GSC_MIxS_6.yaml.exhaustive.usage-report.tsv schemasheets_t
 conflicts-all other_reports/mixs-scns-vs-ncbi-harmonized-attributes.yaml \
 schema_derivatives/GSC_MIxS_6.owl.ttl schema_derivatives/GSC_MIxS_6.schema.json schema_derivatives/GSC_MIxS_6.form.xlsx \
 final_cleanup validate_multiple_mims_soil \
-converted_data/MimsSoil_example.csv
+converted_data/MimsSoil_example.csv converted_data/MimsSoil_example.ttl
 
 # converted_data/MimsSoil_example.ttl
 
@@ -32,8 +32,6 @@ squeaky-clean: clean
 		touch $$dir/.gitkeep; \
 	done
 	rm -rf curated_data/unwrapped_curated_data_for_slot_coverage_check.yaml
-
-labor_saving: squeaky-clean generated_schema/GSC_MIxS_6.yaml
 
 generated_schema/GSC_MIxS_6.yaml:
 	$(RUN) write_mixs_linkml \
