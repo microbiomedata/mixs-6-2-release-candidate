@@ -895,15 +895,20 @@ def create_schema(non_ascii_replacement, debug, base_url, scn_key, schema_name,
                   mixs_excel_output_file, harmonized_mixs_tables_file, repaired_mixs_tables_file, schema_file_out,
                   extracted_examples_out, repair_report, unmapped_report, minimal_combos):
     dest_dir, excel_file_name = os.path.split(mixs_excel_output_file)
-
     file_url = base_url + excel_file_name
+
+    default_prefix_name = "mixs_6_2_proposal"
+    default_prefix_base = "https://turbomam.github.io/mixs-envo-struct-knowl-extraction/"
 
     global_target_schema = SchemaDefinition(
         default_range="string",
-        id=f"http://example.com/{schema_name}",
+        id=f"{default_prefix_base}/{schema_name}",
         name=schema_name,
         source=file_url,
     )
+
+    global_target_schema.prefixes[default_prefix_name] = Prefix(default_prefix_name, default_prefix_base)
+    global_target_schema.default_prefix = default_prefix_name
 
     harmonized_sheets = harmonize_sheets(file_url, mixs_excel_output_file, scn_key, checklists)
     harmonized_sheets.to_csv(harmonized_mixs_tables_file, index=False, sep='\t')

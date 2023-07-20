@@ -49,6 +49,10 @@ safety = "^2.1.1"
 mypy = "^0.971"
 Faker = "^14.2.0"
 
+mkdocs = "^1.4.2"
+mkdocs-material = "^9.0.12"
+mkdocs-mermaid2-plugin = "^0.6.0"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
@@ -118,3 +122,4 @@ write_mixs_linkml = "mixs_envo_struct_knowl_extraction.mixs_linkml_from_xlsx:cre
 add_notes_from_text_mining = "mixs_envo_struct_knowl_extraction.slot_text_mining:cli"
 find_Xs_with_multiple_Ys = "mixs_envo_struct_knowl_extraction.find_Xs_with_multiple_Ys:main"
 mixs-scns-vs-ncbi-harmonized-attributes = "mixs_envo_struct_knowl_extraction.mixs_scns_vs_ncbi_harmonized_attributes:cli"
+remove-exhaustive-elements-validation-conveniences = "mixs_envo_struct_knowl_extraction.remove_exhaustive_elements_validation_conveniences:main"

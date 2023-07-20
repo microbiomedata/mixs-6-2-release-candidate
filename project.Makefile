@@ -5,15 +5,22 @@ export $(shell sed 's/=.*//'  local/.env)
 
 RUN = poetry run
 
-all: squeaky-clean generated_schema/GSC_MIxS_6.yaml \
+SOURCE_SCHEMA_PATH = generated_schema/GSC_MIxS_6.yaml
+
+DOCDIR = mixs-docs-md
+TEMPLATEDIR = mixs-docs-templates
+
+all: squeaky-clean $(SOURCE_SCHEMA_PATH) \
 linkml-validate-exhaustive linkml-validate-extracted \
 other_reports/curated_data_coverage_report.yaml other_reports/extracted_data_coverage_report.yaml \
 text_mining_results/mixs_v6_repaired_term_title_token_matrix.tsv \
 schemasheets_to_usage/GSC_MIxS_6.yaml.exhaustive.usage-report.tsv schemasheets_to_usage/GSC_MIxS_6.yaml.concise.usage-report.tsv \
 conflicts-all other_reports/mixs-scns-vs-ncbi-harmonized-attributes.yaml \
 schema_derivatives/GSC_MIxS_6.owl.ttl schema_derivatives/GSC_MIxS_6.schema.json schema_derivatives/GSC_MIxS_6.form.xlsx \
-final_cleanup validate_multiple_mims_soil \
-converted_data/MimsSoil_example.csv converted_data/MimsSoil_example.ttl
+final_deletions generated_schema/final_GSC_MIxS_6.yaml \
+validate_multiple_mims_soil \
+converted_data/MimsSoil_example.csv converted_data/MimsSoil_example.ttl \
+deploy
 
 # converted_data/MimsSoil_example.ttl
 
@@ -26,7 +33,7 @@ clean:
 # might not want to automatically clean/delete slow-to generate ncbi_biosample_sql/results files
 squeaky-clean: clean
 	@for dir in conflict_reports downloads extracted_data generated_schema mixs_excel_harmonized_repaired \
-		other_reports schemasheets_to_usage text_mining_results schema_derivatives converted_data ; do \
+		other_reports schemasheets_to_usage text_mining_results schema_derivatives converted_data mixs-docs-html mixs-docs-md ; do \
 		rm -rf $$dir/*; \
 		mkdir -p $$dir; \
 		touch $$dir/.gitkeep; \
@@ -59,14 +66,14 @@ generated_schema/GSC_MIxS_6.yaml:
 		 --mixs-excel-output-file downloads/mixs_v6.xlsx \
 		 --repair-report conflict_reports/conflict_repair_report.tsv \
 		 --repaired-mixs-tables-file mixs_excel_harmonized_repaired/mixs_v6.xlsx.repaired.tsv \
-		 --schema-file-out generated_schema/GSC_MIxS_6.yaml \
+		 --schema-file-out $(SOURCE_SCHEMA_PATH) \
 		 --unmapped-report other_reports/un-handled_stringsers_expvals.tsv \
 
-generated_schema/GSC_MIxS_6.yaml.notated.yaml: text_mining_results/mixs_v6_repaired_term_title_token_matrix.tsv
+$(SOURCE_SCHEMA_PATH).notated.yaml: text_mining_results/mixs_v6_repaired_term_title_token_matrix.tsv
 
 # https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/63
 text_mining_results/mixs_v6_repaired_term_title_token_matrix.tsv: config/curated_slot_notes_by_text_mining.tsv \
-generated_schema/GSC_MIxS_6.yaml schemasheets_to_usage/GSC_MIxS_6_concise_usage.tsv
+$(SOURCE_SCHEMA_PATH) schemasheets_to_usage/GSC_MIxS_6_concise_usage.tsv
 	$(RUN) add_notes_from_text_mining \
 		--dtm-input-slot title \
 		--input-col-vals-file text_mining_results/mixs_v6_repaired_term_title_token_list.tsv \
@@ -76,24 +83,24 @@ generated_schema/GSC_MIxS_6.yaml schemasheets_to_usage/GSC_MIxS_6_concise_usage.
 		--output-schema-file generated_schema/GSC_MIxS_6.yaml.notated.yaml \
 		--dtm-output $@
 
-other_reports/curated_data_coverage_report.yaml: curated_data/unwrapped_curated_data_for_slot_coverage_check.yaml generated_schema/GSC_MIxS_6.yaml
+other_reports/curated_data_coverage_report.yaml: curated_data/unwrapped_curated_data_for_slot_coverage_check.yaml $(SOURCE_SCHEMA_PATH)
 	poetry run exhaustion-check \
 		--class-name "ExhaustiveTestClass" \
 		--instance-yaml-file $(word 1,$^) \
 		--output-yaml-file $@ \
 		--schema-path $(word 2,$^)
 
-other_reports/extracted_data_coverage_report.yaml: extracted_data/unwrapped.mixs_v6.xlsx.extracted_examples.yaml generated_schema/GSC_MIxS_6.yaml
+other_reports/extracted_data_coverage_report.yaml: extracted_data/unwrapped.mixs_v6.xlsx.extracted_examples.yaml $(SOURCE_SCHEMA_PATH)
 	poetry run exhaustion-check \
 		--class-name "ExhaustiveTestClass" \
 		--instance-yaml-file $(word 1,$^) \
 		--output-yaml-file $@ \
 		--schema-path $(word 2,$^)
 
-linkml-validate-exhaustive: generated_schema/GSC_MIxS_6.yaml curated_data/ExhaustiveTestClassCollection-wrapped-example-data.yaml
+linkml-validate-exhaustive: $(SOURCE_SCHEMA_PATH) curated_data/ExhaustiveTestClassCollection-wrapped-example-data.yaml
 	$(RUN) linkml-validate --target-class ExhaustiveTestClassCollection --schema $^
 
-linkml-validate-extracted: generated_schema/GSC_MIxS_6.yaml extracted_data/mixs_v6.xlsx.extracted_examples.yaml
+linkml-validate-extracted: $(SOURCE_SCHEMA_PATH) extracted_data/mixs_v6.xlsx.extracted_examples.yaml
 	$(RUN) linkml-validate --target-class ExhaustiveTestClassCollection --schema $^
 
 curated_data/unwrapped_curated_data_for_slot_coverage_check.yaml: curated_data/ExhaustiveTestClassCollection-wrapped-example-data.yaml
@@ -116,7 +123,7 @@ extracted_data/unwrapped.mixs_v6.xlsx.extracted_examples.yaml: extracted_data/mi
 
 
 # https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/62
-schemasheets_to_usage/GSC_MIxS_6_concise_usage.tsv: generated_schema/GSC_MIxS_6.yaml
+schemasheets_to_usage/GSC_MIxS_6_concise_usage.tsv: $(SOURCE_SCHEMA_PATH)
 	$(RUN) linkml2schemasheets-template \
 		--debug-report-path other_reports/populated-generated-debug-report.yaml \
 		--log-file other_reports/populated-with-generated-spec-log.txt \
@@ -302,7 +309,7 @@ ncbi_biosample_sql/results/ncbi_biosample_harmonized_attribute_usage.csv: ncbi_b
 		-f $< > $@
 	date
 
-mixs_excel_harmonized_repaired/mixs_v6.xlsx.harmonized.tsv: generated_schema/GSC_MIxS_6.yaml
+mixs_excel_harmonized_repaired/mixs_v6.xlsx.harmonized.tsv: $(SOURCE_SCHEMA_PATH)
 
 # note one TSV and one CSV
 other_reports/mixs-scns-vs-ncbi-harmonized-attributes.yaml: mixs_excel_harmonized_repaired/mixs_v6.xlsx.harmonized.tsv \
@@ -312,32 +319,37 @@ ncbi_biosample_sql/results/ncbi_biosample_harmonized_attribute_usage.csv
 		--ncbi-harmonized-names-file $(word 2,$^) \
 		--output-file $@
 
-schema_derivatives/GSC_MIxS_6.owl.ttl: generated_schema/GSC_MIxS_6.yaml
+schema_derivatives/GSC_MIxS_6.owl.ttl: $(SOURCE_SCHEMA_PATH)
 	$(RUN) gen-owl \
 		--output $@ \
 		--format ttl \
 		--metadata-profile rdfs $<
 
-schema_derivatives/GSC_MIxS_6.schema.json: generated_schema/GSC_MIxS_6.yaml
+schema_derivatives/GSC_MIxS_6.schema.json: $(SOURCE_SCHEMA_PATH)
 	$(RUN) gen-json-schema --closed $< > $@
 
-schema_derivatives/GSC_MIxS_6.form.xlsx: generated_schema/GSC_MIxS_6.yaml
+schema_derivatives/GSC_MIxS_6.form.xlsx: $(SOURCE_SCHEMA_PATH)
 	$(RUN) gen-excel --output $@ $<
 
-final_cleanup:
+final_deletions:
 	rm -rf curated_data/unwrapped_curated_data_for_slot_coverage_check.yaml
 	rm -rf extracted_data/unwrapped.mixs_v6.xlsx.extracted_examples.yaml
-	rm -rf generated_schema/GSC_MIxS_6.yaml
-	mv generated_schema/GSC_MIxS_6.yaml.notated.yaml generated_schema/GSC_MIxS_6.yaml
 	rm -rf schemasheets_to_usage/GSC_MIxS_6_concise_usage.tsv
+
+generated_schema/final_GSC_MIxS_6.yaml: generated_schema/GSC_MIxS_6.yaml.notated.yaml
+	$(RUN) remove-exhaustive-elements-validation-conveniences \
+		--input-schema $< \
+		--output-schema $@
+	rm -rf $<
+	mv $@ $(SOURCE_SCHEMA_PATH)
 
 .PHONY: validate_multiple_mims_soil
 
-validate_multiple_mims_soil: generated_schema/GSC_MIxS_6.yaml curated_data/MimsSoil_example.yaml
+validate_multiple_mims_soil: $(SOURCE_SCHEMA_PATH) curated_data/MimsSoil_example.yaml
 	$(RUN) linkml-validate \
 		--schema $^
 
-converted_data/MimsSoil_example.csv: generated_schema/GSC_MIxS_6.yaml curated_data/MimsSoil_example.yaml
+converted_data/MimsSoil_example.csv: $(SOURCE_SCHEMA_PATH) curated_data/MimsSoil_example.yaml
 	$(RUN) linkml-convert \
 		--output $@ \
 		--target-class MixsCompliantData \
@@ -345,10 +357,31 @@ converted_data/MimsSoil_example.csv: generated_schema/GSC_MIxS_6.yaml curated_da
 		--schema $^
 
 # https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/76
-converted_data/MimsSoil_example.ttl: generated_schema/GSC_MIxS_6.yaml curated_data/MimsSoil_example.yaml
+converted_data/MimsSoil_example.ttl: $(SOURCE_SCHEMA_PATH) curated_data/MimsSoil_example.yaml
 	$(RUN) linkml-convert \
 		--output $@ \
 		--target-class MixsCompliantData \
 		--index-slot mims_soil_data \
 		--schema $^
 
+$(DOCDIR):
+	mkdir -p $@
+
+gendoc: $(DOCDIR)
+#	# added copying of images and renaming of TEMP.md
+#	cp $(SRC)/docs/*md $(DOCDIR) ; \
+#	cp -r $(SRC)/docs/images $(DOCDIR) ;
+	$(RUN) gen-doc -d $(DOCDIR) --template-directory $(TEMPLATEDIR) $(SOURCE_SCHEMA_PATH)
+	#mv $(DOCDIR)/TEMP.md $(DOCDIR)/temp.md
+
+MKDOCS = $(RUN) mkdocs
+mkd-%:
+	$(MKDOCS) $*
+
+testdoc: gendoc serve
+
+# Test documentation locally
+serve: mkd-serve
+
+# was deploy: all mkd-gh-deploy
+deploy: gendoc mkd-gh-deploy

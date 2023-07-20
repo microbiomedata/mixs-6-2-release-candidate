@@ -19,7 +19,7 @@ exhaustive_test_set:
     indoor_space: bathroom
     iwf: 0.999
     lat_lon: absolutely any text
-    #    microbial_biomass_meth: absolutely any text # deprecated with replacement micro_biomass_meth
+    #    microbial_biomass_meth: absolutely any text # not_in_use with replacement micro_biomass_meth
     occup_density_samp: 0.999
     occup_samp: 0.999
     project_name: absolutely any text
@@ -28,7 +28,7 @@ exhaustive_test_set:
     samp_name: absolutely any text
     samp_taxon_id: absolutely any text
     samp_type: term [ONTOLOGY:123]
-    #    sample_name: absolutely any text # deprecated with replacement samp_name
+    #    sample_name: absolutely any text # not_in_use with replacement samp_name
     seq_meth: absolutely any text
     space_typ_state: typically occupied
     sym_life_cycle_type: simple life cycle
@@ -63,7 +63,7 @@ exhaustive_test_set:
       - absolutely any text
     air_flow_impede:
       - absolutely any text
-    #    air_particulate_matter_concentration:  # deprecated with replacement air_PM_concen # todo should be all lower case
+    #    air_particulate_matter_concentration:  # not_in_use with replacement air_PM_concen # todo should be all lower case
     #      - absolutely any text
     air_temp: 1.234 units
     air_temp_regm:
@@ -405,7 +405,7 @@ exhaustive_test_set:
       - absolutely any text
     host_disease_stat: absolutely any text
     host_dry_mass: 1.234 units
-    #    host_family_relation:  # deprecated with replacement host_fam_rel
+    #    host_family_relation:  # not_in_use with replacement host_fam_rel
     #      - absolutely any text
     #    host_family_relationship: absolutely any text
     host_fam_rel: absolutely any text
@@ -530,7 +530,7 @@ exhaustive_test_set:
     nitro: 1.234 units
     non_min_nutr_regm:
       - absolutely any text
-    #    non_mineral_nutr_regm:  # deprecated with replacement non_min_nutr_regm
+    #    non_mineral_nutr_regm:  # not_in_use with replacement non_min_nutr_regm
     #      - absolutely any text
     nose_throat_disord:
       - absolutely any text
@@ -612,7 +612,7 @@ exhaustive_test_set:
     pressure: 1.234 units
     prev_land_use_meth: absolutely any text
     previous_land_use: absolutely any text
-    #    previous_land_use_meth: absolutely any text  # deprecated with replacement prev_land_use_meth
+    #    previous_land_use_meth: absolutely any text  # not_in_use with replacement prev_land_use_meth
     primary_prod: 1.234 units
     primary_treatment: absolutely any text
     prod_label_claims:
@@ -673,8 +673,8 @@ exhaustive_test_set:
     salt_regm:
       - absolutely any text
     samp_capt_status: farm sample
-    #    samp_collec_device: absolutely any text  # deprecated with replacement samp_collect_device
-    #    samp_collec_method: absolutely any text  # deprecated with replacement samp_collect_method
+    #    samp_collec_device: absolutely any text  # not_in_use with replacement samp_collect_device
+    #    samp_collec_method: absolutely any text  # not_in_use with replacement samp_collect_method
     samp_collect_device: absolutely any text
     samp_collect_method: absolutely any text
     samp_dis_stage: infection
