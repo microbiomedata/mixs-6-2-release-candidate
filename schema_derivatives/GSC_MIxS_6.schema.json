@@ -11888,16 +11888,16 @@
                 }
             },
             "required": [
-                "project_name",
-                "env_local_scale",
-                "lat_lon",
-                "samp_taxon_id",
-                "seq_meth",
+                "collection_date",
                 "depth",
                 "geo_loc_name",
-                "collection_date",
-                "elev",
+                "project_name",
+                "lat_lon",
+                "env_local_scale",
                 "samp_name",
+                "elev",
+                "samp_taxon_id",
+                "seq_meth",
                 "env_medium",
                 "env_broad_scale"
             ],
@@ -15167,7 +15167,7 @@
             "type": "object"
         }
     },
-    "$id": "http://example.com/GSC_MIxS_6",
+    "$id": "https://turbomam.github.io/mixs-envo-struct-knowl-extraction//GSC_MIxS_6",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "additionalProperties": false,
     "description": "A collection of data that complies with some combination of a MIxS checklist and environmental package",
