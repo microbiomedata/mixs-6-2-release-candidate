@@ -403,7 +403,9 @@ dh-dev: schema_derivatives/$(MONIKER).json
 
 # some mkdocs create a site directory
 #  which is gitignored
-# do we need mixs-docs-html ?
+# do we still need mixs-docs-html ?
+
+# Actions based doc build/deploy isn't working except for landing page
 
 # source for building and deploying GH pages? https://github.com/turbomam/mixs-envo-struct-knowl-extraction/settings/pages
 # "Deploy from a branch"?
