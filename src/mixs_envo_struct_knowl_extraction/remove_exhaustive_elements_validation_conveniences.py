@@ -13,7 +13,6 @@ def main(input_schema, output_schema):
     """
     schema_view = SchemaView(input_schema, merge_imports=True)
     schema_schema = schema_view.schema
-    schema_view.delete_slot()
 
     del schema_schema.classes['ExhaustiveTestClassCollection']
     del schema_schema.classes['ExhaustiveTestClass']
