@@ -45,13 +45,18 @@ jobs:
         run: |
           rm -rf docs
           mkdir -p docs
-          touch docs/.gitkeep
+          touch docs/.gitkeep          
+          rm -rf dist
+          mkdir -p dist
+          touch dist/.gitkeep
           ls -l docs
           poetry run gen-doc -d docs generated_schema/mixs_6_2_proposal.yaml
           ls -l docs
           #        cp src/docs/*md docs/
+          ls -l dist
           poetry run mkdocs build -d dist
-
+          ls -l dist
+          
       - name: Build DataHarmonizer interface.
         working-directory: data_harmonizer
         run: |
