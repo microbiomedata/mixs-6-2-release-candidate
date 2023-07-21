@@ -55,16 +55,16 @@ jobs:
           #        cp src/docs/*md docs/
           poetry run mkdocs build -d dist
 
-#      - name: Build DataHarmonizer interface.
-#        working-directory: data_harmonizer
-#        run: |
-#          npm run build -- --outDir ../dist/_playground --base /${{ github.event.repository.name }}/_playground/
-#
-#      - name: Upload artifact
-#        uses: actions/upload-pages-artifact@v1
-#        with:
-#          path: dist
-#
+      - name: Build DataHarmonizer interface.
+        working-directory: data_harmonizer
+        run: |
+          npm run build -- --outDir ../dist/_playground --base /${{ github.event.repository.name }}/_playground/
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: dist
+
 #      - name: Deploy to GitHub Pages
 #        id: deployment
 #        uses: actions/deploy-pages@v1
