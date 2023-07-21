@@ -47,11 +47,11 @@ jobs:
         run: npm install
 
       - name: Regenerate schema
-        run: make squeaky-clean generated_schema/GSC_MIxS_6.yaml schema_derivatives/GSC_MIxS_6.json
+        run: make squeaky-clean generated_schema/mixs_6_2_proposal.yaml schema_derivatives/mixs_6_2_proposal.json
 
       - name: Build documentation.
         run: |
-          poetry run gen-doc -d docs generated_schema/GSC_MIxS_6.yaml
+          poetry run gen-doc -d docs generated_schema/mixs_6_2_proposal.yaml
           #        cp src/docs/*md docs/
           poetry run mkdocs build -d dist
 
@@ -65,6 +65,6 @@ jobs:
         with:
           path: dist
 
-#      - name: Deploy to GitHub Pages
-#        id: deployment
-#        uses: actions/deploy-pages@v1
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
