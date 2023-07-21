@@ -2,6 +2,7 @@ name: Auto-deployment of nmdc_submission_schema documentation and DH interface
 on:
   push:
     branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   build-docs:
@@ -30,15 +31,6 @@ jobs:
         with:
           node-version: 16
 
-      #    - name: Install yq
-      #      env:
-      #        YQ_VERSION: v4.30.5
-      #        YQ_BINARY: yq_linux_amd64
-      #      run: |
-      #        mkdir -p $HOME/.local/bin
-      #        wget https://github.com/mikefarah/yq/releases/download/$YQ_VERSION/$YQ_BINARY.tar.gz -O - | tar xz && mv $YQ_BINARY $HOME/.local/bin/yq
-      #        echo "$HOME/.local/bin" >> $GITHUB_PATH
-
       - name: Install Python dependencies.
         run: poetry install -E docs
 
@@ -51,10 +43,20 @@ jobs:
 
       - name: Build documentation.
         run: |
-          poetry run gen-doc -d docs generated_schema/mixs_6_2_proposal.yaml
+          rm -rf mixs-docs-md
+          mkdir -p mixs-docs-md
+          touch mixs-docs-md/.gitkeep          
+          rm -rf dist
+          mkdir -p dist
+          touch dist/.gitkeep
+          ls -l mixs-docs-md
+          poetry run gen-doc -d mixs-docs-md generated_schema/mixs_6_2_proposal.yaml
+          ls -l mixs-docs-md
           #        cp src/docs/*md docs/
+          ls -l dist
           poetry run mkdocs build -d dist
-
+          ls -l dist
+          
       - name: Build DataHarmonizer interface.
         working-directory: data_harmonizer
         run: |
