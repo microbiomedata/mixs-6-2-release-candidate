@@ -7,7 +7,7 @@
 
 RUN = poetry run
 
-SOURCE_SCHEMA_PATH = generated_schema/GSC_MIxS_6.yaml
+SOURCE_SCHEMA_PATH = generated_schema/$(MONIKER).yaml
 
 DOCDIR = mixs-docs-md
 TEMPLATEDIR = mixs-docs-templates
@@ -18,19 +18,19 @@ all: squeaky-clean $(SOURCE_SCHEMA_PATH) \
 linkml-validate-exhaustive linkml-validate-extracted \
 other_reports/curated_data_coverage_report.yaml other_reports/extracted_data_coverage_report.yaml \
 text_mining_results/mixs_v6_repaired_term_title_token_matrix.tsv \
-schemasheets_to_usage/GSC_MIxS_6.yaml.exhaustive.usage-report.tsv schemasheets_to_usage/GSC_MIxS_6.yaml.concise.usage-report.tsv \
+schemasheets_to_usage/$(MONIKER).yaml.exhaustive.usage-report.tsv schemasheets_to_usage/$(MONIKER).yaml.concise.usage-report.tsv \
 conflicts-all other_reports/mixs-scns-vs-ncbi-harmonized-attributes.yaml \
-schema_derivatives/GSC_MIxS_6.owl.ttl schema_derivatives/GSC_MIxS_6.schema.json schema_derivatives/GSC_MIxS_6.form.xlsx \
-final_deletions generated_schema/final_GSC_MIxS_6.yaml \
+schema_derivatives/$(MONIKER).owl.ttl schema_derivatives/$(MONIKER).schema.json schema_derivatives/$(MONIKER).form.xlsx \
+final_deletions generated_schema/final_$(MONIKER).yaml \
 validate_multiple_mims_soil \
 converted_data/MimsSoil_example.csv converted_data/MimsSoil_example.ttl
 
 # deploy
 
 clean:
-	rm -rf generated_schema/GSC_MIxS_6_usage_populated_raw.tsv
+	rm -rf generated_schema/$(MONIKER)_usage_populated_raw.tsv
 	rm -rf generated_schema/meta.xlsx
-	rm -rf schemasheets_to_usage/GSC_MIxS_6_usage.tsv
+	rm -rf schemasheets_to_usage/$(MONIKER)_usage.tsv
 	rm -rf curated_data/MimsSoil_example.csv
 
 # might not want to automatically clean/delete slow-to generate ncbi_biosample_sql/results files
@@ -43,7 +43,7 @@ squeaky-clean: clean
 	done
 	rm -rf curated_data/unwrapped_curated_data_for_slot_coverage_check.yaml
 
-generated_schema/GSC_MIxS_6.yaml:
+generated_schema/mixs_6_2_proposal.yaml:
 	$(RUN) write_mixs_linkml \
 		 --gsc-excel-input 'https://github.com/only1chunts/mixs-cih-fork/raw/main/mixs/excel/mixs_v6.xlsx' \
 		 --gsc-excel-output-dir downloads \
@@ -65,9 +65,9 @@ generated_schema/GSC_MIxS_6.yaml:
 		 --linkml-stage-mods-file config/linkml_stage_mixs_modifications.yaml \
 		 --range-pattern-inference-file config/mixs_stringsers_expvals_to_linkml_ranges_patterns.tsv \
 		 --tables-stage-mods-file config/mixs_tables_stage_modifications.tsv \
-		 --harmonized-mixs-tables-file mixs_excel_harmonized_repaired/mixs_v6.xlsx.harmonized.tsv \
-		 --repaired-mixs-tables-file mixs_excel_harmonized_repaired/mixs_v6.xlsx.repaired.tsv \
-		 --extracted-examples-out extracted_data/mixs_v6.xlsx.extracted_examples.yaml \
+		 --harmonized-mixs-tables-file mixs_excel_harmonized_repaired/$(MONIKER).harmonized.tsv \
+		 --repaired-mixs-tables-file mixs_excel_harmonized_repaired/$(MONIKER).repaired.tsv \
+		 --extracted-examples-out extracted_data/$(MONIKER).extracted_examples.yaml \
 		 --repair-report conflict_reports/conflict_repair_report.tsv \
 		 --unmapped-report other_reports/un-handled_stringsers_expvals.tsv \
 		 --schema-file-out $@
@@ -76,14 +76,14 @@ $(SOURCE_SCHEMA_PATH).notated.yaml: text_mining_results/mixs_v6_repaired_term_ti
 
 # https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/63
 text_mining_results/mixs_v6_repaired_term_title_token_matrix.tsv: config/curated_slot_notes_by_text_mining.tsv \
-$(SOURCE_SCHEMA_PATH) schemasheets_to_usage/GSC_MIxS_6_concise_usage.tsv
+$(SOURCE_SCHEMA_PATH) schemasheets_to_usage/$(MONIKER)_concise_usage.tsv
 	$(RUN) add_notes_from_text_mining \
 		--dtm-input-slot title \
 		--input-col-vals-file text_mining_results/mixs_v6_repaired_term_title_token_list.tsv \
 		--input-dtm-notes-mapping $(word 1,$^) \
 		--input-schema-file $(word 2,$^) \
 		--input-usage-report $(word 3,$^) \
-		--output-schema-file generated_schema/GSC_MIxS_6.yaml.notated.yaml \
+		--output-schema-file generated_schema/$(MONIKER).yaml.notated.yaml \
 		--dtm-output $@
 
 other_reports/curated_data_coverage_report.yaml: curated_data/unwrapped_curated_data_for_slot_coverage_check.yaml $(SOURCE_SCHEMA_PATH)
@@ -93,7 +93,7 @@ other_reports/curated_data_coverage_report.yaml: curated_data/unwrapped_curated_
 		--output-yaml-file $@ \
 		--schema-path $(word 2,$^)
 
-other_reports/extracted_data_coverage_report.yaml: extracted_data/unwrapped.mixs_v6.xlsx.extracted_examples.yaml $(SOURCE_SCHEMA_PATH)
+other_reports/extracted_data_coverage_report.yaml: extracted_data/unwrapped.$(MONIKER).extracted_examples.yaml $(SOURCE_SCHEMA_PATH)
 	poetry run exhaustion-check \
 		--class-name "ExhaustiveTestClass" \
 		--instance-yaml-file $(word 1,$^) \
@@ -103,7 +103,7 @@ other_reports/extracted_data_coverage_report.yaml: extracted_data/unwrapped.mixs
 linkml-validate-exhaustive: $(SOURCE_SCHEMA_PATH) curated_data/ExhaustiveTestClassCollection-wrapped-example-data.yaml
 	$(RUN) linkml-validate --target-class ExhaustiveTestClassCollection --schema $^
 
-linkml-validate-extracted: $(SOURCE_SCHEMA_PATH) extracted_data/mixs_v6.xlsx.extracted_examples.yaml
+linkml-validate-extracted: $(SOURCE_SCHEMA_PATH) extracted_data/$(MONIKER).extracted_examples.yaml
 	$(RUN) linkml-validate --target-class ExhaustiveTestClassCollection --schema $^
 
 curated_data/unwrapped_curated_data_for_slot_coverage_check.yaml: curated_data/ExhaustiveTestClassCollection-wrapped-example-data.yaml
@@ -115,7 +115,7 @@ curated_data/unwrapped_curated_data_for_slot_coverage_check.yaml: curated_data/E
 		-o $@
 	rm -rf $@.temp
 
-extracted_data/unwrapped.mixs_v6.xlsx.extracted_examples.yaml: extracted_data/mixs_v6.xlsx.extracted_examples.yaml
+extracted_data/unwrapped.$(MONIKER).extracted_examples.yaml: extracted_data/$(MONIKER).extracted_examples.yaml
 	$(RUN) get-first-of-first \
 		--input_data $< \
 		--output_data $@.temp
@@ -126,7 +126,7 @@ extracted_data/unwrapped.mixs_v6.xlsx.extracted_examples.yaml: extracted_data/mi
 
 
 # https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/62
-schemasheets_to_usage/GSC_MIxS_6_concise_usage.tsv: $(SOURCE_SCHEMA_PATH)
+schemasheets_to_usage/$(MONIKER)_concise_usage.tsv: $(SOURCE_SCHEMA_PATH)
 	$(RUN) linkml2schemasheets-template \
 		--debug-report-path other_reports/populated-generated-debug-report.yaml \
 		--log-file other_reports/populated-with-generated-spec-log.txt \
@@ -136,7 +136,7 @@ schemasheets_to_usage/GSC_MIxS_6_concise_usage.tsv: $(SOURCE_SCHEMA_PATH)
 	grep -v -e '^>' $@.tmp > $@
 	rm -rf $@.tmp
 
-schemasheets_to_usage/GSC_MIxS_6.yaml.exhaustive.schemasheet.tsv: generated_schema/GSC_MIxS_6.yaml.notated.yaml
+schemasheets_to_usage/$(MONIKER).yaml.exhaustive.schemasheet.tsv: generated_schema/$(MONIKER).yaml.notated.yaml
 	$(RUN) linkml2schemasheets-template \
 		--debug-report-path other_reports/notated_populated-generated-debug-report.yaml \
 		--log-file other_reports/notated_populated-with-generated-spec-log.txt \
@@ -144,10 +144,10 @@ schemasheets_to_usage/GSC_MIxS_6.yaml.exhaustive.schemasheet.tsv: generated_sche
 		--report-style exhaustive \
 		--source-path $<
 
-schemasheets_to_usage/GSC_MIxS_6.yaml.exhaustive.usage-report.tsv: schemasheets_to_usage/GSC_MIxS_6.yaml.exhaustive.schemasheet.tsv
+schemasheets_to_usage/$(MONIKER).yaml.exhaustive.usage-report.tsv: schemasheets_to_usage/$(MONIKER).yaml.exhaustive.schemasheet.tsv
 	grep -v -e '^>' $< > $@
 
-schemasheets_to_usage/GSC_MIxS_6.yaml.concise.schemasheet.tsv: generated_schema/GSC_MIxS_6.yaml.notated.yaml
+schemasheets_to_usage/$(MONIKER).yaml.concise.schemasheet.tsv: generated_schema/$(MONIKER).yaml.notated.yaml
 	$(RUN) linkml2schemasheets-template \
 		--debug-report-path other_reports/notated_populated-generated-debug-report.yaml \
 		--log-file other_reports/notated_populated-with-generated-spec-log.txt \
@@ -155,7 +155,7 @@ schemasheets_to_usage/GSC_MIxS_6.yaml.concise.schemasheet.tsv: generated_schema/
 		--report-style exhaustive \
 		--source-path $<
 
-schemasheets_to_usage/GSC_MIxS_6.yaml.concise.usage-report.tsv: schemasheets_to_usage/GSC_MIxS_6.yaml.concise.schemasheet.tsv
+schemasheets_to_usage/$(MONIKER).yaml.concise.usage-report.tsv: schemasheets_to_usage/$(MONIKER).yaml.concise.schemasheet.tsv
 	grep -v -e '^>' $< > $@
 
 
@@ -163,26 +163,27 @@ schemasheets_to_usage/GSC_MIxS_6.yaml.concise.usage-report.tsv: schemasheets_to_
 # # # #
 
 conflicts-cleanup:
-	rm -rf conflict_reports/mixs_v6.xlsx*conflicts*tsv
+	rm -rf conflict_reports/$(MONIKER)*conflicts*tsv
 
+# generalize this
 conflicts-all: conflicts-cleanup \
-conflict_reports/mixs_v6.xlsx.ID.SCN.conflicts.pre.tsv \
-conflict_reports/mixs_v6.xlsx.ID.SCN.conflicts.post.tsv \
-conflict_reports/mixs_v6.xlsx.ID.Item.conflicts.pre.tsv \
-conflict_reports/mixs_v6.xlsx.ID.Item.conflicts.post.tsv \
-conflict_reports/mixs_v6.xlsx.ID.Def.conflicts.pre.tsv \
-conflict_reports/mixs_v6.xlsx.ID.Def.conflicts.post.tsv \
-conflict_reports/mixs_v6.xlsx.ID.Occurrence.conflicts.pre.tsv \
-conflict_reports/mixs_v6.xlsx.ID.Occurrence.conflicts.post.tsv \
-conflict_reports/mixs_v6.xlsx.ID.Section.conflicts.pre.tsv \
-conflict_reports/mixs_v6.xlsx.ID.Section.conflicts.post.tsv \
-conflict_reports/mixs_v6.xlsx.ID.prefunit.conflicts.pre.tsv \
-conflict_reports/mixs_v6.xlsx.ID.prefunit.conflicts.post.tsv \
-conflict_reports/mixs_v6.xlsx.SCN.Item.conflicts.pre.tsv \
-conflict_reports/mixs_v6.xlsx.SCN.Item.conflicts.post.tsv
+conflict_reports/$(MONIKER).ID.SCN.conflicts.pre.tsv \
+conflict_reports/$(MONIKER).ID.SCN.conflicts.post.tsv \
+conflict_reports/$(MONIKER).ID.Item.conflicts.pre.tsv \
+conflict_reports/$(MONIKER).ID.Item.conflicts.post.tsv \
+conflict_reports/$(MONIKER).ID.Def.conflicts.pre.tsv \
+conflict_reports/$(MONIKER).ID.Def.conflicts.post.tsv \
+conflict_reports/$(MONIKER).ID.Occurrence.conflicts.pre.tsv \
+conflict_reports/$(MONIKER).ID.Occurrence.conflicts.post.tsv \
+conflict_reports/$(MONIKER).ID.Section.conflicts.pre.tsv \
+conflict_reports/$(MONIKER).ID.Section.conflicts.post.tsv \
+conflict_reports/$(MONIKER).ID.prefunit.conflicts.pre.tsv \
+conflict_reports/$(MONIKER).ID.prefunit.conflicts.post.tsv \
+conflict_reports/$(MONIKER).SCN.Item.conflicts.pre.tsv \
+conflict_reports/$(MONIKER).SCN.Item.conflicts.post.tsv
 
 #https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/66
-conflict_reports/mixs_v6.xlsx.ID.SCN.conflicts.pre.tsv: mixs_excel_harmonized_repaired/mixs_v6.xlsx.harmonized.tsv
+conflict_reports/$(MONIKER).ID.SCN.conflicts.pre.tsv: mixs_excel_harmonized_repaired/$(MONIKER).harmonized.tsv
 	$(RUN) find_Xs_with_multiple_Ys \
 		--input-file $< \
 		--x-column 'MIXS ID' \
@@ -190,7 +191,7 @@ conflict_reports/mixs_v6.xlsx.ID.SCN.conflicts.pre.tsv: mixs_excel_harmonized_re
 		--output-file $@
 
 # can also run the conflict check on the repaired file
-conflict_reports/mixs_v6.xlsx.ID.SCN.conflicts.post.tsv: mixs_excel_harmonized_repaired/mixs_v6.xlsx.repaired.tsv
+conflict_reports/$(MONIKER).ID.SCN.conflicts.post.tsv: mixs_excel_harmonized_repaired/$(MONIKER).repaired.tsv
 	$(RUN) find_Xs_with_multiple_Ys \
 		--input-file $< \
 		--x-column 'MIXS ID' \
@@ -198,14 +199,14 @@ conflict_reports/mixs_v6.xlsx.ID.SCN.conflicts.post.tsv: mixs_excel_harmonized_r
 		--output-file $@
 
 
-conflict_reports/mixs_v6.xlsx.ID.Item.conflicts.pre.tsv: mixs_excel_harmonized_repaired/mixs_v6.xlsx.harmonized.tsv
+conflict_reports/$(MONIKER).ID.Item.conflicts.pre.tsv: mixs_excel_harmonized_repaired/$(MONIKER).harmonized.tsv
 	$(RUN) find_Xs_with_multiple_Ys \
 		--input-file $< \
 		--x-column 'MIXS ID' \
 		--y-column 'Item' \
 		--output-file $@
 
-conflict_reports/mixs_v6.xlsx.ID.Item.conflicts.post.tsv: mixs_excel_harmonized_repaired/mixs_v6.xlsx.repaired.tsv
+conflict_reports/$(MONIKER).ID.Item.conflicts.post.tsv: mixs_excel_harmonized_repaired/$(MONIKER).repaired.tsv
 	$(RUN) find_Xs_with_multiple_Ys \
 		--input-file $< \
 		--x-column 'MIXS ID' \
@@ -214,14 +215,14 @@ conflict_reports/mixs_v6.xlsx.ID.Item.conflicts.post.tsv: mixs_excel_harmonized_
 
 
 # https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/64
-conflict_reports/mixs_v6.xlsx.ID.Def.conflicts.pre.tsv: mixs_excel_harmonized_repaired/mixs_v6.xlsx.harmonized.tsv
+conflict_reports/$(MONIKER).ID.Def.conflicts.pre.tsv: mixs_excel_harmonized_repaired/$(MONIKER).harmonized.tsv
 	$(RUN) find_Xs_with_multiple_Ys \
 		--input-file $< \
 		--x-column 'MIXS ID' \
 		--y-column 'Definition' \
 		--output-file $@
 
-conflict_reports/mixs_v6.xlsx.ID.Def.conflicts.post.tsv: mixs_excel_harmonized_repaired/mixs_v6.xlsx.repaired.tsv
+conflict_reports/$(MONIKER).ID.Def.conflicts.post.tsv: mixs_excel_harmonized_repaired/$(MONIKER).repaired.tsv
 	$(RUN) find_Xs_with_multiple_Ys \
 		--input-file $< \
 		--x-column 'MIXS ID' \
@@ -230,14 +231,14 @@ conflict_reports/mixs_v6.xlsx.ID.Def.conflicts.post.tsv: mixs_excel_harmonized_r
 
 
 # https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/64
-conflict_reports/mixs_v6.xlsx.ID.Occurrence.conflicts.pre.tsv: mixs_excel_harmonized_repaired/mixs_v6.xlsx.harmonized.tsv
+conflict_reports/$(MONIKER).ID.Occurrence.conflicts.pre.tsv: mixs_excel_harmonized_repaired/$(MONIKER).harmonized.tsv
 	$(RUN) find_Xs_with_multiple_Ys \
 		--input-file $< \
 		--x-column 'MIXS ID' \
 		--y-column 'Occurrence' \
 		--output-file $@
 
-conflict_reports/mixs_v6.xlsx.ID.Occurrence.conflicts.post.tsv: mixs_excel_harmonized_repaired/mixs_v6.xlsx.repaired.tsv
+conflict_reports/$(MONIKER).ID.Occurrence.conflicts.post.tsv: mixs_excel_harmonized_repaired/$(MONIKER).repaired.tsv
 	$(RUN) find_Xs_with_multiple_Ys \
 		--input-file $< \
 		--x-column 'MIXS ID' \
@@ -245,14 +246,14 @@ conflict_reports/mixs_v6.xlsx.ID.Occurrence.conflicts.post.tsv: mixs_excel_harmo
 		--output-file $@
 
 
-conflict_reports/mixs_v6.xlsx.ID.Section.conflicts.pre.tsv: mixs_excel_harmonized_repaired/mixs_v6.xlsx.harmonized.tsv
+conflict_reports/$(MONIKER).ID.Section.conflicts.pre.tsv: mixs_excel_harmonized_repaired/$(MONIKER).harmonized.tsv
 	$(RUN) find_Xs_with_multiple_Ys \
 		--input-file $< \
 		--x-column 'MIXS ID' \
 		--y-column 'Section' \
 		--output-file $@
 
-conflict_reports/mixs_v6.xlsx.ID.Section.conflicts.post.tsv: mixs_excel_harmonized_repaired/mixs_v6.xlsx.repaired.tsv
+conflict_reports/$(MONIKER).ID.Section.conflicts.post.tsv: mixs_excel_harmonized_repaired/$(MONIKER).repaired.tsv
 	$(RUN) find_Xs_with_multiple_Ys \
 		--input-file $< \
 		--x-column 'MIXS ID' \
@@ -260,14 +261,14 @@ conflict_reports/mixs_v6.xlsx.ID.Section.conflicts.post.tsv: mixs_excel_harmoniz
 		--output-file $@
 
 
-conflict_reports/mixs_v6.xlsx.ID.prefunit.conflicts.pre.tsv: mixs_excel_harmonized_repaired/mixs_v6.xlsx.harmonized.tsv
+conflict_reports/$(MONIKER).ID.prefunit.conflicts.pre.tsv: mixs_excel_harmonized_repaired/$(MONIKER).harmonized.tsv
 	$(RUN) find_Xs_with_multiple_Ys \
 		--input-file $< \
 		--x-column 'MIXS ID' \
 		--y-column 'Preferred unit' \
 		--output-file $@
 
-conflict_reports/mixs_v6.xlsx.ID.prefunit.conflicts.post.tsv: mixs_excel_harmonized_repaired/mixs_v6.xlsx.repaired.tsv
+conflict_reports/$(MONIKER).ID.prefunit.conflicts.post.tsv: mixs_excel_harmonized_repaired/$(MONIKER).repaired.tsv
 	$(RUN) find_Xs_with_multiple_Ys \
 		--input-file $< \
 		--x-column 'MIXS ID' \
@@ -275,14 +276,14 @@ conflict_reports/mixs_v6.xlsx.ID.prefunit.conflicts.post.tsv: mixs_excel_harmoni
 		--output-file $@
 
 
-conflict_reports/mixs_v6.xlsx.SCN.Item.conflicts.pre.tsv: mixs_excel_harmonized_repaired/mixs_v6.xlsx.repaired.tsv
+conflict_reports/$(MONIKER).SCN.Item.conflicts.pre.tsv: mixs_excel_harmonized_repaired/$(MONIKER).repaired.tsv
 	$(RUN) find_Xs_with_multiple_Ys \
 		--input-file $< \
 		--x-column 'Structured comment name' \
 		--y-column Item \
 		--output-file $@
 
-conflict_reports/mixs_v6.xlsx.SCN.Item.conflicts.post.tsv: mixs_excel_harmonized_repaired/mixs_v6.xlsx.repaired.tsv
+conflict_reports/$(MONIKER).SCN.Item.conflicts.post.tsv: mixs_excel_harmonized_repaired/$(MONIKER).repaired.tsv
 	$(RUN) find_Xs_with_multiple_Ys \
 		--input-file $< \
 		--x-column 'Structured comment name' \
@@ -312,31 +313,31 @@ ncbi_biosample_sql/results/ncbi_biosample_harmonized_attribute_usage.csv: ncbi_b
 		-f $< > $@
 	date
 
-mixs_excel_harmonized_repaired/mixs_v6.xlsx.harmonized.tsv: $(SOURCE_SCHEMA_PATH)
+mixs_excel_harmonized_repaired/$(MONIKER).harmonized.tsv: $(SOURCE_SCHEMA_PATH)
 
 # note one TSV and one CSV
-other_reports/mixs-scns-vs-ncbi-harmonized-attributes.yaml: mixs_excel_harmonized_repaired/mixs_v6.xlsx.harmonized.tsv \
+other_reports/mixs-scns-vs-ncbi-harmonized-attributes.yaml: mixs_excel_harmonized_repaired/$(MONIKER).harmonized.tsv \
 ncbi_biosample_sql/results/ncbi_biosample_harmonized_attribute_usage.csv
 	$(RUN) mixs-scns-vs-ncbi-harmonized-attributes \
 		--mixs-scns-file $(word 1,$^) \
 		--ncbi-harmonized-names-file $(word 2,$^) \
 		--output-file $@
 
-schema_derivatives/GSC_MIxS_6.owl.ttl: $(SOURCE_SCHEMA_PATH)
+schema_derivatives/$(MONIKER).owl.ttl: $(SOURCE_SCHEMA_PATH)
 	$(RUN) gen-owl \
 		--output $@ \
 		--format ttl \
 		--metadata-profile rdfs $<
 
-schema_derivatives/GSC_MIxS_6.schema.json: $(SOURCE_SCHEMA_PATH)
+schema_derivatives/$(MONIKER).schema.json: $(SOURCE_SCHEMA_PATH)
 	$(RUN) gen-json-schema --closed $< > $@
 
-schema_derivatives/GSC_MIxS_6.form.xlsx: $(SOURCE_SCHEMA_PATH)
+schema_derivatives/$(MONIKER).form.xlsx: $(SOURCE_SCHEMA_PATH)
 	$(RUN) gen-excel --output $@ $<
 
 # --materialize-patterns
 # --materialize-attributes / --no-materialize-attributes
-schema_derivatives/GSC_MIxS_6.json: $(SOURCE_SCHEMA_PATH)
+schema_derivatives/$(MONIKER).json: $(SOURCE_SCHEMA_PATH)
 	$(RUN) gen-linkml \
 		--materialize-patterns \
 		--materialize-attributes \
@@ -344,10 +345,10 @@ schema_derivatives/GSC_MIxS_6.json: $(SOURCE_SCHEMA_PATH)
 
 final_deletions:
 	rm -rf curated_data/unwrapped_curated_data_for_slot_coverage_check.yaml
-	rm -rf extracted_data/unwrapped.mixs_v6.xlsx.extracted_examples.yaml
-	rm -rf schemasheets_to_usage/GSC_MIxS_6_concise_usage.tsv
+	rm -rf extracted_data/unwrapped.$(MONIKER).extracted_examples.yaml
+	rm -rf schemasheets_to_usage/$(MONIKER)_concise_usage.tsv
 
-generated_schema/final_GSC_MIxS_6.yaml: generated_schema/GSC_MIxS_6.yaml.notated.yaml
+generated_schema/final_$(MONIKER).yaml: generated_schema/$(MONIKER).yaml.notated.yaml
 	$(RUN) remove-exhaustive-elements-validation-conveniences \
 		--input-schema $< \
 		--output-schema $@
@@ -395,5 +396,5 @@ testdoc: gendoc serve
 serve: mkd-serve
 
 # Test data harmonizer locally
-dh-dev: schema_derivatives/GSC_MIxS_6.json
+dh-dev: schema_derivatives/$(MONIKER).json
 	cd data_harmonizer && npm run dev
