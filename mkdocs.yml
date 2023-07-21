@@ -8,6 +8,7 @@ plugins:
   - mermaid2
 nav:
   - MIxS Documentation: index.md
+  - Ephemeral validation (does not get submitted anywhere): _playground/
 
 
 site_url: https://turbomam.github.io/mixs-envo-struct-knowl-extraction
