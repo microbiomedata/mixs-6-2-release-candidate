@@ -46,26 +46,26 @@ jobs:
         working-directory: data_harmonizer
         run: npm install
 
-      - name: Regenerate schema
-        run: |
-          make squeaky-clean generated_schema/GSC_MIxS_6.yaml schema_derivatives/GSC_MIxS_6.json
-
-      - name: Build documentation.
-        run: |
-               poetry run gen-doc -d docs generated_schema/GSC_MIxS_6.yaml
-          #        cp src/docs/*md docs/
-               poetry run mkdocs build -d dist
-
-      - name: Build DataHarmonizer interface.
-        working-directory: data_harmonizer
-        run: |
-          npm run build -- --outDir ../dist/_playground --base /${{ github.event.repository.name }}/_playground/
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: dist
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+#      - name: Regenerate schema
+#        run: |
+#          make squeaky-clean generated_schema/GSC_MIxS_6.yaml schema_derivatives/GSC_MIxS_6.json
+#
+#      - name: Build documentation.
+#        run: |
+#               poetry run gen-doc -d docs generated_schema/GSC_MIxS_6.yaml
+#          #        cp src/docs/*md docs/
+#               poetry run mkdocs build -d dist
+#
+#      - name: Build DataHarmonizer interface.
+#        working-directory: data_harmonizer
+#        run: |
+#          npm run build -- --outDir ../dist/_playground --base /${{ github.event.repository.name }}/_playground/
+#
+#      - name: Upload artifact
+#        uses: actions/upload-pages-artifact@v1
+#        with:
+#          path: dist
+#
+#      - name: Deploy to GitHub Pages
+#        id: deployment
+#        uses: actions/deploy-pages@v1
