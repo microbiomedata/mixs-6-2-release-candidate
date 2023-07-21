@@ -14,7 +14,7 @@
             MIXS:0000050 "absolutely any text" ;
             MIXS:0000092 "absolutely any text" ;
             MIXS:0000093 "1.234 units" ;
-            MIXS:0001107 "msd2" ;
+            MIXS:0001107 "msd1" ;
             MIXS:0001320 "absolutely any text" ],
         [ a mixs_6_2_proposal:MimsSoil ;
             MIXS:0000009 "absolutely any text" ;
@@ -27,6 +27,6 @@
             MIXS:0000050 "absolutely any text" ;
             MIXS:0000092 "absolutely any text" ;
             MIXS:0000093 "1.234 units" ;
-            MIXS:0001107 "msd1" ;
+            MIXS:0001107 "msd2" ;
             MIXS:0001320 "absolutely any text" ] .
 
