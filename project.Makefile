@@ -43,7 +43,7 @@ squeaky-clean: clean
 	done
 	rm -rf curated_data/unwrapped_curated_data_for_slot_coverage_check.yaml
 
-generated_schema/GSC_MIxS_6.yaml:
+generated_schema/mixs_6_2_proposal.yaml:
 	$(RUN) write_mixs_linkml \
 		 --gsc-excel-input 'https://github.com/only1chunts/mixs-cih-fork/raw/main/mixs/excel/mixs_v6.xlsx' \
 		 --gsc-excel-output-dir downloads \
