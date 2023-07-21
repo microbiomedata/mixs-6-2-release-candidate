@@ -43,15 +43,15 @@ jobs:
 
       - name: Build documentation.
         run: |
-          rm -rf docs
-          mkdir -p docs
-          touch docs/.gitkeep          
+          rm -rf mixs-docs-md
+          mkdir -p mixs-docs-md
+          touch mixs-docs-md/.gitkeep          
           rm -rf dist
           mkdir -p dist
           touch dist/.gitkeep
-          ls -l docs
-          poetry run gen-doc -d docs generated_schema/mixs_6_2_proposal.yaml
-          ls -l docs
+          ls -l mixs-docs-md
+          poetry run gen-doc -d mixs-docs-md generated_schema/mixs_6_2_proposal.yaml
+          ls -l mixs-docs-md
           #        cp src/docs/*md docs/
           ls -l dist
           poetry run mkdocs build -d dist
