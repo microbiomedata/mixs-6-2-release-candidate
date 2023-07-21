@@ -46,7 +46,7 @@ jobs:
         run: poetry install --no-interaction
 
       #----------------------------------------------
-      #              run test suite   
+      #              make all, which includes tests of the linkml components and data
       #----------------------------------------------
       - name: Run tests
-        run: make all test
+        run: make all
