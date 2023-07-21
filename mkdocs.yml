@@ -9,7 +9,7 @@ plugins:
 nav:
   - MIxS Documentation: index.md
 
-#site_url: https://microbiomedata.github.io/nmdc-schema
+site_url: https://microbiomedata.github.io/nmdc-schema
 repo_url: https://github.com/turbomam/mixs-envo-struct-knowl-extraction
 
 docs_dir: mixs-docs-md
