@@ -1,6 +1,7 @@
 # import ast
 # import pprint
 # import os
+import os
 import pprint
 import re
 # Tuple
@@ -880,7 +881,7 @@ def extract_or_substitute_examples_etc(supplementary_file: str, global_target_sc
 @click.option('--linkml-stage-mods-file', default='config/linkml_stage_mixs_modifications.yaml')
 @click.option('--harmonized-mixs-tables-file', default='generated/mixs_v6.xlsx.harmonized.tsv')
 @click.option('--repaired-mixs-tables-file', default='generated/mixs_v6.xlsx.repaired.tsv')
-@click.option('--mixs-excel-output-file', default='generated/mixs_v6.xlsx')
+@click.option('--gsc-excel-output-dir', default='downloads')
 @click.option('--non-ascii-replacement', default=' ')
 @click.option('--schema-file-out', default='generated/GSC_MIxS_6.yaml')
 @click.option('--schema-name', default='mixs_6_2_proposal')
@@ -899,9 +900,11 @@ def extract_or_substitute_examples_etc(supplementary_file: str, global_target_sc
               help="Could be considered changes to the MIxS XLSX file, like @only1chunts applied recently, although we apply them to the harmonized TSV file instead")
 def create_schema(non_ascii_replacement, debug, gsc_excel_input, textual_key, schema_name,
                   checklists, tables_stage_mods_file, linkml_stage_mods_file, range_pattern_inference_file,
-                  mixs_excel_output_file, harmonized_mixs_tables_file, repaired_mixs_tables_file, schema_file_out,
+                  gsc_excel_output_dir, harmonized_mixs_tables_file, repaired_mixs_tables_file, schema_file_out,
                   extracted_examples_out, repair_report, unmapped_report, minimal_combos):
-    # dest_dir, excel_file_name = os.path.split(mixs_excel_output_file)
+    url_path_components = gsc_excel_input.split('/')
+    gsc_excel_file_name = url_path_components[-1]
+    gsc_excel_output_path = os.path.join(gsc_excel_output_dir, gsc_excel_file_name)
 
     default_prefix_name = "mixs_6_2_proposal"
     default_prefix_base = "https://turbomam.github.io/mixs-envo-struct-knowl-extraction/"
@@ -916,7 +919,7 @@ def create_schema(non_ascii_replacement, debug, gsc_excel_input, textual_key, sc
     global_target_schema.prefixes[default_prefix_name] = Prefix(default_prefix_name, default_prefix_base)
     global_target_schema.default_prefix = default_prefix_name
 
-    harmonized_sheets = harmonize_sheets(gsc_excel_input, mixs_excel_output_file, textual_key, checklists)
+    harmonized_sheets = harmonize_sheets(gsc_excel_input, gsc_excel_output_path, textual_key, checklists)
     harmonized_sheets.to_csv(harmonized_mixs_tables_file, index=False, sep='\t')
 
     harmonized_sheets, repair_report_df = apply_jit_fixes(tables_stage_mods_file, harmonized_sheets)

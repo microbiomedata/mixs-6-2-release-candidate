@@ -46,7 +46,7 @@ squeaky-clean: clean
 generated_schema/GSC_MIxS_6.yaml:
 	$(RUN) write_mixs_linkml \
 		 --gsc-excel-input 'https://github.com/only1chunts/mixs-cih-fork/raw/main/mixs/excel/mixs_v6.xlsx' \
-		 --mixs-excel-output-file downloads/mixs_v6.xlsx \
+		 --gsc-excel-output-dir downloads \
 		 --checklists migs_ba \
 		 --checklists migs_eu \
 		 --checklists migs_org \
@@ -70,7 +70,7 @@ generated_schema/GSC_MIxS_6.yaml:
 		 --extracted-examples-out extracted_data/mixs_v6.xlsx.extracted_examples.yaml \
 		 --repair-report conflict_reports/conflict_repair_report.tsv \
 		 --unmapped-report other_reports/un-handled_stringsers_expvals.tsv \
-		 --schema-file-out $(SOURCE_SCHEMA_PATH)
+		 --schema-file-out $@
 
 $(SOURCE_SCHEMA_PATH).notated.yaml: text_mining_results/mixs_v6_repaired_term_title_token_matrix.tsv
 
@@ -394,14 +394,6 @@ testdoc: gendoc serve
 # Test documentation locally
 serve: mkd-serve
 
-## was deploy: all mkd-gh-deploy
-#deploy: gendoc mkd-gh-deploy
-#
-#dh-dev: schema_derivatives/GSC_MIxS_6.json
-#	cd data_harmonizer && npm run dev
-#
-#dh-env-test: schema_derivatives/GSC_MIxS_6.json
-#	npm --version
-#
-#dh-build: schema_derivatives/GSC_MIxS_6.json
-#	cd data_harmonizer && npm run build
+# Test data harmonizer locally
+dh-dev: schema_derivatives/GSC_MIxS_6.json
+	cd data_harmonizer && npm run dev
