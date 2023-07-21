@@ -398,4 +398,12 @@ serve: mkd-serve
 dh-dev: schema_derivatives/$(MONIKER).json
 	cd data_harmonizer && npm run dev
 
-# GH pages deployment including data harmonizer handles by .github/workflows/deploy-docs.yaml
+# GH pages deployment including data harmonizer is handled by .github/workflows/deploy-docs.yaml
+
+# some mkdocs create a site directory
+#  which is gitignored
+# do we need mixs-docs-html ?
+
+# source for building and deploying GH pages? https://github.com/turbomam/mixs-envo-struct-knowl-extraction/settings/pages
+# "Deploy from a branch"?
+# "GitHub Actions"?
