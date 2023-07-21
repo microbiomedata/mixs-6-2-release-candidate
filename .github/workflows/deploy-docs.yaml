@@ -49,12 +49,12 @@ jobs:
       - name: Regenerate schema
         run: make squeaky-clean generated_schema/GSC_MIxS_6.yaml schema_derivatives/GSC_MIxS_6.json
 
-#      - name: Build documentation.
-#        run: |
-#               poetry run gen-doc -d docs generated_schema/GSC_MIxS_6.yaml
-#          #        cp src/docs/*md docs/
-#               poetry run mkdocs build -d dist
-#
+      - name: Build documentation.
+        run: |
+          poetry run gen-doc -d docs generated_schema/GSC_MIxS_6.yaml
+          #        cp src/docs/*md docs/
+          poetry run mkdocs build -d dist
+
 #      - name: Build DataHarmonizer interface.
 #        working-directory: data_harmonizer
 #        run: |
