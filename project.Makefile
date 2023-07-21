@@ -1,5 +1,7 @@
-include local/.env # for PGPASSWORD, BIOSAMPLE_DB_USER etc
-export $(shell sed 's/=.*//'  local/.env)
+
+##only if running the postgres queries
+#include local/.env # for PGPASSWORD, BIOSAMPLE_DB_USER etc
+#export $(shell sed 's/=.*//'  local/.env)
 
 .PHONY: all clean squeaky-clean conflicts-cleanup conflicts-all
 
@@ -19,10 +21,9 @@ conflicts-all other_reports/mixs-scns-vs-ncbi-harmonized-attributes.yaml \
 schema_derivatives/GSC_MIxS_6.owl.ttl schema_derivatives/GSC_MIxS_6.schema.json schema_derivatives/GSC_MIxS_6.form.xlsx \
 final_deletions generated_schema/final_GSC_MIxS_6.yaml \
 validate_multiple_mims_soil \
-converted_data/MimsSoil_example.csv converted_data/MimsSoil_example.ttl \
-deploy
+converted_data/MimsSoil_example.csv converted_data/MimsSoil_example.ttl
 
-# converted_data/MimsSoil_example.ttl
+# deploy
 
 clean:
 	rm -rf generated_schema/GSC_MIxS_6_usage_populated_raw.tsv
@@ -331,6 +332,14 @@ schema_derivatives/GSC_MIxS_6.schema.json: $(SOURCE_SCHEMA_PATH)
 schema_derivatives/GSC_MIxS_6.form.xlsx: $(SOURCE_SCHEMA_PATH)
 	$(RUN) gen-excel --output $@ $<
 
+# --materialize-patterns
+# --materialize-attributes / --no-materialize-attributes
+schema_derivatives/GSC_MIxS_6.json: $(SOURCE_SCHEMA_PATH)
+	$(RUN) gen-linkml \
+		--materialize-patterns \
+		--materialize-attributes \
+		--output $@ $<
+
 final_deletions:
 	rm -rf curated_data/unwrapped_curated_data_for_slot_coverage_check.yaml
 	rm -rf extracted_data/unwrapped.mixs_v6.xlsx.extracted_examples.yaml
@@ -383,5 +392,14 @@ testdoc: gendoc serve
 # Test documentation locally
 serve: mkd-serve
 
-# was deploy: all mkd-gh-deploy
-deploy: gendoc mkd-gh-deploy
+## was deploy: all mkd-gh-deploy
+#deploy: gendoc mkd-gh-deploy
+#
+#dh-dev: schema_derivatives/GSC_MIxS_6.json
+#	cd data_harmonizer && npm run dev
+#
+#dh-env-test: schema_derivatives/GSC_MIxS_6.json
+#	npm --version
+#
+#dh-build: schema_derivatives/GSC_MIxS_6.json
+#	cd data_harmonizer && npm run build
