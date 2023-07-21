@@ -341,6 +341,7 @@ schema_derivatives/$(MONIKER).json: $(SOURCE_SCHEMA_PATH)
 		--materialize-patterns \
 		--materialize-attributes \
 		--output $@ $<
+	cp $@ data_harmonizer/schemas
 
 final_deletions:
 	rm -rf curated_data/unwrapped_curated_data_for_slot_coverage_check.yaml
@@ -379,10 +380,10 @@ $(DOCDIR):
 	mkdir -p $@
 
 gendoc: $(DOCDIR)
-#	# added copying of images and renaming of TEMP.md
+#	# copying of images and static content
 #	cp $(SRC)/docs/*md $(DOCDIR) ; \
 #	cp -r $(SRC)/docs/images $(DOCDIR) ;
-	$(RUN) gen-doc -d $(DOCDIR) --template-directory $(TEMPLATEDIR) $(SOURCE_SCHEMA_PATH)
+	$(RUN) gen-doc -d $(DOCDIR) --template-directory $(TEMPLATEDIR)  --use-slot-uris $(SOURCE_SCHEMA_PATH)
 	#mv $(DOCDIR)/TEMP.md $(DOCDIR)/temp.md
 
 MKDOCS = $(RUN) mkdocs
