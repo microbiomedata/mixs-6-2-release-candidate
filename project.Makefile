@@ -12,6 +12,8 @@ SOURCE_SCHEMA_PATH = generated_schema/GSC_MIxS_6.yaml
 DOCDIR = mixs-docs-md
 TEMPLATEDIR = mixs-docs-templates
 
+MONIKER=mixs_6_2_proposal
+
 all: squeaky-clean $(SOURCE_SCHEMA_PATH) \
 linkml-validate-exhaustive linkml-validate-extracted \
 other_reports/curated_data_coverage_report.yaml other_reports/extracted_data_coverage_report.yaml \
@@ -43,8 +45,8 @@ squeaky-clean: clean
 
 generated_schema/GSC_MIxS_6.yaml:
 	$(RUN) write_mixs_linkml \
-		 --base-url 'https://github.com/only1chunts/mixs-cih-fork/raw/main/mixs/excel/' \
-		 --schema-name GSC_MIxS_6 \
+		 --gsc-excel-input 'https://github.com/only1chunts/mixs-cih-fork/raw/main/mixs/excel/mixs_v6.xlsx' \
+		 --mixs-excel-output-file downloads/mixs_v6.xlsx \
 		 --checklists migs_ba \
 		 --checklists migs_eu \
 		 --checklists migs_org \
@@ -56,19 +58,19 @@ generated_schema/GSC_MIxS_6.yaml:
 		 --checklists mims \
 		 --checklists misag \
 		 --checklists miuvig \
+		 --minimal-combos \
 		 --non-ascii-replacement '' \
-		 --scn-key 'Structured comment name' \
+		 --schema-name $(MONIKER) \
+		 --textual-key 'Structured comment name' \
 		 --linkml-stage-mods-file config/linkml_stage_mixs_modifications.yaml \
 		 --range-pattern-inference-file config/mixs_stringsers_expvals_to_linkml_ranges_patterns.tsv \
 		 --tables-stage-mods-file config/mixs_tables_stage_modifications.tsv \
-		 --minimal-combos \
-		 --extracted-examples-out extracted_data/mixs_v6.xlsx.extracted_examples.yaml \
 		 --harmonized-mixs-tables-file mixs_excel_harmonized_repaired/mixs_v6.xlsx.harmonized.tsv \
-		 --mixs-excel-output-file downloads/mixs_v6.xlsx \
-		 --repair-report conflict_reports/conflict_repair_report.tsv \
 		 --repaired-mixs-tables-file mixs_excel_harmonized_repaired/mixs_v6.xlsx.repaired.tsv \
-		 --schema-file-out $(SOURCE_SCHEMA_PATH) \
+		 --extracted-examples-out extracted_data/mixs_v6.xlsx.extracted_examples.yaml \
+		 --repair-report conflict_reports/conflict_repair_report.tsv \
 		 --unmapped-report other_reports/un-handled_stringsers_expvals.tsv \
+		 --schema-file-out $(SOURCE_SCHEMA_PATH)
 
 $(SOURCE_SCHEMA_PATH).notated.yaml: text_mining_results/mixs_v6_repaired_term_title_token_matrix.tsv
 
