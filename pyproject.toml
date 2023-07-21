@@ -117,6 +117,9 @@ use_parentheses = true
 line_length = 88
 include = '\.pyi?$'
 
+[tool.poetry.extras]
+docs = ["linkml", "mkdocs-material"]
+
 [tool.poetry.scripts]
 write_mixs_linkml = "mixs_envo_struct_knowl_extraction.mixs_linkml_from_xlsx:create_schema"
 add_notes_from_text_mining = "mixs_envo_struct_knowl_extraction.slot_text_mining:cli"
