@@ -20,12 +20,11 @@ other_reports/curated_data_coverage_report.yaml other_reports/extracted_data_cov
 text_mining_results/mixs_v6_repaired_term_title_token_matrix.tsv \
 schemasheets_to_usage/$(MONIKER).yaml.exhaustive.usage-report.tsv schemasheets_to_usage/$(MONIKER).yaml.concise.usage-report.tsv \
 conflicts-all other_reports/mixs-scns-vs-ncbi-harmonized-attributes.yaml \
-schema_derivatives/$(MONIKER).owl.ttl schema_derivatives/$(MONIKER).schema.json schema_derivatives/$(MONIKER).form.xlsx \
+schema_derivatives/$(MONIKER).owl.ttl schema_derivatives/$(MONIKER).schema.json \
+schema_derivatives/$(MONIKER).form.xlsx schema_derivatives/$(MONIKER).json \
 final_deletions generated_schema/final_$(MONIKER).yaml \
 validate_multiple_mims_soil \
 converted_data/MimsSoil_example.csv converted_data/MimsSoil_example.ttl
-
-# deploy
 
 clean:
 	rm -rf generated_schema/$(MONIKER)_usage_populated_raw.tsv
@@ -398,3 +397,5 @@ serve: mkd-serve
 # Test data harmonizer locally
 dh-dev: schema_derivatives/$(MONIKER).json
 	cd data_harmonizer && npm run dev
+
+# GH pages deployment including data harmonizer handles by .github/workflows/deploy-docs.yaml
