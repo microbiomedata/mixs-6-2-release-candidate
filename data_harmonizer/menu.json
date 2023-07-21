@@ -1,0 +1,19 @@
+{
+  "GSC_MIxS_6": {
+    "Mims": {
+      "name": "Mims",
+      "status": "published",
+      "display": true
+    },
+    "Soil": {
+      "name": "Soil",
+      "status": "published",
+      "display": true
+    },
+    "MimsSoil": {
+      "name": "MimsSoil",
+      "status": "published",
+      "display": true
+    }
+  }
+}
