@@ -11888,18 +11888,18 @@
                 }
             },
             "required": [
-                "collection_date",
-                "depth",
-                "geo_loc_name",
-                "project_name",
-                "lat_lon",
-                "env_local_scale",
-                "samp_name",
-                "elev",
                 "samp_taxon_id",
-                "seq_meth",
+                "lat_lon",
                 "env_medium",
-                "env_broad_scale"
+                "samp_name",
+                "env_broad_scale",
+                "project_name",
+                "collection_date",
+                "seq_meth",
+                "env_local_scale",
+                "elev",
+                "geo_loc_name",
+                "depth"
             ],
             "title": "MimsSoil",
             "type": "object"
@@ -15167,7 +15167,7 @@
             "type": "object"
         }
     },
-    "$id": "https://turbomam.github.io/mixs-envo-struct-knowl-extraction//GSC_MIxS_6",
+    "$id": "https://turbomam.github.io/mixs-envo-struct-knowl-extraction//mixs_6_2_proposal",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "additionalProperties": false,
     "description": "A collection of data that complies with some combination of a MIxS checklist and environmental package",
@@ -15181,7 +15181,7 @@
             "type": "array"
         }
     },
-    "title": "GSC_MIxS_6",
+    "title": "mixs_6_2_proposal",
     "type": "object",
     "version": null
 }

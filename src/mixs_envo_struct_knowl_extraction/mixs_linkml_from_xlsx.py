@@ -1,12 +1,13 @@
 # import ast
 # import pprint
-import os
+# import os
 import pprint
 import re
-from typing import List, Tuple, Union, Any
+# Tuple
+from typing import List, Union, Any
 
 import click
-import numpy as np
+# import numpy as np
 import pandas as pd
 import requests
 import yaml
@@ -90,6 +91,7 @@ def instantiate_classes(df: pd.DataFrame, checklists, global_target_schema, mini
         name=class_name,
         title="MIxS compliant data",
         description="A collection of data that complies with some combination of a MIxS checklist and environmental package",
+        comments=["canary"],
         tree_root=True,
     )
     global_target_schema.classes[class_name] = new_class
@@ -153,7 +155,7 @@ def del_and_rename_cols(df, columns_to_delete, column_mapping):
     return df.drop(columns=columns_to_delete).rename(columns=column_mapping)
 
 
-def harmonize_sheets(url: str, excel_file_path, scn_key, checklists) -> pd.DataFrame:
+def harmonize_sheets(url: str, excel_file_path, textual_key, checklists) -> pd.DataFrame:
     # todo parameterize the column dropping and renaming
 
     checklists = list(checklists)
@@ -177,7 +179,7 @@ def harmonize_sheets(url: str, excel_file_path, scn_key, checklists) -> pd.DataF
 
     # # # #
 
-    mixs_melted = pd.melt(df_mixs_renamed, id_vars=[scn_key], var_name='key',
+    mixs_melted = pd.melt(df_mixs_renamed, id_vars=[textual_key], var_name='key',
                           value_name='value')
 
     # Extract DataFrame where values are found in column X
@@ -188,7 +190,7 @@ def harmonize_sheets(url: str, excel_file_path, scn_key, checklists) -> pd.DataF
     mixs_constants = df_mixs_renamed.drop(columns=checklists)
 
     mixs_by_scn_and_class = pd.merge(mixs_checklists_requirements_renamed, mixs_constants,
-                                     on=[scn_key])
+                                     on=[textual_key])
 
     mixs_by_scn_and_class_renamed = mixs_by_scn_and_class.rename(columns={"key": "class"})
 
@@ -264,10 +266,11 @@ def apply_jit_fixes(fixes_file: str, df: pd.DataFrame) -> tuple[DataFrame, Union
     return df, reports_df
 
 
-def process_sheet(df: pd.DataFrame, checklists, global_target_schema, scn_key, non_ascii_replacement, minimal_combos) -> \
+def process_sheet(df: pd.DataFrame, checklists, global_target_schema, textual_key, non_ascii_replacement,
+                  minimal_combos) -> \
         List[str]:
     instantiate_classes(df, checklists, global_target_schema, minimal_combos=minimal_combos)
-    slots_list = df[scn_key].unique().tolist()
+    slots_list = df[textual_key].unique().tolist()
 
     for s in slots_list:
         if type(s) is not str:
@@ -279,26 +282,26 @@ def process_sheet(df: pd.DataFrame, checklists, global_target_schema, scn_key, n
     slots_list.sort()
 
     for slot in slots_list:
-        process_scn(df, slot, scn_key, global_target_schema, non_ascii_replacement)
+        process_scn(df, slot, textual_key, global_target_schema, non_ascii_replacement)
 
     return slots_list
 
 
-def process_scn(df: pd.DataFrame, scn: str, scn_key, global_target_schema, non_ascii_replacement) -> None:
-    scn_sheet_original = df[df[scn_key] == scn]
+def process_scn(df: pd.DataFrame, scn: str, textual_key, global_target_schema, non_ascii_replacement) -> None:
+    scn_sheet_original = df[df[textual_key] == scn]
     scn_sheet = scn_sheet_original.copy()
-    scn_sheet.drop(scn_key, axis=1, inplace=True)
+    scn_sheet.drop(textual_key, axis=1, inplace=True)
     scn_sheet.dropna(axis=1, how='all', inplace=True)
     attribute_names = scn_sheet.columns.tolist()
     attribute_names.remove('class')
     for attribute_name in attribute_names:
-        process_attribute(df, scn, attribute_name, non_ascii_replacement, scn_key, global_target_schema)
+        process_attribute(df, scn, attribute_name, non_ascii_replacement, textual_key, global_target_schema)
 
 
-def process_attribute(df: pd.DataFrame, scn: str, attribute_name: str, non_ascii_replacement, scn_key,
+def process_attribute(df: pd.DataFrame, scn: str, attribute_name: str, non_ascii_replacement, textual_key,
                       global_target_schema) -> None:
     # Filter the DataFrame based on the condition
-    filtered_df = df[df[scn_key] == scn]
+    filtered_df = df[df[textual_key] == scn]
 
     # Extract the unique values from the desired column
     unique_values = filtered_df[attribute_name].unique()
@@ -321,8 +324,8 @@ def process_attribute(df: pd.DataFrame, scn: str, attribute_name: str, non_ascii
     if len(sanitized_values) == 1:
         process_consensus_value(scn, attribute_name, sanitized_values[0], global_target_schema)
     else:
-        attributes_by_class = filtered_df[[scn_key, 'class', attribute_name]]
-        process_contested_value(attributes_by_class, scn_key, global_target_schema)
+        attributes_by_class = filtered_df[[textual_key, 'class', attribute_name]]
+        process_contested_value(attributes_by_class, textual_key, global_target_schema)
 
 
 def process_consensus_value(scn: str, attribute_name: str, value: str, global_target_schema) -> None:
@@ -376,10 +379,10 @@ def process_consensus_value(scn: str, attribute_name: str, value: str, global_ta
         global_target_schema.slots[tidied_slot_name].annotations[tidied_attribute_name] = new_annotation
 
 
-def process_contested_value(attributes_by_class: pd.DataFrame, scn_key, global_target_schema) -> None:
-    scn = attributes_by_class[scn_key].iloc[0]
+def process_contested_value(attributes_by_class: pd.DataFrame, textual_key, global_target_schema) -> None:
+    scn = attributes_by_class[textual_key].iloc[0]
     abc = attributes_by_class.copy()
-    abc.drop(scn_key, axis=1, inplace=True)
+    abc.drop(textual_key, axis=1, inplace=True)
 
     remaining_columns = abc.columns.tolist()
     value_name = (set(remaining_columns) - {'class'}).pop()
@@ -389,7 +392,7 @@ def process_contested_value(attributes_by_class: pd.DataFrame, scn_key, global_t
     duplicated_classes = class_counts[class_counts > 1].index.tolist()
     if len(duplicated_classes) > 0:
         dupe_frame = abc[abc['class'].isin(duplicated_classes)].copy()
-        dupe_frame[scn_key] = scn
+        dupe_frame[textual_key] = scn
         all_values = dupe_frame[value_name].unique().tolist()
         duplication_comment = f"Classes {', '.join(duplicated_classes)} has/have duplicate values in {value_name} for {scn}: {', '.join(all_values)}"
         print(f"duplication_comment: {duplication_comment}")
@@ -462,7 +465,7 @@ def process_contested_value(attributes_by_class: pd.DataFrame, scn_key, global_t
                         tidied_attribute_name] = new_annotation
 
 
-def requirement_followup(sheet: pd.DataFrame, global_target_schema, debug_mode):
+def requirement_followup(sheet: pd.DataFrame, global_target_schema, debug_mode, textual_key):
     """
     Iterate over the slot/scn and class columns in the sheet.
     Check if there is already a slot usage for that combination.
@@ -471,7 +474,7 @@ def requirement_followup(sheet: pd.DataFrame, global_target_schema, debug_mode):
     """
 
     # todo parameterize
-    relevant_columns = ['Structured comment name', 'class', 'Requirement']
+    relevant_columns = [textual_key, 'class', 'Requirement']
 
     relevant_sheet = sheet[relevant_columns].copy()
 
@@ -480,11 +483,11 @@ def requirement_followup(sheet: pd.DataFrame, global_target_schema, debug_mode):
     relevant_dicts = relevant_sheet.to_dict('records')
 
     for relevant_dict in relevant_dicts:
-        if type(relevant_dict['Structured comment name']) is not str:
+        if type(relevant_dict[textual_key]) is not str:
             print("Requirement specification is lacking a string-typed Structured comment name:")
             pprint.pprint(relevant_dict)
             continue
-        tidied_scn = re.sub(r'\W+', '_', relevant_dict['Structured comment name'])
+        tidied_scn = re.sub(r'\W+', '_', relevant_dict[textual_key])
         tidied_class = convert_to_pascal_case(relevant_dict['class'])
         requirement = relevant_dict['Requirement']
 
@@ -562,8 +565,9 @@ def requirement_followup(sheet: pd.DataFrame, global_target_schema, debug_mode):
     print("\n")
 
 
-def construct_assign_simple_enumerations(sheet: pd.DataFrame, debug_mode: bool, global_target_schema) -> None:
-    relevant_columns = ['Structured comment name', 'Value syntax']
+def construct_assign_simple_enumerations(sheet: pd.DataFrame, debug_mode: bool, global_target_schema,
+                                         textual_key) -> None:
+    relevant_columns = [textual_key, 'Value syntax']
 
     relevant_sheet = sheet[relevant_columns].copy()
 
@@ -574,18 +578,18 @@ def construct_assign_simple_enumerations(sheet: pd.DataFrame, debug_mode: bool, 
     possible_enums_sheet = relevant_sheet[relevant_sheet['Value syntax'].str.contains(r'^\[.*\|.*\]$') &
                                           ~relevant_sheet['Value syntax'].str.contains(r'[,;\'(){}]')]
 
-    scn_val_counts = possible_enums_sheet['Structured comment name'].value_counts()
+    scn_val_counts = possible_enums_sheet[textual_key].value_counts()
 
     duplicated_scn_val_counts = scn_val_counts[scn_val_counts > 1]
 
     duplicated_scns = duplicated_scn_val_counts.index.tolist()
 
-    contradictory_enums = possible_enums_sheet[possible_enums_sheet['Structured comment name'].isin(duplicated_scns)]
+    contradictory_enums = possible_enums_sheet[possible_enums_sheet[textual_key].isin(duplicated_scns)]
     print(f"{contradictory_enums = }")
     print("\n")
 
     # add a comment to the schema
-    scns_with_contradictory_enums = contradictory_enums['Structured comment name'].unique().tolist()
+    scns_with_contradictory_enums = contradictory_enums[textual_key].unique().tolist()
     scns_with_contradictory_enums = [re.sub(r'\W+', '_', scn) for scn in scns_with_contradictory_enums]
     scns_with_contradictory_enums.sort()
     if len(scns_with_contradictory_enums) > 0:
@@ -593,7 +597,7 @@ def construct_assign_simple_enumerations(sheet: pd.DataFrame, debug_mode: bool, 
             f"The following slots have  contradictory Value syntaxes so enumerations can not be created for their ranges: {', '.join(scns_with_contradictory_enums)}")
 
     possible_enums_no_scn_dupes = possible_enums_sheet[
-        ~possible_enums_sheet['Structured comment name'].isin(duplicated_scns)]
+        ~possible_enums_sheet[textual_key].isin(duplicated_scns)]
 
     val_syntax_val_counts = possible_enums_no_scn_dupes['Value syntax'].value_counts()
 
@@ -609,8 +613,8 @@ def construct_assign_simple_enumerations(sheet: pd.DataFrame, debug_mode: bool, 
     slot_to_enums_dict = {}
 
     for singleton_enum_dict in singleton_enum_dict_list:
-        tidied_scn = tidied_scn = re.sub(r'\W+', '_', singleton_enum_dict['Structured comment name'])
-        name_for_enum = f"{convert_to_upper_snake_case(singleton_enum_dict['Structured comment name'])}_ENUM"
+        tidied_scn = tidied_scn = re.sub(r'\W+', '_', singleton_enum_dict[textual_key])
+        name_for_enum = f"{convert_to_upper_snake_case(singleton_enum_dict[textual_key])}_ENUM"
         slot_to_enums_dict[tidied_scn] = name_for_enum
         pvs = [x.strip() for x in singleton_enum_dict['Value syntax'].strip('[]').split('|')]
         pvs.sort()
@@ -640,7 +644,7 @@ def construct_assign_simple_enumerations(sheet: pd.DataFrame, debug_mode: bool, 
         subset_frame = shared_enums[shared_enums['Value syntax'] == val_syntax]
         pvs = [x.strip() for x in val_syntax.strip('[]').split('|')]
         pvs.sort()
-        scns = subset_frame['Structured comment name'].tolist()
+        scns = subset_frame[textual_key].tolist()
 
         name_for_enum = f"SHARED_ENUM_{index}"
         current_enum = EnumDefinition(name=name_for_enum)
@@ -879,10 +883,13 @@ def extract_or_substitute_examples_etc(supplementary_file: str, global_target_sc
 @click.option('--mixs-excel-output-file', default='generated/mixs_v6.xlsx')
 @click.option('--non-ascii-replacement', default=' ')
 @click.option('--schema-file-out', default='generated/GSC_MIxS_6.yaml')
-@click.option('--schema-name', default='GSC_MIxS_6')
-@click.option('--scn-key', default='Structured comment name')
-@click.option('--base-url', default='https://github.com/only1chunts/mixs-cih-fork/raw/main/mixs/excel/',
-              help='Base URL for the MIxS Excel file. Last release = https://github.com/GenomicsStandardsConsortium/mixs/raw/main/mixs/excel/')
+@click.option('--schema-name', default='mixs_6_2_proposal')
+@click.option('--textual-key', default='Structured comment name')
+# https://github.com/only1chunts/mixs-cih-fork/raw/main/mixs/excel/mixs_v6.xlsx
+# https://github.com/GenomicsStandardsConsortium/mixs/raw/main/mixs/excel/mixs_v6.xlsx
+@click.option('--gsc-excel-input',
+              default='https://github.com/GenomicsStandardsConsortium/mixs/raw/main/mixs/excel/mixs_v6.xlsx',
+              help='URL Path to the MIxS Excel file')
 @click.option('--checklists', multiple=True, help='Requires prior knowledge about current MIxS checklists',
               default=['migs_ba', 'migs_eu', 'migs_org', 'migs_pl', 'migs_vi', 'mimag', 'mimarks_c', 'mimarks_s',
                        'mims', 'misag', 'miuvig'])
@@ -890,12 +897,11 @@ def extract_or_substitute_examples_etc(supplementary_file: str, global_target_sc
               default='config/mixs_stringsers_expvals_to_linkml_ranges_patterns.tsv')
 @click.option('--tables-stage-mods-file', default='config/mixs_tables_stage_modifications.tsv',
               help="Could be considered changes to the MIxS XLSX file, like @only1chunts applied recently, although we apply them to the harmonized TSV file instead")
-def create_schema(non_ascii_replacement, debug, base_url, scn_key, schema_name,
+def create_schema(non_ascii_replacement, debug, gsc_excel_input, textual_key, schema_name,
                   checklists, tables_stage_mods_file, linkml_stage_mods_file, range_pattern_inference_file,
                   mixs_excel_output_file, harmonized_mixs_tables_file, repaired_mixs_tables_file, schema_file_out,
                   extracted_examples_out, repair_report, unmapped_report, minimal_combos):
-    dest_dir, excel_file_name = os.path.split(mixs_excel_output_file)
-    file_url = base_url + excel_file_name
+    # dest_dir, excel_file_name = os.path.split(mixs_excel_output_file)
 
     default_prefix_name = "mixs_6_2_proposal"
     default_prefix_base = "https://turbomam.github.io/mixs-envo-struct-knowl-extraction/"
@@ -904,25 +910,25 @@ def create_schema(non_ascii_replacement, debug, base_url, scn_key, schema_name,
         default_range="string",
         id=f"{default_prefix_base}/{schema_name}",
         name=schema_name,
-        source=file_url,
+        source=gsc_excel_input,
     )
 
     global_target_schema.prefixes[default_prefix_name] = Prefix(default_prefix_name, default_prefix_base)
     global_target_schema.default_prefix = default_prefix_name
 
-    harmonized_sheets = harmonize_sheets(file_url, mixs_excel_output_file, scn_key, checklists)
+    harmonized_sheets = harmonize_sheets(gsc_excel_input, mixs_excel_output_file, textual_key, checklists)
     harmonized_sheets.to_csv(harmonized_mixs_tables_file, index=False, sep='\t')
 
     harmonized_sheets, repair_report_df = apply_jit_fixes(tables_stage_mods_file, harmonized_sheets)
 
     repair_report_df.to_csv(repair_report, index=False, sep='\t')
 
-    process_sheet(harmonized_sheets, checklists, global_target_schema, scn_key,
+    process_sheet(harmonized_sheets, checklists, global_target_schema, textual_key,
                   non_ascii_replacement, minimal_combos=minimal_combos)
 
-    requirement_followup(harmonized_sheets, global_target_schema, debug)
+    requirement_followup(harmonized_sheets, global_target_schema, debug, textual_key)
 
-    construct_assign_simple_enumerations(harmonized_sheets, debug, global_target_schema)
+    construct_assign_simple_enumerations(harmonized_sheets, debug, global_target_schema, textual_key)
 
     unmapped = string_ser_exp_val_to_range_patterns(range_pattern_inference_file, global_target_schema)
     unmapped_frame = pd.DataFrame(unmapped)
