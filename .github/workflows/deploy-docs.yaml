@@ -46,10 +46,9 @@ jobs:
         working-directory: data_harmonizer
         run: npm install
 
-#      - name: Regenerate schema
-#        run: |
-#          make squeaky-clean generated_schema/GSC_MIxS_6.yaml schema_derivatives/GSC_MIxS_6.json
-#
+      - name: Regenerate schema
+        run: make squeaky-clean generated_schema/GSC_MIxS_6.yaml schema_derivatives/GSC_MIxS_6.json
+
 #      - name: Build documentation.
 #        run: |
 #               poetry run gen-doc -d docs generated_schema/GSC_MIxS_6.yaml
