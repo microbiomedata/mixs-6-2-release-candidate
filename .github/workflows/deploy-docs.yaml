@@ -2,6 +2,7 @@ name: Auto-deployment of nmdc_submission_schema documentation and DH interface
 on:
   push:
     branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   build-docs:
@@ -30,15 +31,6 @@ jobs:
         with:
           node-version: 16
 
-      #    - name: Install yq
-      #      env:
-      #        YQ_VERSION: v4.30.5
-      #        YQ_BINARY: yq_linux_amd64
-      #      run: |
-      #        mkdir -p $HOME/.local/bin
-      #        wget https://github.com/mikefarah/yq/releases/download/$YQ_VERSION/$YQ_BINARY.tar.gz -O - | tar xz && mv $YQ_BINARY $HOME/.local/bin/yq
-      #        echo "$HOME/.local/bin" >> $GITHUB_PATH
-
       - name: Install Python dependencies.
         run: poetry install -E docs
 
@@ -51,7 +43,12 @@ jobs:
 
       - name: Build documentation.
         run: |
+          rm -rf docs
+          mkdir -p docs
+          touch docs/.gitkeep
+          ls -l docs
           poetry run gen-doc -d docs generated_schema/mixs_6_2_proposal.yaml
+          ls -l docs
           #        cp src/docs/*md docs/
           poetry run mkdocs build -d dist
 
