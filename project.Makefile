@@ -24,7 +24,8 @@ schema_derivatives/$(MONIKER).owl.ttl schema_derivatives/$(MONIKER).schema.json 
 schema_derivatives/$(MONIKER).form.xlsx schema_derivatives/$(MONIKER).json \
 final_deletions generated_schema/final_$(MONIKER).yaml \
 validate_multiple_mims_soil \
-converted_data/MimsSoil_example.csv converted_data/MimsSoil_example.ttl
+converted_data/MimsSoil_example.csv converted_data/MimsSoil_example.ttl \
+other_reports/slot-usage-report.tsv
 
 clean:
 	rm -rf generated_schema/$(MONIKER)_usage_populated_raw.tsv
@@ -401,12 +402,17 @@ dh-dev: schema_derivatives/$(MONIKER).json
 
 # GH pages deployment including data harmonizer is handled by .github/workflows/deploy-docs.yaml
 
-# some mkdocs create a site directory
+# some mkdocs commands create a site directory
 #  which is gitignored
-# do we still need mixs-docs-html ?
+# so removed unnecessary mixs-docs-html
 
-# Actions based doc build/deploy isn't working except for landing page
-
-# source for building and deploying GH pages? https://github.com/turbomam/mixs-envo-struct-knowl-extraction/settings/pages
-# "Deploy from a branch"?
-# "GitHub Actions"?
+other_reports/slot-usage-report.tsv:
+	$(RUN) usage-detector \
+		--ignore-attributes 'annotations' \
+		--ignore-attributes 'examples' \
+		--ignore-attributes 'name' \
+		--ignore-attributes 'recommended' \
+		--ignore-attributes 'required' \
+		--ignore-attributes string_serialization \
+		--report-tsv-file $@ \
+		--schema-file $(SOURCE_SCHEMA_PATH)

@@ -169,7 +169,6 @@ depth
 dermatology
 design
 design,
-design/sieving
 detection
 device
 dew
@@ -386,7 +385,6 @@ longitude)
 loss
 lot
 lower
-lung/nose-throat
 lung/pulmonary
 lux
 lysis
@@ -423,6 +421,7 @@ micronutrients
 migs_ba
 mims
 mimssoil
+mimswater
 mineral
 miscellaneous
 miscellaneousnaturalorartificialenvironment
@@ -446,7 +445,7 @@ nitrate
 nitrite
 nitrogen
 non-mineral
-nose/mouth/teeth/throat
+nose
 nucleic
 number
 nutrient
@@ -620,6 +619,7 @@ share
 shared
 shipping
 sibling
+sieving
 signs
 silicate
 similarity
@@ -703,6 +703,7 @@ tertiary
 texture
 thermal
 threshold
+throat
 tidal
 time
 time-course
