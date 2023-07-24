@@ -1,34 +1,25 @@
 class	MIXS ID	Item	Frequency
-food-farm environment	MIXS:0000018	depth	0.9545454545454546
-host-associated	MIXS:0000018	depth	0.9545454545454546
-microbial mat/biofilm	MIXS:0000018	depth	0.9545454545454546
-migs_ba	MIXS:0000018	depth	0.9545454545454546
-migs_eu	MIXS:0000018	depth	0.9545454545454546
-migs_org	MIXS:0000018	depth	0.9545454545454546
-migs_pl	MIXS:0000018	depth	0.9545454545454546
-migs_vi	MIXS:0000018	depth	0.9545454545454546
-mimag	MIXS:0000018	depth	0.9545454545454546
-mimarks_c	MIXS:0000018	depth	0.9545454545454546
-mimarks_s	MIXS:0000018	depth	0.9545454545454546
-mims	MIXS:0000018	depth	0.9545454545454546
-misag	MIXS:0000018	depth	0.9545454545454546
-miscellaneous natural or artificial environment	MIXS:0000018	depth	0.9545454545454546
-miuvig	MIXS:0000018	depth	0.9545454545454546
-plant-associated	MIXS:0000018	depth	0.9545454545454546
-sediment	MIXS:0000018	depth	0.9545454545454546
-soil	MIXS:0000018	depth	0.9545454545454546
-symbiont-associated	MIXS:0000018	depth	0.9545454545454546
-wastewater/sludge	MIXS:0000018	depth	0.9545454545454546
-water	MIXS:0000018	depth	0.9545454545454546
-agriculture	MIXS:0000018	soil depth	0.045454545454545456
+agriculture	MIXS:0000112	mean seasonal solar irradiance	0.6666666666666666
+food-farm environment	MIXS:0000112	mean seasonal solar irradiance	0.6666666666666666
+air	MIXS:0000112	solar irradiance	0.3333333333333333
 agriculture	MIXS:0000117	total phosphorous	0.25
 hydrocarbon resources-cores	MIXS:0000117	total phosphorus	0.75
 hydrocarbon resources-fluids/swabs	MIXS:0000117	total phosphorus	0.75
 water	MIXS:0000117	total phosphorus	0.75
+soil	MIXS:0000327	storage conditions	0.5
+agriculture	MIXS:0000327	storage conditions (fresh/frozen/other)	0.5
 soil	MIXS:0000335	soil texture measurement	0.5
 agriculture	MIXS:0000335	texture	0.5
 food-farm environment	MIXS:0000336	soil texture method	0.6666666666666666
 soil	MIXS:0000336	soil texture method	0.6666666666666666
 agriculture	MIXS:0000336	texture method	0.3333333333333333
+food-farm environment	MIXS:0000338	total nitrogen content method	0.6666666666666666
+soil	MIXS:0000338	total nitrogen content method	0.6666666666666666
+agriculture	MIXS:0000338	total nitrogen method	0.3333333333333333
+agriculture	MIXS:0000530	total nitrogen	0.2
+food-farm environment	MIXS:0000530	total nitrogen content	0.8
+microbial mat/biofilm	MIXS:0000530	total nitrogen content	0.8
+sediment	MIXS:0000530	total nitrogen content	0.8
+soil	MIXS:0000530	total nitrogen content	0.8
 agriculture	MIXS:0001082	horizon	0.5
 soil	MIXS:0001082	soil horizon	0.5

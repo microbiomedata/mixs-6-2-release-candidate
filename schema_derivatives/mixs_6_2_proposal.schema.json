@@ -140,7 +140,7 @@
                     "type": "string"
                 },
                 "cult_isol_date": {
-                    "description": "The datetime marking the end of a process in which a sample yields a positive result for the target microbial analyte(s) in the form of an isolated colony or colonies",
+                    "description": "A culture isolation date is a date-time entity marking the end of a process in which a sample is isolated as a single colony or non-mixture culture",
                     "type": "string"
                 },
                 "cur_land_use": {
@@ -155,11 +155,6 @@
                     "description": "Reference or method used in vegetation classification",
                     "type": "string"
                 },
-                "depth": {
-                    "description": "The vertical distance below local surface. For sediment or soil samples depth is measured from sediment or soil surface, respectively. Depth can be reported as an interval for subsurface samples",
-                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
-                    "type": "string"
-                },
                 "drainage_class": {
                     "$ref": "#/$defs/DRAINAGECLASSENUM",
                     "description": "Drainage classification from a standard system such as the USDA system"
@@ -170,7 +165,7 @@
                     "type": "string"
                 },
                 "enrichment_protocol": {
-                    "description": "The microbiological workflow or protocol followed to test for the presence or enumeration of the target microbial analyte(s). Please provide a PubMed or DOI reference for published protocols",
+                    "description": "The microbiological workflow or protocol followed to test for the presence or enumeration of the target microbial analyte(s). Please provide a PubMed or DOI reference for published protocols.",
                     "type": "string"
                 },
                 "extreme_event": {
@@ -240,7 +235,7 @@
                     "type": "array"
                 },
                 "food_product_type": {
-                    "description": "A food product type is a class of food products that is differentiated by its food composition (e.g., single- or multi-ingredient), processing and/or consumption characteristics. This does not include brand name products but it may include generic food dish categories. This field accepts terms under food product type (http://purl.obolibrary.org/obo/FOODON:03400361). For terms related to food product for an animal, consult food product for animal (http://purl.obolibrary.org/obo/FOODON_03309997). If the proper descriptor is not listed please use text to describe the food type. Multiple terms can be separated by one or more pipes",
+                    "description": "new food product categories and food products themselves",
                     "type": "string"
                 },
                 "food_source": {
@@ -584,7 +579,7 @@
                     "type": "array"
                 },
                 "samp_collect_device": {
-                    "description": "The device used to collect an environmental sample. This field accepts terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO). This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094)",
+                    "description": "The device used to collect an environmental sample. This field accepts terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO). This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094).",
                     "type": "string"
                 },
                 "samp_collect_method": {
@@ -696,6 +691,10 @@
                     "description": "Material covering the sampled soil. This field accepts terms under ENVO:00010483, environmental material",
                     "type": "string"
                 },
+                "soil_depth": {
+                    "description": "The vertical distance below local surface, e.g. For sediment or soil samples depth is measured from sediment or soil surface, respectively. Depth can be reported as an interval for subsurface samples",
+                    "type": "string"
+                },
                 "soil_horizon": {
                     "$ref": "#/$defs/SHAREDENUM4",
                     "description": "soil horizon is defined as the layer parallel to the soil surface whose physical, chemical and biological characteristics differ from the layers above and beneath. Horizon can be described both in absolute terms (particle size distribution for texture, for instance) and in terms relative to the surrounding material, i.e. \u2018coarser\u2019 or \u2018sandier\u2019 than the horizons above and below."
@@ -710,7 +709,6 @@
                     "type": "string"
                 },
                 "soil_texture_meth": {
-                    "description": "Reference or method used in determining soil texture.",
                     "type": "string"
                 },
                 "soil_type": {
@@ -808,7 +806,7 @@
                     "type": "string"
                 },
                 "tot_phosp": {
-                    "description": "Total phosphorus concentration in the sample, calculated by: total phosphorus = total dissolved phosphorus + particulate phosphorus",
+                    "description": "Total amount or concentration of phosphate",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
                     "type": "string"
                 },
@@ -880,10 +878,8 @@
                 "assembly_name",
                 "soil_type",
                 "soil_type_meth",
-                "store_cond",
                 "microbial_biomass",
                 "micro_biomass_meth",
-                "sieving",
                 "pool_dna_extracts"
             ],
             "title": "Agriculture",
@@ -901,7 +897,7 @@
                     "type": "array"
                 },
                 "alt": {
-                    "description": "Heights of objects such as airplanes, space shuttles, rockets, atmospheric balloons and heights of places such as atmospheric layers and clouds. Used to measure the height of an object which is above the earth's surface. In this context, the altitude measurement is the vertical distance between the earth's surface above sea level and the sampled position in the air",
+                    "description": "Altitude is a term used to identify heights of objects such as airplanes, space shuttles, rockets, atmospheric balloons and heights of places such as atmospheric layers and clouds. It is used to measure the height of an object which is above the earth's surface. In this context, the altitude measurement is the vertical distance between the earth's surface above sea level and the sampled position in the air",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
                     "type": "string"
                 },
@@ -989,7 +985,7 @@
                     "type": "string"
                 },
                 "samp_name": {
-                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name",
+                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name.",
                     "type": "string"
                 },
                 "samp_store_dur": {
@@ -1632,7 +1628,7 @@
                     "type": "string"
                 },
                 "samp_name": {
-                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name",
+                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name.",
                     "type": "string"
                 },
                 "samp_room_id": {
@@ -2230,7 +2226,6 @@
                     "type": "string"
                 },
                 "alt": {
-                    "description": "Heights of objects such as airplanes, space shuttles, rockets, atmospheric balloons and heights of places such as atmospheric layers and clouds. Used to measure the height of an object which is above the earth's surface. In this context, the altitude measurement is the vertical distance between the earth's surface above sea level and the sampled position in the air",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
                     "type": "string"
                 },
@@ -2297,7 +2292,6 @@
                     "type": "array"
                 },
                 "animal_feed_equip": {
-                    "description": "Description of the feeding equipment used for livestock. This field accepts terms listed under feed delivery (http://opendata.inra.fr/EOL/EOL_0001757). Multiple terms can be separated by pipes",
                     "items": {
                         "type": "string"
                     },
@@ -2616,7 +2610,6 @@
                     "description": "Signs of the presence of mold or mildew on the ceiling"
                 },
                 "chem_administration": {
-                    "description": "List of chemical compounds administered to the host or site where sampling occurred, and when (e.g. Antibiotics, n fertilizer, air filter); can include multiple compounds. For chemical entities of biological interest ontology (chebi) (v 163), http://purl.bioontology.org/ontology/chebi",
                     "items": {
                         "type": "string"
                     },
@@ -2734,7 +2727,6 @@
                     "type": "string"
                 },
                 "cult_isol_date": {
-                    "description": "The datetime marking the end of a process in which a sample yields a positive result for the target microbial analyte(s) in the form of an isolated colony or colonies",
                     "type": "string"
                 },
                 "cult_result": {
@@ -2798,7 +2790,6 @@
                     "description": "Main depositional environment (https://en.wikipedia.org/wiki/Depositional_environment). If \"other\" is specified, please propose entry in \"additional info\" field"
                 },
                 "depth": {
-                    "description": "The vertical distance below local surface. For sediment or soil samples depth is measured from sediment or soil surface, respectively. Depth can be reported as an interval for subsurface samples",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
                     "type": "string"
                 },
@@ -2986,7 +2977,6 @@
                     "type": "string"
                 },
                 "enrichment_protocol": {
-                    "description": "The microbiological workflow or protocol followed to test for the presence or enumeration of the target microbial analyte(s). Please provide a PubMed or DOI reference for published protocols",
                     "type": "string"
                 },
                 "env_broad_scale": {
@@ -3375,7 +3365,6 @@
                     "type": "string"
                 },
                 "food_product_type": {
-                    "description": "A food product type is a class of food products that is differentiated by its food composition (e.g., single- or multi-ingredient), processing and/or consumption characteristics. This does not include brand name products but it may include generic food dish categories. This field accepts terms under food product type (http://purl.obolibrary.org/obo/FOODON:03400361). For terms related to food product for an animal, consult food product for animal (http://purl.obolibrary.org/obo/FOODON_03309997). If the proper descriptor is not listed please use text to describe the food type. Multiple terms can be separated by one or more pipes",
                     "type": "string"
                 },
                 "food_quality_date": {
@@ -4123,6 +4112,13 @@
                     },
                     "type": "array"
                 },
+                "mims_water_data": {
+                    "description": "Data that complies with Mims combined with Water",
+                    "items": {
+                        "$ref": "#/$defs/MimsWater"
+                    },
+                    "type": "array"
+                },
                 "mineral_nutr_regm": {
                     "description": "Information about treatment involving the use of mineral supplements; should include the name of mineral nutrient, amount administered, treatment regimen including how many times the treatment was repeated, how long each treatment lasted, and the start and end time of the entire treatment; can include multiple mineral nutrient regimens",
                     "items": {
@@ -4754,7 +4750,6 @@
                     "description": "Reason for the sample"
                 },
                 "samp_collect_device": {
-                    "description": "The device used to collect an environmental sample. This field accepts terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO). This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094)",
                     "type": "string"
                 },
                 "samp_collect_method": {
@@ -4790,7 +4785,6 @@
                     "type": "string"
                 },
                 "samp_name": {
-                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name",
                     "type": "string"
                 },
                 "samp_pooling": {
@@ -4952,7 +4946,6 @@
                     "type": "string"
                 },
                 "season_temp": {
-                    "description": "Mean seasonal temperature",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
                     "type": "string"
                 },
@@ -5076,6 +5069,10 @@
                 },
                 "soil_cover": {
                     "description": "Material covering the sampled soil. This field accepts terms under ENVO:00010483, environmental material",
+                    "type": "string"
+                },
+                "soil_depth": {
+                    "description": "The vertical distance below local surface, e.g. For sediment or soil samples depth is measured from sediment or soil surface, respectively. Depth can be reported as an interval for subsurface samples",
                     "type": "string"
                 },
                 "soil_horizon": {
@@ -5502,7 +5499,6 @@
                     "type": "string"
                 },
                 "tot_phosp": {
-                    "description": "Total phosphorus concentration in the sample, calculated by: total phosphorus = total dissolved phosphorus + particulate phosphorus",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
                     "type": "string"
                 },
@@ -6123,7 +6119,7 @@
                     "type": "array"
                 },
                 "animal_feed_equip": {
-                    "description": "Description of the feeding equipment used for livestock. This field accepts terms listed under feed delivery (http://opendata.inra.fr/EOL/EOL_0001757). Multiple terms can be separated by pipes",
+                    "description": "Description of the feeding equipment used for livestock. This field accepts terms listed under feed delivery (http://opendata.inra.fr/EOL/EOL_0001757). Multiple terms can be separated by one or more pipes.",
                     "items": {
                         "type": "string"
                     },
@@ -6179,7 +6175,7 @@
                     "type": "string"
                 },
                 "cult_isol_date": {
-                    "description": "The datetime marking the end of a process in which a sample yields a positive result for the target microbial analyte(s) in the form of an isolated colony or colonies",
+                    "description": "A culture isolation date is a date-time entity marking the end of a process in which a sample yields a positive result for the target microbial analyte(s) in the form of an isolated colony or colonies.",
                     "type": "string"
                 },
                 "cult_result": {
@@ -6201,7 +6197,7 @@
                     "type": "array"
                 },
                 "enrichment_protocol": {
-                    "description": "The microbiological workflow or protocol followed to test for the presence or enumeration of the target microbial analyte(s). Please provide a PubMed or DOI reference for published protocols",
+                    "description": "The microbiological workflow or protocol followed to test for the presence or enumeration of the target microbial analyte(s). Please provide a PubMed or DOI reference for published protocols.",
                     "type": "string"
                 },
                 "experimental_factor": {
@@ -6315,7 +6311,7 @@
                     "type": "string"
                 },
                 "food_product_type": {
-                    "description": "A food product type is a class of food products that is differentiated by its food composition (e.g., single- or multi-ingredient), processing and/or consumption characteristics. This does not include brand name products but it may include generic food dish categories. This field accepts terms under food product type (http://purl.obolibrary.org/obo/FOODON:03400361). For terms related to food product for an animal, consult food product for animal (http://purl.obolibrary.org/obo/FOODON_03309997). If the proper descriptor is not listed please use text to describe the food type. Multiple terms can be separated by one or more pipes",
+                    "description": "A food product type is a class of food products that is differentiated by its food composition (e.g., single- or multi-ingredient), processing and/or consumption characteristics. This does not include brand name products but it may include generic food dish categories. This field accepts terms under food product type (http://purl.obolibrary.org/obo/FOODON:03400361). For terms related to food product for an animal, consult food product for animal (http://purl.obolibrary.org/obo/FOODON_03309997). If the proper descriptor is not listed please use text to describe the food type. Multiple terms can be separated by one or more pipes.",
                     "type": "string"
                 },
                 "food_quality_date": {
@@ -6435,7 +6431,7 @@
                     "type": "array"
                 },
                 "samp_collect_device": {
-                    "description": "The device used to collect an environmental sample. This field accepts terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO). This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094)",
+                    "description": "The device used to collect an environmental sample. This field accepts terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO). This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094).",
                     "type": "string"
                 },
                 "samp_collect_method": {
@@ -6443,7 +6439,7 @@
                     "type": "string"
                 },
                 "samp_name": {
-                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name",
+                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name.",
                     "type": "string"
                 },
                 "samp_pooling": {
@@ -6698,7 +6694,7 @@
                     "type": "array"
                 },
                 "animal_feed_equip": {
-                    "description": "Description of the feeding equipment used for livestock. This field accepts terms listed under feed delivery (http://opendata.inra.fr/EOL/EOL_0001757). Multiple terms can be separated by pipes",
+                    "description": "Description of the feeding equipment used for livestock. This field accepts terms listed under feed delivery (http://opendata.inra.fr/EOL/EOL_0001757). Multiple terms can be separated by pipes.",
                     "items": {
                         "type": "string"
                     },
@@ -6731,7 +6727,7 @@
                     "type": "array"
                 },
                 "chem_administration": {
-                    "description": "List of chemical compounds administered to the host or site where sampling occurred, and when (e.g. Antibiotics, n fertilizer, air filter); can include multiple compounds. For chemical entities of biological interest ontology (chebi) (v 163), http://purl.bioontology.org/ontology/chebi",
+                    "description": "List of chemical compounds administered to the host or site where sampling occurred, and when (e.g. Antibiotics, n fertilizer, air filter); can include multiple compounds. For chemical entities of biological interest ontology (chebi) (v 163), http://purl.bioontology.org/ontology/chebi.",
                     "items": {
                         "type": "string"
                     },
@@ -6757,7 +6753,7 @@
                     "type": "string"
                 },
                 "cult_isol_date": {
-                    "description": "The datetime marking the end of a process in which a sample yields a positive result for the target microbial analyte(s) in the form of an isolated colony or colonies",
+                    "description": "A culture isolation date is a date-time entity marking the end of a process in which a sample yields a positive result for the target microbial analyte(s) in the form of an isolated colony or colonies.",
                     "type": "string"
                 },
                 "cult_result": {
@@ -6787,12 +6783,12 @@
                     "type": "array"
                 },
                 "depth": {
-                    "description": "The vertical distance below local surface. For sediment or soil samples depth is measured from sediment or soil surface, respectively. Depth can be reported as an interval for subsurface samples",
+                    "description": "The vertical distance below local surface, e.g. for sediment or soil samples depth is measured from sediment or soil surface, respectively. Depth can be reported as an interval for subsurface samples.",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
                     "type": "string"
                 },
                 "enrichment_protocol": {
-                    "description": "The microbiological workflow or protocol followed to test for the presence or enumeration of the target microbial analyte(s). Please provide a PubMed or DOI reference for published protocols",
+                    "description": "The microbiological workflow or protocol followed to test for the presence or enumeration of the target microbial analyte(s).  Please provide a PubMed or DOI reference for published protocols.",
                     "type": "string"
                 },
                 "extr_weather_event": {
@@ -6887,7 +6883,7 @@
                     "type": "array"
                 },
                 "food_product_type": {
-                    "description": "A food product type is a class of food products that is differentiated by its food composition (e.g., single- or multi-ingredient), processing and/or consumption characteristics. This does not include brand name products but it may include generic food dish categories. This field accepts terms under food product type (http://purl.obolibrary.org/obo/FOODON:03400361). For terms related to food product for an animal, consult food product for animal (http://purl.obolibrary.org/obo/FOODON_03309997). If the proper descriptor is not listed please use text to describe the food type. Multiple terms can be separated by one or more pipes",
+                    "description": "A food product type is a class of food products that is differentiated by its food composition (e.g., single- or multi-ingredient), processing and/or consumption characteristics. This does not include brand name products but it may include generic food dish categories. This field accepts terms under food product type (http://purl.obolibrary.org/obo/FOODON:03400361). For terms related to food product for an animal, consult food product for animal (http://purl.obolibrary.org/obo/FOODON_03309997). If the proper descriptor is not listed please use text to describe the food type. Multiple terms can be separated by one or more pipes.",
                     "type": "string"
                 },
                 "food_quality_date": {
@@ -7133,11 +7129,11 @@
                     "type": "string"
                 },
                 "samp_collect_device": {
-                    "description": "The device used to collect an environmental sample. This field accepts terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO). This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094)",
+                    "description": "The device used to collect an environmental sample. This field accepts terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO). This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094).",
                     "type": "string"
                 },
                 "samp_name": {
-                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name",
+                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name.",
                     "type": "string"
                 },
                 "samp_pooling": {
@@ -7198,7 +7194,6 @@
                     "type": "array"
                 },
                 "season_temp": {
-                    "description": "Mean seasonal temperature",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
                     "type": "string"
                 },
@@ -7483,7 +7478,7 @@
                     "type": "string"
                 },
                 "cult_isol_date": {
-                    "description": "The datetime marking the end of a process in which a sample yields a positive result for the target microbial analyte(s) in the form of an isolated colony or colonies",
+                    "description": "A culture isolation date is a date-time entity marking the end of a process in which a sample yields a positive result for the target microbial analyte(s) in the form of an isolated colony or colonies.",
                     "type": "string"
                 },
                 "cult_result": {
@@ -7512,7 +7507,7 @@
                     "type": "array"
                 },
                 "enrichment_protocol": {
-                    "description": "The microbiological workflow or protocol followed to test for the presence or enumeration of the target microbial analyte(s). Please provide a PubMed or DOI reference for published protocols",
+                    "description": "The microbiological workflow or protocol followed to test for the presence or enumeration of the target microbial analyte(s). Please provide a PubMed or DOI reference for published protocols.",
                     "type": "string"
                 },
                 "env_monitoring_zone": {
@@ -7656,7 +7651,7 @@
                     "type": "string"
                 },
                 "food_product_type": {
-                    "description": "A food product type is a class of food products that is differentiated by its food composition (e.g., single- or multi-ingredient), processing and/or consumption characteristics. This does not include brand name products but it may include generic food dish categories. This field accepts terms under food product type (http://purl.obolibrary.org/obo/FOODON:03400361). For terms related to food product for an animal, consult food product for animal (http://purl.obolibrary.org/obo/FOODON_03309997). If the proper descriptor is not listed please use text to describe the food type. Multiple terms can be separated by one or more pipes",
+                    "description": "A food product type is a class of food products that is differentiated by its food composition (e.g., single- or multi-ingredient), processing and/or consumption characteristics. This does not include brand name products but it may include generic food dish categories. This field accepts terms under food product type (http://purl.obolibrary.org/obo/FOODON:03400361). For terms related to food product for an animal, consult food product for animal (http://purl.obolibrary.org/obo/FOODON_03309997). If the proper descriptor is not listed please use text to describe the food type. Multiple terms can be separated by one or more pipes.",
                     "type": "string"
                 },
                 "food_quality_date": {
@@ -7803,7 +7798,7 @@
                     "type": "string"
                 },
                 "samp_collect_device": {
-                    "description": "The device used to collect an environmental sample. This field accepts terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO). This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094)",
+                    "description": "The device employed for collecting the sample.",
                     "type": "string"
                 },
                 "samp_collect_method": {
@@ -7819,7 +7814,7 @@
                     "description": "The condition of the sample location at the time of sampling"
                 },
                 "samp_name": {
-                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name",
+                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name.",
                     "type": "string"
                 },
                 "samp_pooling": {
@@ -8051,7 +8046,7 @@
                     "type": "string"
                 },
                 "cult_isol_date": {
-                    "description": "The datetime marking the end of a process in which a sample yields a positive result for the target microbial analyte(s) in the form of an isolated colony or colonies",
+                    "description": "A culture isolation date is a date-time entity marking the end of a process in which a sample yields a positive result for the target microbial analyte(s) in the form of an isolated colony or colonies.",
                     "type": "string"
                 },
                 "cult_result": {
@@ -8080,7 +8075,7 @@
                     "type": "array"
                 },
                 "enrichment_protocol": {
-                    "description": "The microbiological workflow or protocol followed to test for the presence or enumeration of the target microbial analyte(s). Please provide a PubMed or DOI reference for published protocols",
+                    "description": "The microbiological workflow or protocol followed to test for the presence or enumeration of the target microbial analyte(s). Please provide a PubMed or DOI reference for published protocols.",
                     "type": "string"
                 },
                 "experimental_factor": {
@@ -8244,7 +8239,7 @@
                     "type": "string"
                 },
                 "food_product_type": {
-                    "description": "A food product type is a class of food products that is differentiated by its food composition (e.g., single- or multi-ingredient), processing and/or consumption characteristics. This does not include brand name products but it may include generic food dish categories. This field accepts terms under food product type (http://purl.obolibrary.org/obo/FOODON:03400361). For terms related to food product for an animal, consult food product for animal (http://purl.obolibrary.org/obo/FOODON_03309997). If the proper descriptor is not listed please use text to describe the food type. Multiple terms can be separated by one or more pipes",
+                    "description": "A food product type is a class of food products that is differentiated by its food composition (e.g., single- or multi-ingredient), processing and/or consumption characteristics. This does not include brand name products but it may include generic food dish categories. This field accepts terms under food product type (http://purl.obolibrary.org/obo/FOODON:03400361). For terms related to food product for an animal, consult food product for animal (http://purl.obolibrary.org/obo/FOODON_03309997). If the proper descriptor is not listed please use text to describe the food type. Multiple terms can be separated by one or more pipes.",
                     "type": "string"
                 },
                 "food_quality_date": {
@@ -8400,7 +8395,7 @@
                     "type": "array"
                 },
                 "samp_collect_device": {
-                    "description": "The device used to collect an environmental sample. This field accepts terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO). This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094)",
+                    "description": "The device used to collect an environmental sample. This field accepts terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO). This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094).",
                     "type": "string"
                 },
                 "samp_collect_method": {
@@ -8408,7 +8403,7 @@
                     "type": "string"
                 },
                 "samp_name": {
-                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name",
+                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name.",
                     "type": "string"
                 },
                 "samp_pooling": {
@@ -8751,7 +8746,7 @@
             "description": "",
             "properties": {
                 "alt": {
-                    "description": "Heights of objects such as airplanes, space shuttles, rockets, atmospheric balloons and heights of places such as atmospheric layers and clouds. Used to measure the height of an object which is above the earth's surface. In this context, the altitude measurement is the vertical distance between the earth's surface above sea level and the sampled position in the air",
+                    "description": "Altitude is a term used to identify heights of objects such as airplanes, space shuttles, rockets, atmospheric balloons and heights of places such as atmospheric layers and clouds. It is used to measure the height of an object which is above the earth\u201a\u00c4\u00f4s surface. In this context, the altitude measurement is the vertical distance between the earth's surface above sea level and the sampled position in the air",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
                     "type": "string"
                 },
@@ -8781,7 +8776,7 @@
                     "type": "array"
                 },
                 "depth": {
-                    "description": "The vertical distance below local surface. For sediment or soil samples depth is measured from sediment or soil surface, respectively. Depth can be reported as an interval for subsurface samples",
+                    "description": "The vertical distance below local surface, e.g. For sediment or soil samples depth is measured from sediment or soil surface, respectively. Depth can be reported as an interval for subsurface samples.",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
                     "type": "string"
                 },
@@ -8971,7 +8966,7 @@
                     "description": "Stage of the disease at the time of sample collection, e.g. inoculation, penetration, infection, growth and reproduction, dissemination of pathogen"
                 },
                 "samp_name": {
-                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name",
+                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name.",
                     "type": "string"
                 },
                 "samp_store_dur": {
@@ -9182,7 +9177,6 @@
                     "type": "array"
                 },
                 "nose_throat_disord": {
-                    "description": "History of nose-throat disorders; can include multiple disorders,  The terms should be chosen from the DO (Human Disease Ontology) at http://www.disease-ontology.org, lung disease (https://disease-ontology.org/?id=DOID:850), upper respiratory tract disease (https://disease-ontology.org/?id=DOID:974).",
                     "items": {
                         "type": "string"
                     },
@@ -9230,7 +9224,7 @@
                     "type": "string"
                 },
                 "samp_name": {
-                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name",
+                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name.",
                     "type": "string"
                 },
                 "samp_store_dur": {
@@ -9471,7 +9465,7 @@
                     "type": "string"
                 },
                 "samp_name": {
-                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name",
+                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name.",
                     "type": "string"
                 },
                 "samp_store_dur": {
@@ -9644,7 +9638,6 @@
                     "type": "array"
                 },
                 "nose_throat_disord": {
-                    "description": "History of nose/mouth/teeth/throat disorders; can include multiple disorders. The terms should be chosen from the DO (Human Disease Ontology) at http://www.disease-ontology.org, nose disease (https://disease-ontology.org/?id=DOID:2825), mouth disease (https://disease-ontology.org/?id=DOID:403), tooth disease (https://disease-ontology.org/?id=DOID:1091), or upper respiratory tract disease (https://disease-ontology.org/?id=DOID:974).",
                     "items": {
                         "type": "string"
                     },
@@ -9678,7 +9671,7 @@
                     "type": "string"
                 },
                 "samp_name": {
-                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name",
+                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name.",
                     "type": "string"
                 },
                 "samp_store_dur": {
@@ -9887,7 +9880,7 @@
                     "type": "string"
                 },
                 "samp_name": {
-                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name",
+                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name.",
                     "type": "string"
                 },
                 "samp_store_dur": {
@@ -10125,7 +10118,7 @@
                     "type": "string"
                 },
                 "samp_name": {
-                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name",
+                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name.",
                     "type": "string"
                 },
                 "samp_store_dur": {
@@ -10397,7 +10390,7 @@
                     "type": "string"
                 },
                 "samp_name": {
-                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name",
+                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name.",
                     "type": "string"
                 },
                 "samp_store_dur": {
@@ -10823,7 +10816,7 @@
                     "type": "string"
                 },
                 "samp_name": {
-                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name",
+                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name.",
                     "type": "string"
                 },
                 "samp_preserv": {
@@ -11182,7 +11175,7 @@
                     "type": "string"
                 },
                 "depth": {
-                    "description": "The vertical distance below local surface. For sediment or soil samples depth is measured from sediment or soil surface, respectively. Depth can be reported as an interval for subsurface samples",
+                    "description": "The vertical distance below local surface, e.g. For sediment or soil samples depth is measured from sediment or soil surface, respectively. Depth can be reported as an interval for subsurface samples.",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
                     "type": "string"
                 },
@@ -11373,7 +11366,7 @@
                     "type": "string"
                 },
                 "samp_name": {
-                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name",
+                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name.",
                     "type": "string"
                 },
                 "samp_store_dur": {
@@ -11476,7 +11469,7 @@
                     "type": "string"
                 },
                 "alt": {
-                    "description": "Heights of objects such as airplanes, space shuttles, rockets, atmospheric balloons and heights of places such as atmospheric layers and clouds. Used to measure the height of an object which is above the earth's surface. In this context, the altitude measurement is the vertical distance between the earth's surface above sea level and the sampled position in the air",
+                    "description": "Altitude is a term used to identify heights of objects such as airplanes, space shuttles, rockets, atmospheric balloons and heights of places such as atmospheric layers and clouds. It is used to measure the height of an object which is above the earth's surface. In this context, the altitude measurement is the vertical distance between the earth's surface above sea level and the sampled position in the air",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
                     "type": "string"
                 },
@@ -11536,7 +11529,7 @@
                     "type": "string"
                 },
                 "depth": {
-                    "description": "The vertical distance below local surface. For sediment or soil samples depth is measured from sediment or soil surface, respectively. Depth can be reported as an interval for subsurface samples",
+                    "description": "The vertical distance below local surface, e.g. for sediment or soil samples depth is measured from sediment or soil surface, respectively. Depth can be reported as an interval for subsurface samples.",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
                     "type": "string"
                 },
@@ -11745,7 +11738,7 @@
                     "description": "Is this organism an aerobe, anaerobe? Please note that aerobic and anaerobic are valid descriptors for microbial environments"
                 },
                 "samp_collect_device": {
-                    "description": "The device used to collect an environmental sample. This field accepts terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO). This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094)",
+                    "description": "The device used to collect an environmental sample. This field accepts terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO). This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094).",
                     "type": "string"
                 },
                 "samp_collect_method": {
@@ -11757,7 +11750,7 @@
                     "type": "string"
                 },
                 "samp_name": {
-                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name",
+                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name.",
                     "type": "string"
                 },
                 "samp_size": {
@@ -11888,20 +11881,653 @@
                 }
             },
             "required": [
-                "geo_loc_name",
                 "lat_lon",
-                "samp_name",
+                "elev",
                 "env_local_scale",
+                "env_broad_scale",
+                "env_medium",
                 "seq_meth",
                 "collection_date",
-                "env_medium",
-                "env_broad_scale",
+                "depth",
                 "project_name",
-                "elev",
-                "samp_taxon_id",
-                "depth"
+                "geo_loc_name",
+                "samp_name",
+                "samp_taxon_id"
             ],
             "title": "MimsSoil",
+            "type": "object"
+        },
+        "MimsWater": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "adapters": {
+                    "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
+                    "type": "string"
+                },
+                "alkalinity": {
+                    "description": "Alkalinity, the ability of a solution to neutralize acids to the equivalence point of carbonate or bicarbonate",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "alkalinity_method": {
+                    "description": "Method used for alkalinity measurement",
+                    "type": "string"
+                },
+                "alkyl_diethers": {
+                    "description": "Concentration of alkyl diethers",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "alt": {
+                    "description": "Altitude is a term used to identify heights of objects such as airplanes, space shuttles, rockets, atmospheric balloons and heights of places such as atmospheric layers and clouds. It is used to measure the height of an object which is above the earth's surface. In this context, the altitude measurement is the vertical distance between the earth's surface above sea level and the sampled position in the air",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "aminopept_act": {
+                    "description": "Measurement of aminopeptidase activity",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "ammonium": {
+                    "description": "Concentration of ammonium in the sample",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "annot": {
+                    "description": "Tool used for annotation, or for cases where annotation was provided by a community jamboree or model organism database rather than by a specific submitter",
+                    "type": "string"
+                },
+                "assembly_name": {
+                    "description": "Name/version of the assembly provided by the submitter that is used in the genome browsers and in the community",
+                    "pattern": "^\\S.*\\S+ \\S.*\\S+$",
+                    "type": "string"
+                },
+                "assembly_qual": {
+                    "description": "The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling  90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated",
+                    "type": "string"
+                },
+                "assembly_software": {
+                    "description": "Tool(s) used for assembly, including version number and parameters",
+                    "type": "string"
+                },
+                "associated_resource": {
+                    "description": "A related resource that is referenced, cited, or otherwise associated to the sequence",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "atmospheric_data": {
+                    "description": "Measurement of atmospheric data; can include multiple data",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "bac_prod": {
+                    "description": "Bacterial production in the water column measured by isotope uptake",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "bac_resp": {
+                    "description": "Measurement of bacterial respiration in the water column",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "bacteria_carb_prod": {
+                    "description": "Measurement of bacterial carbon production",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "biomass": {
+                    "description": "Amount of biomass; should include the name for the part of biomass measured, e.g. Microbial, total. Can include multiple measurements",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "bishomohopanol": {
+                    "description": "Concentration of bishomohopanol",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "bromide": {
+                    "description": "Concentration of bromide",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "calcium": {
+                    "description": "Concentration of calcium in the sample",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "carb_nitro_ratio": {
+                    "description": "Ratio of amount or concentrations of carbon to nitrogen",
+                    "type": "number"
+                },
+                "chem_administration": {
+                    "description": "List of chemical compounds administered to the host or site where sampling occurred, and when (e.g. Antibiotics, n fertilizer, air filter); can include multiple compounds. For chemical entities of biological interest ontology (chebi) (v 163), http://purl.bioontology.org/ontology/chebi",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "chloride": {
+                    "description": "Concentration of chloride in the sample",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "chlorophyll": {
+                    "description": "Concentration of chlorophyll",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "collection_date": {
+                    "description": "The time of sampling, either as an instance (single point in time) or interval. In case no exact time is available, the date/time can be right truncated i.e. all of these are valid times: 2008-01-23T19:23:10+00:00; 2008-01-23T19:23:10; 2008-01-23; 2008-01; 2008; Except: 2008-01; 2008 all are ISO8601 compliant",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "conduc": {
+                    "description": "Electrical conductivity of water",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "density": {
+                    "description": "Density of the sample, which is its mass per unit volume (aka volumetric mass density)",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "depth": {
+                    "description": "The vertical distance below local surface, e.g. for sediment or soil samples depth is measured from sediment or soil surface, respectively. Depth can be reported as an interval for subsurface samples.",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "diether_lipids": {
+                    "description": "Concentration of diether lipids; can include multiple types of diether lipids",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "diss_carb_dioxide": {
+                    "description": "Concentration of dissolved carbon dioxide in the sample or liquid portion of the sample",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "diss_hydrogen": {
+                    "description": "Concentration of dissolved hydrogen",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "diss_inorg_carb": {
+                    "description": "Dissolved inorganic carbon concentration in the sample, typically measured after filtering the sample using a 0.45 micrometer filter",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "diss_inorg_nitro": {
+                    "description": "Concentration of dissolved inorganic nitrogen",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "diss_inorg_phosp": {
+                    "description": "Concentration of dissolved inorganic phosphorus in the sample",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "diss_org_carb": {
+                    "description": "Concentration of dissolved organic carbon in the sample, liquid portion of the sample, or aqueous phase of the fluid",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "diss_org_nitro": {
+                    "description": "Dissolved organic nitrogen concentration measured as; total dissolved nitrogen - NH4 - NO3 - NO2",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "diss_oxygen": {
+                    "description": "Concentration of dissolved oxygen",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "down_par": {
+                    "description": "Visible waveband radiance and irradiance measurements in the water column",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "elev": {
+                    "description": "Elevation of the sampling site is its height above a fixed reference point, most commonly the mean sea level. Elevation is mainly used when referring to points on the earth's surface, while altitude is used for points above the surface, such as an aircraft in flight or a spacecraft in orbit",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "env_broad_scale": {
+                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvOs biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
+                    "type": "string"
+                },
+                "env_local_scale": {
+                    "description": "Report the entity or entities which are in the sample or specimens local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "type": "string"
+                },
+                "env_medium": {
+                    "description": "Report the environmental material(s) immediately surrounding the sample or specimen at the time of sampling. We recommend using subclasses of 'environmental material' (http://purl.obolibrary.org/obo/ENVO_00010483). EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS . Terms from other OBO ontologies are permissible as long as they reference mass/volume nouns (e.g. air, water, blood) and not discrete, countable entities (e.g. a tree, a leaf, a table top)",
+                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
+                    "type": "string"
+                },
+                "experimental_factor": {
+                    "description": "Experimental factors are essentially the variable aspects of an experiment design which can be used to describe an experiment, or set of experiments, in an increasingly detailed manner. This field accepts ontology terms from Experimental Factor Ontology (EFO) and/or Ontology for Biomedical Investigations (OBI). For a browser of EFO (v 2.95) terms, please see http://purl.bioontology.org/ontology/EFO; for a browser of OBI (v 2018-02-12) terms please see http://purl.bioontology.org/ontology/OBI",
+                    "type": "string"
+                },
+                "feat_pred": {
+                    "description": "Method used to predict UViGs features such as ORFs, integration site, etc",
+                    "type": "string"
+                },
+                "fluor": {
+                    "description": "Raw or converted fluorescence of water",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "geo_loc_name": {
+                    "description": "The geographical origin of the sample as defined by the country or sea name followed by specific region name. Country or sea names should be chosen from the INSDC country list (http://insdc.org/country.html), or the GAZ ontology (http://purl.bioontology.org/ontology/GAZ)",
+                    "type": "string"
+                },
+                "glucosidase_act": {
+                    "description": "Measurement of glucosidase activity",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "lat_lon": {
+                    "description": "The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system",
+                    "type": "string"
+                },
+                "lib_layout": {
+                    "$ref": "#/$defs/LIBLAYOUTENUM",
+                    "description": "Specify whether to expect single, paired, or other configuration of reads"
+                },
+                "lib_reads_seqd": {
+                    "description": "Total number of clones sequenced from the library",
+                    "type": "integer"
+                },
+                "lib_screen": {
+                    "description": "Specific enrichment or screening methods applied before and/or after creating libraries",
+                    "type": "string"
+                },
+                "lib_size": {
+                    "description": "Total number of clones in the library prepared for the project",
+                    "type": "integer"
+                },
+                "lib_vector": {
+                    "description": "Cloning vector type(s) used in construction of libraries",
+                    "type": "string"
+                },
+                "light_intensity": {
+                    "description": "Measurement of light intensity",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "magnesium": {
+                    "description": "Concentration of magnesium in the sample",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "mean_frict_vel": {
+                    "description": "Measurement of mean friction velocity",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "mean_peak_frict_vel": {
+                    "description": "Measurement of mean peak friction velocity",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "mid": {
+                    "description": "Molecular barcodes, called Multiplex Identifiers (MIDs), that are used to specifically tag unique samples in a sequencing run. Sequence should be reported in uppercase letters",
+                    "pattern": "^[ACGTRKSYMWBHDVN]+$",
+                    "type": "string"
+                },
+                "misc_param": {
+                    "description": "Any other measurement performed or parameter collected, that is not listed here",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "n_alkanes": {
+                    "description": "Concentration of n-alkanes; can include multiple n-alkanes",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "neg_cont_type": {
+                    "$ref": "#/$defs/NEGCONTTYPEENUM",
+                    "description": "The substance or equipment used as a negative control in an investigation"
+                },
+                "nitrate": {
+                    "description": "Concentration of nitrate in the sample",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "nitrite": {
+                    "description": "Concentration of nitrite in the sample",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "nitro": {
+                    "description": "Concentration of nitrogen (total)",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "nucl_acid_amp": {
+                    "description": "A link to a literature reference, electronic resource or a standard operating procedure (SOP), that describes the enzymatic amplification (PCR, TMA, NASBA) of specific nucleic acids",
+                    "type": "string"
+                },
+                "nucl_acid_ext": {
+                    "description": "A link to a literature reference, electronic resource or a standard operating procedure (SOP), that describes the material separation to recover the nucleic acid fraction from a sample",
+                    "type": "string"
+                },
+                "number_contig": {
+                    "description": "Total number of contigs in the cleaned/submitted assembly that makes up a given genome, SAG, MAG, or UViG",
+                    "type": "integer"
+                },
+                "org_carb": {
+                    "description": "Concentration of organic carbon",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "org_matter": {
+                    "description": "Concentration of organic matter",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "org_nitro": {
+                    "description": "Concentration of organic nitrogen",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "organism_count": {
+                    "description": "Total cell count of any organism (or group of organisms) per gram, volume or area of sample, should include name of organism followed by count. The method that was used for the enumeration (e.g. qPCR, atp, mpn, etc.) Should also be provided. (example: total prokaryotes; 3.5e7 cells per ml; qpcr)",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "oxy_stat_samp": {
+                    "$ref": "#/$defs/OXYSTATSAMPENUM",
+                    "description": "Oxygenation status of sample"
+                },
+                "part_org_carb": {
+                    "description": "Concentration of particulate organic carbon",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "part_org_nitro": {
+                    "description": "Concentration of particulate organic nitrogen",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "perturbation": {
+                    "description": "Type of perturbation, e.g. chemical administration, physical disturbance, etc., coupled with perturbation regimen including how many times the perturbation was repeated, how long each perturbation lasted, and the start and end time of the entire perturbation period; can include multiple perturbation types",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "petroleum_hydrocarb": {
+                    "description": "Concentration of petroleum hydrocarbon",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "ph": {
+                    "description": "Ph measurement of the sample, or liquid portion of sample, or aqueous phase of the fluid",
+                    "type": "number"
+                },
+                "phaeopigments": {
+                    "description": "Concentration of phaeopigments; can include multiple phaeopigments",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "phosphate": {
+                    "description": "Concentration of phosphate",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "phosplipid_fatt_acid": {
+                    "description": "Concentration of phospholipid fatty acids; can include multiple values",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "photon_flux": {
+                    "description": "Measurement of photon flux",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "pos_cont_type": {
+                    "description": "The substance, mixture, product, or apparatus used to verify that a process which is part of an investigation delivers a true positive",
+                    "type": "string"
+                },
+                "potassium": {
+                    "description": "Concentration of potassium in the sample",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "pressure": {
+                    "description": "Pressure to which the sample is subject to, in atmospheres",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "primary_prod": {
+                    "description": "Measurement of primary production, generally measured as isotope uptake",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "project_name": {
+                    "description": "Name of the project within which the sequencing was organized",
+                    "type": "string"
+                },
+                "redox_potential": {
+                    "description": "Redox potential, measured relative to a hydrogen cell, indicating oxidation or reduction potential",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "ref_biomaterial": {
+                    "description": "Primary publication if isolated before genome publication; otherwise, primary genome report",
+                    "type": "string"
+                },
+                "ref_db": {
+                    "description": "List of database(s) used for ORF annotation, along with version number and reference to website or publication",
+                    "type": "string"
+                },
+                "rel_to_oxygen": {
+                    "$ref": "#/$defs/RELTOOXYGENENUM",
+                    "description": "Is this organism an aerobe, anaerobe? Please note that aerobic and anaerobic are valid descriptors for microbial environments"
+                },
+                "salinity": {
+                    "description": "The total concentration of all dissolved salts in a liquid or solid sample. While salinity can be measured by a complete chemical analysis, this method is difficult and time consuming. More often, it is instead derived from the conductivity measurement. This is known as practical salinity. These derivations compare the specific conductance of the sample to a salinity standard such as seawater",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "samp_collect_device": {
+                    "description": "The device used to collect an environmental sample. This field accepts terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO). This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094).",
+                    "type": "string"
+                },
+                "samp_collect_method": {
+                    "description": "The method employed for collecting the sample",
+                    "type": "string"
+                },
+                "samp_mat_process": {
+                    "description": "A brief description of any processing applied to the sample during or after retrieving the sample from environment, or a link to the relevant protocol(s) performed",
+                    "type": "string"
+                },
+                "samp_name": {
+                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name.",
+                    "type": "string"
+                },
+                "samp_size": {
+                    "description": "The total amount or size (volume (ml), mass (g) or area (m2) ) of sample collected",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "samp_store_dur": {
+                    "description": "Duration for which the sample was stored",
+                    "type": "string"
+                },
+                "samp_store_loc": {
+                    "description": "Location at which sample was stored, usually name of a specific freezer/room",
+                    "type": "string"
+                },
+                "samp_store_temp": {
+                    "description": "Temperature at which sample was stored, e.g. -80 degree Celsius",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "samp_taxon_id": {
+                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome for mock community/positive controls, or 'blank sample' for negative controls",
+                    "type": "string"
+                },
+                "samp_vol_we_dna_ext": {
+                    "description": "Volume (ml) or mass (g) of total collected sample processed for DNA extraction. Note: total sample collected should be entered under the term Sample Size (MIXS:0000001).",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "seq_meth": {
+                    "description": "Sequencing machine used. Where possible the term should be taken from the OBI list of DNA sequencers (http://purl.obolibrary.org/obo/OBI_0400103)",
+                    "type": "string"
+                },
+                "silicate": {
+                    "description": "Concentration of silicate",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "sim_search_meth": {
+                    "description": "Tool used to compare ORFs with database, along with version and cutoffs used",
+                    "type": "string"
+                },
+                "size_frac": {
+                    "description": "Filtering pore size used in sample preparation",
+                    "type": "string"
+                },
+                "size_frac_low": {
+                    "description": "Refers to the mesh/pore size used to pre-filter/pre-sort the sample. Materials larger than the size threshold are excluded from the sample",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "size_frac_up": {
+                    "description": "Refers to the mesh/pore size used to retain the sample. Materials smaller than the size threshold are excluded from the sample",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "sodium": {
+                    "description": "Sodium concentration in the sample",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "soluble_react_phosp": {
+                    "description": "Concentration of soluble reactive phosphorus",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "sop": {
+                    "description": "Standard operating procedures used in assembly and/or annotation of genomes, metagenomes or environmental sequences",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "source_mat_id": {
+                    "description": "A unique identifier assigned to a material sample (as defined by http://rs.tdwg.org/dwc/terms/materialSampleID, and as opposed to a particular digital record of a material sample) used for extracting nucleic acids, and subsequent sequencing. The identifier can refer either to the original material collected or to any derived sub-samples. The INSDC qualifiers /specimen_voucher, /bio_material, or /culture_collection may or may not share the same value as the source_mat_id field. For instance, the /specimen_voucher qualifier and source_mat_id may both contain 'UAM:Herps:14' , referring to both the specimen voucher and sampled tissue with the same identifier. However, the /culture_collection qualifier may refer to a value from an initial culture (e.g. ATCC:11775) while source_mat_id would refer to an identifier from some derived culture from which the nucleic acids were extracted (e.g. xatc123 or ark:/2154/R2)",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "sulfate": {
+                    "description": "Concentration of sulfate in the sample",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "sulfide": {
+                    "description": "Concentration of sulfide in the sample",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "suspend_part_matter": {
+                    "description": "Concentration of suspended particulate matter",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "tax_class": {
+                    "description": "Method used for taxonomic classification, along with reference database used, classification rank, and thresholds used to classify new genomes",
+                    "type": "string"
+                },
+                "temp": {
+                    "description": "Temperature of the sample at the time of sampling",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "tidal_stage": {
+                    "$ref": "#/$defs/TIDALSTAGEENUM",
+                    "description": "Stage of tide"
+                },
+                "tot_depth_water_col": {
+                    "description": "Measurement of total depth of water column",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "tot_diss_nitro": {
+                    "description": "Total dissolved nitrogen concentration, reported as nitrogen, measured by: total dissolved nitrogen = NH4 + NO3NO2 + dissolved organic nitrogen",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "tot_inorg_nitro": {
+                    "description": "Total inorganic nitrogen content",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "tot_nitro": {
+                    "description": "Total nitrogen concentration of water samples, calculated by: total nitrogen = total dissolved nitrogen + particulate nitrogen. Can also be measured without filtering, reported as nitrogen",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "tot_part_carb": {
+                    "description": "Total particulate carbon content",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "tot_phosp": {
+                    "description": "Total phosphorus concentration in the sample, calculated by: total phosphorus = total dissolved phosphorus + particulate phosphorus",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "turbidity": {
+                    "description": "Measure of the amount of cloudiness or haziness in water caused by individual particles",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                },
+                "water_current": {
+                    "description": "Measurement of magnitude and direction of flow within a fluid",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "lat_lon",
+                "env_local_scale",
+                "env_broad_scale",
+                "env_medium",
+                "seq_meth",
+                "collection_date",
+                "depth",
+                "project_name",
+                "geo_loc_name",
+                "samp_name",
+                "samp_taxon_id"
+            ],
+            "title": "MimsWater",
             "type": "object"
         },
         "MiscellaneousNaturalOrArtificialEnvironment": {
@@ -11914,7 +12540,7 @@
                     "type": "string"
                 },
                 "alt": {
-                    "description": "Heights of objects such as airplanes, space shuttles, rockets, atmospheric balloons and heights of places such as atmospheric layers and clouds. Used to measure the height of an object which is above the earth's surface. In this context, the altitude measurement is the vertical distance between the earth's surface above sea level and the sampled position in the air",
+                    "description": "Altitude is a term used to identify heights of objects such as airplanes, space shuttles, rockets, atmospheric balloons and heights of places such as atmospheric layers and clouds. It is used to measure the height of an object which is above the earth\u201a\u00c4\u00f4s surface. In this context, the altitude measurement is the vertical distance between the earth's surface above sea level and the sampled position in the air",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
                     "type": "string"
                 },
@@ -11963,7 +12589,7 @@
                     "type": "string"
                 },
                 "depth": {
-                    "description": "The vertical distance below local surface. For sediment or soil samples depth is measured from sediment or soil surface, respectively. Depth can be reported as an interval for subsurface samples",
+                    "description": "The vertical distance below local surface, e.g. For sediment or soil samples depth is measured from sediment or soil surface, respectively. Depth can be reported as an interval for subsurface samples.",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
                     "type": "string"
                 },
@@ -12095,7 +12721,7 @@
                     "type": "string"
                 },
                 "samp_name": {
-                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name",
+                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name.",
                     "type": "string"
                 },
                 "samp_store_dur": {
@@ -12162,6 +12788,13 @@
                     "description": "Data that complies with Mims combined with Soil",
                     "items": {
                         "$ref": "#/$defs/MimsSoil"
+                    },
+                    "type": "array"
+                },
+                "mims_water_data": {
+                    "description": "Data that complies with Mims combined with Water",
+                    "items": {
+                        "$ref": "#/$defs/MimsWater"
                     },
                     "type": "array"
                 }
@@ -12331,7 +12964,7 @@
                     "type": "string"
                 },
                 "depth": {
-                    "description": "The vertical distance below local surface. For sediment or soil samples depth is measured from sediment or soil surface, respectively. Depth can be reported as an interval for subsurface samples",
+                    "description": "The vertical distance below local surface, e.g. For sediment or soil samples depth is measured from sediment or soil surface, respectively. Depth can be reported as an interval for subsurface samples.",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
                     "type": "string"
                 },
@@ -12624,7 +13257,7 @@
                     "description": "Stage of the disease at the time of sample collection, e.g. inoculation, penetration, infection, growth and reproduction, dissemination of pathogen"
                 },
                 "samp_name": {
-                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name",
+                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name.",
                     "type": "string"
                 },
                 "samp_store_dur": {
@@ -13308,7 +13941,7 @@
                     "type": "string"
                 },
                 "depth": {
-                    "description": "The vertical distance below local surface. For sediment or soil samples depth is measured from sediment or soil surface, respectively. Depth can be reported as an interval for subsurface samples",
+                    "description": "The vertical distance below local surface, e.g. For sediment or soil samples depth is measured from sediment or soil surface, respectively. Depth can be reported as an interval for subsurface samples.",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
                     "type": "string"
                 },
@@ -13510,7 +14143,7 @@
                     "type": "string"
                 },
                 "samp_name": {
-                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name",
+                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name.",
                     "type": "string"
                 },
                 "samp_store_dur": {
@@ -13649,7 +14282,7 @@
                     "type": "string"
                 },
                 "depth": {
-                    "description": "The vertical distance below local surface. For sediment or soil samples depth is measured from sediment or soil surface, respectively. Depth can be reported as an interval for subsurface samples",
+                    "description": "The vertical distance below local surface, e.g. For sediment or soil samples depth is measured from sediment or soil surface, respectively. Depth can be reported as an interval for subsurface samples.",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
                     "type": "string"
                 },
@@ -13771,7 +14404,7 @@
                     "type": "string"
                 },
                 "samp_name": {
-                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name",
+                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name.",
                     "type": "string"
                 },
                 "samp_vol_we_dna_ext": {
@@ -13876,7 +14509,7 @@
             "description": "",
             "properties": {
                 "alt": {
-                    "description": "Heights of objects such as airplanes, space shuttles, rockets, atmospheric balloons and heights of places such as atmospheric layers and clouds. Used to measure the height of an object which is above the earth's surface. In this context, the altitude measurement is the vertical distance between the earth's surface above sea level and the sampled position in the air",
+                    "description": "Altitude is a term used to identify heights of objects such as airplanes, space shuttles, rockets, atmospheric balloons and heights of places such as atmospheric layers and clouds. It is used to measure the height of an object which is above the earth's surface. In this context, the altitude measurement is the vertical distance between the earth's surface above sea level and the sampled position in the air.",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
                     "type": "string"
                 },
@@ -13886,7 +14519,7 @@
                     "type": "string"
                 },
                 "chem_administration": {
-                    "description": "List of chemical compounds administered to the host or site where sampling occurred, and when (e.g. Antibiotics, n fertilizer, air filter); can include multiple compounds. For chemical entities of biological interest ontology (chebi) (v 163), http://purl.bioontology.org/ontology/chebi",
+                    "description": "List of chemical compounds administered to the symbiont, its host, or environment where sampling occurred, and when (e.g. antibiotics, N fertilizer, air filter); can include multiple compounds. For Chemical Entities of Biological Interest ontology (CHEBI) (v 111), http://purl.bioontology.org/ontology/CHEBI.",
                     "items": {
                         "type": "string"
                     },
@@ -13898,7 +14531,7 @@
                     "type": "string"
                 },
                 "depth": {
-                    "description": "The vertical distance below local surface. For sediment or soil samples depth is measured from sediment or soil surface, respectively. Depth can be reported as an interval for subsurface samples",
+                    "description": "The vertical distance below local surface, e.g. for sediment or soil samples depth is measured from sediment or soil surface, respectively. Depth can be reported as an interval for subsurface samples.",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
                     "type": "string"
                 },
@@ -14146,7 +14779,7 @@
                     "type": "array"
                 },
                 "samp_name": {
-                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name",
+                    "description": "Sample Name is a name that you choose for the sample. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. Every Sample Name from a single Submitter must be unique.",
                     "type": "string"
                 },
                 "samp_store_dur": {
@@ -14523,7 +15156,7 @@
                     "type": "string"
                 },
                 "depth": {
-                    "description": "The vertical distance below local surface. For sediment or soil samples depth is measured from sediment or soil surface, respectively. Depth can be reported as an interval for subsurface samples",
+                    "description": "The vertical distance below local surface, e.g. For sediment or soil samples depth is measured from sediment or soil surface, respectively. Depth can be reported as an interval for subsurface samples.",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
                     "type": "string"
                 },
@@ -14626,7 +15259,7 @@
                     "type": "string"
                 },
                 "samp_name": {
-                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name",
+                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name.",
                     "type": "string"
                 },
                 "samp_store_dur": {
@@ -14821,7 +15454,7 @@
                     "type": "string"
                 },
                 "depth": {
-                    "description": "The vertical distance below local surface. For sediment or soil samples depth is measured from sediment or soil surface, respectively. Depth can be reported as an interval for subsurface samples",
+                    "description": "The vertical distance below local surface, e.g. For sediment or soil samples depth is measured from sediment or soil surface, respectively. Depth can be reported as an interval for subsurface samples.",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)? \\S.*\\S$",
                     "type": "string"
                 },
@@ -15047,7 +15680,7 @@
                     "type": "string"
                 },
                 "samp_name": {
-                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name",
+                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name.",
                     "type": "string"
                 },
                 "samp_store_dur": {
@@ -15167,7 +15800,7 @@
             "type": "object"
         }
     },
-    "$id": "https://turbomam.github.io/mixs-envo-struct-knowl-extraction//mixs_6_2_proposal",
+    "$id": "https://turbomam.github.io/mixs-envo-struct-knowl-extraction/mixs_6_2_proposal",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "additionalProperties": false,
     "description": "A collection of data that complies with some combination of a MIxS checklist and environmental package",
@@ -15177,6 +15810,13 @@
             "description": "Data that complies with Mims combined with Soil",
             "items": {
                 "$ref": "#/$defs/MimsSoil"
+            },
+            "type": "array"
+        },
+        "mims_water_data": {
+            "description": "Data that complies with Mims combined with Water",
+            "items": {
+                "$ref": "#/$defs/MimsWater"
             },
             "type": "array"
         }

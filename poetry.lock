@@ -172,13 +172,13 @@ files = [
 
 [[package]]
 name = "certifi"
-version = "2023.5.7"
+version = "2023.7.22"
 description = "Python package for providing Mozilla's CA Bundle."
 optional = false
 python-versions = ">=3.6"
 files = [
-    {file = "certifi-2023.5.7-py3-none-any.whl", hash = "sha256:c6c2e98f5c7869efca1f8916fed228dd91539f9f1b444c314c06eef02980c716"},
-    {file = "certifi-2023.5.7.tar.gz", hash = "sha256:0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7"},
+    {file = "certifi-2023.7.22-py3-none-any.whl", hash = "sha256:92d6037539857d8206b8f6ae472e8b77db8058fec5937a1ef3f54304089edbb9"},
+    {file = "certifi-2023.7.22.tar.gz", hash = "sha256:539cc1d13202e33ca466e88b2807e29f4c13049d6d87031a3c110744495cb082"},
 ]
 
 [[package]]
@@ -381,13 +381,13 @@ toml = ["tomli"]
 
 [[package]]
 name = "curies"
-version = "0.5.6"
+version = "0.5.7"
 description = "Idiomatic conversion between URIs and compact URIs (CURIEs)."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "curies-0.5.6-py3-none-any.whl", hash = "sha256:27eee34218bf645fdfb5c457bacfba0274146277bac600d9b9a83d2e5e01abcd"},
-    {file = "curies-0.5.6.tar.gz", hash = "sha256:fd9e72ea9b167911057726bd537c9956ed96d88ce71aecf59f9a47c6ca484ffe"},
+    {file = "curies-0.5.7-py3-none-any.whl", hash = "sha256:74fc743e2c41c3bcd2ecb1178cce72236018f245e970c88faf452b89694b475a"},
+    {file = "curies-0.5.7.tar.gz", hash = "sha256:eb984c51dcd04187fec88074a43070ae6f96467887fd502fa5547377722c9a4a"},
 ]
 
 [package.dependencies]
