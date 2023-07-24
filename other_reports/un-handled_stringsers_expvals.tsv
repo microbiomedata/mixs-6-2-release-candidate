@@ -165,6 +165,7 @@ FWD:{dna};REV:{dna}		1
 {text};{float} {unit}	design name and/or size;amount	1
 {float}-{float} {unit}	filter size value range	1
 bare soil [ENVO:01001616]	subclass of 'environmental material', http://purl.obolibrary.org/obo/ENVO_00010483	1
+{float} {unit}	Depth can be reported as an interval for subsurface samples	1
 {percentage}	percent porosity	1
 {text};{float} {unit}	soluble inorganic material name;measurement value	1
 {text};{float} {unit}	soluble organic material name;measurement value	1

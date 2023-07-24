@@ -103,6 +103,7 @@ slots:
   num_replicons:
     range: integer
 
+
   #  samp_transport_dur:
   #    comments:
   #      - "{float} {unit} or period?"
@@ -111,4 +112,60 @@ slots:
   #  #    examples:
   #  #      - value: 10 days
   #  #        description: converted slot's ISO 8601 period to a measurement value string
+
+classes:
+  Soil:
+    slot_usage:
+      heavy_metals_meth:
+        annotations:
+          usage_title: "extreme_unusual_properties/heavy metals method"
+      horizon_meth:
+        annotations:
+          usage_title: "soil horizon method"
+      sieving:
+        annotations:
+          usage_title: "composite design/sieving"
+  Agriculture:
+    slot_usage:
+      heavy_metals_meth:
+        annotations:
+          usage_title: "extreme_unusual_conditions"
+      sieving:
+        annotations:
+          usage_title: "composite design/sieving (if any)"
+      soil_texture_meth:
+        annotations:
+          usage_title: "texture method"
+      solar_irradiance:
+        annotations:
+          usage_title: "mean seasonal solar irradiance"
+      store_cond:
+        annotations:
+          usage_title: "storage conditions (fresh/frozen/other)"
+      tot_nitro_cont_meth:
+        annotations:
+          usage_title: "total nitrogen method"
+  HumanAssociated:
+    slot_usage:
+      nose_throat_disord:
+        annotations:
+          usage_title: "lung/nose-throat disorder"
+  HumanOral:
+    slot_usage:
+      nose_throat_disord:
+        annotations:
+          usage_title: "nose/mouth/teeth/throat disorder"
+  FoodFarmEnvironment:
+    slot_usage:
+      samp_type:
+        annotations:
+          usage_title: "sample type (host or environmental context)"
+      season_temp:
+        annotations:
+          usage_title: "mean seasonal air temperature"
+      solar_irradiance:
+        annotations:
+          usage_title: "mean seasonal solar irradiance"
+
+
 

@@ -126,3 +126,4 @@ add_notes_from_text_mining = "mixs_envo_struct_knowl_extraction.slot_text_mining
 find_Xs_with_multiple_Ys = "mixs_envo_struct_knowl_extraction.find_Xs_with_multiple_Ys:main"
 mixs-scns-vs-ncbi-harmonized-attributes = "mixs_envo_struct_knowl_extraction.mixs_scns_vs_ncbi_harmonized_attributes:cli"
 remove-exhaustive-elements-validation-conveniences = "mixs_envo_struct_knowl_extraction.remove_exhaustive_elements_validation_conveniences:main"
+usage-detector = "mixs_envo_struct_knowl_extraction.usage_detector:main"

@@ -114,3 +114,8 @@ agriculture	MIXS:0001081	m	0.6666666666666666
 soil	MIXS:0001081	m	0.6666666666666666
 agriculture	MIXS:0001163	1	0.5
 food-farm environment	MIXS:0001163	m	0.5
+food-animal and animal feed	MIXS:0001184	mIXS:000	0.8
+food-farm environment	MIXS:0001184	mIXS:000	0.8
+food-food production facility	MIXS:0001184	mIXS:000	0.8
+food-human foods	MIXS:0001184	mIXS:000	0.8
+agriculture	MIXS:0001184		0.2
