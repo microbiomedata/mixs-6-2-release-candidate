@@ -1,3 +1,0 @@
-samp_name,project_name,depth,elev,lat_lon,env_local_scale,env_broad_scale,env_medium,seq_meth,collection_date,geo_loc_name,samp_taxon_id
-msd1,absolutely any text,1.234 units,1.234 units,absolutely any text,term [ONTOLOGY:123],term [ONTOLOGY:123],term [ONTOLOGY:123],absolutely any text,2013-03-25T12:42:31+00:32,absolutely any text,absolutely any text
-msd2,absolutely any text,1.234 units,1.234 units,absolutely any text,term [ONTOLOGY:123],term [ONTOLOGY:123],term [ONTOLOGY:123],absolutely any text,2013-03-25T12:42:31+00:32,absolutely any text,absolutely any text
