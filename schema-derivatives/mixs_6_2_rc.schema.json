@@ -11866,18 +11866,18 @@
                 }
             },
             "required": [
-                "env_broad_scale",
-                "project_name",
                 "samp_name",
-                "elev",
-                "geo_loc_name",
-                "env_medium",
-                "samp_taxon_id",
-                "lat_lon",
+                "project_name",
                 "seq_meth",
                 "depth",
+                "samp_taxon_id",
                 "collection_date",
-                "env_local_scale"
+                "env_broad_scale",
+                "lat_lon",
+                "env_local_scale",
+                "elev",
+                "geo_loc_name",
+                "env_medium"
             ],
             "title": "MimsSoil",
             "type": "object"
@@ -12504,17 +12504,17 @@
                 }
             },
             "required": [
-                "env_broad_scale",
-                "project_name",
                 "samp_name",
-                "geo_loc_name",
-                "env_medium",
-                "samp_taxon_id",
-                "lat_lon",
+                "project_name",
                 "seq_meth",
                 "depth",
+                "samp_taxon_id",
                 "collection_date",
-                "env_local_scale"
+                "env_broad_scale",
+                "lat_lon",
+                "env_local_scale",
+                "geo_loc_name",
+                "env_medium"
             ],
             "title": "MimsWater",
             "type": "object"
@@ -15797,7 +15797,7 @@
             "type": "object"
         }
     },
-    "$id": "https://turbomam.github.io/mixs-envo-struct-knowl-extraction/mixs_6_2_rc",
+    "$id": "https://microbiomedata.github.io/mixs-6-2-release-candidate/mixs_6_2_rc",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "additionalProperties": false,
     "description": "A collection of data that complies with some combination of a MIxS checklist and environmental package",
