@@ -1,0 +1,164 @@
+name: linkml_stage_mixs_modifications
+id: http://example.com/linkml_stage_mixs_modifications
+imports:
+  - linkml:types
+prefixes:
+  linkml: https://w3id.org/linkml/
+slots:
+  animal_am_freq:
+    range: float
+  carb_nitro_ratio:
+    range: float
+  ferm_rel_humidity:
+    comments:
+      - percent or float?
+    pattern: "[0-9]*\\.?[0-9]+ ?%"
+  food_source_age:
+    comments:
+      - ISO 8601 period or measurement value?
+  host_occupation:
+    comments:
+      - "Couldn't convert host_occupation with value veterinary to integer"
+      - almost all host_occupation values in the NCBI biosample_set are strings, not integers
+    range: string
+  iwf:
+    comments:
+      - pattern was "[0-9]*\\.?[0-9]+ ?%"
+      - percent or float?
+    range: float
+  micro_biomass_meth:
+    comments:
+      - slot name/scn was microbial_biomass_meth
+  occup_samp:
+    range: float
+  photosynt_activ:
+    examples:
+      - value: 0.1 mol CO2 m-2 s-1
+        description: added a magnitude to the example from the XLSX file, " mol CO2 m-2 s-1"
+  rel_air_humidity:
+    comments:
+      - percent or float?
+    range: float
+  season:
+    comments:
+      - autumn [NCIT:C94733] does not match ^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$
+      - would require ^\\S+.*\\S+ \\[[a-zA-Z]{2,}:[a-zA-Z0-9]\\]$
+    pattern: ^\S+.*\S+ \[[a-zA-Z]{2,}:[a-zA-Z0-9]+\]$
+  season_humidity:
+    comments:
+      - percent or float?
+    range: float
+  surf_humidity:
+    comments:
+      - percent or float?
+    range: float
+  time_last_toothbrush:
+    comments:
+      - P2H45M does not match ^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$
+      - problematic ISO 8601 period validation
+  water_cut:
+    comments:
+      - percent or float?
+    pattern: "[0-9]*\\.?[0-9]+ ?%"
+  bin_param:
+    examples:
+      - value: coverage
+        description: was 'coverage and kmer'
+      - value: kmer
+        description: 'was coverage and kmer'
+  compl_appr:
+    examples:
+      - value: other
+        description: was other <colon> UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)
+  farm_water_source:
+    examples:
+      - value: well
+        description: was water well (ENVO:01000002)
+  food_clean_proc:
+    examples:
+      - value: rinsed with water
+        description: was rinsed with water|scrubbed with brush
+      - value: scrubbed with brush
+        description: was rinsed with water|scrubbed with brush
+  host_sex:
+    comments: example of non-binary from Excel sheets does not match any of the enumerated values
+  shading_device_type:
+    examples:
+      - value: slatted aluminum
+        description: was slatted aluminum awning
+  tax_ident:
+    examples:
+      - value: other
+        description: was other <colon> rpoB gene
+  virus_enrich_appr:
+    examples:
+      - value: filtration
+        description: was filtration + FeCl Precipitation + ultracentrifugation + DNAse
+      - value: FeCl Precipitation
+        description: was filtration + FeCl Precipitation + ultracentrifugation + DNAse
+      - value: ultracentrifugation
+        description: was filtration + FeCl Precipitation + ultracentrifugation + DNAse
+      - value: DNAse
+        description: was filtration + FeCl Precipitation + ultracentrifugation + DNAse
+  num_replicons:
+    range: integer
+  experimental_factor:
+    pattern: ^\S+.*\S+ \[[a-zA-Z]{2,}:\d+\]$
+    multivalued: true
+
+classes:
+  Soil:
+    slot_usage:
+      heavy_metals_meth:
+        annotations:
+          usage_title: "extreme_unusual_properties/heavy metals method"
+      horizon_meth:
+        annotations:
+          usage_title: "soil horizon method"
+      sieving:
+        annotations:
+          usage_title: "composite design/sieving"
+  Agriculture:
+    slot_usage:
+      heavy_metals_meth:
+        annotations:
+          usage_title: "extreme_unusual_conditions"
+      sieving:
+        annotations:
+          usage_title: "composite design/sieving (if any)"
+      soil_texture_meth:
+        annotations:
+          usage_title: "texture method"
+      solar_irradiance:
+        annotations:
+          usage_title: "mean seasonal solar irradiance"
+      store_cond:
+        annotations:
+          usage_title: "storage conditions (fresh/frozen/other)"
+      tot_nitro_cont_meth:
+        annotations:
+          usage_title: "total nitrogen method"
+  HumanAssociated:
+    slot_usage:
+      nose_throat_disord:
+        annotations:
+          usage_title: "lung/nose-throat disorder"
+  HumanOral:
+    slot_usage:
+      nose_throat_disord:
+        annotations:
+          usage_title: "nose/mouth/teeth/throat disorder"
+  FoodFarmEnvironment:
+    slot_usage:
+      samp_type:
+        annotations:
+          usage_title: "sample type (host or environmental context)"
+      season_temp:
+        annotations:
+          usage_title: "mean seasonal air temperature"
+      solar_irradiance:
+        annotations:
+          usage_title: "mean seasonal solar irradiance"
+
+
+
