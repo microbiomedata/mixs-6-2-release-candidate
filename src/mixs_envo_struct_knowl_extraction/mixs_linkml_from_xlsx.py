@@ -1,5 +1,4 @@
 # import ast
-# import pprint
 # import os
 import os
 import pprint
@@ -23,16 +22,17 @@ from distutils.util import strtobool
 
 from pandas import DataFrame, Series
 
+import logging
+
 pd.set_option('display.max_columns', None)
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 root_class_name = "MixsCompliantData"
 
 
 # TODO do we have a term that could take the identifier role?
-
-
-# todo switch from printing to logging
-
 
 # todo: modify slot names if the begin with a number
 #  Chris M's fix: prepend with x
@@ -117,7 +117,7 @@ def instantiate_classes(df: pd.DataFrame, checklists, global_target_schema, mini
 
     if minimal_combos:
         selected_checklists = ["Mims"]
-        selected_eps = ["Soil"]
+        selected_eps = ["Soil", "Water"]
     else:
         selected_checklists = checklists
         selected_eps = non_checklist_classes
@@ -218,11 +218,11 @@ def harmonize_sheets(url: str, excel_file_path, textual_key, checklists) -> pd.D
 
     mixs_sheet_only = set(mixs_sheet_col_list) - set(env_packages_renamed_col_list)
 
-    print(f"Columns only found in the MIxS sheet: {list(mixs_sheet_only)}")
+    logger.info(f"Columns only found in the MIxS sheet: {list(mixs_sheet_only)}")
 
-    print(f"Columns only found in the environmental_packages sheet: {list(env_pack_only)}")
+    logger.info(f"Columns only found in the environmental_packages sheet: {list(env_pack_only)}")
 
-    print("\n")
+    # logger.info("\n")
 
     df_env_packages_renamed = df_env_packages_renamed[applicable_col_list]
 
@@ -268,17 +268,17 @@ def apply_jit_fixes(fixes_file: str, df: pd.DataFrame) -> tuple[DataFrame, Union
 
 
 def process_sheet(df: pd.DataFrame, checklists, global_target_schema, textual_key, non_ascii_replacement,
-                  minimal_combos) -> \
-        List[str]:
+                  minimal_combos) -> List[str]:
     instantiate_classes(df, checklists, global_target_schema, minimal_combos=minimal_combos)
     slots_list = df[textual_key].unique().tolist()
 
     for s in slots_list:
+        logger.info(s)
         if type(s) is not str:
             # todo how would a nan/float "slot" get in here?
-            print(f"Ignoring slot '{s}' with type {s.__class__.__name__}")
+            logger.warning(f"Ignoring slot with {textual_key} = '{s}' because type is {s.__class__.__name__}")
             slots_list.remove(s)
-    print("\n")
+    # logger.info("\n")
 
     slots_list.sort()
 
@@ -351,8 +351,10 @@ def process_consensus_value(scn: str, attribute_name: str, value: str, global_ta
     elif tidied_attribute_name == "Occurrence":
         if value == "m":
             global_target_schema.slots[tidied_slot_name].multivalued = True
-        else:
+        elif value == 1 or int(value) == 1:
             global_target_schema.slots[tidied_slot_name].multivalued = False
+        else:
+            logger.warning(f"{scn} occurrence value: {value}")
     elif tidied_attribute_name == "MIXS_ID":
         global_target_schema.slots[tidied_slot_name].slot_uri = value
     elif tidied_attribute_name == "Value_syntax":
@@ -396,9 +398,9 @@ def process_contested_value(attributes_by_class: pd.DataFrame, textual_key, glob
         dupe_frame[textual_key] = scn
         all_values = dupe_frame[value_name].unique().tolist()
         duplication_comment = f"Classes {', '.join(duplicated_classes)} has/have duplicate values in {value_name} for {scn}: {', '.join(all_values)}"
-        print(f"duplication_comment: {duplication_comment}")
-        print(f"dupe_frame: {dupe_frame}")
-        print("\n")
+        logger.info(f"duplication_comment: {duplication_comment}")
+        logger.info(f"dupe_frame: {dupe_frame}")
+        # logger.info("\n")
         if global_target_schema.comments:
             global_target_schema.comments.append(duplication_comment)
         else:
@@ -431,10 +433,13 @@ def process_contested_value(attributes_by_class: pd.DataFrame, textual_key, glob
                     global_target_schema.subsets[value] = SubsetDefinition(name=value)
                 global_target_schema.classes[current_class].slot_usage[tidied_slot_name].in_subset = [value]
             elif tidied_attribute_name == "Occurrence":
+                value = str(value)
                 if value == "m":
-                    global_target_schema.classes[current_class].slot_usage[tidied_slot_name].multivalued = True
+                    global_target_schema.slots[tidied_slot_name].multivalued = True
+                elif value == "1":
+                    global_target_schema.slots[tidied_slot_name].multivalued = False
                 else:
-                    global_target_schema.classes[current_class].slot_usage[tidied_slot_name].multivalued = False
+                    logger.warning(f"usage {scn} occurrence value: {value}")
             elif tidied_attribute_name == "MIXS_ID":
                 global_target_schema.classes[current_class].slot_usage[tidied_slot_name].slot_uri = value
             elif tidied_attribute_name == "Value_syntax":
@@ -485,8 +490,9 @@ def requirement_followup(sheet: pd.DataFrame, global_target_schema, debug_mode, 
 
     for relevant_dict in relevant_dicts:
         if type(relevant_dict[textual_key]) is not str:
-            print("Requirement specification is lacking a string-typed Structured comment name:")
-            pprint.pprint(relevant_dict)
+            logger.warning("Requirement specification is lacking a string-typed Structured comment name:")
+            # logging.info(pprint.pformat(relevant_dict))
+            logging.warning(relevant_dict)
             continue
         tidied_scn = re.sub(r'\W+', '_', relevant_dict[textual_key])
         tidied_class = convert_to_pascal_case(relevant_dict['class'])
@@ -504,7 +510,7 @@ def requirement_followup(sheet: pd.DataFrame, global_target_schema, debug_mode, 
                 del global_target_schema.classes[tidied_class].slot_usage[tidied_scn]
             else:
                 if debug_mode:
-                    print(f"Can't remove {tidied_scn} slot usage on {tidied_class}")
+                    logger.info(f"Can't remove {tidied_scn} slot usage on {tidied_class}")
 
         elif requirement == "C":
             if tidied_scn in global_target_schema.classes[tidied_class].slot_usage:
@@ -516,10 +522,11 @@ def requirement_followup(sheet: pd.DataFrame, global_target_schema, debug_mode, 
                     del global_target_schema.classes[tidied_class].slot_usage[tidied_scn].annotations['Requirement']
                 else:
                     if debug_mode:
-                        print(f"{tidied_class} has {tidied_scn} usage but that doesn't have a Requirement annotation")
+                        logger.info(
+                            f"{tidied_class} has {tidied_scn} usage but that doesn't have a Requirement annotation")
             else:
                 if debug_mode:
-                    print(f"{tidied_class} does not have {tidied_scn} usage")
+                    logger.info(f"{tidied_class} does not have {tidied_scn} usage")
 
         elif requirement == "E":
             is_a_parent = global_target_schema.classes[tidied_class].is_a
@@ -535,11 +542,11 @@ def requirement_followup(sheet: pd.DataFrame, global_target_schema, debug_mode, 
                         del global_target_schema.classes[tidied_class].slot_usage[tidied_scn].annotations['Requirement']
                     else:
                         if debug_mode:
-                            print(
+                            logger.info(
                                 f"{tidied_class} has {tidied_scn} usage but that doesn't have a Requirement annotation")
                 else:
                     if debug_mode:
-                        print(f"{tidied_class} does not have {tidied_scn} usage")
+                        logger.info(f"{tidied_class} does not have {tidied_scn} usage")
 
             elif is_a_parent == "Checklist":
                 if tidied_scn in global_target_schema.classes[tidied_class].slot_usage:
@@ -551,11 +558,11 @@ def requirement_followup(sheet: pd.DataFrame, global_target_schema, debug_mode, 
                         del global_target_schema.classes[tidied_class].slot_usage[tidied_scn].annotations['Requirement']
                     else:
                         if debug_mode:
-                            print(
+                            logger.info(
                                 f"{tidied_class} has {tidied_scn} usage but that doesn't have a Requirement annotation")
                 else:
                     if debug_mode:
-                        print(f"{tidied_class} does not have {tidied_scn} usage")
+                        logger.info(f"{tidied_class} does not have {tidied_scn} usage")
 
         if "Requirement" in global_target_schema.slots[tidied_scn].annotations:
             # deleting requirement annotation from slot usage,
@@ -563,7 +570,7 @@ def requirement_followup(sheet: pd.DataFrame, global_target_schema, debug_mode, 
             #   I have made judgements about the interpretation of C and E
             #   see https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/35
             del global_target_schema.slots[tidied_scn].annotations['Requirement']
-    print("\n")
+    # logger.info("\n")
 
 
 def construct_assign_simple_enumerations(sheet: pd.DataFrame, debug_mode: bool, global_target_schema,
@@ -586,8 +593,8 @@ def construct_assign_simple_enumerations(sheet: pd.DataFrame, debug_mode: bool, 
     duplicated_scns = duplicated_scn_val_counts.index.tolist()
 
     contradictory_enums = possible_enums_sheet[possible_enums_sheet[textual_key].isin(duplicated_scns)]
-    print(f"{contradictory_enums = }")
-    print("\n")
+    logger.info(f"{contradictory_enums = }")
+    # logger.info("\n")
 
     # add a comment to the schema
     scns_with_contradictory_enums = contradictory_enums[textual_key].unique().tolist()
@@ -637,10 +644,9 @@ def construct_assign_simple_enumerations(sheet: pd.DataFrame, debug_mode: bool, 
                 del global_target_schema.slots[k].annotations["Expected_value"]
         else:
             if debug_mode:
-                print(f"{k} has no Expected_value annotation")
+                logger.info(f"{k} has no Expected_value annotation")
 
     index = 0
-    # pprint.pprint(duplicated_val_syntaxes)
     for val_syntax in duplicated_val_syntaxes:
         subset_frame = shared_enums[shared_enums['Value syntax'] == val_syntax]
         pvs = [x.strip() for x in val_syntax.strip('[]').split('|')]
@@ -667,7 +673,7 @@ def construct_assign_simple_enumerations(sheet: pd.DataFrame, debug_mode: bool, 
                     del global_target_schema.slots[tidied_scn].annotations["Expected_value"]
             else:
                 if debug_mode:
-                    print(f"{scn} has no Expected_value annotation")
+                    logger.info(f"{scn} has no Expected_value annotation")
         index += 1
 
 
@@ -699,7 +705,7 @@ def string_ser_exp_val_to_range_patterns(tsv_file: str, global_target_schema):
         else:
             ev = ''
         # if ss == '{text}':
-        #     print(f"Processing slot {k} with string serialization <{ss}> and expected value <{ev}>")
+        #     logger.info(f"Processing slot {k} with string serialization <{ss}> and expected value <{ev}>")
 
         row = df[(df['string_serialization'] == ss) & (df['Expected_value'] == ev)]
         row_count = row.shape[0]
@@ -725,17 +731,17 @@ def string_ser_exp_val_to_range_patterns(tsv_file: str, global_target_schema):
                 del v.string_serialization
 
         elif row_count > 1:
-            print(
+            logger.info(
                 f"There are {row_count} different mappings for string serialization of <{ss}> and expected value of <{ev}>")
 
         elif row_count == 0:
             if ss == '' and ev == '':
                 # if ss == '{text}':
-                #     print("assigning range string to slot")
+                #     logger.info("assigning range string to slot")
                 v.range = 'string'
             else:
                 # if ss == '{text}':
-                #     print("no mapping found")
+                #     logger.info("no mapping found")
                 unmapped[(ss, ev)] = unmapped.get((ss, ev), 0) + 1
     unmapped_lod = []
     for i in unmapped:
@@ -790,7 +796,7 @@ def dupe_property_report(property_name: str, global_target_schema):
     dupe_values = []
     for element, count in sorted_elements:
         if count > 1:
-            # print(f"{property_name} {element}: {count}")
+            # logger.info(f"{property_name} {element}: {count}")
             dupe_values.append(element)
     dupe_values.sort()
     return dupe_values
@@ -800,39 +806,47 @@ def extract_or_substitute_examples_etc(supplementary_file: str, global_target_sc
     # requires explicit handlers for each attribute of a slot
     proposal_view = SchemaView(supplementary_file)
 
-    # print(yaml_dumper.dumps(proposal_view.schema))
+    # logger.info(yaml_dumper.dumps(proposal_view.schema))
 
     proposal_schema = proposal_view.schema
 
     excel_slots = global_target_schema.slots
 
-    # todo make a report file instead of printing
+    for pck, pcv in proposal_schema.classes.items():
+        if "slot_usage" in pcv:
+            for suk, suv in pcv.slot_usage.items():
+                # todo guard against or at least overwriting existing slot_usage
+                # don't assume class pck already exists
+                # logger.info(f"Adding {pck}.{suk} slot usage")
+                global_target_schema.classes[pck].slot_usage[suk] = suv
+
+    # todo make a report file instead of logging
     #  or maybe this is just restating the obvious from the supplementary_file?
     for proposed_k, proposed_v in proposal_schema.slots.items():
         if proposed_k in excel_slots:
             if proposed_v.comments:
                 for comment in proposed_v.comments:
-                    # print(global_target_schema.slots[proposed_k].comments)
-                    # print(f"attempting to ADD comment {comment} to {proposed_k}")
+                    # logger.info(global_target_schema.slots[proposed_k].comments)
+                    # logger.info(f"attempting to ADD comment {comment} to {proposed_k}")
                     global_target_schema.slots[proposed_k].comments.append(comment)
             if proposed_v.examples:
                 global_target_schema.slots[proposed_k].examples = proposed_v.examples
             if proposed_v.multivalued != global_target_schema.slots[proposed_k].multivalued:
                 global_target_schema.slots[proposed_k].multivalued = proposed_v.multivalued
             if proposed_v.pattern:
-                # print(
+                # logger.info(
                 #     f"attempting to update {proposed_k}'s pattern from {global_target_schema.slots[proposed_k].pattern} to {proposed_v.pattern} and range to string")
                 global_target_schema.slots[proposed_k].pattern = proposed_v.pattern
                 global_target_schema.slots[proposed_k].range = "string"
             if proposed_v.range:
                 global_target_schema.slots[proposed_k].range = proposed_v.range
                 if proposed_v.range != "string" and global_target_schema.slots[proposed_k].pattern:
-                    # print(f"attempting to remove {proposed_k}'s pattern from {proposed_v.range} slot")
+                    # logger.info(f"attempting to remove {proposed_k}'s pattern from {proposed_v.range} slot")
                     del global_target_schema.slots[proposed_k].pattern
 
         else:
-            print(f"{proposed_k} is not in the target schema")
-    print("\n")
+            logger.info(f"{proposed_k} is not in the target schema")
+    # logger.info("\n")
 
     extracted_examples = {}
 
@@ -841,7 +855,7 @@ def extract_or_substitute_examples_etc(supplementary_file: str, global_target_sc
             the_examples = excel_v["examples"]
             examples_len = len(the_examples)
             if examples_len != 1:
-                print(f"{excel_k} has {examples_len} examples")
+                logger.info(f"{excel_k} has {examples_len} examples")
             # else:
             the_example = the_examples[0].value
             the_range = global_target_schema.slots[excel_k].range
@@ -866,7 +880,7 @@ def extract_or_substitute_examples_etc(supplementary_file: str, global_target_sc
                 else:
                     extracted_examples[excel_k] = convert_func(values)
             except ValueError:
-                print(f"Couldn't convert {excel_k} with value {the_example} to {the_range}")
+                logger.info(f"Couldn't convert {excel_k} with value {the_example} to {the_range}")
 
     return extracted_examples
 
@@ -874,7 +888,7 @@ def extract_or_substitute_examples_etc(supplementary_file: str, global_target_sc
 @click.command()
 @click.option('--debug/--no-debug', default=False, help='Enable debug mode')
 @click.option('--minimal-combos/--all-combos', default=False,
-              help='Should we just generate a minimal set of checklist/environmental package combinationss (or generate all combos)')
+              help='Should we just generate a minimal set of checklist/environmental package combinations (or generate all combos)')
 @click.option('--extracted-examples-out', default='generated/mixs_v6.xlsx.examples.yaml')
 @click.option('--repair-report', default='conflict_reports/repair_report.tsv')
 @click.option('--unmapped-report', default='other_reports/unmapped_report.tsv')
@@ -906,18 +920,16 @@ def create_schema(non_ascii_replacement, debug, gsc_excel_input, textual_key, sc
     gsc_excel_file_name = url_path_components[-1]
     gsc_excel_output_path = os.path.join(gsc_excel_output_dir, gsc_excel_file_name)
 
-    default_prefix_name = "mixs_6_2_proposal"
+    # default_prefix_name = "mixs_6_2_proposal"
     default_prefix_base = "https://turbomam.github.io/mixs-envo-struct-knowl-extraction/"
-
     global_target_schema = SchemaDefinition(
         default_range="string",
-        id=f"{default_prefix_base}/{schema_name}",
+        id=f"{default_prefix_base}{schema_name}",
         name=schema_name,
         source=gsc_excel_input,
     )
-
-    global_target_schema.prefixes[default_prefix_name] = Prefix(default_prefix_name, default_prefix_base)
-    global_target_schema.default_prefix = default_prefix_name
+    global_target_schema.prefixes[schema_name] = Prefix(schema_name, default_prefix_base)
+    global_target_schema.default_prefix = schema_name
 
     harmonized_sheets = harmonize_sheets(gsc_excel_input, gsc_excel_output_path, textual_key, checklists)
     harmonized_sheets.to_csv(harmonized_mixs_tables_file, index=False, sep='\t')

@@ -8,6 +8,7 @@ plugins:
   - mermaid2
 nav:
   - MIxS Documentation: index.md
+  - Ephemeral validation (does not get submitted anywhere): _playground/
 
 
 site_url: https://microbiomedata.github.io/mixs-6-2-release-candidate/
