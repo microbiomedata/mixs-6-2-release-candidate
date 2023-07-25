@@ -1,4 +1,4 @@
-name: Auto-deployment of mixs_6_2_proposal documentation and DH interface
+name: Auto-deployment of mixs_6_2_rc documentation and DH interface
 on:
   push:
     branches: [ main ]
@@ -39,7 +39,7 @@ jobs:
         run: npm install
 
       - name: Regenerate schema
-        run: make squeaky-clean generated-schema/mixs_6_2_proposal.yaml schema-derivatives/mixs_6_2_proposal.json
+        run: make squeaky-clean generated-schema/mixs_6_2_rc.yaml schema-derivatives/mixs_6_2_rc.json
 
       - name: Build documentation.
         run: |
@@ -50,7 +50,7 @@ jobs:
           mkdir -p dist
           touch dist/.gitkeep
           ls -l mixs-docs-md
-          poetry run gen-doc -d mixs-docs-md generated-schema/mixs_6_2_proposal.yaml
+          poetry run gen-doc -d mixs-docs-md generated-schema/mixs_6_2_rc.yaml
           ls -l mixs-docs-md
           #        cp src/docs/*md docs/
           ls -l dist
