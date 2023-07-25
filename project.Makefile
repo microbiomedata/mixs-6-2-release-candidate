@@ -36,8 +36,8 @@ clean:
 
 # might not want to automatically clean/delete slow-to generate ncbi-biosample-sql/results files
 squeaky-clean: clean
-	@for dir in conflict-reports converted-data downloads extracted-data generated-schema GSC-excel-harmonized-repaired \
-    mixs-docs-md other-reports schema-derivatives schemasheets-to-usage text-mining-results  ; do \
+	@for dir in onflict-reports converted-data downloads extracted-data generated-schema GSC-excel-harmonized-repaired \
+		mixs-docs-md other-reports schema-derivatives schemasheets-to-usage text-mining-results ; do \
 		rm -rf $$dir/*; \
 		mkdir -p $$dir; \
 		touch $$dir/.gitkeep; \
