@@ -1,0 +1,12 @@
+class	MIXS ID	Item	Frequency
+agriculture	MIXS:0000117	total phosphorous	0.25
+hydrocarbon resources-cores	MIXS:0000117	total phosphorus	0.75
+hydrocarbon resources-fluids/swabs	MIXS:0000117	total phosphorus	0.75
+water	MIXS:0000117	total phosphorus	0.75
+soil	MIXS:0000335	soil texture measurement	0.5
+agriculture	MIXS:0000335	texture	0.5
+agriculture	MIXS:0000530	total nitrogen	0.2
+food-farm environment	MIXS:0000530	total nitrogen content	0.8
+microbial mat/biofilm	MIXS:0000530	total nitrogen content	0.8
+sediment	MIXS:0000530	total nitrogen content	0.8
+soil	MIXS:0000530	total nitrogen content	0.8
