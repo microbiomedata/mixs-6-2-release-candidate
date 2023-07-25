@@ -921,7 +921,7 @@ def create_schema(non_ascii_replacement, debug, gsc_excel_input, textual_key, sc
     gsc_excel_output_path = os.path.join(gsc_excel_output_dir, gsc_excel_file_name)
 
     # default_prefix_name = "mixs_6_2_proposal"
-    default_prefix_base = "https://turbomam.github.io/mixs-envo-struct-knowl-extraction/"
+    default_prefix_base = "https://microbiomedata.github.io/mixs-6-2-release-candidate/"
     global_target_schema = SchemaDefinition(
         default_range="string",
         id=f"{default_prefix_base}{schema_name}",

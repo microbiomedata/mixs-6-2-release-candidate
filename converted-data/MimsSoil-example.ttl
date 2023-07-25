@@ -1,5 +1,5 @@
 @prefix MIXS: <https://w3id.org/mixs/> .
-@prefix mixs_6_2_rc: <https://turbomam.github.io/mixs-envo-struct-knowl-extraction/> .
+@prefix mixs_6_2_rc: <https://microbiomedata.github.io/mixs-6-2-release-candidate/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a mixs_6_2_rc:MixsCompliantData ;

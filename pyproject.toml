@@ -2,11 +2,11 @@
 name = "mixs-envo-struct-knowl-extraction"
 version = "0.1.0"
 description = ""
-authors = ["Mark Andrew Miller <MAM@lbl.gov>"]
+authors = ["Mark Andrew Miller <MAM@lbl.gov>", "Genoic Standards Consortium"]
 readme = "README.md"
 license = "MIT"
-homepage = "https://github.com/turbomam/mixs-envo-struct-knowl-extraction"
-repository = "https://github.com/turbomam/mixs-envo-struct-knowl-extraction"
+homepage = "https://microbiomedata.github.io/mixs-6-2-release-candidate/"
+repository = "https://github.com/microbiomedata/mixs-6-2-release-candidate"
 
 [tool.poetry.dependencies]
 exhaustion-check = "^0.1.4"
