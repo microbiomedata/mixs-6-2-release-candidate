@@ -1,0 +1,202 @@
+class	MIXS ID	Preferred unit	Frequency
+food-animal and animal feed	MIXS:0000001	liter, gram, cm^2	0.25
+food-farm environment	MIXS:0000001	liter, gram, cm^2	0.25
+food-food production facility	MIXS:0000001	liter, gram, cm^2	0.25
+food-human foods	MIXS:0000001	liter, gram, cm^2	0.25
+agriculture	MIXS:0000001	millliter, gram, milligram	0.0625
+migs_ba	MIXS:0000001	millliter, gram, milligram, liter	0.6875
+migs_eu	MIXS:0000001	millliter, gram, milligram, liter	0.6875
+migs_org	MIXS:0000001	millliter, gram, milligram, liter	0.6875
+migs_pl	MIXS:0000001	millliter, gram, milligram, liter	0.6875
+migs_vi	MIXS:0000001	millliter, gram, milligram, liter	0.6875
+mimag	MIXS:0000001	millliter, gram, milligram, liter	0.6875
+mimarks_c	MIXS:0000001	millliter, gram, milligram, liter	0.6875
+mimarks_s	MIXS:0000001	millliter, gram, milligram, liter	0.6875
+mims	MIXS:0000001	millliter, gram, milligram, liter	0.6875
+misag	MIXS:0000001	millliter, gram, milligram, liter	0.6875
+miuvig	MIXS:0000001	millliter, gram, milligram, liter	0.6875
+food-farm environment	MIXS:0000018	meter	0.47619047619047616
+host-associated	MIXS:0000018	meter	0.47619047619047616
+microbial mat/biofilm	MIXS:0000018	meter	0.47619047619047616
+miscellaneous natural or artificial environment	MIXS:0000018	meter	0.47619047619047616
+plant-associated	MIXS:0000018	meter	0.47619047619047616
+sediment	MIXS:0000018	meter	0.47619047619047616
+soil	MIXS:0000018	meter	0.47619047619047616
+symbiont-associated	MIXS:0000018	meter	0.47619047619047616
+wastewater/sludge	MIXS:0000018	meter	0.47619047619047616
+water	MIXS:0000018	meter	0.47619047619047616
+migs_ba	MIXS:0000018		0.5238095238095238
+migs_eu	MIXS:0000018		0.5238095238095238
+migs_org	MIXS:0000018		0.5238095238095238
+migs_pl	MIXS:0000018		0.5238095238095238
+migs_vi	MIXS:0000018		0.5238095238095238
+mimag	MIXS:0000018		0.5238095238095238
+mimarks_c	MIXS:0000018		0.5238095238095238
+mimarks_s	MIXS:0000018		0.5238095238095238
+mims	MIXS:0000018		0.5238095238095238
+misag	MIXS:0000018		0.5238095238095238
+miuvig	MIXS:0000018		0.5238095238095238
+air	MIXS:0000100	gram per cubic meter	0.3333333333333333
+agriculture	MIXS:0000100	percentage	0.6666666666666666
+food-farm environment	MIXS:0000100	percentage	0.6666666666666666
+food-animal and animal feed	MIXS:0000103	colony forming units per milliliter; colony forming units per gram of dry weight	0.18181818181818182
+food-farm environment	MIXS:0000103	colony forming units per milliliter; colony forming units per gram of dry weight	0.18181818181818182
+food-food production facility	MIXS:0000103	colony forming units per milliliter; colony forming units per gram of dry weight	0.18181818181818182
+food-human foods	MIXS:0000103	colony forming units per milliliter; colony forming units per gram of dry weight	0.18181818181818182
+agriculture	MIXS:0000103	number of cells per cubic meter, number of cells per milliliter, number of cells per cubic centimeter	0.7727272727272727
+air	MIXS:0000103	number of cells per cubic meter, number of cells per milliliter, number of cells per cubic centimeter	0.7727272727272727
+built environment	MIXS:0000103	number of cells per cubic meter, number of cells per milliliter, number of cells per cubic centimeter	0.7727272727272727
+host-associated	MIXS:0000103	number of cells per cubic meter, number of cells per milliliter, number of cells per cubic centimeter	0.7727272727272727
+human-associated	MIXS:0000103	number of cells per cubic meter, number of cells per milliliter, number of cells per cubic centimeter	0.7727272727272727
+human-gut	MIXS:0000103	number of cells per cubic meter, number of cells per milliliter, number of cells per cubic centimeter	0.7727272727272727
+human-oral	MIXS:0000103	number of cells per cubic meter, number of cells per milliliter, number of cells per cubic centimeter	0.7727272727272727
+human-skin	MIXS:0000103	number of cells per cubic meter, number of cells per milliliter, number of cells per cubic centimeter	0.7727272727272727
+human-vaginal	MIXS:0000103	number of cells per cubic meter, number of cells per milliliter, number of cells per cubic centimeter	0.7727272727272727
+hydrocarbon resources-cores	MIXS:0000103	number of cells per cubic meter, number of cells per milliliter, number of cells per cubic centimeter	0.7727272727272727
+hydrocarbon resources-fluids/swabs	MIXS:0000103	number of cells per cubic meter, number of cells per milliliter, number of cells per cubic centimeter	0.7727272727272727
+microbial mat/biofilm	MIXS:0000103	number of cells per cubic meter, number of cells per milliliter, number of cells per cubic centimeter	0.7727272727272727
+miscellaneous natural or artificial environment	MIXS:0000103	number of cells per cubic meter, number of cells per milliliter, number of cells per cubic centimeter	0.7727272727272727
+plant-associated	MIXS:0000103	number of cells per cubic meter, number of cells per milliliter, number of cells per cubic centimeter	0.7727272727272727
+sediment	MIXS:0000103	number of cells per cubic meter, number of cells per milliliter, number of cells per cubic centimeter	0.7727272727272727
+wastewater/sludge	MIXS:0000103	number of cells per cubic meter, number of cells per milliliter, number of cells per cubic centimeter	0.7727272727272727
+water	MIXS:0000103	number of cells per cubic meter, number of cells per milliliter, number of cells per cubic centimeter	0.7727272727272727
+symbiont-associated	MIXS:0000103	number of organism per cubic meter	0.045454545454545456
+hydrocarbon resources-cores	MIXS:0000106	microgram per liter, milligram per liter, parts per million	0.6666666666666666
+hydrocarbon resources-fluids/swabs	MIXS:0000106	microgram per liter, milligram per liter, parts per million	0.6666666666666666
+water	MIXS:0000106	microgram per liter, milligram per liter, parts per million, micromole per liter	0.3333333333333333
+air	MIXS:0000108	microgram per cubic meter	0.5
+food-farm environment	MIXS:0000108	micrograms per cubic meter	0.5
+food-animal and animal feed	MIXS:0000111	milliliter, gram, milligram, square centimeter	0.12121212121212122
+food-farm environment	MIXS:0000111	milliliter, gram, milligram, square centimeter	0.12121212121212122
+food-food production facility	MIXS:0000111	milliliter, gram, milligram, square centimeter	0.12121212121212122
+food-human foods	MIXS:0000111	milliliter, gram, milligram, square centimeter	0.12121212121212122
+agriculture	MIXS:0000111	millliter, gram, milligram	0.06060606060606061
+symbiont-associated	MIXS:0000111	millliter, gram, milligram	0.06060606060606061
+air	MIXS:0000111	millliter, gram, milligram, square centimeter	0.8181818181818182
+host-associated	MIXS:0000111	millliter, gram, milligram, square centimeter	0.8181818181818182
+human-associated	MIXS:0000111	millliter, gram, milligram, square centimeter	0.8181818181818182
+human-gut	MIXS:0000111	millliter, gram, milligram, square centimeter	0.8181818181818182
+human-oral	MIXS:0000111	millliter, gram, milligram, square centimeter	0.8181818181818182
+human-skin	MIXS:0000111	millliter, gram, milligram, square centimeter	0.8181818181818182
+human-vaginal	MIXS:0000111	millliter, gram, milligram, square centimeter	0.8181818181818182
+hydrocarbon resources-cores	MIXS:0000111	millliter, gram, milligram, square centimeter	0.8181818181818182
+hydrocarbon resources-fluids/swabs	MIXS:0000111	millliter, gram, milligram, square centimeter	0.8181818181818182
+microbial mat/biofilm	MIXS:0000111	millliter, gram, milligram, square centimeter	0.8181818181818182
+migs_ba	MIXS:0000111	millliter, gram, milligram, square centimeter	0.8181818181818182
+migs_eu	MIXS:0000111	millliter, gram, milligram, square centimeter	0.8181818181818182
+migs_org	MIXS:0000111	millliter, gram, milligram, square centimeter	0.8181818181818182
+migs_pl	MIXS:0000111	millliter, gram, milligram, square centimeter	0.8181818181818182
+migs_vi	MIXS:0000111	millliter, gram, milligram, square centimeter	0.8181818181818182
+mimag	MIXS:0000111	millliter, gram, milligram, square centimeter	0.8181818181818182
+mimarks_c	MIXS:0000111	millliter, gram, milligram, square centimeter	0.8181818181818182
+mimarks_s	MIXS:0000111	millliter, gram, milligram, square centimeter	0.8181818181818182
+mims	MIXS:0000111	millliter, gram, milligram, square centimeter	0.8181818181818182
+misag	MIXS:0000111	millliter, gram, milligram, square centimeter	0.8181818181818182
+miscellaneous natural or artificial environment	MIXS:0000111	millliter, gram, milligram, square centimeter	0.8181818181818182
+miuvig	MIXS:0000111	millliter, gram, milligram, square centimeter	0.8181818181818182
+plant-associated	MIXS:0000111	millliter, gram, milligram, square centimeter	0.8181818181818182
+sediment	MIXS:0000111	millliter, gram, milligram, square centimeter	0.8181818181818182
+soil	MIXS:0000111	millliter, gram, milligram, square centimeter	0.8181818181818182
+wastewater/sludge	MIXS:0000111	millliter, gram, milligram, square centimeter	0.8181818181818182
+water	MIXS:0000111	millliter, gram, milligram, square centimeter	0.8181818181818182
+agriculture	MIXS:0000117	microgram per liter, micromole per liter	0.25
+hydrocarbon resources-cores	MIXS:0000117	micromole per liter, milligram per liter, parts per million	0.75
+hydrocarbon resources-fluids/swabs	MIXS:0000117	micromole per liter, milligram per liter, parts per million	0.75
+water	MIXS:0000117	micromole per liter, milligram per liter, parts per million	0.75
+food-farm environment	MIXS:0000118	kilometer per hour	0.5
+air	MIXS:0000118	meter per second, kilometer per hour	0.5
+microbial mat/biofilm	MIXS:0000162	microgram per liter, milligram per liter	0.75
+miscellaneous natural or artificial environment	MIXS:0000162	microgram per liter, milligram per liter	0.75
+sediment	MIXS:0000162	microgram per liter, milligram per liter	0.75
+water	MIXS:0000162	micromole per liter, microgram per liter, milligram per liter	0.25
+microbial mat/biofilm	MIXS:0000173	nanogram per hour	0.6666666666666666
+sediment	MIXS:0000173	nanogram per hour	0.6666666666666666
+water	MIXS:0000173	nanogram per hour, microgram per liter per hour	0.3333333333333333
+microbial mat/biofilm	MIXS:0000181	mole per gram, mole per liter	0.75
+miscellaneous natural or artificial environment	MIXS:0000181	mole per gram, mole per liter	0.75
+sediment	MIXS:0000181	mole per gram, mole per liter	0.75
+water	MIXS:0000181	mole per gram, mole per liter, milligram per liter	0.25
+microbial mat/biofilm	MIXS:0000191	formazin turbidity unit, formazin nephelometric units	0.5
+sediment	MIXS:0000191	formazin turbidity unit, formazin nephelometric units	0.5
+food-farm environment	MIXS:0000191	formazin turbidity unit, formazin nephelometric units, nephelometric turbidity units	0.5
+water	MIXS:0000191	formazin turbidity unit, formazin nephelometric units, nephelometric turbidity units	0.5
+microbial mat/biofilm	MIXS:0000204	microgram per liter	0.8
+miscellaneous natural or artificial environment	MIXS:0000204	microgram per liter	0.8
+sediment	MIXS:0000204	microgram per liter	0.8
+soil	MIXS:0000204	microgram per liter	0.8
+water	MIXS:0000204	microgram per liter, milligram per cubic meter	0.2
+microbial mat/biofilm	MIXS:0000205	microgram per liter	0.8
+miscellaneous natural or artificial environment	MIXS:0000205	microgram per liter	0.8
+sediment	MIXS:0000205	microgram per liter	0.8
+soil	MIXS:0000205	microgram per liter	0.8
+water	MIXS:0000205	microgram per liter, micromole per liter	0.2
+agriculture	MIXS:0000256	centimeter, millimeter, meter	0.8
+food-farm environment	MIXS:0000256	centimeter, millimeter, meter	0.8
+host-associated	MIXS:0000256	centimeter, millimeter, meter	0.8
+plant-associated	MIXS:0000256	centimeter, millimeter, meter	0.8
+symbiont-associated	MIXS:0000256	nanometre, micrometre, millimeter, centimeter, meter	0.2
+agriculture	MIXS:0000263	kilogram, gram	0.9
+food-farm environment	MIXS:0000263	kilogram, gram	0.9
+host-associated	MIXS:0000263	kilogram, gram	0.9
+human-associated	MIXS:0000263	kilogram, gram	0.9
+human-gut	MIXS:0000263	kilogram, gram	0.9
+human-oral	MIXS:0000263	kilogram, gram	0.9
+human-skin	MIXS:0000263	kilogram, gram	0.9
+human-vaginal	MIXS:0000263	kilogram, gram	0.9
+plant-associated	MIXS:0000263	kilogram, gram	0.9
+symbiont-associated	MIXS:0000263	kilogram, gram, cell number	0.1
+agriculture	MIXS:0000264	centimeter, millimeter, meter	0.9
+food-farm environment	MIXS:0000264	centimeter, millimeter, meter	0.9
+host-associated	MIXS:0000264	centimeter, millimeter, meter	0.9
+human-associated	MIXS:0000264	centimeter, millimeter, meter	0.9
+human-gut	MIXS:0000264	centimeter, millimeter, meter	0.9
+human-oral	MIXS:0000264	centimeter, millimeter, meter	0.9
+human-skin	MIXS:0000264	centimeter, millimeter, meter	0.9
+human-vaginal	MIXS:0000264	centimeter, millimeter, meter	0.9
+plant-associated	MIXS:0000264	centimeter, millimeter, meter	0.9
+symbiont-associated	MIXS:0000264	nanometre, micrometre, millimeter, centimeter, meter	0.1
+hydrocarbon resources-cores	MIXS:0000425	micromole per liter, milligram per liter, parts per million	0.8571428571428571
+hydrocarbon resources-fluids/swabs	MIXS:0000425	micromole per liter, milligram per liter, parts per million	0.8571428571428571
+microbial mat/biofilm	MIXS:0000425	micromole per liter, milligram per liter, parts per million	0.8571428571428571
+miscellaneous natural or artificial environment	MIXS:0000425	micromole per liter, milligram per liter, parts per million	0.8571428571428571
+sediment	MIXS:0000425	micromole per liter, milligram per liter, parts per million	0.8571428571428571
+wastewater/sludge	MIXS:0000425	micromole per liter, milligram per liter, parts per million	0.8571428571428571
+water	MIXS:0000425	micromole per liter, milligram per liter, parts per million, micromole per kilogram	0.14285714285714285
+hydrocarbon resources-cores	MIXS:0000426	micromole per liter, milligram per liter, parts per million	0.8333333333333334
+hydrocarbon resources-fluids/swabs	MIXS:0000426	micromole per liter, milligram per liter, parts per million	0.8333333333333334
+microbial mat/biofilm	MIXS:0000426	micromole per liter, milligram per liter, parts per million	0.8333333333333334
+miscellaneous natural or artificial environment	MIXS:0000426	micromole per liter, milligram per liter, parts per million	0.8333333333333334
+sediment	MIXS:0000426	micromole per liter, milligram per liter, parts per million	0.8333333333333334
+water	MIXS:0000426	micromole per liter, milligram per liter, parts per million, micromole per kilogram	0.16666666666666666
+hydrocarbon resources-cores	MIXS:0000434	microgram per liter, milligram per liter, parts per million	0.8333333333333334
+hydrocarbon resources-fluids/swabs	MIXS:0000434	microgram per liter, milligram per liter, parts per million	0.8333333333333334
+microbial mat/biofilm	MIXS:0000434	microgram per liter, milligram per liter, parts per million	0.8333333333333334
+miscellaneous natural or artificial environment	MIXS:0000434	microgram per liter, milligram per liter, parts per million	0.8333333333333334
+sediment	MIXS:0000434	microgram per liter, milligram per liter, parts per million	0.8333333333333334
+water	MIXS:0000434	microgram per liter, milligram per liter, parts per million, micromole per kilogram	0.16666666666666666
+hydrocarbon resources-cores	MIXS:0000435	gram per cubic meter, gram per cubic centimeter	0.8
+hydrocarbon resources-fluids/swabs	MIXS:0000435	gram per cubic meter, gram per cubic centimeter	0.8
+miscellaneous natural or artificial environment	MIXS:0000435	gram per cubic meter, gram per cubic centimeter	0.8
+sediment	MIXS:0000435	gram per cubic meter, gram per cubic centimeter	0.8
+water	MIXS:0000435	gram per cubic meter, gram per cubic centimeter, kilogram per cubic meter	0.2
+microbial mat/biofilm	MIXS:0000490	mole per liter	0.6666666666666666
+sediment	MIXS:0000490	mole per liter	0.6666666666666666
+water	MIXS:0000490	mole per liter, microgram per gram sample	0.3333333333333333
+microbial mat/biofilm	MIXS:0000503	micromole per liter	0.6666666666666666
+sediment	MIXS:0000503	micromole per liter	0.6666666666666666
+water	MIXS:0000503	micromole per liter, milligram per liter	0.3333333333333333
+microbial mat/biofilm	MIXS:0000508	micromole per liter	0.75
+miscellaneous natural or artificial environment	MIXS:0000508	micromole per liter	0.75
+sediment	MIXS:0000508	micromole per liter	0.75
+water	MIXS:0000508	micromole per liter, microgram per liter	0.25
+microbial mat/biofilm	MIXS:0000515	microgram per liter	0.6666666666666666
+sediment	MIXS:0000515	microgram per liter	0.6666666666666666
+water	MIXS:0000515	microgram per liter, micromole per liter	0.3333333333333333
+microbial mat/biofilm	MIXS:0000525	microgram per liter	0.6666666666666666
+sediment	MIXS:0000525	microgram per liter	0.6666666666666666
+agriculture	MIXS:0000525	microgram per liter, micromole per liter	0.3333333333333333
+agriculture	MIXS:0000530	microgram per liter, micromole per liter	0.2
+microbial mat/biofilm	MIXS:0000530	microgram per liter, micromole per liter, milligram per liter	0.6
+sediment	MIXS:0000530	microgram per liter, micromole per liter, milligram per liter	0.6
+soil	MIXS:0000530	microgram per liter, micromole per liter, milligram per liter	0.6
+food-farm environment	MIXS:0000530	milligrams Nitrogen per kilogram of soil	0.2

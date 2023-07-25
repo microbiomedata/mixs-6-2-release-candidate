@@ -1,0 +1,8 @@
+optional_not_present:
+- mims_soil_data
+- mims_water_data
+- physical_sex
+recommended_not_present:
+- soil_depth
+required_not_present: []
+used_but_undefined: []

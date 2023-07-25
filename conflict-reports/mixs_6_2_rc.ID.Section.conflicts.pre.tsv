@@ -1,0 +1,701 @@
+class	MIXS ID	Section	Frequency
+migs_ba	MIXS:0000001	nucleic acid sequence source	0.6875
+migs_eu	MIXS:0000001	nucleic acid sequence source	0.6875
+migs_org	MIXS:0000001	nucleic acid sequence source	0.6875
+migs_pl	MIXS:0000001	nucleic acid sequence source	0.6875
+migs_vi	MIXS:0000001	nucleic acid sequence source	0.6875
+mimag	MIXS:0000001	nucleic acid sequence source	0.6875
+mimarks_c	MIXS:0000001	nucleic acid sequence source	0.6875
+mimarks_s	MIXS:0000001	nucleic acid sequence source	0.6875
+mims	MIXS:0000001	nucleic acid sequence source	0.6875
+misag	MIXS:0000001	nucleic acid sequence source	0.6875
+miuvig	MIXS:0000001	nucleic acid sequence source	0.6875
+agriculture	MIXS:0000001		0.3125
+food-animal and animal feed	MIXS:0000001		0.3125
+food-farm environment	MIXS:0000001		0.3125
+food-food production facility	MIXS:0000001		0.3125
+food-human foods	MIXS:0000001		0.3125
+migs_ba	MIXS:0000002	nucleic acid sequence source	0.6875
+migs_eu	MIXS:0000002	nucleic acid sequence source	0.6875
+migs_org	MIXS:0000002	nucleic acid sequence source	0.6875
+migs_pl	MIXS:0000002	nucleic acid sequence source	0.6875
+migs_vi	MIXS:0000002	nucleic acid sequence source	0.6875
+mimag	MIXS:0000002	nucleic acid sequence source	0.6875
+mimarks_c	MIXS:0000002	nucleic acid sequence source	0.6875
+mimarks_s	MIXS:0000002	nucleic acid sequence source	0.6875
+mims	MIXS:0000002	nucleic acid sequence source	0.6875
+misag	MIXS:0000002	nucleic acid sequence source	0.6875
+miuvig	MIXS:0000002	nucleic acid sequence source	0.6875
+agriculture	MIXS:0000002		0.3125
+food-animal and animal feed	MIXS:0000002		0.3125
+food-farm environment	MIXS:0000002		0.3125
+food-food production facility	MIXS:0000002		0.3125
+food-human foods	MIXS:0000002		0.3125
+migs_ba	MIXS:0000003	nucleic acid sequence source	0.9166666666666666
+migs_eu	MIXS:0000003	nucleic acid sequence source	0.9166666666666666
+migs_org	MIXS:0000003	nucleic acid sequence source	0.9166666666666666
+migs_pl	MIXS:0000003	nucleic acid sequence source	0.9166666666666666
+migs_vi	MIXS:0000003	nucleic acid sequence source	0.9166666666666666
+mimag	MIXS:0000003	nucleic acid sequence source	0.9166666666666666
+mimarks_c	MIXS:0000003	nucleic acid sequence source	0.9166666666666666
+mimarks_s	MIXS:0000003	nucleic acid sequence source	0.9166666666666666
+mims	MIXS:0000003	nucleic acid sequence source	0.9166666666666666
+misag	MIXS:0000003	nucleic acid sequence source	0.9166666666666666
+miuvig	MIXS:0000003	nucleic acid sequence source	0.9166666666666666
+agriculture	MIXS:0000003		0.08333333333333333
+migs_ba	MIXS:0000008	investigation	0.7857142857142857
+migs_eu	MIXS:0000008	investigation	0.7857142857142857
+migs_org	MIXS:0000008	investigation	0.7857142857142857
+migs_pl	MIXS:0000008	investigation	0.7857142857142857
+migs_vi	MIXS:0000008	investigation	0.7857142857142857
+mimag	MIXS:0000008	investigation	0.7857142857142857
+mimarks_c	MIXS:0000008	investigation	0.7857142857142857
+mimarks_s	MIXS:0000008	investigation	0.7857142857142857
+mims	MIXS:0000008	investigation	0.7857142857142857
+misag	MIXS:0000008	investigation	0.7857142857142857
+miuvig	MIXS:0000008	investigation	0.7857142857142857
+food-animal and animal feed	MIXS:0000008		0.21428571428571427
+food-food production facility	MIXS:0000008		0.21428571428571427
+food-human foods	MIXS:0000008		0.21428571428571427
+migs_ba	MIXS:0000009	environment	0.6875
+migs_eu	MIXS:0000009	environment	0.6875
+migs_org	MIXS:0000009	environment	0.6875
+migs_pl	MIXS:0000009	environment	0.6875
+migs_vi	MIXS:0000009	environment	0.6875
+mimag	MIXS:0000009	environment	0.6875
+mimarks_c	MIXS:0000009	environment	0.6875
+mimarks_s	MIXS:0000009	environment	0.6875
+mims	MIXS:0000009	environment	0.6875
+misag	MIXS:0000009	environment	0.6875
+miuvig	MIXS:0000009	environment	0.6875
+food-animal and animal feed	MIXS:0000009		0.3125
+food-farm environment	MIXS:0000009		0.3125
+food-food production facility	MIXS:0000009		0.3125
+food-human foods	MIXS:0000009		0.3125
+symbiont-associated	MIXS:0000009		0.3125
+migs_ba	MIXS:0000010	environment	0.6875
+migs_eu	MIXS:0000010	environment	0.6875
+migs_org	MIXS:0000010	environment	0.6875
+migs_pl	MIXS:0000010	environment	0.6875
+migs_vi	MIXS:0000010	environment	0.6875
+mimag	MIXS:0000010	environment	0.6875
+mimarks_c	MIXS:0000010	environment	0.6875
+mimarks_s	MIXS:0000010	environment	0.6875
+mims	MIXS:0000010	environment	0.6875
+misag	MIXS:0000010	environment	0.6875
+miuvig	MIXS:0000010	environment	0.6875
+food-animal and animal feed	MIXS:0000010		0.3125
+food-farm environment	MIXS:0000010		0.3125
+food-food production facility	MIXS:0000010		0.3125
+food-human foods	MIXS:0000010		0.3125
+symbiont-associated	MIXS:0000010		0.3125
+migs_ba	MIXS:0000011	environment	0.6875
+migs_eu	MIXS:0000011	environment	0.6875
+migs_org	MIXS:0000011	environment	0.6875
+migs_pl	MIXS:0000011	environment	0.6875
+migs_vi	MIXS:0000011	environment	0.6875
+mimag	MIXS:0000011	environment	0.6875
+mimarks_c	MIXS:0000011	environment	0.6875
+mimarks_s	MIXS:0000011	environment	0.6875
+mims	MIXS:0000011	environment	0.6875
+misag	MIXS:0000011	environment	0.6875
+miuvig	MIXS:0000011	environment	0.6875
+food-animal and animal feed	MIXS:0000011		0.3125
+food-farm environment	MIXS:0000011		0.3125
+food-food production facility	MIXS:0000011		0.3125
+food-human foods	MIXS:0000011		0.3125
+symbiont-associated	MIXS:0000011		0.3125
+migs_ba	MIXS:0000016	nucleic acid sequence source	0.9166666666666666
+migs_eu	MIXS:0000016	nucleic acid sequence source	0.9166666666666666
+migs_org	MIXS:0000016	nucleic acid sequence source	0.9166666666666666
+migs_pl	MIXS:0000016	nucleic acid sequence source	0.9166666666666666
+migs_vi	MIXS:0000016	nucleic acid sequence source	0.9166666666666666
+mimag	MIXS:0000016	nucleic acid sequence source	0.9166666666666666
+mimarks_c	MIXS:0000016	nucleic acid sequence source	0.9166666666666666
+mimarks_s	MIXS:0000016	nucleic acid sequence source	0.9166666666666666
+mims	MIXS:0000016	nucleic acid sequence source	0.9166666666666666
+misag	MIXS:0000016	nucleic acid sequence source	0.9166666666666666
+miuvig	MIXS:0000016	nucleic acid sequence source	0.9166666666666666
+agriculture	MIXS:0000016		0.08333333333333333
+migs_ba	MIXS:0000018	environment	0.5
+migs_eu	MIXS:0000018	environment	0.5
+migs_org	MIXS:0000018	environment	0.5
+migs_pl	MIXS:0000018	environment	0.5
+migs_vi	MIXS:0000018	environment	0.5
+mimag	MIXS:0000018	environment	0.5
+mimarks_c	MIXS:0000018	environment	0.5
+mimarks_s	MIXS:0000018	environment	0.5
+mims	MIXS:0000018	environment	0.5
+misag	MIXS:0000018	environment	0.5
+miuvig	MIXS:0000018	environment	0.5
+agriculture	MIXS:0000018		0.5
+food-farm environment	MIXS:0000018		0.5
+host-associated	MIXS:0000018		0.5
+microbial mat/biofilm	MIXS:0000018		0.5
+miscellaneous natural or artificial environment	MIXS:0000018		0.5
+plant-associated	MIXS:0000018		0.5
+sediment	MIXS:0000018		0.5
+soil	MIXS:0000018		0.5
+symbiont-associated	MIXS:0000018		0.5
+wastewater/sludge	MIXS:0000018		0.5
+water	MIXS:0000018		0.5
+migs_ba	MIXS:0000020	nucleic acid sequence source	0.9166666666666666
+migs_eu	MIXS:0000020	nucleic acid sequence source	0.9166666666666666
+migs_org	MIXS:0000020	nucleic acid sequence source	0.9166666666666666
+migs_pl	MIXS:0000020	nucleic acid sequence source	0.9166666666666666
+migs_vi	MIXS:0000020	nucleic acid sequence source	0.9166666666666666
+mimag	MIXS:0000020	nucleic acid sequence source	0.9166666666666666
+mimarks_c	MIXS:0000020	nucleic acid sequence source	0.9166666666666666
+mimarks_s	MIXS:0000020	nucleic acid sequence source	0.9166666666666666
+mims	MIXS:0000020	nucleic acid sequence source	0.9166666666666666
+misag	MIXS:0000020	nucleic acid sequence source	0.9166666666666666
+miuvig	MIXS:0000020	nucleic acid sequence source	0.9166666666666666
+food-food production facility	MIXS:0000020		0.08333333333333333
+migs_ba	MIXS:0000026	nucleic acid sequence source	0.8461538461538461
+migs_eu	MIXS:0000026	nucleic acid sequence source	0.8461538461538461
+migs_org	MIXS:0000026	nucleic acid sequence source	0.8461538461538461
+migs_pl	MIXS:0000026	nucleic acid sequence source	0.8461538461538461
+migs_vi	MIXS:0000026	nucleic acid sequence source	0.8461538461538461
+mimag	MIXS:0000026	nucleic acid sequence source	0.8461538461538461
+mimarks_c	MIXS:0000026	nucleic acid sequence source	0.8461538461538461
+mimarks_s	MIXS:0000026	nucleic acid sequence source	0.8461538461538461
+mims	MIXS:0000026	nucleic acid sequence source	0.8461538461538461
+misag	MIXS:0000026	nucleic acid sequence source	0.8461538461538461
+miuvig	MIXS:0000026	nucleic acid sequence source	0.8461538461538461
+agriculture	MIXS:0000026		0.15384615384615385
+symbiont-associated	MIXS:0000026		0.15384615384615385
+migs_ba	MIXS:0000027	nucleic acid sequence source	0.9166666666666666
+migs_eu	MIXS:0000027	nucleic acid sequence source	0.9166666666666666
+migs_org	MIXS:0000027	nucleic acid sequence source	0.9166666666666666
+migs_pl	MIXS:0000027	nucleic acid sequence source	0.9166666666666666
+migs_vi	MIXS:0000027	nucleic acid sequence source	0.9166666666666666
+mimag	MIXS:0000027	nucleic acid sequence source	0.9166666666666666
+mimarks_c	MIXS:0000027	nucleic acid sequence source	0.9166666666666666
+mimarks_s	MIXS:0000027	nucleic acid sequence source	0.9166666666666666
+mims	MIXS:0000027	nucleic acid sequence source	0.9166666666666666
+misag	MIXS:0000027	nucleic acid sequence source	0.9166666666666666
+miuvig	MIXS:0000027	nucleic acid sequence source	0.9166666666666666
+agriculture	MIXS:0000027		0.08333333333333333
+migs_ba	MIXS:0000028	nucleic acid sequence source	0.9166666666666666
+migs_eu	MIXS:0000028	nucleic acid sequence source	0.9166666666666666
+migs_org	MIXS:0000028	nucleic acid sequence source	0.9166666666666666
+migs_pl	MIXS:0000028	nucleic acid sequence source	0.9166666666666666
+migs_vi	MIXS:0000028	nucleic acid sequence source	0.9166666666666666
+mimag	MIXS:0000028	nucleic acid sequence source	0.9166666666666666
+mimarks_c	MIXS:0000028	nucleic acid sequence source	0.9166666666666666
+mimarks_s	MIXS:0000028	nucleic acid sequence source	0.9166666666666666
+mims	MIXS:0000028	nucleic acid sequence source	0.9166666666666666
+misag	MIXS:0000028	nucleic acid sequence source	0.9166666666666666
+miuvig	MIXS:0000028	nucleic acid sequence source	0.9166666666666666
+agriculture	MIXS:0000028		0.08333333333333333
+migs_ba	MIXS:0000029	nucleic acid sequence source	0.9166666666666666
+migs_eu	MIXS:0000029	nucleic acid sequence source	0.9166666666666666
+migs_org	MIXS:0000029	nucleic acid sequence source	0.9166666666666666
+migs_pl	MIXS:0000029	nucleic acid sequence source	0.9166666666666666
+migs_vi	MIXS:0000029	nucleic acid sequence source	0.9166666666666666
+mimag	MIXS:0000029	nucleic acid sequence source	0.9166666666666666
+mimarks_c	MIXS:0000029	nucleic acid sequence source	0.9166666666666666
+mimarks_s	MIXS:0000029	nucleic acid sequence source	0.9166666666666666
+mims	MIXS:0000029	nucleic acid sequence source	0.9166666666666666
+misag	MIXS:0000029	nucleic acid sequence source	0.9166666666666666
+miuvig	MIXS:0000029	nucleic acid sequence source	0.9166666666666666
+agriculture	MIXS:0000029		0.08333333333333333
+migs_ba	MIXS:0000030	nucleic acid sequence source	0.9166666666666666
+migs_eu	MIXS:0000030	nucleic acid sequence source	0.9166666666666666
+migs_org	MIXS:0000030	nucleic acid sequence source	0.9166666666666666
+migs_pl	MIXS:0000030	nucleic acid sequence source	0.9166666666666666
+migs_vi	MIXS:0000030	nucleic acid sequence source	0.9166666666666666
+mimag	MIXS:0000030	nucleic acid sequence source	0.9166666666666666
+mimarks_c	MIXS:0000030	nucleic acid sequence source	0.9166666666666666
+mimarks_s	MIXS:0000030	nucleic acid sequence source	0.9166666666666666
+mims	MIXS:0000030	nucleic acid sequence source	0.9166666666666666
+misag	MIXS:0000030	nucleic acid sequence source	0.9166666666666666
+miuvig	MIXS:0000030	nucleic acid sequence source	0.9166666666666666
+agriculture	MIXS:0000030		0.08333333333333333
+migs_ba	MIXS:0000031	nucleic acid sequence source	0.55
+migs_eu	MIXS:0000031	nucleic acid sequence source	0.55
+migs_org	MIXS:0000031	nucleic acid sequence source	0.55
+migs_pl	MIXS:0000031	nucleic acid sequence source	0.55
+migs_vi	MIXS:0000031	nucleic acid sequence source	0.55
+mimag	MIXS:0000031	nucleic acid sequence source	0.55
+mimarks_c	MIXS:0000031	nucleic acid sequence source	0.55
+mimarks_s	MIXS:0000031	nucleic acid sequence source	0.55
+mims	MIXS:0000031	nucleic acid sequence source	0.55
+misag	MIXS:0000031	nucleic acid sequence source	0.55
+miuvig	MIXS:0000031	nucleic acid sequence source	0.55
+agriculture	MIXS:0000031		0.45
+food-farm environment	MIXS:0000031		0.45
+host-associated	MIXS:0000031		0.45
+human-associated	MIXS:0000031		0.45
+human-gut	MIXS:0000031		0.45
+human-oral	MIXS:0000031		0.45
+human-skin	MIXS:0000031		0.45
+human-vaginal	MIXS:0000031		0.45
+plant-associated	MIXS:0000031		0.45
+migs_ba	MIXS:0000032	nucleic acid sequence source	0.9166666666666666
+migs_eu	MIXS:0000032	nucleic acid sequence source	0.9166666666666666
+migs_org	MIXS:0000032	nucleic acid sequence source	0.9166666666666666
+migs_pl	MIXS:0000032	nucleic acid sequence source	0.9166666666666666
+migs_vi	MIXS:0000032	nucleic acid sequence source	0.9166666666666666
+mimag	MIXS:0000032	nucleic acid sequence source	0.9166666666666666
+mimarks_c	MIXS:0000032	nucleic acid sequence source	0.9166666666666666
+mimarks_s	MIXS:0000032	nucleic acid sequence source	0.9166666666666666
+mims	MIXS:0000032	nucleic acid sequence source	0.9166666666666666
+misag	MIXS:0000032	nucleic acid sequence source	0.9166666666666666
+miuvig	MIXS:0000032	nucleic acid sequence source	0.9166666666666666
+agriculture	MIXS:0000032		0.08333333333333333
+migs_ba	MIXS:0000037	sequencing	0.6875
+migs_eu	MIXS:0000037	sequencing	0.6875
+migs_org	MIXS:0000037	sequencing	0.6875
+migs_pl	MIXS:0000037	sequencing	0.6875
+migs_vi	MIXS:0000037	sequencing	0.6875
+mimag	MIXS:0000037	sequencing	0.6875
+mimarks_c	MIXS:0000037	sequencing	0.6875
+mimarks_s	MIXS:0000037	sequencing	0.6875
+mims	MIXS:0000037	sequencing	0.6875
+misag	MIXS:0000037	sequencing	0.6875
+miuvig	MIXS:0000037	sequencing	0.6875
+agriculture	MIXS:0000037		0.3125
+food-animal and animal feed	MIXS:0000037		0.3125
+food-farm environment	MIXS:0000037		0.3125
+food-food production facility	MIXS:0000037		0.3125
+food-human foods	MIXS:0000037		0.3125
+migs_ba	MIXS:0000038	sequencing	0.9166666666666666
+migs_eu	MIXS:0000038	sequencing	0.9166666666666666
+migs_org	MIXS:0000038	sequencing	0.9166666666666666
+migs_pl	MIXS:0000038	sequencing	0.9166666666666666
+migs_vi	MIXS:0000038	sequencing	0.9166666666666666
+mimag	MIXS:0000038	sequencing	0.9166666666666666
+mimarks_c	MIXS:0000038	sequencing	0.9166666666666666
+mimarks_s	MIXS:0000038	sequencing	0.9166666666666666
+mims	MIXS:0000038	sequencing	0.9166666666666666
+misag	MIXS:0000038	sequencing	0.9166666666666666
+miuvig	MIXS:0000038	sequencing	0.9166666666666666
+agriculture	MIXS:0000038		0.08333333333333333
+migs_ba	MIXS:0000039	sequencing	0.9166666666666666
+migs_eu	MIXS:0000039	sequencing	0.9166666666666666
+migs_org	MIXS:0000039	sequencing	0.9166666666666666
+migs_pl	MIXS:0000039	sequencing	0.9166666666666666
+migs_vi	MIXS:0000039	sequencing	0.9166666666666666
+mimag	MIXS:0000039	sequencing	0.9166666666666666
+mimarks_c	MIXS:0000039	sequencing	0.9166666666666666
+mimarks_s	MIXS:0000039	sequencing	0.9166666666666666
+mims	MIXS:0000039	sequencing	0.9166666666666666
+misag	MIXS:0000039	sequencing	0.9166666666666666
+miuvig	MIXS:0000039	sequencing	0.9166666666666666
+agriculture	MIXS:0000039		0.08333333333333333
+migs_ba	MIXS:0000040	sequencing	0.9166666666666666
+migs_eu	MIXS:0000040	sequencing	0.9166666666666666
+migs_org	MIXS:0000040	sequencing	0.9166666666666666
+migs_pl	MIXS:0000040	sequencing	0.9166666666666666
+migs_vi	MIXS:0000040	sequencing	0.9166666666666666
+mimag	MIXS:0000040	sequencing	0.9166666666666666
+mimarks_c	MIXS:0000040	sequencing	0.9166666666666666
+mimarks_s	MIXS:0000040	sequencing	0.9166666666666666
+mims	MIXS:0000040	sequencing	0.9166666666666666
+misag	MIXS:0000040	sequencing	0.9166666666666666
+miuvig	MIXS:0000040	sequencing	0.9166666666666666
+agriculture	MIXS:0000040		0.08333333333333333
+migs_ba	MIXS:0000041	sequencing	0.9166666666666666
+migs_eu	MIXS:0000041	sequencing	0.9166666666666666
+migs_org	MIXS:0000041	sequencing	0.9166666666666666
+migs_pl	MIXS:0000041	sequencing	0.9166666666666666
+migs_vi	MIXS:0000041	sequencing	0.9166666666666666
+mimag	MIXS:0000041	sequencing	0.9166666666666666
+mimarks_c	MIXS:0000041	sequencing	0.9166666666666666
+mimarks_s	MIXS:0000041	sequencing	0.9166666666666666
+mims	MIXS:0000041	sequencing	0.9166666666666666
+misag	MIXS:0000041	sequencing	0.9166666666666666
+miuvig	MIXS:0000041	sequencing	0.9166666666666666
+agriculture	MIXS:0000041		0.08333333333333333
+migs_ba	MIXS:0000042	sequencing	0.9166666666666666
+migs_eu	MIXS:0000042	sequencing	0.9166666666666666
+migs_org	MIXS:0000042	sequencing	0.9166666666666666
+migs_pl	MIXS:0000042	sequencing	0.9166666666666666
+migs_vi	MIXS:0000042	sequencing	0.9166666666666666
+mimag	MIXS:0000042	sequencing	0.9166666666666666
+mimarks_c	MIXS:0000042	sequencing	0.9166666666666666
+mimarks_s	MIXS:0000042	sequencing	0.9166666666666666
+mims	MIXS:0000042	sequencing	0.9166666666666666
+misag	MIXS:0000042	sequencing	0.9166666666666666
+miuvig	MIXS:0000042	sequencing	0.9166666666666666
+agriculture	MIXS:0000042		0.08333333333333333
+migs_ba	MIXS:0000043	sequencing	0.9166666666666666
+migs_eu	MIXS:0000043	sequencing	0.9166666666666666
+migs_org	MIXS:0000043	sequencing	0.9166666666666666
+migs_pl	MIXS:0000043	sequencing	0.9166666666666666
+migs_vi	MIXS:0000043	sequencing	0.9166666666666666
+mimag	MIXS:0000043	sequencing	0.9166666666666666
+mimarks_c	MIXS:0000043	sequencing	0.9166666666666666
+mimarks_s	MIXS:0000043	sequencing	0.9166666666666666
+mims	MIXS:0000043	sequencing	0.9166666666666666
+misag	MIXS:0000043	sequencing	0.9166666666666666
+miuvig	MIXS:0000043	sequencing	0.9166666666666666
+agriculture	MIXS:0000043		0.08333333333333333
+migs_ba	MIXS:0000044	sequencing	0.9166666666666666
+migs_eu	MIXS:0000044	sequencing	0.9166666666666666
+migs_org	MIXS:0000044	sequencing	0.9166666666666666
+migs_pl	MIXS:0000044	sequencing	0.9166666666666666
+migs_vi	MIXS:0000044	sequencing	0.9166666666666666
+mimag	MIXS:0000044	sequencing	0.9166666666666666
+mimarks_c	MIXS:0000044	sequencing	0.9166666666666666
+mimarks_s	MIXS:0000044	sequencing	0.9166666666666666
+mims	MIXS:0000044	sequencing	0.9166666666666666
+misag	MIXS:0000044	sequencing	0.9166666666666666
+miuvig	MIXS:0000044	sequencing	0.9166666666666666
+agriculture	MIXS:0000044		0.08333333333333333
+migs_ba	MIXS:0000045	sequencing	0.9166666666666666
+migs_eu	MIXS:0000045	sequencing	0.9166666666666666
+migs_org	MIXS:0000045	sequencing	0.9166666666666666
+migs_pl	MIXS:0000045	sequencing	0.9166666666666666
+migs_vi	MIXS:0000045	sequencing	0.9166666666666666
+mimag	MIXS:0000045	sequencing	0.9166666666666666
+mimarks_c	MIXS:0000045	sequencing	0.9166666666666666
+mimarks_s	MIXS:0000045	sequencing	0.9166666666666666
+mims	MIXS:0000045	sequencing	0.9166666666666666
+misag	MIXS:0000045	sequencing	0.9166666666666666
+miuvig	MIXS:0000045	sequencing	0.9166666666666666
+agriculture	MIXS:0000045		0.08333333333333333
+migs_ba	MIXS:0000046	sequencing	0.9166666666666666
+migs_eu	MIXS:0000046	sequencing	0.9166666666666666
+migs_org	MIXS:0000046	sequencing	0.9166666666666666
+migs_pl	MIXS:0000046	sequencing	0.9166666666666666
+migs_vi	MIXS:0000046	sequencing	0.9166666666666666
+mimag	MIXS:0000046	sequencing	0.9166666666666666
+mimarks_c	MIXS:0000046	sequencing	0.9166666666666666
+mimarks_s	MIXS:0000046	sequencing	0.9166666666666666
+mims	MIXS:0000046	sequencing	0.9166666666666666
+misag	MIXS:0000046	sequencing	0.9166666666666666
+miuvig	MIXS:0000046	sequencing	0.9166666666666666
+agriculture	MIXS:0000046		0.08333333333333333
+migs_ba	MIXS:0000047	sequencing	0.9166666666666666
+migs_eu	MIXS:0000047	sequencing	0.9166666666666666
+migs_org	MIXS:0000047	sequencing	0.9166666666666666
+migs_pl	MIXS:0000047	sequencing	0.9166666666666666
+migs_vi	MIXS:0000047	sequencing	0.9166666666666666
+mimag	MIXS:0000047	sequencing	0.9166666666666666
+mimarks_c	MIXS:0000047	sequencing	0.9166666666666666
+mimarks_s	MIXS:0000047	sequencing	0.9166666666666666
+mims	MIXS:0000047	sequencing	0.9166666666666666
+misag	MIXS:0000047	sequencing	0.9166666666666666
+miuvig	MIXS:0000047	sequencing	0.9166666666666666
+agriculture	MIXS:0000047		0.08333333333333333
+migs_ba	MIXS:0000048	sequencing	0.9166666666666666
+migs_eu	MIXS:0000048	sequencing	0.9166666666666666
+migs_org	MIXS:0000048	sequencing	0.9166666666666666
+migs_pl	MIXS:0000048	sequencing	0.9166666666666666
+migs_vi	MIXS:0000048	sequencing	0.9166666666666666
+mimag	MIXS:0000048	sequencing	0.9166666666666666
+mimarks_c	MIXS:0000048	sequencing	0.9166666666666666
+mimarks_s	MIXS:0000048	sequencing	0.9166666666666666
+mims	MIXS:0000048	sequencing	0.9166666666666666
+misag	MIXS:0000048	sequencing	0.9166666666666666
+miuvig	MIXS:0000048	sequencing	0.9166666666666666
+agriculture	MIXS:0000048		0.08333333333333333
+migs_ba	MIXS:0000049	sequencing	0.9166666666666666
+migs_eu	MIXS:0000049	sequencing	0.9166666666666666
+migs_org	MIXS:0000049	sequencing	0.9166666666666666
+migs_pl	MIXS:0000049	sequencing	0.9166666666666666
+migs_vi	MIXS:0000049	sequencing	0.9166666666666666
+mimag	MIXS:0000049	sequencing	0.9166666666666666
+mimarks_c	MIXS:0000049	sequencing	0.9166666666666666
+mimarks_s	MIXS:0000049	sequencing	0.9166666666666666
+mims	MIXS:0000049	sequencing	0.9166666666666666
+misag	MIXS:0000049	sequencing	0.9166666666666666
+miuvig	MIXS:0000049	sequencing	0.9166666666666666
+agriculture	MIXS:0000049		0.08333333333333333
+migs_ba	MIXS:0000050	sequencing	0.6875
+migs_eu	MIXS:0000050	sequencing	0.6875
+migs_org	MIXS:0000050	sequencing	0.6875
+migs_pl	MIXS:0000050	sequencing	0.6875
+migs_vi	MIXS:0000050	sequencing	0.6875
+mimag	MIXS:0000050	sequencing	0.6875
+mimarks_c	MIXS:0000050	sequencing	0.6875
+mimarks_s	MIXS:0000050	sequencing	0.6875
+mims	MIXS:0000050	sequencing	0.6875
+misag	MIXS:0000050	sequencing	0.6875
+miuvig	MIXS:0000050	sequencing	0.6875
+agriculture	MIXS:0000050		0.3125
+food-animal and animal feed	MIXS:0000050		0.3125
+food-farm environment	MIXS:0000050		0.3125
+food-food production facility	MIXS:0000050		0.3125
+food-human foods	MIXS:0000050		0.3125
+migs_ba	MIXS:0000051	sequencing	0.9166666666666666
+migs_eu	MIXS:0000051	sequencing	0.9166666666666666
+migs_org	MIXS:0000051	sequencing	0.9166666666666666
+migs_pl	MIXS:0000051	sequencing	0.9166666666666666
+migs_vi	MIXS:0000051	sequencing	0.9166666666666666
+mimag	MIXS:0000051	sequencing	0.9166666666666666
+mimarks_c	MIXS:0000051	sequencing	0.9166666666666666
+mimarks_s	MIXS:0000051	sequencing	0.9166666666666666
+mims	MIXS:0000051	sequencing	0.9166666666666666
+misag	MIXS:0000051	sequencing	0.9166666666666666
+miuvig	MIXS:0000051	sequencing	0.9166666666666666
+agriculture	MIXS:0000051		0.08333333333333333
+migs_ba	MIXS:0000052	sequencing	0.9166666666666666
+migs_eu	MIXS:0000052	sequencing	0.9166666666666666
+migs_org	MIXS:0000052	sequencing	0.9166666666666666
+migs_pl	MIXS:0000052	sequencing	0.9166666666666666
+migs_vi	MIXS:0000052	sequencing	0.9166666666666666
+mimag	MIXS:0000052	sequencing	0.9166666666666666
+mimarks_c	MIXS:0000052	sequencing	0.9166666666666666
+mimarks_s	MIXS:0000052	sequencing	0.9166666666666666
+mims	MIXS:0000052	sequencing	0.9166666666666666
+misag	MIXS:0000052	sequencing	0.9166666666666666
+miuvig	MIXS:0000052	sequencing	0.9166666666666666
+agriculture	MIXS:0000052		0.08333333333333333
+migs_ba	MIXS:0000056	sequencing	0.9166666666666666
+migs_eu	MIXS:0000056	sequencing	0.9166666666666666
+migs_org	MIXS:0000056	sequencing	0.9166666666666666
+migs_pl	MIXS:0000056	sequencing	0.9166666666666666
+migs_vi	MIXS:0000056	sequencing	0.9166666666666666
+mimag	MIXS:0000056	sequencing	0.9166666666666666
+mimarks_c	MIXS:0000056	sequencing	0.9166666666666666
+mimarks_s	MIXS:0000056	sequencing	0.9166666666666666
+mims	MIXS:0000056	sequencing	0.9166666666666666
+misag	MIXS:0000056	sequencing	0.9166666666666666
+miuvig	MIXS:0000056	sequencing	0.9166666666666666
+agriculture	MIXS:0000056		0.08333333333333333
+migs_ba	MIXS:0000057	sequencing	0.9166666666666666
+migs_eu	MIXS:0000057	sequencing	0.9166666666666666
+migs_org	MIXS:0000057	sequencing	0.9166666666666666
+migs_pl	MIXS:0000057	sequencing	0.9166666666666666
+migs_vi	MIXS:0000057	sequencing	0.9166666666666666
+mimag	MIXS:0000057	sequencing	0.9166666666666666
+mimarks_c	MIXS:0000057	sequencing	0.9166666666666666
+mimarks_s	MIXS:0000057	sequencing	0.9166666666666666
+mims	MIXS:0000057	sequencing	0.9166666666666666
+misag	MIXS:0000057	sequencing	0.9166666666666666
+miuvig	MIXS:0000057	sequencing	0.9166666666666666
+agriculture	MIXS:0000057		0.08333333333333333
+migs_ba	MIXS:0000058	sequencing	0.9166666666666666
+migs_eu	MIXS:0000058	sequencing	0.9166666666666666
+migs_org	MIXS:0000058	sequencing	0.9166666666666666
+migs_pl	MIXS:0000058	sequencing	0.9166666666666666
+migs_vi	MIXS:0000058	sequencing	0.9166666666666666
+mimag	MIXS:0000058	sequencing	0.9166666666666666
+mimarks_c	MIXS:0000058	sequencing	0.9166666666666666
+mimarks_s	MIXS:0000058	sequencing	0.9166666666666666
+mims	MIXS:0000058	sequencing	0.9166666666666666
+misag	MIXS:0000058	sequencing	0.9166666666666666
+miuvig	MIXS:0000058	sequencing	0.9166666666666666
+agriculture	MIXS:0000058		0.08333333333333333
+migs_ba	MIXS:0000059	sequencing	0.9166666666666666
+migs_eu	MIXS:0000059	sequencing	0.9166666666666666
+migs_org	MIXS:0000059	sequencing	0.9166666666666666
+migs_pl	MIXS:0000059	sequencing	0.9166666666666666
+migs_vi	MIXS:0000059	sequencing	0.9166666666666666
+mimag	MIXS:0000059	sequencing	0.9166666666666666
+mimarks_c	MIXS:0000059	sequencing	0.9166666666666666
+mimarks_s	MIXS:0000059	sequencing	0.9166666666666666
+mims	MIXS:0000059	sequencing	0.9166666666666666
+misag	MIXS:0000059	sequencing	0.9166666666666666
+miuvig	MIXS:0000059	sequencing	0.9166666666666666
+agriculture	MIXS:0000059		0.08333333333333333
+migs_ba	MIXS:0000090	sequencing	0.9166666666666666
+migs_eu	MIXS:0000090	sequencing	0.9166666666666666
+migs_org	MIXS:0000090	sequencing	0.9166666666666666
+migs_pl	MIXS:0000090	sequencing	0.9166666666666666
+migs_vi	MIXS:0000090	sequencing	0.9166666666666666
+mimag	MIXS:0000090	sequencing	0.9166666666666666
+mimarks_c	MIXS:0000090	sequencing	0.9166666666666666
+mimarks_s	MIXS:0000090	sequencing	0.9166666666666666
+mims	MIXS:0000090	sequencing	0.9166666666666666
+misag	MIXS:0000090	sequencing	0.9166666666666666
+miuvig	MIXS:0000090	sequencing	0.9166666666666666
+agriculture	MIXS:0000090		0.08333333333333333
+migs_ba	MIXS:0000091	sequencing	0.9166666666666666
+migs_eu	MIXS:0000091	sequencing	0.9166666666666666
+migs_org	MIXS:0000091	sequencing	0.9166666666666666
+migs_pl	MIXS:0000091	sequencing	0.9166666666666666
+migs_vi	MIXS:0000091	sequencing	0.9166666666666666
+mimag	MIXS:0000091	sequencing	0.9166666666666666
+mimarks_c	MIXS:0000091	sequencing	0.9166666666666666
+mimarks_s	MIXS:0000091	sequencing	0.9166666666666666
+mims	MIXS:0000091	sequencing	0.9166666666666666
+misag	MIXS:0000091	sequencing	0.9166666666666666
+miuvig	MIXS:0000091	sequencing	0.9166666666666666
+agriculture	MIXS:0000091		0.08333333333333333
+migs_ba	MIXS:0000092	investigation	0.3333333333333333
+migs_eu	MIXS:0000092	investigation	0.3333333333333333
+migs_org	MIXS:0000092	investigation	0.3333333333333333
+migs_pl	MIXS:0000092	investigation	0.3333333333333333
+migs_vi	MIXS:0000092	investigation	0.3333333333333333
+mimag	MIXS:0000092	investigation	0.3333333333333333
+mimarks_c	MIXS:0000092	investigation	0.3333333333333333
+mimarks_s	MIXS:0000092	investigation	0.3333333333333333
+mims	MIXS:0000092	investigation	0.3333333333333333
+misag	MIXS:0000092	investigation	0.3333333333333333
+miuvig	MIXS:0000092	investigation	0.3333333333333333
+air	MIXS:0000092		0.6666666666666666
+built environment	MIXS:0000092		0.6666666666666666
+food-animal and animal feed	MIXS:0000092		0.6666666666666666
+food-farm environment	MIXS:0000092		0.6666666666666666
+food-food production facility	MIXS:0000092		0.6666666666666666
+food-human foods	MIXS:0000092		0.6666666666666666
+host-associated	MIXS:0000092		0.6666666666666666
+human-associated	MIXS:0000092		0.6666666666666666
+human-gut	MIXS:0000092		0.6666666666666666
+human-oral	MIXS:0000092		0.6666666666666666
+human-skin	MIXS:0000092		0.6666666666666666
+human-vaginal	MIXS:0000092		0.6666666666666666
+hydrocarbon resources-cores	MIXS:0000092		0.6666666666666666
+hydrocarbon resources-fluids/swabs	MIXS:0000092		0.6666666666666666
+microbial mat/biofilm	MIXS:0000092		0.6666666666666666
+miscellaneous natural or artificial environment	MIXS:0000092		0.6666666666666666
+plant-associated	MIXS:0000092		0.6666666666666666
+sediment	MIXS:0000092		0.6666666666666666
+soil	MIXS:0000092		0.6666666666666666
+symbiont-associated	MIXS:0000092		0.6666666666666666
+wastewater/sludge	MIXS:0000092		0.6666666666666666
+water	MIXS:0000092		0.6666666666666666
+migs_ba	MIXS:0000093	environment	0.5
+migs_eu	MIXS:0000093	environment	0.5
+migs_org	MIXS:0000093	environment	0.5
+migs_pl	MIXS:0000093	environment	0.5
+migs_vi	MIXS:0000093	environment	0.5
+mimag	MIXS:0000093	environment	0.5
+mimarks_c	MIXS:0000093	environment	0.5
+mimarks_s	MIXS:0000093	environment	0.5
+mims	MIXS:0000093	environment	0.5
+misag	MIXS:0000093	environment	0.5
+miuvig	MIXS:0000093	environment	0.5
+agriculture	MIXS:0000093		0.5
+air	MIXS:0000093		0.5
+host-associated	MIXS:0000093		0.5
+hydrocarbon resources-cores	MIXS:0000093		0.5
+microbial mat/biofilm	MIXS:0000093		0.5
+miscellaneous natural or artificial environment	MIXS:0000093		0.5
+plant-associated	MIXS:0000093		0.5
+sediment	MIXS:0000093		0.5
+soil	MIXS:0000093		0.5
+symbiont-associated	MIXS:0000093		0.5
+water	MIXS:0000093		0.5
+migs_ba	MIXS:0000094	environment	0.7333333333333333
+migs_eu	MIXS:0000094	environment	0.7333333333333333
+migs_org	MIXS:0000094	environment	0.7333333333333333
+migs_pl	MIXS:0000094	environment	0.7333333333333333
+migs_vi	MIXS:0000094	environment	0.7333333333333333
+mimag	MIXS:0000094	environment	0.7333333333333333
+mimarks_c	MIXS:0000094	environment	0.7333333333333333
+mimarks_s	MIXS:0000094	environment	0.7333333333333333
+mims	MIXS:0000094	environment	0.7333333333333333
+misag	MIXS:0000094	environment	0.7333333333333333
+miuvig	MIXS:0000094	environment	0.7333333333333333
+air	MIXS:0000094		0.26666666666666666
+host-associated	MIXS:0000094		0.26666666666666666
+miscellaneous natural or artificial environment	MIXS:0000094		0.26666666666666666
+symbiont-associated	MIXS:0000094		0.26666666666666666
+migs_ba	MIXS:0000111	nucleic acid sequence source	0.3333333333333333
+migs_eu	MIXS:0000111	nucleic acid sequence source	0.3333333333333333
+migs_org	MIXS:0000111	nucleic acid sequence source	0.3333333333333333
+migs_pl	MIXS:0000111	nucleic acid sequence source	0.3333333333333333
+migs_vi	MIXS:0000111	nucleic acid sequence source	0.3333333333333333
+mimag	MIXS:0000111	nucleic acid sequence source	0.3333333333333333
+mimarks_c	MIXS:0000111	nucleic acid sequence source	0.3333333333333333
+mimarks_s	MIXS:0000111	nucleic acid sequence source	0.3333333333333333
+mims	MIXS:0000111	nucleic acid sequence source	0.3333333333333333
+misag	MIXS:0000111	nucleic acid sequence source	0.3333333333333333
+miuvig	MIXS:0000111	nucleic acid sequence source	0.3333333333333333
+agriculture	MIXS:0000111		0.6666666666666666
+air	MIXS:0000111		0.6666666666666666
+food-animal and animal feed	MIXS:0000111		0.6666666666666666
+food-farm environment	MIXS:0000111		0.6666666666666666
+food-food production facility	MIXS:0000111		0.6666666666666666
+food-human foods	MIXS:0000111		0.6666666666666666
+host-associated	MIXS:0000111		0.6666666666666666
+human-associated	MIXS:0000111		0.6666666666666666
+human-gut	MIXS:0000111		0.6666666666666666
+human-oral	MIXS:0000111		0.6666666666666666
+human-skin	MIXS:0000111		0.6666666666666666
+human-vaginal	MIXS:0000111		0.6666666666666666
+hydrocarbon resources-cores	MIXS:0000111		0.6666666666666666
+hydrocarbon resources-fluids/swabs	MIXS:0000111		0.6666666666666666
+microbial mat/biofilm	MIXS:0000111		0.6666666666666666
+miscellaneous natural or artificial environment	MIXS:0000111		0.6666666666666666
+plant-associated	MIXS:0000111		0.6666666666666666
+sediment	MIXS:0000111		0.6666666666666666
+soil	MIXS:0000111		0.6666666666666666
+symbiont-associated	MIXS:0000111		0.6666666666666666
+wastewater/sludge	MIXS:0000111		0.6666666666666666
+water	MIXS:0000111		0.6666666666666666
+migs_ba	MIXS:0000113	environment	0.34375
+migs_eu	MIXS:0000113	environment	0.34375
+migs_org	MIXS:0000113	environment	0.34375
+migs_pl	MIXS:0000113	environment	0.34375
+migs_vi	MIXS:0000113	environment	0.34375
+mimag	MIXS:0000113	environment	0.34375
+mimarks_c	MIXS:0000113	environment	0.34375
+mimarks_s	MIXS:0000113	environment	0.34375
+mims	MIXS:0000113	environment	0.34375
+misag	MIXS:0000113	environment	0.34375
+miuvig	MIXS:0000113	environment	0.34375
+agriculture	MIXS:0000113		0.65625
+air	MIXS:0000113		0.65625
+food-animal and animal feed	MIXS:0000113		0.65625
+food-farm environment	MIXS:0000113		0.65625
+food-human foods	MIXS:0000113		0.65625
+host-associated	MIXS:0000113		0.65625
+human-associated	MIXS:0000113		0.65625
+human-gut	MIXS:0000113		0.65625
+human-oral	MIXS:0000113		0.65625
+human-skin	MIXS:0000113		0.65625
+human-vaginal	MIXS:0000113		0.65625
+hydrocarbon resources-cores	MIXS:0000113		0.65625
+hydrocarbon resources-fluids/swabs	MIXS:0000113		0.65625
+microbial mat/biofilm	MIXS:0000113		0.65625
+miscellaneous natural or artificial environment	MIXS:0000113		0.65625
+plant-associated	MIXS:0000113		0.65625
+sediment	MIXS:0000113		0.65625
+soil	MIXS:0000113		0.65625
+symbiont-associated	MIXS:0000113		0.65625
+wastewater/sludge	MIXS:0000113		0.65625
+water	MIXS:0000113		0.65625
+migs_ba	MIXS:0001107	investigation	0.3333333333333333
+migs_eu	MIXS:0001107	investigation	0.3333333333333333
+migs_org	MIXS:0001107	investigation	0.3333333333333333
+migs_pl	MIXS:0001107	investigation	0.3333333333333333
+migs_vi	MIXS:0001107	investigation	0.3333333333333333
+mimag	MIXS:0001107	investigation	0.3333333333333333
+mimarks_c	MIXS:0001107	investigation	0.3333333333333333
+mimarks_s	MIXS:0001107	investigation	0.3333333333333333
+mims	MIXS:0001107	investigation	0.3333333333333333
+misag	MIXS:0001107	investigation	0.3333333333333333
+miuvig	MIXS:0001107	investigation	0.3333333333333333
+air	MIXS:0001107		0.6666666666666666
+built environment	MIXS:0001107		0.6666666666666666
+food-animal and animal feed	MIXS:0001107		0.6666666666666666
+food-farm environment	MIXS:0001107		0.6666666666666666
+food-food production facility	MIXS:0001107		0.6666666666666666
+food-human foods	MIXS:0001107		0.6666666666666666
+host-associated	MIXS:0001107		0.6666666666666666
+human-associated	MIXS:0001107		0.6666666666666666
+human-gut	MIXS:0001107		0.6666666666666666
+human-oral	MIXS:0001107		0.6666666666666666
+human-skin	MIXS:0001107		0.6666666666666666
+human-vaginal	MIXS:0001107		0.6666666666666666
+hydrocarbon resources-cores	MIXS:0001107		0.6666666666666666
+hydrocarbon resources-fluids/swabs	MIXS:0001107		0.6666666666666666
+microbial mat/biofilm	MIXS:0001107		0.6666666666666666
+miscellaneous natural or artificial environment	MIXS:0001107		0.6666666666666666
+plant-associated	MIXS:0001107		0.6666666666666666
+sediment	MIXS:0001107		0.6666666666666666
+soil	MIXS:0001107		0.6666666666666666
+symbiont-associated	MIXS:0001107		0.6666666666666666
+wastewater/sludge	MIXS:0001107		0.6666666666666666
+water	MIXS:0001107		0.6666666666666666
+migs_ba	MIXS:0001225	nucleic acid sequence source	0.7333333333333333
+migs_eu	MIXS:0001225	nucleic acid sequence source	0.7333333333333333
+migs_org	MIXS:0001225	nucleic acid sequence source	0.7333333333333333
+migs_pl	MIXS:0001225	nucleic acid sequence source	0.7333333333333333
+migs_vi	MIXS:0001225	nucleic acid sequence source	0.7333333333333333
+mimag	MIXS:0001225	nucleic acid sequence source	0.7333333333333333
+mimarks_c	MIXS:0001225	nucleic acid sequence source	0.7333333333333333
+mimarks_s	MIXS:0001225	nucleic acid sequence source	0.7333333333333333
+mims	MIXS:0001225	nucleic acid sequence source	0.7333333333333333
+misag	MIXS:0001225	nucleic acid sequence source	0.7333333333333333
+miuvig	MIXS:0001225	nucleic acid sequence source	0.7333333333333333
+agriculture	MIXS:0001225		0.26666666666666666
+food-animal and animal feed	MIXS:0001225		0.26666666666666666
+food-food production facility	MIXS:0001225		0.26666666666666666
+food-human foods	MIXS:0001225		0.26666666666666666
