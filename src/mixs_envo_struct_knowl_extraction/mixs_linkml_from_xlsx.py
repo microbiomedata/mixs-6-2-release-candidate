@@ -351,8 +351,10 @@ def process_consensus_value(scn: str, attribute_name: str, value: str, global_ta
     elif tidied_attribute_name == "Occurrence":
         if value == "m":
             global_target_schema.slots[tidied_slot_name].multivalued = True
-        else:
+        elif value == 1 or int(value) == 1:
             global_target_schema.slots[tidied_slot_name].multivalued = False
+        else:
+            logger.warning(f"{scn} occurrence value: {value}")
     elif tidied_attribute_name == "MIXS_ID":
         global_target_schema.slots[tidied_slot_name].slot_uri = value
     elif tidied_attribute_name == "Value_syntax":
@@ -431,10 +433,13 @@ def process_contested_value(attributes_by_class: pd.DataFrame, textual_key, glob
                     global_target_schema.subsets[value] = SubsetDefinition(name=value)
                 global_target_schema.classes[current_class].slot_usage[tidied_slot_name].in_subset = [value]
             elif tidied_attribute_name == "Occurrence":
+                value = str(value)
                 if value == "m":
-                    global_target_schema.classes[current_class].slot_usage[tidied_slot_name].multivalued = True
+                    global_target_schema.slots[tidied_slot_name].multivalued = True
+                elif value == "1":
+                    global_target_schema.slots[tidied_slot_name].multivalued = False
                 else:
-                    global_target_schema.classes[current_class].slot_usage[tidied_slot_name].multivalued = False
+                    logger.warning(f"usage {scn} occurrence value: {value}")
             elif tidied_attribute_name == "MIXS_ID":
                 global_target_schema.classes[current_class].slot_usage[tidied_slot_name].slot_uri = value
             elif tidied_attribute_name == "Value_syntax":
@@ -812,7 +817,7 @@ def extract_or_substitute_examples_etc(supplementary_file: str, global_target_sc
             for suk, suv in pcv.slot_usage.items():
                 # todo guard against or at least overwriting existing slot_usage
                 # don't assume class pck already exists
-                logger.info(f"Adding {pck}.{suk} slot usage")
+                # logger.info(f"Adding {pck}.{suk} slot usage")
                 global_target_schema.classes[pck].slot_usage[suk] = suv
 
     # todo make a report file instead of logging
