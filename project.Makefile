@@ -15,8 +15,6 @@ DOCDIR = mixs-docs-md
 TEMPLATEDIR = mixs-docs-templates
 
 
-# schema-derivatives/$(RC_PREFIX).form.xlsx schema-derivatives/$(RC_PREFIX).json \
-
 all: squeaky-clean $(SOURCE_SCHEMA_PATH) \
 other-reports/curated-data-coverage-report.yaml other-reports/extracted-data-coverage-report.yaml \
 linkml-validate-exhaustive linkml-validate-extracted \
@@ -27,7 +25,8 @@ schema-derivatives/$(RC_PREFIX).owl.ttl schema-derivatives/$(RC_PREFIX).schema.j
 final-deletions generated-schema/final-$(RC_PREFIX).yaml \
 validate-multiple-mims-soil converted-data/MimsSoil-example.csv converted-data/MimsSoil-example.ttl \
 other-reports/slot-usage-report.tsv other-reports/schema-lint-report.tsv \
-validate-linkml-rdf-data-pure-python validate-linkml-rdf-schema-pure-python
+validate-linkml-rdf-data-pure-python validate-linkml-rdf-schema-pure-python \
+schema-derivatives/$(RC_PREFIX).json
 
 clean:
 	rm -rf generated-schema/$(RC_PREFIX)-usage-populated-raw.tsv
@@ -336,9 +335,6 @@ schema-derivatives/$(RC_PREFIX).owl.ttl: $(SOURCE_SCHEMA_PATH)
 schema-derivatives/$(RC_PREFIX).schema.json: $(SOURCE_SCHEMA_PATH)
 	$(RUN) gen-json-schema --closed $< > $@
 
-schema-derivatives/$(RC_PREFIX).form.xlsx: $(SOURCE_SCHEMA_PATH)
-	$(RUN) gen-excel --output $@ $<
-
 # --materialize-patterns
 # --materialize-attributes / --no-materialize-attributes
 schema-derivatives/$(RC_PREFIX).json: $(SOURCE_SCHEMA_PATH)
@@ -425,9 +421,6 @@ other-reports/schema-lint-report.tsv: $(SOURCE_SCHEMA_PATH)
 	- $(RUN) linkml-lint --format tsv \
 		--output $@ $<
 
-schema-derivatives/mixs_6_2_rc.schema.open.json: $(SOURCE_SCHEMA_PATH)
-	$(RUN) gen-json-schema $< > $@
-
 .PHONY: validate-linkml-rdf-data-pure-python validate-linkml-rdf-schema-pure-python
 validate-linkml-rdf-data-pure-python: converted-data/MimsSoil-example.ttl
 	$(RUN) rdflib-validation \
@@ -438,6 +431,12 @@ validate-linkml-rdf-schema-pure-python: schema-derivatives/mixs_6_2_rc.owl.ttl
 		--rdf-file  $<
 
 ### targets below are not included in make all
+
+schema-derivatives/mixs_6_2_rc.schema.open.json: $(SOURCE_SCHEMA_PATH)
+	$(RUN) gen-json-schema $< > $@
+
+schema-derivatives/mixs_6_2_rc.form.xlsx: $(SOURCE_SCHEMA_PATH)
+	$(RUN) gen-excel --output $@ $<
 
 # requires Jena riot
 RIOT_PATH = ~/apache-jena/bin/riot
