@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "update-schema": "gen-linkml --format json --output schemas/mixs_6_2_proposal.json /home/mark/gitrepos/mixs-envo-struct-knowl-extraction/schema_derivatives/mixs_6_2_proposal.json"
+    "update-schema": "gen-linkml --format json --output schemas/mixs_6_2_rc.json ../generated-schema/mixs_6_2_rc.yaml"
   },
   "private": true,
   "devDependencies": {
