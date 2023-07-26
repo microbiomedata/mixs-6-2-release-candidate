@@ -48,7 +48,7 @@ squeaky-clean: clean
 
 generated-schema/mixs_6_2_rc.yaml:
 	$(RUN) write-mixs-linkml \
-		--minimal-combos \
+		 --minimal-combos \
 		 --gsc-excel-input 'https://github.com/only1chunts/mixs-cih-fork/raw/main/mixs/excel/mixs_v6.xlsx' \
 		 --gsc-excel-output-dir downloads \
 		 --checklists migs_ba \
