@@ -31,6 +31,17 @@ logger.setLevel(logging.INFO)
 
 root_class_name = "MixsCompliantData"
 
+# for minimal_combos mode
+minimal_checklists = [
+    "mims",
+    # "mimag"
+]
+minimal_envs = [
+    "soil",
+    # "water",
+    # 'host-associated'
+]
+
 
 # TODO do we have a term that could take the identifier role?
 
@@ -116,8 +127,8 @@ def instantiate_classes(df: pd.DataFrame, checklists, global_target_schema, mini
             global_target_schema.classes[class_name] = new_class
 
     if minimal_combos:
-        selected_checklists = ["Mims"]
-        selected_eps = ["Soil", "Water"]
+        selected_checklists = minimal_checklists
+        selected_eps = minimal_envs
     else:
         selected_checklists = checklists
         selected_eps = non_checklist_classes

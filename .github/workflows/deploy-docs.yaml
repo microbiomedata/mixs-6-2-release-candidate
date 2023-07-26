@@ -41,6 +41,12 @@ jobs:
       - name: Regenerate schema
         run: make squeaky-clean generated-schema/mixs_6_2_rc.yaml schema-derivatives/mixs_6_2_rc.json
 
+      - name: Remove "exhaustive" elements from schema
+        run: |
+          poetry run remove-exhaustive-elements-validation-conveniences --input-schema generated-schema/mixs_6_2_rc.yaml --output-schema tempschema
+          rm -rf generated-schema/mixs_6_2_rc.yaml
+          mv tempschema generated-schema/mixs_6_2_rc.yaml
+
       - name: Build documentation.
         run: |
           rm -rf mixs-docs-md

@@ -21,11 +21,12 @@ python = "^3.9"
 scikit-learn = "^1.2.2" # for text mining. possibly heavyweight
 
 #linkml-runtime = { path = "/home/mark/gitrepos/linkml-runtime", develop = true }
-geopy = "^2.3.0"
-requests-cache = "^1.1.0"
-geopandas = "^0.13.2"
-matplotlib = "^3.7.2"
-matplotlib-venn = "^0.11.9"
+# # for presentation
+#geopy = "^2.3.0"
+#requests-cache = "^1.1.0"
+#geopandas = "^0.13.2"
+#matplotlib = "^3.7.2"
+#matplotlib-venn = "^0.11.9"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.1.3"
@@ -130,3 +131,4 @@ find-Xs-with-multiple-Ys = "mixs_envo_struct_knowl_extraction.find_Xs_with_multi
 mixs-scns-vs-ncbi-harmonized-attributes = "mixs_envo_struct_knowl_extraction.mixs_scns_vs_ncbi_harmonized_attributes:cli"
 remove-exhaustive-elements-validation-conveniences = "mixs_envo_struct_knowl_extraction.remove_exhaustive_elements_validation_conveniences:main"
 usage-detector = "mixs_envo_struct_knowl_extraction.usage_detector:main"
+rdflib-validation = "mixs_envo_struct_knowl_extraction.rdflib_validate:main"
