@@ -11859,18 +11859,18 @@
                 }
             },
             "required": [
-                "depth",
-                "collection_date",
+                "env_medium",
                 "lat_lon",
-                "project_name",
-                "samp_taxon_id",
-                "geo_loc_name",
-                "samp_name",
-                "env_local_scale",
-                "seq_meth",
-                "elev",
                 "env_broad_scale",
-                "env_medium"
+                "env_local_scale",
+                "depth",
+                "seq_meth",
+                "samp_taxon_id",
+                "project_name",
+                "collection_date",
+                "geo_loc_name",
+                "elev",
+                "samp_name"
             ],
             "title": "MimsSoil",
             "type": "object"
