@@ -43,9 +43,9 @@ jobs:
 
       - name: Remove "exhaustive" elements from schema
         run: |
-          poetry run remove-exhaustive-elements-validation-conveniences --input-schema generated-schema/mixs_6_2_rc.yaml --output-schema tempschema
+          poetry run remove-elements-by-deprecation-val --input-schema generated-schema/mixs_6_2_rc.yaml --deprecation-val "for build-time testing of all slots" --output-schema temp_schema
           rm -rf generated-schema/mixs_6_2_rc.yaml
-          mv tempschema generated-schema/mixs_6_2_rc.yaml
+          mv temp_schema generated-schema/mixs_6_2_rc.yaml
 
       - name: Build documentation.
         run: |

@@ -1,13 +1,11 @@
-# import ast
-# import os
+import logging
 import os
-import pprint
 import re
-# Tuple
+from collections import Counter
+from distutils.util import strtobool
 from typing import List, Union, Any
 
 import click
-# import numpy as np
 import pandas as pd
 import requests
 import yaml
@@ -16,31 +14,13 @@ from linkml_runtime.dumpers import yaml_dumper
 from linkml_runtime.linkml_model import Annotation, SchemaDefinition, SlotDefinition, ClassDefinition, Example, \
     SubsetDefinition, EnumDefinition, PermissibleValue, Prefix
 from linkml_runtime.linkml_model.meta import PatternExpression
-from collections import Counter
-
-from distutils.util import strtobool
-
 from pandas import DataFrame, Series
-
-import logging
+from schemasheets.schemamaker import SchemaMaker
 
 pd.set_option('display.max_columns', None)
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
-
-root_class_name = "MixsCompliantData"
-
-# for minimal_combos mode
-minimal_checklists = [
-    "mims",
-    # "mimag"
-]
-minimal_envs = [
-    "soil",
-    # "water",
-    # 'host-associated'
-]
 
 
 # TODO do we have a term that could take the identifier role?
@@ -91,50 +71,33 @@ def remove_non_ascii(text, non_ascii_replacement):
     return ''.join([i if ord(i) < 128 else non_ascii_replacement for i in text])
 
 
-def instantiate_classes(df: pd.DataFrame, checklists, global_target_schema, minimal_combos) -> None:
-    classes_list = df['class'].unique().tolist()
-    classes_list.sort()
+def instantiate_classes(global_target_schema, root_class_name, combo_checklists,
+                        combo_environments) -> None:
+    bootstrapped_checklists = []
+    bootstrapped_envs = []
+    for class_name, class_value in global_target_schema.classes.items():
+        if class_value.is_a == "Checklist":
+            bootstrapped_checklists.append(class_name)
+        elif class_value.is_a == "EnvironmentalPackage":
+            bootstrapped_envs.append(class_name)
 
-    # presumably environmental packages
-    non_checklist_classes = list(set(classes_list) - set(checklists))
+    bootstrapped_checklists.sort()
+    bootstrapped_envs.sort()
 
-    new_class = ClassDefinition(
-        name=root_class_name,
-        title="MIxS compliant data",
-        description="A collection of data that complies with some combination of a MIxS checklist and environmental package",
-        # comments=["canary"],
-        tree_root=True,
-    )
-    global_target_schema.classes[root_class_name] = new_class
-
-    for class_name in classes_list:
-        if class_name in checklists:
-            if "Checklist" not in global_target_schema.classes:
-                new_super = ClassDefinition(name="Checklist")
-                global_target_schema.classes["Checklist"] = new_super
-                class_title = class_name
-            class_name = convert_to_pascal_case(class_name)
-            new_class = ClassDefinition(name=class_name, title=class_title, is_a="Checklist", mixin=True)
-            global_target_schema.classes[class_name] = new_class
-        else:
-            if "EnvironmentalPackage" not in global_target_schema.classes:
-                new_super = ClassDefinition(name="EnvironmentalPackage")
-                global_target_schema.classes["EnvironmentalPackage"] = new_super
-            class_name = convert_to_pascal_case(class_name)
-            class_title = class_name
-            new_class = ClassDefinition(name=class_name, title=class_title, is_a="EnvironmentalPackage", mixin=False)
-            global_target_schema.classes[class_name] = new_class
-
-    if minimal_combos:
-        selected_checklists = minimal_checklists
-        selected_eps = minimal_envs
+    if combo_checklists:
+        selected_checklists = combo_checklists
     else:
-        selected_checklists = checklists
-        selected_eps = non_checklist_classes
+        selected_checklists = bootstrapped_checklists
+
+    if combo_environments:
+        selected_eps = combo_environments
+    else:
+        selected_eps = bootstrapped_envs
 
     # todo validation (and other steps) are slow with all of the combination classes
     for checklist in selected_checklists:
         for ep in selected_eps:
+            logger.info(f"Combining {checklist} with {ep}")
             checklist_name = convert_to_pascal_case(checklist)
             ep_name = convert_to_pascal_case(ep)
             combo_name = f"{checklist_name}{ep_name}"
@@ -166,10 +129,17 @@ def del_and_rename_cols(df, columns_to_delete, column_mapping):
     return df.drop(columns=columns_to_delete).rename(columns=column_mapping)
 
 
-def harmonize_sheets(url: str, excel_file_path, textual_key, checklists) -> pd.DataFrame:
+def harmonize_sheets(url: str, excel_file_path, textual_key, global_target_schema) -> pd.DataFrame:
     # todo parameterize the column dropping and renaming
 
-    checklists = list(checklists)
+    column_aliases = []
+    target_classes = global_target_schema.classes
+    for class_name, class_value in target_classes.items():
+        if class_value.is_a == "Checklist":
+            column_aliases.extend(class_value.aliases)
+
+    column_aliases = list(set(column_aliases))
+    column_aliases.sort()
 
     # Download the Excel file
     response = requests.get(url)
@@ -178,6 +148,10 @@ def harmonize_sheets(url: str, excel_file_path, textual_key, checklists) -> pd.D
 
     # Open the desired sheets into pandas data frames
     df_mixs_raw = pd.read_excel(excel_file_path, sheet_name='MIxS')
+
+    mixs_raw_columns = df_mixs_raw.columns.tolist()
+
+    checklist_intersection_cols = [x for x in mixs_raw_columns if x in column_aliases]
 
     # Dictionary with column name mappings
     column_mapping = {
@@ -188,17 +162,18 @@ def harmonize_sheets(url: str, excel_file_path, textual_key, checklists) -> pd.D
     # previously needed to delete ' '
     df_mixs_renamed = del_and_rename_cols(df_mixs_raw, [], column_mapping)
 
-    # # # #
+    # # # # #
 
     mixs_melted = pd.melt(df_mixs_renamed, id_vars=[textual_key], var_name='key',
                           value_name='value')
 
     # Extract DataFrame where values are found in column X
-    mixs_checklists_requirements = mixs_melted[mixs_melted['key'].isin(checklists)]
+    mixs_checklists_requirements = mixs_melted[mixs_melted['key'].isin(checklist_intersection_cols)]
+
     mixs_checklists_requirements_renamed = mixs_checklists_requirements.rename(columns={"value": "Requirement"})
 
     # Extract DataFrame where values are not found in column X
-    mixs_constants = df_mixs_renamed.drop(columns=checklists)
+    mixs_constants = df_mixs_renamed.drop(columns=checklist_intersection_cols)
 
     mixs_by_scn_and_class = pd.merge(mixs_checklists_requirements_renamed, mixs_constants,
                                      on=[textual_key])
@@ -207,7 +182,7 @@ def harmonize_sheets(url: str, excel_file_path, textual_key, checklists) -> pd.D
 
     mixs_sheet_col_list = mixs_by_scn_and_class_renamed.columns.tolist()
 
-    # # # #
+    # # # # #
 
     df_env_packages = pd.read_excel(excel_file_path, sheet_name='environmental_packages')
 
@@ -232,8 +207,6 @@ def harmonize_sheets(url: str, excel_file_path, textual_key, checklists) -> pd.D
 
     logger.info(f"Columns only found in the environmental_packages sheet: {list(env_pack_only)}")
 
-    # logger.info("\n")
-
     df_env_packages_renamed = df_env_packages_renamed[applicable_col_list]
 
     # # # #
@@ -246,7 +219,8 @@ def harmonize_sheets(url: str, excel_file_path, textual_key, checklists) -> pd.D
     return from_gsc
 
 
-def apply_jit_fixes(fixes_file: str, df: pd.DataFrame) -> tuple[DataFrame, Union[Union[Series, DataFrame, None], Any]]:
+def do_tables_stage_mods(fixes_file: str, df: pd.DataFrame) -> tuple[
+    DataFrame, Union[Union[Series, DataFrame, None], Any]]:
     fixes_sheet = pd.read_csv(fixes_file, sep='\t')
     fixes_lod = fixes_sheet.to_dict('records')
     reports = []
@@ -277,18 +251,18 @@ def apply_jit_fixes(fixes_file: str, df: pd.DataFrame) -> tuple[DataFrame, Union
     return df, reports_df
 
 
-def process_sheet(df: pd.DataFrame, checklists, global_target_schema, textual_key, non_ascii_replacement,
-                  minimal_combos) -> List[str]:
-    instantiate_classes(df, checklists, global_target_schema, minimal_combos=minimal_combos)
+def process_sheet(df: pd.DataFrame, global_target_schema, textual_key, non_ascii_replacement, combo_checklists,
+                  combo_environments, root_class_name) -> List[str]:
+    instantiate_classes(global_target_schema, combo_checklists=combo_checklists,
+                        combo_environments=combo_environments, root_class_name=root_class_name)
+
     slots_list = df[textual_key].unique().tolist()
 
     for s in slots_list:
-        logger.info(s)
         if type(s) is not str:
             # todo how would a nan/float "slot" get in here?
             logger.warning(f"Ignoring slot with {textual_key} = '{s}' because type is {s.__class__.__name__}")
             slots_list.remove(s)
-    # logger.info("\n")
 
     slots_list.sort()
 
@@ -410,7 +384,7 @@ def process_contested_value(attributes_by_class: pd.DataFrame, textual_key, glob
         duplication_comment = f"Classes {', '.join(duplicated_classes)} has/have duplicate values in {value_name} for {scn}: {', '.join(all_values)}"
         logger.info(f"duplication_comment: {duplication_comment}")
         logger.info(f"dupe_frame: {dupe_frame}")
-        # logger.info("\n")
+
         if global_target_schema.comments:
             global_target_schema.comments.append(duplication_comment)
         else:
@@ -580,7 +554,6 @@ def requirement_followup(sheet: pd.DataFrame, global_target_schema, debug_mode, 
             #   I have made judgements about the interpretation of C and E
             #   see https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/35
             del global_target_schema.slots[tidied_scn].annotations['Requirement']
-    # logger.info("\n")
 
 
 def construct_assign_simple_enumerations(sheet: pd.DataFrame, debug_mode: bool, global_target_schema,
@@ -604,7 +577,6 @@ def construct_assign_simple_enumerations(sheet: pd.DataFrame, debug_mode: bool, 
 
     contradictory_enums = possible_enums_sheet[possible_enums_sheet[textual_key].isin(duplicated_scns)]
     logger.info(f"{contradictory_enums = }")
-    # logger.info("\n")
 
     # add a comment to the schema
     scns_with_contradictory_enums = contradictory_enums[textual_key].unique().tolist()
@@ -631,7 +603,7 @@ def construct_assign_simple_enumerations(sheet: pd.DataFrame, debug_mode: bool, 
     slot_to_enums_dict = {}
 
     for singleton_enum_dict in singleton_enum_dict_list:
-        tidied_scn = tidied_scn = re.sub(r'\W+', '_', singleton_enum_dict[textual_key])
+        tidied_scn = re.sub(r'\W+', '_', singleton_enum_dict[textual_key])
         name_for_enum = f"{convert_to_upper_snake_case(singleton_enum_dict[textual_key])}_ENUM"
         slot_to_enums_dict[tidied_scn] = name_for_enum
         pvs = [x.strip() for x in singleton_enum_dict['Value syntax'].strip('[]').split('|')]
@@ -766,32 +738,23 @@ def string_ser_exp_val_to_range_patterns(tsv_file: str, global_target_schema):
     return unmapped_lod
 
 
-def add_exhasutive_test_class(global_target_schema):
-    ExhaustiveTestClass = ClassDefinition(
-        name="ExhaustiveTestClass",
-    )
+def add_all_slots_testing_support(global_target_schema):
     all_slots = global_target_schema.slots
     for slot_k, slot_v in all_slots.items():
-        ExhaustiveTestClass.slots.append(slot_k)
+        global_target_schema.classes['AllSlotsTestClass'].slots.append(slot_k)
 
-    exhaustive_test_set = SlotDefinition(
+    all_slots_test_set = SlotDefinition(
         inlined=True,
         inlined_as_list=True,
         multivalued=True,
-        name="exhaustive_test_set",
-        range="ExhaustiveTestClass",
+        name="all_slots_test_set",
+        range="AllSlotsTestClass",
+        deprecated="for build-time testing of all slots"
     )
 
-    ExhaustiveTestClassCollection = ClassDefinition(
-        name="ExhaustiveTestClassCollection",
-        # tree_root=True,
-    )
+    global_target_schema.classes['AllSlotsTestClassCollection'].slots.append("all_slots_test_set")
 
-    ExhaustiveTestClassCollection.slots.append("exhaustive_test_set")
-
-    global_target_schema.classes["ExhaustiveTestClass"] = ExhaustiveTestClass
-    global_target_schema.classes["ExhaustiveTestClassCollection"] = ExhaustiveTestClassCollection
-    global_target_schema.slots["exhaustive_test_set"] = exhaustive_test_set
+    global_target_schema.slots["all_slots_test_set"] = all_slots_test_set
 
 
 def dupe_property_report(property_name: str, global_target_schema):
@@ -812,7 +775,7 @@ def dupe_property_report(property_name: str, global_target_schema):
     return dupe_values
 
 
-def extract_or_substitute_examples_etc(supplementary_file: str, global_target_schema):
+def do_linkml_stage_mods(supplementary_file: str, global_target_schema):
     # requires explicit handlers for each attribute of a slot
     proposal_view = SchemaView(supplementary_file)
 
@@ -856,7 +819,6 @@ def extract_or_substitute_examples_etc(supplementary_file: str, global_target_sc
 
         else:
             logger.info(f"{proposed_k} is not in the target schema")
-    # logger.info("\n")
 
     extracted_examples = {}
 
@@ -897,8 +859,6 @@ def extract_or_substitute_examples_etc(supplementary_file: str, global_target_sc
 
 @click.command()
 @click.option('--debug/--no-debug', default=False, help='Enable debug mode')
-@click.option('--minimal-combos/--all-combos', default=False,
-              help='Should we just generate a minimal set of checklist/environmental package combinations (or generate all combos)')
 @click.option('--extracted-examples-out', default='generated/mixs_v6.xlsx.examples.yaml')
 @click.option('--repair-report', default='conflict_reports/repair_report.tsv')
 @click.option('--unmapped-report', default='other_reports/unmapped_report.tsv')
@@ -915,22 +875,26 @@ def extract_or_substitute_examples_etc(supplementary_file: str, global_target_sc
 @click.option('--gsc-excel-input',
               default='https://github.com/GenomicsStandardsConsortium/mixs/raw/main/mixs/excel/mixs_v6.xlsx',
               help='URL Path to the MIxS Excel file')
-@click.option('--checklists', multiple=True, help='Requires prior knowledge about current MIxS checklists',
-              default=['migs_ba', 'migs_eu', 'migs_org', 'migs_pl', 'migs_vi', 'mimag', 'mimarks_c', 'mimarks_s',
-                       'mims', 'misag', 'miuvig'])
+@click.option('--classes-ssheet',
+              required=True,
+              help='Filesystem path to a classes schemasheet')  # classes_schemasheet_file
+@click.option('--combo-checklists', multiple=True,
+              help='Provide one or more checklist class names if you want a minimal combination schema. Must be paired with at least one combo-environment')
+@click.option('--combo-environments', multiple=True,
+              help='Provide one or more environments class names if you want a minimal combination schema. Must be paired with at least one combo-checklist')
 @click.option('--range-pattern-inference-file',
               default='config/mixs_stringsers_expvals_to_linkml_ranges_patterns.tsv')
 @click.option('--tables-stage-mods-file', default='config/mixs_tables_stage_modifications.tsv',
               help="Could be considered changes to the MIxS XLSX file, like @only1chunts applied recently, although we apply them to the harmonized TSV file instead")
-def create_schema(non_ascii_replacement, debug, gsc_excel_input, textual_key, schema_name,
-                  checklists, tables_stage_mods_file, linkml_stage_mods_file, range_pattern_inference_file,
+def create_schema(non_ascii_replacement, debug, gsc_excel_input, textual_key, schema_name, tables_stage_mods_file,
+                  linkml_stage_mods_file, range_pattern_inference_file,
                   gsc_excel_output_dir, harmonized_mixs_tables_file, repaired_mixs_tables_file, schema_file_out,
-                  extracted_examples_out, repair_report, unmapped_report, minimal_combos):
+                  extracted_examples_out, repair_report, unmapped_report, classes_ssheet,
+                  combo_checklists, combo_environments):  # checklists, minimal_combos
     url_path_components = gsc_excel_input.split('/')
     gsc_excel_file_name = url_path_components[-1]
     gsc_excel_output_path = os.path.join(gsc_excel_output_dir, gsc_excel_file_name)
 
-    # default_prefix_name = "mixs_6_2_proposal"
     default_prefix_base = "https://microbiomedata.github.io/mixs-6-2-release-candidate/"
     global_target_schema = SchemaDefinition(
         default_range="string",
@@ -938,18 +902,39 @@ def create_schema(non_ascii_replacement, debug, gsc_excel_input, textual_key, sc
         name=schema_name,
         source=gsc_excel_input,
     )
+
+    smaker = SchemaMaker()
+    mixs_classes_schema = smaker.create_schema(classes_ssheet)
+
+    checklists_from_schemasheet = []
+    envs_from_schemasheet = []
+
+    # set the root_class_name and pass to instantiate_classes and process_sheet
+    root_class_name = ""
+    for class_name, class_def in mixs_classes_schema.classes.items():
+        global_target_schema.classes[class_name] = class_def
+        if class_def.tree_root:
+            root_class_name = class_name
+        if class_def.is_a == "Checklist":
+            checklists_from_schemasheet.append(class_name)
+        elif class_def.is_a == "EnvironmentalPackage":
+            envs_from_schemasheet.append(class_name)
+    logger.info(f"{root_class_name = }")
+
     global_target_schema.prefixes[schema_name] = Prefix(schema_name, default_prefix_base)
     global_target_schema.default_prefix = schema_name
 
-    harmonized_sheets = harmonize_sheets(gsc_excel_input, gsc_excel_output_path, textual_key, checklists)
+    harmonized_sheets = harmonize_sheets(gsc_excel_input, gsc_excel_output_path, textual_key, global_target_schema)
     harmonized_sheets.to_csv(harmonized_mixs_tables_file, index=False, sep='\t')
 
-    harmonized_sheets, repair_report_df = apply_jit_fixes(tables_stage_mods_file, harmonized_sheets)
+    harmonized_sheets, repair_report_df = do_tables_stage_mods(tables_stage_mods_file, harmonized_sheets)
 
     repair_report_df.to_csv(repair_report, index=False, sep='\t')
 
-    process_sheet(harmonized_sheets, checklists, global_target_schema, textual_key,
-                  non_ascii_replacement, minimal_combos=minimal_combos)
+    # todo needs combo_checklists and combo_environments
+    process_sheet(harmonized_sheets, global_target_schema, textual_key,
+                  non_ascii_replacement, combo_checklists=combo_checklists, combo_environments=combo_environments,
+                  root_class_name=root_class_name)
 
     requirement_followup(harmonized_sheets, global_target_schema, debug, textual_key)
 
@@ -962,13 +947,13 @@ def create_schema(non_ascii_replacement, debug, gsc_excel_input, textual_key, sc
 
     harmonized_sheets.to_csv(repaired_mixs_tables_file, index=False, sep='\t')
 
-    add_exhasutive_test_class(global_target_schema)
+    add_all_slots_testing_support(global_target_schema)
 
     # todo put these two prefix definitions into a dictionary
     linkml_prefix = Prefix(prefix_prefix="linkml", prefix_reference="https://w3id.org/linkml/")
-    MIXS_prefix = Prefix(prefix_prefix="MIXS", prefix_reference="https://w3id.org/mixs/")
+    mixs_prefix = Prefix(prefix_prefix="MIXS", prefix_reference="https://w3id.org/mixs/")
     global_target_schema.prefixes["linkml"] = linkml_prefix
-    global_target_schema.prefixes["MIXS"] = MIXS_prefix
+    global_target_schema.prefixes["MIXS"] = mixs_prefix
 
     global_target_schema.imports.append("linkml:types")
 
@@ -988,10 +973,10 @@ def create_schema(non_ascii_replacement, debug, gsc_excel_input, textual_key, sc
         else:
             global_target_schema.comments = [duplication_comment]
 
-    extracted_examples_dict = extract_or_substitute_examples_etc(supplementary_file=linkml_stage_mods_file,
-                                                                 global_target_schema=global_target_schema)
+    extracted_examples_dict = do_linkml_stage_mods(supplementary_file=linkml_stage_mods_file,
+                                                   global_target_schema=global_target_schema)
     extracted_examples_collection = {
-        "exhaustive_test_set": [extracted_examples_dict]
+        "all_slots_test_set": [extracted_examples_dict]
     }
 
     yaml_dumper.dump(global_target_schema, schema_file_out)
