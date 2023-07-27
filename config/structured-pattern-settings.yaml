@@ -1,0 +1,31 @@
+name: mixs_structured_pattern_settings
+id: http://example.com/mixs_structured_pattern_settings
+imports:
+  - linkml:types
+prefixes:
+  linkml: https://w3id.org/linkml/
+
+settings:
+  country: "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)"
+  name: "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)"
+  region: "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)"
+  room_name: "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)"
+  specific_location: "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)"
+  storage_condition_type: "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)"
+  text: "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)"
+  unit: "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)"
+
+  DOI: "^doi:10.\\d{2,9}/.*$"
+  PMID: "^PMID:\\d+$"
+  # URL pattern from https://uibakery.io/regex-library/url
+  URL: "^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$"
+  adapter: "[ACGTRKSYMWBHDVN]+"
+  duration: "P(?:(?:\\d+D|\\d+M(?:\\d+D)?|\\d+Y(?:\\d+M(?:\\d+D)?)?)(?:T(?:\\d+H(?:\\d+M(?:\\d+S)?)?|\\d+M(?:\\d+S)?|\\d+S))?|T(?:\\d+H(?:\\d+M(?:\\d+S)?)?|\\d+M(?:\\d+S)?|\\d+S)|\\d+W)"
+  float: "[-+]?[0-9]*\\.?[0-9]+"
+  room_number: "[1-9][0-9]*"
+
+
+#  {crop_rotation_status};{schedule}: {boolean};{Rn/start_time/end_time/duration}
+
+# fractional durations
+# /P(?:(?:(?:\\d+D|\\d+\\.\\d+D$)|(?:\\d+M|\\d+\\.\\d+M$)(?:\\d+D|\\d+\\.\\d+D$)?|(?:\\d+Y|\\d+\\.\\d+Y$)(:?(?:\\d+M|\\d+\\.\\d+M$)(?:\\d+D|\\d+\\.\\d+D$)?)?)(:?T(?:(?:\\d+H|\\d+\\.\\d+H$)(?:(?:\\d+M|\\d+\\.\\d+M$)(?:\\d+S|\\d+\\.\\d+S$)?)?|(?:\\d+M|\\d+\\.\\d+M$)(?:\\d+S|\\d+\\.\\d+S$)?|(?:\\d+S|\\d+\\.\\d+S$)))?|T(?:(?:\\d+H|\\d+\\.\\d+H$)(?:(?:\\d+M|\\d+\\.\\d+M$)(?:\\d+S|\\d+\\.\\d+S$)?)?|(?:\\d+M|\\d+\\.\\d+M$)(?:\\d+S|\\d+\\.\\d+S$)?|(?:\\d+S|\\d+\\.\\d+S$))|(?:\\d+W|\\d+\\.\\d+W$))/gm

@@ -22,12 +22,13 @@ text-mining-results/mixs-v6-repaired-term-title-token-matrix.tsv \
 schemasheets-usage-output/$(RC_PREFIX).yaml.exhaustive.usage-report.tsv schemasheets-usage-output/$(RC_PREFIX).yaml.concise.usage-report.tsv \
 conflicts-all other-reports/mixs-scns-vs-ncbi-harmonized-attributes.yaml \
 schema-derivatives/$(RC_PREFIX).owl.ttl schema-derivatives/$(RC_PREFIX).schema.json \
-final-deletions generated-schema/final-$(RC_PREFIX).yaml \
+generated-schema/final-$(RC_PREFIX).yaml \
 validate-multiple-mims-soil converted-data/MimsSoil-example.tsv \
 other-reports/slot-usage-report.tsv other-reports/schema-lint-report.tsv \
 converted-data/data-conversion-report.md \
 validate-linkml-rdf-data-pure-python validate-linkml-rdf-schema-pure-python \
-schema-derivatives/$(RC_PREFIX).json
+schema-derivatives/$(RC_PREFIX).json \
+final-deletions
 
 clean:
 	rm -rf schemasheets-usage-output/$(RC_PREFIX)-usage.tsv

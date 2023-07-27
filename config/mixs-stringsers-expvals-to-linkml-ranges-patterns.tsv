@@ -11,7 +11,7 @@ string_serialization	Expected_value	range	pattern	structured_pattern	notes	max_v
 {duration}		string	^P(?!$)(\d+Y)?(\d+M)?(\d+W)?(\d+D)?(T(?=\d+[HMS])(\d+H)?(\d+M)?(\d+S)?)?$						
 {float}	measurement value	float							
 {float}	value	float							
-{float} - {float} {unit}	measurement value range	string		{float} - {float} {unit}					
+{float} - {float} {unit}	measurement value range	string		{float} *- *{float} {unit}
 {float} {unit}	measurement value	string	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\s-]{1,2}|[^\s-]+.+[^\s-]+)$
 {float} {unit}		string	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\s-]{1,2}|[^\s-]+.+[^\s-]+)$
 {float}{unit}	measurement value	string	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\s-]{1,2}|[^\s-]+.+[^\s-]+)$
@@ -76,15 +76,14 @@ string_serialization	Expected_value	range	pattern	structured_pattern	notes	max_v
 {text}		string							
 {text} {text}		string	^\S.*\S+ \S.*\S+$						
 {text};{float} {unit}	name;measurement value	string		{name};{float} {unit}					
-{text};{integer}	room name;room number	string		{room name};{room number}					
+{text};{integer}	room name;room number	string		^{room_name};{room_number}$
 {timestamp}	date	datetime							
 {timestamp}	date and time	datetime							
 {timestamp}	timestamp	datetime							
 {URL}	URL	uriorcurie							
-	adapter A and B sequence	string		{adapter_a};{adapter_b}					
-	country: region, specific location	string		{country}: {region}, {specific location}					
-	crop rotation status;schedule	string		{crop_rotation_status};{schedule}					
-	free text	string							
+	adapter A and B sequence	string		^{adapter};{adapter}$
+	country: region, specific location	string		{country}: {region}, {specific_location}
+	free text	string
 	measurement value	string	^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\s-]{1,2}|[^\s-]+.+[^\s-]+)$
 	PMID, DOI or URL	string		{PMID}|{DOI}|{URL}					
 	PMID,DOI or url	string		{PMID}|{DOI}|{URL}					

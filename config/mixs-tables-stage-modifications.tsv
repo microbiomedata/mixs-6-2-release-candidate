@@ -234,3 +234,6 @@ FALSE	Structured comment name	prod_label_claims			no mixs id
 FALSE	Structured comment name	samp_name			
 FALSE	Structured comment name	tot_phos*			items of total phosphorous, total phosphorus and total phosphate; mixs ids of MIXS:0000689 and MIXS:0000117
 TRUE	Structured comment name	organism_count	Occurrence	m	majority rule. There are lots of other variations in this slot.
+TRUE	Structured comment name	soil_texture_meth	Example	https://uwlab.soils.wisc.edu/wp-content/uploads/sites/17/2015/09/particle_size.pdf	no parenthetical notes allowed
+TRUE	Structured comment name	isol_growth_condt	Example	doi:10.1016/j.syapm.2018.01.009	no space between prefix and local portion
+TRUE	Structured comment name	soil_type_meth	Example	https://www.lrh.usace.army.mil/Portals/38/docs/PR/BluestoneSFEIS/Appendix%20K-Soil%20Descriptions.pdf	a list of textual labels is not a PMID, a DOI or a URL

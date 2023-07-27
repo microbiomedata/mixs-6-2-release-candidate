@@ -590,3 +590,21 @@ food-animal and animal feed	Structured comment name	organism_count	Occurrence	1	
 food-food production facility	Structured comment name	organism_count	Occurrence	1	m
 food-farm environment	Structured comment name	organism_count	Occurrence	1	m
 agriculture	Structured comment name	organism_count	Occurrence		m
+soil	Structured comment name	soil_texture_meth	Example		https://uwlab.soils.wisc.edu/wp-content/uploads/sites/17/2015/09/particle_size.pdf
+food-farm environment	Structured comment name	soil_texture_meth	Example	https://uwlab.soils.wisc.edu/wp-content/uploads/sites/17/2015/09/particle_size.pdf (hydrometer method)	https://uwlab.soils.wisc.edu/wp-content/uploads/sites/17/2015/09/particle_size.pdf
+agriculture	Structured comment name	soil_texture_meth	Example		https://uwlab.soils.wisc.edu/wp-content/uploads/sites/17/2015/09/particle_size.pdf
+migs_eu	Structured comment name	isol_growth_condt	Example	doi: 10.1016/j.syapm.2018.01.009	doi:10.1016/j.syapm.2018.01.009
+migs_ba	Structured comment name	isol_growth_condt	Example	doi: 10.1016/j.syapm.2018.01.009	doi:10.1016/j.syapm.2018.01.009
+migs_pl	Structured comment name	isol_growth_condt	Example	doi: 10.1016/j.syapm.2018.01.009	doi:10.1016/j.syapm.2018.01.009
+migs_vi	Structured comment name	isol_growth_condt	Example	doi: 10.1016/j.syapm.2018.01.009	doi:10.1016/j.syapm.2018.01.009
+migs_org	Structured comment name	isol_growth_condt	Example	doi: 10.1016/j.syapm.2018.01.009	doi:10.1016/j.syapm.2018.01.009
+mims	Structured comment name	isol_growth_condt	Example	doi: 10.1016/j.syapm.2018.01.009	doi:10.1016/j.syapm.2018.01.009
+mimarks_s	Structured comment name	isol_growth_condt	Example	doi: 10.1016/j.syapm.2018.01.009	doi:10.1016/j.syapm.2018.01.009
+mimarks_c	Structured comment name	isol_growth_condt	Example	doi: 10.1016/j.syapm.2018.01.009	doi:10.1016/j.syapm.2018.01.009
+misag	Structured comment name	isol_growth_condt	Example	doi: 10.1016/j.syapm.2018.01.009	doi:10.1016/j.syapm.2018.01.009
+mimag	Structured comment name	isol_growth_condt	Example	doi: 10.1016/j.syapm.2018.01.009	doi:10.1016/j.syapm.2018.01.009
+miuvig	Structured comment name	isol_growth_condt	Example	doi: 10.1016/j.syapm.2018.01.009	doi:10.1016/j.syapm.2018.01.009
+agriculture	Structured comment name	isol_growth_condt	Example		doi:10.1016/j.syapm.2018.01.009
+soil	Structured comment name	soil_type_meth	Example		https://www.lrh.usace.army.mil/Portals/38/docs/PR/BluestoneSFEIS/Appendix%20K-Soil%20Descriptions.pdf
+food-farm environment	Structured comment name	soil_type_meth	Example	Frederick series; Weikert series	https://www.lrh.usace.army.mil/Portals/38/docs/PR/BluestoneSFEIS/Appendix%20K-Soil%20Descriptions.pdf
+agriculture	Structured comment name	soil_type_meth	Example		https://www.lrh.usace.army.mil/Portals/38/docs/PR/BluestoneSFEIS/Appendix%20K-Soil%20Descriptions.pdf

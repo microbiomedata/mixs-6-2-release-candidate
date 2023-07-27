@@ -46,9 +46,9 @@ all_slots_test_set:
     x16s_recover_software: absolutely any text
     HACCP_term:
       - term [ONTOLOGY:123]
-    adapters: absolutely any text
+    adapters: ACGT;ACGT
     additional_info: absolutely any text
-    adj_room: absolutely any text
+    adj_room: kitchen;123
     adjacent_environment:
       - absolutely any text
     aero_struc: glider
@@ -62,7 +62,7 @@ all_slots_test_set:
     air_temp_regm:
       - absolutely any text
     al_sat: 1.234 units
-    al_sat_meth: absolutely any text
+    al_sat_meth: PMID:123
     alkalinity: 1.234 units
     alkalinity_method: absolutely any text
     alkyl_diethers: 1.234 units
@@ -96,9 +96,9 @@ all_slots_test_set:
       - absolutely any text
     arch_struc: shed
     area_samp_size: absolutely any text
-    aromatics_pc: absolutely any text
-    asphaltenes_pc: absolutely any text
-    assembly_name: absolutely any text absolutely any text
+    aromatics_pc: benzene;1.234 units
+    asphaltenes_pc: maltenes;1.234 units
+    assembly_name: absolutely any text
     assembly_qual: absolutely any text
     assembly_software: absolutely any text
     associated_resource:
@@ -188,7 +188,7 @@ all_slots_test_set:
       - absolutely any text
     cur_land_use: absolutely any text
     cur_vegetation: absolutely any text
-    cur_vegetation_meth: absolutely any text
+    cur_vegetation_meth: PMID:123
     date_extr_weath:
       - "2013-03-25T12:42:31+00:32"
     date_last_rain: "2013-03-25T12:42:31+00:32"
@@ -317,7 +317,7 @@ all_slots_test_set:
     food_ingredient:
       - absolutely any text
     food_name_status: term [ONTOLOGY:123]
-    food_origin: absolutely any text
+    food_origin: "USA: California, Fresno County"
     food_pack_capacity: 1.234 units
     food_pack_integrity:
       - absolutely any text
@@ -373,19 +373,19 @@ all_slots_test_set:
     handidness: ambidexterity # todo what about dominant_hand?
     hcr_fw_salinity: 1.234 units
     hcr_geol_age: Jurassic
-    hcr_pressure: absolutely any text
-    hcr_temp: absolutely any text
+    hcr_pressure: 1.234 - 9.999 units
+    hcr_temp: 1.234 - 9.999 units
     heat_deliv_loc: southwest
     heat_sys_deliv_meth: conductive
     heat_system_id: 123
     heavy_metals:
       - absolutely any text
-    heavy_metals_meth: absolutely any text
+    heavy_metals_meth: PMID:123
     height_carper_fiber: 1.234 units
     herbicide_regm:
       - absolutely any text
     horizon: O horizon
-    horizon_meth: absolutely any text
+    horizon_meth: PMID:123
     host_age: 1.234 units
     host_body_habitat: absolutely any text
     host_body_mass_index: 1.234 units
@@ -463,7 +463,7 @@ all_slots_test_set:
     int_wall_cond: damaged
     intended_consumer:
       - absolutely any text
-    isol_growth_condt: absolutely any text
+    isol_growth_condt: PMID:123
     iw_bt_date_well: "2013-03-25T12:42:31+00:32"
     kidney_disord:
       - absolutely any text
@@ -476,14 +476,14 @@ all_slots_test_set:
     library_prep_kit: absolutely any text
     light_intensity: 1.234 units
     light_regm: absolutely any text
-    link_addit_analys: absolutely any text
-    link_class_info: absolutely any text
-    link_climate_info: absolutely any text
+    link_addit_analys: PMID:123
+    link_class_info: PMID:123
+    link_climate_info: PMID:123
     lithology: Dolomite
     liver_disord:
       - absolutely any text
     local_class: absolutely any text
-    local_class_meth: absolutely any text
+    local_class_meth: PMID:123
     lot_number:
       - absolutely any text
     mag_cov_software: bowtie
@@ -499,7 +499,7 @@ all_slots_test_set:
     menarche: "2013-03-25T12:42:31+00:32"
     menopause: "2013-03-25T12:42:31+00:32"
     methane: 1.234 units
-    micro_biomass_meth: absolutely any text
+    micro_biomass_meth: PMID:123
     microb_cult_med: absolutely any text
     microb_start: absolutely any text
     microb_start_count: absolutely any text
@@ -525,7 +525,7 @@ all_slots_test_set:
     nose_throat_disord:
       - absolutely any text
     nucl_acid_amp: absolutely any text
-    nucl_acid_ext: term [ONTOLOGY:123]
+    nucl_acid_ext: PMID:123
     nucl_acid_ext_kit:
       - absolutely any text
     num_replicons: 123
@@ -567,7 +567,7 @@ all_slots_test_set:
       - absolutely any text
     petroleum_hydrocarb: 1.234 units
     ph: 1.9
-    ph_meth: absolutely any text
+    ph_meth: PMID:123
     ph_regm:
       - absolutely any text
     phaeopigments:
@@ -601,7 +601,7 @@ all_slots_test_set:
     pregnancy: "2013-03-25T12:42:31+00:32"
     pres_animal_insect: absolutely any text
     pressure: 1.234 units
-    prev_land_use_meth: absolutely any text
+    prev_land_use_meth: PMID:123
     previous_land_use: absolutely any text
     primary_prod: 1.234 units
     primary_treatment: absolutely any text
@@ -621,7 +621,7 @@ all_slots_test_set:
     reactor_type: absolutely any text
     reassembly_bin: true
     redox_potential: 1.234 units
-    ref_biomaterial: absolutely any text
+    ref_biomaterial: PMID:123
     ref_db: absolutely any text
     rel_humidity_out: 1.234 units
     rel_location: absolutely any text
@@ -630,7 +630,7 @@ all_slots_test_set:
     repository_name:
       - absolutely any text
     reservoir: absolutely any text
-    resins_pc: absolutely any text
+    resins_pc: dibenzothiophene;1.234 units
     room_air_exch_rate: 1.234 units
     room_architec_elem: absolutely any text
     room_condt: damaged
@@ -638,8 +638,8 @@ all_slots_test_set:
     room_count: 123
     room_dim: absolutely any text
     room_door_dist: 123 units
-    room_door_share: absolutely any text
-    room_hallway: absolutely any text
+    room_door_share: kitchen;123
+    room_hallway: kitchen;123
     room_loc: corner room
     room_moist_dam_hist: 123
     room_net_area: 123 units
@@ -647,7 +647,7 @@ all_slots_test_set:
     room_samp_pos: southwest corner
     room_type: absolutely any text
     room_vol: 123 units
-    room_wall_share: absolutely any text
+    room_wall_share: kitchen;123
     room_window_count: 123
     root_cond: absolutely any text
     root_med_carbon: absolutely any text
@@ -668,12 +668,12 @@ all_slots_test_set:
     samp_dis_stage: infection
     samp_floor: absolutely any text
     samp_loc_condition: damaged
-    samp_loc_corr_rate: absolutely any text
+    samp_loc_corr_rate: 1.234 - 9.999 units
     samp_mat_process: absolutely any text
     samp_md: absolutely any text
     samp_pooling:
       - absolutely any text
-    samp_preserv: absolutely any text
+    samp_preserv: formaldehyde;1.234 units
     samp_purpose: absolutely any text
     samp_rep_biol: 1.234 units
     samp_rep_tech: 1.234 units
@@ -701,7 +701,7 @@ all_slots_test_set:
     samp_vol_we_dna_ext: 1.234 units
     samp_weather: cloudy
     samp_well_name: absolutely any text
-    saturates_pc: absolutely any text
+    saturates_pc: propane;1.234 units
     season: autumn [NCIT:C94733]
     season_environment:
       - absolutely any text
@@ -745,9 +745,9 @@ all_slots_test_set:
     soil_temp: 1.234 units
     #    soil_text_measure: 1.234 units
     soil_texture_class: clay
-    soil_texture_meth: absolutely any text
+    soil_texture_meth: PMID:123
     soil_type: absolutely any text
-    soil_type_meth: absolutely any text
+    soil_type_meth: PMID:123
     solar_irradiance:
       - 1.234 units
     soluble_inorg_mat:
@@ -842,9 +842,9 @@ all_slots_test_set:
     tot_iron: 1.234 units
     #    tot_n_meth: absolutely any text # see tot_nitro_cont_meth
     tot_nitro: 1.234 units
-    tot_nitro_cont_meth: absolutely any text
+    tot_nitro_cont_meth: PMID:123
     tot_nitro_content: 1.234 units
-    tot_org_c_meth: absolutely any text
+    tot_org_c_meth: PMID:123
     tot_org_carb: absolutely any text
     tot_part_carb: 1.234 units
     #    tot_phos: 1.234 units see tot_phosp
@@ -890,7 +890,7 @@ all_slots_test_set:
     wall_thermal_mass: 1.234 units
     wall_water_mold: presence of mold visible
     wastewater_type: absolutely any text
-    water_cont_soil_meth: absolutely any text
+    water_cont_soil_meth: PMID:123
     water_content: 1.234 units
     water_current: 1.234 units
     water_feat_size: 1.234 units

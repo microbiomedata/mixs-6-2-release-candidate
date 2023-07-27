@@ -17,6 +17,8 @@ from linkml_runtime.linkml_model.meta import PatternExpression
 from pandas import DataFrame, Series
 from schemasheets.schemamaker import SchemaMaker
 
+from linkml.generators.linkmlgen import LinkmlGenerator
+
 pd.set_option('display.max_columns', None)
 
 logger = logging.getLogger(__name__)
@@ -910,6 +912,12 @@ def create_schema(non_ascii_replacement, debug, gsc_excel_input, textual_key, sc
     smaker = SchemaMaker()
     mixs_classes_schema = smaker.create_schema(list(classes_ssheet))
 
+    struct_pat_settings_view = SchemaView('config/structured-pattern-settings.yaml')
+    struct_pat_settings_obj = struct_pat_settings_view.schema.settings
+
+    for setting_k, setting_v in struct_pat_settings_obj.items():
+        global_target_schema.settings[setting_k] = setting_v
+
     checklists_from_schemasheet = []
     envs_from_schemasheet = []
 
@@ -982,7 +990,19 @@ def create_schema(non_ascii_replacement, debug, gsc_excel_input, textual_key, sc
         "all_slots_test_set": [extracted_examples_dict]
     }
 
-    yaml_dumper.dump(global_target_schema, schema_file_out)
+    lg = LinkmlGenerator(
+        global_target_schema,
+        format="yaml",
+        materialize_attributes=False,
+        materialize_patterns=True,
+    )
+
+    lg.serialize(
+        output=schema_file_out
+    )
+
+    # with open(schema_file_out, 'w') as yaml_file:
+    #     yaml_file.write(regenerated_as_string)
 
     with open(extracted_examples_out, 'w') as file:
         yaml.safe_dump(extracted_examples_collection, file)

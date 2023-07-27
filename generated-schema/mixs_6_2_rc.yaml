@@ -2469,8 +2469,9 @@ slots:
     slot_uri: MIXS:0000048
     multivalued: false
     range: string
+    pattern: ^[ACGTRKSYMWBHDVN]+;[ACGTRKSYMWBHDVN]+$
     structured_pattern:
-      syntax: '{adapter_a};{adapter_b}'
+      syntax: ^{adapter};{adapter}$
       interpolated: true
       partial_match: true
   add_recov_method:
@@ -2539,8 +2540,9 @@ slots:
     range: string
     required: false
     recommended: false
+    pattern: ^([^\s-]{1,2}|[^\s-]+.+[^\s-]+);[1-9][0-9]*$
     structured_pattern:
-      syntax: '{room name};{room number}'
+      syntax: ^{room_name};{room_number}$
       interpolated: true
       partial_match: true
   adjacent_environment:
@@ -2723,6 +2725,7 @@ slots:
     range: string
     required: false
     recommended: false
+    pattern: ^PMID:\d+$|^doi:10.\d{2,9}/.*$|^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$
     structured_pattern:
       syntax: '{PMID}|{DOI}|{URL}'
       interpolated: true
@@ -3269,6 +3272,7 @@ slots:
     multivalued: false
     range: string
     recommended: true
+    pattern: ([^\s-]{1,2}|[^\s-]+.+[^\s-]+);[-+]?[0-9]*\.?[0-9]+ ([^\s-]{1,2}|[^\s-]+.+[^\s-]+)
     structured_pattern:
       syntax: '{name};{float} {unit}'
       interpolated: true
@@ -3289,6 +3293,7 @@ slots:
     multivalued: false
     range: string
     recommended: true
+    pattern: ([^\s-]{1,2}|[^\s-]+.+[^\s-]+);[-+]?[0-9]*\.?[0-9]+ ([^\s-]{1,2}|[^\s-]+.+[^\s-]+)
     structured_pattern:
       syntax: '{name};{float} {unit}'
       interpolated: true
@@ -4642,6 +4647,10 @@ slots:
     recommended: false
   crop_rotation:
     name: crop_rotation
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: crop rotation status;schedule
     description: Whether or not crop is rotated, and if yes, rotation schedule
     title: history/crop rotation
     notes:
@@ -4651,11 +4660,6 @@ slots:
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     slot_uri: MIXS:0000318
     multivalued: false
-    range: string
-    structured_pattern:
-      syntax: '{crop_rotation_status};{schedule}'
-      interpolated: true
-      partial_match: true
   crop_yield:
     name: crop_yield
     annotations:
@@ -4821,6 +4825,7 @@ slots:
     slot_uri: MIXS:0000314
     multivalued: false
     range: string
+    pattern: ^PMID:\d+$|^doi:10.\d{2,9}/.*$|^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$
     structured_pattern:
       syntax: '{PMID}|{DOI}|{URL}'
       interpolated: true
@@ -5607,6 +5612,7 @@ slots:
     slot_uri: MIXS:0001177
     multivalued: false
     range: string
+    pattern: ^PMID:\d+$|^doi:10.\d{2,9}/.*$|^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$|([^\s-]{1,2}|[^\s-]+.+[^\s-]+)
     structured_pattern:
       syntax: '{PMID}|{DOI}|{URL}|{text}'
       interpolated: true
@@ -6722,8 +6728,9 @@ slots:
     slot_uri: MIXS:0001207
     multivalued: false
     range: string
+    pattern: '([^\s-]{1,2}|[^\s-]+.+[^\s-]+): ([^\s-]{1,2}|[^\s-]+.+[^\s-]+), ([^\s-]{1,2}|[^\s-]+.+[^\s-]+)'
     structured_pattern:
-      syntax: '{country}: {region}, {specific location}'
+      syntax: '{country}: {region}, {specific_location}'
       interpolated: true
       partial_match: true
   food_pack_capacity:
@@ -7487,8 +7494,9 @@ slots:
     range: string
     required: false
     recommended: false
+    pattern: '[-+]?[0-9]*\.?[0-9]+ *- *[-+]?[0-9]*\.?[0-9]+ ([^\s-]{1,2}|[^\s-]+.+[^\s-]+)'
     structured_pattern:
-      syntax: '{float} - {float} {unit}'
+      syntax: '{float} *- *{float} {unit}'
       interpolated: true
       partial_match: true
   hcr_temp:
@@ -7509,8 +7517,9 @@ slots:
     slot_uri: MIXS:0000393
     multivalued: false
     range: string
+    pattern: '[-+]?[0-9]*\.?[0-9]+ *- *[-+]?[0-9]*\.?[0-9]+ ([^\s-]{1,2}|[^\s-]+.+[^\s-]+)'
     structured_pattern:
-      syntax: '{float} - {float} {unit}'
+      syntax: '{float} *- *{float} {unit}'
       interpolated: true
       partial_match: true
   heat_cool_type:
@@ -7604,6 +7613,7 @@ slots:
     slot_uri: MIXS:0000343
     multivalued: false
     range: string
+    pattern: ^PMID:\d+$|^doi:10.\d{2,9}/.*$|^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$
     structured_pattern:
       syntax: '{PMID}|{DOI}|{URL}'
       interpolated: true
@@ -7678,6 +7688,7 @@ slots:
     slot_uri: MIXS:0000321
     multivalued: false
     range: string
+    pattern: ^PMID:\d+$|^doi:10.\d{2,9}/.*$|^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$
     structured_pattern:
       syntax: '{PMID}|{DOI}|{URL}'
       interpolated: true
@@ -7949,6 +7960,7 @@ slots:
     range: string
     required: false
     recommended: false
+    pattern: ^PMID:\d+$|^doi:10.\d{2,9}/.*$|^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$|([^\s-]{1,2}|[^\s-]+.+[^\s-]+)
     structured_pattern:
       syntax: '{PMID}|{DOI}|{URL}|{text}'
       interpolated: true
@@ -8871,13 +8883,14 @@ slots:
     - growth
     - isolation
     examples:
-    - value: 'doi: 10.1016/j.syapm.2018.01.009'
+    - value: doi:10.1016/j.syapm.2018.01.009
     in_subset:
     - nucleic acid sequence source
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     slot_uri: MIXS:0000003
     multivalued: false
     range: string
+    pattern: ^PMID:\d+$|^doi:10.\d{2,9}/.*$|^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$
     structured_pattern:
       syntax: '{PMID}|{DOI}|{URL}'
       interpolated: true
@@ -9131,6 +9144,7 @@ slots:
     range: string
     required: false
     recommended: false
+    pattern: ^PMID:\d+$|^doi:10.\d{2,9}/.*$|^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$
     structured_pattern:
       syntax: '{PMID}|{DOI}|{URL}'
       interpolated: true
@@ -9149,6 +9163,7 @@ slots:
     range: string
     required: false
     recommended: false
+    pattern: ^PMID:\d+$|^doi:10.\d{2,9}/.*$|^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$
     structured_pattern:
       syntax: '{PMID}|{DOI}|{URL}'
       interpolated: true
@@ -9166,6 +9181,7 @@ slots:
     range: string
     required: false
     recommended: false
+    pattern: ^PMID:\d+$|^doi:10.\d{2,9}/.*$|^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$
     structured_pattern:
       syntax: '{PMID}|{DOI}|{URL}'
       interpolated: true
@@ -9223,6 +9239,7 @@ slots:
     slot_uri: MIXS:0000331
     multivalued: false
     range: string
+    pattern: ^PMID:\d+$|^doi:10.\d{2,9}/.*$|^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$
     structured_pattern:
       syntax: '{PMID}|{DOI}|{URL}'
       interpolated: true
@@ -9444,6 +9461,7 @@ slots:
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     slot_uri: MIXS:0000339
     range: string
+    pattern: ^PMID:\d+$|^doi:10.\d{2,9}/.*$|^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$
     structured_pattern:
       syntax: '{PMID}|{DOI}|{URL}'
       interpolated: true
@@ -9823,6 +9841,7 @@ slots:
     slot_uri: MIXS:0000037
     multivalued: false
     range: string
+    pattern: ^PMID:\d+$|^doi:10.\d{2,9}/.*$|^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$
     structured_pattern:
       syntax: '{PMID}|{DOI}|{URL}'
       interpolated: true
@@ -10446,6 +10465,7 @@ slots:
     slot_uri: MIXS:0001106
     multivalued: false
     range: string
+    pattern: ^PMID:\d+$|^doi:10.\d{2,9}/.*$|^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$
     structured_pattern:
       syntax: '{PMID}|{DOI}|{URL}'
       interpolated: true
@@ -10570,6 +10590,7 @@ slots:
     multivalued: true
     range: string
     recommended: true
+    pattern: ^PMID:\d+$|^doi:10.\d{2,9}/.*$|^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$|([^\s-]{1,2}|[^\s-]+.+[^\s-]+)
     structured_pattern:
       syntax: '{PMID}|{DOI}|{URL}|{text}'
       interpolated: true
@@ -10952,6 +10973,7 @@ slots:
     slot_uri: MIXS:0000316
     multivalued: false
     range: string
+    pattern: ^PMID:\d+$|^doi:10.\d{2,9}/.*$|^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$
     structured_pattern:
       syntax: '{PMID}|{DOI}|{URL}'
       interpolated: true
@@ -11250,6 +11272,7 @@ slots:
     slot_uri: MIXS:0000025
     multivalued: false
     range: string
+    pattern: ^PMID:\d+$|^doi:10.\d{2,9}/.*$|^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$
     structured_pattern:
       syntax: '{PMID}|{DOI}|{URL}'
       interpolated: true
@@ -11401,6 +11424,7 @@ slots:
     multivalued: false
     range: string
     recommended: true
+    pattern: ([^\s-]{1,2}|[^\s-]+.+[^\s-]+);[-+]?[0-9]*\.?[0-9]+ ([^\s-]{1,2}|[^\s-]+.+[^\s-]+)
     structured_pattern:
       syntax: '{name};{float} {unit}'
       interpolated: true
@@ -11538,8 +11562,9 @@ slots:
     range: string
     required: false
     recommended: false
+    pattern: ^([^\s-]{1,2}|[^\s-]+.+[^\s-]+);[1-9][0-9]*$
     structured_pattern:
-      syntax: '{room name};{room number}'
+      syntax: ^{room_name};{room_number}$
       interpolated: true
       partial_match: true
   room_hallway:
@@ -11556,8 +11581,9 @@ slots:
     range: string
     required: false
     recommended: false
+    pattern: ^([^\s-]{1,2}|[^\s-]+.+[^\s-]+);[1-9][0-9]*$
     structured_pattern:
-      syntax: '{room name};{room number}'
+      syntax: ^{room_name};{room_number}$
       interpolated: true
       partial_match: true
   room_loc:
@@ -11690,8 +11716,9 @@ slots:
     range: string
     required: false
     recommended: false
+    pattern: ^([^\s-]{1,2}|[^\s-]+.+[^\s-]+);[1-9][0-9]*$
     structured_pattern:
-      syntax: '{room name};{room number}'
+      syntax: ^{room_name};{room_number}$
       interpolated: true
       partial_match: true
   room_window_count:
@@ -11723,6 +11750,7 @@ slots:
     range: string
     required: false
     recommended: false
+    pattern: ^PMID:\d+$|^doi:10.\d{2,9}/.*$|^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$|([^\s-]{1,2}|[^\s-]+.+[^\s-]+)
     structured_pattern:
       syntax: '{PMID}|{DOI}|{URL}|{text}'
       interpolated: true
@@ -11964,6 +11992,7 @@ slots:
     slot_uri: MIXS:0001225
     multivalued: false
     range: string
+    pattern: ^PMID:\d+$|^doi:10.\d{2,9}/.*$|^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$|([^\s-]{1,2}|[^\s-]+.+[^\s-]+)
     structured_pattern:
       syntax: '{PMID}|{DOI}|{URL}|{text}'
       interpolated: true
@@ -12056,8 +12085,9 @@ slots:
     multivalued: false
     range: string
     recommended: true
+    pattern: '[-+]?[0-9]*\.?[0-9]+ *- *[-+]?[0-9]*\.?[0-9]+ ([^\s-]{1,2}|[^\s-]+.+[^\s-]+)'
     structured_pattern:
-      syntax: '{float} - {float} {unit}'
+      syntax: '{float} *- *{float} {unit}'
       interpolated: true
       partial_match: true
   samp_mat_process:
@@ -12152,6 +12182,7 @@ slots:
     range: string
     required: false
     recommended: false
+    pattern: ([^\s-]{1,2}|[^\s-]+.+[^\s-]+);[-+]?[0-9]*\.?[0-9]+ ([^\s-]{1,2}|[^\s-]+.+[^\s-]+)
     structured_pattern:
       syntax: '{name};{float} {unit}'
       interpolated: true
@@ -12641,6 +12672,7 @@ slots:
     multivalued: false
     range: string
     recommended: true
+    pattern: ([^\s-]{1,2}|[^\s-]+.+[^\s-]+);[-+]?[0-9]*\.?[0-9]+ ([^\s-]{1,2}|[^\s-]+.+[^\s-]+)
     structured_pattern:
       syntax: '{name};{float} {unit}'
       interpolated: true
@@ -13383,13 +13415,13 @@ slots:
     - texture
     examples:
     - value: https://uwlab.soils.wisc.edu/wp-content/uploads/sites/17/2015/09/particle_size.pdf
-        (hydrometer method)
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     slot_uri: MIXS:0000336
     multivalued: false
     range: string
     required: false
     recommended: false
+    pattern: ^PMID:\d+$|^doi:10.\d{2,9}/.*$|^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$
     structured_pattern:
       syntax: '{PMID}|{DOI}|{URL}'
       interpolated: true
@@ -13416,11 +13448,12 @@ slots:
     - soil
     - type
     examples:
-    - value: Frederick series; Weikert series
+    - value: https://www.lrh.usace.army.mil/Portals/38/docs/PR/BluestoneSFEIS/Appendix%20K-Soil%20Descriptions.pdf
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     slot_uri: MIXS:0000334
     multivalued: false
     range: string
+    pattern: ^PMID:\d+$|^doi:10.\d{2,9}/.*$|^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$
     structured_pattern:
       syntax: '{PMID}|{DOI}|{URL}'
       interpolated: true
@@ -14628,6 +14661,7 @@ slots:
     range: string
     required: false
     recommended: false
+    pattern: ^PMID:\d+$|^doi:10.\d{2,9}/.*$|^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$|([^\s-]{1,2}|[^\s-]+.+[^\s-]+)
     structured_pattern:
       syntax: '{PMID}|{DOI}|{URL}|{text}'
       interpolated: true
@@ -14783,6 +14817,7 @@ slots:
     slot_uri: MIXS:0000338
     multivalued: false
     range: string
+    pattern: ^PMID:\d+$|^doi:10.\d{2,9}/.*$|^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$
     structured_pattern:
       syntax: '{PMID}|{DOI}|{URL}'
       interpolated: true
@@ -14817,6 +14852,7 @@ slots:
     slot_uri: MIXS:0000337
     multivalued: false
     range: string
+    pattern: ^PMID:\d+$|^doi:10.\d{2,9}/.*$|^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$
     structured_pattern:
       syntax: '{PMID}|{DOI}|{URL}'
       interpolated: true
@@ -15515,6 +15551,7 @@ slots:
     range: string
     required: false
     recommended: false
+    pattern: ^PMID:\d+$|^doi:10.\d{2,9}/.*$|^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$
     structured_pattern:
       syntax: '{PMID}|{DOI}|{URL}'
       interpolated: true
@@ -16090,63 +16127,63 @@ classes:
     is_a: Checklist
     mixin: true
     slots:
-    - annot
-    - trophic_level
-    - collection_date
-    - samp_collect_method
-    - source_mat_id
-    - alt
-    - lib_vector
-    - pathogenicity
-    - depth
-    - env_medium
-    - host_disease_stat
-    - biotic_relationship
     - subspecf_gen_lin
-    - host_spec_range
-    - adapters
-    - assembly_name
-    - neg_cont_type
-    - assembly_software
-    - samp_vol_we_dna_ext
-    - feat_pred
-    - lib_layout
-    - estimated_size
-    - rel_to_oxygen
     - samp_mat_process
-    - lib_screen
-    - ref_db
-    - specific_host
-    - tax_class
-    - isol_growth_condt
-    - lat_lon
-    - experimental_factor
-    - tax_ident
-    - extrachrom_elements
-    - samp_collect_device
-    - number_contig
     - pos_cont_type
-    - compl_software
-    - elev
-    - env_local_scale
-    - lib_reads_seqd
-    - sim_search_meth
-    - compl_score
-    - assembly_qual
+    - nucl_acid_amp
+    - assembly_name
+    - env_broad_scale
+    - neg_cont_type
+    - num_replicons
+    - assembly_software
+    - ref_biomaterial
     - temp
-    - nucl_acid_ext
+    - lib_size
+    - experimental_factor
+    - env_medium
+    - pathogenicity
+    - lib_vector
+    - elev
+    - collection_date
+    - samp_size
+    - depth
+    - project_name
     - seq_meth
     - samp_taxon_id
+    - estimated_size
+    - lib_screen
+    - geo_loc_name
+    - source_mat_id
+    - alt
+    - number_contig
+    - trophic_level
+    - nucl_acid_ext
+    - tax_class
+    - rel_to_oxygen
+    - lat_lon
+    - samp_collect_method
+    - host_spec_range
+    - host_disease_stat
+    - feat_pred
+    - compl_software
     - samp_name
     - encoded_traits
-    - lib_size
-    - env_broad_scale
-    - nucl_acid_amp
-    - project_name
-    - num_replicons
-    - ref_biomaterial
-    - samp_size
-    - geo_loc_name
+    - assembly_qual
+    - specific_host
+    - extrachrom_elements
+    - lib_reads_seqd
+    - sim_search_meth
+    - tax_ident
+    - ref_db
+    - annot
+    - biotic_relationship
+    - samp_collect_device
+    - compl_score
+    - env_local_scale
+    - isol_growth_condt
+    - adapters
+    - samp_vol_we_dna_ext
+    - lib_layout
     - associated_resource
     - sop
     slot_usage:
@@ -16376,63 +16413,63 @@ classes:
     is_a: Checklist
     mixin: true
     slots:
-    - annot
-    - source_mat_id
-    - collection_date
-    - samp_collect_method
-    - trophic_level
-    - alt
-    - lib_vector
-    - pathogenicity
-    - depth
-    - env_medium
-    - host_disease_stat
-    - biotic_relationship
     - subspecf_gen_lin
-    - host_spec_range
-    - adapters
-    - assembly_name
-    - propagation
-    - neg_cont_type
-    - assembly_software
-    - samp_vol_we_dna_ext
-    - ploidy
-    - feat_pred
-    - lib_layout
-    - estimated_size
-    - ref_db
     - samp_mat_process
-    - lib_screen
-    - tax_class
-    - specific_host
-    - isol_growth_condt
-    - experimental_factor
-    - lat_lon
-    - tax_ident
-    - extrachrom_elements
-    - samp_collect_device
-    - number_contig
     - pos_cont_type
-    - compl_software
-    - elev
-    - env_local_scale
-    - lib_reads_seqd
-    - sim_search_meth
-    - compl_score
-    - assembly_qual
+    - ploidy
+    - nucl_acid_amp
+    - assembly_name
+    - neg_cont_type
+    - env_broad_scale
+    - num_replicons
+    - assembly_software
+    - ref_biomaterial
     - temp
-    - nucl_acid_ext
+    - lib_size
+    - experimental_factor
+    - env_medium
+    - pathogenicity
+    - lib_vector
+    - elev
+    - collection_date
+    - samp_size
+    - depth
+    - project_name
     - seq_meth
     - samp_taxon_id
-    - samp_name
-    - lib_size
-    - env_broad_scale
-    - nucl_acid_amp
-    - project_name
-    - num_replicons
-    - ref_biomaterial
-    - samp_size
+    - estimated_size
+    - lib_screen
     - geo_loc_name
+    - source_mat_id
+    - alt
+    - number_contig
+    - trophic_level
+    - nucl_acid_ext
+    - tax_class
+    - lat_lon
+    - samp_collect_method
+    - host_spec_range
+    - host_disease_stat
+    - feat_pred
+    - compl_software
+    - samp_name
+    - assembly_qual
+    - specific_host
+    - extrachrom_elements
+    - lib_reads_seqd
+    - sim_search_meth
+    - tax_ident
+    - ref_db
+    - annot
+    - biotic_relationship
+    - propagation
+    - samp_collect_device
+    - env_local_scale
+    - isol_growth_condt
+    - compl_score
+    - adapters
+    - samp_vol_we_dna_ext
+    - lib_layout
     - associated_resource
     - sop
     slot_usage:
@@ -16668,54 +16705,54 @@ classes:
     is_a: Checklist
     mixin: true
     slots:
-    - annot
-    - source_mat_id
-    - collection_date
-    - samp_collect_method
-    - alt
-    - lib_vector
-    - geo_loc_name
-    - depth
-    - env_medium
     - subspecf_gen_lin
-    - adapters
+    - samp_mat_process
+    - pos_cont_type
+    - nucl_acid_amp
     - assembly_name
+    - env_broad_scale
     - neg_cont_type
     - assembly_software
-    - samp_vol_we_dna_ext
-    - feat_pred
-    - lib_layout
-    - estimated_size
-    - ref_db
-    - samp_mat_process
-    - lib_screen
-    - tax_class
-    - isol_growth_condt
-    - lat_lon
-    - experimental_factor
-    - tax_ident
-    - extrachrom_elements
-    - samp_collect_device
-    - number_contig
-    - pos_cont_type
-    - compl_software
-    - elev
-    - env_local_scale
-    - lib_reads_seqd
-    - sim_search_meth
-    - compl_score
-    - assembly_qual
+    - ref_biomaterial
     - temp
-    - nucl_acid_ext
+    - lib_size
+    - experimental_factor
+    - env_medium
+    - lib_vector
+    - elev
+    - collection_date
+    - samp_size
+    - depth
+    - project_name
     - seq_meth
     - samp_taxon_id
+    - estimated_size
+    - lib_screen
+    - geo_loc_name
+    - source_mat_id
+    - alt
+    - number_contig
+    - nucl_acid_ext
+    - tax_class
+    - lat_lon
+    - samp_collect_method
+    - feat_pred
+    - compl_software
     - samp_name
-    - lib_size
-    - env_broad_scale
-    - nucl_acid_amp
-    - ref_biomaterial
-    - samp_size
-    - project_name
+    - assembly_qual
+    - sim_search_meth
+    - extrachrom_elements
+    - lib_reads_seqd
+    - tax_ident
+    - ref_db
+    - annot
+    - samp_collect_device
+    - compl_score
+    - env_local_scale
+    - isol_growth_condt
+    - adapters
+    - samp_vol_we_dna_ext
+    - lib_layout
     - associated_resource
     - sop
     slot_usage:
@@ -16911,57 +16948,57 @@ classes:
     is_a: Checklist
     mixin: true
     slots:
-    - annot
-    - source_mat_id
-    - collection_date
-    - samp_collect_method
-    - alt
-    - lib_vector
-    - geo_loc_name
-    - depth
-    - env_medium
     - subspecf_gen_lin
-    - host_spec_range
-    - adapters
+    - samp_mat_process
+    - pos_cont_type
+    - nucl_acid_amp
     - assembly_name
-    - propagation
+    - env_broad_scale
     - neg_cont_type
     - assembly_software
-    - samp_vol_we_dna_ext
-    - feat_pred
-    - lib_layout
-    - estimated_size
-    - ref_db
-    - samp_mat_process
-    - lib_screen
-    - tax_class
-    - specific_host
-    - isol_growth_condt
-    - lat_lon
-    - experimental_factor
-    - tax_ident
-    - samp_collect_device
-    - number_contig
-    - pos_cont_type
-    - compl_software
-    - elev
-    - env_local_scale
-    - lib_reads_seqd
-    - sim_search_meth
-    - compl_score
-    - assembly_qual
+    - ref_biomaterial
     - temp
-    - nucl_acid_ext
+    - lib_size
+    - experimental_factor
+    - env_medium
+    - lib_vector
+    - elev
+    - collection_date
+    - samp_size
+    - depth
+    - project_name
     - seq_meth
     - samp_taxon_id
+    - estimated_size
+    - lib_screen
+    - geo_loc_name
+    - source_mat_id
+    - alt
+    - number_contig
+    - nucl_acid_ext
+    - tax_class
+    - lat_lon
+    - samp_collect_method
+    - host_spec_range
+    - feat_pred
+    - compl_software
     - samp_name
     - encoded_traits
-    - lib_size
-    - env_broad_scale
-    - nucl_acid_amp
-    - ref_biomaterial
-    - samp_size
-    - project_name
+    - assembly_qual
+    - specific_host
+    - sim_search_meth
+    - lib_reads_seqd
+    - tax_ident
+    - ref_db
+    - annot
+    - samp_collect_device
+    - propagation
+    - compl_score
+    - env_local_scale
+    - isol_growth_condt
+    - adapters
+    - samp_vol_we_dna_ext
+    - lib_layout
     - associated_resource
     - sop
     slot_usage:
@@ -17167,62 +17204,62 @@ classes:
     is_a: Checklist
     mixin: true
     slots:
-    - annot
-    - source_mat_id
-    - collection_date
-    - samp_collect_method
-    - alt
-    - lib_vector
-    - pathogenicity
-    - depth
-    - env_medium
-    - host_disease_stat
-    - biotic_relationship
     - subspecf_gen_lin
-    - host_spec_range
-    - adapters
-    - assembly_name
-    - propagation
-    - neg_cont_type
-    - assembly_software
-    - samp_vol_we_dna_ext
-    - feat_pred
-    - lib_layout
-    - estimated_size
-    - ref_db
     - samp_mat_process
-    - lib_screen
-    - tax_class
-    - specific_host
-    - isol_growth_condt
-    - lat_lon
-    - experimental_factor
-    - tax_ident
-    - samp_collect_device
-    - number_contig
     - pos_cont_type
-    - compl_software
-    - elev
-    - env_local_scale
-    - lib_reads_seqd
-    - sim_search_meth
-    - compl_score
-    - assembly_qual
+    - nucl_acid_amp
+    - assembly_name
+    - env_broad_scale
+    - neg_cont_type
+    - num_replicons
+    - assembly_software
+    - ref_biomaterial
     - temp
-    - nucl_acid_ext
-    - virus_enrich_appr
+    - lib_size
+    - experimental_factor
+    - env_medium
+    - pathogenicity
+    - lib_vector
+    - elev
+    - collection_date
+    - samp_size
+    - depth
+    - project_name
     - seq_meth
     - samp_taxon_id
-    - samp_name
-    - encoded_traits
-    - lib_size
-    - env_broad_scale
-    - nucl_acid_amp
-    - project_name
-    - num_replicons
-    - ref_biomaterial
-    - samp_size
+    - estimated_size
+    - lib_screen
     - geo_loc_name
+    - source_mat_id
+    - alt
+    - number_contig
+    - nucl_acid_ext
+    - tax_class
+    - lat_lon
+    - samp_collect_method
+    - host_spec_range
+    - host_disease_stat
+    - feat_pred
+    - compl_software
+    - samp_name
+    - virus_enrich_appr
+    - encoded_traits
+    - assembly_qual
+    - specific_host
+    - sim_search_meth
+    - lib_reads_seqd
+    - tax_ident
+    - ref_db
+    - annot
+    - biotic_relationship
+    - propagation
+    - samp_collect_device
+    - env_local_scale
+    - isol_growth_condt
+    - compl_score
+    - adapters
+    - samp_vol_we_dna_ext
+    - lib_layout
     - associated_resource
     - sop
     slot_usage:
@@ -17451,66 +17488,66 @@ classes:
     is_a: Checklist
     mixin: true
     slots:
-    - annot
-    - source_mat_id
-    - collection_date
-    - samp_collect_method
-    - alt
-    - lib_vector
-    - size_frac
-    - depth
     - contam_screen_input
-    - x16s_recover_software
-    - env_medium
-    - trnas
-    - bin_software
-    - mid
-    - mag_cov_software
-    - trna_ext_software
-    - compl_appr
-    - decontam_software
-    - adapters
-    - assembly_name
-    - neg_cont_type
-    - contam_screen_param
-    - assembly_software
-    - samp_vol_we_dna_ext
-    - feat_pred
-    - lib_layout
-    - rel_to_oxygen
     - samp_mat_process
-    - lib_screen
-    - ref_db
-    - tax_class
-    - lat_lon
-    - experimental_factor
-    - x16s_recover
-    - tax_ident
-    - samp_collect_device
-    - number_contig
     - pos_cont_type
-    - compl_software
-    - elev
-    - env_local_scale
-    - lib_reads_seqd
-    - sim_search_meth
-    - compl_score
-    - assembly_qual
-    - bin_param
+    - nucl_acid_amp
+    - mid
+    - assembly_name
+    - env_broad_scale
+    - neg_cont_type
+    - assembly_software
+    - ref_biomaterial
+    - decontam_software
     - temp
-    - nucl_acid_ext
-    - reassembly_bin
+    - lib_size
+    - experimental_factor
+    - env_medium
+    - lib_vector
+    - elev
+    - collection_date
+    - samp_size
+    - depth
+    - mag_cov_software
+    - contam_score
+    - project_name
     - seq_meth
     - samp_taxon_id
-    - samp_name
-    - lib_size
-    - env_broad_scale
-    - nucl_acid_amp
-    - project_name
-    - ref_biomaterial
-    - samp_size
-    - contam_score
+    - bin_software
+    - lib_screen
     - geo_loc_name
+    - source_mat_id
+    - alt
+    - number_contig
+    - size_frac
+    - trna_ext_software
+    - nucl_acid_ext
+    - tax_class
+    - rel_to_oxygen
+    - lat_lon
+    - samp_collect_method
+    - x16s_recover
+    - feat_pred
+    - compl_software
+    - reassembly_bin
+    - samp_name
+    - bin_param
+    - compl_appr
+    - assembly_qual
+    - trnas
+    - sim_search_meth
+    - lib_reads_seqd
+    - tax_ident
+    - ref_db
+    - annot
+    - samp_collect_device
+    - compl_score
+    - env_local_scale
+    - x16s_recover_software
+    - contam_screen_param
+    - adapters
+    - samp_vol_we_dna_ext
+    - lib_layout
     - associated_resource
     - sop
     slot_usage:
@@ -17744,43 +17781,43 @@ classes:
     is_a: Checklist
     mixin: true
     slots:
-    - source_mat_id
-    - collection_date
-    - samp_collect_method
-    - chimera_check
-    - trophic_level
-    - alt
-    - pcr_cond
-    - geo_loc_name
-    - depth
-    - env_medium
-    - pcr_primers
-    - biotic_relationship
     - subspecf_gen_lin
-    - target_subfragment
-    - neg_cont_type
-    - target_gene
-    - samp_vol_we_dna_ext
-    - rel_to_oxygen
     - samp_mat_process
-    - isol_growth_condt
-    - lat_lon
-    - experimental_factor
-    - extrachrom_elements
-    - samp_collect_device
     - pos_cont_type
-    - elev
-    - env_local_scale
-    - seq_quality_check
+    - nucl_acid_amp
+    - neg_cont_type
+    - env_broad_scale
     - temp
-    - nucl_acid_ext
+    - env_medium
+    - experimental_factor
+    - elev
+    - collection_date
+    - samp_size
+    - depth
+    - target_subfragment
+    - project_name
     - seq_meth
     - samp_taxon_id
+    - geo_loc_name
+    - source_mat_id
+    - alt
+    - nucl_acid_ext
+    - trophic_level
+    - pcr_cond
+    - rel_to_oxygen
+    - lat_lon
+    - samp_collect_method
+    - pcr_primers
+    - chimera_check
     - samp_name
-    - env_broad_scale
-    - nucl_acid_amp
-    - samp_size
-    - project_name
+    - seq_quality_check
+    - extrachrom_elements
+    - target_gene
+    - biotic_relationship
+    - samp_collect_device
+    - env_local_scale
+    - isol_growth_condt
+    - samp_vol_we_dna_ext
     - associated_resource
     - sop
     slot_usage:
@@ -17935,47 +17972,47 @@ classes:
     is_a: Checklist
     mixin: true
     slots:
-    - source_mat_id
-    - collection_date
-    - samp_collect_method
-    - chimera_check
-    - alt
-    - lib_vector
-    - pcr_cond
-    - size_frac
-    - depth
-    - samp_size
-    - env_medium
-    - pcr_primers
+    - samp_mat_process
+    - pos_cont_type
+    - nucl_acid_amp
     - mid
-    - target_subfragment
-    - adapters
+    - env_broad_scale
     - neg_cont_type
     - assembly_software
-    - samp_vol_we_dna_ext
-    - lib_layout
-    - rel_to_oxygen
-    - samp_mat_process
-    - lib_screen
-    - lat_lon
-    - experimental_factor
-    - samp_collect_device
-    - pos_cont_type
-    - elev
-    - env_local_scale
-    - lib_reads_seqd
-    - seq_quality_check
     - temp
-    - nucl_acid_ext
+    - lib_size
+    - experimental_factor
+    - env_medium
+    - lib_vector
+    - elev
+    - collection_date
+    - samp_size
+    - depth
+    - target_subfragment
+    - project_name
     - seq_meth
     - samp_taxon_id
-    - samp_name
-    - lib_size
-    - env_broad_scale
-    - nucl_acid_amp
-    - project_name
-    - target_gene
+    - lib_screen
     - geo_loc_name
+    - source_mat_id
+    - alt
+    - size_frac
+    - nucl_acid_ext
+    - pcr_cond
+    - rel_to_oxygen
+    - lat_lon
+    - samp_collect_method
+    - pcr_primers
+    - chimera_check
+    - samp_name
+    - seq_quality_check
+    - target_gene
+    - lib_reads_seqd
+    - samp_collect_device
+    - env_local_scale
+    - adapters
+    - samp_vol_we_dna_ext
+    - lib_layout
     - associated_resource
     - sop
     slot_usage:
@@ -18135,50 +18172,50 @@ classes:
     is_a: Checklist
     mixin: true
     slots:
-    - annot
-    - source_mat_id
-    - collection_date
-    - samp_collect_method
-    - alt
-    - lib_vector
-    - size_frac
-    - depth
-    - env_medium
+    - samp_mat_process
+    - pos_cont_type
+    - nucl_acid_amp
     - mid
-    - adapters
     - assembly_name
+    - env_broad_scale
     - neg_cont_type
     - assembly_software
-    - samp_vol_we_dna_ext
-    - feat_pred
-    - lib_layout
-    - rel_to_oxygen
-    - samp_mat_process
-    - lib_screen
-    - ref_db
-    - tax_class
-    - lat_lon
-    - experimental_factor
-    - samp_collect_device
-    - number_contig
-    - pos_cont_type
-    - elev
-    - env_local_scale
-    - lib_reads_seqd
-    - sim_search_meth
-    - assembly_qual
+    - ref_biomaterial
     - temp
-    - nucl_acid_ext
+    - lib_size
+    - experimental_factor
+    - env_medium
+    - lib_vector
+    - elev
+    - collection_date
+    - samp_size
+    - depth
+    - project_name
     - seq_meth
     - samp_taxon_id
-    - samp_name
-    - lib_size
-    - env_broad_scale
-    - nucl_acid_amp
-    - project_name
-    - ref_biomaterial
-    - samp_size
+    - lib_screen
     - geo_loc_name
+    - source_mat_id
+    - alt
+    - number_contig
+    - size_frac
+    - nucl_acid_ext
+    - tax_class
+    - rel_to_oxygen
+    - lat_lon
+    - samp_collect_method
+    - feat_pred
+    - samp_name
+    - assembly_qual
+    - sim_search_meth
+    - lib_reads_seqd
+    - ref_db
+    - annot
+    - samp_collect_device
+    - env_local_scale
+    - adapters
+    - samp_vol_we_dna_ext
+    - lib_layout
     - associated_resource
     - sop
     slot_usage:
@@ -18348,67 +18385,67 @@ classes:
     is_a: Checklist
     mixin: true
     slots:
-    - annot
-    - source_mat_id
-    - collection_date
-    - samp_collect_method
-    - alt
-    - lib_vector
-    - geo_loc_name
-    - size_frac
-    - depth
     - contam_screen_input
-    - x16s_recover_software
-    - env_medium
-    - wga_amp_kit
-    - trnas
-    - mid
-    - trna_ext_software
-    - compl_appr
-    - decontam_software
-    - adapters
-    - assembly_name
-    - neg_cont_type
-    - contam_screen_param
-    - assembly_software
-    - samp_vol_we_dna_ext
-    - sort_tech
-    - feat_pred
-    - lib_layout
-    - rel_to_oxygen
     - samp_mat_process
-    - lib_screen
-    - ref_db
-    - tax_class
-    - lat_lon
-    - experimental_factor
-    - x16s_recover
-    - tax_ident
-    - samp_collect_device
-    - wga_amp_appr
-    - number_contig
     - pos_cont_type
-    - compl_software
-    - elev
-    - env_local_scale
-    - lib_reads_seqd
-    - sim_search_meth
-    - compl_score
-    - assembly_qual
-    - sc_lysis_method
-    - temp
-    - nucl_acid_ext
-    - seq_meth
-    - samp_taxon_id
-    - samp_name
-    - lib_size
-    - env_broad_scale
     - nucl_acid_amp
+    - mid
+    - assembly_name
+    - env_broad_scale
+    - neg_cont_type
+    - wga_amp_appr
+    - assembly_software
     - ref_biomaterial
+    - decontam_software
+    - temp
+    - lib_size
+    - experimental_factor
+    - env_medium
+    - lib_vector
+    - elev
+    - collection_date
     - samp_size
-    - sc_lysis_approach
+    - depth
     - contam_score
     - project_name
+    - seq_meth
+    - samp_taxon_id
+    - lib_screen
+    - geo_loc_name
+    - source_mat_id
+    - alt
+    - number_contig
+    - size_frac
+    - trna_ext_software
+    - nucl_acid_ext
+    - tax_class
+    - rel_to_oxygen
+    - lat_lon
+    - samp_collect_method
+    - x16s_recover
+    - sort_tech
+    - feat_pred
+    - compl_software
+    - samp_name
+    - compl_appr
+    - sc_lysis_method
+    - assembly_qual
+    - trnas
+    - sim_search_meth
+    - lib_reads_seqd
+    - tax_ident
+    - ref_db
+    - annot
+    - samp_collect_device
+    - compl_score
+    - sc_lysis_approach
+    - env_local_scale
+    - x16s_recover_software
+    - contam_screen_param
+    - wga_amp_kit
+    - adapters
+    - samp_vol_we_dna_ext
+    - lib_layout
     - associated_resource
     - sop
     slot_usage:
@@ -18641,63 +18678,63 @@ classes:
     is_a: Checklist
     mixin: true
     slots:
-    - annot
-    - source_mat_id
-    - collection_date
-    - samp_collect_method
-    - alt
-    - lib_vector
-    - geo_loc_name
-    - size_frac
-    - pathogenicity
-    - depth
-    - samp_size
-    - env_medium
-    - trnas
+    - samp_mat_process
+    - pos_cont_type
+    - nucl_acid_amp
     - mid
-    - trna_ext_software
-    - host_disease_stat
-    - biotic_relationship
-    - host_spec_range
-    - compl_appr
-    - adapters
     - assembly_name
+    - env_broad_scale
     - neg_cont_type
     - assembly_software
-    - samp_vol_we_dna_ext
-    - feat_pred
-    - lib_layout
-    - estimated_size
-    - ref_db
-    - samp_mat_process
-    - lib_screen
-    - tax_class
-    - specific_host
-    - lat_lon
-    - experimental_factor
-    - tax_ident
-    - samp_collect_device
-    - number_contig
-    - pos_cont_type
-    - compl_software
-    - elev
-    - env_local_scale
-    - lib_reads_seqd
-    - sim_search_meth
-    - compl_score
-    - assembly_qual
+    - ref_biomaterial
     - temp
-    - nucl_acid_ext
-    - virus_enrich_appr
+    - lib_size
+    - experimental_factor
+    - env_medium
+    - pathogenicity
+    - lib_vector
+    - elev
+    - collection_date
+    - samp_size
+    - depth
+    - project_name
     - seq_meth
     - samp_taxon_id
-    - samp_name
-    - lib_size
-    - env_broad_scale
-    - nucl_acid_amp
-    - ref_biomaterial
+    - estimated_size
     - source_uvig
-    - project_name
+    - geo_loc_name
+    - source_mat_id
+    - lib_screen
+    - alt
+    - number_contig
+    - size_frac
+    - trna_ext_software
+    - nucl_acid_ext
+    - tax_class
+    - lat_lon
+    - samp_collect_method
+    - host_spec_range
+    - host_disease_stat
+    - feat_pred
+    - compl_software
+    - samp_name
+    - compl_appr
+    - virus_enrich_appr
+    - assembly_qual
+    - trnas
+    - specific_host
+    - sim_search_meth
+    - lib_reads_seqd
+    - tax_ident
+    - ref_db
+    - annot
+    - biotic_relationship
+    - samp_collect_device
+    - compl_score
+    - env_local_scale
+    - adapters
+    - samp_vol_we_dna_ext
+    - lib_layout
     - sort_tech
     - sc_lysis_approach
     - sc_lysis_method
@@ -25276,3 +25313,49 @@ classes:
     - Mims
     class_uri: MIXS:0010007_0016014
 source_file: generated-schema/mixs_6_2_rc.yaml.notated.yaml
+settings:
+  country:
+    setting_key: country
+    setting_value: ([^\s-]{1,2}|[^\s-]+.+[^\s-]+)
+  name:
+    setting_key: name
+    setting_value: ([^\s-]{1,2}|[^\s-]+.+[^\s-]+)
+  region:
+    setting_key: region
+    setting_value: ([^\s-]{1,2}|[^\s-]+.+[^\s-]+)
+  room_name:
+    setting_key: room_name
+    setting_value: ([^\s-]{1,2}|[^\s-]+.+[^\s-]+)
+  specific_location:
+    setting_key: specific_location
+    setting_value: ([^\s-]{1,2}|[^\s-]+.+[^\s-]+)
+  storage_condition_type:
+    setting_key: storage_condition_type
+    setting_value: ([^\s-]{1,2}|[^\s-]+.+[^\s-]+)
+  text:
+    setting_key: text
+    setting_value: ([^\s-]{1,2}|[^\s-]+.+[^\s-]+)
+  unit:
+    setting_key: unit
+    setting_value: ([^\s-]{1,2}|[^\s-]+.+[^\s-]+)
+  DOI:
+    setting_key: DOI
+    setting_value: ^doi:10.\d{2,9}/.*$
+  PMID:
+    setting_key: PMID
+    setting_value: ^PMID:\d+$
+  URL:
+    setting_key: URL
+    setting_value: ^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$
+  adapter:
+    setting_key: adapter
+    setting_value: '[ACGTRKSYMWBHDVN]+'
+  duration:
+    setting_key: duration
+    setting_value: P(?:(?:\d+D|\d+M(?:\d+D)?|\d+Y(?:\d+M(?:\d+D)?)?)(?:T(?:\d+H(?:\d+M(?:\d+S)?)?|\d+M(?:\d+S)?|\d+S))?|T(?:\d+H(?:\d+M(?:\d+S)?)?|\d+M(?:\d+S)?|\d+S)|\d+W)
+  float:
+    setting_key: float
+    setting_value: '[-+]?[0-9]*\.?[0-9]+'
+  room_number:
+    setting_key: room_number
+    setting_value: '[1-9][0-9]*'
