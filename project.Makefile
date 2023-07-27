@@ -44,24 +44,14 @@ squeaky-clean: clean
 	done
 	rm -rf curated-data/unwrapped-curated-data-for-slot-coverage-check.yaml
 
-# 		 --minimal-combos
-
 generated-schema/mixs_6_2_rc.yaml:
 	$(RUN) write-mixs-linkml \
-		 --minimal-combos \
 		 --gsc-excel-input 'https://github.com/only1chunts/mixs-cih-fork/raw/main/mixs/excel/mixs_v6.xlsx' \
 		 --gsc-excel-output-dir downloads \
-		 --checklists migs_ba \
-		 --checklists migs_eu \
-		 --checklists migs_org \
-		 --checklists migs_pl \
-		 --checklists migs_vi \
-		 --checklists mimag \
-		 --checklists mimarks_c \
-		 --checklists mimarks_s \
-		 --checklists mims \
-		 --checklists misag \
-		 --checklists miuvig \
+		 --classes-ssheet config/classes-schemasheet.tsv \
+		 --combo-checklists Mims \
+		 --combo-environments Soil \
+		 --combo-environments Water \
 		 --non-ascii-replacement '' \
 		 --schema-name $(RC_PREFIX) \
 		 --textual-key 'Structured comment name' \
@@ -91,25 +81,25 @@ $(SOURCE_SCHEMA_PATH) schemasheets-usage-output/$(RC_PREFIX)-concise-usage.tsv
 
 other-reports/curated-data-coverage-report.yaml: curated-data/unwrapped-curated-data-for-slot-coverage-check.yaml $(SOURCE_SCHEMA_PATH)
 	poetry run exhaustion-check \
-		--class-name "ExhaustiveTestClass" \
+		--class-name "AllSlotsTestClass" \
 		--instance-yaml-file $(word 1,$^) \
 		--output-yaml-file $@ \
 		--schema-path $(word 2,$^)
 
 other-reports/extracted-data-coverage-report.yaml: extracted-data/unwrapped.$(RC_PREFIX).extracted-examples.yaml $(SOURCE_SCHEMA_PATH)
 	poetry run exhaustion-check \
-		--class-name "ExhaustiveTestClass" \
+		--class-name "AllSlotsTestClass" \
 		--instance-yaml-file $(word 1,$^) \
 		--output-yaml-file $@ \
 		--schema-path $(word 2,$^)
 
-linkml-validate-exhaustive: $(SOURCE_SCHEMA_PATH) curated-data/ExhaustiveTestClassCollection-wrapped-example-data.yaml
-	$(RUN) linkml-validate --target-class ExhaustiveTestClassCollection --schema $^
+linkml-validate-exhaustive: $(SOURCE_SCHEMA_PATH) curated-data/AllSlotsTestClassCollection-wrapped-example-data.yaml
+	$(RUN) linkml-validate --target-class AllSlotsTestClassCollection --schema $^
 
 linkml-validate-extracted: $(SOURCE_SCHEMA_PATH) extracted-data/$(RC_PREFIX).extracted-examples.yaml
-	$(RUN) linkml-validate --target-class ExhaustiveTestClassCollection --schema $^
+	$(RUN) linkml-validate --target-class AllSlotsTestClassCollection --schema $^
 
-curated-data/unwrapped-curated-data-for-slot-coverage-check.yaml: curated-data/ExhaustiveTestClassCollection-wrapped-example-data.yaml
+curated-data/unwrapped-curated-data-for-slot-coverage-check.yaml: curated-data/AllSlotsTestClassCollection-wrapped-example-data.yaml
 	$(RUN) get-first-of-first \
 		--input_data $< \
 		--output_data $@.temp
@@ -160,7 +150,6 @@ schemasheets-usage-output/$(RC_PREFIX).yaml.concise.schemasheet.tsv: generated-s
 
 schemasheets-usage-output/$(RC_PREFIX).yaml.concise.usage-report.tsv: schemasheets-usage-output/$(RC_PREFIX).yaml.concise.schemasheet.tsv
 	grep -v -e '^>' $< > $@
-
 
 
 # # # #
@@ -350,8 +339,9 @@ final-deletions:
 	rm -rf schemasheets-usage-output/$(RC_PREFIX)-concise-usage.tsv
 
 generated-schema/final-$(RC_PREFIX).yaml: generated-schema/$(RC_PREFIX).yaml.notated.yaml
-	$(RUN) remove-exhaustive-elements-validation-conveniences \
+	$(RUN) remove-elements-by-deprecation-val \
 		--input-schema $< \
+		--deprecation-val "for build-time testing of all slots" \
 		--output-schema $@
 	rm -rf $<
 	mv $@ $(SOURCE_SCHEMA_PATH)

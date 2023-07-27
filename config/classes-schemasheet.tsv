@@ -1,0 +1,44 @@
+class	aliases	comments	deprecated	description	is_a	mixin	mixins	class_uri	title	tree_root
+>class	aliases	comments	deprecated	description	is_a	mixin	mixins	class_uri	title	tree_root
+>										
+>	"internal_separator: ""|"""	"internal_separator: ""|"""					"internal_separator: ""|"""			
+MigsBa	migs_ba			Minimal Information about a Genome Sequence: cultured bacteria/archaea	Checklist	true		MIXS:0010003	MIGS bacteria	
+MigsEu	migs_eu			Minimal Information about a Genome Sequence: eukaryote	Checklist	true		MIXS:0010002	MIGS eukaryote	
+MigsOrg	migs_org			Minimal Information about a Genome Sequence: organelle	Checklist	true		MIXS:0010006	MIGS org	
+MigsPl	migs_pl			Minimal Information about a Genome Sequence: plasmid	Checklist	true		MIXS:0010004	MIGS pl	
+MigsVi	migs_vi			Minimal Information about a Genome Sequence: virus	Checklist	true		MIXS:0010005	MIGS virus	
+Mimag	mimag			Minimum Information About a Metagenome-Assembled Genome	Checklist	true		MIXS:0010011	MIMAG	
+MimarksC	mimarks_c|MIMARKS-SU|MIMARKS-specimen	for marker gene sequences from cultured or voucher-identifiable specimens		Minimal Information about a Marker Specimen: specimen	Checklist	true		MIXS:0010009	MIMARKS specimen	
+MimarksS	mimarks_s|MIMARKS-SP|MIMARKS-survey	for marker gene sequences obtained directly from the environment		Minimal Information about a Marker Specimen: survey	Checklist	true		MIXS:0010008	MIMARKS survey	
+Mims	mims			Metagenome or Environmental	Checklist	true		MIXS:0010007	MIMS	
+Misag	misag			Minimum Information About a Single Amplified Genome	Checklist	true		MIXS:0010010	Minimum Information About a Single Amplified Genome	
+Miuvig	miuvig			Minimum Information About an Uncultivated Virus Genome	Checklist	true		MIXS:0010012	Minimum Information About an Uncultivated Virus Genome	
+Agriculture					EnvironmentalPackage			MIXS:0016018	agriculture	
+Air					EnvironmentalPackage			MIXS:0016000	air	
+BuiltEnvironment					EnvironmentalPackage			MIXS:0016001	built environment	
+FoodAnimalAndAnimalFeed					EnvironmentalPackage			MIXS:0016019	food-animal and animal feed	
+FoodFarmEnvironment					EnvironmentalPackage			MIXS:0016020	food-farm environment	
+FoodFoodProductionFacility					EnvironmentalPackage			MIXS:0016021	food-food production facility	
+FoodHumanFoods					EnvironmentalPackage			MIXS:0016022	food-human foods	
+HostAssociated					EnvironmentalPackage			MIXS:0016002	host-associated	
+HumanAssociated					EnvironmentalPackage			MIXS:0016003	human-associated	
+HumanGut					EnvironmentalPackage			MIXS:0016004	human-gut	
+HumanOral					EnvironmentalPackage			MIXS:0016005	human-oral	
+HumanSkin					EnvironmentalPackage			MIXS:0016006	human-skin	
+HumanVaginal					EnvironmentalPackage			MIXS:0016007	human-vaginal	
+HydrocarbonResourcesCores					EnvironmentalPackage			MIXS:0016015	hydrocarbon resources-cores	
+HydrocarbonResourcesFluidsSwabs					EnvironmentalPackage			MIXS:0016016	hydrocarbon resources-fluids/swabs	
+MicrobialMatBiofilm					EnvironmentalPackage			MIXS:0016008	microbial mat/biofilm	
+MiscellaneousNaturalOrArtificialEnvironment					EnvironmentalPackage			MIXS:0016009	miscellaneous natural or artificial environment	
+PlantAssociated					EnvironmentalPackage			MIXS:0016010	plant-associated	
+Sediment					EnvironmentalPackage			MIXS:0016011	sediment	
+Soil					EnvironmentalPackage			MIXS:0016012	soil	
+SymbiontAssociated					EnvironmentalPackage			MIXS:0016023	symbiont-associated	
+WastewaterSludge					EnvironmentalPackage			MIXS:0016013	wastewater/sludge	
+Water					EnvironmentalPackage			MIXS:0016014	water	
+MimsSoil					Soil		Mims		Mims combined with Soil	
+Checklist				A class with slots assigned for the required, recommended, and optional metadata fields for a specific type sequence, such as genomes, metagenomes, or marker genes. The migs class, which models genomic sequences, is subdivided into checklists for specific taxa: bacteria, eukaryotes, organelles, plasmids and viruses.						
+EnvironmentalPackage				A supplement to MIxS Checklists, in the sense of providing additional terms to describe the specific environment from which a sample was collected.						
+AllSlotsTestClass			for build-time testing of all slots							
+AllSlotsTestClassCollection			for build-time testing of all slots							
+MixsCompliantData				A collection of data that complies with some combination of a MIxS checklist and environmental package					MIxS compliant data	true

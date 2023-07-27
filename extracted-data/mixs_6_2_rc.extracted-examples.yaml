@@ -1,4 +1,4 @@
-exhaustive_test_set:
+all_slots_test_set:
 - HACCP_term:
   - tetrodotoxic poisoning [FOODON:03530249]
   IFSAC_category:

@@ -1059,1071 +1059,7 @@
             "title": "Air",
             "type": "object"
         },
-        "BINPARAMENUM": {
-            "description": "",
-            "enum": [
-                "codon usage",
-                "combination",
-                "coverage",
-                "homology search",
-                "kmer"
-            ],
-            "title": "BINPARAMENUM",
-            "type": "string"
-        },
-        "BIOTICRELATIONSHIPENUM": {
-            "description": "",
-            "enum": [
-                "commensalism",
-                "free living",
-                "mutualism",
-                "parasitism",
-                "symbiotic"
-            ],
-            "title": "BIOTICRELATIONSHIPENUM",
-            "type": "string"
-        },
-        "BUILDDOCSENUM": {
-            "description": "",
-            "enum": [
-                "building information model",
-                "commissioning report",
-                "complaint logs",
-                "contract administration",
-                "cost estimate",
-                "janitorial schedules or logs",
-                "maintenance plans",
-                "schedule",
-                "sections",
-                "shop drawings",
-                "submittals",
-                "ventilation system",
-                "windows"
-            ],
-            "title": "BUILDDOCSENUM",
-            "type": "string"
-        },
-        "BUILDINGSETTINGENUM": {
-            "description": "",
-            "enum": [
-                "exurban",
-                "rural",
-                "suburban",
-                "urban"
-            ],
-            "title": "BUILDINGSETTINGENUM",
-            "type": "string"
-        },
-        "BUILDOCCUPTYPEENUM": {
-            "description": "",
-            "enum": [
-                "airport",
-                "commercial",
-                "health care",
-                "high rise",
-                "low rise",
-                "market",
-                "office",
-                "residence",
-                "residential",
-                "restaurant",
-                "school",
-                "sports complex",
-                "wood framed"
-            ],
-            "title": "BUILDOCCUPTYPEENUM",
-            "type": "string"
-        },
-        "BUILTSTRUCSETENUM": {
-            "description": "",
-            "enum": [
-                "rural",
-                "urban"
-            ],
-            "title": "BUILTSTRUCSETENUM",
-            "type": "string"
-        },
-        "BuiltEnvironment": {
-            "additionalProperties": false,
-            "description": "",
-            "properties": {
-                "abs_air_humidity": {
-                    "description": "Actual mass of water vapor - mh20 - present in the air water vapor mixture",
-                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
-                    "type": "string"
-                },
-                "address": {
-                    "description": "The street name and building number where the sampling occurred",
-                    "type": "string"
-                },
-                "adj_room": {
-                    "description": "List of rooms (room number, room name) immediately adjacent to the sampling room",
-                    "type": "string"
-                },
-                "aero_struc": {
-                    "$ref": "#/$defs/AEROSTRUCENUM",
-                    "description": "Aerospace structures typically consist of thin plates with stiffeners for the external surfaces, bulkheads and frames to support the shape and fasteners such as welds, rivets, screws and bolts to hold the components together"
-                },
-                "air_temp": {
-                    "description": "Temperature of the air at the time of sampling",
-                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
-                    "type": "string"
-                },
-                "amount_light": {
-                    "description": "The unit of illuminance and luminous emittance, measuring luminous flux per unit area",
-                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
-                    "type": "string"
-                },
-                "arch_struc": {
-                    "$ref": "#/$defs/ARCHSTRUCENUM",
-                    "description": "An architectural structure is a human-made, free-standing, immobile outdoor construction"
-                },
-                "avg_dew_point": {
-                    "description": "The average of dew point measures taken at the beginning of every hour over a 24 hour period on the sampling day",
-                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
-                    "type": "string"
-                },
-                "avg_occup": {
-                    "description": "Daily average occupancy of room. Indicate the number of person(s) daily occupying the sampling room",
-                    "type": "number"
-                },
-                "avg_temp": {
-                    "description": "The average of temperatures taken at the beginning of every hour over a 24 hour period on the sampling day",
-                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
-                    "type": "string"
-                },
-                "bathroom_count": {
-                    "description": "The number of bathrooms in the building",
-                    "type": "integer"
-                },
-                "bedroom_count": {
-                    "description": "The number of bedrooms in the building",
-                    "type": "integer"
-                },
-                "build_docs": {
-                    "$ref": "#/$defs/BUILDDOCSENUM",
-                    "description": "The building design, construction and operation documents"
-                },
-                "build_occup_type": {
-                    "description": "The primary function for which a building or discrete part of a building is intended to be used",
-                    "items": {
-                        "$ref": "#/$defs/BUILDOCCUPTYPEENUM"
-                    },
-                    "type": "array"
-                },
-                "building_setting": {
-                    "$ref": "#/$defs/BUILDINGSETTINGENUM",
-                    "description": "A location (geography) where a building is set"
-                },
-                "built_struc_age": {
-                    "description": "The age of the built structure since construction",
-                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
-                    "type": "string"
-                },
-                "built_struc_set": {
-                    "$ref": "#/$defs/BUILTSTRUCSETENUM",
-                    "description": "The characterization of the location of the built structure as high or low human density"
-                },
-                "built_struc_type": {
-                    "description": "A physical structure that is a body or assemblage of bodies in space to form a system capable of supporting loads",
-                    "type": "string"
-                },
-                "carb_dioxide": {
-                    "description": "Carbon dioxide (gas) amount or concentration at the time of sampling",
-                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
-                    "type": "string"
-                },
-                "ceil_area": {
-                    "description": "The area of the ceiling space within the room",
-                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
-                    "type": "string"
-                },
-                "ceil_cond": {
-                    "$ref": "#/$defs/SHAREDENUM3",
-                    "description": "The physical condition of the ceiling at the time of sampling; photos or video preferred; use drawings to indicate location of damaged areas"
-                },
-                "ceil_finish_mat": {
-                    "$ref": "#/$defs/CEILFINISHMATENUM",
-                    "description": "The type of material used to finish a ceiling"
-                },
-                "ceil_struc": {
-                    "$ref": "#/$defs/CEILSTRUCENUM",
-                    "description": "The construction format of the ceiling"
-                },
-                "ceil_texture": {
-                    "$ref": "#/$defs/SHAREDENUM4",
-                    "description": "The feel, appearance, or consistency of a ceiling surface"
-                },
-                "ceil_thermal_mass": {
-                    "description": "The ability of the ceiling to provide inertia against temperature fluctuations. Generally this means concrete that is exposed. A metal deck that supports a concrete slab will act thermally as long as it is exposed to room air flow",
-                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
-                    "type": "string"
-                },
-                "ceil_type": {
-                    "$ref": "#/$defs/CEILTYPEENUM",
-                    "description": "The type of ceiling according to the ceiling's appearance or construction"
-                },
-                "ceil_water_mold": {
-                    "$ref": "#/$defs/SHAREDENUM1",
-                    "description": "Signs of the presence of mold or mildew on the ceiling"
-                },
-                "cool_syst_id": {
-                    "description": "The cooling system identifier",
-                    "type": "integer"
-                },
-                "date_last_rain": {
-                    "description": "The date of the last time it rained",
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "dew_point": {
-                    "description": "The temperature to which a given parcel of humid air must be cooled, at constant barometric pressure, for water vapor to condense into water",
-                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
-                    "type": "string"
-                },
-                "door_comp_type": {
-                    "$ref": "#/$defs/DOORCOMPTYPEENUM",
-                    "description": "The composite type of the door"
-                },
-                "door_cond": {
-                    "$ref": "#/$defs/SHAREDENUM2",
-                    "description": "The phsical condition of the door"
-                },
-                "door_direct": {
-                    "$ref": "#/$defs/DOORDIRECTENUM",
-                    "description": "The direction the door opens"
-                },
-                "door_loc": {
-                    "$ref": "#/$defs/SHAREDENUM0",
-                    "description": "The relative location of the door in the room"
-                },
-                "door_mat": {
-                    "$ref": "#/$defs/DOORMATENUM",
-                    "description": "The material the door is composed of"
-                },
-                "door_move": {
-                    "$ref": "#/$defs/DOORMOVEENUM",
-                    "description": "The type of movement of the door"
-                },
-                "door_size": {
-                    "description": "The size of the door",
-                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
-                    "type": "string"
-                },
-                "door_type": {
-                    "$ref": "#/$defs/DOORTYPEENUM",
-                    "description": "The type of door material"
-                },
-                "door_type_metal": {
-                    "$ref": "#/$defs/DOORTYPEMETALENUM",
-                    "description": "The type of metal door"
-                },
-                "door_type_wood": {
-                    "description": "The type of wood door",
-                    "type": "string"
-                },
-                "door_water_mold": {
-                    "$ref": "#/$defs/SHAREDENUM1",
-                    "description": "Signs of the presence of mold or mildew on a door"
-                },
-                "drawings": {
-                    "$ref": "#/$defs/DRAWINGSENUM",
-                    "description": "The buildings architectural drawings; if design is chosen, indicate phase-conceptual, schematic, design development, and construction documents"
-                },
-                "elevator": {
-                    "description": "The number of elevators within the built structure",
-                    "type": "integer"
-                },
-                "escalator": {
-                    "description": "The number of escalators within the built structure",
-                    "type": "integer"
-                },
-                "exp_duct": {
-                    "description": "The amount of exposed ductwork in the room",
-                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
-                    "type": "string"
-                },
-                "exp_pipe": {
-                    "description": "The number of exposed pipes in the room",
-                    "pattern": "^[1-9][0-9]* \\S.*\\S+$",
-                    "type": "string"
-                },
-                "ext_door": {
-                    "description": "The number of exterior doors in the built structure",
-                    "type": "integer"
-                },
-                "ext_wall_orient": {
-                    "$ref": "#/$defs/SHAREDENUM0",
-                    "description": "The orientation of the exterior wall"
-                },
-                "ext_window_orient": {
-                    "$ref": "#/$defs/SHAREDENUM0",
-                    "description": "The compass direction the exterior window of the room is facing"
-                },
-                "filter_type": {
-                    "description": "A device which removes solid particulates or airborne molecular contaminants",
-                    "items": {
-                        "$ref": "#/$defs/FILTERTYPEENUM"
-                    },
-                    "type": "array"
-                },
-                "fireplace_type": {
-                    "$ref": "#/$defs/FIREPLACETYPEENUM",
-                    "description": "A firebox with chimney"
-                },
-                "floor_age": {
-                    "description": "The time period since installment of the carpet or flooring",
-                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
-                    "type": "string"
-                },
-                "floor_area": {
-                    "description": "The area of the floor space within the room",
-                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
-                    "type": "string"
-                },
-                "floor_cond": {
-                    "$ref": "#/$defs/SHAREDENUM3",
-                    "description": "The physical condition of the floor at the time of sampling; photos or video preferred; use drawings to indicate location of damaged areas"
-                },
-                "floor_count": {
-                    "description": "The number of floors in the building, including basements and mechanical penthouse",
-                    "type": "integer"
-                },
-                "floor_finish_mat": {
-                    "description": "The floor covering type; the finished surface that is walked on",
-                    "type": "string"
-                },
-                "floor_struc": {
-                    "$ref": "#/$defs/FLOORSTRUCENUM",
-                    "description": "Refers to the structural elements and subfloor upon which the finish flooring is installed"
-                },
-                "floor_thermal_mass": {
-                    "description": "The ability of the floor to provide inertia against temperature fluctuations",
-                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
-                    "type": "string"
-                },
-                "floor_water_mold": {
-                    "$ref": "#/$defs/FLOORWATERMOLDENUM",
-                    "description": "Signs of the presence of mold or mildew in a room"
-                },
-                "freq_clean": {
-                    "$ref": "#/$defs/FREQCLEANENUM",
-                    "description": "The number of times the sample location is cleaned. Frequency of cleaning might be on a Daily basis, Weekly, Monthly, Quarterly or Annually"
-                },
-                "freq_cook": {
-                    "description": "The number of times a meal is cooked per week",
-                    "pattern": "^[1-9][0-9]* \\S.*\\S+$",
-                    "type": "string"
-                },
-                "furniture": {
-                    "$ref": "#/$defs/FURNITUREENUM",
-                    "description": "The types of furniture present in the sampled room"
-                },
-                "gender_restroom": {
-                    "$ref": "#/$defs/GENDERRESTROOMENUM",
-                    "description": "The gender type of the restroom"
-                },
-                "hall_count": {
-                    "description": "The total count of hallways and cooridors in the built structure",
-                    "type": "integer"
-                },
-                "handidness": {
-                    "$ref": "#/$defs/HANDIDNESSENUM",
-                    "description": "The handidness of the individual sampled"
-                },
-                "heat_cool_type": {
-                    "description": "Methods of conditioning or heating a room or building",
-                    "items": {
-                        "$ref": "#/$defs/HEATCOOLTYPEENUM"
-                    },
-                    "type": "array"
-                },
-                "heat_deliv_loc": {
-                    "$ref": "#/$defs/SHAREDENUM0",
-                    "description": "The location of heat delivery within the room"
-                },
-                "heat_sys_deliv_meth": {
-                    "$ref": "#/$defs/HEATSYSDELIVMETHENUM",
-                    "description": "The method by which the heat is delivered through the system"
-                },
-                "heat_system_id": {
-                    "description": "The heating system identifier",
-                    "type": "integer"
-                },
-                "height_carper_fiber": {
-                    "description": "The average carpet fiber height in the indoor environment",
-                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
-                    "type": "string"
-                },
-                "indoor_space": {
-                    "$ref": "#/$defs/INDOORSPACEENUM",
-                    "description": "A distinguishable space within a structure, the purpose for which discrete areas of a building is used"
-                },
-                "indoor_surf": {
-                    "$ref": "#/$defs/INDOORSURFENUM",
-                    "description": "Type of indoor surface"
-                },
-                "inside_lux": {
-                    "description": "The recorded value at sampling time (power density)",
-                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
-                    "type": "string"
-                },
-                "int_wall_cond": {
-                    "$ref": "#/$defs/SHAREDENUM3",
-                    "description": "The physical condition of the wall at the time of sampling; photos or video preferred; use drawings to indicate location of damaged areas"
-                },
-                "last_clean": {
-                    "description": "The last time the floor was cleaned (swept, mopped, vacuumed)",
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "light_type": {
-                    "description": "Application of light to achieve some practical or aesthetic effect. Lighting includes the use of both artificial light sources such as lamps and light fixtures, as well as natural illumination by capturing daylight. Can also include absence of light",
-                    "items": {
-                        "$ref": "#/$defs/LIGHTTYPEENUM"
-                    },
-                    "type": "array"
-                },
-                "max_occup": {
-                    "description": "The maximum amount of people allowed in the indoor environment",
-                    "pattern": "^[1-9][0-9]* \\S.*\\S+$",
-                    "type": "string"
-                },
-                "mech_struc": {
-                    "$ref": "#/$defs/MECHSTRUCENUM",
-                    "description": "mechanical structure: a moving structure"
-                },
-                "number_pets": {
-                    "description": "The number of pets residing in the sampled space",
-                    "pattern": "^[1-9][0-9]* \\S.*\\S+$",
-                    "type": "string"
-                },
-                "number_plants": {
-                    "description": "The number of plant(s) in the sampling space",
-                    "pattern": "^[1-9][0-9]* \\S.*\\S+$",
-                    "type": "string"
-                },
-                "number_resident": {
-                    "description": "The number of individuals currently occupying in the sampling location",
-                    "pattern": "^[1-9][0-9]* \\S.*\\S+$",
-                    "type": "string"
-                },
-                "occup_density_samp": {
-                    "description": "Average number of occupants at time of sampling per square footage",
-                    "type": "number"
-                },
-                "occup_document": {
-                    "$ref": "#/$defs/OCCUPDOCUMENTENUM",
-                    "description": "The type of documentation of occupancy"
-                },
-                "occup_samp": {
-                    "description": "Number of occupants present at time of sample within the given space",
-                    "type": "number"
-                },
-                "organism_count": {
-                    "description": "Total cell count of any organism (or group of organisms) per gram, volume or area of sample, should include name of organism followed by count. The method that was used for the enumeration (e.g. qPCR, atp, mpn, etc.) Should also be provided. (example: total prokaryotes; 3.5e7 cells per ml; qpcr)",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "pres_animal_insect": {
-                    "description": "The type and number of animals or insects present in the sampling space",
-                    "type": "string"
-                },
-                "project_name": {
-                    "description": "Name of the project within which the sequencing was organized",
-                    "type": "string"
-                },
-                "quad_pos": {
-                    "$ref": "#/$defs/QUADPOSENUM",
-                    "description": "The quadrant position of the sampling room within the building"
-                },
-                "rel_air_humidity": {
-                    "description": "Partial vapor and air pressure, density of the vapor and air, or by the actual mass of the vapor and air",
-                    "type": "number"
-                },
-                "rel_humidity_out": {
-                    "description": "The recorded outside relative humidity value at the time of sampling",
-                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
-                    "type": "string"
-                },
-                "rel_samp_loc": {
-                    "$ref": "#/$defs/RELSAMPLOCENUM",
-                    "description": "The sampling location within the train car"
-                },
-                "room_air_exch_rate": {
-                    "description": "The rate at which outside air replaces indoor air in a given space",
-                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
-                    "type": "string"
-                },
-                "room_architec_elem": {
-                    "description": "The unique details and component parts that, together, form the architecture of a distinguisahable space within a built structure",
-                    "type": "string"
-                },
-                "room_condt": {
-                    "$ref": "#/$defs/ROOMCONDTENUM",
-                    "description": "The condition of the room at the time of sampling"
-                },
-                "room_connected": {
-                    "$ref": "#/$defs/ROOMCONNECTEDENUM",
-                    "description": "List of rooms connected to the sampling room by a doorway"
-                },
-                "room_count": {
-                    "description": "The total count of rooms in the built structure including all room types",
-                    "type": "integer"
-                },
-                "room_dim": {
-                    "description": "The length, width and height of sampling room",
-                    "type": "string"
-                },
-                "room_door_dist": {
-                    "description": "Distance between doors (meters) in the hallway between the sampling room and adjacent rooms",
-                    "pattern": "^[1-9][0-9]* \\S.*\\S+$",
-                    "type": "string"
-                },
-                "room_door_share": {
-                    "description": "List of room(s) (room number, room name) sharing a door with the sampling room",
-                    "type": "string"
-                },
-                "room_hallway": {
-                    "description": "List of room(s) (room number, room name) located in the same hallway as sampling room",
-                    "type": "string"
-                },
-                "room_loc": {
-                    "$ref": "#/$defs/ROOMLOCENUM",
-                    "description": "The position of the room within the building"
-                },
-                "room_moist_dam_hist": {
-                    "description": "The history of moisture damage or mold in the past 12 months. Number of events of moisture damage or mold observed",
-                    "type": "integer"
-                },
-                "room_net_area": {
-                    "description": "The net floor area of sampling room. Net area excludes wall thicknesses",
-                    "pattern": "^[1-9][0-9]* \\S.*\\S+$",
-                    "type": "string"
-                },
-                "room_occup": {
-                    "description": "Count of room occupancy at time of sampling",
-                    "pattern": "^[1-9][0-9]* \\S.*\\S+$",
-                    "type": "string"
-                },
-                "room_samp_pos": {
-                    "$ref": "#/$defs/ROOMSAMPPOSENUM",
-                    "description": "The horizontal sampling position in the room relative to architectural elements"
-                },
-                "room_type": {
-                    "description": "The main purpose or activity of the sampling room. A room is any distinguishable space within a structure",
-                    "type": "string"
-                },
-                "room_vol": {
-                    "description": "Volume of sampling room",
-                    "pattern": "^[1-9][0-9]* \\S.*\\S+$",
-                    "type": "string"
-                },
-                "room_wall_share": {
-                    "description": "List of room(s) (room number, room name) sharing a wall with the sampling room",
-                    "type": "string"
-                },
-                "room_window_count": {
-                    "description": "Number of windows in the room",
-                    "type": "integer"
-                },
-                "samp_floor": {
-                    "description": "The floor of the building, where the sampling room is located",
-                    "type": "string"
-                },
-                "samp_name": {
-                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name.",
-                    "type": "string"
-                },
-                "samp_room_id": {
-                    "description": "Sampling room number. This ID should be consistent with the designations on the building floor plans",
-                    "type": "integer"
-                },
-                "samp_sort_meth": {
-                    "description": "Method by which samples are sorted; open face filter collecting total suspended particles, prefilter to remove particles larger than X micrometers in diameter, where common values of X would be 10 and 2.5 full size sorting in a cascade impactor",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "samp_time_out": {
-                    "description": "The recent and long term history of outside sampling",
-                    "type": "string"
-                },
-                "samp_weather": {
-                    "$ref": "#/$defs/SAMPWEATHERENUM",
-                    "description": "The weather on the sampling day"
-                },
-                "season": {
-                    "description": "The season when sampling occurred. Any of the four periods into which the year is divided by the equinoxes and solstices. This field accepts terms listed under season (http://purl.obolibrary.org/obo/NCIT_C94729)",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:[a-zA-Z0-9]+\\]$",
-                    "type": "string"
-                },
-                "season_use": {
-                    "$ref": "#/$defs/SEASONUSEENUM",
-                    "description": "The seasons the space is occupied"
-                },
-                "shad_dev_water_mold": {
-                    "$ref": "#/$defs/SHAREDENUM1",
-                    "description": "Signs of the presence of mold or mildew on the shading device"
-                },
-                "shading_device_cond": {
-                    "$ref": "#/$defs/SHAREDENUM2",
-                    "description": "The physical condition of the shading device at the time of sampling"
-                },
-                "shading_device_loc": {
-                    "$ref": "#/$defs/SHADINGDEVICELOCENUM",
-                    "description": "The location of the shading device in relation to the built structure"
-                },
-                "shading_device_mat": {
-                    "description": "The material the shading device is composed of",
-                    "type": "string"
-                },
-                "shading_device_type": {
-                    "$ref": "#/$defs/SHADINGDEVICETYPEENUM",
-                    "description": "The type of shading device"
-                },
-                "space_typ_state": {
-                    "$ref": "#/$defs/SPACETYPSTATEENUM",
-                    "description": "Customary or normal state of the space"
-                },
-                "specific": {
-                    "$ref": "#/$defs/SPECIFICENUM",
-                    "description": "The building specifications. If design is chosen, indicate phase: conceptual, schematic, design development, construction documents"
-                },
-                "specific_humidity": {
-                    "description": "The mass of water vapour in a unit mass of moist air, usually expressed as grams of vapour per kilogram of air, or, in air conditioning, as grains per pound",
-                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
-                    "type": "string"
-                },
-                "substructure_type": {
-                    "description": "The substructure or under building is that largely hidden section of the building which is built off the foundations to the ground floor level",
-                    "items": {
-                        "$ref": "#/$defs/SUBSTRUCTURETYPEENUM"
-                    },
-                    "type": "array"
-                },
-                "surf_air_cont": {
-                    "description": "Contaminant identified on surface",
-                    "items": {
-                        "$ref": "#/$defs/SURFAIRCONTENUM"
-                    },
-                    "type": "array"
-                },
-                "surf_humidity": {
-                    "description": "Surfaces: water activity as a function of air and material moisture",
-                    "type": "number"
-                },
-                "surf_material": {
-                    "$ref": "#/$defs/SURFMATERIALENUM",
-                    "description": "Surface materials at the point of sampling"
-                },
-                "surf_moisture": {
-                    "description": "Water held on a surface",
-                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
-                    "type": "string"
-                },
-                "surf_moisture_ph": {
-                    "description": "ph measurement of surface",
-                    "type": "number"
-                },
-                "surf_temp": {
-                    "description": "Temperature of the surface at the time of sampling",
-                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
-                    "type": "string"
-                },
-                "temp_out": {
-                    "description": "The recorded temperature value at sampling time outside",
-                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
-                    "type": "string"
-                },
-                "train_line": {
-                    "$ref": "#/$defs/TRAINLINEENUM",
-                    "description": "The subway line name"
-                },
-                "train_stat_loc": {
-                    "$ref": "#/$defs/TRAINSTATLOCENUM",
-                    "description": "The train station collection location"
-                },
-                "train_stop_loc": {
-                    "$ref": "#/$defs/TRAINSTOPLOCENUM",
-                    "description": "The train stop collection location"
-                },
-                "typ_occup_density": {
-                    "description": "Customary or normal density of occupants",
-                    "type": "number"
-                },
-                "ventilation_type": {
-                    "description": "Ventilation system used in the sampled premises",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "vis_media": {
-                    "description": "The building visual media",
-                    "type": "string"
-                },
-                "wall_area": {
-                    "description": "The total area of the sampled room's walls",
-                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
-                    "type": "string"
-                },
-                "wall_const_type": {
-                    "$ref": "#/$defs/WALLCONSTTYPEENUM",
-                    "description": "The building class of the wall defined by the composition of the building elements and fire-resistance rating"
-                },
-                "wall_finish_mat": {
-                    "$ref": "#/$defs/WALLFINISHMATENUM",
-                    "description": "The material utilized to finish the outer most layer of the wall"
-                },
-                "wall_height": {
-                    "description": "The average height of the walls in the sampled room",
-                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
-                    "type": "string"
-                },
-                "wall_loc": {
-                    "$ref": "#/$defs/SHAREDENUM0",
-                    "description": "The relative location of the wall within the room"
-                },
-                "wall_surf_treatment": {
-                    "$ref": "#/$defs/WALLSURFTREATMENTENUM",
-                    "description": "The surface treatment of interior wall"
-                },
-                "wall_texture": {
-                    "$ref": "#/$defs/SHAREDENUM4",
-                    "description": "The feel, appearance, or consistency of a wall surface"
-                },
-                "wall_thermal_mass": {
-                    "description": "The ability of the wall to provide inertia against temperature fluctuations. Generally this means concrete or concrete block that is either exposed or covered only with paint",
-                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
-                    "type": "string"
-                },
-                "wall_water_mold": {
-                    "$ref": "#/$defs/SHAREDENUM1",
-                    "description": "Signs of the presence of mold or mildew on a wall"
-                },
-                "water_feat_size": {
-                    "description": "The size of the water feature",
-                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
-                    "type": "string"
-                },
-                "water_feat_type": {
-                    "$ref": "#/$defs/WATERFEATTYPEENUM",
-                    "description": "The type of water feature present within the building being sampled"
-                },
-                "weekday": {
-                    "$ref": "#/$defs/WEEKDAYENUM",
-                    "description": "The day of the week when sampling occurred"
-                },
-                "window_cond": {
-                    "$ref": "#/$defs/SHAREDENUM2",
-                    "description": "The physical condition of the window at the time of sampling"
-                },
-                "window_cover": {
-                    "$ref": "#/$defs/WINDOWCOVERENUM",
-                    "description": "The type of window covering"
-                },
-                "window_horiz_pos": {
-                    "$ref": "#/$defs/WINDOWHORIZPOSENUM",
-                    "description": "The horizontal position of the window on the wall"
-                },
-                "window_loc": {
-                    "$ref": "#/$defs/SHAREDENUM0",
-                    "description": "The relative location of the window within the room"
-                },
-                "window_mat": {
-                    "$ref": "#/$defs/WINDOWMATENUM",
-                    "description": "The type of material used to finish a window"
-                },
-                "window_open_freq": {
-                    "description": "The number of times windows are opened per week",
-                    "type": "integer"
-                },
-                "window_size": {
-                    "description": "The window's length and width",
-                    "type": "string"
-                },
-                "window_status": {
-                    "$ref": "#/$defs/WINDOWSTATUSENUM",
-                    "description": "Defines whether the windows were open or closed during environmental testing"
-                },
-                "window_type": {
-                    "$ref": "#/$defs/WINDOWTYPEENUM",
-                    "description": "The type of windows"
-                },
-                "window_vert_pos": {
-                    "$ref": "#/$defs/WINDOWVERTPOSENUM",
-                    "description": "The vertical position of the window on the wall"
-                },
-                "window_water_mold": {
-                    "$ref": "#/$defs/SHAREDENUM1",
-                    "description": "Signs of the presence of mold or mildew on the window"
-                }
-            },
-            "required": [
-                "samp_name",
-                "project_name",
-                "surf_material",
-                "rel_air_humidity",
-                "abs_air_humidity",
-                "air_temp",
-                "build_occup_type",
-                "carb_dioxide",
-                "ventilation_type",
-                "organism_count",
-                "indoor_space",
-                "indoor_surf",
-                "filter_type",
-                "heat_cool_type",
-                "building_setting",
-                "light_type",
-                "space_typ_state",
-                "typ_occup_density",
-                "occup_samp",
-                "occup_density_samp"
-            ],
-            "title": "BuiltEnvironment",
-            "type": "object"
-        },
-        "CEILFINISHMATENUM": {
-            "description": "",
-            "enum": [
-                "PVC",
-                "drywall",
-                "fiberglass",
-                "metal",
-                "mineral fibre",
-                "mineral wool/calcium silicate",
-                "plasterboard",
-                "stucco",
-                "tiles",
-                "wood"
-            ],
-            "title": "CEILFINISHMATENUM",
-            "type": "string"
-        },
-        "CEILSTRUCENUM": {
-            "description": "",
-            "enum": [
-                "concrete",
-                "wood frame"
-            ],
-            "title": "CEILSTRUCENUM",
-            "type": "string"
-        },
-        "CEILTYPEENUM": {
-            "description": "",
-            "enum": [
-                "barrel-shaped",
-                "cathedral",
-                "coffered",
-                "concave",
-                "cove",
-                "dropped",
-                "stretched"
-            ],
-            "title": "CEILTYPEENUM",
-            "type": "string"
-        },
-        "COMPLAPPRENUM": {
-            "description": "",
-            "enum": [
-                "marker gene",
-                "other",
-                "reference based"
-            ],
-            "title": "COMPLAPPRENUM",
-            "type": "string"
-        },
-        "CONTAMSCREENINPUTENUM": {
-            "description": "",
-            "enum": [
-                "contigs",
-                "reads"
-            ],
-            "title": "CONTAMSCREENINPUTENUM",
-            "type": "string"
-        },
-        "CULTRESULTENUM": {
-            "description": "",
-            "enum": [
-                "absent",
-                "active",
-                "inactive",
-                "negative",
-                "no",
-                "positive",
-                "present",
-                "yes"
-            ],
-            "title": "CULTRESULTENUM",
-            "type": "string"
-        },
-        "Checklist": {
-            "additionalProperties": false,
-            "description": "",
-            "title": "Checklist",
-            "type": "object"
-        },
-        "DEPOSENVENUM": {
-            "description": "",
-            "enum": [
-                "Continental - Aeolian",
-                "Continental - Alluvial",
-                "Continental - Fluvial",
-                "Continental - Lacustrine",
-                "Marine - Deep",
-                "Marine - Reef",
-                "Marine - Shallow",
-                "Other - Evaporite",
-                "Other - Glacial",
-                "Other - Volcanic",
-                "Transitional - Beach",
-                "Transitional - Deltaic",
-                "Transitional - Lagoonal",
-                "Transitional - Lake",
-                "Transitional - Tidal",
-                "other"
-            ],
-            "title": "DEPOSENVENUM",
-            "type": "string"
-        },
-        "DOMINANTHANDENUM": {
-            "description": "",
-            "enum": [
-                "ambidextrous",
-                "left",
-                "right"
-            ],
-            "title": "DOMINANTHANDENUM",
-            "type": "string"
-        },
-        "DOORCOMPTYPEENUM": {
-            "description": "",
-            "enum": [
-                "metal covered",
-                "revolving",
-                "sliding",
-                "telescopic"
-            ],
-            "title": "DOORCOMPTYPEENUM",
-            "type": "string"
-        },
-        "DOORDIRECTENUM": {
-            "description": "",
-            "enum": [
-                "inward",
-                "outward",
-                "sideways"
-            ],
-            "title": "DOORDIRECTENUM",
-            "type": "string"
-        },
-        "DOORMATENUM": {
-            "description": "",
-            "enum": [
-                "aluminum",
-                "cellular PVC",
-                "engineered plastic",
-                "fiberboard",
-                "fiberglass",
-                "metal",
-                "thermoplastic alloy",
-                "vinyl",
-                "wood",
-                "wood/plastic composite"
-            ],
-            "title": "DOORMATENUM",
-            "type": "string"
-        },
-        "DOORMOVEENUM": {
-            "description": "",
-            "enum": [
-                "collapsible",
-                "folding",
-                "revolving",
-                "rolling shutter",
-                "sliding",
-                "swinging"
-            ],
-            "title": "DOORMOVEENUM",
-            "type": "string"
-        },
-        "DOORTYPEENUM": {
-            "description": "",
-            "enum": [
-                "composite",
-                "metal",
-                "wooden"
-            ],
-            "title": "DOORTYPEENUM",
-            "type": "string"
-        },
-        "DOORTYPEMETALENUM": {
-            "description": "",
-            "enum": [
-                "collapsible",
-                "corrugated steel",
-                "hollow",
-                "rolling shutters",
-                "steel plate"
-            ],
-            "title": "DOORTYPEMETALENUM",
-            "type": "string"
-        },
-        "DRAINAGECLASSENUM": {
-            "description": "",
-            "enum": [
-                "excessively drained",
-                "moderately well",
-                "poorly",
-                "somewhat poorly",
-                "very poorly",
-                "well"
-            ],
-            "title": "DRAINAGECLASSENUM",
-            "type": "string"
-        },
-        "DRAWINGSENUM": {
-            "description": "",
-            "enum": [
-                "as built",
-                "bid",
-                "building navigation map",
-                "construction",
-                "design",
-                "diagram",
-                "operation",
-                "sketch"
-            ],
-            "title": "DRAWINGSENUM",
-            "type": "string"
-        },
-        "EXTRWEATHEREVENTENUM": {
-            "description": "",
-            "enum": [
-                "drought",
-                "dust storm",
-                "extreme cold",
-                "extreme heat",
-                "flood",
-                "frost",
-                "hail",
-                "high precipitationhigh winds"
-            ],
-            "title": "EXTRWEATHEREVENTENUM",
-            "type": "string"
-        },
-        "EnvironmentalPackage": {
-            "additionalProperties": false,
-            "description": "",
-            "title": "EnvironmentalPackage",
-            "type": "object"
-        },
-        "ExhaustiveTestClass": {
+        "AllSlotsTestClass": {
             "additionalProperties": false,
             "description": "",
             "properties": {
@@ -4132,6 +3068,13 @@
                     },
                     "type": "array"
                 },
+                "mims_water_data": {
+                    "description": "Data that complies with Mims combined with Water",
+                    "items": {
+                        "$ref": "#/$defs/MimsWater"
+                    },
+                    "type": "array"
+                },
                 "mineral_nutr_regm": {
                     "description": "Information about treatment involving the use of mineral supplements; should include the name of mineral nutrient, amount administered, treatment regimen including how many times the treatment was repeated, how long each treatment lasted, and the start and end time of the entire treatment; can include multiple mineral nutrient regimens",
                     "items": {
@@ -5890,21 +4833,1085 @@
                 "typ_occup_density",
                 "water_cut"
             ],
-            "title": "ExhaustiveTestClass",
+            "title": "AllSlotsTestClass",
             "type": "object"
         },
-        "ExhaustiveTestClassCollection": {
+        "AllSlotsTestClassCollection": {
             "additionalProperties": false,
             "description": "",
             "properties": {
-                "exhaustive_test_set": {
+                "all_slots_test_set": {
                     "items": {
-                        "$ref": "#/$defs/ExhaustiveTestClass"
+                        "$ref": "#/$defs/AllSlotsTestClass"
                     },
                     "type": "array"
                 }
             },
-            "title": "ExhaustiveTestClassCollection",
+            "title": "AllSlotsTestClassCollection",
+            "type": "object"
+        },
+        "BINPARAMENUM": {
+            "description": "",
+            "enum": [
+                "codon usage",
+                "combination",
+                "coverage",
+                "homology search",
+                "kmer"
+            ],
+            "title": "BINPARAMENUM",
+            "type": "string"
+        },
+        "BIOTICRELATIONSHIPENUM": {
+            "description": "",
+            "enum": [
+                "commensalism",
+                "free living",
+                "mutualism",
+                "parasitism",
+                "symbiotic"
+            ],
+            "title": "BIOTICRELATIONSHIPENUM",
+            "type": "string"
+        },
+        "BUILDDOCSENUM": {
+            "description": "",
+            "enum": [
+                "building information model",
+                "commissioning report",
+                "complaint logs",
+                "contract administration",
+                "cost estimate",
+                "janitorial schedules or logs",
+                "maintenance plans",
+                "schedule",
+                "sections",
+                "shop drawings",
+                "submittals",
+                "ventilation system",
+                "windows"
+            ],
+            "title": "BUILDDOCSENUM",
+            "type": "string"
+        },
+        "BUILDINGSETTINGENUM": {
+            "description": "",
+            "enum": [
+                "exurban",
+                "rural",
+                "suburban",
+                "urban"
+            ],
+            "title": "BUILDINGSETTINGENUM",
+            "type": "string"
+        },
+        "BUILDOCCUPTYPEENUM": {
+            "description": "",
+            "enum": [
+                "airport",
+                "commercial",
+                "health care",
+                "high rise",
+                "low rise",
+                "market",
+                "office",
+                "residence",
+                "residential",
+                "restaurant",
+                "school",
+                "sports complex",
+                "wood framed"
+            ],
+            "title": "BUILDOCCUPTYPEENUM",
+            "type": "string"
+        },
+        "BUILTSTRUCSETENUM": {
+            "description": "",
+            "enum": [
+                "rural",
+                "urban"
+            ],
+            "title": "BUILTSTRUCSETENUM",
+            "type": "string"
+        },
+        "BuiltEnvironment": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "abs_air_humidity": {
+                    "description": "Actual mass of water vapor - mh20 - present in the air water vapor mixture",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "address": {
+                    "description": "The street name and building number where the sampling occurred",
+                    "type": "string"
+                },
+                "adj_room": {
+                    "description": "List of rooms (room number, room name) immediately adjacent to the sampling room",
+                    "type": "string"
+                },
+                "aero_struc": {
+                    "$ref": "#/$defs/AEROSTRUCENUM",
+                    "description": "Aerospace structures typically consist of thin plates with stiffeners for the external surfaces, bulkheads and frames to support the shape and fasteners such as welds, rivets, screws and bolts to hold the components together"
+                },
+                "air_temp": {
+                    "description": "Temperature of the air at the time of sampling",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "amount_light": {
+                    "description": "The unit of illuminance and luminous emittance, measuring luminous flux per unit area",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "arch_struc": {
+                    "$ref": "#/$defs/ARCHSTRUCENUM",
+                    "description": "An architectural structure is a human-made, free-standing, immobile outdoor construction"
+                },
+                "avg_dew_point": {
+                    "description": "The average of dew point measures taken at the beginning of every hour over a 24 hour period on the sampling day",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "avg_occup": {
+                    "description": "Daily average occupancy of room. Indicate the number of person(s) daily occupying the sampling room",
+                    "type": "number"
+                },
+                "avg_temp": {
+                    "description": "The average of temperatures taken at the beginning of every hour over a 24 hour period on the sampling day",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "bathroom_count": {
+                    "description": "The number of bathrooms in the building",
+                    "type": "integer"
+                },
+                "bedroom_count": {
+                    "description": "The number of bedrooms in the building",
+                    "type": "integer"
+                },
+                "build_docs": {
+                    "$ref": "#/$defs/BUILDDOCSENUM",
+                    "description": "The building design, construction and operation documents"
+                },
+                "build_occup_type": {
+                    "description": "The primary function for which a building or discrete part of a building is intended to be used",
+                    "items": {
+                        "$ref": "#/$defs/BUILDOCCUPTYPEENUM"
+                    },
+                    "type": "array"
+                },
+                "building_setting": {
+                    "$ref": "#/$defs/BUILDINGSETTINGENUM",
+                    "description": "A location (geography) where a building is set"
+                },
+                "built_struc_age": {
+                    "description": "The age of the built structure since construction",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "built_struc_set": {
+                    "$ref": "#/$defs/BUILTSTRUCSETENUM",
+                    "description": "The characterization of the location of the built structure as high or low human density"
+                },
+                "built_struc_type": {
+                    "description": "A physical structure that is a body or assemblage of bodies in space to form a system capable of supporting loads",
+                    "type": "string"
+                },
+                "carb_dioxide": {
+                    "description": "Carbon dioxide (gas) amount or concentration at the time of sampling",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "ceil_area": {
+                    "description": "The area of the ceiling space within the room",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "ceil_cond": {
+                    "$ref": "#/$defs/SHAREDENUM3",
+                    "description": "The physical condition of the ceiling at the time of sampling; photos or video preferred; use drawings to indicate location of damaged areas"
+                },
+                "ceil_finish_mat": {
+                    "$ref": "#/$defs/CEILFINISHMATENUM",
+                    "description": "The type of material used to finish a ceiling"
+                },
+                "ceil_struc": {
+                    "$ref": "#/$defs/CEILSTRUCENUM",
+                    "description": "The construction format of the ceiling"
+                },
+                "ceil_texture": {
+                    "$ref": "#/$defs/SHAREDENUM4",
+                    "description": "The feel, appearance, or consistency of a ceiling surface"
+                },
+                "ceil_thermal_mass": {
+                    "description": "The ability of the ceiling to provide inertia against temperature fluctuations. Generally this means concrete that is exposed. A metal deck that supports a concrete slab will act thermally as long as it is exposed to room air flow",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "ceil_type": {
+                    "$ref": "#/$defs/CEILTYPEENUM",
+                    "description": "The type of ceiling according to the ceiling's appearance or construction"
+                },
+                "ceil_water_mold": {
+                    "$ref": "#/$defs/SHAREDENUM1",
+                    "description": "Signs of the presence of mold or mildew on the ceiling"
+                },
+                "cool_syst_id": {
+                    "description": "The cooling system identifier",
+                    "type": "integer"
+                },
+                "date_last_rain": {
+                    "description": "The date of the last time it rained",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "dew_point": {
+                    "description": "The temperature to which a given parcel of humid air must be cooled, at constant barometric pressure, for water vapor to condense into water",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "door_comp_type": {
+                    "$ref": "#/$defs/DOORCOMPTYPEENUM",
+                    "description": "The composite type of the door"
+                },
+                "door_cond": {
+                    "$ref": "#/$defs/SHAREDENUM2",
+                    "description": "The phsical condition of the door"
+                },
+                "door_direct": {
+                    "$ref": "#/$defs/DOORDIRECTENUM",
+                    "description": "The direction the door opens"
+                },
+                "door_loc": {
+                    "$ref": "#/$defs/SHAREDENUM0",
+                    "description": "The relative location of the door in the room"
+                },
+                "door_mat": {
+                    "$ref": "#/$defs/DOORMATENUM",
+                    "description": "The material the door is composed of"
+                },
+                "door_move": {
+                    "$ref": "#/$defs/DOORMOVEENUM",
+                    "description": "The type of movement of the door"
+                },
+                "door_size": {
+                    "description": "The size of the door",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "door_type": {
+                    "$ref": "#/$defs/DOORTYPEENUM",
+                    "description": "The type of door material"
+                },
+                "door_type_metal": {
+                    "$ref": "#/$defs/DOORTYPEMETALENUM",
+                    "description": "The type of metal door"
+                },
+                "door_type_wood": {
+                    "description": "The type of wood door",
+                    "type": "string"
+                },
+                "door_water_mold": {
+                    "$ref": "#/$defs/SHAREDENUM1",
+                    "description": "Signs of the presence of mold or mildew on a door"
+                },
+                "drawings": {
+                    "$ref": "#/$defs/DRAWINGSENUM",
+                    "description": "The buildings architectural drawings; if design is chosen, indicate phase-conceptual, schematic, design development, and construction documents"
+                },
+                "elevator": {
+                    "description": "The number of elevators within the built structure",
+                    "type": "integer"
+                },
+                "escalator": {
+                    "description": "The number of escalators within the built structure",
+                    "type": "integer"
+                },
+                "exp_duct": {
+                    "description": "The amount of exposed ductwork in the room",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "exp_pipe": {
+                    "description": "The number of exposed pipes in the room",
+                    "pattern": "^[1-9][0-9]* \\S.*\\S+$",
+                    "type": "string"
+                },
+                "ext_door": {
+                    "description": "The number of exterior doors in the built structure",
+                    "type": "integer"
+                },
+                "ext_wall_orient": {
+                    "$ref": "#/$defs/SHAREDENUM0",
+                    "description": "The orientation of the exterior wall"
+                },
+                "ext_window_orient": {
+                    "$ref": "#/$defs/SHAREDENUM0",
+                    "description": "The compass direction the exterior window of the room is facing"
+                },
+                "filter_type": {
+                    "description": "A device which removes solid particulates or airborne molecular contaminants",
+                    "items": {
+                        "$ref": "#/$defs/FILTERTYPEENUM"
+                    },
+                    "type": "array"
+                },
+                "fireplace_type": {
+                    "$ref": "#/$defs/FIREPLACETYPEENUM",
+                    "description": "A firebox with chimney"
+                },
+                "floor_age": {
+                    "description": "The time period since installment of the carpet or flooring",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "floor_area": {
+                    "description": "The area of the floor space within the room",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "floor_cond": {
+                    "$ref": "#/$defs/SHAREDENUM3",
+                    "description": "The physical condition of the floor at the time of sampling; photos or video preferred; use drawings to indicate location of damaged areas"
+                },
+                "floor_count": {
+                    "description": "The number of floors in the building, including basements and mechanical penthouse",
+                    "type": "integer"
+                },
+                "floor_finish_mat": {
+                    "description": "The floor covering type; the finished surface that is walked on",
+                    "type": "string"
+                },
+                "floor_struc": {
+                    "$ref": "#/$defs/FLOORSTRUCENUM",
+                    "description": "Refers to the structural elements and subfloor upon which the finish flooring is installed"
+                },
+                "floor_thermal_mass": {
+                    "description": "The ability of the floor to provide inertia against temperature fluctuations",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "floor_water_mold": {
+                    "$ref": "#/$defs/FLOORWATERMOLDENUM",
+                    "description": "Signs of the presence of mold or mildew in a room"
+                },
+                "freq_clean": {
+                    "$ref": "#/$defs/FREQCLEANENUM",
+                    "description": "The number of times the sample location is cleaned. Frequency of cleaning might be on a Daily basis, Weekly, Monthly, Quarterly or Annually"
+                },
+                "freq_cook": {
+                    "description": "The number of times a meal is cooked per week",
+                    "pattern": "^[1-9][0-9]* \\S.*\\S+$",
+                    "type": "string"
+                },
+                "furniture": {
+                    "$ref": "#/$defs/FURNITUREENUM",
+                    "description": "The types of furniture present in the sampled room"
+                },
+                "gender_restroom": {
+                    "$ref": "#/$defs/GENDERRESTROOMENUM",
+                    "description": "The gender type of the restroom"
+                },
+                "hall_count": {
+                    "description": "The total count of hallways and cooridors in the built structure",
+                    "type": "integer"
+                },
+                "handidness": {
+                    "$ref": "#/$defs/HANDIDNESSENUM",
+                    "description": "The handidness of the individual sampled"
+                },
+                "heat_cool_type": {
+                    "description": "Methods of conditioning or heating a room or building",
+                    "items": {
+                        "$ref": "#/$defs/HEATCOOLTYPEENUM"
+                    },
+                    "type": "array"
+                },
+                "heat_deliv_loc": {
+                    "$ref": "#/$defs/SHAREDENUM0",
+                    "description": "The location of heat delivery within the room"
+                },
+                "heat_sys_deliv_meth": {
+                    "$ref": "#/$defs/HEATSYSDELIVMETHENUM",
+                    "description": "The method by which the heat is delivered through the system"
+                },
+                "heat_system_id": {
+                    "description": "The heating system identifier",
+                    "type": "integer"
+                },
+                "height_carper_fiber": {
+                    "description": "The average carpet fiber height in the indoor environment",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "indoor_space": {
+                    "$ref": "#/$defs/INDOORSPACEENUM",
+                    "description": "A distinguishable space within a structure, the purpose for which discrete areas of a building is used"
+                },
+                "indoor_surf": {
+                    "$ref": "#/$defs/INDOORSURFENUM",
+                    "description": "Type of indoor surface"
+                },
+                "inside_lux": {
+                    "description": "The recorded value at sampling time (power density)",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "int_wall_cond": {
+                    "$ref": "#/$defs/SHAREDENUM3",
+                    "description": "The physical condition of the wall at the time of sampling; photos or video preferred; use drawings to indicate location of damaged areas"
+                },
+                "last_clean": {
+                    "description": "The last time the floor was cleaned (swept, mopped, vacuumed)",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "light_type": {
+                    "description": "Application of light to achieve some practical or aesthetic effect. Lighting includes the use of both artificial light sources such as lamps and light fixtures, as well as natural illumination by capturing daylight. Can also include absence of light",
+                    "items": {
+                        "$ref": "#/$defs/LIGHTTYPEENUM"
+                    },
+                    "type": "array"
+                },
+                "max_occup": {
+                    "description": "The maximum amount of people allowed in the indoor environment",
+                    "pattern": "^[1-9][0-9]* \\S.*\\S+$",
+                    "type": "string"
+                },
+                "mech_struc": {
+                    "$ref": "#/$defs/MECHSTRUCENUM",
+                    "description": "mechanical structure: a moving structure"
+                },
+                "number_pets": {
+                    "description": "The number of pets residing in the sampled space",
+                    "pattern": "^[1-9][0-9]* \\S.*\\S+$",
+                    "type": "string"
+                },
+                "number_plants": {
+                    "description": "The number of plant(s) in the sampling space",
+                    "pattern": "^[1-9][0-9]* \\S.*\\S+$",
+                    "type": "string"
+                },
+                "number_resident": {
+                    "description": "The number of individuals currently occupying in the sampling location",
+                    "pattern": "^[1-9][0-9]* \\S.*\\S+$",
+                    "type": "string"
+                },
+                "occup_density_samp": {
+                    "description": "Average number of occupants at time of sampling per square footage",
+                    "type": "number"
+                },
+                "occup_document": {
+                    "$ref": "#/$defs/OCCUPDOCUMENTENUM",
+                    "description": "The type of documentation of occupancy"
+                },
+                "occup_samp": {
+                    "description": "Number of occupants present at time of sample within the given space",
+                    "type": "number"
+                },
+                "organism_count": {
+                    "description": "Total cell count of any organism (or group of organisms) per gram, volume or area of sample, should include name of organism followed by count. The method that was used for the enumeration (e.g. qPCR, atp, mpn, etc.) Should also be provided. (example: total prokaryotes; 3.5e7 cells per ml; qpcr)",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "pres_animal_insect": {
+                    "description": "The type and number of animals or insects present in the sampling space",
+                    "type": "string"
+                },
+                "project_name": {
+                    "description": "Name of the project within which the sequencing was organized",
+                    "type": "string"
+                },
+                "quad_pos": {
+                    "$ref": "#/$defs/QUADPOSENUM",
+                    "description": "The quadrant position of the sampling room within the building"
+                },
+                "rel_air_humidity": {
+                    "description": "Partial vapor and air pressure, density of the vapor and air, or by the actual mass of the vapor and air",
+                    "type": "number"
+                },
+                "rel_humidity_out": {
+                    "description": "The recorded outside relative humidity value at the time of sampling",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "rel_samp_loc": {
+                    "$ref": "#/$defs/RELSAMPLOCENUM",
+                    "description": "The sampling location within the train car"
+                },
+                "room_air_exch_rate": {
+                    "description": "The rate at which outside air replaces indoor air in a given space",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "room_architec_elem": {
+                    "description": "The unique details and component parts that, together, form the architecture of a distinguisahable space within a built structure",
+                    "type": "string"
+                },
+                "room_condt": {
+                    "$ref": "#/$defs/ROOMCONDTENUM",
+                    "description": "The condition of the room at the time of sampling"
+                },
+                "room_connected": {
+                    "$ref": "#/$defs/ROOMCONNECTEDENUM",
+                    "description": "List of rooms connected to the sampling room by a doorway"
+                },
+                "room_count": {
+                    "description": "The total count of rooms in the built structure including all room types",
+                    "type": "integer"
+                },
+                "room_dim": {
+                    "description": "The length, width and height of sampling room",
+                    "type": "string"
+                },
+                "room_door_dist": {
+                    "description": "Distance between doors (meters) in the hallway between the sampling room and adjacent rooms",
+                    "pattern": "^[1-9][0-9]* \\S.*\\S+$",
+                    "type": "string"
+                },
+                "room_door_share": {
+                    "description": "List of room(s) (room number, room name) sharing a door with the sampling room",
+                    "type": "string"
+                },
+                "room_hallway": {
+                    "description": "List of room(s) (room number, room name) located in the same hallway as sampling room",
+                    "type": "string"
+                },
+                "room_loc": {
+                    "$ref": "#/$defs/ROOMLOCENUM",
+                    "description": "The position of the room within the building"
+                },
+                "room_moist_dam_hist": {
+                    "description": "The history of moisture damage or mold in the past 12 months. Number of events of moisture damage or mold observed",
+                    "type": "integer"
+                },
+                "room_net_area": {
+                    "description": "The net floor area of sampling room. Net area excludes wall thicknesses",
+                    "pattern": "^[1-9][0-9]* \\S.*\\S+$",
+                    "type": "string"
+                },
+                "room_occup": {
+                    "description": "Count of room occupancy at time of sampling",
+                    "pattern": "^[1-9][0-9]* \\S.*\\S+$",
+                    "type": "string"
+                },
+                "room_samp_pos": {
+                    "$ref": "#/$defs/ROOMSAMPPOSENUM",
+                    "description": "The horizontal sampling position in the room relative to architectural elements"
+                },
+                "room_type": {
+                    "description": "The main purpose or activity of the sampling room. A room is any distinguishable space within a structure",
+                    "type": "string"
+                },
+                "room_vol": {
+                    "description": "Volume of sampling room",
+                    "pattern": "^[1-9][0-9]* \\S.*\\S+$",
+                    "type": "string"
+                },
+                "room_wall_share": {
+                    "description": "List of room(s) (room number, room name) sharing a wall with the sampling room",
+                    "type": "string"
+                },
+                "room_window_count": {
+                    "description": "Number of windows in the room",
+                    "type": "integer"
+                },
+                "samp_floor": {
+                    "description": "The floor of the building, where the sampling room is located",
+                    "type": "string"
+                },
+                "samp_name": {
+                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name.",
+                    "type": "string"
+                },
+                "samp_room_id": {
+                    "description": "Sampling room number. This ID should be consistent with the designations on the building floor plans",
+                    "type": "integer"
+                },
+                "samp_sort_meth": {
+                    "description": "Method by which samples are sorted; open face filter collecting total suspended particles, prefilter to remove particles larger than X micrometers in diameter, where common values of X would be 10 and 2.5 full size sorting in a cascade impactor",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "samp_time_out": {
+                    "description": "The recent and long term history of outside sampling",
+                    "type": "string"
+                },
+                "samp_weather": {
+                    "$ref": "#/$defs/SAMPWEATHERENUM",
+                    "description": "The weather on the sampling day"
+                },
+                "season": {
+                    "description": "The season when sampling occurred. Any of the four periods into which the year is divided by the equinoxes and solstices. This field accepts terms listed under season (http://purl.obolibrary.org/obo/NCIT_C94729)",
+                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:[a-zA-Z0-9]+\\]$",
+                    "type": "string"
+                },
+                "season_use": {
+                    "$ref": "#/$defs/SEASONUSEENUM",
+                    "description": "The seasons the space is occupied"
+                },
+                "shad_dev_water_mold": {
+                    "$ref": "#/$defs/SHAREDENUM1",
+                    "description": "Signs of the presence of mold or mildew on the shading device"
+                },
+                "shading_device_cond": {
+                    "$ref": "#/$defs/SHAREDENUM2",
+                    "description": "The physical condition of the shading device at the time of sampling"
+                },
+                "shading_device_loc": {
+                    "$ref": "#/$defs/SHADINGDEVICELOCENUM",
+                    "description": "The location of the shading device in relation to the built structure"
+                },
+                "shading_device_mat": {
+                    "description": "The material the shading device is composed of",
+                    "type": "string"
+                },
+                "shading_device_type": {
+                    "$ref": "#/$defs/SHADINGDEVICETYPEENUM",
+                    "description": "The type of shading device"
+                },
+                "space_typ_state": {
+                    "$ref": "#/$defs/SPACETYPSTATEENUM",
+                    "description": "Customary or normal state of the space"
+                },
+                "specific": {
+                    "$ref": "#/$defs/SPECIFICENUM",
+                    "description": "The building specifications. If design is chosen, indicate phase: conceptual, schematic, design development, construction documents"
+                },
+                "specific_humidity": {
+                    "description": "The mass of water vapour in a unit mass of moist air, usually expressed as grams of vapour per kilogram of air, or, in air conditioning, as grains per pound",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "substructure_type": {
+                    "description": "The substructure or under building is that largely hidden section of the building which is built off the foundations to the ground floor level",
+                    "items": {
+                        "$ref": "#/$defs/SUBSTRUCTURETYPEENUM"
+                    },
+                    "type": "array"
+                },
+                "surf_air_cont": {
+                    "description": "Contaminant identified on surface",
+                    "items": {
+                        "$ref": "#/$defs/SURFAIRCONTENUM"
+                    },
+                    "type": "array"
+                },
+                "surf_humidity": {
+                    "description": "Surfaces: water activity as a function of air and material moisture",
+                    "type": "number"
+                },
+                "surf_material": {
+                    "$ref": "#/$defs/SURFMATERIALENUM",
+                    "description": "Surface materials at the point of sampling"
+                },
+                "surf_moisture": {
+                    "description": "Water held on a surface",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "surf_moisture_ph": {
+                    "description": "ph measurement of surface",
+                    "type": "number"
+                },
+                "surf_temp": {
+                    "description": "Temperature of the surface at the time of sampling",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "temp_out": {
+                    "description": "The recorded temperature value at sampling time outside",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "train_line": {
+                    "$ref": "#/$defs/TRAINLINEENUM",
+                    "description": "The subway line name"
+                },
+                "train_stat_loc": {
+                    "$ref": "#/$defs/TRAINSTATLOCENUM",
+                    "description": "The train station collection location"
+                },
+                "train_stop_loc": {
+                    "$ref": "#/$defs/TRAINSTOPLOCENUM",
+                    "description": "The train stop collection location"
+                },
+                "typ_occup_density": {
+                    "description": "Customary or normal density of occupants",
+                    "type": "number"
+                },
+                "ventilation_type": {
+                    "description": "Ventilation system used in the sampled premises",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "vis_media": {
+                    "description": "The building visual media",
+                    "type": "string"
+                },
+                "wall_area": {
+                    "description": "The total area of the sampled room's walls",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "wall_const_type": {
+                    "$ref": "#/$defs/WALLCONSTTYPEENUM",
+                    "description": "The building class of the wall defined by the composition of the building elements and fire-resistance rating"
+                },
+                "wall_finish_mat": {
+                    "$ref": "#/$defs/WALLFINISHMATENUM",
+                    "description": "The material utilized to finish the outer most layer of the wall"
+                },
+                "wall_height": {
+                    "description": "The average height of the walls in the sampled room",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "wall_loc": {
+                    "$ref": "#/$defs/SHAREDENUM0",
+                    "description": "The relative location of the wall within the room"
+                },
+                "wall_surf_treatment": {
+                    "$ref": "#/$defs/WALLSURFTREATMENTENUM",
+                    "description": "The surface treatment of interior wall"
+                },
+                "wall_texture": {
+                    "$ref": "#/$defs/SHAREDENUM4",
+                    "description": "The feel, appearance, or consistency of a wall surface"
+                },
+                "wall_thermal_mass": {
+                    "description": "The ability of the wall to provide inertia against temperature fluctuations. Generally this means concrete or concrete block that is either exposed or covered only with paint",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "wall_water_mold": {
+                    "$ref": "#/$defs/SHAREDENUM1",
+                    "description": "Signs of the presence of mold or mildew on a wall"
+                },
+                "water_feat_size": {
+                    "description": "The size of the water feature",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "water_feat_type": {
+                    "$ref": "#/$defs/WATERFEATTYPEENUM",
+                    "description": "The type of water feature present within the building being sampled"
+                },
+                "weekday": {
+                    "$ref": "#/$defs/WEEKDAYENUM",
+                    "description": "The day of the week when sampling occurred"
+                },
+                "window_cond": {
+                    "$ref": "#/$defs/SHAREDENUM2",
+                    "description": "The physical condition of the window at the time of sampling"
+                },
+                "window_cover": {
+                    "$ref": "#/$defs/WINDOWCOVERENUM",
+                    "description": "The type of window covering"
+                },
+                "window_horiz_pos": {
+                    "$ref": "#/$defs/WINDOWHORIZPOSENUM",
+                    "description": "The horizontal position of the window on the wall"
+                },
+                "window_loc": {
+                    "$ref": "#/$defs/SHAREDENUM0",
+                    "description": "The relative location of the window within the room"
+                },
+                "window_mat": {
+                    "$ref": "#/$defs/WINDOWMATENUM",
+                    "description": "The type of material used to finish a window"
+                },
+                "window_open_freq": {
+                    "description": "The number of times windows are opened per week",
+                    "type": "integer"
+                },
+                "window_size": {
+                    "description": "The window's length and width",
+                    "type": "string"
+                },
+                "window_status": {
+                    "$ref": "#/$defs/WINDOWSTATUSENUM",
+                    "description": "Defines whether the windows were open or closed during environmental testing"
+                },
+                "window_type": {
+                    "$ref": "#/$defs/WINDOWTYPEENUM",
+                    "description": "The type of windows"
+                },
+                "window_vert_pos": {
+                    "$ref": "#/$defs/WINDOWVERTPOSENUM",
+                    "description": "The vertical position of the window on the wall"
+                },
+                "window_water_mold": {
+                    "$ref": "#/$defs/SHAREDENUM1",
+                    "description": "Signs of the presence of mold or mildew on the window"
+                }
+            },
+            "required": [
+                "samp_name",
+                "project_name",
+                "surf_material",
+                "rel_air_humidity",
+                "abs_air_humidity",
+                "air_temp",
+                "build_occup_type",
+                "carb_dioxide",
+                "ventilation_type",
+                "organism_count",
+                "indoor_space",
+                "indoor_surf",
+                "filter_type",
+                "heat_cool_type",
+                "building_setting",
+                "light_type",
+                "space_typ_state",
+                "typ_occup_density",
+                "occup_samp",
+                "occup_density_samp"
+            ],
+            "title": "BuiltEnvironment",
+            "type": "object"
+        },
+        "CEILFINISHMATENUM": {
+            "description": "",
+            "enum": [
+                "PVC",
+                "drywall",
+                "fiberglass",
+                "metal",
+                "mineral fibre",
+                "mineral wool/calcium silicate",
+                "plasterboard",
+                "stucco",
+                "tiles",
+                "wood"
+            ],
+            "title": "CEILFINISHMATENUM",
+            "type": "string"
+        },
+        "CEILSTRUCENUM": {
+            "description": "",
+            "enum": [
+                "concrete",
+                "wood frame"
+            ],
+            "title": "CEILSTRUCENUM",
+            "type": "string"
+        },
+        "CEILTYPEENUM": {
+            "description": "",
+            "enum": [
+                "barrel-shaped",
+                "cathedral",
+                "coffered",
+                "concave",
+                "cove",
+                "dropped",
+                "stretched"
+            ],
+            "title": "CEILTYPEENUM",
+            "type": "string"
+        },
+        "COMPLAPPRENUM": {
+            "description": "",
+            "enum": [
+                "marker gene",
+                "other",
+                "reference based"
+            ],
+            "title": "COMPLAPPRENUM",
+            "type": "string"
+        },
+        "CONTAMSCREENINPUTENUM": {
+            "description": "",
+            "enum": [
+                "contigs",
+                "reads"
+            ],
+            "title": "CONTAMSCREENINPUTENUM",
+            "type": "string"
+        },
+        "CULTRESULTENUM": {
+            "description": "",
+            "enum": [
+                "absent",
+                "active",
+                "inactive",
+                "negative",
+                "no",
+                "positive",
+                "present",
+                "yes"
+            ],
+            "title": "CULTRESULTENUM",
+            "type": "string"
+        },
+        "Checklist": {
+            "additionalProperties": false,
+            "description": "A class with slots assigned for the required, recommended, and optional metadata fields for a specific type sequence, such as genomes, metagenomes, or marker genes. The migs class, which models genomic sequences, is subdivided into checklists for specific taxa: bacteria, eukaryotes, organelles, plasmids and viruses.",
+            "title": "Checklist",
+            "type": "object"
+        },
+        "DEPOSENVENUM": {
+            "description": "",
+            "enum": [
+                "Continental - Aeolian",
+                "Continental - Alluvial",
+                "Continental - Fluvial",
+                "Continental - Lacustrine",
+                "Marine - Deep",
+                "Marine - Reef",
+                "Marine - Shallow",
+                "Other - Evaporite",
+                "Other - Glacial",
+                "Other - Volcanic",
+                "Transitional - Beach",
+                "Transitional - Deltaic",
+                "Transitional - Lagoonal",
+                "Transitional - Lake",
+                "Transitional - Tidal",
+                "other"
+            ],
+            "title": "DEPOSENVENUM",
+            "type": "string"
+        },
+        "DOMINANTHANDENUM": {
+            "description": "",
+            "enum": [
+                "ambidextrous",
+                "left",
+                "right"
+            ],
+            "title": "DOMINANTHANDENUM",
+            "type": "string"
+        },
+        "DOORCOMPTYPEENUM": {
+            "description": "",
+            "enum": [
+                "metal covered",
+                "revolving",
+                "sliding",
+                "telescopic"
+            ],
+            "title": "DOORCOMPTYPEENUM",
+            "type": "string"
+        },
+        "DOORDIRECTENUM": {
+            "description": "",
+            "enum": [
+                "inward",
+                "outward",
+                "sideways"
+            ],
+            "title": "DOORDIRECTENUM",
+            "type": "string"
+        },
+        "DOORMATENUM": {
+            "description": "",
+            "enum": [
+                "aluminum",
+                "cellular PVC",
+                "engineered plastic",
+                "fiberboard",
+                "fiberglass",
+                "metal",
+                "thermoplastic alloy",
+                "vinyl",
+                "wood",
+                "wood/plastic composite"
+            ],
+            "title": "DOORMATENUM",
+            "type": "string"
+        },
+        "DOORMOVEENUM": {
+            "description": "",
+            "enum": [
+                "collapsible",
+                "folding",
+                "revolving",
+                "rolling shutter",
+                "sliding",
+                "swinging"
+            ],
+            "title": "DOORMOVEENUM",
+            "type": "string"
+        },
+        "DOORTYPEENUM": {
+            "description": "",
+            "enum": [
+                "composite",
+                "metal",
+                "wooden"
+            ],
+            "title": "DOORTYPEENUM",
+            "type": "string"
+        },
+        "DOORTYPEMETALENUM": {
+            "description": "",
+            "enum": [
+                "collapsible",
+                "corrugated steel",
+                "hollow",
+                "rolling shutters",
+                "steel plate"
+            ],
+            "title": "DOORTYPEMETALENUM",
+            "type": "string"
+        },
+        "DRAINAGECLASSENUM": {
+            "description": "",
+            "enum": [
+                "excessively drained",
+                "moderately well",
+                "poorly",
+                "somewhat poorly",
+                "very poorly",
+                "well"
+            ],
+            "title": "DRAINAGECLASSENUM",
+            "type": "string"
+        },
+        "DRAWINGSENUM": {
+            "description": "",
+            "enum": [
+                "as built",
+                "bid",
+                "building navigation map",
+                "construction",
+                "design",
+                "diagram",
+                "operation",
+                "sketch"
+            ],
+            "title": "DRAWINGSENUM",
+            "type": "string"
+        },
+        "EXTRWEATHEREVENTENUM": {
+            "description": "",
+            "enum": [
+                "drought",
+                "dust storm",
+                "extreme cold",
+                "extreme heat",
+                "flood",
+                "frost",
+                "hail",
+                "high precipitationhigh winds"
+            ],
+            "title": "EXTRWEATHEREVENTENUM",
+            "type": "string"
+        },
+        "EnvironmentalPackage": {
+            "additionalProperties": false,
+            "description": "A supplement to MIxS Checklists, in the sense of providing additional terms to describe the specific environment from which a sample was collected.",
+            "title": "EnvironmentalPackage",
             "type": "object"
         },
         "FACILITYTYPEENUM": {
@@ -11860,19 +11867,656 @@
             },
             "required": [
                 "geo_loc_name",
-                "seq_meth",
-                "env_local_scale",
-                "samp_name",
-                "collection_date",
-                "depth",
-                "samp_taxon_id",
-                "project_name",
-                "elev",
-                "lat_lon",
                 "env_medium",
-                "env_broad_scale"
+                "collection_date",
+                "samp_taxon_id",
+                "env_broad_scale",
+                "env_local_scale",
+                "seq_meth",
+                "samp_name",
+                "lat_lon",
+                "depth",
+                "elev",
+                "project_name"
             ],
             "title": "MimsSoil",
+            "type": "object"
+        },
+        "MimsWater": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "adapters": {
+                    "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
+                    "type": "string"
+                },
+                "alkalinity": {
+                    "description": "Alkalinity, the ability of a solution to neutralize acids to the equivalence point of carbonate or bicarbonate",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "alkalinity_method": {
+                    "description": "Method used for alkalinity measurement",
+                    "type": "string"
+                },
+                "alkyl_diethers": {
+                    "description": "Concentration of alkyl diethers",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "alt": {
+                    "description": "Altitude is a term used to identify heights of objects such as airplanes, space shuttles, rockets, atmospheric balloons and heights of places such as atmospheric layers and clouds. It is used to measure the height of an object which is above the earth's surface. In this context, the altitude measurement is the vertical distance between the earth's surface above sea level and the sampled position in the air",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "aminopept_act": {
+                    "description": "Measurement of aminopeptidase activity",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "ammonium": {
+                    "description": "Concentration of ammonium in the sample",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "annot": {
+                    "description": "Tool used for annotation, or for cases where annotation was provided by a community jamboree or model organism database rather than by a specific submitter",
+                    "type": "string"
+                },
+                "assembly_name": {
+                    "description": "Name/version of the assembly provided by the submitter that is used in the genome browsers and in the community",
+                    "pattern": "^\\S.*\\S+ \\S.*\\S+$",
+                    "type": "string"
+                },
+                "assembly_qual": {
+                    "description": "The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling  90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated",
+                    "type": "string"
+                },
+                "assembly_software": {
+                    "description": "Tool(s) used for assembly, including version number and parameters",
+                    "type": "string"
+                },
+                "associated_resource": {
+                    "description": "A related resource that is referenced, cited, or otherwise associated to the sequence",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "atmospheric_data": {
+                    "description": "Measurement of atmospheric data; can include multiple data",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "bac_prod": {
+                    "description": "Bacterial production in the water column measured by isotope uptake",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "bac_resp": {
+                    "description": "Measurement of bacterial respiration in the water column",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "bacteria_carb_prod": {
+                    "description": "Measurement of bacterial carbon production",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "biomass": {
+                    "description": "Amount of biomass; should include the name for the part of biomass measured, e.g. Microbial, total. Can include multiple measurements",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "bishomohopanol": {
+                    "description": "Concentration of bishomohopanol",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "bromide": {
+                    "description": "Concentration of bromide",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "calcium": {
+                    "description": "Concentration of calcium in the sample",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "carb_nitro_ratio": {
+                    "description": "Ratio of amount or concentrations of carbon to nitrogen",
+                    "type": "number"
+                },
+                "chem_administration": {
+                    "description": "List of chemical compounds administered to the host or site where sampling occurred, and when (e.g. Antibiotics, n fertilizer, air filter); can include multiple compounds. For chemical entities of biological interest ontology (chebi) (v 163), http://purl.bioontology.org/ontology/chebi",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "chloride": {
+                    "description": "Concentration of chloride in the sample",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "chlorophyll": {
+                    "description": "Concentration of chlorophyll",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "collection_date": {
+                    "description": "The time of sampling, either as an instance (single point in time) or interval. In case no exact time is available, the date/time can be right truncated i.e. all of these are valid times: 2008-01-23T19:23:10+00:00; 2008-01-23T19:23:10; 2008-01-23; 2008-01; 2008; Except: 2008-01; 2008 all are ISO8601 compliant",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "conduc": {
+                    "description": "Electrical conductivity of water",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "density": {
+                    "description": "Density of the sample, which is its mass per unit volume (aka volumetric mass density)",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "depth": {
+                    "description": "The vertical distance below local surface, e.g. for sediment or soil samples depth is measured from sediment or soil surface, respectively. Depth can be reported as an interval for subsurface samples.",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "diether_lipids": {
+                    "description": "Concentration of diether lipids; can include multiple types of diether lipids",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "diss_carb_dioxide": {
+                    "description": "Concentration of dissolved carbon dioxide in the sample or liquid portion of the sample",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "diss_hydrogen": {
+                    "description": "Concentration of dissolved hydrogen",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "diss_inorg_carb": {
+                    "description": "Dissolved inorganic carbon concentration in the sample, typically measured after filtering the sample using a 0.45 micrometer filter",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "diss_inorg_nitro": {
+                    "description": "Concentration of dissolved inorganic nitrogen",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "diss_inorg_phosp": {
+                    "description": "Concentration of dissolved inorganic phosphorus in the sample",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "diss_org_carb": {
+                    "description": "Concentration of dissolved organic carbon in the sample, liquid portion of the sample, or aqueous phase of the fluid",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "diss_org_nitro": {
+                    "description": "Dissolved organic nitrogen concentration measured as; total dissolved nitrogen - NH4 - NO3 - NO2",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "diss_oxygen": {
+                    "description": "Concentration of dissolved oxygen",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "down_par": {
+                    "description": "Visible waveband radiance and irradiance measurements in the water column",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "elev": {
+                    "description": "Elevation of the sampling site is its height above a fixed reference point, most commonly the mean sea level. Elevation is mainly used when referring to points on the earth's surface, while altitude is used for points above the surface, such as an aircraft in flight or a spacecraft in orbit",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "env_broad_scale": {
+                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvOs biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
+                    "type": "string"
+                },
+                "env_local_scale": {
+                    "description": "Report the entity or entities which are in the sample or specimens local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "type": "string"
+                },
+                "env_medium": {
+                    "description": "Report the environmental material(s) immediately surrounding the sample or specimen at the time of sampling. We recommend using subclasses of 'environmental material' (http://purl.obolibrary.org/obo/ENVO_00010483). EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS . Terms from other OBO ontologies are permissible as long as they reference mass/volume nouns (e.g. air, water, blood) and not discrete, countable entities (e.g. a tree, a leaf, a table top)",
+                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
+                    "type": "string"
+                },
+                "experimental_factor": {
+                    "description": "Experimental factors are essentially the variable aspects of an experiment design which can be used to describe an experiment, or set of experiments, in an increasingly detailed manner. This field accepts ontology terms from Experimental Factor Ontology (EFO) and/or Ontology for Biomedical Investigations (OBI). For a browser of EFO (v 2.95) terms, please see http://purl.bioontology.org/ontology/EFO; for a browser of OBI (v 2018-02-12) terms please see http://purl.bioontology.org/ontology/OBI",
+                    "items": {
+                        "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "feat_pred": {
+                    "description": "Method used to predict UViGs features such as ORFs, integration site, etc",
+                    "type": "string"
+                },
+                "fluor": {
+                    "description": "Raw or converted fluorescence of water",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "geo_loc_name": {
+                    "description": "The geographical origin of the sample as defined by the country or sea name followed by specific region name. Country or sea names should be chosen from the INSDC country list (http://insdc.org/country.html), or the GAZ ontology (http://purl.bioontology.org/ontology/GAZ)",
+                    "type": "string"
+                },
+                "glucosidase_act": {
+                    "description": "Measurement of glucosidase activity",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "lat_lon": {
+                    "description": "The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system",
+                    "type": "string"
+                },
+                "lib_layout": {
+                    "$ref": "#/$defs/LIBLAYOUTENUM",
+                    "description": "Specify whether to expect single, paired, or other configuration of reads"
+                },
+                "lib_reads_seqd": {
+                    "description": "Total number of clones sequenced from the library",
+                    "type": "integer"
+                },
+                "lib_screen": {
+                    "description": "Specific enrichment or screening methods applied before and/or after creating libraries",
+                    "type": "string"
+                },
+                "lib_size": {
+                    "description": "Total number of clones in the library prepared for the project",
+                    "type": "integer"
+                },
+                "lib_vector": {
+                    "description": "Cloning vector type(s) used in construction of libraries",
+                    "type": "string"
+                },
+                "light_intensity": {
+                    "description": "Measurement of light intensity",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "magnesium": {
+                    "description": "Concentration of magnesium in the sample",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "mean_frict_vel": {
+                    "description": "Measurement of mean friction velocity",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "mean_peak_frict_vel": {
+                    "description": "Measurement of mean peak friction velocity",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "mid": {
+                    "description": "Molecular barcodes, called Multiplex Identifiers (MIDs), that are used to specifically tag unique samples in a sequencing run. Sequence should be reported in uppercase letters",
+                    "pattern": "^[ACGTRKSYMWBHDVN]+$",
+                    "type": "string"
+                },
+                "misc_param": {
+                    "description": "Any other measurement performed or parameter collected, that is not listed here",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "n_alkanes": {
+                    "description": "Concentration of n-alkanes; can include multiple n-alkanes",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "neg_cont_type": {
+                    "$ref": "#/$defs/NEGCONTTYPEENUM",
+                    "description": "The substance or equipment used as a negative control in an investigation"
+                },
+                "nitrate": {
+                    "description": "Concentration of nitrate in the sample",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "nitrite": {
+                    "description": "Concentration of nitrite in the sample",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "nitro": {
+                    "description": "Concentration of nitrogen (total)",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "nucl_acid_amp": {
+                    "description": "A link to a literature reference, electronic resource or a standard operating procedure (SOP), that describes the enzymatic amplification (PCR, TMA, NASBA) of specific nucleic acids",
+                    "type": "string"
+                },
+                "nucl_acid_ext": {
+                    "description": "A link to a literature reference, electronic resource or a standard operating procedure (SOP), that describes the material separation to recover the nucleic acid fraction from a sample",
+                    "type": "string"
+                },
+                "number_contig": {
+                    "description": "Total number of contigs in the cleaned/submitted assembly that makes up a given genome, SAG, MAG, or UViG",
+                    "type": "integer"
+                },
+                "org_carb": {
+                    "description": "Concentration of organic carbon",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "org_matter": {
+                    "description": "Concentration of organic matter",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "org_nitro": {
+                    "description": "Concentration of organic nitrogen",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "organism_count": {
+                    "description": "Total cell count of any organism (or group of organisms) per gram, volume or area of sample, should include name of organism followed by count. The method that was used for the enumeration (e.g. qPCR, atp, mpn, etc.) Should also be provided. (example: total prokaryotes; 3.5e7 cells per ml; qpcr)",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "oxy_stat_samp": {
+                    "$ref": "#/$defs/OXYSTATSAMPENUM",
+                    "description": "Oxygenation status of sample"
+                },
+                "part_org_carb": {
+                    "description": "Concentration of particulate organic carbon",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "part_org_nitro": {
+                    "description": "Concentration of particulate organic nitrogen",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "perturbation": {
+                    "description": "Type of perturbation, e.g. chemical administration, physical disturbance, etc., coupled with perturbation regimen including how many times the perturbation was repeated, how long each perturbation lasted, and the start and end time of the entire perturbation period; can include multiple perturbation types",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "petroleum_hydrocarb": {
+                    "description": "Concentration of petroleum hydrocarbon",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "ph": {
+                    "description": "Ph measurement of the sample, or liquid portion of sample, or aqueous phase of the fluid",
+                    "type": "number"
+                },
+                "phaeopigments": {
+                    "description": "Concentration of phaeopigments; can include multiple phaeopigments",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "phosphate": {
+                    "description": "Concentration of phosphate",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "phosplipid_fatt_acid": {
+                    "description": "Concentration of phospholipid fatty acids; can include multiple values",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "photon_flux": {
+                    "description": "Measurement of photon flux",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "pos_cont_type": {
+                    "description": "The substance, mixture, product, or apparatus used to verify that a process which is part of an investigation delivers a true positive",
+                    "type": "string"
+                },
+                "potassium": {
+                    "description": "Concentration of potassium in the sample",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "pressure": {
+                    "description": "Pressure to which the sample is subject to, in atmospheres",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "primary_prod": {
+                    "description": "Measurement of primary production, generally measured as isotope uptake",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "project_name": {
+                    "description": "Name of the project within which the sequencing was organized",
+                    "type": "string"
+                },
+                "redox_potential": {
+                    "description": "Redox potential, measured relative to a hydrogen cell, indicating oxidation or reduction potential",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "ref_biomaterial": {
+                    "description": "Primary publication if isolated before genome publication; otherwise, primary genome report",
+                    "type": "string"
+                },
+                "ref_db": {
+                    "description": "List of database(s) used for ORF annotation, along with version number and reference to website or publication",
+                    "type": "string"
+                },
+                "rel_to_oxygen": {
+                    "$ref": "#/$defs/RELTOOXYGENENUM",
+                    "description": "Is this organism an aerobe, anaerobe? Please note that aerobic and anaerobic are valid descriptors for microbial environments"
+                },
+                "salinity": {
+                    "description": "The total concentration of all dissolved salts in a liquid or solid sample. While salinity can be measured by a complete chemical analysis, this method is difficult and time consuming. More often, it is instead derived from the conductivity measurement. This is known as practical salinity. These derivations compare the specific conductance of the sample to a salinity standard such as seawater",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "samp_collect_device": {
+                    "description": "The device used to collect an environmental sample. This field accepts terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO). This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094).",
+                    "type": "string"
+                },
+                "samp_collect_method": {
+                    "description": "The method employed for collecting the sample",
+                    "type": "string"
+                },
+                "samp_mat_process": {
+                    "description": "A brief description of any processing applied to the sample during or after retrieving the sample from environment, or a link to the relevant protocol(s) performed",
+                    "type": "string"
+                },
+                "samp_name": {
+                    "description": "A local identifier or name that for the material sample used for extracting nucleic acids, and subsequent sequencing. It can refer either to the original material collected or to any derived sub-samples. It can have any format, but we suggest that you make it concise, unique and consistent within your lab, and as informative as possible. INSDC requires every sample name from a single Submitter to be unique. Use of a globally unique identifier for the field source_mat_id is recommended in addition to sample_name.",
+                    "type": "string"
+                },
+                "samp_size": {
+                    "description": "The total amount or size (volume (ml), mass (g) or area (m2) ) of sample collected",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "samp_store_dur": {
+                    "description": "Duration for which the sample was stored",
+                    "type": "string"
+                },
+                "samp_store_loc": {
+                    "description": "Location at which sample was stored, usually name of a specific freezer/room",
+                    "type": "string"
+                },
+                "samp_store_temp": {
+                    "description": "Temperature at which sample was stored, e.g. -80 degree Celsius",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "samp_taxon_id": {
+                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome for mock community/positive controls, or 'blank sample' for negative controls",
+                    "type": "string"
+                },
+                "samp_vol_we_dna_ext": {
+                    "description": "Volume (ml) or mass (g) of total collected sample processed for DNA extraction. Note: total sample collected should be entered under the term Sample Size (MIXS:0000001).",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "seq_meth": {
+                    "description": "Sequencing machine used. Where possible the term should be taken from the OBI list of DNA sequencers (http://purl.obolibrary.org/obo/OBI_0400103)",
+                    "type": "string"
+                },
+                "silicate": {
+                    "description": "Concentration of silicate",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "sim_search_meth": {
+                    "description": "Tool used to compare ORFs with database, along with version and cutoffs used",
+                    "type": "string"
+                },
+                "size_frac": {
+                    "description": "Filtering pore size used in sample preparation",
+                    "type": "string"
+                },
+                "size_frac_low": {
+                    "description": "Refers to the mesh/pore size used to pre-filter/pre-sort the sample. Materials larger than the size threshold are excluded from the sample",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "size_frac_up": {
+                    "description": "Refers to the mesh/pore size used to retain the sample. Materials smaller than the size threshold are excluded from the sample",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "sodium": {
+                    "description": "Sodium concentration in the sample",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "soluble_react_phosp": {
+                    "description": "Concentration of soluble reactive phosphorus",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "sop": {
+                    "description": "Standard operating procedures used in assembly and/or annotation of genomes, metagenomes or environmental sequences",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "source_mat_id": {
+                    "description": "A unique identifier assigned to a material sample (as defined by http://rs.tdwg.org/dwc/terms/materialSampleID, and as opposed to a particular digital record of a material sample) used for extracting nucleic acids, and subsequent sequencing. The identifier can refer either to the original material collected or to any derived sub-samples. The INSDC qualifiers /specimen_voucher, /bio_material, or /culture_collection may or may not share the same value as the source_mat_id field. For instance, the /specimen_voucher qualifier and source_mat_id may both contain 'UAM:Herps:14' , referring to both the specimen voucher and sampled tissue with the same identifier. However, the /culture_collection qualifier may refer to a value from an initial culture (e.g. ATCC:11775) while source_mat_id would refer to an identifier from some derived culture from which the nucleic acids were extracted (e.g. xatc123 or ark:/2154/R2)",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "sulfate": {
+                    "description": "Concentration of sulfate in the sample",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "sulfide": {
+                    "description": "Concentration of sulfide in the sample",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "suspend_part_matter": {
+                    "description": "Concentration of suspended particulate matter",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "tax_class": {
+                    "description": "Method used for taxonomic classification, along with reference database used, classification rank, and thresholds used to classify new genomes",
+                    "type": "string"
+                },
+                "temp": {
+                    "description": "Temperature of the sample at the time of sampling",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "tidal_stage": {
+                    "$ref": "#/$defs/TIDALSTAGEENUM",
+                    "description": "Stage of tide"
+                },
+                "tot_depth_water_col": {
+                    "description": "Measurement of total depth of water column",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "tot_diss_nitro": {
+                    "description": "Total dissolved nitrogen concentration, reported as nitrogen, measured by: total dissolved nitrogen = NH4 + NO3NO2 + dissolved organic nitrogen",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "tot_inorg_nitro": {
+                    "description": "Total inorganic nitrogen content",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "tot_nitro": {
+                    "description": "Total nitrogen concentration of water samples, calculated by: total nitrogen = total dissolved nitrogen + particulate nitrogen. Can also be measured without filtering, reported as nitrogen",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "tot_part_carb": {
+                    "description": "Total particulate carbon content",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "tot_phosp": {
+                    "description": "Total phosphorus concentration in the sample, calculated by: total phosphorus = total dissolved phosphorus + particulate phosphorus",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "turbidity": {
+                    "description": "Measure of the amount of cloudiness or haziness in water caused by individual particles",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
+                "water_current": {
+                    "description": "Measurement of magnitude and direction of flow within a fluid",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geo_loc_name",
+                "env_medium",
+                "collection_date",
+                "samp_taxon_id",
+                "env_broad_scale",
+                "env_local_scale",
+                "seq_meth",
+                "samp_name",
+                "lat_lon",
+                "depth",
+                "project_name"
+            ],
+            "title": "MimsWater",
             "type": "object"
         },
         "MiscellaneousNaturalOrArtificialEnvironment": {
@@ -12133,6 +12777,13 @@
                     "description": "Data that complies with Mims combined with Soil",
                     "items": {
                         "$ref": "#/$defs/MimsSoil"
+                    },
+                    "type": "array"
+                },
+                "mims_water_data": {
+                    "description": "Data that complies with Mims combined with Water",
+                    "items": {
+                        "$ref": "#/$defs/MimsWater"
                     },
                     "type": "array"
                 }
@@ -15156,6 +15807,13 @@
             "description": "Data that complies with Mims combined with Soil",
             "items": {
                 "$ref": "#/$defs/MimsSoil"
+            },
+            "type": "array"
+        },
+        "mims_water_data": {
+            "description": "Data that complies with Mims combined with Water",
+            "items": {
+                "$ref": "#/$defs/MimsWater"
             },
             "type": "array"
         }
