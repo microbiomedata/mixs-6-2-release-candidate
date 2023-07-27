@@ -23,16 +23,14 @@ schemasheets-usage-output/$(RC_PREFIX).yaml.exhaustive.usage-report.tsv schemash
 conflicts-all other-reports/mixs-scns-vs-ncbi-harmonized-attributes.yaml \
 schema-derivatives/$(RC_PREFIX).owl.ttl schema-derivatives/$(RC_PREFIX).schema.json \
 final-deletions generated-schema/final-$(RC_PREFIX).yaml \
-validate-multiple-mims-soil converted-data/MimsSoil-example.csv converted-data/MimsSoil-example.ttl \
+validate-multiple-mims-soil converted-data/MimsSoil-example.tsv \
 other-reports/slot-usage-report.tsv other-reports/schema-lint-report.tsv \
+converted-data/data-conversion-report.md \
 validate-linkml-rdf-data-pure-python validate-linkml-rdf-schema-pure-python \
 schema-derivatives/$(RC_PREFIX).json
 
 clean:
-	rm -rf generated-schema/$(RC_PREFIX)-usage-populated-raw.tsv
-	rm -rf generated-schema/meta.xlsx
 	rm -rf schemasheets-usage-output/$(RC_PREFIX)-usage.tsv
-	rm -rf curated-data/MimsSoil-example.csv
 
 # might not want to automatically clean/delete slow-to generate ncbi-biosample-sql/results files
 squeaky-clean: clean
@@ -54,6 +52,8 @@ generated-schema/mixs_6_2_rc.yaml:
 	 	 --combo-checklists Mims \
   		 --combo-environments Soil \
   		 --combo-environments Water \
+		 --classes-ssheet config/build-test-only/schema-for-classes-schemasheet.tsv \
+		 --classes-ssheet config/build-test-only/prefixes-for-classes-schemasheet.tsv \
 		 --classes-ssheet config/classes-schemasheet.tsv \
 		 --non-ascii-replacement '' \
 		 --schema-name $(RC_PREFIX) \
@@ -96,13 +96,13 @@ other-reports/extracted-data-coverage-report.yaml: extracted-data/unwrapped.$(RC
 		--output-yaml-file $@ \
 		--schema-path $(word 2,$^)
 
-linkml-validate-exhaustive: $(SOURCE_SCHEMA_PATH) curated-data/AllSlotsTestClassCollection-wrapped-example-data.yaml
+linkml-validate-exhaustive: $(SOURCE_SCHEMA_PATH) curated-data/build-test-only/AllSlotsTestClassCollection-wrapped-example-data.yaml
 	$(RUN) linkml-validate --target-class AllSlotsTestClassCollection --schema $^
 
 linkml-validate-extracted: $(SOURCE_SCHEMA_PATH) extracted-data/$(RC_PREFIX).extracted-examples.yaml
 	$(RUN) linkml-validate --target-class AllSlotsTestClassCollection --schema $^
 
-curated-data/unwrapped-curated-data-for-slot-coverage-check.yaml: curated-data/AllSlotsTestClassCollection-wrapped-example-data.yaml
+curated-data/unwrapped-curated-data-for-slot-coverage-check.yaml: curated-data/build-test-only/AllSlotsTestClassCollection-wrapped-example-data.yaml
 	$(RUN) get-first-of-first \
 		--input_data $< \
 		--output_data $@.temp
@@ -351,19 +351,20 @@ generated-schema/final-$(RC_PREFIX).yaml: generated-schema/$(RC_PREFIX).yaml.not
 
 .PHONY: validate-multiple-mims-soil
 
-validate-multiple-mims-soil: $(SOURCE_SCHEMA_PATH) curated-data/MimsSoil-example.yaml
+validate-multiple-mims-soil: $(SOURCE_SCHEMA_PATH) curated-data/valid/MixsCompliantData-MimsSoil-example.yaml
 	$(RUN) linkml-validate \
 		--schema $^
 
-converted-data/MimsSoil-example.csv: $(SOURCE_SCHEMA_PATH) curated-data/MimsSoil-example.yaml
-	$(RUN) linkml-convert \
-		--output $@ \
-		--target-class MixsCompliantData \
-		--index-slot mims_soil_data \
-		--schema $^
+converted-data/data-conversion-report.md: $(SOURCE_SCHEMA_PATH) curated-data/valid curated-data/invalid
+	$(RUN) linkml-run-examples \
+		--schema $(word 1,$^) \
+		--input-directory  $(word 2,$^) \
+		--output-directory converted-data \
+		--counter-example-input-directory $(word 3,$^) \
+		--output $@
 
-# https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/76
-converted-data/MimsSoil-example.ttl: $(SOURCE_SCHEMA_PATH) curated-data/MimsSoil-example.yaml
+## linkml-run-examples does not handle XSV conversion
+converted-data/MimsSoil-example.tsv: $(SOURCE_SCHEMA_PATH) curated-data/valid/MixsCompliantData-MimsSoil-example.yaml
 	$(RUN) linkml-convert \
 		--output $@ \
 		--target-class MixsCompliantData \
@@ -414,8 +415,10 @@ other-reports/schema-lint-report.tsv: $(SOURCE_SCHEMA_PATH)
 	- $(RUN) linkml-lint --format tsv \
 		--output $@ $<
 
+converted-data/MixsCompliantData-MimsSoil-example.ttl: converted-data/data-conversion-report.md
+
 .PHONY: validate-linkml-rdf-data-pure-python validate-linkml-rdf-schema-pure-python
-validate-linkml-rdf-data-pure-python: converted-data/MimsSoil-example.ttl
+validate-linkml-rdf-data-pure-python: converted-data/MixsCompliantData-MimsSoil-example.ttl
 	$(RUN) rdflib-validation \
 		--rdf-file $<
 
@@ -433,9 +436,8 @@ schema-derivatives/mixs_6_2_rc.form.xlsx: $(SOURCE_SCHEMA_PATH)
 
 # requires Jena riot
 RIOT_PATH = ~/apache-jena/bin/riot
-validate_rdf_data: converted-data/MimsSoil-example.ttl
+validate_rdf_data: converted-data/MixsCompliantData-MimsSoil-example.ttl
 	$(RIOT_PATH) --validate $<
 
 validate_rdf_schema: schema-derivatives/mixs_6_2_rc.owl.ttl
 	$(RIOT_PATH) --validate $<
-
