@@ -31,6 +31,7 @@ string_serialization	Expected_value	count
 {float} {unit}|{text}	text or measurement value	1
 {float} percentage	value	3
 [ref db|kmer|coverage|combination];{text|integer}	enumeration;value or name	1
+	crop rotation status;schedule	1
 	NCIT:C14250 or NCBI taxid	1
 {text}|{PMID}|{DOI}|{URL}	name, PMID,DOI or url	1
 	NCIT:C14250 or NCBI taxid or culture independent	1

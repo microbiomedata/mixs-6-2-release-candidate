@@ -333,7 +333,7 @@ all_slots_test_set:
   int_wall_cond: damaged
   intended_consumer:
   - 9606 o rsenior as food consumer [FOODON:03510254]
-  isol_growth_condt: 'doi: 10.1016/j.syapm.2018.01.009'
+  isol_growth_condt: doi:10.1016/j.syapm.2018.01.009
   iw_bt_date_well: '2013-03-25T12:42:31+00:32'
   iwf: 0.79
   last_clean: '2013-03-25T12:42:31+00:32'
@@ -547,9 +547,8 @@ all_slots_test_set:
   soil_temp: 25 degrees Celsius
   soil_texture_class: silty clay loam
   soil_texture_meth: https://uwlab.soils.wisc.edu/wp-content/uploads/sites/17/2015/09/particle_size.pdf
-    (hydrometer method)
   soil_type: plinthosol [ENVO:00002250]
-  soil_type_meth: Frederick series; Weikert series
+  soil_type_meth: https://www.lrh.usace.army.mil/Portals/38/docs/PR/BluestoneSFEIS/Appendix%20K-Soil%20Descriptions.pdf
   solar_irradiance:
   - 1.36 kilowatts per square meter per day
   soluble_react_phosp: 0.1 milligram per liter
