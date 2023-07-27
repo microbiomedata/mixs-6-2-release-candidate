@@ -100,6 +100,8 @@ optional_not_present:
 - max_occup
 - methane
 - microbial_biomass
+- mimarks_s_soil_data
+- mimarks_s_water_data
 - mims_soil_data
 - mims_water_data
 - nose_throat_disord

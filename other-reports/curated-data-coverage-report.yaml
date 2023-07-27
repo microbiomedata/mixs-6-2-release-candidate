@@ -1,4 +1,6 @@
 optional_not_present:
+- mimarks_s_soil_data
+- mimarks_s_water_data
 - mims_soil_data
 - mims_water_data
 - physical_sex
