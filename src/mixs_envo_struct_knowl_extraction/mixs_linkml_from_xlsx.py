@@ -98,15 +98,14 @@ def instantiate_classes(df: pd.DataFrame, checklists, global_target_schema, mini
     # presumably environmental packages
     non_checklist_classes = list(set(classes_list) - set(checklists))
 
-    class_name = root_class_name
     new_class = ClassDefinition(
-        name=class_name,
+        name=root_class_name,
         title="MIxS compliant data",
         description="A collection of data that complies with some combination of a MIxS checklist and environmental package",
-        comments=["canary"],
+        # comments=["canary"],
         tree_root=True,
     )
-    global_target_schema.classes[class_name] = new_class
+    global_target_schema.classes[root_class_name] = new_class
 
     for class_name in classes_list:
         if class_name in checklists:

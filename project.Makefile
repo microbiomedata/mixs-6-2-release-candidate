@@ -155,7 +155,7 @@ schemasheets-to-usage/$(RC_PREFIX).yaml.concise.schemasheet.tsv: generated-schem
 		--debug-report-path other-reports/notated-populated-generated-debug-report.yaml \
 		--log-file other-reports/notated-populated-with-generated-spec-log.txt \
 		--output-path $@ \
-		--report-style exhaustive \
+		--report-style concise \
 		--source-path $<
 
 schemasheets-to-usage/$(RC_PREFIX).yaml.concise.usage-report.tsv: schemasheets-to-usage/$(RC_PREFIX).yaml.concise.schemasheet.tsv
