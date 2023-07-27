@@ -71,8 +71,8 @@ def remove_non_ascii(text, non_ascii_replacement):
     return ''.join([i if ord(i) < 128 else non_ascii_replacement for i in text])
 
 
-def instantiate_classes(global_target_schema, root_class_name, combo_checklists,
-                        combo_environments) -> None:
+def instantiate_combos(global_target_schema, root_class_name, combo_checklists,
+                       combo_environments) -> None:
     bootstrapped_checklists = []
     bootstrapped_envs = []
     for class_name, class_value in global_target_schema.classes.items():
@@ -97,20 +97,25 @@ def instantiate_classes(global_target_schema, root_class_name, combo_checklists,
     # todo validation (and other steps) are slow with all of the combination classes
     for checklist in selected_checklists:
         for ep in selected_eps:
-            logger.info(f"Combining {checklist} with {ep}")
-            checklist_name = convert_to_pascal_case(checklist)
-            ep_name = convert_to_pascal_case(ep)
-            combo_name = f"{checklist_name}{ep_name}"
-            combo_title = f"{checklist_name} combined with {ep_name}"
+            checklist_id = global_target_schema.classes[checklist].class_uri
+            checklist_id_after_colon = checklist_id.split(":")[1]
+            ep_id = global_target_schema.classes[ep].class_uri
+            ep_id_after_colon = ep_id.split(":")[1]
 
-            new_class = ClassDefinition(name=combo_name, title=combo_title, is_a=ep_name, mixins=[checklist_name])
+            logger.info(f"Combining {checklist} with {ep} as MIXS:{checklist_id_after_colon}_{ep_id_after_colon}")
+
+            combo_name = f"{checklist}{ep}"
+            combo_title = f"{checklist} combined with {ep}"
+
+            new_class = ClassDefinition(name=combo_name, title=combo_title, is_a=ep, mixins=[checklist],
+                                        class_uri=f"MIXS:{checklist_id_after_colon}_{ep_id_after_colon}")
             global_target_schema.classes[combo_name] = new_class
 
             slot_name = f"{pascal_case_to_lower_snake_case(combo_name)}_data"
 
             # range is getting assigned as or modified to string!
             new_slot = SlotDefinition(
-                description=f"Data that complies with {checklist_name} combined with {ep_name}",
+                description=f"Data that complies with {checklist} combined with {ep}",
                 domain=root_class_name,
                 inlined=True,
                 inlined_as_list=True,
@@ -253,8 +258,8 @@ def do_tables_stage_mods(fixes_file: str, df: pd.DataFrame) -> tuple[
 
 def process_sheet(df: pd.DataFrame, global_target_schema, textual_key, non_ascii_replacement, combo_checklists,
                   combo_environments, root_class_name) -> List[str]:
-    instantiate_classes(global_target_schema, combo_checklists=combo_checklists,
-                        combo_environments=combo_environments, root_class_name=root_class_name)
+    instantiate_combos(global_target_schema, combo_checklists=combo_checklists,
+                       combo_environments=combo_environments, root_class_name=root_class_name)
 
     slots_list = df[textual_key].unique().tolist()
 
@@ -909,7 +914,7 @@ def create_schema(non_ascii_replacement, debug, gsc_excel_input, textual_key, sc
     checklists_from_schemasheet = []
     envs_from_schemasheet = []
 
-    # set the root_class_name and pass to instantiate_classes and process_sheet
+    # set the root_class_name and pass to instantiate_combos and process_sheet
     root_class_name = ""
     for class_name, class_def in mixs_classes_schema.classes.items():
         global_target_schema.classes[class_name] = class_def

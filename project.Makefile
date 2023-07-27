@@ -44,14 +44,17 @@ squeaky-clean: clean
 	done
 	rm -rf curated-data/unwrapped-curated-data-for-slot-coverage-check.yaml
 
+
+
 generated-schema/mixs_6_2_rc.yaml:
 	$(RUN) write-mixs-linkml \
 		 --gsc-excel-input 'https://github.com/only1chunts/mixs-cih-fork/raw/main/mixs/excel/mixs_v6.xlsx' \
 		 --gsc-excel-output-dir downloads \
+		 --combo-checklists MimarksS \
+	 	 --combo-checklists Mims \
+  		 --combo-environments Soil \
+  		 --combo-environments Water \
 		 --classes-ssheet config/classes-schemasheet.tsv \
-		 --combo-checklists Mims \
-		 --combo-environments Soil \
-		 --combo-environments Water \
 		 --non-ascii-replacement '' \
 		 --schema-name $(RC_PREFIX) \
 		 --textual-key 'Structured comment name' \

@@ -23,6 +23,8 @@ source	schema name	rule name	level	message
 /home/mark/gitrepos/mixs-envo-struct-knowl-extraction/generated-schema/mixs_6_2_rc.yaml	mixs_6_2_rc	recommended	warning	Class 'WastewaterSludge' does not have recommended slot 'description'
 /home/mark/gitrepos/mixs-envo-struct-knowl-extraction/generated-schema/mixs_6_2_rc.yaml	mixs_6_2_rc	recommended	warning	Class 'Water' does not have recommended slot 'description'
 /home/mark/gitrepos/mixs-envo-struct-knowl-extraction/generated-schema/mixs_6_2_rc.yaml	mixs_6_2_rc	recommended	warning	Class 'MimsSoil' does not have recommended slot 'description'
+/home/mark/gitrepos/mixs-envo-struct-knowl-extraction/generated-schema/mixs_6_2_rc.yaml	mixs_6_2_rc	recommended	warning	Class 'MimarksSSoil' does not have recommended slot 'description'
+/home/mark/gitrepos/mixs-envo-struct-knowl-extraction/generated-schema/mixs_6_2_rc.yaml	mixs_6_2_rc	recommended	warning	Class 'MimarksSWater' does not have recommended slot 'description'
 /home/mark/gitrepos/mixs-envo-struct-knowl-extraction/generated-schema/mixs_6_2_rc.yaml	mixs_6_2_rc	recommended	warning	Class 'MimsWater' does not have recommended slot 'description'
 /home/mark/gitrepos/mixs-envo-struct-knowl-extraction/generated-schema/mixs_6_2_rc.yaml	mixs_6_2_rc	recommended	warning	Slot 'alt' does not have recommended slot 'description'
 /home/mark/gitrepos/mixs-envo-struct-knowl-extraction/generated-schema/mixs_6_2_rc.yaml	mixs_6_2_rc	recommended	warning	Slot 'animal_feed_equip' does not have recommended slot 'description'
