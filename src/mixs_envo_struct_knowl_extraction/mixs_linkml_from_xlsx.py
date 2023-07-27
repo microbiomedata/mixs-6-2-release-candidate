@@ -880,9 +880,8 @@ def do_linkml_stage_mods(supplementary_file: str, global_target_schema):
 @click.option('--gsc-excel-input',
               default='https://github.com/GenomicsStandardsConsortium/mixs/raw/main/mixs/excel/mixs_v6.xlsx',
               help='URL Path to the MIxS Excel file')
-@click.option('--classes-ssheet',
-              required=True,
-              help='Filesystem path to a classes schemasheet')  # classes_schemasheet_file
+@click.option('--classes-ssheet', multiple=True, required=True,
+              help='Filesystem path to a classes schemasheet')
 @click.option('--combo-checklists', multiple=True,
               help='Provide one or more checklist class names if you want a minimal combination schema. Must be paired with at least one combo-environment')
 @click.option('--combo-environments', multiple=True,
@@ -900,7 +899,7 @@ def create_schema(non_ascii_replacement, debug, gsc_excel_input, textual_key, sc
     gsc_excel_file_name = url_path_components[-1]
     gsc_excel_output_path = os.path.join(gsc_excel_output_dir, gsc_excel_file_name)
 
-    default_prefix_base = "https://microbiomedata.github.io/mixs-6-2-release-candidate/"
+    default_prefix_base = "https://w3id.org/mixs-6-2-rc/"
     global_target_schema = SchemaDefinition(
         default_range="string",
         id=f"{default_prefix_base}{schema_name}",
@@ -909,7 +908,7 @@ def create_schema(non_ascii_replacement, debug, gsc_excel_input, textual_key, sc
     )
 
     smaker = SchemaMaker()
-    mixs_classes_schema = smaker.create_schema(classes_ssheet)
+    mixs_classes_schema = smaker.create_schema(list(classes_ssheet))
 
     checklists_from_schemasheet = []
     envs_from_schemasheet = []
@@ -924,7 +923,6 @@ def create_schema(non_ascii_replacement, debug, gsc_excel_input, textual_key, sc
             checklists_from_schemasheet.append(class_name)
         elif class_def.is_a == "EnvironmentalPackage":
             envs_from_schemasheet.append(class_name)
-    logger.info(f"{root_class_name = }")
 
     global_target_schema.prefixes[schema_name] = Prefix(schema_name, default_prefix_base)
     global_target_schema.default_prefix = schema_name

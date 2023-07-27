@@ -11867,19 +11867,19 @@
                 }
             },
             "required": [
+                "collection_date",
+                "depth",
+                "env_medium",
+                "lat_lon",
+                "elev",
                 "env_local_scale",
+                "seq_meth",
+                "samp_taxon_id",
                 "samp_name",
+                "env_broad_scale",
                 "project_name",
                 "target_gene",
-                "elev",
-                "lat_lon",
-                "env_broad_scale",
-                "samp_taxon_id",
-                "env_medium",
-                "depth",
-                "geo_loc_name",
-                "seq_meth",
-                "collection_date"
+                "geo_loc_name"
             ],
             "title": "MimarksSSoil",
             "type": "object"
@@ -12493,18 +12493,18 @@
                 }
             },
             "required": [
+                "collection_date",
+                "depth",
+                "env_medium",
+                "lat_lon",
                 "env_local_scale",
+                "seq_meth",
+                "samp_taxon_id",
                 "samp_name",
+                "env_broad_scale",
                 "project_name",
                 "target_gene",
-                "lat_lon",
-                "env_broad_scale",
-                "samp_taxon_id",
-                "env_medium",
-                "depth",
-                "geo_loc_name",
-                "seq_meth",
-                "collection_date"
+                "geo_loc_name"
             ],
             "title": "MimarksSWater",
             "type": "object"
@@ -12950,18 +12950,18 @@
                 }
             },
             "required": [
-                "env_local_scale",
-                "samp_name",
-                "project_name",
-                "elev",
-                "lat_lon",
-                "env_broad_scale",
-                "samp_taxon_id",
-                "env_medium",
+                "collection_date",
                 "depth",
-                "geo_loc_name",
+                "env_medium",
+                "lat_lon",
+                "elev",
+                "env_local_scale",
                 "seq_meth",
-                "collection_date"
+                "samp_taxon_id",
+                "samp_name",
+                "env_broad_scale",
+                "project_name",
+                "geo_loc_name"
             ],
             "title": "MimsSoil",
             "type": "object"
@@ -13588,17 +13588,17 @@
                 }
             },
             "required": [
-                "env_local_scale",
-                "samp_name",
-                "project_name",
-                "lat_lon",
-                "env_broad_scale",
-                "samp_taxon_id",
-                "env_medium",
+                "collection_date",
                 "depth",
-                "geo_loc_name",
+                "env_medium",
+                "lat_lon",
+                "env_local_scale",
                 "seq_meth",
-                "collection_date"
+                "samp_taxon_id",
+                "samp_name",
+                "env_broad_scale",
+                "project_name",
+                "geo_loc_name"
             ],
             "title": "MimsWater",
             "type": "object"
@@ -16895,7 +16895,7 @@
             "type": "object"
         }
     },
-    "$id": "https://microbiomedata.github.io/mixs-6-2-release-candidate/mixs_6_2_rc",
+    "$id": "https://w3id.org/mixs-6-2-rc/mixs_6_2_rc",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "additionalProperties": false,
     "description": "A collection of data that complies with some combination of a MIxS checklist and environmental package",
