@@ -44,15 +44,20 @@ squeaky-clean: clean
 	rm -rf curated-data/unwrapped-curated-data-for-slot-coverage-check.yaml
 
 
-
 generated-schema/mixs_6_2_rc.yaml:
 	$(RUN) write-mixs-linkml \
 		 --gsc-excel-input 'https://github.com/only1chunts/mixs-cih-fork/raw/main/mixs/excel/mixs_v6.xlsx' \
 		 --gsc-excel-output-dir downloads \
 		 --combo-checklists MimarksS \
 	 	 --combo-checklists Mims \
+	 	 --combo-checklists MigsEu \
+  		 --combo-environments HostAssociated \
+  		 --combo-environments HumanGut \
   		 --combo-environments Soil \
+  		 --combo-environments PlantAssociated \
   		 --combo-environments Water \
+  		 --combo-environments HumanAssociated \
+  		 --combo-environments HumanOral \
 		 --classes-ssheet config/build-test-only/schema-for-classes-schemasheet.tsv \
 		 --classes-ssheet config/build-test-only/prefixes-for-classes-schemasheet.tsv \
 		 --classes-ssheet config/classes-schemasheet.tsv \
