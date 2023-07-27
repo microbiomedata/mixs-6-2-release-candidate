@@ -19,7 +19,7 @@ all: squeaky-clean $(SOURCE_SCHEMA_PATH) \
 other-reports/curated-data-coverage-report.yaml other-reports/extracted-data-coverage-report.yaml \
 linkml-validate-exhaustive linkml-validate-extracted \
 text-mining-results/mixs-v6-repaired-term-title-token-matrix.tsv \
-schemasheets-to-usage/$(RC_PREFIX).yaml.exhaustive.usage-report.tsv schemasheets-to-usage/$(RC_PREFIX).yaml.concise.usage-report.tsv \
+schemasheets-usage-output/$(RC_PREFIX).yaml.exhaustive.usage-report.tsv schemasheets-usage-output/$(RC_PREFIX).yaml.concise.usage-report.tsv \
 conflicts-all other-reports/mixs-scns-vs-ncbi-harmonized-attributes.yaml \
 schema-derivatives/$(RC_PREFIX).owl.ttl schema-derivatives/$(RC_PREFIX).schema.json \
 final-deletions generated-schema/final-$(RC_PREFIX).yaml \
@@ -31,13 +31,13 @@ schema-derivatives/$(RC_PREFIX).json
 clean:
 	rm -rf generated-schema/$(RC_PREFIX)-usage-populated-raw.tsv
 	rm -rf generated-schema/meta.xlsx
-	rm -rf schemasheets-to-usage/$(RC_PREFIX)-usage.tsv
+	rm -rf schemasheets-usage-output/$(RC_PREFIX)-usage.tsv
 	rm -rf curated-data/MimsSoil-example.csv
 
 # might not want to automatically clean/delete slow-to generate ncbi-biosample-sql/results files
 squeaky-clean: clean
 	@for dir in conflict-reports converted-data downloads extracted-data generated-schema GSC-excel-harmonized-repaired \
-		mixs-docs-md other-reports schema-derivatives schemasheets-to-usage text-mining-results ; do \
+		mixs-docs-md other-reports schema-derivatives schemasheets-usage-output text-mining-results ; do \
 		rm -rf $$dir/*; \
 		mkdir -p $$dir; \
 		touch $$dir/.gitkeep; \
@@ -79,7 +79,7 @@ $(SOURCE_SCHEMA_PATH).notated.yaml: text-mining-results/mixs-v6-repaired-term-ti
 
 # https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/63
 text-mining-results/mixs-v6-repaired-term-title-token-matrix.tsv: config/curated-slot-notes-by-text-mining.tsv \
-$(SOURCE_SCHEMA_PATH) schemasheets-to-usage/$(RC_PREFIX)-concise-usage.tsv
+$(SOURCE_SCHEMA_PATH) schemasheets-usage-output/$(RC_PREFIX)-concise-usage.tsv
 	$(RUN) add-notes-from-text-mining \
 		--dtm-input-slot title \
 		--input-col-vals-file text-mining-results/mixs-v6-repaired-term-title-token-list.tsv \
@@ -129,7 +129,7 @@ extracted-data/unwrapped.$(RC_PREFIX).extracted-examples.yaml: extracted-data/$(
 
 
 # https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/62
-schemasheets-to-usage/$(RC_PREFIX)-concise-usage.tsv: $(SOURCE_SCHEMA_PATH)
+schemasheets-usage-output/$(RC_PREFIX)-concise-usage.tsv: $(SOURCE_SCHEMA_PATH)
 	$(RUN) linkml2schemasheets-template \
 		--debug-report-path other-reports/populated-generated-debug-report.yaml \
 		--log-file other-reports/populated-with-generated-spec-log.txt \
@@ -139,7 +139,7 @@ schemasheets-to-usage/$(RC_PREFIX)-concise-usage.tsv: $(SOURCE_SCHEMA_PATH)
 	grep -v -e '^>' $@.tmp > $@
 	rm -rf $@.tmp
 
-schemasheets-to-usage/$(RC_PREFIX).yaml.exhaustive.schemasheet.tsv: generated-schema/$(RC_PREFIX).yaml.notated.yaml
+schemasheets-usage-output/$(RC_PREFIX).yaml.exhaustive.schemasheet.tsv: generated-schema/$(RC_PREFIX).yaml.notated.yaml
 	$(RUN) linkml2schemasheets-template \
 		--debug-report-path other-reports/notated-populated-generated-debug-report.yaml \
 		--log-file other-reports/notated-populated-with-generated-spec-log.txt \
@@ -147,10 +147,10 @@ schemasheets-to-usage/$(RC_PREFIX).yaml.exhaustive.schemasheet.tsv: generated-sc
 		--report-style exhaustive \
 		--source-path $<
 
-schemasheets-to-usage/$(RC_PREFIX).yaml.exhaustive.usage-report.tsv: schemasheets-to-usage/$(RC_PREFIX).yaml.exhaustive.schemasheet.tsv
+schemasheets-usage-output/$(RC_PREFIX).yaml.exhaustive.usage-report.tsv: schemasheets-usage-output/$(RC_PREFIX).yaml.exhaustive.schemasheet.tsv
 	grep -v -e '^>' $< > $@
 
-schemasheets-to-usage/$(RC_PREFIX).yaml.concise.schemasheet.tsv: generated-schema/$(RC_PREFIX).yaml.notated.yaml
+schemasheets-usage-output/$(RC_PREFIX).yaml.concise.schemasheet.tsv: generated-schema/$(RC_PREFIX).yaml.notated.yaml
 	$(RUN) linkml2schemasheets-template \
 		--debug-report-path other-reports/notated-populated-generated-debug-report.yaml \
 		--log-file other-reports/notated-populated-with-generated-spec-log.txt \
@@ -158,7 +158,7 @@ schemasheets-to-usage/$(RC_PREFIX).yaml.concise.schemasheet.tsv: generated-schem
 		--report-style concise \
 		--source-path $<
 
-schemasheets-to-usage/$(RC_PREFIX).yaml.concise.usage-report.tsv: schemasheets-to-usage/$(RC_PREFIX).yaml.concise.schemasheet.tsv
+schemasheets-usage-output/$(RC_PREFIX).yaml.concise.usage-report.tsv: schemasheets-usage-output/$(RC_PREFIX).yaml.concise.schemasheet.tsv
 	grep -v -e '^>' $< > $@
 
 
@@ -347,7 +347,7 @@ schema-derivatives/$(RC_PREFIX).json: $(SOURCE_SCHEMA_PATH)
 final-deletions:
 	rm -rf curated-data/unwrapped-curated-data-for-slot-coverage-check.yaml
 	rm -rf extracted-data/unwrapped.$(RC_PREFIX).extracted-examples.yaml
-	rm -rf schemasheets-to-usage/$(RC_PREFIX)-concise-usage.tsv
+	rm -rf schemasheets-usage-output/$(RC_PREFIX)-concise-usage.tsv
 
 generated-schema/final-$(RC_PREFIX).yaml: generated-schema/$(RC_PREFIX).yaml.notated.yaml
 	$(RUN) remove-exhaustive-elements-validation-conveniences \
