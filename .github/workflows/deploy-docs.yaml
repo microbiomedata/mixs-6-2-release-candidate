@@ -39,7 +39,10 @@ jobs:
         run: npm install
 
       - name: Regenerate schema
-        run: make squeaky-clean generated-schema/mixs_6_2_rc.yaml
+        run: |
+          make squeaky-clean generated-schema/mixs_6_2_rc.yaml
+          poetry run gen-linkml --materialize-patterns --materialize-attributes --output schema-derivatives/mixs_6_2_rc.json generated-schema/mixs_6_2_rc.yaml
+          cp schema-derivatives/mixs_6_2_rc.json data_harmonizer/schemas
 
       - name: Remove "all slots" elements from schema
         run: |
@@ -61,7 +64,6 @@ jobs:
       - name: Build DataHarmonizer interface.
         working-directory: data_harmonizer
         run: |
-          make schema-derivatives/mixs_6_2_rc.json
           poetry run regenerate-data-harmonizer-menu --schema-input-file generated-schema/mixs_6_2_rc.yaml --menu-json-out data_harmonizer/menu.json
           npm run build -- --outDir ../dist/_playground --base /${{ github.event.repository.name }}/_playground/
 
