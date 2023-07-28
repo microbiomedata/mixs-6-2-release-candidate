@@ -1,8 +1,8 @@
-<h1>Proposed, Harmonized MIxS 6.2 Proposal</h1>
+<h1>Harmonized MIxS 6.2 Release Candidate</h1>
 
-<h2>And future site of MIxS/EnvO Structured Knowledge Extraction</h2>
+Documentation and data validator: http://w3id.org/mixs-6-2-rc/
+- This validator does not submit data to any repository
 
-<p>Extracting structured knowledge from MIxS and finding EnvO terms that would be reasonable answers to scoped MIxS questions</p>
 <nav>
   <a href="https://github.com/turbomam/mixs-envo-struct-knowl-extraction">Repo</a>
   |
@@ -40,7 +40,14 @@
 
 ## About The Project
 
-[TODO]
+This repository takes the [MIxS 6.1 Excel specification](https://github.com/GenomicsStandardsConsortium/mixs/blob/main/mixs/excel/mixs_v6.xlsx) and converts it to [LinkML](https://linkml.io/) YAML. Term elements are harmonized, 
+previously informal data constraints are formalized, and validation tools are provided. For consideration as MIxS 6.2 at the 
+The [23rd Genomic Standards Consortium Meeting](https://genomicsstandardsconsortium.github.io/GSC23-Bangkok/) in August 2023 in Bangkok, Thailand. Hosted by Siriraj Hospital Mahidol University and the 
+National Center for Genetic Engineering and Biotechnology in Bangkok, Thailand.
+
+<h2>And future site of MIxS/EnvO Structured Knowledge Extraction</h2>
+
+<p>Extracting structured knowledge from MIxS and finding EnvO terms that would be reasonable answers to scoped MIxS questions</p>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -64,11 +71,11 @@ This is a standard Python project that runs on the CLI.
 
 <!-- USAGE EXAMPLES -->
 
-## Usage
+<!-- ## Usage
 
 [TODO] Use this space to show useful examples of how a project can be used.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>  -->
 
 <!-- ROADMAP -->
 
@@ -104,10 +111,10 @@ Distributed under the MIT License. See [LICENSE.md](./LICENSE.md) for more infor
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- CONTACT -->
 
 ## Contact
 
-[TODO]
+Mark Andrew Miller, [National Microbiome Data Colalborative](https://microbiomedata.org/), Lawrence Berkeley National Laboratory
+- MAM@lbl.gov
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
