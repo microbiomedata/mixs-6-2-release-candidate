@@ -3,7 +3,7 @@
 #include local/.env # for PGPASSWORD, BIOSAMPLE_DB_USER etc
 #export $(shell sed 's/=.*//'  local/.env)
 
-.PHONY: all clean squeaky-clean conflicts-cleanup conflicts-all
+.PHONY: all clean squeaky-clean conflicts-cleanup conflicts-all-reports linkml-validate-build-test-only linkml-validate-extracted
 
 RUN = poetry run
 LEGACY_PREFIX=mixs_v6.xlsx
@@ -14,27 +14,39 @@ SOURCE_SCHEMA_PATH = generated-schema/$(RC_PREFIX).yaml
 DOCDIR = mixs-docs-md
 TEMPLATEDIR = mixs-docs-templates
 
-
-all: squeaky-clean $(SOURCE_SCHEMA_PATH) \
-other-reports/curated-data-coverage-report.yaml other-reports/extracted-data-coverage-report.yaml \
-linkml-validate-exhaustive linkml-validate-extracted \
+all: squeaky-clean \
+generated-schema/mixs_6_2_rc.yaml \
+other-reports/build-test-data-coverage-report.yaml linkml-validate-build-test-only \
+other-reports/extracted-data-coverage-report.yaml linkml-validate-extracted \
 text-mining-results/mixs-v6-repaired-term-title-token-matrix.tsv \
-schemasheets-usage-output/$(RC_PREFIX).yaml.exhaustive.usage-report.tsv schemasheets-usage-output/$(RC_PREFIX).yaml.concise.usage-report.tsv \
-conflicts-all other-reports/mixs-scns-vs-ncbi-harmonized-attributes.yaml \
-schema-derivatives/$(RC_PREFIX).owl.ttl schema-derivatives/$(RC_PREFIX).schema.json \
-generated-schema/final-$(RC_PREFIX).yaml \
-validate-multiple-mims-soil converted-data/MimsSoil-example.tsv \
-other-reports/slot-usage-report.tsv other-reports/schema-lint-report.tsv \
-converted-data/data-conversion-report.md \
-validate-linkml-rdf-data-pure-python validate-linkml-rdf-schema-pure-python \
-schema-derivatives/$(RC_PREFIX).json \
-final-deletions
+schema-derivatives/$(RC_PREFIX).json data_harmonizer/menu.json \
+schema-derivatives/$(RC_PREFIX).owl.ttl validate-linkml-rdf-schema-pure-python \
+schema-derivatives/$(RC_PREFIX).schema.json \
+validate-multiple-mims-soil converted-data/MimsSoil-example.tsv converted-data/data-conversion-report.md validate-linkml-rdf-data-pure-python \
+conflicts-all-reports \
+other-reports/mixs-scns-vs-ncbi-harmonized-attributes.yaml \
+other-reports/slot-usage-report.tsv \
+other-reports/schema-lint-report.tsv \
+schemasheets-usage-output/$(RC_PREFIX).yaml.concise.usage-report.tsv \
+schemasheets-usage-output/$(RC_PREFIX).yaml.exhaustive.usage-report.tsv \
+generated-schema/final-mixs_6_2_rc.yaml \
+post-clean
 
-clean:
-	rm -rf schemasheets-usage-output/$(RC_PREFIX)-usage.tsv
+
+pre-clean:
+	date > other-reports/make-all-started.txt
+	rm -rf curated-data/unwrapped-curated-data-for-slot-coverage-check.yaml
+	rm -rf extracted-data/unwrapped.mixs_6_2_rc.extracted-examples.yaml
+	rm -rf schemasheets-usage-output/mixs_6_2_rc-concise-usage-for-text-mining.tsv
+
+post-clean:
+	date > other-reports/make-all-finished.txt
+	rm -rf curated-data/unwrapped-curated-data-for-slot-coverage-check.yaml
+	rm -rf extracted-data/unwrapped.mixs_6_2_rc.extracted-examples.yaml
+	rm -rf schemasheets-usage-output/mixs_6_2_rc-concise-usage-for-text-mining.tsv
 
 # might not want to automatically clean/delete slow-to generate ncbi-biosample-sql/results files
-squeaky-clean: clean
+squeaky-clean: pre-clean
 	@for dir in conflict-reports converted-data downloads extracted-data generated-schema GSC-excel-harmonized-repaired \
 		mixs-docs-md other-reports schema-derivatives schemasheets-usage-output text-mining-results ; do \
 		rm -rf $$dir/*; \
@@ -74,21 +86,21 @@ generated-schema/mixs_6_2_rc.yaml:
 		 --unmapped-report other-reports/un-handled-stringsers-expvals.tsv \
 		 --schema-file-out $@
 
-$(SOURCE_SCHEMA_PATH).notated.yaml: text-mining-results/mixs-v6-repaired-term-title-token-matrix.tsv
+generated-schema/mixs_6_2_rc.yaml.notated.yaml: text-mining-results/mixs-v6-repaired-term-title-token-matrix.tsv
 
 # https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/63
 text-mining-results/mixs-v6-repaired-term-title-token-matrix.tsv: config/curated-slot-notes-by-text-mining.tsv \
-$(SOURCE_SCHEMA_PATH) schemasheets-usage-output/$(RC_PREFIX)-concise-usage.tsv
+$(SOURCE_SCHEMA_PATH) schemasheets-usage-output/$(RC_PREFIX)-concise-usage-for-text-mining.tsv
 	$(RUN) add-notes-from-text-mining \
 		--dtm-input-slot title \
 		--input-col-vals-file text-mining-results/mixs-v6-repaired-term-title-token-list.tsv \
 		--input-dtm-notes-mapping $(word 1,$^) \
 		--input-schema-file $(word 2,$^) \
 		--input-usage-report $(word 3,$^) \
-		--output-schema-file generated-schema/$(RC_PREFIX).yaml.notated.yaml \
+		--output-schema-file generated-schema/mixs_6_2_rc.yaml.notated.yaml \
 		--dtm-output $@
 
-other-reports/curated-data-coverage-report.yaml: curated-data/unwrapped-curated-data-for-slot-coverage-check.yaml $(SOURCE_SCHEMA_PATH)
+other-reports/build-test-data-coverage-report.yaml: curated-data/unwrapped-curated-data-for-slot-coverage-check.yaml $(SOURCE_SCHEMA_PATH)
 	poetry run exhaustion-check \
 		--class-name "AllSlotsTestClass" \
 		--instance-yaml-file $(word 1,$^) \
@@ -102,7 +114,7 @@ other-reports/extracted-data-coverage-report.yaml: extracted-data/unwrapped.$(RC
 		--output-yaml-file $@ \
 		--schema-path $(word 2,$^)
 
-linkml-validate-exhaustive: $(SOURCE_SCHEMA_PATH) curated-data/build-test-only/AllSlotsTestClassCollection-wrapped-example-data.yaml
+linkml-validate-build-test-only: $(SOURCE_SCHEMA_PATH) curated-data/build-test-only/AllSlotsTestClassCollection-wrapped-example-data.yaml
 	$(RUN) linkml-validate --target-class AllSlotsTestClassCollection --schema $^
 
 linkml-validate-extracted: $(SOURCE_SCHEMA_PATH) extracted-data/$(RC_PREFIX).extracted-examples.yaml
@@ -128,9 +140,9 @@ extracted-data/unwrapped.$(RC_PREFIX).extracted-examples.yaml: extracted-data/$(
 
 
 # https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/62
-schemasheets-usage-output/$(RC_PREFIX)-concise-usage.tsv: $(SOURCE_SCHEMA_PATH)
+schemasheets-usage-output/$(RC_PREFIX)-concise-usage-for-text-mining.tsv: $(SOURCE_SCHEMA_PATH)
 	$(RUN) linkml2schemasheets-template \
-		--debug-report-path other-reports/populated-generated-debug-report.yaml \
+		--debug-report-path other-reports/notated-populated-generated-debug-report.yaml \
 		--log-file other-reports/populated-with-generated-spec-log.txt \
 		--output-path $@.tmp \
 		--report-style concise \
@@ -138,10 +150,10 @@ schemasheets-usage-output/$(RC_PREFIX)-concise-usage.tsv: $(SOURCE_SCHEMA_PATH)
 	grep -v -e '^>' $@.tmp > $@
 	rm -rf $@.tmp
 
-schemasheets-usage-output/$(RC_PREFIX).yaml.exhaustive.schemasheet.tsv: generated-schema/$(RC_PREFIX).yaml.notated.yaml
+schemasheets-usage-output/$(RC_PREFIX).yaml.exhaustive.schemasheet.tsv: generated-schema/mixs_6_2_rc.yaml.notated.yaml
 	$(RUN) linkml2schemasheets-template \
 		--debug-report-path other-reports/notated-populated-generated-debug-report.yaml \
-		--log-file other-reports/notated-populated-with-generated-spec-log.txt \
+		--log-file other-reports/populated-with-generated-spec-log.txt \
 		--output-path $@ \
 		--report-style exhaustive \
 		--source-path $<
@@ -149,10 +161,10 @@ schemasheets-usage-output/$(RC_PREFIX).yaml.exhaustive.schemasheet.tsv: generate
 schemasheets-usage-output/$(RC_PREFIX).yaml.exhaustive.usage-report.tsv: schemasheets-usage-output/$(RC_PREFIX).yaml.exhaustive.schemasheet.tsv
 	grep -v -e '^>' $< > $@
 
-schemasheets-usage-output/$(RC_PREFIX).yaml.concise.schemasheet.tsv: generated-schema/$(RC_PREFIX).yaml.notated.yaml
+schemasheets-usage-output/$(RC_PREFIX).yaml.concise.schemasheet.tsv: generated-schema/mixs_6_2_rc.yaml.notated.yaml
 	$(RUN) linkml2schemasheets-template \
 		--debug-report-path other-reports/notated-populated-generated-debug-report.yaml \
-		--log-file other-reports/notated-populated-with-generated-spec-log.txt \
+		--log-file other-reports/populated-with-generated-spec-log.txt \
 		--output-path $@ \
 		--report-style concise \
 		--source-path $<
@@ -167,7 +179,7 @@ conflicts-cleanup:
 	rm -rf conflict-reports/$(RC_PREFIX)*conflicts*tsv
 
 # generalize this
-conflicts-all: conflicts-cleanup \
+conflicts-all-reports: conflicts-cleanup \
 conflict-reports/$(RC_PREFIX).ID.SCN.conflicts.pre.tsv \
 conflict-reports/$(RC_PREFIX).ID.SCN.conflicts.post.tsv \
 conflict-reports/$(RC_PREFIX).ID.Item.conflicts.pre.tsv \
@@ -342,12 +354,7 @@ schema-derivatives/$(RC_PREFIX).json: $(SOURCE_SCHEMA_PATH)
 		--output $@ $<
 	cp $@ data_harmonizer/schemas
 
-final-deletions:
-	rm -rf curated-data/unwrapped-curated-data-for-slot-coverage-check.yaml
-	rm -rf extracted-data/unwrapped.$(RC_PREFIX).extracted-examples.yaml
-	rm -rf schemasheets-usage-output/$(RC_PREFIX)-concise-usage.tsv
-
-generated-schema/final-$(RC_PREFIX).yaml: generated-schema/$(RC_PREFIX).yaml.notated.yaml
+generated-schema/final-mixs_6_2_rc.yaml: generated-schema/mixs_6_2_rc.yaml.notated.yaml
 	$(RUN) remove-elements-by-deprecation-val \
 		--input-schema $< \
 		--deprecation-val "for build-time testing of all slots" \
@@ -431,6 +438,11 @@ validate-linkml-rdf-data-pure-python: converted-data/MixsCompliantData-MimsSoil-
 validate-linkml-rdf-schema-pure-python: schema-derivatives/mixs_6_2_rc.owl.ttl
 	$(RUN) rdflib-validation \
 		--rdf-file  $<
+		
+data_harmonizer/menu.json: $(SOURCE_SCHEMA_PATH)
+	$(RUN) regenerate-data-harmonizer-menu \
+		--schema-input-file $< \
+		--menu-json-out $@
 
 ### targets below are not included in make all
 
@@ -447,3 +459,5 @@ validate_rdf_data: converted-data/MixsCompliantData-MimsSoil-example.ttl
 
 validate_rdf_schema: schema-derivatives/mixs_6_2_rc.owl.ttl
 	$(RIOT_PATH) --validate $<
+
+

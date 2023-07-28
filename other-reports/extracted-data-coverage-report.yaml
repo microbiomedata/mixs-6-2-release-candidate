@@ -57,6 +57,7 @@ optional_not_present:
 - height_carper_fiber
 - horizon_meth
 - host_age
+- host_associated_data
 - host_body_habitat
 - host_body_site
 - host_body_temp
@@ -84,6 +85,9 @@ optional_not_present:
 - host_symbiont
 - host_taxid
 - host_tot_mass
+- human_associated_data
+- human_gut_data
+- human_oral_data
 - humidity
 - indust_eff_percent
 - inorg_particles
@@ -100,6 +104,7 @@ optional_not_present:
 - max_occup
 - methane
 - microbial_biomass
+- migs_eu_data
 - migs_eu_host_associated_data
 - migs_eu_human_associated_data
 - migs_eu_human_gut_data
@@ -107,6 +112,7 @@ optional_not_present:
 - migs_eu_plant_associated_data
 - migs_eu_soil_data
 - migs_eu_water_data
+- mimarks_s_data
 - mimarks_s_host_associated_data
 - mimarks_s_human_associated_data
 - mimarks_s_human_gut_data
@@ -114,6 +120,7 @@ optional_not_present:
 - mimarks_s_plant_associated_data
 - mimarks_s_soil_data
 - mimarks_s_water_data
+- mims_data
 - mims_host_associated_data
 - mims_human_associated_data
 - mims_human_gut_data
@@ -133,6 +140,7 @@ optional_not_present:
 - pcr_primers
 - permeability
 - physical_sex
+- plant_associated_data
 - plant_growth_med
 - pool_dna_extracts
 - porosity
@@ -172,6 +180,7 @@ optional_not_present:
 - slope_aspect
 - slope_gradient
 - sludge_retent_time
+- soil_data
 - soluble_inorg_mat
 - soluble_org_mat
 - sulfate_fw
@@ -192,6 +201,7 @@ optional_not_present:
 - wastewater_type
 - water_cont_soil_meth
 - water_content
+- water_data
 - water_feat_size
 - wind_direction
 - wind_speed

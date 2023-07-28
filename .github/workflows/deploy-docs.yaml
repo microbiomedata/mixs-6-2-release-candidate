@@ -39,13 +39,13 @@ jobs:
         run: npm install
 
       - name: Regenerate schema
-        run: make squeaky-clean generated-schema/mixs_6_2_rc.yaml schema-derivatives/mixs_6_2_rc.json
+        run: make squeaky-clean generated-schema/mixs_6_2_rc.yaml
 
-      - name: Remove "exhaustive" elements from schema
+      - name: Remove "all slots" elements from schema
         run: |
-          poetry run remove-elements-by-deprecation-val --input-schema generated-schema/mixs_6_2_rc.yaml --deprecation-val "for build-time testing of all slots" --output-schema temp_schema
+          poetry run remove-elements-by-deprecation-val --input-schema generated-schema/mixs_6_2_rc.yaml --deprecation-val "for build-time testing of all slots" --output-schema temp-schema
           rm -rf generated-schema/mixs_6_2_rc.yaml
-          mv temp_schema generated-schema/mixs_6_2_rc.yaml
+          mv temp-schema generated-schema/mixs_6_2_rc.yaml
 
       - name: Build documentation.
         run: |
@@ -61,6 +61,8 @@ jobs:
       - name: Build DataHarmonizer interface.
         working-directory: data_harmonizer
         run: |
+          make schema-derivatives/mixs_6_2_rc.json
+          poetry run regenerate-data-harmonizer-menu --schema-input-file generated-schema/mixs_6_2_rc.yaml --menu-json-out data_harmonizer/menu.json
           npm run build -- --outDir ../dist/_playground --base /${{ github.event.repository.name }}/_playground/
 
       - name: Upload artifact

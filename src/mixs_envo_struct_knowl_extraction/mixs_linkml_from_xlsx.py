@@ -98,13 +98,45 @@ def instantiate_combos(global_target_schema, root_class_name, combo_checklists,
 
     # todo validation (and other steps) are slow with all of the combination classes
     for checklist in selected_checklists:
+        uncombined_checklist_collection_slot_name = f"{pascal_case_to_lower_snake_case(checklist)}_data"
+        if uncombined_checklist_collection_slot_name not in list(global_target_schema.slots.keys()):
+            new_slot = SlotDefinition(
+                description=f"Data that complies with checklist {checklist}",
+                domain=root_class_name,
+                inlined=True,
+                inlined_as_list=True,
+                multivalued=True,
+                name=uncombined_checklist_collection_slot_name,
+                range=checklist,
+                title=f"{checklist} data",
+                slot_uri=f"MIXS:{uncombined_checklist_collection_slot_name}",
+            )
+            global_target_schema.slots[uncombined_checklist_collection_slot_name] = new_slot
+            global_target_schema.classes[root_class_name].slots.append(uncombined_checklist_collection_slot_name)
         for ep in selected_eps:
+            uncombined_ep_collection_slot_name = f"{pascal_case_to_lower_snake_case(ep)}_data"
+
+            if uncombined_ep_collection_slot_name not in list(global_target_schema.slots.keys()):
+                new_slot = SlotDefinition(
+                    description=f"Data that complies with environmental package {ep}",
+                    domain=root_class_name,
+                    inlined=True,
+                    inlined_as_list=True,
+                    multivalued=True,
+                    name=uncombined_ep_collection_slot_name,
+                    range=ep,
+                    title=f"{ep} data",
+                    slot_uri=f"MIXS:{uncombined_ep_collection_slot_name}",
+                )
+                global_target_schema.slots[uncombined_ep_collection_slot_name] = new_slot
+                global_target_schema.classes[root_class_name].slots.append(uncombined_ep_collection_slot_name)
+
             checklist_id = global_target_schema.classes[checklist].class_uri
             checklist_id_after_colon = checklist_id.split(":")[1]
             ep_id = global_target_schema.classes[ep].class_uri
             ep_id_after_colon = ep_id.split(":")[1]
 
-            logger.info(f"Combining {checklist} with {ep} as MIXS:{checklist_id_after_colon}_{ep_id_after_colon}")
+            logger.debug(f"Combining {checklist} with {ep} as MIXS:{checklist_id_after_colon}_{ep_id_after_colon}")
 
             combo_name = f"{checklist}{ep}"
             combo_title = f"{checklist} combined with {ep}"
@@ -921,7 +953,6 @@ def create_schema(non_ascii_replacement, debug, gsc_excel_input, textual_key, sc
     checklists_from_schemasheet = []
     envs_from_schemasheet = []
 
-    # set the root_class_name and pass to instantiate_combos and process_sheet
     root_class_name = ""
     for class_name, class_def in mixs_classes_schema.classes.items():
         global_target_schema.classes[class_name] = class_def
