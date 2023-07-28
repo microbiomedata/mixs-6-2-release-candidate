@@ -132,3 +132,4 @@ mixs-scns-vs-ncbi-harmonized-attributes = "mixs_envo_struct_knowl_extraction.mix
 remove-elements-by-deprecation-val = "mixs_envo_struct_knowl_extraction.remove_elements_by_deprecation_val:main"
 usage-detector = "mixs_envo_struct_knowl_extraction.usage_detector:main"
 rdflib-validation = "mixs_envo_struct_knowl_extraction.rdflib_validate:main"
+regenerate-data-harmonizer-menu = "mixs_envo_struct_knowl_extraction.regenerate_data_harmonizer_menu:cli"

@@ -1,19 +1,159 @@
 {
   "mixs_6_2_rc": {
-    "Mims": {
-      "name": "Mims",
-      "status": "published",
-      "display": true
+    "MimarksS": {
+      "display": true,
+      "name": "MimarksS",
+      "status": "published"
+    },
+    "HostAssociated": {
+      "display": true,
+      "name": "HostAssociated",
+      "status": "published"
+    },
+    "MimarksSHostAssociated": {
+      "display": true,
+      "name": "MimarksSHostAssociated",
+      "status": "published"
+    },
+    "HumanGut": {
+      "display": true,
+      "name": "HumanGut",
+      "status": "published"
+    },
+    "MimarksSHumanGut": {
+      "display": true,
+      "name": "MimarksSHumanGut",
+      "status": "published"
     },
     "Soil": {
+      "display": true,
       "name": "Soil",
-      "status": "published",
-      "display": true
+      "status": "published"
+    },
+    "MimarksSSoil": {
+      "display": true,
+      "name": "MimarksSSoil",
+      "status": "published"
+    },
+    "PlantAssociated": {
+      "display": true,
+      "name": "PlantAssociated",
+      "status": "published"
+    },
+    "MimarksSPlantAssociated": {
+      "display": true,
+      "name": "MimarksSPlantAssociated",
+      "status": "published"
+    },
+    "Water": {
+      "display": true,
+      "name": "Water",
+      "status": "published"
+    },
+    "MimarksSWater": {
+      "display": true,
+      "name": "MimarksSWater",
+      "status": "published"
+    },
+    "HumanAssociated": {
+      "display": true,
+      "name": "HumanAssociated",
+      "status": "published"
+    },
+    "MimarksSHumanAssociated": {
+      "display": true,
+      "name": "MimarksSHumanAssociated",
+      "status": "published"
+    },
+    "HumanOral": {
+      "display": true,
+      "name": "HumanOral",
+      "status": "published"
+    },
+    "MimarksSHumanOral": {
+      "display": true,
+      "name": "MimarksSHumanOral",
+      "status": "published"
+    },
+    "Mims": {
+      "display": true,
+      "name": "Mims",
+      "status": "published"
+    },
+    "MimsHostAssociated": {
+      "display": true,
+      "name": "MimsHostAssociated",
+      "status": "published"
+    },
+    "MimsHumanGut": {
+      "display": true,
+      "name": "MimsHumanGut",
+      "status": "published"
     },
     "MimsSoil": {
+      "display": true,
       "name": "MimsSoil",
-      "status": "published",
-      "display": true
+      "status": "published"
+    },
+    "MimsPlantAssociated": {
+      "display": true,
+      "name": "MimsPlantAssociated",
+      "status": "published"
+    },
+    "MimsWater": {
+      "display": true,
+      "name": "MimsWater",
+      "status": "published"
+    },
+    "MimsHumanAssociated": {
+      "display": true,
+      "name": "MimsHumanAssociated",
+      "status": "published"
+    },
+    "MimsHumanOral": {
+      "display": true,
+      "name": "MimsHumanOral",
+      "status": "published"
+    },
+    "MigsEu": {
+      "display": true,
+      "name": "MigsEu",
+      "status": "published"
+    },
+    "MigsEuHostAssociated": {
+      "display": true,
+      "name": "MigsEuHostAssociated",
+      "status": "published"
+    },
+    "MigsEuHumanGut": {
+      "display": true,
+      "name": "MigsEuHumanGut",
+      "status": "published"
+    },
+    "MigsEuSoil": {
+      "display": true,
+      "name": "MigsEuSoil",
+      "status": "published"
+    },
+    "MigsEuPlantAssociated": {
+      "display": true,
+      "name": "MigsEuPlantAssociated",
+      "status": "published"
+    },
+    "MigsEuWater": {
+      "display": true,
+      "name": "MigsEuWater",
+      "status": "published"
+    },
+    "MigsEuHumanAssociated": {
+      "display": true,
+      "name": "MigsEuHumanAssociated",
+      "status": "published"
+    },
+    "MigsEuHumanOral": {
+      "display": true,
+      "name": "MigsEuHumanOral",
+      "status": "published"
     }
   }
 }
