@@ -55,15 +55,23 @@ National Center for Genetic Engineering and Biotechnology in Bangkok, Thailand.
 
 ## Getting Started
 
-This is a standard Python project that runs on the CLI.
+This is a standard Python project that runs on the CLI. No installation is required for 
+- [viewing the schema file](https://github.com/microbiomedata/mixs-6-2-release-candidate/blob/main/generated-schema/mixs_6_2_rc.yaml)
+- [accessing the schema in other formats](https://github.com/microbiomedata/mixs-6-2-release-candidate/tree/main/schema-derivatives)
+- accessing examples of [valid](https://github.com/microbiomedata/mixs-6-2-release-candidate/tree/main/curated-data/valid) and [invalid](https://github.com/microbiomedata/mixs-6-2-release-candidate/tree/main/curated-data/invalid) [data in various formats](https://github.com/microbiomedata/mixs-6-2-release-candidate/tree/main/converted-data)
+- [accessing reports about modifications applied](https://github.com/microbiomedata/mixs-6-2-release-candidate/tree/main/conflict-reports) 
+- [visiting the documentation and ephemeral validator](http://w3id.org/mixs-6-2-rc/)
 
-### Prerequisites
+### Prerequisites for Rebuilding Locally
 
-- python >= 3.10 (it will probably work with lower versions, but I haven't tested it)
+- software build tools like [GNU Make](https://www.gnu.org/software/make/) that are often present on many Linux and MacOS systems
+  - or Windows systems using interoperability layers like [WSL](https://learn.microsoft.com/en-us/windows/wsl/install)
+- python >= 3.9
 - poetry >= 1.2
 
-### Installation
+### First Time Setup
 
+1. [Install Poetry](https://python-poetry.org/docs/#installation) if necessary
 1. Install dependencies `> poetry install`
 1. Run with `> make all`
 
@@ -114,7 +122,7 @@ Distributed under the MIT License. See [LICENSE.md](./LICENSE.md) for more infor
 
 ## Contact
 
-Mark Andrew Miller, [National Microbiome Data Colalborative](https://microbiomedata.org/), Lawrence Berkeley National Laboratory
+Mark Andrew Miller, [National Microbiome Data Collaborative](https://microbiomedata.org/), Lawrence Berkeley National Laboratory
 - MAM@lbl.gov
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
