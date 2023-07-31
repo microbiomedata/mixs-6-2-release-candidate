@@ -13,30 +13,29 @@ MimarksS	mimarks_s|MIMARKS-SP|MIMARKS-survey	for marker gene sequences obtained 
 Mims	mims			Metagenome or Environmental	Checklist	true		MIXS:0010007	MIMS	
 Misag	misag			Minimum Information About a Single Amplified Genome	Checklist	true		MIXS:0010010	Minimum Information About a Single Amplified Genome	
 Miuvig	miuvig			Minimum Information About an Uncultivated Virus Genome	Checklist	true		MIXS:0010012	Minimum Information About an Uncultivated Virus Genome	
-Agriculture					EnvironmentalPackage			MIXS:0016018	agriculture	
-Air					EnvironmentalPackage			MIXS:0016000	air	
-BuiltEnvironment					EnvironmentalPackage			MIXS:0016001	built environment	
-FoodAnimalAndAnimalFeed					EnvironmentalPackage			MIXS:0016019	food-animal and animal feed	
-FoodFarmEnvironment					EnvironmentalPackage			MIXS:0016020	food-farm environment	
-FoodFoodProductionFacility					EnvironmentalPackage			MIXS:0016021	food-food production facility	
-FoodHumanFoods					EnvironmentalPackage			MIXS:0016022	food-human foods	
-HostAssociated					EnvironmentalPackage			MIXS:0016002	host-associated	
-HumanAssociated					EnvironmentalPackage			MIXS:0016003	human-associated	
-HumanGut					EnvironmentalPackage			MIXS:0016004	human-gut	
-HumanOral					EnvironmentalPackage			MIXS:0016005	human-oral	
-HumanSkin					EnvironmentalPackage			MIXS:0016006	human-skin	
-HumanVaginal					EnvironmentalPackage			MIXS:0016007	human-vaginal	
-HydrocarbonResourcesCores					EnvironmentalPackage			MIXS:0016015	hydrocarbon resources-cores	
-HydrocarbonResourcesFluidsSwabs					EnvironmentalPackage			MIXS:0016016	hydrocarbon resources-fluids/swabs	
-MicrobialMatBiofilm					EnvironmentalPackage			MIXS:0016008	microbial mat/biofilm	
-MiscellaneousNaturalOrArtificialEnvironment					EnvironmentalPackage			MIXS:0016009	miscellaneous natural or artificial environment	
-PlantAssociated					EnvironmentalPackage			MIXS:0016010	plant-associated	
-Sediment					EnvironmentalPackage			MIXS:0016011	sediment	
-Soil					EnvironmentalPackage			MIXS:0016012	soil	
-SymbiontAssociated					EnvironmentalPackage			MIXS:0016023	symbiont-associated	
-WastewaterSludge					EnvironmentalPackage			MIXS:0016013	wastewater/sludge	
-Water					EnvironmentalPackage			MIXS:0016014	water	
-MimsSoil					Soil		Mims		Mims combined with Soil	
+Agriculture				agriculture package	EnvironmentalPackage			MIXS:0016018	agriculture	
+Air				air package	EnvironmentalPackage			MIXS:0016000	air	
+BuiltEnvironment				built environment package	EnvironmentalPackage			MIXS:0016001	built environment	
+FoodAnimalAndAnimalFeed				food-animal and animal feed package	EnvironmentalPackage			MIXS:0016019	food-animal and animal feed	
+FoodFarmEnvironment				food-farm environment package	EnvironmentalPackage			MIXS:0016020	food-farm environment	
+FoodFoodProductionFacility				food-food production facility package	EnvironmentalPackage			MIXS:0016021	food-food production facility	
+FoodHumanFoods				food-human foods package	EnvironmentalPackage			MIXS:0016022	food-human foods	
+HostAssociated				host-associated package	EnvironmentalPackage			MIXS:0016002	host-associated	
+HumanAssociated				human-associated package	EnvironmentalPackage			MIXS:0016003	human-associated	
+HumanGut				human-gut package	EnvironmentalPackage			MIXS:0016004	human-gut	
+HumanOral				human-oral package	EnvironmentalPackage			MIXS:0016005	human-oral	
+HumanSkin				human-skin package	EnvironmentalPackage			MIXS:0016006	human-skin	
+HumanVaginal				human-vaginal package	EnvironmentalPackage			MIXS:0016007	human-vaginal	
+HydrocarbonResourcesCores				hydrocarbon resources-cores package	EnvironmentalPackage			MIXS:0016015	hydrocarbon resources-cores	
+HydrocarbonResourcesFluidsSwabs				hydrocarbon resources-fluids/swabs package	EnvironmentalPackage			MIXS:0016016	hydrocarbon resources-fluids/swabs	
+MicrobialMatBiofilm				microbial mat/biofilm package	EnvironmentalPackage			MIXS:0016008	microbial mat/biofilm	
+MiscellaneousNaturalOrArtificialEnvironment				miscellaneous natural or artificial environment package	EnvironmentalPackage			MIXS:0016009	miscellaneous natural or artificial environment	
+PlantAssociated				plant-associated package	EnvironmentalPackage			MIXS:0016010	plant-associated	
+Sediment				sediment package	EnvironmentalPackage			MIXS:0016011	sediment	
+Soil				soil package	EnvironmentalPackage			MIXS:0016012	soil	
+SymbiontAssociated				symbiont-associated package	EnvironmentalPackage			MIXS:0016023	symbiont-associated	
+WastewaterSludge				wastewater/sludge package	EnvironmentalPackage			MIXS:0016013	wastewater/sludge	
+Water				water package	EnvironmentalPackage			MIXS:0016014	water	
 Checklist				A class with slots assigned for the required, recommended, and optional metadata fields for a specific type sequence, such as genomes, metagenomes, or marker genes. The migs class, which models genomic sequences, is subdivided into checklists for specific taxa: bacteria, eukaryotes, organelles, plasmids and viruses.						
 EnvironmentalPackage				A supplement to MIxS Checklists, in the sense of providing additional terms to describe the specific environment from which a sample was collected.						
 AllSlotsTestClass			for build-time testing of all slots							

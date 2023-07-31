@@ -42,7 +42,7 @@
         },
         "Agriculture": {
             "additionalProperties": false,
-            "description": "",
+            "description": "agriculture package",
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
@@ -95,7 +95,7 @@
                     "type": "string"
                 },
                 "assembly_qual": {
-                    "description": "The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling  90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated",
+                    "description": "The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling   90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated",
                     "type": "string"
                 },
                 "assembly_software": {
@@ -291,7 +291,7 @@
                     "type": "array"
                 },
                 "horizon": {
-                    "description": "soil horizon is defined as the layer parallel to the soil surface whose physical, chemical and biological characteristics differ from the layers above and beneath. Horizon can be described both in absolute terms (particle size distribution for texture, for instance) and in terms relative to the surrounding material, i.e. coarser or sandier than the horizons above and below",
+                    "description": "soil horizon is defined as the layer parallel to the soil surface whose physical, chemical and biological characteristics differ from the layers above and beneath. Horizon can be described both in absolute terms (particle size distribution for texture, for instance) and in terms relative to the surrounding material, i.e.  coarser  or  sandier  than the horizons above and below",
                     "type": "string"
                 },
                 "horizon_meth": {
@@ -909,7 +909,7 @@
         },
         "Air": {
             "additionalProperties": false,
-            "description": "",
+            "description": "air package",
             "properties": {
                 "air_PM_concen": {
                     "description": "Concentration of substances that remain suspended in the air, and comprise mixtures of organic and inorganic substances (PM10 and PM2.5); can report multiple PM's by entering numeric values preceded by name of PM",
@@ -1309,7 +1309,7 @@
                     "type": "array"
                 },
                 "api": {
-                    "description": "API gravity is a measure of how heavy or light a petroleum liquid is compared to water (source: https://en.wikipedia.org/wiki/API_gravity) (e.g. 31.1 API)",
+                    "description": "API gravity is a measure of how heavy or light a petroleum liquid is compared to water (source: https://en.wikipedia.org/wiki/API_gravity) (e.g. 31.1   API)",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
                     "type": "string"
                 },
@@ -1322,12 +1322,12 @@
                     "type": "string"
                 },
                 "aromatics_pc": {
-                    "description": "Saturate, Aromatic, Resin and Asphaltene(SARA) is an analysis method that dividescrude oilcomponents according to their polarizability and polarity. There are three main methods to obtain SARA results. The most popular one is known as the Iatroscan TLC-FID and is referred to as IP-143 (source: https://en.wikipedia.org/wiki/Saturate,_aromatic,_resin_and_asphaltene)",
+                    "description": "Saturate, Aromatic, Resin and Asphaltene  (SARA) is an analysis method that divides  crude oil  components according to their polarizability and polarity. There are three main methods to obtain SARA results. The most popular one is known as the Iatroscan TLC-FID and is referred to as IP-143 (source: https://en.wikipedia.org/wiki/Saturate,_aromatic,_resin_and_asphaltene)",
                     "pattern": "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+);[-+]?[0-9]*\\.?[0-9]+ ([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)",
                     "type": "string"
                 },
                 "asphaltenes_pc": {
-                    "description": "Saturate, Aromatic, Resin and Asphaltene(SARA) is an analysis method that dividescrude oilcomponents according to their polarizability and polarity. There are three main methods to obtain SARA results. The most popular one is known as the Iatroscan TLC-FID and is referred to as IP-143 (source: https://en.wikipedia.org/wiki/Saturate,_aromatic,_resin_and_asphaltene)",
+                    "description": "Saturate, Aromatic, Resin and Asphaltene  (SARA) is an analysis method that divides  crude oil  components according to their polarizability and polarity. There are three main methods to obtain SARA results. The most popular one is known as the Iatroscan TLC-FID and is referred to as IP-143 (source: https://en.wikipedia.org/wiki/Saturate,_aromatic,_resin_and_asphaltene)",
                     "pattern": "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+);[-+]?[0-9]*\\.?[0-9]+ ([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)",
                     "type": "string"
                 },
@@ -1337,7 +1337,7 @@
                     "type": "string"
                 },
                 "assembly_qual": {
-                    "description": "The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling  90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated",
+                    "description": "The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling   90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated",
                     "type": "string"
                 },
                 "assembly_software": {
@@ -1954,12 +1954,12 @@
                     "type": "string"
                 },
                 "env_broad_scale": {
-                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvOs biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvO s biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "env_local_scale": {
-                    "description": "Report the entity or entities which are in the sample or specimens local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the entity or entities which are in the sample or specimen s local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "type": "string"
                 },
                 "env_medium": {
@@ -2361,7 +2361,7 @@
                 },
                 "food_trace_list": {
                     "$ref": "#/$defs/FOODTRACELISTENUM",
-                    "description": "The FDA is proposing to establish additional traceability recordkeeping requirements (beyond what is already required in existing regulations) for persons who manufacture, process, pack, or hold foods the Agency has designated for inclusion on the Food Traceability List. The Food Traceability List (FTL) identifies the foods for which the additional traceability records described in the proposed rule would be required. The term Food Traceability List (FTL) refers not only to the foods specifically listed (https://www.fda.gov/media/142303/download), but also to any foods that contain listed foods as ingredients"
+                    "description": "The FDA is proposing to establish additional traceability recordkeeping requirements (beyond what is already required in existing regulations) for persons who manufacture, process, pack, or hold foods the Agency has designated for inclusion on the Food Traceability List. The Food Traceability List (FTL) identifies the foods for which the additional traceability records described in the proposed rule would be required. The term  Food Traceability List  (FTL) refers not only to the foods specifically listed (https://www.fda.gov/media/142303/download), but also to any foods that contain listed foods as ingredients"
                 },
                 "food_trav_mode": {
                     "items": {
@@ -2561,7 +2561,7 @@
                     "type": "array"
                 },
                 "horizon": {
-                    "description": "soil horizon is defined as the layer parallel to the soil surface whose physical, chemical and biological characteristics differ from the layers above and beneath. Horizon can be described both in absolute terms (particle size distribution for texture, for instance) and in terms relative to the surrounding material, i.e. coarser or sandier than the horizons above and below",
+                    "description": "soil horizon is defined as the layer parallel to the soil surface whose physical, chemical and biological characteristics differ from the layers above and beneath. Horizon can be described both in absolute terms (particle size distribution for texture, for instance) and in terms relative to the surrounding material, i.e.  coarser  or  sandier  than the horizons above and below",
                     "type": "string"
                 },
                 "horizon_meth": {
@@ -3441,7 +3441,7 @@
                     "type": "array"
                 },
                 "otu_class_appr": {
-                    "description": "Cutoffs and approach used when clustering species-level OTUs. Note that results from standard 95% ANI / 85% AF clustering should be provided alongside OTUS defined from another set of thresholds, even if the latter are the ones primarily used during the analysis",
+                    "description": "Cutoffs and approach used when clustering  species-level  OTUs. Note that results from standard 95% ANI / 85% AF clustering should be provided alongside OTUS defined from another set of thresholds, even if the latter are the ones primarily used during the analysis",
                     "type": "string"
                 },
                 "otu_db": {
@@ -3657,7 +3657,7 @@
                     "type": "string"
                 },
                 "pour_point": {
-                    "description": "Temperature at which a liquid becomes semi solid and loses its flow characteristics. In crude oil a highpour pointis generally associated with a high paraffin content, typically found in crude deriving from a larger proportion of plant material. (soure: https://en.wikipedia.org/wiki/pour_point)",
+                    "description": "Temperature at which a liquid becomes semi solid and loses its flow characteristics. In crude oil a high  pour point  is generally associated with a high paraffin content, typically found in crude deriving from a larger proportion of plant material. (soure: https://en.wikipedia.org/wiki/pour_point)",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
                     "type": "string"
                 },
@@ -3814,7 +3814,7 @@
                     "type": "string"
                 },
                 "resins_pc": {
-                    "description": "Saturate, Aromatic, Resin and Asphaltene(SARA) is an analysis method that dividescrude oilcomponents according to their polarizability and polarity. There are three main methods to obtain SARA results. The most popular one is known as the Iatroscan TLC-FID and is referred to as IP-143 (source: https://en.wikipedia.org/wiki/Saturate,_aromatic,_resin_and_asphaltene)",
+                    "description": "Saturate, Aromatic, Resin and Asphaltene  (SARA) is an analysis method that divides  crude oil  components according to their polarizability and polarity. There are three main methods to obtain SARA results. The most popular one is known as the Iatroscan TLC-FID and is referred to as IP-143 (source: https://en.wikipedia.org/wiki/Saturate,_aromatic,_resin_and_asphaltene)",
                     "pattern": "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+);[-+]?[0-9]*\\.?[0-9]+ ([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)",
                     "type": "string"
                 },
@@ -3918,7 +3918,7 @@
                     "type": "number"
                 },
                 "root_med_regl": {
-                    "description": "Growth regulators in the culture rooting medium such as cytokinins, auxins, gybberellins, abscisic acid; e.g. 0.5mg/L NAA",
+                    "description": "Growth regulators in the culture rooting medium such as cytokinins, auxins, gybberellins, abscisic acid; e.g. 0.5  mg/L NAA",
                     "type": "string"
                 },
                 "root_med_solid": {
@@ -3926,7 +3926,7 @@
                     "type": "string"
                 },
                 "root_med_suppl": {
-                    "description": "Organic supplements of the culture rooting medium, such as vitamins, amino acids, organic acids, antibiotics activated charcoal; e.g. nicotinic acid (0.5mg/L)",
+                    "description": "Organic supplements of the culture rooting medium, such as vitamins, amino acids, organic acids, antibiotics activated charcoal; e.g. nicotinic acid (0.5  mg/L)",
                     "type": "string"
                 },
                 "route_transmission": {
@@ -4070,7 +4070,7 @@
                     "type": "array"
                 },
                 "samp_taxon_id": {
-                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome for mock community/positive controls, or 'blank sample' for negative controls",
+                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome  for mock community/positive controls, or 'blank sample' for negative controls",
                     "type": "string"
                 },
                 "samp_time_out": {
@@ -4078,7 +4078,7 @@
                     "type": "string"
                 },
                 "samp_transport_cond": {
-                    "description": "Sample transport duration (in days or hrs) and temperature the sample was exposed to (e.g. 5.5 days; 20 C)",
+                    "description": "Sample transport duration (in days or hrs) and temperature the sample was exposed to (e.g. 5.5 days; 20   C)",
                     "type": "string"
                 },
                 "samp_transport_cont": {
@@ -4116,7 +4116,7 @@
                     "type": "string"
                 },
                 "saturates_pc": {
-                    "description": "Saturate, Aromatic, Resin and Asphaltene(SARA) is an analysis method that dividescrude oilcomponents according to their polarizability and polarity. There are three main methods to obtain SARA results. The most popular one is known as the Iatroscan TLC-FID and is referred to as IP-143 (source: https://en.wikipedia.org/wiki/Saturate,_aromatic,_resin_and_asphaltene)",
+                    "description": "Saturate, Aromatic, Resin and Asphaltene  (SARA) is an analysis method that divides  crude oil  components according to their polarizability and polarity. There are three main methods to obtain SARA results. The most popular one is known as the Iatroscan TLC-FID and is referred to as IP-143 (source: https://en.wikipedia.org/wiki/Saturate,_aromatic,_resin_and_asphaltene)",
                     "pattern": "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+);[-+]?[0-9]*\\.?[0-9]+ ([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)",
                     "type": "string"
                 },
@@ -4594,7 +4594,7 @@
                     "description": "Role of the host in the life cycle of the symbiotic organism"
                 },
                 "tan": {
-                    "description": "Total Acid Number(TAN) is a measurement of acidity that is determined by the amount ofpotassium hydroxidein milligrams that is needed to neutralize the acids in one gram of oil.It is an important quality measurement ofcrude oil. (source: https://en.wikipedia.org/wiki/Total_acid_number)",
+                    "description": "Total Acid Number  (TAN) is a measurement of acidity that is determined by the amount of  potassium hydroxide  in milligrams that is needed to neutralize the acids in one gram of oil.  It is an important quality measurement of  crude oil. (source: https://en.wikipedia.org/wiki/Total_acid_number)",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
                     "type": "string"
                 },
@@ -4842,7 +4842,7 @@
                     "type": "string"
                 },
                 "viscosity": {
-                    "description": "A measure of oil's resistanceto gradual deformation byshear stressortensile stress (e.g. 3.5 cp; 100 C)",
+                    "description": "A measure of oil's resistance  to gradual deformation by  shear stress  or  tensile stress (e.g. 3.5 cp; 100   C)",
                     "type": "string"
                 },
                 "volatile_org_comp": {
@@ -5197,7 +5197,7 @@
         },
         "BuiltEnvironment": {
             "additionalProperties": false,
-            "description": "",
+            "description": "built environment package",
             "properties": {
                 "abs_air_humidity": {
                     "description": "Actual mass of water vapor - mh20 - present in the air water vapor mixture",
@@ -6369,7 +6369,7 @@
         },
         "FoodAnimalAndAnimalFeed": {
             "additionalProperties": false,
-            "description": "",
+            "description": "food-animal and animal feed package",
             "properties": {
                 "HACCP_term": {
                     "description": "Hazard Analysis Critical Control Points (HACCP) food safety terms; This field accepts terms listed under HACCP guide food safety term (http://purl.obolibrary.org/obo/FOODON_03530221)",
@@ -6631,7 +6631,7 @@
                 },
                 "food_trace_list": {
                     "$ref": "#/$defs/FOODTRACELISTENUM",
-                    "description": "The FDA is proposing to establish additional traceability recordkeeping requirements (beyond what is already required in existing regulations) for persons who manufacture, process, pack, or hold foods the Agency has designated for inclusion on the Food Traceability List. The Food Traceability List (FTL) identifies the foods for which the additional traceability records described in the proposed rule would be required. The term Food Traceability List (FTL) refers not only to the foods specifically listed (https://www.fda.gov/media/142303/download), but also to any foods that contain listed foods as ingredients"
+                    "description": "The FDA is proposing to establish additional traceability recordkeeping requirements (beyond what is already required in existing regulations) for persons who manufacture, process, pack, or hold foods the Agency has designated for inclusion on the Food Traceability List. The Food Traceability List (FTL) identifies the foods for which the additional traceability records described in the proposed rule would be required. The term  Food Traceability List  (FTL) refers not only to the foods specifically listed (https://www.fda.gov/media/142303/download), but also to any foods that contain listed foods as ingredients"
                 },
                 "food_trav_mode": {
                     "description": "A descriptor for the method of movement of food commodity along the food distribution system.  This field accepts terms listed under travel mode (http://purl.obolibrary.org/obo/GENEPIO_0001064). If the proper descrptor is not listed please use text to describe the mode of travel. Multiple terms can be separated by one or more pipes.",
@@ -6948,7 +6948,7 @@
         },
         "FoodFarmEnvironment": {
             "additionalProperties": false,
-            "description": "",
+            "description": "food-farm environment package",
             "properties": {
                 "IFSAC_category": {
                     "description": "The IFSAC food categorization scheme has five distinct levels to which foods can be assigned, depending upon the type of food. First, foods are assigned to one of four food groups (aquatic animals, land animals, plants, and other). Food groups include increasingly specific food categories; dairy, eggs, meat and poultry, and game are in the land animal food group, and the category meat and poultry is further subdivided into more specific categories of meat (beef, pork, other meat) and poultry (chicken, turkey, other poultry). Finally, foods are differentiated by differences in food processing (such as pasteurized fluid dairy products, unpasteurized fluid dairy products, pasteurized solid and semi-solid dairy products, and unpasteurized solid and semi-solid dairy products. An IFSAC food category chart is available from https://www.cdc.gov/foodsafety/ifsac/projects/food-categorization-scheme.html PMID: 28926300",
@@ -7729,7 +7729,7 @@
         },
         "FoodFoodProductionFacility": {
             "additionalProperties": false,
-            "description": "",
+            "description": "food-food production facility package",
             "properties": {
                 "HACCP_term": {
                     "description": "Hazard Analysis Critical Control Points (HACCP) food safety terms; This field accepts terms listed under HACCP guide food safety term (http://purl.obolibrary.org/obo/FOODON_03530221)",
@@ -7970,7 +7970,7 @@
                 },
                 "food_trace_list": {
                     "$ref": "#/$defs/FOODTRACELISTENUM",
-                    "description": "The FDA is proposing to establish additional traceability recordkeeping requirements (beyond what is already required in existing regulations) for persons who manufacture, process, pack, or hold foods the Agency has designated for inclusion on the Food Traceability List. The Food Traceability List (FTL) identifies the foods for which the additional traceability records described in the proposed rule would be required. The term Food Traceability List (FTL) refers not only to the foods specifically listed (https://www.fda.gov/media/142303/download), but also to any foods that contain listed foods as ingredients"
+                    "description": "The FDA is proposing to establish additional traceability recordkeeping requirements (beyond what is already required in existing regulations) for persons who manufacture, process, pack, or hold foods the Agency has designated for inclusion on the Food Traceability List. The Food Traceability List (FTL) identifies the foods for which the additional traceability records described in the proposed rule would be required. The term  Food Traceability List  (FTL) refers not only to the foods specifically listed (https://www.fda.gov/media/142303/download), but also to any foods that contain listed foods as ingredients"
                 },
                 "food_trav_mode": {
                     "description": "A descriptor for the method of movement of food commodity along the food distribution system. This field accepts terms listed under travel mode (http://purl.obolibrary.org/obo/GENEPIO_0001064). If the proper descrptor is not listed please use text to describe the mode of travel. Multiple terms can be separated by one or more pipes.",
@@ -8303,7 +8303,7 @@
         },
         "FoodHumanFoods": {
             "additionalProperties": false,
-            "description": "",
+            "description": "food-human foods package",
             "properties": {
                 "HACCP_term": {
                     "description": "Hazard Analysis Critical Control Points (HACCP) food safety terms; This field accepts terms listed under HACCP guide food safety term (http://purl.obolibrary.org/obo/FOODON_03530221)",
@@ -8563,7 +8563,7 @@
                 },
                 "food_trace_list": {
                     "$ref": "#/$defs/FOODTRACELISTENUM",
-                    "description": "The FDA is proposing to establish additional traceability recordkeeping requirements (beyond what is already required in existing regulations) for persons who manufacture, process, pack, or hold foods the Agency has designated for inclusion on the Food Traceability List. The Food Traceability List (FTL) identifies the foods for which the additional traceability records described in the proposed rule would be required. The term Food Traceability List (FTL) refers not only to the foods specifically listed (https://www.fda.gov/media/142303/download), but also to any foods that contain listed foods as ingredients"
+                    "description": "The FDA is proposing to establish additional traceability recordkeeping requirements (beyond what is already required in existing regulations) for persons who manufacture, process, pack, or hold foods the Agency has designated for inclusion on the Food Traceability List. The Food Traceability List (FTL) identifies the foods for which the additional traceability records described in the proposed rule would be required. The term  Food Traceability List  (FTL) refers not only to the foods specifically listed (https://www.fda.gov/media/142303/download), but also to any foods that contain listed foods as ingredients"
                 },
                 "food_trav_mode": {
                     "description": "A descriptor for the method of movement of food commodity along the food distribution system.  This field accepts terms listed under travel mode (http://purl.obolibrary.org/obo/GENEPIO_0001064). If the proper descrptor is not listed please use text to describe the mode of travel. Multiple terms can be separated by one or more pipes.",
@@ -9045,7 +9045,7 @@
         },
         "HostAssociated": {
             "additionalProperties": false,
-            "description": "",
+            "description": "host-associated package",
             "properties": {
                 "alt": {
                     "description": "Altitude is a term used to identify heights of objects such as airplanes, space shuttles, rockets, atmospheric balloons and heights of places such as atmospheric layers and clouds. It is used to measure the height of an object which is above the earth\u201a\u00c4\u00f4s surface. In this context, the altitude measurement is the vertical distance between the earth's surface above sea level and the sampled position in the air",
@@ -9299,7 +9299,7 @@
         },
         "HumanAssociated": {
             "additionalProperties": false,
-            "description": "",
+            "description": "human-associated package",
             "properties": {
                 "amniotic_fluid_color": {
                     "description": "Specification of the color of the amniotic fluid sample",
@@ -9585,7 +9585,7 @@
         },
         "HumanGut": {
             "additionalProperties": false,
-            "description": "",
+            "description": "human-gut package",
             "properties": {
                 "chem_administration": {
                     "description": "List of chemical compounds administered to the host or site where sampling occurred, and when (e.g. Antibiotics, n fertilizer, air filter); can include multiple compounds. For chemical entities of biological interest ontology (chebi) (v 163), http://purl.bioontology.org/ontology/chebi",
@@ -9793,7 +9793,7 @@
         },
         "HumanOral": {
             "additionalProperties": false,
-            "description": "",
+            "description": "human-oral package",
             "properties": {
                 "chem_administration": {
                     "description": "List of chemical compounds administered to the host or site where sampling occurred, and when (e.g. Antibiotics, n fertilizer, air filter); can include multiple compounds. For chemical entities of biological interest ontology (chebi) (v 163), http://purl.bioontology.org/ontology/chebi",
@@ -9991,7 +9991,7 @@
         },
         "HumanSkin": {
             "additionalProperties": false,
-            "description": "",
+            "description": "human-skin package",
             "properties": {
                 "chem_administration": {
                     "description": "List of chemical compounds administered to the host or site where sampling occurred, and when (e.g. Antibiotics, n fertilizer, air filter); can include multiple compounds. For chemical entities of biological interest ontology (chebi) (v 163), http://purl.bioontology.org/ontology/chebi",
@@ -10194,7 +10194,7 @@
         },
         "HumanVaginal": {
             "additionalProperties": false,
-            "description": "",
+            "description": "human-vaginal package",
             "properties": {
                 "birth_control": {
                     "description": "Specification of birth control medication used",
@@ -10432,7 +10432,7 @@
         },
         "HydrocarbonResourcesCores": {
             "additionalProperties": false,
-            "description": "",
+            "description": "hydrocarbon resources-cores package",
             "properties": {
                 "additional_info": {
                     "description": "Information that doesn't fit anywhere else. Can also be used to propose new entries for fields with controlled vocabulary",
@@ -10453,17 +10453,17 @@
                     "type": "string"
                 },
                 "api": {
-                    "description": "API gravity is a measure of how heavy or light a petroleum liquid is compared to water (source: https://en.wikipedia.org/wiki/API_gravity) (e.g. 31.1 API)",
+                    "description": "API gravity is a measure of how heavy or light a petroleum liquid is compared to water (source: https://en.wikipedia.org/wiki/API_gravity) (e.g. 31.1   API)",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
                     "type": "string"
                 },
                 "aromatics_pc": {
-                    "description": "Saturate, Aromatic, Resin and Asphaltene(SARA) is an analysis method that dividescrude oilcomponents according to their polarizability and polarity. There are three main methods to obtain SARA results. The most popular one is known as the Iatroscan TLC-FID and is referred to as IP-143 (source: https://en.wikipedia.org/wiki/Saturate,_aromatic,_resin_and_asphaltene)",
+                    "description": "Saturate, Aromatic, Resin and Asphaltene  (SARA) is an analysis method that divides  crude oil  components according to their polarizability and polarity. There are three main methods to obtain SARA results. The most popular one is known as the Iatroscan TLC-FID and is referred to as IP-143 (source: https://en.wikipedia.org/wiki/Saturate,_aromatic,_resin_and_asphaltene)",
                     "pattern": "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+);[-+]?[0-9]*\\.?[0-9]+ ([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)",
                     "type": "string"
                 },
                 "asphaltenes_pc": {
-                    "description": "Saturate, Aromatic, Resin and Asphaltene(SARA) is an analysis method that dividescrude oilcomponents according to their polarizability and polarity. There are three main methods to obtain SARA results. The most popular one is known as the Iatroscan TLC-FID and is referred to as IP-143 (source: https://en.wikipedia.org/wiki/Saturate,_aromatic,_resin_and_asphaltene)",
+                    "description": "Saturate, Aromatic, Resin and Asphaltene  (SARA) is an analysis method that divides  crude oil  components according to their polarizability and polarity. There are three main methods to obtain SARA results. The most popular one is known as the Iatroscan TLC-FID and is referred to as IP-143 (source: https://en.wikipedia.org/wiki/Saturate,_aromatic,_resin_and_asphaltene)",
                     "pattern": "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+);[-+]?[0-9]*\\.?[0-9]+ ([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)",
                     "type": "string"
                 },
@@ -10630,7 +10630,7 @@
                     "type": "string"
                 },
                 "pour_point": {
-                    "description": "Temperature at which a liquid becomes semi solid and loses its flow characteristics. In crude oil a highpour pointis generally associated with a high paraffin content, typically found in crude deriving from a larger proportion of plant material. (soure: https://en.wikipedia.org/wiki/pour_point)",
+                    "description": "Temperature at which a liquid becomes semi solid and loses its flow characteristics. In crude oil a high  pour point  is generally associated with a high paraffin content, typically found in crude deriving from a larger proportion of plant material. (soure: https://en.wikipedia.org/wiki/pour_point)",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
                     "type": "string"
                 },
@@ -10648,7 +10648,7 @@
                     "type": "string"
                 },
                 "resins_pc": {
-                    "description": "Saturate, Aromatic, Resin and Asphaltene(SARA) is an analysis method that dividescrude oilcomponents according to their polarizability and polarity. There are three main methods to obtain SARA results. The most popular one is known as the Iatroscan TLC-FID and is referred to as IP-143 (source: https://en.wikipedia.org/wiki/Saturate,_aromatic,_resin_and_asphaltene)",
+                    "description": "Saturate, Aromatic, Resin and Asphaltene  (SARA) is an analysis method that divides  crude oil  components according to their polarizability and polarity. There are three main methods to obtain SARA results. The most popular one is known as the Iatroscan TLC-FID and is referred to as IP-143 (source: https://en.wikipedia.org/wiki/Saturate,_aromatic,_resin_and_asphaltene)",
                     "pattern": "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+);[-+]?[0-9]*\\.?[0-9]+ ([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)",
                     "type": "string"
                 },
@@ -10683,7 +10683,7 @@
                     "description": "Name of sample sub-type. For example if \"sample type\" is \"Produced Water\" then subtype could be \"Oil Phase\" or \"Water Phase\". If \"other\" is specified, please propose entry in \"additional info\" field"
                 },
                 "samp_transport_cond": {
-                    "description": "Sample transport duration (in days or hrs) and temperature the sample was exposed to (e.g. 5.5 days; 20 C)",
+                    "description": "Sample transport duration (in days or hrs) and temperature the sample was exposed to (e.g. 5.5 days; 20   C)",
                     "type": "string"
                 },
                 "samp_tvdss": {
@@ -10705,7 +10705,7 @@
                     "type": "string"
                 },
                 "saturates_pc": {
-                    "description": "Saturate, Aromatic, Resin and Asphaltene(SARA) is an analysis method that dividescrude oilcomponents according to their polarizability and polarity. There are three main methods to obtain SARA results. The most popular one is known as the Iatroscan TLC-FID and is referred to as IP-143 (source: https://en.wikipedia.org/wiki/Saturate,_aromatic,_resin_and_asphaltene)",
+                    "description": "Saturate, Aromatic, Resin and Asphaltene  (SARA) is an analysis method that divides  crude oil  components according to their polarizability and polarity. There are three main methods to obtain SARA results. The most popular one is known as the Iatroscan TLC-FID and is referred to as IP-143 (source: https://en.wikipedia.org/wiki/Saturate,_aromatic,_resin_and_asphaltene)",
                     "pattern": "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+);[-+]?[0-9]*\\.?[0-9]+ ([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)",
                     "type": "string"
                 },
@@ -10753,7 +10753,7 @@
                     "type": "array"
                 },
                 "tan": {
-                    "description": "Total Acid Number(TAN) is a measurement of acidity that is determined by the amount ofpotassium hydroxidein milligrams that is needed to neutralize the acids in one gram of oil.It is an important quality measurement ofcrude oil. (source: https://en.wikipedia.org/wiki/Total_acid_number)",
+                    "description": "Total Acid Number  (TAN) is a measurement of acidity that is determined by the amount of  potassium hydroxide  in milligrams that is needed to neutralize the acids in one gram of oil.  It is an important quality measurement of  crude oil. (source: https://en.wikipedia.org/wiki/Total_acid_number)",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
                     "type": "string"
                 },
@@ -10808,7 +10808,7 @@
                     "type": "string"
                 },
                 "viscosity": {
-                    "description": "A measure of oil's resistanceto gradual deformation byshear stressortensile stress (e.g. 3.5 cp; 100 C)",
+                    "description": "A measure of oil's resistance  to gradual deformation by  shear stress  or  tensile stress (e.g. 3.5 cp; 100   C)",
                     "type": "string"
                 },
                 "win": {
@@ -10839,7 +10839,7 @@
         },
         "HydrocarbonResourcesFluidsSwabs": {
             "additionalProperties": false,
-            "description": "",
+            "description": "hydrocarbon resources-fluids/swabs package",
             "properties": {
                 "add_recov_method": {
                     "description": "Additional (i.e. Secondary, tertiary, etc.) recovery methods deployed for increase of hydrocarbon recovery from resource and start date for each one of them. If \"other\" is specified, please propose entry in \"additional info\" field",
@@ -10864,17 +10864,17 @@
                     "type": "string"
                 },
                 "api": {
-                    "description": "API gravity is a measure of how heavy or light a petroleum liquid is compared to water (source: https://en.wikipedia.org/wiki/API_gravity) (e.g. 31.1 API)",
+                    "description": "API gravity is a measure of how heavy or light a petroleum liquid is compared to water (source: https://en.wikipedia.org/wiki/API_gravity) (e.g. 31.1   API)",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
                     "type": "string"
                 },
                 "aromatics_pc": {
-                    "description": "Saturate, Aromatic, Resin and Asphaltene(SARA) is an analysis method that dividescrude oilcomponents according to their polarizability and polarity. There are three main methods to obtain SARA results. The most popular one is known as the Iatroscan TLC-FID and is referred to as IP-143 (source: https://en.wikipedia.org/wiki/Saturate,_aromatic,_resin_and_asphaltene)",
+                    "description": "Saturate, Aromatic, Resin and Asphaltene  (SARA) is an analysis method that divides  crude oil  components according to their polarizability and polarity. There are three main methods to obtain SARA results. The most popular one is known as the Iatroscan TLC-FID and is referred to as IP-143 (source: https://en.wikipedia.org/wiki/Saturate,_aromatic,_resin_and_asphaltene)",
                     "pattern": "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+);[-+]?[0-9]*\\.?[0-9]+ ([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)",
                     "type": "string"
                 },
                 "asphaltenes_pc": {
-                    "description": "Saturate, Aromatic, Resin and Asphaltene(SARA) is an analysis method that dividescrude oilcomponents according to their polarizability and polarity. There are three main methods to obtain SARA results. The most popular one is known as the Iatroscan TLC-FID and is referred to as IP-143 (source: https://en.wikipedia.org/wiki/Saturate,_aromatic,_resin_and_asphaltene)",
+                    "description": "Saturate, Aromatic, Resin and Asphaltene  (SARA) is an analysis method that divides  crude oil  components according to their polarizability and polarity. There are three main methods to obtain SARA results. The most popular one is known as the Iatroscan TLC-FID and is referred to as IP-143 (source: https://en.wikipedia.org/wiki/Saturate,_aromatic,_resin_and_asphaltene)",
                     "pattern": "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+);[-+]?[0-9]*\\.?[0-9]+ ([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)",
                     "type": "string"
                 },
@@ -11048,7 +11048,7 @@
                     "type": "string"
                 },
                 "pour_point": {
-                    "description": "Temperature at which a liquid becomes semi solid and loses its flow characteristics. In crude oil a highpour pointis generally associated with a high paraffin content, typically found in crude deriving from a larger proportion of plant material. (soure: https://en.wikipedia.org/wiki/pour_point)",
+                    "description": "Temperature at which a liquid becomes semi solid and loses its flow characteristics. In crude oil a high  pour point  is generally associated with a high paraffin content, typically found in crude deriving from a larger proportion of plant material. (soure: https://en.wikipedia.org/wiki/pour_point)",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
                     "type": "string"
                 },
@@ -11076,7 +11076,7 @@
                     "type": "string"
                 },
                 "resins_pc": {
-                    "description": "Saturate, Aromatic, Resin and Asphaltene(SARA) is an analysis method that dividescrude oilcomponents according to their polarizability and polarity. There are three main methods to obtain SARA results. The most popular one is known as the Iatroscan TLC-FID and is referred to as IP-143 (source: https://en.wikipedia.org/wiki/Saturate,_aromatic,_resin_and_asphaltene)",
+                    "description": "Saturate, Aromatic, Resin and Asphaltene  (SARA) is an analysis method that divides  crude oil  components according to their polarizability and polarity. There are three main methods to obtain SARA results. The most popular one is known as the Iatroscan TLC-FID and is referred to as IP-143 (source: https://en.wikipedia.org/wiki/Saturate,_aromatic,_resin_and_asphaltene)",
                     "pattern": "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+);[-+]?[0-9]*\\.?[0-9]+ ([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)",
                     "type": "string"
                 },
@@ -11121,7 +11121,7 @@
                     "description": "Name of sample sub-type. For example if \"sample type\" is \"Produced Water\" then subtype could be \"Oil Phase\" or \"Water Phase\". If \"other\" is specified, please propose entry in \"additional info\" field"
                 },
                 "samp_transport_cond": {
-                    "description": "Sample transport duration (in days or hrs) and temperature the sample was exposed to (e.g. 5.5 days; 20 C)",
+                    "description": "Sample transport duration (in days or hrs) and temperature the sample was exposed to (e.g. 5.5 days; 20   C)",
                     "type": "string"
                 },
                 "samp_type": {
@@ -11139,7 +11139,7 @@
                     "type": "string"
                 },
                 "saturates_pc": {
-                    "description": "Saturate, Aromatic, Resin and Asphaltene(SARA) is an analysis method that dividescrude oilcomponents according to their polarizability and polarity. There are three main methods to obtain SARA results. The most popular one is known as the Iatroscan TLC-FID and is referred to as IP-143 (source: https://en.wikipedia.org/wiki/Saturate,_aromatic,_resin_and_asphaltene)",
+                    "description": "Saturate, Aromatic, Resin and Asphaltene  (SARA) is an analysis method that divides  crude oil  components according to their polarizability and polarity. There are three main methods to obtain SARA results. The most popular one is known as the Iatroscan TLC-FID and is referred to as IP-143 (source: https://en.wikipedia.org/wiki/Saturate,_aromatic,_resin_and_asphaltene)",
                     "pattern": "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+);[-+]?[0-9]*\\.?[0-9]+ ([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)",
                     "type": "string"
                 },
@@ -11171,7 +11171,7 @@
                     "type": "array"
                 },
                 "tan": {
-                    "description": "Total Acid Number(TAN) is a measurement of acidity that is determined by the amount ofpotassium hydroxidein milligrams that is needed to neutralize the acids in one gram of oil.It is an important quality measurement ofcrude oil. (source: https://en.wikipedia.org/wiki/Total_acid_number)",
+                    "description": "Total Acid Number  (TAN) is a measurement of acidity that is determined by the amount of  potassium hydroxide  in milligrams that is needed to neutralize the acids in one gram of oil.  It is an important quality measurement of  crude oil. (source: https://en.wikipedia.org/wiki/Total_acid_number)",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
                     "type": "string"
                 },
@@ -11226,7 +11226,7 @@
                     "type": "string"
                 },
                 "viscosity": {
-                    "description": "A measure of oil's resistanceto gradual deformation byshear stressortensile stress (e.g. 3.5 cp; 100 C)",
+                    "description": "A measure of oil's resistance  to gradual deformation by  shear stress  or  tensile stress (e.g. 3.5 cp; 100   C)",
                     "type": "string"
                 },
                 "water_cut": {
@@ -11385,7 +11385,7 @@
         },
         "MicrobialMatBiofilm": {
             "additionalProperties": false,
-            "description": "",
+            "description": "microbial mat/biofilm package",
             "properties": {
                 "alkalinity": {
                     "description": "Alkalinity, the ability of a solution to neutralize acids to the equivalence point of carbonate or bicarbonate",
@@ -11727,7 +11727,7 @@
         },
         "MigsEuHostAssociated": {
             "additionalProperties": false,
-            "description": "",
+            "description": "MIxS data that complies with the MigsEu checklist and the HostAssociated environmental package",
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
@@ -11753,7 +11753,7 @@
                     "type": "string"
                 },
                 "assembly_qual": {
-                    "description": "The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling  90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated",
+                    "description": "The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling   90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated",
                     "type": "string"
                 },
                 "assembly_software": {
@@ -11816,12 +11816,12 @@
                     "type": "string"
                 },
                 "env_broad_scale": {
-                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvOs biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvO s biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "env_local_scale": {
-                    "description": "Report the entity or entities which are in the sample or specimens local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the entity or entities which are in the sample or specimen s local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "type": "string"
                 },
                 "env_medium": {
@@ -12147,7 +12147,7 @@
                     "type": "string"
                 },
                 "samp_taxon_id": {
-                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome for mock community/positive controls, or 'blank sample' for negative controls",
+                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome  for mock community/positive controls, or 'blank sample' for negative controls",
                     "type": "string"
                 },
                 "samp_vol_we_dna_ext": {
@@ -12204,19 +12204,19 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "number_contig",
-                "env_medium",
-                "collection_date",
                 "geo_loc_name",
-                "assembly_qual",
-                "project_name",
-                "env_local_scale",
-                "samp_name",
-                "samp_taxon_id",
-                "assembly_software",
-                "lat_lon",
                 "isol_growth_condt",
+                "env_local_scale",
+                "assembly_qual",
+                "samp_taxon_id",
+                "lat_lon",
+                "env_medium",
+                "seq_meth",
+                "project_name",
+                "collection_date",
+                "samp_name",
+                "assembly_software",
+                "number_contig",
                 "env_broad_scale"
             ],
             "title": "MigsEuHostAssociated",
@@ -12224,7 +12224,7 @@
         },
         "MigsEuHumanAssociated": {
             "additionalProperties": false,
-            "description": "",
+            "description": "MIxS data that complies with the MigsEu checklist and the HumanAssociated environmental package",
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
@@ -12250,7 +12250,7 @@
                     "type": "string"
                 },
                 "assembly_qual": {
-                    "description": "The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling  90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated",
+                    "description": "The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling   90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated",
                     "type": "string"
                 },
                 "assembly_software": {
@@ -12317,12 +12317,12 @@
                     "type": "string"
                 },
                 "env_broad_scale": {
-                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvOs biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvO s biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "env_local_scale": {
-                    "description": "Report the entity or entities which are in the sample or specimens local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the entity or entities which are in the sample or specimen s local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "type": "string"
                 },
                 "env_medium": {
@@ -12657,7 +12657,7 @@
                     "type": "string"
                 },
                 "samp_taxon_id": {
-                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome for mock community/positive controls, or 'blank sample' for negative controls",
+                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome  for mock community/positive controls, or 'blank sample' for negative controls",
                     "type": "string"
                 },
                 "samp_vol_we_dna_ext": {
@@ -12748,19 +12748,19 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "number_contig",
-                "env_medium",
-                "collection_date",
                 "geo_loc_name",
-                "assembly_qual",
-                "project_name",
-                "env_local_scale",
-                "samp_name",
-                "samp_taxon_id",
-                "assembly_software",
-                "lat_lon",
                 "isol_growth_condt",
+                "env_local_scale",
+                "assembly_qual",
+                "samp_taxon_id",
+                "lat_lon",
+                "env_medium",
+                "seq_meth",
+                "project_name",
+                "collection_date",
+                "samp_name",
+                "assembly_software",
+                "number_contig",
                 "env_broad_scale"
             ],
             "title": "MigsEuHumanAssociated",
@@ -12768,7 +12768,7 @@
         },
         "MigsEuHumanGut": {
             "additionalProperties": false,
-            "description": "",
+            "description": "MIxS data that complies with the MigsEu checklist and the HumanGut environmental package",
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
@@ -12790,7 +12790,7 @@
                     "type": "string"
                 },
                 "assembly_qual": {
-                    "description": "The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling  90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated",
+                    "description": "The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling   90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated",
                     "type": "string"
                 },
                 "assembly_software": {
@@ -12839,12 +12839,12 @@
                     "type": "string"
                 },
                 "env_broad_scale": {
-                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvOs biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvO s biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "env_local_scale": {
-                    "description": "Report the entity or entities which are in the sample or specimens local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the entity or entities which are in the sample or specimen s local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "type": "string"
                 },
                 "env_medium": {
@@ -13150,7 +13150,7 @@
                     "type": "string"
                 },
                 "samp_taxon_id": {
-                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome for mock community/positive controls, or 'blank sample' for negative controls",
+                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome  for mock community/positive controls, or 'blank sample' for negative controls",
                     "type": "string"
                 },
                 "samp_vol_we_dna_ext": {
@@ -13214,19 +13214,19 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "number_contig",
-                "env_medium",
-                "collection_date",
                 "geo_loc_name",
-                "assembly_qual",
-                "project_name",
-                "env_local_scale",
-                "samp_name",
-                "samp_taxon_id",
-                "assembly_software",
-                "lat_lon",
                 "isol_growth_condt",
+                "env_local_scale",
+                "assembly_qual",
+                "samp_taxon_id",
+                "lat_lon",
+                "env_medium",
+                "seq_meth",
+                "project_name",
+                "collection_date",
+                "samp_name",
+                "assembly_software",
+                "number_contig",
                 "env_broad_scale"
             ],
             "title": "MigsEuHumanGut",
@@ -13234,7 +13234,7 @@
         },
         "MigsEuHumanOral": {
             "additionalProperties": false,
-            "description": "",
+            "description": "MIxS data that complies with the MigsEu checklist and the HumanOral environmental package",
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
@@ -13256,7 +13256,7 @@
                     "type": "string"
                 },
                 "assembly_qual": {
-                    "description": "The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling  90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated",
+                    "description": "The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling   90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated",
                     "type": "string"
                 },
                 "assembly_software": {
@@ -13305,12 +13305,12 @@
                     "type": "string"
                 },
                 "env_broad_scale": {
-                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvOs biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvO s biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "env_local_scale": {
-                    "description": "Report the entity or entities which are in the sample or specimens local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the entity or entities which are in the sample or specimen s local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "type": "string"
                 },
                 "env_medium": {
@@ -13608,7 +13608,7 @@
                     "type": "string"
                 },
                 "samp_taxon_id": {
-                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome for mock community/positive controls, or 'blank sample' for negative controls",
+                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome  for mock community/positive controls, or 'blank sample' for negative controls",
                     "type": "string"
                 },
                 "samp_vol_we_dna_ext": {
@@ -13670,19 +13670,19 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "number_contig",
-                "env_medium",
-                "collection_date",
                 "geo_loc_name",
-                "assembly_qual",
-                "project_name",
-                "env_local_scale",
-                "samp_name",
-                "samp_taxon_id",
-                "assembly_software",
-                "lat_lon",
                 "isol_growth_condt",
+                "env_local_scale",
+                "assembly_qual",
+                "samp_taxon_id",
+                "lat_lon",
+                "env_medium",
+                "seq_meth",
+                "project_name",
+                "collection_date",
+                "samp_name",
+                "assembly_software",
+                "number_contig",
                 "env_broad_scale"
             ],
             "title": "MigsEuHumanOral",
@@ -13690,7 +13690,7 @@
         },
         "MigsEuPlantAssociated": {
             "additionalProperties": false,
-            "description": "",
+            "description": "MIxS data that complies with the MigsEu checklist and the PlantAssociated environmental package",
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
@@ -13730,7 +13730,7 @@
                     "type": "string"
                 },
                 "assembly_qual": {
-                    "description": "The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling  90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated",
+                    "description": "The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling   90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated",
                     "type": "string"
                 },
                 "assembly_software": {
@@ -13808,12 +13808,12 @@
                     "type": "string"
                 },
                 "env_broad_scale": {
-                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvOs biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvO s biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "env_local_scale": {
-                    "description": "Report the entity or entities which are in the sample or specimens local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the entity or entities which are in the sample or specimen s local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "type": "string"
                 },
                 "env_medium": {
@@ -14178,7 +14178,7 @@
                     "type": "number"
                 },
                 "root_med_regl": {
-                    "description": "Growth regulators in the culture rooting medium such as cytokinins, auxins, gybberellins, abscisic acid; e.g. 0.5mg/L NAA",
+                    "description": "Growth regulators in the culture rooting medium such as cytokinins, auxins, gybberellins, abscisic acid; e.g. 0.5  mg/L NAA",
                     "type": "string"
                 },
                 "root_med_solid": {
@@ -14186,7 +14186,7 @@
                     "type": "string"
                 },
                 "root_med_suppl": {
-                    "description": "Organic supplements of the culture rooting medium, such as vitamins, amino acids, organic acids, antibiotics activated charcoal; e.g. nicotinic acid (0.5mg/L)",
+                    "description": "Organic supplements of the culture rooting medium, such as vitamins, amino acids, organic acids, antibiotics activated charcoal; e.g. nicotinic acid (0.5  mg/L)",
                     "type": "string"
                 },
                 "salinity": {
@@ -14245,7 +14245,7 @@
                     "type": "string"
                 },
                 "samp_taxon_id": {
-                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome for mock community/positive controls, or 'blank sample' for negative controls",
+                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome  for mock community/positive controls, or 'blank sample' for negative controls",
                     "type": "string"
                 },
                 "samp_vol_we_dna_ext": {
@@ -14335,19 +14335,19 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "number_contig",
-                "env_medium",
-                "collection_date",
                 "geo_loc_name",
-                "assembly_qual",
-                "project_name",
-                "env_local_scale",
-                "samp_name",
-                "samp_taxon_id",
-                "assembly_software",
-                "lat_lon",
                 "isol_growth_condt",
+                "env_local_scale",
+                "assembly_qual",
+                "samp_taxon_id",
+                "lat_lon",
+                "env_medium",
+                "seq_meth",
+                "project_name",
+                "collection_date",
+                "samp_name",
+                "assembly_software",
+                "number_contig",
                 "env_broad_scale"
             ],
             "title": "MigsEuPlantAssociated",
@@ -14355,7 +14355,7 @@
         },
         "MigsEuSoil": {
             "additionalProperties": false,
-            "description": "",
+            "description": "MIxS data that complies with the MigsEu checklist and the Soil environmental package",
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
@@ -14404,7 +14404,7 @@
                     "type": "string"
                 },
                 "assembly_qual": {
-                    "description": "The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling  90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated",
+                    "description": "The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling   90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated",
                     "type": "string"
                 },
                 "assembly_software": {
@@ -14467,12 +14467,12 @@
                     "type": "string"
                 },
                 "env_broad_scale": {
-                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvOs biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvO s biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "env_local_scale": {
-                    "description": "Report the entity or entities which are in the sample or specimens local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the entity or entities which are in the sample or specimen s local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "type": "string"
                 },
                 "env_medium": {
@@ -14734,7 +14734,7 @@
                     "type": "string"
                 },
                 "samp_taxon_id": {
-                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome for mock community/positive controls, or 'blank sample' for negative controls",
+                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome  for mock community/positive controls, or 'blank sample' for negative controls",
                     "type": "string"
                 },
                 "samp_vol_we_dna_ext": {
@@ -14873,21 +14873,21 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "number_contig",
-                "env_medium",
-                "depth",
-                "collection_date",
-                "geo_loc_name",
-                "assembly_qual",
-                "project_name",
-                "env_local_scale",
-                "samp_name",
-                "samp_taxon_id",
                 "elev",
-                "assembly_software",
-                "lat_lon",
+                "geo_loc_name",
                 "isol_growth_condt",
+                "env_local_scale",
+                "depth",
+                "assembly_qual",
+                "samp_taxon_id",
+                "lat_lon",
+                "env_medium",
+                "seq_meth",
+                "project_name",
+                "collection_date",
+                "samp_name",
+                "assembly_software",
+                "number_contig",
                 "env_broad_scale"
             ],
             "title": "MigsEuSoil",
@@ -14895,7 +14895,7 @@
         },
         "MigsEuWater": {
             "additionalProperties": false,
-            "description": "",
+            "description": "MIxS data that complies with the MigsEu checklist and the Water environmental package",
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
@@ -14941,7 +14941,7 @@
                     "type": "string"
                 },
                 "assembly_qual": {
-                    "description": "The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling  90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated",
+                    "description": "The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling   90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated",
                     "type": "string"
                 },
                 "assembly_software": {
@@ -15110,12 +15110,12 @@
                     "type": "string"
                 },
                 "env_broad_scale": {
-                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvOs biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvO s biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "env_local_scale": {
-                    "description": "Report the entity or entities which are in the sample or specimens local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the entity or entities which are in the sample or specimen s local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "type": "string"
                 },
                 "env_medium": {
@@ -15437,7 +15437,7 @@
                     "type": "string"
                 },
                 "samp_taxon_id": {
-                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome for mock community/positive controls, or 'blank sample' for negative controls",
+                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome  for mock community/positive controls, or 'blank sample' for negative controls",
                     "type": "string"
                 },
                 "samp_vol_we_dna_ext": {
@@ -15578,20 +15578,20 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "number_contig",
-                "env_medium",
-                "depth",
-                "collection_date",
                 "geo_loc_name",
-                "assembly_qual",
-                "project_name",
-                "env_local_scale",
-                "samp_name",
-                "samp_taxon_id",
-                "assembly_software",
-                "lat_lon",
                 "isol_growth_condt",
+                "env_local_scale",
+                "depth",
+                "assembly_qual",
+                "samp_taxon_id",
+                "lat_lon",
+                "env_medium",
+                "seq_meth",
+                "project_name",
+                "collection_date",
+                "samp_name",
+                "assembly_software",
+                "number_contig",
                 "env_broad_scale"
             ],
             "title": "MigsEuWater",
@@ -15599,7 +15599,7 @@
         },
         "MimarksSHostAssociated": {
             "additionalProperties": false,
-            "description": "",
+            "description": "MIxS data that complies with the MimarksS checklist and the HostAssociated environmental package",
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
@@ -15667,12 +15667,12 @@
                     "type": "string"
                 },
                 "env_broad_scale": {
-                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvOs biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvO s biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "env_local_scale": {
-                    "description": "Report the entity or entities which are in the sample or specimens local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the entity or entities which are in the sample or specimen s local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "type": "string"
                 },
                 "env_medium": {
@@ -15961,7 +15961,7 @@
                     "type": "string"
                 },
                 "samp_taxon_id": {
-                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome for mock community/positive controls, or 'blank sample' for negative controls",
+                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome  for mock community/positive controls, or 'blank sample' for negative controls",
                     "type": "string"
                 },
                 "samp_vol_we_dna_ext": {
@@ -16010,16 +16010,16 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "env_medium",
-                "collection_date",
                 "target_gene",
                 "geo_loc_name",
-                "project_name",
                 "env_local_scale",
-                "samp_name",
                 "samp_taxon_id",
                 "lat_lon",
+                "env_medium",
+                "seq_meth",
+                "project_name",
+                "collection_date",
+                "samp_name",
                 "env_broad_scale"
             ],
             "title": "MimarksSHostAssociated",
@@ -16027,7 +16027,7 @@
         },
         "MimarksSHumanAssociated": {
             "additionalProperties": false,
-            "description": "",
+            "description": "MIxS data that complies with the MimarksS checklist and the HumanAssociated environmental package",
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
@@ -16099,12 +16099,12 @@
                     "type": "string"
                 },
                 "env_broad_scale": {
-                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvOs biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvO s biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "env_local_scale": {
-                    "description": "Report the entity or entities which are in the sample or specimens local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the entity or entities which are in the sample or specimen s local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "type": "string"
                 },
                 "env_medium": {
@@ -16402,7 +16402,7 @@
                     "type": "string"
                 },
                 "samp_taxon_id": {
-                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome for mock community/positive controls, or 'blank sample' for negative controls",
+                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome  for mock community/positive controls, or 'blank sample' for negative controls",
                     "type": "string"
                 },
                 "samp_vol_we_dna_ext": {
@@ -16485,16 +16485,16 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "env_medium",
-                "collection_date",
                 "target_gene",
                 "geo_loc_name",
-                "project_name",
                 "env_local_scale",
-                "samp_name",
                 "samp_taxon_id",
                 "lat_lon",
+                "env_medium",
+                "seq_meth",
+                "project_name",
+                "collection_date",
+                "samp_name",
                 "env_broad_scale"
             ],
             "title": "MimarksSHumanAssociated",
@@ -16502,7 +16502,7 @@
         },
         "MimarksSHumanGut": {
             "additionalProperties": false,
-            "description": "",
+            "description": "MIxS data that complies with the MimarksS checklist and the HumanGut environmental package",
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
@@ -16552,12 +16552,12 @@
                     "type": "string"
                 },
                 "env_broad_scale": {
-                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvOs biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvO s biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "env_local_scale": {
-                    "description": "Report the entity or entities which are in the sample or specimens local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the entity or entities which are in the sample or specimen s local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "type": "string"
                 },
                 "env_medium": {
@@ -16826,7 +16826,7 @@
                     "type": "string"
                 },
                 "samp_taxon_id": {
-                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome for mock community/positive controls, or 'blank sample' for negative controls",
+                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome  for mock community/positive controls, or 'blank sample' for negative controls",
                     "type": "string"
                 },
                 "samp_vol_we_dna_ext": {
@@ -16882,16 +16882,16 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "env_medium",
-                "collection_date",
                 "target_gene",
                 "geo_loc_name",
-                "project_name",
                 "env_local_scale",
-                "samp_name",
                 "samp_taxon_id",
                 "lat_lon",
+                "env_medium",
+                "seq_meth",
+                "project_name",
+                "collection_date",
+                "samp_name",
                 "env_broad_scale"
             ],
             "title": "MimarksSHumanGut",
@@ -16899,7 +16899,7 @@
         },
         "MimarksSHumanOral": {
             "additionalProperties": false,
-            "description": "",
+            "description": "MIxS data that complies with the MimarksS checklist and the HumanOral environmental package",
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
@@ -16949,12 +16949,12 @@
                     "type": "string"
                 },
                 "env_broad_scale": {
-                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvOs biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvO s biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "env_local_scale": {
-                    "description": "Report the entity or entities which are in the sample or specimens local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the entity or entities which are in the sample or specimen s local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "type": "string"
                 },
                 "env_medium": {
@@ -17215,7 +17215,7 @@
                     "type": "string"
                 },
                 "samp_taxon_id": {
-                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome for mock community/positive controls, or 'blank sample' for negative controls",
+                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome  for mock community/positive controls, or 'blank sample' for negative controls",
                     "type": "string"
                 },
                 "samp_vol_we_dna_ext": {
@@ -17269,16 +17269,16 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "env_medium",
-                "collection_date",
                 "target_gene",
                 "geo_loc_name",
-                "project_name",
                 "env_local_scale",
-                "samp_name",
                 "samp_taxon_id",
                 "lat_lon",
+                "env_medium",
+                "seq_meth",
+                "project_name",
+                "collection_date",
+                "samp_name",
                 "env_broad_scale"
             ],
             "title": "MimarksSHumanOral",
@@ -17286,7 +17286,7 @@
         },
         "MimarksSPlantAssociated": {
             "additionalProperties": false,
-            "description": "",
+            "description": "MIxS data that complies with the MimarksS checklist and the PlantAssociated environmental package",
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
@@ -17383,12 +17383,12 @@
                     "type": "string"
                 },
                 "env_broad_scale": {
-                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvOs biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvO s biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "env_local_scale": {
-                    "description": "Report the entity or entities which are in the sample or specimens local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the entity or entities which are in the sample or specimen s local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "type": "string"
                 },
                 "env_medium": {
@@ -17716,7 +17716,7 @@
                     "type": "number"
                 },
                 "root_med_regl": {
-                    "description": "Growth regulators in the culture rooting medium such as cytokinins, auxins, gybberellins, abscisic acid; e.g. 0.5mg/L NAA",
+                    "description": "Growth regulators in the culture rooting medium such as cytokinins, auxins, gybberellins, abscisic acid; e.g. 0.5  mg/L NAA",
                     "type": "string"
                 },
                 "root_med_solid": {
@@ -17724,7 +17724,7 @@
                     "type": "string"
                 },
                 "root_med_suppl": {
-                    "description": "Organic supplements of the culture rooting medium, such as vitamins, amino acids, organic acids, antibiotics activated charcoal; e.g. nicotinic acid (0.5mg/L)",
+                    "description": "Organic supplements of the culture rooting medium, such as vitamins, amino acids, organic acids, antibiotics activated charcoal; e.g. nicotinic acid (0.5  mg/L)",
                     "type": "string"
                 },
                 "salinity": {
@@ -17783,7 +17783,7 @@
                     "type": "string"
                 },
                 "samp_taxon_id": {
-                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome for mock community/positive controls, or 'blank sample' for negative controls",
+                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome  for mock community/positive controls, or 'blank sample' for negative controls",
                     "type": "string"
                 },
                 "samp_vol_we_dna_ext": {
@@ -17865,16 +17865,16 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "env_medium",
-                "collection_date",
                 "target_gene",
                 "geo_loc_name",
-                "project_name",
                 "env_local_scale",
-                "samp_name",
                 "samp_taxon_id",
                 "lat_lon",
+                "env_medium",
+                "seq_meth",
+                "project_name",
+                "collection_date",
+                "samp_name",
                 "env_broad_scale"
             ],
             "title": "MimarksSPlantAssociated",
@@ -17882,7 +17882,7 @@
         },
         "MimarksSSoil": {
             "additionalProperties": false,
-            "description": "",
+            "description": "MIxS data that complies with the MimarksS checklist and the Soil environmental package",
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
@@ -17973,12 +17973,12 @@
                     "type": "string"
                 },
                 "env_broad_scale": {
-                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvOs biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvO s biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "env_local_scale": {
-                    "description": "Report the entity or entities which are in the sample or specimens local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the entity or entities which are in the sample or specimen s local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "type": "string"
                 },
                 "env_medium": {
@@ -18196,7 +18196,7 @@
                     "type": "string"
                 },
                 "samp_taxon_id": {
-                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome for mock community/positive controls, or 'blank sample' for negative controls",
+                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome  for mock community/positive controls, or 'blank sample' for negative controls",
                     "type": "string"
                 },
                 "samp_vol_we_dna_ext": {
@@ -18327,18 +18327,18 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "env_medium",
-                "depth",
-                "collection_date",
                 "target_gene",
-                "geo_loc_name",
-                "project_name",
-                "env_local_scale",
-                "samp_name",
-                "samp_taxon_id",
                 "elev",
+                "geo_loc_name",
+                "env_local_scale",
+                "depth",
+                "samp_taxon_id",
                 "lat_lon",
+                "env_medium",
+                "seq_meth",
+                "project_name",
+                "collection_date",
+                "samp_name",
                 "env_broad_scale"
             ],
             "title": "MimarksSSoil",
@@ -18346,7 +18346,7 @@
         },
         "MimarksSWater": {
             "additionalProperties": false,
-            "description": "",
+            "description": "MIxS data that complies with the MimarksS checklist and the Water environmental package",
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
@@ -18540,12 +18540,12 @@
                     "type": "string"
                 },
                 "env_broad_scale": {
-                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvOs biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvO s biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "env_local_scale": {
-                    "description": "Report the entity or entities which are in the sample or specimens local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the entity or entities which are in the sample or specimen s local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "type": "string"
                 },
                 "env_medium": {
@@ -18823,7 +18823,7 @@
                     "type": "string"
                 },
                 "samp_taxon_id": {
-                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome for mock community/positive controls, or 'blank sample' for negative controls",
+                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome  for mock community/positive controls, or 'blank sample' for negative controls",
                     "type": "string"
                 },
                 "samp_vol_we_dna_ext": {
@@ -18956,17 +18956,17 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "env_medium",
-                "depth",
-                "collection_date",
                 "target_gene",
                 "geo_loc_name",
-                "project_name",
                 "env_local_scale",
-                "samp_name",
+                "depth",
                 "samp_taxon_id",
                 "lat_lon",
+                "env_medium",
+                "seq_meth",
+                "project_name",
+                "collection_date",
+                "samp_name",
                 "env_broad_scale"
             ],
             "title": "MimarksSWater",
@@ -18974,7 +18974,7 @@
         },
         "MimsHostAssociated": {
             "additionalProperties": false,
-            "description": "",
+            "description": "MIxS data that complies with the Mims checklist and the HostAssociated environmental package",
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
@@ -19000,7 +19000,7 @@
                     "type": "string"
                 },
                 "assembly_qual": {
-                    "description": "The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling  90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated",
+                    "description": "The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling   90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated",
                     "type": "string"
                 },
                 "assembly_software": {
@@ -19051,12 +19051,12 @@
                     "type": "string"
                 },
                 "env_broad_scale": {
-                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvOs biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvO s biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "env_local_scale": {
-                    "description": "Report the entity or entities which are in the sample or specimens local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the entity or entities which are in the sample or specimen s local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "type": "string"
                 },
                 "env_medium": {
@@ -19354,7 +19354,7 @@
                     "type": "string"
                 },
                 "samp_taxon_id": {
-                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome for mock community/positive controls, or 'blank sample' for negative controls",
+                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome  for mock community/positive controls, or 'blank sample' for negative controls",
                     "type": "string"
                 },
                 "samp_vol_we_dna_ext": {
@@ -19399,15 +19399,15 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "env_medium",
-                "collection_date",
                 "geo_loc_name",
-                "project_name",
                 "env_local_scale",
-                "samp_name",
                 "samp_taxon_id",
                 "lat_lon",
+                "env_medium",
+                "seq_meth",
+                "project_name",
+                "collection_date",
+                "samp_name",
                 "env_broad_scale"
             ],
             "title": "MimsHostAssociated",
@@ -19415,7 +19415,7 @@
         },
         "MimsHumanAssociated": {
             "additionalProperties": false,
-            "description": "",
+            "description": "MIxS data that complies with the Mims checklist and the HumanAssociated environmental package",
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
@@ -19441,7 +19441,7 @@
                     "type": "string"
                 },
                 "assembly_qual": {
-                    "description": "The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling  90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated",
+                    "description": "The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling   90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated",
                     "type": "string"
                 },
                 "assembly_software": {
@@ -19496,12 +19496,12 @@
                     "type": "string"
                 },
                 "env_broad_scale": {
-                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvOs biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvO s biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "env_local_scale": {
-                    "description": "Report the entity or entities which are in the sample or specimens local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the entity or entities which are in the sample or specimen s local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "type": "string"
                 },
                 "env_medium": {
@@ -19808,7 +19808,7 @@
                     "type": "string"
                 },
                 "samp_taxon_id": {
-                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome for mock community/positive controls, or 'blank sample' for negative controls",
+                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome  for mock community/positive controls, or 'blank sample' for negative controls",
                     "type": "string"
                 },
                 "samp_vol_we_dna_ext": {
@@ -19887,15 +19887,15 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "env_medium",
-                "collection_date",
                 "geo_loc_name",
-                "project_name",
                 "env_local_scale",
-                "samp_name",
                 "samp_taxon_id",
                 "lat_lon",
+                "env_medium",
+                "seq_meth",
+                "project_name",
+                "collection_date",
+                "samp_name",
                 "env_broad_scale"
             ],
             "title": "MimsHumanAssociated",
@@ -19903,7 +19903,7 @@
         },
         "MimsHumanGut": {
             "additionalProperties": false,
-            "description": "",
+            "description": "MIxS data that complies with the Mims checklist and the HumanGut environmental package",
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
@@ -19925,7 +19925,7 @@
                     "type": "string"
                 },
                 "assembly_qual": {
-                    "description": "The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling  90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated",
+                    "description": "The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling   90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated",
                     "type": "string"
                 },
                 "assembly_software": {
@@ -19962,12 +19962,12 @@
                     "type": "string"
                 },
                 "env_broad_scale": {
-                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvOs biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvO s biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "env_local_scale": {
-                    "description": "Report the entity or entities which are in the sample or specimens local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the entity or entities which are in the sample or specimen s local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "type": "string"
                 },
                 "env_medium": {
@@ -20245,7 +20245,7 @@
                     "type": "string"
                 },
                 "samp_taxon_id": {
-                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome for mock community/positive controls, or 'blank sample' for negative controls",
+                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome  for mock community/positive controls, or 'blank sample' for negative controls",
                     "type": "string"
                 },
                 "samp_vol_we_dna_ext": {
@@ -20297,15 +20297,15 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "env_medium",
-                "collection_date",
                 "geo_loc_name",
-                "project_name",
                 "env_local_scale",
-                "samp_name",
                 "samp_taxon_id",
                 "lat_lon",
+                "env_medium",
+                "seq_meth",
+                "project_name",
+                "collection_date",
+                "samp_name",
                 "env_broad_scale"
             ],
             "title": "MimsHumanGut",
@@ -20313,7 +20313,7 @@
         },
         "MimsHumanOral": {
             "additionalProperties": false,
-            "description": "",
+            "description": "MIxS data that complies with the Mims checklist and the HumanOral environmental package",
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
@@ -20335,7 +20335,7 @@
                     "type": "string"
                 },
                 "assembly_qual": {
-                    "description": "The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling  90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated",
+                    "description": "The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling   90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated",
                     "type": "string"
                 },
                 "assembly_software": {
@@ -20372,12 +20372,12 @@
                     "type": "string"
                 },
                 "env_broad_scale": {
-                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvOs biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvO s biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "env_local_scale": {
-                    "description": "Report the entity or entities which are in the sample or specimens local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the entity or entities which are in the sample or specimen s local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "type": "string"
                 },
                 "env_medium": {
@@ -20647,7 +20647,7 @@
                     "type": "string"
                 },
                 "samp_taxon_id": {
-                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome for mock community/positive controls, or 'blank sample' for negative controls",
+                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome  for mock community/positive controls, or 'blank sample' for negative controls",
                     "type": "string"
                 },
                 "samp_vol_we_dna_ext": {
@@ -20697,15 +20697,15 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "env_medium",
-                "collection_date",
                 "geo_loc_name",
-                "project_name",
                 "env_local_scale",
-                "samp_name",
                 "samp_taxon_id",
                 "lat_lon",
+                "env_medium",
+                "seq_meth",
+                "project_name",
+                "collection_date",
+                "samp_name",
                 "env_broad_scale"
             ],
             "title": "MimsHumanOral",
@@ -20713,7 +20713,7 @@
         },
         "MimsPlantAssociated": {
             "additionalProperties": false,
-            "description": "",
+            "description": "MIxS data that complies with the Mims checklist and the PlantAssociated environmental package",
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
@@ -20753,7 +20753,7 @@
                     "type": "string"
                 },
                 "assembly_qual": {
-                    "description": "The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling  90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated",
+                    "description": "The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling   90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated",
                     "type": "string"
                 },
                 "assembly_software": {
@@ -20819,12 +20819,12 @@
                     "type": "string"
                 },
                 "env_broad_scale": {
-                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvOs biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvO s biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "env_local_scale": {
-                    "description": "Report the entity or entities which are in the sample or specimens local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the entity or entities which are in the sample or specimen s local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "type": "string"
                 },
                 "env_medium": {
@@ -21161,7 +21161,7 @@
                     "type": "number"
                 },
                 "root_med_regl": {
-                    "description": "Growth regulators in the culture rooting medium such as cytokinins, auxins, gybberellins, abscisic acid; e.g. 0.5mg/L NAA",
+                    "description": "Growth regulators in the culture rooting medium such as cytokinins, auxins, gybberellins, abscisic acid; e.g. 0.5  mg/L NAA",
                     "type": "string"
                 },
                 "root_med_solid": {
@@ -21169,7 +21169,7 @@
                     "type": "string"
                 },
                 "root_med_suppl": {
-                    "description": "Organic supplements of the culture rooting medium, such as vitamins, amino acids, organic acids, antibiotics activated charcoal; e.g. nicotinic acid (0.5mg/L)",
+                    "description": "Organic supplements of the culture rooting medium, such as vitamins, amino acids, organic acids, antibiotics activated charcoal; e.g. nicotinic acid (0.5  mg/L)",
                     "type": "string"
                 },
                 "salinity": {
@@ -21228,7 +21228,7 @@
                     "type": "string"
                 },
                 "samp_taxon_id": {
-                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome for mock community/positive controls, or 'blank sample' for negative controls",
+                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome  for mock community/positive controls, or 'blank sample' for negative controls",
                     "type": "string"
                 },
                 "samp_vol_we_dna_ext": {
@@ -21306,15 +21306,15 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "env_medium",
-                "collection_date",
                 "geo_loc_name",
-                "project_name",
                 "env_local_scale",
-                "samp_name",
                 "samp_taxon_id",
                 "lat_lon",
+                "env_medium",
+                "seq_meth",
+                "project_name",
+                "collection_date",
+                "samp_name",
                 "env_broad_scale"
             ],
             "title": "MimsPlantAssociated",
@@ -21322,7 +21322,7 @@
         },
         "MimsSoil": {
             "additionalProperties": false,
-            "description": "",
+            "description": "MIxS data that complies with the Mims checklist and the Soil environmental package",
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
@@ -21371,7 +21371,7 @@
                     "type": "string"
                 },
                 "assembly_qual": {
-                    "description": "The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling  90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated",
+                    "description": "The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling   90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated",
                     "type": "string"
                 },
                 "assembly_software": {
@@ -21422,12 +21422,12 @@
                     "type": "string"
                 },
                 "env_broad_scale": {
-                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvOs biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvO s biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "env_local_scale": {
-                    "description": "Report the entity or entities which are in the sample or specimens local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the entity or entities which are in the sample or specimen s local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "type": "string"
                 },
                 "env_medium": {
@@ -21654,7 +21654,7 @@
                     "type": "string"
                 },
                 "samp_taxon_id": {
-                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome for mock community/positive controls, or 'blank sample' for negative controls",
+                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome  for mock community/positive controls, or 'blank sample' for negative controls",
                     "type": "string"
                 },
                 "samp_vol_we_dna_ext": {
@@ -21781,17 +21781,17 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "env_medium",
-                "depth",
-                "collection_date",
-                "geo_loc_name",
-                "project_name",
-                "env_local_scale",
-                "samp_name",
-                "samp_taxon_id",
                 "elev",
+                "geo_loc_name",
+                "env_local_scale",
+                "depth",
+                "samp_taxon_id",
                 "lat_lon",
+                "env_medium",
+                "seq_meth",
+                "project_name",
+                "collection_date",
+                "samp_name",
                 "env_broad_scale"
             ],
             "title": "MimsSoil",
@@ -21799,7 +21799,7 @@
         },
         "MimsWater": {
             "additionalProperties": false,
-            "description": "",
+            "description": "MIxS data that complies with the Mims checklist and the Water environmental package",
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
@@ -21845,7 +21845,7 @@
                     "type": "string"
                 },
                 "assembly_qual": {
-                    "description": "The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling  90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated",
+                    "description": "The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling   90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated",
                     "type": "string"
                 },
                 "assembly_software": {
@@ -22002,12 +22002,12 @@
                     "type": "string"
                 },
                 "env_broad_scale": {
-                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvOs biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the major environmental system the sample or specimen came from. The system(s) identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. in the desert or a rainforest). We recommend using subclasses of EnvO s biome class:  http://purl.obolibrary.org/obo/ENVO_00000428. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "env_local_scale": {
-                    "description": "Report the entity or entities which are in the sample or specimens local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
+                    "description": "Report the entity or entities which are in the sample or specimen s local vicinity and which you believe have significant causal influences on your sample or specimen. We recommend using EnvO terms which are of smaller spatial grain than your entry for env_broad_scale. Terms, such as anatomical sites, from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON) are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS",
                     "type": "string"
                 },
                 "env_medium": {
@@ -22294,7 +22294,7 @@
                     "type": "string"
                 },
                 "samp_taxon_id": {
-                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome for mock community/positive controls, or 'blank sample' for negative controls",
+                    "description": "NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa sample. Use 'synthetic metagenome  for mock community/positive controls, or 'blank sample' for negative controls",
                     "type": "string"
                 },
                 "samp_vol_we_dna_ext": {
@@ -22423,16 +22423,16 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "env_medium",
-                "depth",
-                "collection_date",
                 "geo_loc_name",
-                "project_name",
                 "env_local_scale",
-                "samp_name",
+                "depth",
                 "samp_taxon_id",
                 "lat_lon",
+                "env_medium",
+                "seq_meth",
+                "project_name",
+                "collection_date",
+                "samp_name",
                 "env_broad_scale"
             ],
             "title": "MimsWater",
@@ -22440,7 +22440,7 @@
         },
         "MiscellaneousNaturalOrArtificialEnvironment": {
             "additionalProperties": false,
-            "description": "",
+            "description": "miscellaneous natural or artificial environment package",
             "properties": {
                 "alkalinity": {
                     "description": "Alkalinity, the ability of a solution to neutralize acids to the equivalence point of carbonate or bicarbonate",
@@ -23032,7 +23032,7 @@
         },
         "PlantAssociated": {
             "additionalProperties": false,
-            "description": "",
+            "description": "plant-associated package",
             "properties": {
                 "air_temp_regm": {
                     "description": "Information about treatment involving an exposure to varying temperatures; should include the temperature, treatment regimen including how many times the treatment was repeated, how long each treatment lasted, and the start and end time of the entire treatment; can include different temperature regimens",
@@ -23348,7 +23348,7 @@
                     "type": "number"
                 },
                 "root_med_regl": {
-                    "description": "Growth regulators in the culture rooting medium such as cytokinins, auxins, gybberellins, abscisic acid; e.g. 0.5mg/L NAA",
+                    "description": "Growth regulators in the culture rooting medium such as cytokinins, auxins, gybberellins, abscisic acid; e.g. 0.5  mg/L NAA",
                     "type": "string"
                 },
                 "root_med_solid": {
@@ -23356,7 +23356,7 @@
                     "type": "string"
                 },
                 "root_med_suppl": {
-                    "description": "Organic supplements of the culture rooting medium, such as vitamins, amino acids, organic acids, antibiotics activated charcoal; e.g. nicotinic acid (0.5mg/L)",
+                    "description": "Organic supplements of the culture rooting medium, such as vitamins, amino acids, organic acids, antibiotics activated charcoal; e.g. nicotinic acid (0.5  mg/L)",
                     "type": "string"
                 },
                 "salinity": {
@@ -23989,7 +23989,7 @@
         },
         "Sediment": {
             "additionalProperties": false,
-            "description": "",
+            "description": "sediment package",
             "properties": {
                 "alkalinity": {
                     "description": "Alkalinity, the ability of a solution to neutralize acids to the equivalence point of carbonate or bicarbonate",
@@ -24361,7 +24361,7 @@
         },
         "Soil": {
             "additionalProperties": false,
-            "description": "",
+            "description": "soil package",
             "properties": {
                 "agrochem_addition": {
                     "description": "Addition of fertilizers, pesticides, etc. - amount and time of applications",
@@ -24646,7 +24646,7 @@
         },
         "SymbiontAssociated": {
             "additionalProperties": false,
-            "description": "",
+            "description": "symbiont-associated package",
             "properties": {
                 "alt": {
                     "description": "Altitude is a term used to identify heights of objects such as airplanes, space shuttles, rockets, atmospheric balloons and heights of places such as atmospheric layers and clouds. It is used to measure the height of an object which is above the earth's surface. In this context, the altitude measurement is the vertical distance between the earth's surface above sea level and the sampled position in the air.",
@@ -25269,7 +25269,7 @@
         },
         "WastewaterSludge": {
             "additionalProperties": false,
-            "description": "",
+            "description": "wastewater/sludge package",
             "properties": {
                 "alkalinity": {
                     "description": "Alkalinity, the ability of a solution to neutralize acids to the equivalence point of carbonate or bicarbonate",
@@ -25490,7 +25490,7 @@
         },
         "Water": {
             "additionalProperties": false,
-            "description": "",
+            "description": "water package",
             "properties": {
                 "alkalinity": {
                     "description": "Alkalinity, the ability of a solution to neutralize acids to the equivalence point of carbonate or bicarbonate",

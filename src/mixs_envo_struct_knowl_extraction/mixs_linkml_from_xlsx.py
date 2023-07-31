@@ -136,13 +136,22 @@ def instantiate_combos(global_target_schema, root_class_name, combo_checklists,
             ep_id = global_target_schema.classes[ep].class_uri
             ep_id_after_colon = ep_id.split(":")[1]
 
+            # todo: could probably be written out in plain English better
             logger.debug(f"Combining {checklist} with {ep} as MIXS:{checklist_id_after_colon}_{ep_id_after_colon}")
 
             combo_name = f"{checklist}{ep}"
             combo_title = f"{checklist} combined with {ep}"
 
-            new_class = ClassDefinition(name=combo_name, title=combo_title, is_a=ep, mixins=[checklist],
-                                        class_uri=f"MIXS:{checklist_id_after_colon}_{ep_id_after_colon}")
+            new_class = ClassDefinition(
+                class_uri=f"MIXS:{checklist_id_after_colon}_{ep_id_after_colon}",
+                is_a=ep,
+                mixins=[checklist],
+                name=combo_name,
+                title=combo_title,
+                description=
+                f"MIxS data that complies with the {checklist} checklist and the {ep} environmental package",
+                in_subset="combination_classes"
+            )
             global_target_schema.classes[combo_name] = new_class
 
             slot_name = f"{pascal_case_to_lower_snake_case(combo_name)}_data"
@@ -940,6 +949,8 @@ def create_schema(non_ascii_replacement, debug, gsc_excel_input, textual_key, sc
         name=schema_name,
         source=gsc_excel_input,
     )
+
+    global_target_schema.subsets['combination_classes'] = SubsetDefinition(name='combination_classes')
 
     smaker = SchemaMaker()
     mixs_classes_schema = smaker.create_schema(list(classes_ssheet))

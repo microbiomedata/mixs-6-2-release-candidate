@@ -23,6 +23,9 @@ prefixes:
 default_prefix: mixs_6_2_rc
 default_range: string
 subsets:
+  combination_classes:
+    name: combination_classes
+    from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
   sequencing:
     name: sequencing
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
@@ -3509,7 +3512,7 @@ slots:
         value: degrees API
     description: 'API gravity is a measure of how heavy or light a petroleum liquid
       is compared to water (source: https://en.wikipedia.org/wiki/API_gravity) (e.g.
-      31.1 API)'
+      31.1   API)'
     title: API gravity
     examples:
     - value: 31.1 API
@@ -3563,10 +3566,11 @@ slots:
       Preferred_unit:
         tag: Preferred_unit
         value: percent
-    description: 'Saturate, Aromatic, Resin and Asphaltene(SARA) is an analysis method
-      that dividescrude oilcomponents according to their polarizability and polarity.
-      There are three main methods to obtain SARA results. The most popular one is
-      known as the Iatroscan TLC-FID and is referred to as IP-143 (source: https://en.wikipedia.org/wiki/Saturate,_aromatic,_resin_and_asphaltene)'
+    description: 'Saturate, Aromatic, Resin and Asphaltene  (SARA) is an analysis
+      method that divides  crude oil  components according to their polarizability
+      and polarity. There are three main methods to obtain SARA results. The most
+      popular one is known as the Iatroscan TLC-FID and is referred to as IP-143 (source:
+      https://en.wikipedia.org/wiki/Saturate,_aromatic,_resin_and_asphaltene)'
     title: aromatics wt%
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     slot_uri: MIXS:0000133
@@ -3584,10 +3588,11 @@ slots:
       Preferred_unit:
         tag: Preferred_unit
         value: percent
-    description: 'Saturate, Aromatic, Resin and Asphaltene(SARA) is an analysis method
-      that dividescrude oilcomponents according to their polarizability and polarity.
-      There are three main methods to obtain SARA results. The most popular one is
-      known as the Iatroscan TLC-FID and is referred to as IP-143 (source: https://en.wikipedia.org/wiki/Saturate,_aromatic,_resin_and_asphaltene)'
+    description: 'Saturate, Aromatic, Resin and Asphaltene  (SARA) is an analysis
+      method that divides  crude oil  components according to their polarizability
+      and polarity. There are three main methods to obtain SARA results. The most
+      popular one is known as the Iatroscan TLC-FID and is referred to as IP-143 (source:
+      https://en.wikipedia.org/wiki/Saturate,_aromatic,_resin_and_asphaltene)'
     title: asphaltenes wt%
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     slot_uri: MIXS:0000135
@@ -3632,7 +3637,7 @@ slots:
       maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence
       per replicon without gaps or ambiguities, with extensive manual review and editing
       to annotate putative gene functions and transcriptional units. High-quality
-      draft genome: One or multiple fragments, totaling  90% of the expected genome
+      draft genome: One or multiple fragments, totaling   90% of the expected genome
       or replicon sequence or predicted complete. Genome fragment(s): One or multiple
       fragments, totalling < 90% of the expected genome or replicon sequence, or for
       which no genome size could be estimated'
@@ -5923,7 +5928,7 @@ slots:
     description: 'Report the major environmental system the sample or specimen came
       from. The system(s) identified should have a coarse spatial grain, to provide
       the general environmental context of where the sampling was done (e.g. in the
-      desert or a rainforest). We recommend using subclasses of EnvOs biome class:  http://purl.obolibrary.org/obo/ENVO_00000428.
+      desert or a rainforest). We recommend using subclasses of EnvO s biome class:  http://purl.obolibrary.org/obo/ENVO_00000428.
       EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS'
     title: broad-scale environmental context
     notes:
@@ -5946,12 +5951,13 @@ slots:
         tag: Expected_value
         value: Environmental entities having causal influences upon the entity at
           time of sampling
-    description: 'Report the entity or entities which are in the sample or specimens
-      local vicinity and which you believe have significant causal influences on your
-      sample or specimen. We recommend using EnvO terms which are of smaller spatial
-      grain than your entry for env_broad_scale. Terms, such as anatomical sites,
-      from other OBO Library ontologies which interoperate with EnvO (e.g. UBERON)
-      are accepted in this field. EnvO documentation about how to use the field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS'
+    description: 'Report the entity or entities which are in the sample or specimen
+      s local vicinity and which you believe have significant causal influences on
+      your sample or specimen. We recommend using EnvO terms which are of smaller
+      spatial grain than your entry for env_broad_scale. Terms, such as anatomical
+      sites, from other OBO Library ontologies which interoperate with EnvO (e.g.
+      UBERON) are accepted in this field. EnvO documentation about how to use the
+      field: https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS'
     title: local environmental context
     notes:
     - context
@@ -7291,7 +7297,7 @@ slots:
       who manufacture, process, pack, or hold foods the Agency has designated for
       inclusion on the Food Traceability List. The Food Traceability List (FTL) identifies
       the foods for which the additional traceability records described in the proposed
-      rule would be required. The term Food Traceability List (FTL) refers not only
+      rule would be required. The term  Food Traceability List  (FTL) refers not only
       to the foods specifically listed (https://www.fda.gov/media/142303/download),
       but also to any foods that contain listed foods as ingredients
     title: food traceability list category
@@ -7967,7 +7973,7 @@ slots:
       whose physical, chemical and biological characteristics differ from the layers
       above and beneath. Horizon can be described both in absolute terms (particle
       size distribution for texture, for instance) and in terms relative to the surrounding
-      material, i.e. coarser or sandier than the horizons above and below
+      material, i.e.  coarser  or  sandier  than the horizons above and below
     title: horizon
     notes:
     - horizon
@@ -10410,7 +10416,7 @@ slots:
       Expected_value:
         tag: Expected_value
         value: cutoffs and method used
-    description: Cutoffs and approach used when clustering species-level OTUs. Note
+    description: Cutoffs and approach used when clustering  species-level  OTUs. Note
       that results from standard 95% ANI / 85% AF clustering should be provided alongside
       OTUS defined from another set of thresholds, even if the latter are the ones
       primarily used during the analysis
@@ -11149,8 +11155,8 @@ slots:
         tag: Preferred_unit
         value: degree Celsius
     description: 'Temperature at which a liquid becomes semi solid and loses its flow
-      characteristics. In crude oil a highpour pointis generally associated with a
-      high paraffin content, typically found in crude deriving from a larger proportion
+      characteristics. In crude oil a high  pour point  is generally associated with
+      a high paraffin content, typically found in crude deriving from a larger proportion
       of plant material. (soure: https://en.wikipedia.org/wiki/pour_point)'
     title: pour point
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
@@ -11715,10 +11721,11 @@ slots:
       Preferred_unit:
         tag: Preferred_unit
         value: percent
-    description: 'Saturate, Aromatic, Resin and Asphaltene(SARA) is an analysis method
-      that dividescrude oilcomponents according to their polarizability and polarity.
-      There are three main methods to obtain SARA results. The most popular one is
-      known as the Iatroscan TLC-FID and is referred to as IP-143 (source: https://en.wikipedia.org/wiki/Saturate,_aromatic,_resin_and_asphaltene)'
+    description: 'Saturate, Aromatic, Resin and Asphaltene  (SARA) is an analysis
+      method that divides  crude oil  components according to their polarizability
+      and polarity. There are three main methods to obtain SARA results. The most
+      popular one is known as the Iatroscan TLC-FID and is referred to as IP-143 (source:
+      https://en.wikipedia.org/wiki/Saturate,_aromatic,_resin_and_asphaltene)'
     title: resins wt%
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     slot_uri: MIXS:0000134
@@ -12090,7 +12097,7 @@ slots:
     notes:
     - macronutrients
     examples:
-    - value: KH2PO4;170milligram per liter
+    - value: KH2PO4;170  milligram per liter
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     string_serialization: '{text};{float} {unit}'
     slot_uri: MIXS:0000578
@@ -12110,7 +12117,7 @@ slots:
     notes:
     - micronutrients
     examples:
-    - value: H3BO3;6.2milligram per liter
+    - value: H3BO3;6.2  milligram per liter
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     string_serialization: '{text};{float} {unit}'
     slot_uri: MIXS:0000579
@@ -12141,7 +12148,7 @@ slots:
         tag: Preferred_unit
         value: milligram per liter
     description: Growth regulators in the culture rooting medium such as cytokinins,
-      auxins, gybberellins, abscisic acid; e.g. 0.5mg/L NAA
+      auxins, gybberellins, abscisic acid; e.g. 0.5  mg/L NAA
     title: rooting medium regulators
     examples:
     - value: abscisic acid;0.75 milligram per liter
@@ -12175,7 +12182,7 @@ slots:
         value: milligram per liter
     description: Organic supplements of the culture rooting medium, such as vitamins,
       amino acids, organic acids, antibiotics activated charcoal; e.g. nicotinic acid
-      (0.5mg/L)
+      (0.5  mg/L)
     title: rooting medium organic supplements
     notes:
     - organic
@@ -12749,8 +12756,8 @@ slots:
         tag: Expected_value
         value: Taxonomy ID
     description: NCBI taxon id of the sample.  Maybe be a single taxon or mixed taxa
-      sample. Use 'synthetic metagenome for mock community/positive controls, or 'blank
-      sample' for negative controls
+      sample. Use 'synthetic metagenome  for mock community/positive controls, or
+      'blank sample' for negative controls
     title: taxonomy ID of DNA sample
     notes:
     - dna
@@ -12795,7 +12802,7 @@ slots:
         tag: Preferred_unit
         value: days;degree Celsius
     description: Sample transport duration (in days or hrs) and temperature the sample
-      was exposed to (e.g. 5.5 days; 20 C)
+      was exposed to (e.g. 5.5 days; 20   C)
     title: sample transport conditions
     notes:
     - condition
@@ -12963,10 +12970,11 @@ slots:
       Preferred_unit:
         tag: Preferred_unit
         value: percent
-    description: 'Saturate, Aromatic, Resin and Asphaltene(SARA) is an analysis method
-      that dividescrude oilcomponents according to their polarizability and polarity.
-      There are three main methods to obtain SARA results. The most popular one is
-      known as the Iatroscan TLC-FID and is referred to as IP-143 (source: https://en.wikipedia.org/wiki/Saturate,_aromatic,_resin_and_asphaltene)'
+    description: 'Saturate, Aromatic, Resin and Asphaltene  (SARA) is an analysis
+      method that divides  crude oil  components according to their polarizability
+      and polarity. There are three main methods to obtain SARA results. The most
+      popular one is known as the Iatroscan TLC-FID and is referred to as IP-143 (source:
+      https://en.wikipedia.org/wiki/Saturate,_aromatic,_resin_and_asphaltene)'
     title: saturates wt%
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     slot_uri: MIXS:0000131
@@ -14734,9 +14742,9 @@ slots:
       Preferred_unit:
         tag: Preferred_unit
         value: milligram per liter
-    description: 'Total Acid Number(TAN) is a measurement of acidity that is determined
-      by the amount ofpotassium hydroxidein milligrams that is needed to neutralize
-      the acids in one gram of oil.It is an important quality measurement ofcrude
+    description: 'Total Acid Number  (TAN) is a measurement of acidity that is determined
+      by the amount of  potassium hydroxide  in milligrams that is needed to neutralize
+      the acids in one gram of oil.  It is an important quality measurement of  crude
       oil. (source: https://en.wikipedia.org/wiki/Total_acid_number)'
     title: total acid number
     notes:
@@ -15639,8 +15647,8 @@ slots:
       Preferred_unit:
         tag: Preferred_unit
         value: cP at degree Celsius
-    description: A measure of oil's resistanceto gradual deformation byshear stressortensile
-      stress (e.g. 3.5 cp; 100 C)
+    description: A measure of oil's resistance  to gradual deformation by  shear stress  or  tensile
+      stress (e.g. 3.5 cp; 100   C)
     title: viscosity
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     string_serialization: '{float} {unit};{float} {unit}'
@@ -16428,63 +16436,63 @@ classes:
     is_a: Checklist
     mixin: true
     slots:
-    - specific_host
-    - seq_meth
-    - num_replicons
-    - compl_software
-    - lib_reads_seqd
-    - samp_vol_we_dna_ext
-    - lib_layout
-    - ref_biomaterial
-    - source_mat_id
-    - rel_to_oxygen
-    - compl_score
-    - temp
-    - number_contig
-    - env_medium
-    - depth
-    - collection_date
-    - neg_cont_type
-    - samp_collect_device
-    - tax_ident
-    - biotic_relationship
-    - trophic_level
-    - geo_loc_name
-    - assembly_qual
-    - pos_cont_type
-    - experimental_factor
-    - subspecf_gen_lin
-    - sim_search_meth
-    - alt
-    - feat_pred
-    - tax_class
-    - annot
-    - project_name
-    - extrachrom_elements
-    - env_local_scale
-    - lib_vector
-    - host_disease_stat
-    - samp_name
-    - samp_taxon_id
-    - elev
-    - samp_mat_process
-    - ref_db
-    - lib_size
-    - samp_collect_method
-    - nucl_acid_amp
-    - adapters
-    - host_spec_range
-    - pathogenicity
-    - samp_size
-    - assembly_software
     - estimated_size
-    - assembly_name
-    - lat_lon
-    - lib_screen
+    - lib_vector
+    - tax_class
+    - samp_collect_method
+    - elev
+    - biotic_relationship
+    - tax_ident
+    - nucl_acid_amp
+    - samp_mat_process
+    - samp_size
+    - geo_loc_name
     - isol_growth_condt
-    - env_broad_scale
-    - nucl_acid_ext
+    - env_local_scale
     - encoded_traits
+    - compl_score
+    - source_mat_id
+    - assembly_name
+    - depth
+    - assembly_qual
+    - rel_to_oxygen
+    - specific_host
+    - host_spec_range
+    - ref_db
+    - host_disease_stat
+    - temp
+    - subspecf_gen_lin
+    - alt
+    - samp_taxon_id
+    - pathogenicity
+    - pos_cont_type
+    - lat_lon
+    - env_medium
+    - num_replicons
+    - lib_screen
+    - lib_reads_seqd
+    - nucl_acid_ext
+    - neg_cont_type
+    - feat_pred
+    - adapters
+    - compl_software
+    - trophic_level
+    - sim_search_meth
+    - experimental_factor
+    - extrachrom_elements
+    - seq_meth
+    - samp_collect_device
+    - ref_biomaterial
+    - lib_size
+    - project_name
+    - collection_date
+    - samp_name
+    - annot
+    - samp_vol_we_dna_ext
+    - assembly_software
+    - number_contig
+    - lib_layout
+    - env_broad_scale
     - associated_resource
     - sop
     slot_usage:
@@ -16714,63 +16722,63 @@ classes:
     is_a: Checklist
     mixin: true
     slots:
-    - specific_host
-    - seq_meth
-    - num_replicons
-    - compl_software
-    - lib_reads_seqd
-    - samp_vol_we_dna_ext
-    - lib_layout
-    - ref_biomaterial
-    - source_mat_id
-    - compl_score
-    - temp
-    - number_contig
-    - env_medium
-    - depth
-    - collection_date
-    - neg_cont_type
-    - samp_collect_device
-    - tax_ident
-    - biotic_relationship
-    - trophic_level
-    - geo_loc_name
-    - assembly_qual
-    - pos_cont_type
-    - experimental_factor
-    - subspecf_gen_lin
-    - alt
-    - feat_pred
-    - tax_class
-    - annot
-    - project_name
-    - extrachrom_elements
-    - env_local_scale
-    - lib_vector
-    - host_disease_stat
-    - samp_name
-    - samp_taxon_id
-    - elev
-    - propagation
-    - samp_mat_process
-    - ref_db
-    - lib_size
-    - samp_collect_method
-    - nucl_acid_amp
-    - adapters
-    - host_spec_range
-    - ploidy
-    - pathogenicity
-    - samp_size
-    - assembly_software
     - estimated_size
-    - assembly_name
-    - lat_lon
-    - lib_screen
+    - lib_vector
+    - tax_class
+    - ploidy
+    - samp_collect_method
+    - elev
+    - biotic_relationship
+    - tax_ident
+    - nucl_acid_amp
+    - samp_mat_process
+    - samp_size
+    - geo_loc_name
     - isol_growth_condt
-    - env_broad_scale
+    - env_local_scale
+    - compl_score
+    - source_mat_id
+    - assembly_name
+    - depth
+    - assembly_qual
+    - specific_host
+    - host_spec_range
+    - ref_db
+    - host_disease_stat
+    - temp
+    - samp_taxon_id
+    - alt
+    - pathogenicity
+    - subspecf_gen_lin
+    - pos_cont_type
+    - lat_lon
+    - env_medium
+    - num_replicons
+    - lib_screen
+    - lib_reads_seqd
     - nucl_acid_ext
+    - neg_cont_type
+    - feat_pred
+    - adapters
+    - propagation
+    - compl_software
+    - trophic_level
     - sim_search_meth
+    - experimental_factor
+    - extrachrom_elements
+    - seq_meth
+    - samp_collect_device
+    - ref_biomaterial
+    - lib_size
+    - project_name
+    - collection_date
+    - samp_name
+    - annot
+    - samp_vol_we_dna_ext
+    - assembly_software
+    - number_contig
+    - lib_layout
+    - env_broad_scale
     - associated_resource
     - sop
     slot_usage:
@@ -17006,54 +17014,54 @@ classes:
     is_a: Checklist
     mixin: true
     slots:
-    - seq_meth
-    - compl_software
-    - lib_reads_seqd
-    - samp_vol_we_dna_ext
-    - lib_layout
-    - ref_biomaterial
-    - source_mat_id
-    - compl_score
-    - temp
-    - number_contig
-    - env_medium
-    - depth
-    - collection_date
-    - neg_cont_type
-    - samp_collect_device
-    - tax_ident
-    - geo_loc_name
-    - assembly_qual
-    - pos_cont_type
-    - experimental_factor
-    - subspecf_gen_lin
-    - alt
-    - feat_pred
-    - tax_class
-    - annot
-    - project_name
-    - extrachrom_elements
-    - env_local_scale
-    - lib_vector
-    - samp_name
-    - samp_taxon_id
-    - elev
-    - samp_mat_process
-    - ref_db
-    - lib_size
-    - samp_collect_method
-    - nucl_acid_amp
-    - adapters
-    - samp_size
-    - assembly_software
     - estimated_size
-    - assembly_name
-    - lat_lon
-    - lib_screen
+    - lib_vector
+    - tax_class
+    - samp_collect_method
+    - elev
+    - tax_ident
+    - nucl_acid_amp
+    - samp_mat_process
+    - samp_size
+    - geo_loc_name
     - isol_growth_condt
-    - env_broad_scale
+    - env_local_scale
+    - compl_score
+    - source_mat_id
+    - assembly_name
+    - depth
+    - assembly_qual
+    - ref_db
+    - temp
+    - samp_taxon_id
+    - alt
+    - subspecf_gen_lin
+    - pos_cont_type
+    - lat_lon
+    - env_medium
+    - lib_screen
+    - lib_reads_seqd
     - nucl_acid_ext
+    - neg_cont_type
+    - feat_pred
+    - adapters
+    - compl_software
     - sim_search_meth
+    - experimental_factor
+    - extrachrom_elements
+    - seq_meth
+    - samp_collect_device
+    - ref_biomaterial
+    - lib_size
+    - project_name
+    - collection_date
+    - samp_name
+    - annot
+    - samp_vol_we_dna_ext
+    - assembly_software
+    - number_contig
+    - lib_layout
+    - env_broad_scale
     - associated_resource
     - sop
     slot_usage:
@@ -17249,57 +17257,57 @@ classes:
     is_a: Checklist
     mixin: true
     slots:
-    - specific_host
-    - seq_meth
-    - compl_software
-    - lib_reads_seqd
-    - samp_vol_we_dna_ext
-    - lib_layout
-    - ref_biomaterial
-    - source_mat_id
-    - compl_score
-    - temp
-    - number_contig
-    - env_medium
-    - depth
-    - collection_date
-    - neg_cont_type
-    - samp_collect_device
-    - tax_ident
-    - geo_loc_name
-    - assembly_qual
-    - pos_cont_type
-    - experimental_factor
-    - subspecf_gen_lin
-    - sim_search_meth
-    - alt
-    - feat_pred
-    - tax_class
-    - annot
-    - project_name
-    - env_local_scale
-    - lib_vector
-    - samp_name
-    - samp_taxon_id
-    - elev
-    - propagation
-    - samp_mat_process
-    - ref_db
-    - lib_size
-    - samp_collect_method
-    - nucl_acid_amp
-    - adapters
-    - host_spec_range
-    - samp_size
-    - assembly_software
     - estimated_size
-    - assembly_name
-    - lat_lon
-    - lib_screen
+    - lib_vector
+    - tax_class
+    - samp_collect_method
+    - elev
+    - tax_ident
+    - nucl_acid_amp
+    - samp_mat_process
+    - samp_size
+    - geo_loc_name
     - isol_growth_condt
-    - env_broad_scale
-    - nucl_acid_ext
+    - env_local_scale
     - encoded_traits
+    - compl_score
+    - source_mat_id
+    - assembly_name
+    - depth
+    - assembly_qual
+    - specific_host
+    - host_spec_range
+    - ref_db
+    - temp
+    - samp_taxon_id
+    - alt
+    - subspecf_gen_lin
+    - pos_cont_type
+    - lat_lon
+    - env_medium
+    - lib_screen
+    - lib_reads_seqd
+    - nucl_acid_ext
+    - neg_cont_type
+    - feat_pred
+    - adapters
+    - propagation
+    - compl_software
+    - sim_search_meth
+    - experimental_factor
+    - seq_meth
+    - samp_collect_device
+    - ref_biomaterial
+    - lib_size
+    - project_name
+    - collection_date
+    - samp_name
+    - annot
+    - samp_vol_we_dna_ext
+    - assembly_software
+    - number_contig
+    - lib_layout
+    - env_broad_scale
     - associated_resource
     - sop
     slot_usage:
@@ -17505,62 +17513,62 @@ classes:
     is_a: Checklist
     mixin: true
     slots:
-    - specific_host
-    - seq_meth
-    - num_replicons
-    - compl_software
-    - lib_reads_seqd
-    - samp_vol_we_dna_ext
-    - lib_layout
-    - ref_biomaterial
-    - source_mat_id
-    - compl_score
-    - temp
-    - number_contig
-    - env_medium
-    - depth
-    - collection_date
-    - neg_cont_type
-    - samp_collect_device
-    - tax_ident
-    - biotic_relationship
-    - geo_loc_name
-    - assembly_qual
-    - pos_cont_type
-    - experimental_factor
-    - subspecf_gen_lin
-    - sim_search_meth
-    - alt
-    - feat_pred
-    - tax_class
-    - annot
-    - project_name
-    - env_local_scale
-    - virus_enrich_appr
-    - host_disease_stat
-    - lib_vector
-    - samp_name
-    - samp_taxon_id
-    - elev
-    - propagation
-    - samp_mat_process
-    - ref_db
-    - lib_size
-    - samp_collect_method
-    - nucl_acid_amp
-    - adapters
-    - host_spec_range
-    - pathogenicity
-    - samp_size
-    - assembly_software
     - estimated_size
-    - assembly_name
-    - lat_lon
-    - lib_screen
+    - lib_vector
+    - tax_class
+    - samp_collect_method
+    - elev
+    - biotic_relationship
+    - tax_ident
+    - virus_enrich_appr
+    - nucl_acid_amp
+    - samp_mat_process
+    - samp_size
+    - geo_loc_name
     - isol_growth_condt
-    - env_broad_scale
-    - nucl_acid_ext
+    - env_local_scale
     - encoded_traits
+    - compl_score
+    - source_mat_id
+    - assembly_name
+    - depth
+    - assembly_qual
+    - specific_host
+    - host_spec_range
+    - ref_db
+    - host_disease_stat
+    - temp
+    - samp_taxon_id
+    - alt
+    - pathogenicity
+    - subspecf_gen_lin
+    - pos_cont_type
+    - lat_lon
+    - env_medium
+    - num_replicons
+    - lib_screen
+    - lib_reads_seqd
+    - nucl_acid_ext
+    - neg_cont_type
+    - feat_pred
+    - adapters
+    - propagation
+    - compl_software
+    - sim_search_meth
+    - experimental_factor
+    - seq_meth
+    - samp_collect_device
+    - ref_biomaterial
+    - lib_size
+    - project_name
+    - collection_date
+    - samp_name
+    - annot
+    - samp_vol_we_dna_ext
+    - assembly_software
+    - number_contig
+    - lib_layout
+    - env_broad_scale
     - associated_resource
     - sop
     slot_usage:
@@ -17789,66 +17797,66 @@ classes:
     is_a: Checklist
     mixin: true
     slots:
-    - seq_meth
-    - compl_software
-    - lib_reads_seqd
-    - samp_vol_we_dna_ext
-    - contam_screen_input
-    - lib_layout
-    - ref_biomaterial
-    - source_mat_id
-    - rel_to_oxygen
-    - compl_score
-    - temp
-    - number_contig
-    - env_medium
-    - contam_score
-    - depth
-    - collection_date
-    - neg_cont_type
-    - samp_collect_device
-    - tax_ident
-    - bin_param
-    - geo_loc_name
-    - decontam_software
-    - assembly_qual
-    - pos_cont_type
-    - experimental_factor
-    - size_frac
-    - alt
-    - feat_pred
-    - tax_class
-    - annot
-    - project_name
-    - env_local_scale
     - lib_vector
-    - bin_software
-    - samp_name
-    - contam_screen_param
-    - trna_ext_software
-    - samp_taxon_id
-    - assembly_name
-    - env_broad_scale
-    - elev
-    - samp_mat_process
-    - ref_db
-    - compl_appr
-    - lib_size
+    - tax_class
     - samp_collect_method
-    - nucl_acid_amp
-    - adapters
-    - samp_size
-    - trnas
-    - mag_cov_software
-    - assembly_software
-    - reassembly_bin
-    - x16s_recover
-    - lat_lon
-    - lib_screen
-    - mid
+    - elev
     - x16s_recover_software
+    - mag_cov_software
+    - trna_ext_software
+    - tax_ident
+    - trnas
+    - decontam_software
+    - nucl_acid_amp
+    - samp_mat_process
+    - samp_size
+    - geo_loc_name
+    - env_local_scale
+    - compl_score
+    - source_mat_id
+    - x16s_recover
+    - bin_param
+    - assembly_name
+    - reassembly_bin
+    - depth
+    - rel_to_oxygen
+    - ref_db
+    - samp_taxon_id
+    - temp
+    - alt
+    - pos_cont_type
+    - lat_lon
+    - env_medium
+    - lib_screen
+    - bin_software
+    - lib_reads_seqd
     - nucl_acid_ext
+    - neg_cont_type
+    - feat_pred
+    - adapters
+    - contam_screen_input
+    - compl_software
     - sim_search_meth
+    - experimental_factor
+    - seq_meth
+    - samp_collect_device
+    - compl_appr
+    - ref_biomaterial
+    - lib_size
+    - project_name
+    - collection_date
+    - size_frac
+    - samp_name
+    - mid
+    - samp_vol_we_dna_ext
+    - assembly_software
+    - annot
+    - number_contig
+    - contam_score
+    - contam_screen_param
+    - env_broad_scale
+    - lib_layout
+    - assembly_qual
     - associated_resource
     - sop
     slot_usage:
@@ -18082,43 +18090,43 @@ classes:
     is_a: Checklist
     mixin: true
     slots:
-    - seq_meth
-    - samp_vol_we_dna_ext
-    - source_mat_id
-    - rel_to_oxygen
-    - temp
-    - env_medium
-    - pcr_cond
-    - depth
-    - collection_date
-    - neg_cont_type
-    - samp_collect_device
-    - biotic_relationship
-    - trophic_level
-    - target_gene
-    - pos_cont_type
-    - experimental_factor
-    - subspecf_gen_lin
-    - alt
-    - seq_quality_check
-    - target_subfragment
-    - extrachrom_elements
-    - project_name
-    - env_local_scale
-    - samp_name
-    - samp_taxon_id
-    - elev
-    - samp_mat_process
     - samp_collect_method
+    - target_subfragment
+    - target_gene
+    - biotic_relationship
+    - elev
     - nucl_acid_amp
+    - samp_mat_process
+    - pcr_cond
+    - chimera_check
     - samp_size
-    - pcr_primers
-    - lat_lon
     - geo_loc_name
     - isol_growth_condt
-    - env_broad_scale
+    - env_local_scale
+    - source_mat_id
+    - depth
+    - rel_to_oxygen
+    - seq_quality_check
+    - samp_taxon_id
+    - temp
+    - alt
+    - subspecf_gen_lin
+    - pos_cont_type
+    - lat_lon
+    - env_medium
+    - pcr_primers
     - nucl_acid_ext
-    - chimera_check
+    - neg_cont_type
+    - trophic_level
+    - experimental_factor
+    - extrachrom_elements
+    - seq_meth
+    - samp_collect_device
+    - project_name
+    - collection_date
+    - samp_name
+    - samp_vol_we_dna_ext
+    - env_broad_scale
     - associated_resource
     - sop
     slot_usage:
@@ -18273,47 +18281,47 @@ classes:
     is_a: Checklist
     mixin: true
     slots:
-    - seq_meth
-    - lib_reads_seqd
-    - samp_vol_we_dna_ext
-    - lib_layout
-    - source_mat_id
-    - rel_to_oxygen
-    - temp
-    - env_medium
-    - pcr_cond
-    - depth
-    - collection_date
-    - neg_cont_type
-    - samp_collect_device
-    - target_gene
-    - geo_loc_name
-    - pos_cont_type
-    - experimental_factor
-    - size_frac
-    - alt
-    - target_subfragment
-    - seq_quality_check
-    - project_name
-    - env_local_scale
     - lib_vector
-    - samp_name
-    - samp_taxon_id
-    - elev
-    - samp_mat_process
-    - lib_size
     - samp_collect_method
+    - target_subfragment
+    - target_gene
+    - elev
     - nucl_acid_amp
-    - adapters
-    - samp_size
-    - assembly_software
-    - pcr_primers
-    - lat_lon
-    - lib_screen
-    - mid
-    - env_broad_scale
-    - nucl_acid_ext
+    - samp_mat_process
+    - pcr_cond
     - chimera_check
+    - samp_size
+    - geo_loc_name
+    - env_local_scale
+    - source_mat_id
+    - depth
+    - rel_to_oxygen
+    - seq_quality_check
+    - samp_taxon_id
+    - temp
+    - alt
+    - pos_cont_type
+    - lat_lon
+    - env_medium
+    - lib_screen
+    - pcr_primers
+    - lib_reads_seqd
+    - nucl_acid_ext
+    - neg_cont_type
+    - adapters
+    - experimental_factor
+    - seq_meth
+    - samp_collect_device
+    - lib_size
+    - project_name
+    - collection_date
+    - size_frac
+    - samp_name
+    - mid
+    - samp_vol_we_dna_ext
+    - assembly_software
+    - lib_layout
+    - env_broad_scale
     - associated_resource
     - sop
     slot_usage:
@@ -18473,50 +18481,50 @@ classes:
     is_a: Checklist
     mixin: true
     slots:
-    - seq_meth
-    - lib_reads_seqd
-    - samp_vol_we_dna_ext
-    - lib_layout
-    - ref_biomaterial
-    - source_mat_id
-    - rel_to_oxygen
-    - temp
-    - number_contig
-    - env_medium
-    - depth
-    - collection_date
-    - neg_cont_type
-    - samp_collect_device
-    - geo_loc_name
-    - assembly_qual
-    - pos_cont_type
-    - experimental_factor
-    - size_frac
-    - alt
-    - feat_pred
-    - tax_class
-    - annot
-    - project_name
-    - env_local_scale
     - lib_vector
-    - samp_name
-    - samp_taxon_id
-    - elev
-    - samp_mat_process
-    - ref_db
-    - lib_size
+    - tax_class
     - samp_collect_method
+    - elev
     - nucl_acid_amp
-    - adapters
+    - samp_mat_process
     - samp_size
-    - assembly_software
+    - geo_loc_name
+    - env_local_scale
+    - source_mat_id
     - assembly_name
+    - depth
+    - assembly_qual
+    - rel_to_oxygen
+    - ref_db
+    - samp_taxon_id
+    - temp
+    - alt
+    - pos_cont_type
     - lat_lon
+    - env_medium
     - lib_screen
-    - mid
-    - env_broad_scale
+    - lib_reads_seqd
     - nucl_acid_ext
+    - neg_cont_type
+    - feat_pred
+    - adapters
     - sim_search_meth
+    - experimental_factor
+    - seq_meth
+    - samp_collect_device
+    - ref_biomaterial
+    - lib_size
+    - project_name
+    - collection_date
+    - size_frac
+    - samp_name
+    - mid
+    - samp_vol_we_dna_ext
+    - assembly_software
+    - annot
+    - number_contig
+    - lib_layout
+    - env_broad_scale
     - associated_resource
     - sop
     slot_usage:
@@ -18686,67 +18694,67 @@ classes:
     is_a: Checklist
     mixin: true
     slots:
-    - seq_meth
-    - sc_lysis_method
-    - lib_screen
-    - compl_software
-    - lib_reads_seqd
-    - wga_amp_appr
-    - samp_vol_we_dna_ext
-    - contam_screen_input
-    - lib_layout
-    - ref_biomaterial
-    - source_mat_id
-    - rel_to_oxygen
-    - compl_score
-    - temp
-    - number_contig
-    - env_medium
-    - sort_tech
-    - contam_score
-    - depth
-    - collection_date
-    - neg_cont_type
-    - samp_collect_device
-    - tax_ident
-    - x16s_recover_software
-    - wga_amp_kit
-    - decontam_software
-    - assembly_qual
-    - sc_lysis_approach
-    - pos_cont_type
-    - experimental_factor
-    - size_frac
-    - alt
-    - feat_pred
-    - tax_class
-    - annot
-    - project_name
-    - env_local_scale
     - lib_vector
-    - samp_name
-    - contam_screen_param
-    - trna_ext_software
-    - samp_taxon_id
-    - elev
-    - samp_mat_process
-    - ref_db
-    - compl_appr
-    - lib_size
+    - tax_class
     - samp_collect_method
-    - nucl_acid_amp
-    - adapters
-    - samp_size
+    - wga_amp_kit
+    - elev
+    - x16s_recover_software
+    - trna_ext_software
+    - tax_ident
     - trnas
-    - assembly_software
+    - decontam_software
+    - nucl_acid_amp
+    - samp_mat_process
+    - samp_size
+    - geo_loc_name
+    - env_local_scale
+    - compl_score
+    - source_mat_id
     - x16s_recover
     - assembly_name
+    - depth
+    - assembly_qual
+    - sort_tech
+    - rel_to_oxygen
+    - ref_db
+    - samp_taxon_id
+    - temp
+    - alt
+    - pos_cont_type
     - lat_lon
-    - geo_loc_name
-    - mid
-    - env_broad_scale
+    - env_medium
+    - lib_screen
+    - lib_reads_seqd
     - nucl_acid_ext
+    - neg_cont_type
+    - feat_pred
+    - adapters
+    - contam_screen_input
+    - sc_lysis_approach
+    - wga_amp_appr
+    - compl_software
     - sim_search_meth
+    - sc_lysis_method
+    - experimental_factor
+    - seq_meth
+    - samp_collect_device
+    - compl_appr
+    - ref_biomaterial
+    - lib_size
+    - project_name
+    - collection_date
+    - size_frac
+    - samp_name
+    - mid
+    - samp_vol_we_dna_ext
+    - assembly_software
+    - annot
+    - number_contig
+    - contam_score
+    - contam_screen_param
+    - lib_layout
+    - env_broad_scale
     - associated_resource
     - sop
     slot_usage:
@@ -18979,63 +18987,63 @@ classes:
     is_a: Checklist
     mixin: true
     slots:
+    - estimated_size
+    - lib_vector
+    - tax_class
+    - samp_collect_method
+    - elev
+    - biotic_relationship
+    - trna_ext_software
+    - tax_ident
+    - virus_enrich_appr
+    - trnas
+    - nucl_acid_amp
+    - samp_mat_process
+    - samp_size
+    - geo_loc_name
+    - env_local_scale
+    - compl_score
+    - source_mat_id
+    - assembly_name
+    - depth
     - specific_host
+    - host_spec_range
+    - ref_db
+    - host_disease_stat
+    - temp
+    - samp_taxon_id
+    - pathogenicity
+    - alt
+    - pos_cont_type
+    - lat_lon
+    - env_medium
+    - lib_screen
+    - lib_reads_seqd
+    - nucl_acid_ext
+    - neg_cont_type
+    - feat_pred
+    - adapters
+    - compl_software
+    - sim_search_meth
+    - experimental_factor
     - seq_meth
     - source_uvig
-    - compl_software
-    - lib_reads_seqd
-    - samp_vol_we_dna_ext
-    - lib_layout
-    - ref_biomaterial
-    - source_mat_id
-    - compl_score
-    - temp
-    - number_contig
-    - env_medium
-    - depth
-    - collection_date
-    - neg_cont_type
     - samp_collect_device
-    - tax_ident
-    - biotic_relationship
-    - geo_loc_name
-    - assembly_qual
-    - pos_cont_type
-    - experimental_factor
-    - size_frac
-    - alt
-    - feat_pred
-    - tax_class
-    - annot
-    - project_name
-    - env_local_scale
-    - virus_enrich_appr
-    - host_disease_stat
-    - lib_vector
-    - samp_name
-    - trna_ext_software
-    - samp_taxon_id
-    - elev
-    - samp_mat_process
-    - ref_db
     - compl_appr
+    - ref_biomaterial
     - lib_size
-    - samp_collect_method
-    - nucl_acid_amp
-    - adapters
-    - host_spec_range
-    - pathogenicity
-    - samp_size
-    - trnas
-    - assembly_software
-    - estimated_size
-    - assembly_name
-    - lat_lon
-    - lib_screen
+    - project_name
+    - collection_date
+    - size_frac
+    - samp_name
     - mid
+    - samp_vol_we_dna_ext
+    - assembly_software
+    - annot
+    - number_contig
     - env_broad_scale
-    - nucl_acid_ext
-    - sim_search_meth
+    - lib_layout
+    - assembly_qual
     - sort_tech
     - sc_lysis_approach
     - sc_lysis_method
@@ -19321,6 +19329,7 @@ classes:
     class_uri: MIXS:0010012
   Agriculture:
     name: Agriculture
+    description: agriculture package
     title: agriculture
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: EnvironmentalPackage
@@ -20059,6 +20068,7 @@ classes:
     class_uri: MIXS:0016018
   Air:
     name: Air
+    description: air package
     title: air
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: EnvironmentalPackage
@@ -20204,6 +20214,7 @@ classes:
     class_uri: MIXS:0016000
   BuiltEnvironment:
     name: BuiltEnvironment
+    description: built environment package
     title: built environment
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: EnvironmentalPackage
@@ -20422,6 +20433,7 @@ classes:
     class_uri: MIXS:0016001
   FoodAnimalAndAnimalFeed:
     name: FoodAnimalAndAnimalFeed
+    description: food-animal and animal feed package
     title: food-animal and animal feed
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: EnvironmentalPackage
@@ -20784,6 +20796,7 @@ classes:
     class_uri: MIXS:0016019
   FoodFarmEnvironment:
     name: FoodFarmEnvironment
+    description: food-farm environment package
     title: food-farm environment
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: EnvironmentalPackage
@@ -21353,6 +21366,7 @@ classes:
     class_uri: MIXS:0016020
   FoodFoodProductionFacility:
     name: FoodFoodProductionFacility
+    description: food-food production facility package
     title: food-food production facility
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: EnvironmentalPackage
@@ -21716,6 +21730,7 @@ classes:
     class_uri: MIXS:0016021
   FoodHumanFoods:
     name: FoodHumanFoods
+    description: food-human foods package
     title: food-human foods
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: EnvironmentalPackage
@@ -22083,6 +22098,7 @@ classes:
     class_uri: MIXS:0016022
   HostAssociated:
     name: HostAssociated
+    description: host-associated package
     title: host-associated
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: EnvironmentalPackage
@@ -22345,6 +22361,7 @@ classes:
     class_uri: MIXS:0016002
   HumanAssociated:
     name: HumanAssociated
+    description: human-associated package
     title: human-associated
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: EnvironmentalPackage
@@ -22554,6 +22571,7 @@ classes:
     class_uri: MIXS:0016003
   HumanGut:
     name: HumanGut
+    description: human-gut package
     title: human-gut
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: EnvironmentalPackage
@@ -22741,6 +22759,7 @@ classes:
     class_uri: MIXS:0016004
   HumanOral:
     name: HumanOral
+    description: human-oral package
     title: human-oral
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: EnvironmentalPackage
@@ -22933,6 +22952,7 @@ classes:
     class_uri: MIXS:0016005
   HumanSkin:
     name: HumanSkin
+    description: human-skin package
     title: human-skin
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: EnvironmentalPackage
@@ -23120,6 +23140,7 @@ classes:
     class_uri: MIXS:0016006
   HumanVaginal:
     name: HumanVaginal
+    description: human-vaginal package
     title: human-vaginal
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: EnvironmentalPackage
@@ -23314,6 +23335,7 @@ classes:
     class_uri: MIXS:0016007
   HydrocarbonResourcesCores:
     name: HydrocarbonResourcesCores
+    description: hydrocarbon resources-cores package
     title: hydrocarbon resources-cores
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: EnvironmentalPackage
@@ -23510,6 +23532,7 @@ classes:
     class_uri: MIXS:0016015
   HydrocarbonResourcesFluidsSwabs:
     name: HydrocarbonResourcesFluidsSwabs
+    description: hydrocarbon resources-fluids/swabs package
     title: hydrocarbon resources-fluids/swabs
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: EnvironmentalPackage
@@ -23706,6 +23729,7 @@ classes:
     class_uri: MIXS:0016016
   MicrobialMatBiofilm:
     name: MicrobialMatBiofilm
+    description: microbial mat/biofilm package
     title: microbial mat/biofilm
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: EnvironmentalPackage
@@ -23926,6 +23950,7 @@ classes:
     class_uri: MIXS:0016008
   MiscellaneousNaturalOrArtificialEnvironment:
     name: MiscellaneousNaturalOrArtificialEnvironment
+    description: miscellaneous natural or artificial environment package
     title: miscellaneous natural or artificial environment
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: EnvironmentalPackage
@@ -24105,6 +24130,7 @@ classes:
     class_uri: MIXS:0016009
   PlantAssociated:
     name: PlantAssociated
+    description: plant-associated package
     title: plant-associated
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: EnvironmentalPackage
@@ -24429,6 +24455,7 @@ classes:
     class_uri: MIXS:0016010
   Sediment:
     name: Sediment
+    description: sediment package
     title: sediment
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: EnvironmentalPackage
@@ -24657,6 +24684,7 @@ classes:
     class_uri: MIXS:0016011
   Soil:
     name: Soil
+    description: soil package
     title: soil
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: EnvironmentalPackage
@@ -24931,6 +24959,7 @@ classes:
     class_uri: MIXS:0016012
   SymbiontAssociated:
     name: SymbiontAssociated
+    description: symbiont-associated package
     title: symbiont-associated
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: EnvironmentalPackage
@@ -25194,6 +25223,7 @@ classes:
     class_uri: MIXS:0016023
   WastewaterSludge:
     name: WastewaterSludge
+    description: wastewater/sludge package
     title: wastewater/sludge
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: EnvironmentalPackage
@@ -25325,6 +25355,7 @@ classes:
     class_uri: MIXS:0016013
   Water:
     name: Water
+    description: water package
     title: water
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: EnvironmentalPackage
@@ -25556,14 +25587,6 @@ classes:
       turbidity:
         name: turbidity
     class_uri: MIXS:0016014
-  MimsSoil:
-    name: MimsSoil
-    title: Mims combined with Soil
-    from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
-    is_a: Soil
-    mixins:
-    - Mims
-    class_uri: MIXS:0010007_0016012
   Checklist:
     name: Checklist
     description: 'A class with slots assigned for the required, recommended, and optional
@@ -25618,7 +25641,11 @@ classes:
     tree_root: true
   MimarksSHostAssociated:
     name: MimarksSHostAssociated
+    description: MIxS data that complies with the MimarksS checklist and the HostAssociated
+      environmental package
     title: MimarksS combined with HostAssociated
+    in_subset:
+    - combination_classes
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: HostAssociated
     mixins:
@@ -25626,7 +25653,11 @@ classes:
     class_uri: MIXS:0010008_0016002
   MimarksSHumanGut:
     name: MimarksSHumanGut
+    description: MIxS data that complies with the MimarksS checklist and the HumanGut
+      environmental package
     title: MimarksS combined with HumanGut
+    in_subset:
+    - combination_classes
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: HumanGut
     mixins:
@@ -25634,7 +25665,11 @@ classes:
     class_uri: MIXS:0010008_0016004
   MimarksSSoil:
     name: MimarksSSoil
+    description: MIxS data that complies with the MimarksS checklist and the Soil
+      environmental package
     title: MimarksS combined with Soil
+    in_subset:
+    - combination_classes
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: Soil
     mixins:
@@ -25642,7 +25677,11 @@ classes:
     class_uri: MIXS:0010008_0016012
   MimarksSPlantAssociated:
     name: MimarksSPlantAssociated
+    description: MIxS data that complies with the MimarksS checklist and the PlantAssociated
+      environmental package
     title: MimarksS combined with PlantAssociated
+    in_subset:
+    - combination_classes
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: PlantAssociated
     mixins:
@@ -25650,7 +25689,11 @@ classes:
     class_uri: MIXS:0010008_0016010
   MimarksSWater:
     name: MimarksSWater
+    description: MIxS data that complies with the MimarksS checklist and the Water
+      environmental package
     title: MimarksS combined with Water
+    in_subset:
+    - combination_classes
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: Water
     mixins:
@@ -25658,7 +25701,11 @@ classes:
     class_uri: MIXS:0010008_0016014
   MimarksSHumanAssociated:
     name: MimarksSHumanAssociated
+    description: MIxS data that complies with the MimarksS checklist and the HumanAssociated
+      environmental package
     title: MimarksS combined with HumanAssociated
+    in_subset:
+    - combination_classes
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: HumanAssociated
     mixins:
@@ -25666,7 +25713,11 @@ classes:
     class_uri: MIXS:0010008_0016003
   MimarksSHumanOral:
     name: MimarksSHumanOral
+    description: MIxS data that complies with the MimarksS checklist and the HumanOral
+      environmental package
     title: MimarksS combined with HumanOral
+    in_subset:
+    - combination_classes
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: HumanOral
     mixins:
@@ -25674,7 +25725,11 @@ classes:
     class_uri: MIXS:0010008_0016005
   MimsHostAssociated:
     name: MimsHostAssociated
+    description: MIxS data that complies with the Mims checklist and the HostAssociated
+      environmental package
     title: Mims combined with HostAssociated
+    in_subset:
+    - combination_classes
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: HostAssociated
     mixins:
@@ -25682,15 +25737,35 @@ classes:
     class_uri: MIXS:0010007_0016002
   MimsHumanGut:
     name: MimsHumanGut
+    description: MIxS data that complies with the Mims checklist and the HumanGut
+      environmental package
     title: Mims combined with HumanGut
+    in_subset:
+    - combination_classes
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: HumanGut
     mixins:
     - Mims
     class_uri: MIXS:0010007_0016004
+  MimsSoil:
+    name: MimsSoil
+    description: MIxS data that complies with the Mims checklist and the Soil environmental
+      package
+    title: Mims combined with Soil
+    in_subset:
+    - combination_classes
+    from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
+    is_a: Soil
+    mixins:
+    - Mims
+    class_uri: MIXS:0010007_0016012
   MimsPlantAssociated:
     name: MimsPlantAssociated
+    description: MIxS data that complies with the Mims checklist and the PlantAssociated
+      environmental package
     title: Mims combined with PlantAssociated
+    in_subset:
+    - combination_classes
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: PlantAssociated
     mixins:
@@ -25698,7 +25773,11 @@ classes:
     class_uri: MIXS:0010007_0016010
   MimsWater:
     name: MimsWater
+    description: MIxS data that complies with the Mims checklist and the Water environmental
+      package
     title: Mims combined with Water
+    in_subset:
+    - combination_classes
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: Water
     mixins:
@@ -25706,7 +25785,11 @@ classes:
     class_uri: MIXS:0010007_0016014
   MimsHumanAssociated:
     name: MimsHumanAssociated
+    description: MIxS data that complies with the Mims checklist and the HumanAssociated
+      environmental package
     title: Mims combined with HumanAssociated
+    in_subset:
+    - combination_classes
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: HumanAssociated
     mixins:
@@ -25714,7 +25797,11 @@ classes:
     class_uri: MIXS:0010007_0016003
   MimsHumanOral:
     name: MimsHumanOral
+    description: MIxS data that complies with the Mims checklist and the HumanOral
+      environmental package
     title: Mims combined with HumanOral
+    in_subset:
+    - combination_classes
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: HumanOral
     mixins:
@@ -25722,7 +25809,11 @@ classes:
     class_uri: MIXS:0010007_0016005
   MigsEuHostAssociated:
     name: MigsEuHostAssociated
+    description: MIxS data that complies with the MigsEu checklist and the HostAssociated
+      environmental package
     title: MigsEu combined with HostAssociated
+    in_subset:
+    - combination_classes
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: HostAssociated
     mixins:
@@ -25730,7 +25821,11 @@ classes:
     class_uri: MIXS:0010002_0016002
   MigsEuHumanGut:
     name: MigsEuHumanGut
+    description: MIxS data that complies with the MigsEu checklist and the HumanGut
+      environmental package
     title: MigsEu combined with HumanGut
+    in_subset:
+    - combination_classes
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: HumanGut
     mixins:
@@ -25738,7 +25833,11 @@ classes:
     class_uri: MIXS:0010002_0016004
   MigsEuSoil:
     name: MigsEuSoil
+    description: MIxS data that complies with the MigsEu checklist and the Soil environmental
+      package
     title: MigsEu combined with Soil
+    in_subset:
+    - combination_classes
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: Soil
     mixins:
@@ -25746,7 +25845,11 @@ classes:
     class_uri: MIXS:0010002_0016012
   MigsEuPlantAssociated:
     name: MigsEuPlantAssociated
+    description: MIxS data that complies with the MigsEu checklist and the PlantAssociated
+      environmental package
     title: MigsEu combined with PlantAssociated
+    in_subset:
+    - combination_classes
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: PlantAssociated
     mixins:
@@ -25754,7 +25857,11 @@ classes:
     class_uri: MIXS:0010002_0016010
   MigsEuWater:
     name: MigsEuWater
+    description: MIxS data that complies with the MigsEu checklist and the Water environmental
+      package
     title: MigsEu combined with Water
+    in_subset:
+    - combination_classes
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: Water
     mixins:
@@ -25762,7 +25869,11 @@ classes:
     class_uri: MIXS:0010002_0016014
   MigsEuHumanAssociated:
     name: MigsEuHumanAssociated
+    description: MIxS data that complies with the MigsEu checklist and the HumanAssociated
+      environmental package
     title: MigsEu combined with HumanAssociated
+    in_subset:
+    - combination_classes
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: HumanAssociated
     mixins:
@@ -25770,7 +25881,11 @@ classes:
     class_uri: MIXS:0010002_0016003
   MigsEuHumanOral:
     name: MigsEuHumanOral
+    description: MIxS data that complies with the MigsEu checklist and the HumanOral
+      environmental package
     title: MigsEu combined with HumanOral
+    in_subset:
+    - combination_classes
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     is_a: HumanOral
     mixins:

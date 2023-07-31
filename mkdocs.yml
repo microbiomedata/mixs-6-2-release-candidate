@@ -7,7 +7,7 @@ plugins:
   - search
   - mermaid2
 nav:
-  - "- MIxS v6.2.rc Documentation": index.md
+  - "- MIxS v6.2.rc Documentation Home": index.md
   - "- Ephemeral, un-submitted validation": __data_harmonizer/
   - "- Back to GitHub repository": https://github.com/microbiomedata/mixs-6-2-release-candidate
 
