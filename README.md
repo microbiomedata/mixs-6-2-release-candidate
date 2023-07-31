@@ -40,10 +40,19 @@ Documentation and data validator: http://w3id.org/mixs-6-2-rc/
 
 ## About The Project
 
-This repository takes the [MIxS 6.1 Excel specification](https://github.com/GenomicsStandardsConsortium/mixs/blob/main/mixs/excel/mixs_v6.xlsx) and converts it to [LinkML](https://linkml.io/) YAML. Term elements are harmonized, 
-previously informal data constraints are formalized, and validation tools are provided. For consideration as MIxS 6.2 at the 
-The [23rd Genomic Standards Consortium Meeting](https://genomicsstandardsconsortium.github.io/GSC23-Bangkok/) in August 2023 in Bangkok, Thailand. Hosted by Siriraj Hospital Mahidol University and the 
-National Center for Genetic Engineering and Biotechnology in Bangkok, Thailand.
+The _Minimal Information about any (x) Sequence_ (MIxS) standard is a product of the _[Genomic Standards Consortium](http://www.gensc.org/)_ (GSC). 
+The GSC has a mission of enabling genomic data integration, discovery, and comparison through international community-driven standards.
+
+This code repository was developed in collaboration between the _[National Microbiome Data Collaborative](https://microbiomedata.org/)_ (NMDC) and the GSC. It  transitions
+a [spreadsheet version of the MIxS standard](https://github.com/GenomicsStandardsConsortium/mixs/blob/main/mixs/excel/mixs_v6.xlsx) into a machine-actionable, self-documenting schema adhering to the _[Linked Data Modelling Language](https://linkml.io/)_ (LinkML).
+
+- Term attributes are harmonized
+- Previously informal data constraints are formalized
+- Implicit classes are made explicit
+- Example data is provided
+- Validation tools are provided
+
+This work is provided for consideration as MIxS 6.2 and will be presented at the [23rd Genomic Standards Consortium Meeting](https://genomicsstandardsconsortium.github.io/GSC23-Bangkok/) in August 2023 in Bangkok, Thailand.
 
 <h2>And future site of MIxS/EnvO Structured Knowledge Extraction</h2>
 
