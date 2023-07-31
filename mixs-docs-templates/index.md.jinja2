@@ -33,3 +33,27 @@ URI: <a href={{ schema.id }}>{{ schema.id }}</a>
 | {{ gen.link(c) }} | {{ c.description }} |
 {%- endif -%}
 {% endfor %}
+
+## Enumerations
+
+| Enumeration | Description |
+| --- | --- |
+{% for e in gen.all_enum_objects()|sort(attribute=sort_by) -%}
+| {{gen.link(e)}} | {{e.description|enshorten}} |
+{% endfor %}
+
+## Types
+
+| Type | Description |
+| --- | --- |
+{% for t in gen.all_type_objects()|sort(attribute=sort_by) -%}
+| {{gen.link(t)}} | {{t.description|enshorten}} |
+{% endfor %}
+
+## Subsets
+
+| Subset | Description |
+| --- | --- |
+{% for ss in schemaview.all_subsets().values()|sort(attribute='name') -%}
+| {{gen.link(ss)}} | {{ss.description|enshorten}} |
+{% endfor %}
