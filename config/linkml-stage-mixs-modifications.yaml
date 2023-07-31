@@ -185,4 +185,15 @@ settings:
 # fractional durations
 # /P(?:(?:(?:\\d+D|\\d+\\.\\d+D$)|(?:\\d+M|\\d+\\.\\d+M$)(?:\\d+D|\\d+\\.\\d+D$)?|(?:\\d+Y|\\d+\\.\\d+Y$)(:?(?:\\d+M|\\d+\\.\\d+M$)(?:\\d+D|\\d+\\.\\d+D$)?)?)(:?T(?:(?:\\d+H|\\d+\\.\\d+H$)(?:(?:\\d+M|\\d+\\.\\d+M$)(?:\\d+S|\\d+\\.\\d+S$)?)?|(?:\\d+M|\\d+\\.\\d+M$)(?:\\d+S|\\d+\\.\\d+S$)?|(?:\\d+S|\\d+\\.\\d+S$)))?|T(?:(?:\\d+H|\\d+\\.\\d+H$)(?:(?:\\d+M|\\d+\\.\\d+M$)(?:\\d+S|\\d+\\.\\d+S$)?)?|(?:\\d+M|\\d+\\.\\d+M$)(?:\\d+S|\\d+\\.\\d+S$)?|(?:\\d+S|\\d+\\.\\d+S$))|(?:\\d+W|\\d+\\.\\d+W$))/gm
 
+enums:
+  FARM_EQUIP_ENUM:
+    reachable_from:
+      source_ontology: AGRO
+      source_nodes:
+        - AGRO:00000416
+      relationship_types:
+        - rdfs:subClassOf
+      is_direct: False
+      include_self: False
+      traverse_up: False
 
