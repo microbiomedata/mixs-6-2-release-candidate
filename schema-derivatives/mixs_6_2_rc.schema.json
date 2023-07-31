@@ -12204,20 +12204,20 @@
                 }
             },
             "required": [
-                "geo_loc_name",
-                "isol_growth_condt",
-                "env_local_scale",
-                "assembly_qual",
-                "samp_taxon_id",
-                "lat_lon",
-                "env_medium",
                 "seq_meth",
-                "project_name",
                 "collection_date",
-                "samp_name",
+                "env_medium",
+                "env_local_scale",
                 "assembly_software",
+                "samp_name",
+                "env_broad_scale",
+                "geo_loc_name",
+                "samp_taxon_id",
+                "project_name",
+                "lat_lon",
                 "number_contig",
-                "env_broad_scale"
+                "isol_growth_condt",
+                "assembly_qual"
             ],
             "title": "MigsEuHostAssociated",
             "type": "object"
@@ -12748,20 +12748,20 @@
                 }
             },
             "required": [
-                "geo_loc_name",
-                "isol_growth_condt",
-                "env_local_scale",
-                "assembly_qual",
-                "samp_taxon_id",
-                "lat_lon",
-                "env_medium",
                 "seq_meth",
-                "project_name",
                 "collection_date",
-                "samp_name",
+                "env_medium",
+                "env_local_scale",
                 "assembly_software",
+                "samp_name",
+                "env_broad_scale",
+                "geo_loc_name",
+                "samp_taxon_id",
+                "project_name",
+                "lat_lon",
                 "number_contig",
-                "env_broad_scale"
+                "isol_growth_condt",
+                "assembly_qual"
             ],
             "title": "MigsEuHumanAssociated",
             "type": "object"
@@ -13214,20 +13214,20 @@
                 }
             },
             "required": [
-                "geo_loc_name",
-                "isol_growth_condt",
-                "env_local_scale",
-                "assembly_qual",
-                "samp_taxon_id",
-                "lat_lon",
-                "env_medium",
                 "seq_meth",
-                "project_name",
                 "collection_date",
-                "samp_name",
+                "env_medium",
+                "env_local_scale",
                 "assembly_software",
+                "samp_name",
+                "env_broad_scale",
+                "geo_loc_name",
+                "samp_taxon_id",
+                "project_name",
+                "lat_lon",
                 "number_contig",
-                "env_broad_scale"
+                "isol_growth_condt",
+                "assembly_qual"
             ],
             "title": "MigsEuHumanGut",
             "type": "object"
@@ -13670,20 +13670,20 @@
                 }
             },
             "required": [
-                "geo_loc_name",
-                "isol_growth_condt",
-                "env_local_scale",
-                "assembly_qual",
-                "samp_taxon_id",
-                "lat_lon",
-                "env_medium",
                 "seq_meth",
-                "project_name",
                 "collection_date",
-                "samp_name",
+                "env_medium",
+                "env_local_scale",
                 "assembly_software",
+                "samp_name",
+                "env_broad_scale",
+                "geo_loc_name",
+                "samp_taxon_id",
+                "project_name",
+                "lat_lon",
                 "number_contig",
-                "env_broad_scale"
+                "isol_growth_condt",
+                "assembly_qual"
             ],
             "title": "MigsEuHumanOral",
             "type": "object"
@@ -14335,20 +14335,20 @@
                 }
             },
             "required": [
-                "geo_loc_name",
-                "isol_growth_condt",
-                "env_local_scale",
-                "assembly_qual",
-                "samp_taxon_id",
-                "lat_lon",
-                "env_medium",
                 "seq_meth",
-                "project_name",
                 "collection_date",
-                "samp_name",
+                "env_medium",
+                "env_local_scale",
                 "assembly_software",
+                "samp_name",
+                "env_broad_scale",
+                "geo_loc_name",
+                "samp_taxon_id",
+                "project_name",
+                "lat_lon",
                 "number_contig",
-                "env_broad_scale"
+                "isol_growth_condt",
+                "assembly_qual"
             ],
             "title": "MigsEuPlantAssociated",
             "type": "object"
@@ -14874,21 +14874,21 @@
             },
             "required": [
                 "elev",
-                "geo_loc_name",
-                "isol_growth_condt",
-                "env_local_scale",
-                "depth",
-                "assembly_qual",
-                "samp_taxon_id",
-                "lat_lon",
-                "env_medium",
                 "seq_meth",
-                "project_name",
                 "collection_date",
-                "samp_name",
+                "env_medium",
+                "env_local_scale",
                 "assembly_software",
+                "samp_name",
+                "env_broad_scale",
+                "geo_loc_name",
+                "depth",
+                "samp_taxon_id",
+                "project_name",
+                "lat_lon",
                 "number_contig",
-                "env_broad_scale"
+                "isol_growth_condt",
+                "assembly_qual"
             ],
             "title": "MigsEuSoil",
             "type": "object"
@@ -15578,21 +15578,21 @@
                 }
             },
             "required": [
-                "geo_loc_name",
-                "isol_growth_condt",
-                "env_local_scale",
-                "depth",
-                "assembly_qual",
-                "samp_taxon_id",
-                "lat_lon",
-                "env_medium",
                 "seq_meth",
-                "project_name",
                 "collection_date",
-                "samp_name",
+                "env_medium",
+                "env_local_scale",
                 "assembly_software",
+                "samp_name",
+                "env_broad_scale",
+                "geo_loc_name",
+                "depth",
+                "samp_taxon_id",
+                "project_name",
+                "lat_lon",
                 "number_contig",
-                "env_broad_scale"
+                "isol_growth_condt",
+                "assembly_qual"
             ],
             "title": "MigsEuWater",
             "type": "object"
@@ -16010,17 +16010,17 @@
                 }
             },
             "required": [
-                "target_gene",
-                "geo_loc_name",
-                "env_local_scale",
-                "samp_taxon_id",
-                "lat_lon",
-                "env_medium",
                 "seq_meth",
-                "project_name",
                 "collection_date",
+                "target_gene",
+                "env_medium",
+                "env_local_scale",
                 "samp_name",
-                "env_broad_scale"
+                "env_broad_scale",
+                "geo_loc_name",
+                "samp_taxon_id",
+                "project_name",
+                "lat_lon"
             ],
             "title": "MimarksSHostAssociated",
             "type": "object"
@@ -16485,17 +16485,17 @@
                 }
             },
             "required": [
-                "target_gene",
-                "geo_loc_name",
-                "env_local_scale",
-                "samp_taxon_id",
-                "lat_lon",
-                "env_medium",
                 "seq_meth",
-                "project_name",
                 "collection_date",
+                "target_gene",
+                "env_medium",
+                "env_local_scale",
                 "samp_name",
-                "env_broad_scale"
+                "env_broad_scale",
+                "geo_loc_name",
+                "samp_taxon_id",
+                "project_name",
+                "lat_lon"
             ],
             "title": "MimarksSHumanAssociated",
             "type": "object"
@@ -16882,17 +16882,17 @@
                 }
             },
             "required": [
-                "target_gene",
-                "geo_loc_name",
-                "env_local_scale",
-                "samp_taxon_id",
-                "lat_lon",
-                "env_medium",
                 "seq_meth",
-                "project_name",
                 "collection_date",
+                "target_gene",
+                "env_medium",
+                "env_local_scale",
                 "samp_name",
-                "env_broad_scale"
+                "env_broad_scale",
+                "geo_loc_name",
+                "samp_taxon_id",
+                "project_name",
+                "lat_lon"
             ],
             "title": "MimarksSHumanGut",
             "type": "object"
@@ -17269,17 +17269,17 @@
                 }
             },
             "required": [
-                "target_gene",
-                "geo_loc_name",
-                "env_local_scale",
-                "samp_taxon_id",
-                "lat_lon",
-                "env_medium",
                 "seq_meth",
-                "project_name",
                 "collection_date",
+                "target_gene",
+                "env_medium",
+                "env_local_scale",
                 "samp_name",
-                "env_broad_scale"
+                "env_broad_scale",
+                "geo_loc_name",
+                "samp_taxon_id",
+                "project_name",
+                "lat_lon"
             ],
             "title": "MimarksSHumanOral",
             "type": "object"
@@ -17865,17 +17865,17 @@
                 }
             },
             "required": [
-                "target_gene",
-                "geo_loc_name",
-                "env_local_scale",
-                "samp_taxon_id",
-                "lat_lon",
-                "env_medium",
                 "seq_meth",
-                "project_name",
                 "collection_date",
+                "target_gene",
+                "env_medium",
+                "env_local_scale",
                 "samp_name",
-                "env_broad_scale"
+                "env_broad_scale",
+                "geo_loc_name",
+                "samp_taxon_id",
+                "project_name",
+                "lat_lon"
             ],
             "title": "MimarksSPlantAssociated",
             "type": "object"
@@ -18327,19 +18327,19 @@
                 }
             },
             "required": [
-                "target_gene",
                 "elev",
-                "geo_loc_name",
+                "seq_meth",
+                "collection_date",
+                "target_gene",
+                "env_medium",
                 "env_local_scale",
+                "samp_name",
+                "env_broad_scale",
+                "geo_loc_name",
                 "depth",
                 "samp_taxon_id",
-                "lat_lon",
-                "env_medium",
-                "seq_meth",
                 "project_name",
-                "collection_date",
-                "samp_name",
-                "env_broad_scale"
+                "lat_lon"
             ],
             "title": "MimarksSSoil",
             "type": "object"
@@ -18956,18 +18956,18 @@
                 }
             },
             "required": [
+                "seq_meth",
+                "collection_date",
                 "target_gene",
-                "geo_loc_name",
+                "env_medium",
                 "env_local_scale",
+                "samp_name",
+                "env_broad_scale",
+                "geo_loc_name",
                 "depth",
                 "samp_taxon_id",
-                "lat_lon",
-                "env_medium",
-                "seq_meth",
                 "project_name",
-                "collection_date",
-                "samp_name",
-                "env_broad_scale"
+                "lat_lon"
             ],
             "title": "MimarksSWater",
             "type": "object"
@@ -19399,16 +19399,16 @@
                 }
             },
             "required": [
-                "geo_loc_name",
-                "env_local_scale",
-                "samp_taxon_id",
-                "lat_lon",
-                "env_medium",
                 "seq_meth",
-                "project_name",
                 "collection_date",
+                "env_medium",
+                "env_local_scale",
                 "samp_name",
-                "env_broad_scale"
+                "env_broad_scale",
+                "geo_loc_name",
+                "samp_taxon_id",
+                "project_name",
+                "lat_lon"
             ],
             "title": "MimsHostAssociated",
             "type": "object"
@@ -19887,16 +19887,16 @@
                 }
             },
             "required": [
-                "geo_loc_name",
-                "env_local_scale",
-                "samp_taxon_id",
-                "lat_lon",
-                "env_medium",
                 "seq_meth",
-                "project_name",
                 "collection_date",
+                "env_medium",
+                "env_local_scale",
                 "samp_name",
-                "env_broad_scale"
+                "env_broad_scale",
+                "geo_loc_name",
+                "samp_taxon_id",
+                "project_name",
+                "lat_lon"
             ],
             "title": "MimsHumanAssociated",
             "type": "object"
@@ -20297,16 +20297,16 @@
                 }
             },
             "required": [
-                "geo_loc_name",
-                "env_local_scale",
-                "samp_taxon_id",
-                "lat_lon",
-                "env_medium",
                 "seq_meth",
-                "project_name",
                 "collection_date",
+                "env_medium",
+                "env_local_scale",
                 "samp_name",
-                "env_broad_scale"
+                "env_broad_scale",
+                "geo_loc_name",
+                "samp_taxon_id",
+                "project_name",
+                "lat_lon"
             ],
             "title": "MimsHumanGut",
             "type": "object"
@@ -20697,16 +20697,16 @@
                 }
             },
             "required": [
-                "geo_loc_name",
-                "env_local_scale",
-                "samp_taxon_id",
-                "lat_lon",
-                "env_medium",
                 "seq_meth",
-                "project_name",
                 "collection_date",
+                "env_medium",
+                "env_local_scale",
                 "samp_name",
-                "env_broad_scale"
+                "env_broad_scale",
+                "geo_loc_name",
+                "samp_taxon_id",
+                "project_name",
+                "lat_lon"
             ],
             "title": "MimsHumanOral",
             "type": "object"
@@ -21306,16 +21306,16 @@
                 }
             },
             "required": [
-                "geo_loc_name",
-                "env_local_scale",
-                "samp_taxon_id",
-                "lat_lon",
-                "env_medium",
                 "seq_meth",
-                "project_name",
                 "collection_date",
+                "env_medium",
+                "env_local_scale",
                 "samp_name",
-                "env_broad_scale"
+                "env_broad_scale",
+                "geo_loc_name",
+                "samp_taxon_id",
+                "project_name",
+                "lat_lon"
             ],
             "title": "MimsPlantAssociated",
             "type": "object"
@@ -21782,17 +21782,17 @@
             },
             "required": [
                 "elev",
-                "geo_loc_name",
+                "seq_meth",
+                "collection_date",
+                "env_medium",
                 "env_local_scale",
+                "samp_name",
+                "env_broad_scale",
+                "geo_loc_name",
                 "depth",
                 "samp_taxon_id",
-                "lat_lon",
-                "env_medium",
-                "seq_meth",
                 "project_name",
-                "collection_date",
-                "samp_name",
-                "env_broad_scale"
+                "lat_lon"
             ],
             "title": "MimsSoil",
             "type": "object"
@@ -22423,17 +22423,17 @@
                 }
             },
             "required": [
-                "geo_loc_name",
+                "seq_meth",
+                "collection_date",
+                "env_medium",
                 "env_local_scale",
+                "samp_name",
+                "env_broad_scale",
+                "geo_loc_name",
                 "depth",
                 "samp_taxon_id",
-                "lat_lon",
-                "env_medium",
-                "seq_meth",
                 "project_name",
-                "collection_date",
-                "samp_name",
-                "env_broad_scale"
+                "lat_lon"
             ],
             "title": "MimsWater",
             "type": "object"

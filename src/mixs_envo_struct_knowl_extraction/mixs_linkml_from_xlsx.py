@@ -933,11 +933,26 @@ def do_linkml_stage_mods(supplementary_file: str, global_target_schema):
               default='config/mixs_stringsers_expvals_to_linkml_ranges_patterns.tsv')
 @click.option('--tables-stage-mods-file', default='config/mixs_tables_stage_modifications.tsv',
               help="Could be considered changes to the MIxS XLSX file, like @only1chunts applied recently, although we apply them to the harmonized TSV file instead")
-def create_schema(non_ascii_replacement, debug, gsc_excel_input, textual_key, schema_name, tables_stage_mods_file,
-                  linkml_stage_mods_file, range_pattern_inference_file,
-                  gsc_excel_output_dir, harmonized_mixs_tables_file, repaired_mixs_tables_file, schema_file_out,
-                  extracted_examples_out, repair_report, unmapped_report, classes_ssheet,
-                  combo_checklists, combo_environments):  # checklists, minimal_combos
+def create_schema(
+        classes_ssheet,
+        combo_checklists,
+        combo_environments,
+        debug,
+        extracted_examples_out,
+        gsc_excel_input,
+        gsc_excel_output_dir,
+        harmonized_mixs_tables_file,
+        linkml_stage_mods_file,
+        non_ascii_replacement,
+        range_pattern_inference_file,
+        repair_report,
+        repaired_mixs_tables_file,
+        schema_file_out,
+        schema_name,
+        tables_stage_mods_file,
+        textual_key,
+        unmapped_report,
+):
     url_path_components = gsc_excel_input.split('/')
     gsc_excel_file_name = url_path_components[-1]
     gsc_excel_output_path = os.path.join(gsc_excel_output_dir, gsc_excel_file_name)
@@ -955,7 +970,9 @@ def create_schema(non_ascii_replacement, debug, gsc_excel_input, textual_key, sc
     smaker = SchemaMaker()
     mixs_classes_schema = smaker.create_schema(list(classes_ssheet))
 
-    struct_pat_settings_view = SchemaView('config/structured-pattern-settings.yaml')
+    # todo remove hardcoded path
+    # todo
+    struct_pat_settings_view = SchemaView(linkml_stage_mods_file)
     struct_pat_settings_obj = struct_pat_settings_view.schema.settings
 
     for setting_k, setting_v in struct_pat_settings_obj.items():
