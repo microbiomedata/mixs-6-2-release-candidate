@@ -473,8 +473,8 @@ all_slots_test_set:
   room_type: bathroom
   root_cond: http://himedialabs.com/TD/PT158.pdf
   root_med_carbon: sucrose
-  root_med_macronutr: KH2PO4;170milligram per liter
-  root_med_micronutr: H3BO3;6.2milligram per liter
+  root_med_macronutr: KH2PO4;170  milligram per liter
+  root_med_micronutr: H3BO3;6.2  milligram per liter
   root_med_ph: 7.5
   root_med_regl: abscisic acid;0.75 milligram per liter
   root_med_solid: agar

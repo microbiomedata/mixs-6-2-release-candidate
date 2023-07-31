@@ -133,3 +133,4 @@ remove-elements-by-deprecation-val = "mixs_envo_struct_knowl_extraction.remove_e
 usage-detector = "mixs_envo_struct_knowl_extraction.usage_detector:main"
 rdflib-validation = "mixs_envo_struct_knowl_extraction.rdflib_validate:main"
 regenerate-data-harmonizer-menu = "mixs_envo_struct_knowl_extraction.regenerate_data_harmonizer_menu:cli"
+find-ontology-mentions = "mixs_envo_struct_knowl_extraction.find_ontology_mentions:cli"

@@ -29,6 +29,7 @@ other-reports/slot-usage-report.tsv \
 other-reports/schema-lint-report.tsv \
 schemasheets-usage-output/$(RC_PREFIX).yaml.concise.usage-report.tsv \
 schemasheets-usage-output/$(RC_PREFIX).yaml.exhaustive.usage-report.tsv \
+other-reports/mixs-ontology-mentions.tsv \
 generated-schema/final-mixs_6_2_rc.yaml \
 post-clean
 
@@ -73,7 +74,7 @@ generated-schema/mixs_6_2_rc.yaml:
 		 --classes-ssheet config/build-test-only/schema-for-classes-schemasheet.tsv \
 		 --classes-ssheet config/build-test-only/prefixes-for-classes-schemasheet.tsv \
 		 --classes-ssheet config/classes-schemasheet.tsv \
-		 --non-ascii-replacement '' \
+		 --non-ascii-replacement ' ' \
 		 --schema-name $(RC_PREFIX) \
 		 --textual-key 'Structured comment name' \
 		 --linkml-stage-mods-file config/linkml-stage-mixs-modifications.yaml \
@@ -444,6 +445,27 @@ data_harmonizer/menu.json: $(SOURCE_SCHEMA_PATH)
 		--schema-input-file $< \
 		--menu-json-out $@
 
+GSC-excel-harmonized-repaired/mixs_6_2_rc.repaired.tsv: generated-schema/mixs_6_2_rc.yaml
+
+other-reports/mixs-ontology-mentions.tsv: GSC-excel-harmonized-repaired/mixs_6_2_rc.repaired.tsv
+	$(RUN) find-ontology-mentions \
+		--ignored-ontology CRO \
+		--ignored-ontology EPIO \
+		--ignored-ontology EV \
+		--ignored-ontology FAO \
+		--ignored-ontology MA \
+		--ignored-ontology MI \
+		--ignored-ontology MP \
+		--ignored-ontology MS \
+		--ignored-ontology PR \
+		--ignored-ontology RO \
+		--ignored-ontology SO \
+		--ignored-ontology TO \
+		--ignored-ontology VO \
+		--mixs-tsv $< \
+		--obo-yaml-url "https://obofoundry.org/registry/ontologies.yml" \
+		--results-tsv $@
+
 ### targets below are not included in make all
 
 schema-derivatives/mixs_6_2_rc.schema.open.json: $(SOURCE_SCHEMA_PATH)
@@ -459,5 +481,4 @@ validate_rdf_data: converted-data/MixsCompliantData-MimsSoil-example.ttl
 
 validate_rdf_schema: schema-derivatives/mixs_6_2_rc.owl.ttl
 	$(RIOT_PATH) --validate $<
-
 
