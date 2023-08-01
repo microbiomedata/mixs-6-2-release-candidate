@@ -54,9 +54,11 @@ a [spreadsheet version of the MIxS standard](https://github.com/GenomicsStandard
 
 This work is provided for consideration as MIxS 6.2 and will be presented at the [23rd Genomic Standards Consortium Meeting](https://genomicsstandardsconsortium.github.io/GSC23-Bangkok/) in August 2023 in Bangkok, Thailand.
 
+<!-- 
 <h2>And future site of MIxS/EnvO Structured Knowledge Extraction</h2>
 
 <p>Extracting structured knowledge from MIxS and finding EnvO terms that would be reasonable answers to scoped MIxS questions</p>
+-->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

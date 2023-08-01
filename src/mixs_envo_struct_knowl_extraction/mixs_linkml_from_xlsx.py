@@ -970,11 +970,18 @@ def create_schema(
     smaker = SchemaMaker()
     mixs_classes_schema = smaker.create_schema(list(classes_ssheet))
 
-    # todo remove hardcoded path
-    # todo
-    struct_pat_settings_view = SchemaView(linkml_stage_mods_file)
-    struct_pat_settings_obj = struct_pat_settings_view.schema.settings
+    linkml_stage_view = SchemaView(linkml_stage_mods_file)
 
+    prefixes_obj = linkml_stage_view.schema.prefixes
+    for prefixes_k, prefixes_v in prefixes_obj.items():
+        # print(f"{prefixes_k = }; {prefixes_v = }")
+        global_target_schema.prefixes[prefixes_k] = prefixes_v
+
+    enums_obj = linkml_stage_view.schema.enums
+    for enums_k, enums_v in enums_obj.items():
+        global_target_schema.enums[enums_k] = enums_v
+
+    struct_pat_settings_obj = linkml_stage_view.schema.settings
     for setting_k, setting_v in struct_pat_settings_obj.items():
         global_target_schema.settings[setting_k] = setting_v
 

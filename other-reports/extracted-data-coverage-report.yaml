@@ -1,4 +1,5 @@
 optional_not_present:
+- Structured_comment_name
 - additional_info
 - address
 - adj_room

@@ -1,0 +1,422 @@
+class	MIXS ID	Value syntax	Frequency
+food-animal and animal feed	MIXS:0000002	{termLabel} [{termID}]|{text}	0.875
+food-farm environment	MIXS:0000002	{termLabel} [{termID}]|{text}	0.875
+food-human foods	MIXS:0000002	{termLabel} [{termID}]|{text}	0.875
+migs_ba	MIXS:0000002	{termLabel} [{termID}]|{text}	0.875
+migs_eu	MIXS:0000002	{termLabel} [{termID}]|{text}	0.875
+migs_org	MIXS:0000002	{termLabel} [{termID}]|{text}	0.875
+migs_pl	MIXS:0000002	{termLabel} [{termID}]|{text}	0.875
+migs_vi	MIXS:0000002	{termLabel} [{termID}]|{text}	0.875
+mimag	MIXS:0000002	{termLabel} [{termID}]|{text}	0.875
+mimarks_c	MIXS:0000002	{termLabel} [{termID}]|{text}	0.875
+mimarks_s	MIXS:0000002	{termLabel} [{termID}]|{text}	0.875
+mims	MIXS:0000002	{termLabel} [{termID}]|{text}	0.875
+misag	MIXS:0000002	{termLabel} [{termID}]|{text}	0.875
+miuvig	MIXS:0000002	{termLabel} [{termID}]|{text}	0.875
+agriculture	MIXS:0000002	{text}	0.125
+food-food production facility	MIXS:0000002	{text}	0.125
+agriculture	MIXS:0000003	{PMID|DOI|URL}	0.08333333333333333
+migs_ba	MIXS:0000003	{PMID}|{DOI}|{URL}	0.9166666666666666
+migs_eu	MIXS:0000003	{PMID}|{DOI}|{URL}	0.9166666666666666
+migs_org	MIXS:0000003	{PMID}|{DOI}|{URL}	0.9166666666666666
+migs_pl	MIXS:0000003	{PMID}|{DOI}|{URL}	0.9166666666666666
+migs_vi	MIXS:0000003	{PMID}|{DOI}|{URL}	0.9166666666666666
+mimag	MIXS:0000003	{PMID}|{DOI}|{URL}	0.9166666666666666
+mimarks_c	MIXS:0000003	{PMID}|{DOI}|{URL}	0.9166666666666666
+mimarks_s	MIXS:0000003	{PMID}|{DOI}|{URL}	0.9166666666666666
+mims	MIXS:0000003	{PMID}|{DOI}|{URL}	0.9166666666666666
+misag	MIXS:0000003	{PMID}|{DOI}|{URL}	0.9166666666666666
+miuvig	MIXS:0000003	{PMID}|{DOI}|{URL}	0.9166666666666666
+agriculture	MIXS:0000016	{text|term}	0.08333333333333333
+migs_ba	MIXS:0000016	{text}	0.9166666666666666
+migs_eu	MIXS:0000016	{text}	0.9166666666666666
+migs_org	MIXS:0000016	{text}	0.9166666666666666
+migs_pl	MIXS:0000016	{text}	0.9166666666666666
+migs_vi	MIXS:0000016	{text}	0.9166666666666666
+mimag	MIXS:0000016	{text}	0.9166666666666666
+mimarks_c	MIXS:0000016	{text}	0.9166666666666666
+mimarks_s	MIXS:0000016	{text}	0.9166666666666666
+mims	MIXS:0000016	{text}	0.9166666666666666
+misag	MIXS:0000016	{text}	0.9166666666666666
+miuvig	MIXS:0000016	{text}	0.9166666666666666
+agriculture	MIXS:0000027	{term}	0.08333333333333333
+migs_ba	MIXS:0000027	{text}	0.9166666666666666
+migs_eu	MIXS:0000027	{text}	0.9166666666666666
+migs_org	MIXS:0000027	{text}	0.9166666666666666
+migs_pl	MIXS:0000027	{text}	0.9166666666666666
+migs_vi	MIXS:0000027	{text}	0.9166666666666666
+mimag	MIXS:0000027	{text}	0.9166666666666666
+mimarks_c	MIXS:0000027	{text}	0.9166666666666666
+mimarks_s	MIXS:0000027	{text}	0.9166666666666666
+mims	MIXS:0000027	{text}	0.9166666666666666
+misag	MIXS:0000027	{text}	0.9166666666666666
+miuvig	MIXS:0000027	{text}	0.9166666666666666
+agriculture	MIXS:0000028	[free living|parasite|commensal|symbiont]	0.08333333333333333
+migs_ba	MIXS:0000028	[free living|parasitism|commensalism|symbiotic|mutualism]	0.9166666666666666
+migs_eu	MIXS:0000028	[free living|parasitism|commensalism|symbiotic|mutualism]	0.9166666666666666
+migs_org	MIXS:0000028	[free living|parasitism|commensalism|symbiotic|mutualism]	0.9166666666666666
+migs_pl	MIXS:0000028	[free living|parasitism|commensalism|symbiotic|mutualism]	0.9166666666666666
+migs_vi	MIXS:0000028	[free living|parasitism|commensalism|symbiotic|mutualism]	0.9166666666666666
+mimag	MIXS:0000028	[free living|parasitism|commensalism|symbiotic|mutualism]	0.9166666666666666
+mimarks_c	MIXS:0000028	[free living|parasitism|commensalism|symbiotic|mutualism]	0.9166666666666666
+mimarks_s	MIXS:0000028	[free living|parasitism|commensalism|symbiotic|mutualism]	0.9166666666666666
+mims	MIXS:0000028	[free living|parasitism|commensalism|symbiotic|mutualism]	0.9166666666666666
+misag	MIXS:0000028	[free living|parasitism|commensalism|symbiotic|mutualism]	0.9166666666666666
+miuvig	MIXS:0000028	[free living|parasitism|commensalism|symbiotic|mutualism]	0.9166666666666666
+human-associated	MIXS:0000031	{termLabel} [{termID}]	0.25
+human-gut	MIXS:0000031	{termLabel} [{termID}]	0.25
+human-oral	MIXS:0000031	{termLabel} [{termID}]	0.25
+human-skin	MIXS:0000031	{termLabel} [{termID}]	0.25
+human-vaginal	MIXS:0000031	{termLabel} [{termID}]	0.25
+host-associated	MIXS:0000031	{termLabel} [{termID}]|{text}	0.6
+migs_ba	MIXS:0000031	{termLabel} [{termID}]|{text}	0.6
+migs_eu	MIXS:0000031	{termLabel} [{termID}]|{text}	0.6
+migs_org	MIXS:0000031	{termLabel} [{termID}]|{text}	0.6
+migs_pl	MIXS:0000031	{termLabel} [{termID}]|{text}	0.6
+migs_vi	MIXS:0000031	{termLabel} [{termID}]|{text}	0.6
+mimag	MIXS:0000031	{termLabel} [{termID}]|{text}	0.6
+mimarks_c	MIXS:0000031	{termLabel} [{termID}]|{text}	0.6
+mimarks_s	MIXS:0000031	{termLabel} [{termID}]|{text}	0.6
+mims	MIXS:0000031	{termLabel} [{termID}]|{text}	0.6
+misag	MIXS:0000031	{termLabel} [{termID}]|{text}	0.6
+miuvig	MIXS:0000031	{termLabel} [{termID}]|{text}	0.6
+agriculture	MIXS:0000031	{text}|{termLabel} [{termID}]	0.15
+food-farm environment	MIXS:0000031	{text}|{termLabel} [{termID}]	0.15
+plant-associated	MIXS:0000031	{text}|{termLabel} [{termID}]	0.15
+agriculture	MIXS:0000032	[autotroph| carboxydotroph| chemoautotroph| chemoheterotroph| chemolithoautotroph| chemolithotroph| chemoorganoheterotroph| chemoorganotroph| chemosynthetic| chemotroph| copiotroph| diazotroph| facultative| autotroph| heterotroph| lithoautotroph| lithoheterotroph| lithotroph| methanotroph| methylotroph| mixotroph| obligate| chemoautolithotroph| oligotroph| organoheterotroph| organotroph| photoautotroph| photoheterotroph| photolithoautotroph| photolithotroph| photosynthetic| phototroph]	0.08333333333333333
+migs_ba	MIXS:0000032	[autotroph|carboxydotroph|chemoautotroph|chemoheterotroph|chemolithoautotroph|chemolithotroph|chemoorganoheterotroph|chemoorganotroph|chemosynthetic|chemotroph|copiotroph|diazotroph|facultative|autotroph|heterotroph|lithoautotroph|lithoheterotroph|lithotroph|methanotroph|methylotroph|mixotroph|obligate|chemoautolithotroph|oligotroph|organoheterotroph|organotroph|photoautotroph|photoheterotroph|photolithoautotroph|photolithotroph|photosynthetic|phototroph]	0.9166666666666666
+migs_eu	MIXS:0000032	[autotroph|carboxydotroph|chemoautotroph|chemoheterotroph|chemolithoautotroph|chemolithotroph|chemoorganoheterotroph|chemoorganotroph|chemosynthetic|chemotroph|copiotroph|diazotroph|facultative|autotroph|heterotroph|lithoautotroph|lithoheterotroph|lithotroph|methanotroph|methylotroph|mixotroph|obligate|chemoautolithotroph|oligotroph|organoheterotroph|organotroph|photoautotroph|photoheterotroph|photolithoautotroph|photolithotroph|photosynthetic|phototroph]	0.9166666666666666
+migs_org	MIXS:0000032	[autotroph|carboxydotroph|chemoautotroph|chemoheterotroph|chemolithoautotroph|chemolithotroph|chemoorganoheterotroph|chemoorganotroph|chemosynthetic|chemotroph|copiotroph|diazotroph|facultative|autotroph|heterotroph|lithoautotroph|lithoheterotroph|lithotroph|methanotroph|methylotroph|mixotroph|obligate|chemoautolithotroph|oligotroph|organoheterotroph|organotroph|photoautotroph|photoheterotroph|photolithoautotroph|photolithotroph|photosynthetic|phototroph]	0.9166666666666666
+migs_pl	MIXS:0000032	[autotroph|carboxydotroph|chemoautotroph|chemoheterotroph|chemolithoautotroph|chemolithotroph|chemoorganoheterotroph|chemoorganotroph|chemosynthetic|chemotroph|copiotroph|diazotroph|facultative|autotroph|heterotroph|lithoautotroph|lithoheterotroph|lithotroph|methanotroph|methylotroph|mixotroph|obligate|chemoautolithotroph|oligotroph|organoheterotroph|organotroph|photoautotroph|photoheterotroph|photolithoautotroph|photolithotroph|photosynthetic|phototroph]	0.9166666666666666
+migs_vi	MIXS:0000032	[autotroph|carboxydotroph|chemoautotroph|chemoheterotroph|chemolithoautotroph|chemolithotroph|chemoorganoheterotroph|chemoorganotroph|chemosynthetic|chemotroph|copiotroph|diazotroph|facultative|autotroph|heterotroph|lithoautotroph|lithoheterotroph|lithotroph|methanotroph|methylotroph|mixotroph|obligate|chemoautolithotroph|oligotroph|organoheterotroph|organotroph|photoautotroph|photoheterotroph|photolithoautotroph|photolithotroph|photosynthetic|phototroph]	0.9166666666666666
+mimag	MIXS:0000032	[autotroph|carboxydotroph|chemoautotroph|chemoheterotroph|chemolithoautotroph|chemolithotroph|chemoorganoheterotroph|chemoorganotroph|chemosynthetic|chemotroph|copiotroph|diazotroph|facultative|autotroph|heterotroph|lithoautotroph|lithoheterotroph|lithotroph|methanotroph|methylotroph|mixotroph|obligate|chemoautolithotroph|oligotroph|organoheterotroph|organotroph|photoautotroph|photoheterotroph|photolithoautotroph|photolithotroph|photosynthetic|phototroph]	0.9166666666666666
+mimarks_c	MIXS:0000032	[autotroph|carboxydotroph|chemoautotroph|chemoheterotroph|chemolithoautotroph|chemolithotroph|chemoorganoheterotroph|chemoorganotroph|chemosynthetic|chemotroph|copiotroph|diazotroph|facultative|autotroph|heterotroph|lithoautotroph|lithoheterotroph|lithotroph|methanotroph|methylotroph|mixotroph|obligate|chemoautolithotroph|oligotroph|organoheterotroph|organotroph|photoautotroph|photoheterotroph|photolithoautotroph|photolithotroph|photosynthetic|phototroph]	0.9166666666666666
+mimarks_s	MIXS:0000032	[autotroph|carboxydotroph|chemoautotroph|chemoheterotroph|chemolithoautotroph|chemolithotroph|chemoorganoheterotroph|chemoorganotroph|chemosynthetic|chemotroph|copiotroph|diazotroph|facultative|autotroph|heterotroph|lithoautotroph|lithoheterotroph|lithotroph|methanotroph|methylotroph|mixotroph|obligate|chemoautolithotroph|oligotroph|organoheterotroph|organotroph|photoautotroph|photoheterotroph|photolithoautotroph|photolithotroph|photosynthetic|phototroph]	0.9166666666666666
+mims	MIXS:0000032	[autotroph|carboxydotroph|chemoautotroph|chemoheterotroph|chemolithoautotroph|chemolithotroph|chemoorganoheterotroph|chemoorganotroph|chemosynthetic|chemotroph|copiotroph|diazotroph|facultative|autotroph|heterotroph|lithoautotroph|lithoheterotroph|lithotroph|methanotroph|methylotroph|mixotroph|obligate|chemoautolithotroph|oligotroph|organoheterotroph|organotroph|photoautotroph|photoheterotroph|photolithoautotroph|photolithotroph|photosynthetic|phototroph]	0.9166666666666666
+misag	MIXS:0000032	[autotroph|carboxydotroph|chemoautotroph|chemoheterotroph|chemolithoautotroph|chemolithotroph|chemoorganoheterotroph|chemoorganotroph|chemosynthetic|chemotroph|copiotroph|diazotroph|facultative|autotroph|heterotroph|lithoautotroph|lithoheterotroph|lithotroph|methanotroph|methylotroph|mixotroph|obligate|chemoautolithotroph|oligotroph|organoheterotroph|organotroph|photoautotroph|photoheterotroph|photolithoautotroph|photolithotroph|photosynthetic|phototroph]	0.9166666666666666
+miuvig	MIXS:0000032	[autotroph|carboxydotroph|chemoautotroph|chemoheterotroph|chemolithoautotroph|chemolithotroph|chemoorganoheterotroph|chemoorganotroph|chemosynthetic|chemotroph|copiotroph|diazotroph|facultative|autotroph|heterotroph|lithoautotroph|lithoheterotroph|lithotroph|methanotroph|methylotroph|mixotroph|obligate|chemoautolithotroph|oligotroph|organoheterotroph|organotroph|photoautotroph|photoheterotroph|photolithoautotroph|photolithotroph|photosynthetic|phototroph]	0.9166666666666666
+agriculture	MIXS:0000037	{PMID|DOI|URL}	0.0625
+food-animal and animal feed	MIXS:0000037	{PMID}|{DOI}|{URL}	0.9375
+food-farm environment	MIXS:0000037	{PMID}|{DOI}|{URL}	0.9375
+food-food production facility	MIXS:0000037	{PMID}|{DOI}|{URL}	0.9375
+food-human foods	MIXS:0000037	{PMID}|{DOI}|{URL}	0.9375
+migs_ba	MIXS:0000037	{PMID}|{DOI}|{URL}	0.9375
+migs_eu	MIXS:0000037	{PMID}|{DOI}|{URL}	0.9375
+migs_org	MIXS:0000037	{PMID}|{DOI}|{URL}	0.9375
+migs_pl	MIXS:0000037	{PMID}|{DOI}|{URL}	0.9375
+migs_vi	MIXS:0000037	{PMID}|{DOI}|{URL}	0.9375
+mimag	MIXS:0000037	{PMID}|{DOI}|{URL}	0.9375
+mimarks_c	MIXS:0000037	{PMID}|{DOI}|{URL}	0.9375
+mimarks_s	MIXS:0000037	{PMID}|{DOI}|{URL}	0.9375
+mims	MIXS:0000037	{PMID}|{DOI}|{URL}	0.9375
+misag	MIXS:0000037	{PMID}|{DOI}|{URL}	0.9375
+miuvig	MIXS:0000037	{PMID}|{DOI}|{URL}	0.9375
+agriculture	MIXS:0000038	{PMID|DOI|URL}	0.08333333333333333
+migs_ba	MIXS:0000038	{PMID}|{DOI}|{URL}	0.9166666666666666
+migs_eu	MIXS:0000038	{PMID}|{DOI}|{URL}	0.9166666666666666
+migs_org	MIXS:0000038	{PMID}|{DOI}|{URL}	0.9166666666666666
+migs_pl	MIXS:0000038	{PMID}|{DOI}|{URL}	0.9166666666666666
+migs_vi	MIXS:0000038	{PMID}|{DOI}|{URL}	0.9166666666666666
+mimag	MIXS:0000038	{PMID}|{DOI}|{URL}	0.9166666666666666
+mimarks_c	MIXS:0000038	{PMID}|{DOI}|{URL}	0.9166666666666666
+mimarks_s	MIXS:0000038	{PMID}|{DOI}|{URL}	0.9166666666666666
+mims	MIXS:0000038	{PMID}|{DOI}|{URL}	0.9166666666666666
+misag	MIXS:0000038	{PMID}|{DOI}|{URL}	0.9166666666666666
+miuvig	MIXS:0000038	{PMID}|{DOI}|{URL}	0.9166666666666666
+migs_ba	MIXS:0000046	FWD:{dna};REV:{dna}	0.9166666666666666
+migs_eu	MIXS:0000046	FWD:{dna};REV:{dna}	0.9166666666666666
+migs_org	MIXS:0000046	FWD:{dna};REV:{dna}	0.9166666666666666
+migs_pl	MIXS:0000046	FWD:{dna};REV:{dna}	0.9166666666666666
+migs_vi	MIXS:0000046	FWD:{dna};REV:{dna}	0.9166666666666666
+mimag	MIXS:0000046	FWD:{dna};REV:{dna}	0.9166666666666666
+mimarks_c	MIXS:0000046	FWD:{dna};REV:{dna}	0.9166666666666666
+mimarks_s	MIXS:0000046	FWD:{dna};REV:{dna}	0.9166666666666666
+mims	MIXS:0000046	FWD:{dna};REV:{dna}	0.9166666666666666
+misag	MIXS:0000046	FWD:{dna};REV:{dna}	0.9166666666666666
+miuvig	MIXS:0000046	FWD:{dna};REV:{dna}	0.9166666666666666
+agriculture	MIXS:0000046		0.08333333333333333
+agriculture	MIXS:0000048	{dna},{dna}	0.08333333333333333
+migs_ba	MIXS:0000048	{dna};{dna}	0.9166666666666666
+migs_eu	MIXS:0000048	{dna};{dna}	0.9166666666666666
+migs_org	MIXS:0000048	{dna};{dna}	0.9166666666666666
+migs_pl	MIXS:0000048	{dna};{dna}	0.9166666666666666
+migs_vi	MIXS:0000048	{dna};{dna}	0.9166666666666666
+mimag	MIXS:0000048	{dna};{dna}	0.9166666666666666
+mimarks_c	MIXS:0000048	{dna};{dna}	0.9166666666666666
+mimarks_s	MIXS:0000048	{dna};{dna}	0.9166666666666666
+mims	MIXS:0000048	{dna};{dna}	0.9166666666666666
+misag	MIXS:0000048	{dna};{dna}	0.9166666666666666
+miuvig	MIXS:0000048	{dna};{dna}	0.9166666666666666
+agriculture	MIXS:0000049	initial denaturation:degrees_minutes; annealing:degrees_minutes; elongation: degrees_minutes; final elongation:degrees_minutes; total cycles	0.08333333333333333
+migs_ba	MIXS:0000049	initial denaturation:degrees_minutes;annealing:degrees_minutes;elongation:degrees_minutes;final elongation:degrees_minutes;total cycles	0.9166666666666666
+migs_eu	MIXS:0000049	initial denaturation:degrees_minutes;annealing:degrees_minutes;elongation:degrees_minutes;final elongation:degrees_minutes;total cycles	0.9166666666666666
+migs_org	MIXS:0000049	initial denaturation:degrees_minutes;annealing:degrees_minutes;elongation:degrees_minutes;final elongation:degrees_minutes;total cycles	0.9166666666666666
+migs_pl	MIXS:0000049	initial denaturation:degrees_minutes;annealing:degrees_minutes;elongation:degrees_minutes;final elongation:degrees_minutes;total cycles	0.9166666666666666
+migs_vi	MIXS:0000049	initial denaturation:degrees_minutes;annealing:degrees_minutes;elongation:degrees_minutes;final elongation:degrees_minutes;total cycles	0.9166666666666666
+mimag	MIXS:0000049	initial denaturation:degrees_minutes;annealing:degrees_minutes;elongation:degrees_minutes;final elongation:degrees_minutes;total cycles	0.9166666666666666
+mimarks_c	MIXS:0000049	initial denaturation:degrees_minutes;annealing:degrees_minutes;elongation:degrees_minutes;final elongation:degrees_minutes;total cycles	0.9166666666666666
+mimarks_s	MIXS:0000049	initial denaturation:degrees_minutes;annealing:degrees_minutes;elongation:degrees_minutes;final elongation:degrees_minutes;total cycles	0.9166666666666666
+mims	MIXS:0000049	initial denaturation:degrees_minutes;annealing:degrees_minutes;elongation:degrees_minutes;final elongation:degrees_minutes;total cycles	0.9166666666666666
+misag	MIXS:0000049	initial denaturation:degrees_minutes;annealing:degrees_minutes;elongation:degrees_minutes;final elongation:degrees_minutes;total cycles	0.9166666666666666
+miuvig	MIXS:0000049	initial denaturation:degrees_minutes;annealing:degrees_minutes;elongation:degrees_minutes;final elongation:degrees_minutes;total cycles	0.9166666666666666
+migs_ba	MIXS:0000052	{software};{version};{parameters}	0.9166666666666666
+migs_eu	MIXS:0000052	{software};{version};{parameters}	0.9166666666666666
+migs_org	MIXS:0000052	{software};{version};{parameters}	0.9166666666666666
+migs_pl	MIXS:0000052	{software};{version};{parameters}	0.9166666666666666
+migs_vi	MIXS:0000052	{software};{version};{parameters}	0.9166666666666666
+mimag	MIXS:0000052	{software};{version};{parameters}	0.9166666666666666
+mimarks_c	MIXS:0000052	{software};{version};{parameters}	0.9166666666666666
+mimarks_s	MIXS:0000052	{software};{version};{parameters}	0.9166666666666666
+mims	MIXS:0000052	{software};{version};{parameters}	0.9166666666666666
+misag	MIXS:0000052	{software};{version};{parameters}	0.9166666666666666
+miuvig	MIXS:0000052	{software};{version};{parameters}	0.9166666666666666
+agriculture	MIXS:0000052	{text} {text}	0.08333333333333333
+agriculture	MIXS:0000090	{PMID|DOI|URL}	0.08333333333333333
+migs_ba	MIXS:0000090	{PMID}|{DOI}|{URL}	0.9166666666666666
+migs_eu	MIXS:0000090	{PMID}|{DOI}|{URL}	0.9166666666666666
+migs_org	MIXS:0000090	{PMID}|{DOI}|{URL}	0.9166666666666666
+migs_pl	MIXS:0000090	{PMID}|{DOI}|{URL}	0.9166666666666666
+migs_vi	MIXS:0000090	{PMID}|{DOI}|{URL}	0.9166666666666666
+mimag	MIXS:0000090	{PMID}|{DOI}|{URL}	0.9166666666666666
+mimarks_c	MIXS:0000090	{PMID}|{DOI}|{URL}	0.9166666666666666
+mimarks_s	MIXS:0000090	{PMID}|{DOI}|{URL}	0.9166666666666666
+mims	MIXS:0000090	{PMID}|{DOI}|{URL}	0.9166666666666666
+misag	MIXS:0000090	{PMID}|{DOI}|{URL}	0.9166666666666666
+miuvig	MIXS:0000090	{PMID}|{DOI}|{URL}	0.9166666666666666
+migs_ba	MIXS:0000091	{PMID} | {DOI} | {URL}	0.9166666666666666
+migs_eu	MIXS:0000091	{PMID} | {DOI} | {URL}	0.9166666666666666
+migs_org	MIXS:0000091	{PMID} | {DOI} | {URL}	0.9166666666666666
+migs_pl	MIXS:0000091	{PMID} | {DOI} | {URL}	0.9166666666666666
+migs_vi	MIXS:0000091	{PMID} | {DOI} | {URL}	0.9166666666666666
+mimag	MIXS:0000091	{PMID} | {DOI} | {URL}	0.9166666666666666
+mimarks_c	MIXS:0000091	{PMID} | {DOI} | {URL}	0.9166666666666666
+mimarks_s	MIXS:0000091	{PMID} | {DOI} | {URL}	0.9166666666666666
+mims	MIXS:0000091	{PMID} | {DOI} | {URL}	0.9166666666666666
+misag	MIXS:0000091	{PMID} | {DOI} | {URL}	0.9166666666666666
+miuvig	MIXS:0000091	{PMID} | {DOI} | {URL}	0.9166666666666666
+agriculture	MIXS:0000091	{URL}	0.08333333333333333
+symbiont-associated	MIXS:0000103	{text};{float} {unit}	0.045454545454545456
+food-animal and animal feed	MIXS:0000103	{text};{float} {unit};[ATP|MPN|qPCR|other]	0.18181818181818182
+food-farm environment	MIXS:0000103	{text};{float} {unit};[ATP|MPN|qPCR|other]	0.18181818181818182
+food-food production facility	MIXS:0000103	{text};{float} {unit};[ATP|MPN|qPCR|other]	0.18181818181818182
+food-human foods	MIXS:0000103	{text};{float} {unit};[ATP|MPN|qPCR|other]	0.18181818181818182
+agriculture	MIXS:0000103	{text};{float} {unit};[qPCR|ATP|MPN|other]	0.7727272727272727
+air	MIXS:0000103	{text};{float} {unit};[qPCR|ATP|MPN|other]	0.7727272727272727
+built environment	MIXS:0000103	{text};{float} {unit};[qPCR|ATP|MPN|other]	0.7727272727272727
+host-associated	MIXS:0000103	{text};{float} {unit};[qPCR|ATP|MPN|other]	0.7727272727272727
+human-associated	MIXS:0000103	{text};{float} {unit};[qPCR|ATP|MPN|other]	0.7727272727272727
+human-gut	MIXS:0000103	{text};{float} {unit};[qPCR|ATP|MPN|other]	0.7727272727272727
+human-oral	MIXS:0000103	{text};{float} {unit};[qPCR|ATP|MPN|other]	0.7727272727272727
+human-skin	MIXS:0000103	{text};{float} {unit};[qPCR|ATP|MPN|other]	0.7727272727272727
+human-vaginal	MIXS:0000103	{text};{float} {unit};[qPCR|ATP|MPN|other]	0.7727272727272727
+hydrocarbon resources-cores	MIXS:0000103	{text};{float} {unit};[qPCR|ATP|MPN|other]	0.7727272727272727
+hydrocarbon resources-fluids/swabs	MIXS:0000103	{text};{float} {unit};[qPCR|ATP|MPN|other]	0.7727272727272727
+microbial mat/biofilm	MIXS:0000103	{text};{float} {unit};[qPCR|ATP|MPN|other]	0.7727272727272727
+miscellaneous natural or artificial environment	MIXS:0000103	{text};{float} {unit};[qPCR|ATP|MPN|other]	0.7727272727272727
+plant-associated	MIXS:0000103	{text};{float} {unit};[qPCR|ATP|MPN|other]	0.7727272727272727
+sediment	MIXS:0000103	{text};{float} {unit};[qPCR|ATP|MPN|other]	0.7727272727272727
+wastewater/sludge	MIXS:0000103	{text};{float} {unit};[qPCR|ATP|MPN|other]	0.7727272727272727
+water	MIXS:0000103	{text};{float} {unit};[qPCR|ATP|MPN|other]	0.7727272727272727
+air	MIXS:0000116	{duration}	0.9523809523809523
+food-animal and animal feed	MIXS:0000116	{duration}	0.9523809523809523
+food-farm environment	MIXS:0000116	{duration}	0.9523809523809523
+food-food production facility	MIXS:0000116	{duration}	0.9523809523809523
+food-human foods	MIXS:0000116	{duration}	0.9523809523809523
+host-associated	MIXS:0000116	{duration}	0.9523809523809523
+human-associated	MIXS:0000116	{duration}	0.9523809523809523
+human-gut	MIXS:0000116	{duration}	0.9523809523809523
+human-oral	MIXS:0000116	{duration}	0.9523809523809523
+human-skin	MIXS:0000116	{duration}	0.9523809523809523
+human-vaginal	MIXS:0000116	{duration}	0.9523809523809523
+hydrocarbon resources-cores	MIXS:0000116	{duration}	0.9523809523809523
+hydrocarbon resources-fluids/swabs	MIXS:0000116	{duration}	0.9523809523809523
+microbial mat/biofilm	MIXS:0000116	{duration}	0.9523809523809523
+miscellaneous natural or artificial environment	MIXS:0000116	{duration}	0.9523809523809523
+plant-associated	MIXS:0000116	{duration}	0.9523809523809523
+sediment	MIXS:0000116	{duration}	0.9523809523809523
+symbiont-associated	MIXS:0000116	{duration}	0.9523809523809523
+wastewater/sludge	MIXS:0000116	{duration}	0.9523809523809523
+water	MIXS:0000116	{duration}	0.9523809523809523
+agriculture	MIXS:0000116	{interval}	0.047619047619047616
+soil	MIXS:0000185	{float}	0.3333333333333333
+microbial mat/biofilm	MIXS:0000185	{float} {unit}	0.6666666666666666
+sediment	MIXS:0000185	{float} {unit}	0.6666666666666666
+built environment	MIXS:0000226	[ Daily| Weekly| Monthly| Quarterly | Annually| other]	0.5
+food-food production facility	MIXS:0000226	{text}	0.5
+food-farm environment	MIXS:0000250	{NCBI taxid}	0.6
+host-associated	MIXS:0000250	{NCBI taxid}	0.6
+plant-associated	MIXS:0000250	{NCBI taxid}	0.6
+agriculture	MIXS:0000250	{integer}	0.4
+symbiont-associated	MIXS:0000250	{integer}	0.4
+microbial mat/biofilm	MIXS:0000310	{float} {unit}	0.6666666666666666
+sediment	MIXS:0000310	{float} {unit}	0.6666666666666666
+water	MIXS:0000310	{float}:{float}	0.3333333333333333
+agriculture	MIXS:0000314	{PMID|DOI|URL}	0.5
+soil	MIXS:0000314	{PMID}|{DOI}|{URL}	0.5
+agriculture	MIXS:0000316	{PMID|DOI|URL}	0.5
+soil	MIXS:0000316	{PMID}|{DOI}|{URL}	0.5
+agriculture	MIXS:0000318	{boolean};Rn/{timestamp}/{period}	0.3333333333333333
+food-farm environment	MIXS:0000318	{boolean};{Rn/start_time/end_time/duration}	0.6666666666666666
+soil	MIXS:0000318	{boolean};{Rn/start_time/end_time/duration}	0.6666666666666666
+agriculture	MIXS:0000321	{PMID|DOI|URL}	0.5
+soil	MIXS:0000321	{PMID}|{DOI}|{URL}	0.5
+food-animal and animal feed	MIXS:0000325	{boolean},{integer}	0.6
+food-food production facility	MIXS:0000325	{boolean},{integer}	0.6
+food-human foods	MIXS:0000325	{boolean},{integer}	0.6
+agriculture	MIXS:0000325	{boolean};{float} {unit}	0.2
+soil	MIXS:0000325	{boolean};{integer}	0.2
+soil	MIXS:0000327	{text};{duration}	0.5
+agriculture	MIXS:0000327	{text};{period}	0.5
+agriculture	MIXS:0000328	{PMID|DOI|URL}	0.5
+soil	MIXS:0000328	{PMID}|{DOI}|{URL}	0.5
+agriculture	MIXS:0000329	{PMID|DOI|URL}	0.5
+soil	MIXS:0000329	{PMID}|{DOI}|{URL}	0.5
+agriculture	MIXS:0000331	{PMID|DOI|URL}	0.5
+soil	MIXS:0000331	{PMID}|{DOI}|{URL}	0.5
+food-farm environment	MIXS:0000332	{termLabel} [{termID}]	0.3333333333333333
+soil	MIXS:0000332	"{termLabel} [{termID}]
+"	0.3333333333333333
+agriculture	MIXS:0000332	{text}	0.3333333333333333
+agriculture	MIXS:0000334	{PMID|DOI|URL}	0.3333333333333333
+food-farm environment	MIXS:0000334	{PMID}|{DOI}|{URL}	0.6666666666666666
+soil	MIXS:0000334	{PMID}|{DOI}|{URL}	0.6666666666666666
+agriculture	MIXS:0000337	{PMID|DOI|URL}	0.3333333333333333
+food-farm environment	MIXS:0000337	{PMID}|{DOI}|{URL}	0.6666666666666666
+soil	MIXS:0000337	{PMID}|{DOI}|{URL}	0.6666666666666666
+agriculture	MIXS:0000338	{PMID|DOI|URL}	0.3333333333333333
+food-farm environment	MIXS:0000338	{PMID}|{DOI}|{URL}	0.6666666666666666
+soil	MIXS:0000338	{PMID}|{DOI}|{URL}	0.6666666666666666
+agriculture	MIXS:0000339	{PMID|DOI|URL}	0.5
+soil	MIXS:0000339	{PMID}|{DOI}|{URL}	0.5
+agriculture	MIXS:0000343	{PMID|DOI|URL}	0.5
+soil	MIXS:0000343	{PMID}|{DOI}|{URL}	0.5
+agriculture	MIXS:0000533	{float} {unit}	0.8
+microbial mat/biofilm	MIXS:0000533	{float} {unit}	0.8
+sediment	MIXS:0000533	{float} {unit}	0.8
+soil	MIXS:0000533	{float} {unit}	0.8
+food-farm environment	MIXS:0000533	{percentage}	0.2
+plant-associated	MIXS:0000557	{text};{float} {unit};{Rn/start_time/end_time/duration}	0.5
+agriculture	MIXS:0000557	{text};{float} {unit};{period};{interval};{period}	0.5
+plant-associated	MIXS:0000558	{text};{float} {unit};{Rn/start_time/end_time/duration}	0.5
+agriculture	MIXS:0000558	{text};{float} {unit};{period};{interval};{period}	0.5
+plant-associated	MIXS:0000561	{text};{float} {unit};{Rn/start_time/end_time/duration}	0.5
+agriculture	MIXS:0000561	{text};{float} {unit};{period};{interval};{period}	0.5
+plant-associated	MIXS:0000571	{text};{float} {unit};{Rn/start_time/end_time/duration}	0.5
+agriculture	MIXS:0000571	{text};{float} {unit};{period};{interval};{period}	0.5
+plant-associated	MIXS:0000573	{text};{float} {unit};{Rn/start_time/end_time/duration}	0.5
+agriculture	MIXS:0000573	{text};{float} {unit};{period};{interval};{period}	0.5
+plant-associated	MIXS:0000582	{text};{float} {unit};{Rn/start_time/end_time/duration}	0.5
+agriculture	MIXS:0000582	{text};{float} {unit};{period};{interval};{period}	0.5
+plant-associated	MIXS:0000590	{float} {unit};{Rn/start_time/end_time/duration}	0.5
+agriculture	MIXS:0000590	{float} {unit};{period};{interval};{period}	0.5
+plant-associated	MIXS:0000591	{float} {unit};{Rn/start_time/end_time/duration}	0.5
+agriculture	MIXS:0000591	{float} {unit};{period};{interval};{period}	0.5
+agriculture	MIXS:0000753	[aerobic|anaerobic]	0.11764705882352941
+symbiont-associated	MIXS:0000753	[aerobic|anaerobic]	0.11764705882352941
+air	MIXS:0000753	[aerobic|anaerobic|other]	0.8823529411764706
+host-associated	MIXS:0000753	[aerobic|anaerobic|other]	0.8823529411764706
+human-associated	MIXS:0000753	[aerobic|anaerobic|other]	0.8823529411764706
+human-gut	MIXS:0000753	[aerobic|anaerobic|other]	0.8823529411764706
+human-oral	MIXS:0000753	[aerobic|anaerobic|other]	0.8823529411764706
+human-skin	MIXS:0000753	[aerobic|anaerobic|other]	0.8823529411764706
+human-vaginal	MIXS:0000753	[aerobic|anaerobic|other]	0.8823529411764706
+hydrocarbon resources-cores	MIXS:0000753	[aerobic|anaerobic|other]	0.8823529411764706
+hydrocarbon resources-fluids/swabs	MIXS:0000753	[aerobic|anaerobic|other]	0.8823529411764706
+microbial mat/biofilm	MIXS:0000753	[aerobic|anaerobic|other]	0.8823529411764706
+miscellaneous natural or artificial environment	MIXS:0000753	[aerobic|anaerobic|other]	0.8823529411764706
+plant-associated	MIXS:0000753	[aerobic|anaerobic|other]	0.8823529411764706
+sediment	MIXS:0000753	[aerobic|anaerobic|other]	0.8823529411764706
+wastewater/sludge	MIXS:0000753	[aerobic|anaerobic|other]	0.8823529411764706
+water	MIXS:0000753	[aerobic|anaerobic|other]	0.8823529411764706
+air	MIXS:0000754	{text};{Rn/start_time/end_time/duration}	0.9444444444444444
+food-animal and animal feed	MIXS:0000754	{text};{Rn/start_time/end_time/duration}	0.9444444444444444
+food-farm environment	MIXS:0000754	{text};{Rn/start_time/end_time/duration}	0.9444444444444444
+food-human foods	MIXS:0000754	{text};{Rn/start_time/end_time/duration}	0.9444444444444444
+host-associated	MIXS:0000754	{text};{Rn/start_time/end_time/duration}	0.9444444444444444
+human-associated	MIXS:0000754	{text};{Rn/start_time/end_time/duration}	0.9444444444444444
+human-gut	MIXS:0000754	{text};{Rn/start_time/end_time/duration}	0.9444444444444444
+human-oral	MIXS:0000754	{text};{Rn/start_time/end_time/duration}	0.9444444444444444
+human-skin	MIXS:0000754	{text};{Rn/start_time/end_time/duration}	0.9444444444444444
+human-vaginal	MIXS:0000754	{text};{Rn/start_time/end_time/duration}	0.9444444444444444
+microbial mat/biofilm	MIXS:0000754	{text};{Rn/start_time/end_time/duration}	0.9444444444444444
+miscellaneous natural or artificial environment	MIXS:0000754	{text};{Rn/start_time/end_time/duration}	0.9444444444444444
+plant-associated	MIXS:0000754	{text};{Rn/start_time/end_time/duration}	0.9444444444444444
+sediment	MIXS:0000754	{text};{Rn/start_time/end_time/duration}	0.9444444444444444
+symbiont-associated	MIXS:0000754	{text};{Rn/start_time/end_time/duration}	0.9444444444444444
+wastewater/sludge	MIXS:0000754	{text};{Rn/start_time/end_time/duration}	0.9444444444444444
+water	MIXS:0000754	{text};{Rn/start_time/end_time/duration}	0.9444444444444444
+agriculture	MIXS:0000754	{text};{interval}	0.05555555555555555
+food-farm environment	MIXS:0000859	{PMID}|{DOI}|{URL}	0.5
+food-food production facility	MIXS:0000859	{PMID}|{DOI}|{URL}	0.5
+food-human foods	MIXS:0000859	{PMID}|{DOI}|{URL}	0.5
+agriculture	MIXS:0000859	{PMID}|{DOI}|{URL}|{text}	0.5
+host-associated	MIXS:0000859	{PMID}|{DOI}|{URL}|{text}	0.5
+plant-associated	MIXS:0000859	{PMID}|{DOI}|{URL}|{text}	0.5
+host-associated	MIXS:0000874	{termLabel} [{termID}]	0.6
+human-associated	MIXS:0000874	{termLabel} [{termID}]	0.6
+human-gut	MIXS:0000874	{termLabel} [{termID}]	0.6
+human-oral	MIXS:0000874	{termLabel} [{termID}]	0.6
+human-skin	MIXS:0000874	{termLabel} [{termID}]	0.6
+human-vaginal	MIXS:0000874	{termLabel} [{termID}]	0.6
+agriculture	MIXS:0000874	{term}	0.2
+symbiont-associated	MIXS:0000874	{term}	0.2
+food-farm environment	MIXS:0000874	{text};{termLabel} [{termID}]	0.2
+plant-associated	MIXS:0000874	{text};{termLabel} [{termID}]	0.2
+plant-associated	MIXS:0001040	{text};{Rn/start_time/end_time/duration}	0.5
+agriculture	MIXS:0001040	{text};{period};{interval};{period}	0.5
+plant-associated	MIXS:0001056	{float};{Rn/start_time/end_time/duration}	0.5
+agriculture	MIXS:0001056	{float};{period};{interval};{period}	0.5
+plant-associated	MIXS:0001068	{text};{Rn/start_time/end_time/duration}	0.5
+agriculture	MIXS:0001068	{text};{period};{interval};{period}	0.5
+plant-associated	MIXS:0001069	{text};{Rn/start_time/end_time/duration}	0.5
+agriculture	MIXS:0001069	{text};{period};{interval};{period}	0.5
+soil	MIXS:0001083	[Acrisols|Andosols|Arenosols|Cambisols|Chernozems|Ferralsols|Fluvisols|Gleysols|Greyzems|Gypsisols|Histosols|Kastanozems|Lithosols|Luvisols|Nitosols|Phaeozems|Planosols|Podzols|Podzoluvisols|Rankers|Regosols|Rendzinas|Solonchaks|Solonetz|Vertisols|Yermosols]	0.5
+agriculture	MIXS:0001083	{term}	0.5
+agriculture	MIXS:0001106	{PMID|DOI|URL}	0.3333333333333333
+food-farm environment	MIXS:0001106	{PMID}|{DOI}|{URL}	0.6666666666666666
+soil	MIXS:0001106	{PMID}|{DOI}|{URL}	0.6666666666666666
+food-animal and animal feed	MIXS:0001113	{termLabel} [{termID}]	0.5
+food-farm environment	MIXS:0001113	{termLabel}{[termID]}	0.5
+food-farm environment	MIXS:0001118	{TermLabel} [{termID}]|{integer}	0.25
+food-animal and animal feed	MIXS:0001118	{termLabel} [{termID}]|{integer}	0.75
+food-food production facility	MIXS:0001118	{termLabel} [{termID}]|{integer}	0.75
+food-human foods	MIXS:0001118	{termLabel} [{termID}]|{integer}	0.75
+food-farm environment	MIXS:0001119	{TermLabel} [{termID}]|{integer}	0.25
+food-animal and animal feed	MIXS:0001119	{termLabel} [{termID}]|{integer}	0.75
+food-food production facility	MIXS:0001119	{termLabel} [{termID}]|{integer}	0.75
+food-human foods	MIXS:0001119	{termLabel} [{termID}]|{integer}	0.75
+food-farm environment	MIXS:0001123	{termLabel} [{termID}]	0.5
+agriculture	MIXS:0001123		0.5
+food-farm environment	MIXS:0001124	{text} {float} {unit}	0.5
+agriculture	MIXS:0001124		0.5
+food-farm environment	MIXS:0001133	{text}	0.5
+agriculture	MIXS:0001133		0.5
+food-animal and animal feed	MIXS:0001139	{termLabel} [{termID}]	0.8
+food-farm environment	MIXS:0001139	{termLabel} [{termID}]	0.8
+food-food production facility	MIXS:0001139	{termLabel} [{termID}]	0.8
+food-human foods	MIXS:0001139	{termLabel} [{termID}]	0.8
+agriculture	MIXS:0001139	{text}	0.2
+food-animal and animal feed	MIXS:0001153	{text}	0.8
+food-farm environment	MIXS:0001153	{text}	0.8
+food-food production facility	MIXS:0001153	{text}	0.8
+food-human foods	MIXS:0001153	{text}	0.8
+agriculture	MIXS:0001153		0.2
+food-farm environment	MIXS:0001158	{float} {unit}	0.5
+agriculture	MIXS:0001158		0.5
+food-farm environment	MIXS:0001160	{float}	0.5
+agriculture	MIXS:0001160		0.5
+food-farm environment	MIXS:0001161	{text}	0.5
+agriculture	MIXS:0001161		0.5
+agriculture	MIXS:0001181	YYYY-MM-DD	0.2
+food-animal and animal feed	MIXS:0001181	{timestamp}	0.8
+food-farm environment	MIXS:0001181	{timestamp}	0.8
+food-food production facility	MIXS:0001181	{timestamp}	0.8
+food-human foods	MIXS:0001181	{timestamp}	0.8
+agriculture	MIXS:0001184	{text}	0.2
+food-animal and animal feed	MIXS:0001184	{text}|{termLabel} [{termID}]	0.8
+food-farm environment	MIXS:0001184	{text}|{termLabel} [{termID}]	0.8
+food-food production facility	MIXS:0001184	{text}|{termLabel} [{termID}]	0.8
+food-human foods	MIXS:0001184	{text}|{termLabel} [{termID}]	0.8
+food-food production facility	MIXS:0001207	{term}: {term}, {text}	0.6666666666666666
+food-human foods	MIXS:0001207	{term}: {term}, {text}	0.6666666666666666
+food-animal and animal feed	MIXS:0001207	{term}:{term}, {text}	0.3333333333333333

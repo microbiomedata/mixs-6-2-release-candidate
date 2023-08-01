@@ -2,12 +2,21 @@ name: mixs_6_2_rc
 source: https://github.com/only1chunts/mixs-cih-fork/raw/main/mixs/excel/mixs_v6.xlsx
 id: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
 prefixes:
-  mixs_6_2_rc:
-    prefix_prefix: mixs_6_2_rc
-    prefix_reference: https://w3id.org/mixs-6-2-rc/
   linkml:
     prefix_prefix: linkml
     prefix_reference: https://w3id.org/linkml/
+  AGRO:
+    prefix_prefix: AGRO
+    prefix_reference: http://purl.obolibrary.org/obo/AGRO_
+  CHEBI:
+    prefix_prefix: CHEBI
+    prefix_reference: http://purl.obolibrary.org/obo/CHEBI_
+  ENVO:
+    prefix_prefix: ENVO
+    prefix_reference: http://purl.obolibrary.org/obo/ENVO_
+  mixs_6_2_rc:
+    prefix_prefix: mixs_6_2_rc
+    prefix_reference: https://w3id.org/mixs-6-2-rc/
   MIXS:
     prefix_prefix: MIXS
     prefix_reference: https://w3id.org/mixs/
@@ -2737,6 +2746,23 @@ slots:
     slot_uri: MIXS:0001179
     multivalued: true
     required: true
+  Structured_comment_name:
+    name: Structured_comment_name
+    description: The relative proportion of different grain sizes of mineral particles
+      in a soil, as described using a standard system; express as % sand (50 um to
+      2 mm), silt (2 um to 50 um), and clay (<2 um) with textural name (e.g., silty
+      clay loam) optional
+    notes:
+    - measurement
+    - texture
+    from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
+    slot_uri: MIXS:0000335
+    multivalued: false
+    range: string
+    required: false
+    recommended: false
+    pattern: ^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?)?
+      *([^\s-]{1,2}|[^\s-]+.+[^\s-]+)$
   abs_air_humidity:
     name: abs_air_humidity
     annotations:
@@ -2761,6 +2787,10 @@ slots:
       *([^\s-]{1,2}|[^\s-]+.+[^\s-]+)$
   adapters:
     name: adapters
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: adapter A and B sequence
     description: Adapters provide priming sequences for both amplification and sequencing
       of the sample-library fragments. Both adapters should be reported; in uppercase
       letters
@@ -2770,14 +2800,9 @@ slots:
     in_subset:
     - sequencing
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
+    string_serialization: '{dna};{dna}'
     slot_uri: MIXS:0000048
     multivalued: false
-    range: string
-    pattern: ^[ACGTRKSYMWBHDVN]+;[ACGTRKSYMWBHDVN]+$
-    structured_pattern:
-      syntax: ^{adapter};{adapter}$
-      interpolated: true
-      partial_match: true
   add_recov_method:
     name: add_recov_method
     annotations:
@@ -3339,6 +3364,10 @@ slots:
     recommended: false
   animal_feed_equip:
     name: animal_feed_equip
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: EOL:0001757
     title: animal feeding equipment
     notes:
     - animal
@@ -3346,9 +3375,9 @@ slots:
     examples:
     - value: self feeding [EOL:0001645]| straight feed trough [EOL:0001661]
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
+    string_serialization: '{termLabel} [{termID}]'
     slot_uri: MIXS:0001113
     multivalued: true
-    range: string
     required: false
     recommended: false
   animal_group_size:
@@ -3427,6 +3456,10 @@ slots:
     recommended: false
   annot:
     name: annot
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: name of tool or pipeline used, or annotation source description
     description: Tool used for annotation, or for cases where annotation was provided
       by a community jamboree or model organism database rather than by a specific
       submitter
@@ -3436,9 +3469,9 @@ slots:
     in_subset:
     - sequencing
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
+    string_serialization: '{text}'
     slot_uri: MIXS:0000059
     multivalued: false
-    range: string
   annual_precpt:
     name: annual_precpt
     annotations:
@@ -3606,6 +3639,10 @@ slots:
       partial_match: true
   assembly_name:
     name: assembly_name
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: name and version of assembly
     description: Name/version of the assembly provided by the submitter that is used
       in the genome browsers and in the community
     title: assembly name
@@ -3614,10 +3651,9 @@ slots:
     in_subset:
     - sequencing
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
+    string_serialization: '{text} {text}'
     slot_uri: MIXS:0000057
     multivalued: false
-    range: string
-    pattern: ^\S.*\S+ \S.*\S+$
   assembly_qual:
     name: assembly_qual
     annotations:
@@ -3673,6 +3709,10 @@ slots:
     multivalued: false
   associated_resource:
     name: associated_resource
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: reference to resource
     description: A related resource that is referenced, cited, or otherwise associated
       to the sequence
     title: relevant electronic resources
@@ -3683,9 +3723,9 @@ slots:
     in_subset:
     - sequencing
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
+    string_serialization: '{PMID}|{DOI}|{URL}'
     slot_uri: MIXS:0000091
     multivalued: true
-    range: string
     recommended: true
   association_duration:
     name: association_duration
@@ -4719,7 +4759,7 @@ slots:
     notes:
     - date
     examples:
-    - value: '2013-03-25T12:42:31+00:32'
+    - value: '2013-03-25T12:42:31+01:00'
     in_subset:
     - environment
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
@@ -4861,7 +4901,7 @@ slots:
     notes:
     - date
     examples:
-    - value: '2013-03-25T12:42:31+00:32'
+    - value: '2013-03-25T12:42:31+01:00'
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     slot_uri: MIXS:0001197
     multivalued: false
@@ -4996,7 +5036,7 @@ slots:
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     slot_uri: MIXS:0001181
     multivalued: false
-    range: string
+    range: datetime
     required: false
     recommended: false
   cult_result:
@@ -5028,6 +5068,7 @@ slots:
     examples:
     - value: Listeria monocytogenes [NCIT:C86502]
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
+    string_serialization: '{termLabel} [{termID}]|{integer}'
     slot_uri: MIXS:0001118
     multivalued: true
     required: false
@@ -5070,6 +5111,7 @@ slots:
     examples:
     - value: Listeria monocytogenes [NCIT:C86502]
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
+    string_serialization: '{termLabel} [{termID}]|{integer}'
     slot_uri: MIXS:0001119
     multivalued: true
     required: false
@@ -5146,7 +5188,7 @@ slots:
     - extreme
     - weather
     examples:
-    - value: '2013-03-25T12:42:31+00:32'
+    - value: '2013-03-25T12:42:31+01:00'
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     slot_uri: MIXS:0001142
     multivalued: true
@@ -5161,7 +5203,7 @@ slots:
     - date
     - rain
     examples:
-    - value: '2013-03-25T12:42:31+00:32'
+    - value: '2013-03-25T12:42:31+01:00'
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     slot_uri: MIXS:0000786
     multivalued: false
@@ -5188,6 +5230,10 @@ slots:
     multivalued: false
   density:
     name: density
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: gram per cubic meter, gram per cubic centimeter
     description: Density of the sample, which is its mass per unit volume (aka volumetric
       mass density)
     title: density
@@ -5393,6 +5439,10 @@ slots:
       *([^\s-]{1,2}|[^\s-]+.+[^\s-]+)$
   diss_inorg_carb:
     name: diss_inorg_carb
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: microgram per liter, milligram per liter, parts per million
     description: Dissolved inorganic carbon concentration in the sample, typically
       measured after filtering the sample using a 0.45 micrometer filter
     title: dissolved inorganic carbon
@@ -5741,7 +5791,7 @@ slots:
     description: Date of most recent douche
     title: douche
     examples:
-    - value: '2013-03-25T12:42:31+00:32'
+    - value: '2013-03-25T12:42:31+01:00'
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     slot_uri: MIXS:0000967
     multivalued: false
@@ -5995,6 +6045,10 @@ slots:
     pattern: ^\S+.*\S+ \[[a-zA-Z]{2,}:\d+\]$
   env_monitoring_zone:
     name: env_monitoring_zone
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: Expected value
     description: An environmental monitoring zone is a formal designation as part
       of an environmental monitoring program, in which areas of a food production
       facility are categorized, commonly as zones 1-4, based on likelihood or risk
@@ -6010,9 +6064,9 @@ slots:
     examples:
     - value: Zone 1
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
+    string_serialization: '{text}'
     slot_uri: MIXS:0001254
     multivalued: false
-    range: string
     required: false
     recommended: false
   escalator:
@@ -6923,6 +6977,10 @@ slots:
     recommended: false
   food_dis_point:
     name: food_dis_point
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: 'country: region, specific location'
     title: food distribution point geographic location
     notes:
     - food
@@ -7021,6 +7079,10 @@ slots:
     pattern: ^\S+.*\S+ \[[a-zA-Z]{2,}:\d+\]$
   food_origin:
     name: food_origin
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: 'country: region, specific location'
     description: A reference to a place on the Earth, by its name or by its geographical
       location that describes the origin of the food commodity, either in terms of
       its cultivation or production. This field accepts terms listed under geographic
@@ -7032,14 +7094,9 @@ slots:
     - location
     - product
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
+    string_serialization: '{term}: {term}, {text}'
     slot_uri: MIXS:0001207
     multivalued: false
-    range: string
-    pattern: '([^\s-]{1,2}|[^\s-]+.+[^\s-]+): ([^\s-]{1,2}|[^\s-]+.+[^\s-]+), ([^\s-]{1,2}|[^\s-]+.+[^\s-]+)'
-    structured_pattern:
-      syntax: '{country}: {region}, {specific_location}'
-      interpolated: true
-      partial_match: true
   food_pack_capacity:
     name: food_pack_capacity
     annotations:
@@ -7264,6 +7321,7 @@ slots:
     - food
     - source
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
+    string_serialization: '{termLabel} [{termID}]'
     slot_uri: MIXS:0001139
     multivalued: false
   food_source_age:
@@ -7498,6 +7556,10 @@ slots:
     recommended: false
   genetic_mod:
     name: genetic_mod
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: PMID, DOI, URL or text
     description: Genetic modifications of the genome of an organism, which may occur
       naturally by spontaneous mutation, or be introduced by some experimental means,
       e.g. specification of a transgene or the gene knocked-out or details of transient
@@ -7508,7 +7570,6 @@ slots:
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     slot_uri: MIXS:0000859
     multivalued: false
-    range: string
     required: false
     recommended: false
   geo_loc_name:
@@ -8057,6 +8118,10 @@ slots:
       *([^\s-]{1,2}|[^\s-]+.+[^\s-]+)$
   host_body_product:
     name: host_body_product
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: FMA or UBERON
     description: Substance produced by the body, e.g. Stool, mucus, where the sample
       was obtained from. For foundational model of anatomy ontology (fma) or Uber-anatomy
       ontology (UBERON) terms, please see https://www.ebi.ac.uk/ols/ontologies/fma
@@ -8070,14 +8135,17 @@ slots:
     examples:
     - value: mucus [FMA:66938]
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
+    string_serialization: '{termLabel} [{termID}]'
     slot_uri: MIXS:0000888
     multivalued: false
-    range: string
     required: false
     recommended: false
-    pattern: ^\S+.*\S+ \[[a-zA-Z]{2,}:\d+\]$
   host_body_site:
     name: host_body_site
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: FMA or UBERON
     description: Name of body site where the sample was obtained from, such as a specific
       organ or tissue (tongue, lung etc...). For foundational model of anatomy ontology
       (fma) (v 4.11.0) or Uber-anatomy ontology (UBERON) (v releases/2014-06-15) terms,
@@ -8089,12 +8157,11 @@ slots:
     - host.
     - site
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
+    string_serialization: '{termLabel} [{termID}]'
     slot_uri: MIXS:0000867
     multivalued: false
-    range: string
     required: false
     recommended: false
-    pattern: ^\S+.*\S+ \[[a-zA-Z]{2,}:\d+\]$
   host_body_temp:
     name: host_body_temp
     annotations:
@@ -8188,6 +8255,10 @@ slots:
     recommended: false
   host_disease_stat:
     name: host_disease_stat
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: disease name or Disease Ontology term
     title: host disease status
     notes:
     - disease
@@ -8198,8 +8269,7 @@ slots:
     - nucleic acid sequence source
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     slot_uri: MIXS:0000031
-    multivalued: true
-    range: string
+    multivalued: false
   host_dry_mass:
     name: host_dry_mass
     annotations:
@@ -8225,6 +8295,10 @@ slots:
       *([^\s-]{1,2}|[^\s-]+.+[^\s-]+)$
   host_fam_rel:
     name: host_fam_rel
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: relationship type;arbitrary identifier
     description: Relationships to other hosts in the same study; can include multiple
       relationships
     title: host family relationship
@@ -8236,7 +8310,7 @@ slots:
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     string_serialization: '{text};{text}'
     slot_uri: MIXS:0000872
-    multivalued: false
+    multivalued: true
     required: false
     recommended: false
   host_genotype:
@@ -8274,6 +8348,10 @@ slots:
       partial_match: true
   host_height:
     name: host_height
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: centimeter, millimeter, meter
     description: The height of subject
     title: host height
     notes:
@@ -8337,6 +8415,10 @@ slots:
     recommended: false
   host_last_meal:
     name: host_last_meal
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: content;duration
     description: Content of last meal and time since feeding; can include multiple
       values
     title: host last meal
@@ -8351,6 +8433,10 @@ slots:
     recommended: false
   host_length:
     name: host_length
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: centimeter, millimeter, meter
     description: The length of subject
     title: host length
     notes:
@@ -8367,6 +8453,10 @@ slots:
       *([^\s-]{1,2}|[^\s-]+.+[^\s-]+)$
   host_life_stage:
     name: host_life_stage
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: stage
     description: Description of life stage of host
     title: host life stage
     notes:
@@ -8374,9 +8464,9 @@ slots:
     - host.
     - life
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
+    string_serialization: '{text}'
     slot_uri: MIXS:0000251
     multivalued: false
-    range: string
   host_number:
     name: host_number
     annotations:
@@ -8705,6 +8795,10 @@ slots:
       *([^\s-]{1,2}|[^\s-]+.+[^\s-]+)$
   host_phenotype:
     name: host_phenotype
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: PATO or HP
     description: Phenotype of human or other host. For phenotypic quality ontology
       (pato) (v 2018-03-27) terms, please see http://purl.bioontology.org/ontology/pato.
       For Human Phenotype Ontology (HP) (v 2018-06-13) please see http://purl.bioontology.org/ontology/HP
@@ -8715,7 +8809,6 @@ slots:
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     slot_uri: MIXS:0000874
     multivalued: false
-    range: string
   host_pred_appr:
     name: host_pred_appr
     description: Tool or approach used for host prediction
@@ -8900,6 +8993,10 @@ slots:
     recommended: false
   host_symbiont:
     name: host_symbiont
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: species name or common name
     title: observed host symbionts
     notes:
     - host
@@ -8907,13 +9004,17 @@ slots:
     - observed
     - symbiosis
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
+    string_serialization: '{text}'
     slot_uri: MIXS:0001298
-    multivalued: false
-    range: string
+    multivalued: true
     required: false
     recommended: false
   host_taxid:
     name: host_taxid
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: NCBI taxon identifier
     title: host taxid
     notes:
     - host
@@ -8922,9 +9023,12 @@ slots:
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     slot_uri: MIXS:0000250
     multivalued: false
-    range: string
   host_tot_mass:
     name: host_tot_mass
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: kilogram, gram
     description: Total mass of the host at collection, the unit depends on host
     title: host total mass
     notes:
@@ -8967,7 +9071,7 @@ slots:
       date
     title: HRT
     examples:
-    - value: '2013-03-25T12:42:31+00:32'
+    - value: '2013-03-25T12:42:31+01:00'
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     slot_uri: MIXS:0000969
     multivalued: false
@@ -9014,6 +9118,10 @@ slots:
     recommended: false
   hygienic_area:
     name: hygienic_area
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: Expected value
     description: The subdivision of areas within a food production facility according
       to hygienic requirements. This field accepts terms listed under hygienic food
       production area (http://purl.obolibrary.org/obo/ENVO). Please add a term that
@@ -9027,9 +9135,9 @@ slots:
     examples:
     - value: Low Hygiene Area
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
+    string_serialization: '{text}'
     slot_uri: MIXS:0001253
     multivalued: false
-    range: string
     required: false
     recommended: false
   hysterectomy:
@@ -9211,7 +9319,7 @@ slots:
     - date
     - water
     examples:
-    - value: '2013-03-25T12:42:31+00:32'
+    - value: '2013-03-25T12:42:31+01:00'
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     slot_uri: MIXS:0001010
     multivalued: false
@@ -9260,7 +9368,7 @@ slots:
     notes:
     - time
     examples:
-    - value: '2013-03-25T12:42:31+00:32'
+    - value: '2013-03-25T12:42:31+01:00'
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     slot_uri: MIXS:0000814
     multivalued: false
@@ -9269,6 +9377,10 @@ slots:
     recommended: false
   lat_lon:
     name: lat_lon
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: decimal degrees,  limit to 8 decimal points
     description: The geographical origin of the sample as defined by latitude and
       longitude. The values should be reported in decimal degrees and in WGS84 system
     title: geographic location (latitude and longitude)
@@ -9367,15 +9479,19 @@ slots:
     multivalued: false
   library_prep_kit:
     name: library_prep_kit
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: name of library preparation kit
     title: library preparation kit
     notes:
     - kit
     - library
     - preparation
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
+    string_serialization: '{text}'
     slot_uri: MIXS:0001145
     multivalued: false
-    range: string
     required: false
     recommended: false
   light_intensity:
@@ -9718,7 +9834,7 @@ slots:
     description: Date of most recent menstruation
     title: menarche
     examples:
-    - value: '2013-03-25T12:42:31+00:32'
+    - value: '2013-03-25T12:42:31+01:00'
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     slot_uri: MIXS:0000965
     multivalued: false
@@ -9730,7 +9846,7 @@ slots:
     description: Date of onset of menopause
     title: menopause
     examples:
-    - value: '2013-03-25T12:42:31+00:32'
+    - value: '2013-03-25T12:42:31+01:00'
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     slot_uri: MIXS:0000968
     multivalued: false
@@ -9983,6 +10099,10 @@ slots:
     recommended: false
   misc_param:
     name: misc_param
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: parameter name;measurement value
     description: Any other measurement performed or parameter collected, that is not
       listed here
     title: miscellaneous parameter
@@ -10042,6 +10162,10 @@ slots:
     recommended: true
   nitrate:
     name: nitrate
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: micromole per liter, milligram per liter, parts per million
     description: Concentration of nitrate in the sample
     title: nitrate
     notes:
@@ -10056,6 +10180,10 @@ slots:
       *([^\s-]{1,2}|[^\s-]+.+[^\s-]+)$
   nitrite:
     name: nitrite
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: micromole per liter, milligram per liter, parts per million
     description: Concentration of nitrite in the sample
     title: nitrite
     notes:
@@ -10134,6 +10262,11 @@ slots:
     slot_uri: MIXS:0000038
     multivalued: false
     range: string
+    pattern: ^PMID:\d+$|^doi:10.\d{2,9}/.*$|^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$
+    structured_pattern:
+      syntax: '{PMID}|{DOI}|{URL}'
+      interpolated: true
+      partial_match: true
   nucl_acid_ext:
     name: nucl_acid_ext
     description: A link to a literature reference, electronic resource or a standard
@@ -10348,6 +10481,10 @@ slots:
     recommended: false
   org_matter:
     name: org_matter
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: microgram per liter
     description: Concentration of organic matter
     title: organic matter
     notes:
@@ -10402,14 +10539,18 @@ slots:
     recommended: false
   organism_count:
     name: organism_count
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: organism name;measurement value;enumeration
     title: organism count
     notes:
     - count
     - organism
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
+    string_serialization: '{text};{float} {unit};[ATP|MPN|qPCR|other]'
     slot_uri: MIXS:0000103
     multivalued: true
-    range: string
   otu_class_appr:
     name: otu_class_appr
     annotations:
@@ -10612,6 +10753,10 @@ slots:
     recommended: false
   pathogenicity:
     name: pathogenicity
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: names of organisms that the entity is pathogenic to
     description: To what is the entity pathogenic
     title: known pathogenicity
     examples:
@@ -10619,11 +10764,16 @@ slots:
     in_subset:
     - nucleic acid sequence source
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
+    string_serialization: '{text}'
     slot_uri: MIXS:0000027
     multivalued: false
-    range: string
   pcr_cond:
     name: pcr_cond
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: initial denaturation:degrees_minutes;annealing:degrees_minutes;elongation:degrees_minutes;final
+          elongation:degrees_minutes;total cycles
     description: Description of reaction conditions and components of PCR in the form
       of 'initial denaturation:94degC_1.5min; annealing=...'
     title: pcr conditions
@@ -10635,11 +10785,16 @@ slots:
     in_subset:
     - sequencing
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
+    string_serialization: initial denaturation:degrees_minutes;annealing:degrees_minutes;elongation:degrees_minutes;final
+      elongation:degrees_minutes;total cycles
     slot_uri: MIXS:0000049
     multivalued: false
-    range: string
   pcr_primers:
     name: pcr_primers
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: 'FWD: forward primer sequence;REV:reverse primer sequence'
     description: PCR primers that were used to amplify the sequence of the targeted
       gene, locus or subfragment. This field should contain all the primers used for
       a single PCR reaction if multiple forward or reverse primers are present in
@@ -10673,6 +10828,10 @@ slots:
     recommended: false
   perturbation:
     name: perturbation
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: perturbation type name;perturbation interval and duration
     description: Type of perturbation, e.g. chemical administration, physical disturbance,
       etc., coupled with perturbation regimen including how many times the perturbation
       was repeated, how long each perturbation lasted, and the start and end time
@@ -10683,9 +10842,9 @@ slots:
     examples:
     - value: antibiotic addition;R2/2018-05-11T14:30Z/2018-05-11T19:30Z/P1H30M
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
+    string_serialization: '{text};{Rn/start_time/end_time/duration}'
     slot_uri: MIXS:0000754
     multivalued: true
-    range: string
   pesticide_regm:
     name: pesticide_regm
     annotations:
@@ -11083,6 +11242,9 @@ slots:
   pool_dna_extracts:
     name: pool_dna_extracts
     annotations:
+      Expected_value:
+        tag: Expected_value
+        value: pooling status;number of pooled extracts
       Preferred_unit:
         tag: Preferred_unit
         value: gram, milliliter, microliter
@@ -11095,7 +11257,6 @@ slots:
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     slot_uri: MIXS:0000325
     multivalued: false
-    range: string
   porosity:
     name: porosity
     annotations:
@@ -11220,7 +11381,7 @@ slots:
     description: Date due of pregnancy
     title: pregnancy
     examples:
-    - value: '2013-03-25T12:42:31+00:32'
+    - value: '2013-03-25T12:42:31+01:00'
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     slot_uri: MIXS:0000966
     multivalued: false
@@ -11386,7 +11547,7 @@ slots:
     - production
     - start
     examples:
-    - value: '2013-03-25T12:42:31+00:32'
+    - value: '2013-03-25T12:42:31+01:00'
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     slot_uri: MIXS:0001008
     multivalued: false
@@ -11694,6 +11855,10 @@ slots:
     range: REL_TO_OXYGEN_ENUM
   repository_name:
     name: repository_name
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: Institution
     description: The name of the institution where the sample or DNA extract is held
       or "sample not available" if the sample was used in its entirety for analysis
       or otherwise not retained
@@ -11701,9 +11866,9 @@ slots:
     examples:
     - value: FDA CFSAN Microbiology Laboratories
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
+    string_serialization: '{text}'
     slot_uri: MIXS:0001152
     multivalued: true
-    range: string
     required: false
     recommended: false
   reservoir:
@@ -12276,10 +12441,9 @@ slots:
       Expected_value:
         tag: Expected_value
         value: device name
-    title: sample collection device or method
+    title: sample collection device
     notes:
     - device
-    - method
     - sample
     in_subset:
     - nucleic acid sequence source
@@ -12598,16 +12762,19 @@ slots:
     recommended: false
   samp_source_mat_cat:
     name: samp_source_mat_cat
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: GENEPIO:0001237
     title: sample source material category
     notes:
     - material
     - sample
     - source
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
+    string_serialization: '{termLabel} [{termID}]'
     slot_uri: MIXS:0001154
     multivalued: false
-    range: string
-    pattern: ^\S+.*\S+ \[[a-zA-Z]{2,}:\d+\]$
   samp_stor_device:
     name: samp_stor_device
     annotations:
@@ -12664,17 +12831,22 @@ slots:
     slot_uri: MIXS:0000116
     multivalued: false
     range: string
+    pattern: ^P(?!$)(\d+Y)?(\d+M)?(\d+W)?(\d+D)?(T(?=\d+[HMS])(\d+H)?(\d+M)?(\d+S)?)?$
   samp_store_loc:
     name: samp_store_loc
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: location name
     title: sample storage location
     notes:
     - location
     - sample
     - storage
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
+    string_serialization: '{text}'
     slot_uri: MIXS:0000755
     multivalued: false
-    range: string
   samp_store_sol:
     name: samp_store_sol
     annotations:
@@ -12922,6 +13094,10 @@ slots:
     pattern: ^\S+.*\S+ \[[a-zA-Z]{2,}:\d+\]$
   samp_vol_we_dna_ext:
     name: samp_vol_we_dna_ext
+    annotations:
+      Preferred_unit:
+        tag: Preferred_unit
+        value: milliliter, gram, milligram, square centimeter
     title: sample volume or weight for DNA extraction
     notes:
     - dna
@@ -13025,6 +13201,11 @@ slots:
     multivalued: false
   season:
     name: season
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: autumn [NCIT:C94733], spring [NCIT:C94731], summer [NCIT:C94732], winter
+          [NCIT:C94730]
     description: The season when sampling occurred. Any of the four periods into which
       the year is divided by the equinoxes and solstices. This field accepts terms
       listed under season (http://purl.obolibrary.org/obo/NCIT_C94729)
@@ -13037,6 +13218,7 @@ slots:
     examples:
     - value: autumn [NCIT:C94733]
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
+    string_serialization: '{termLabel} [{termID}]'
     slot_uri: MIXS:0000829
     range: string
     required: false
@@ -13648,7 +13830,6 @@ slots:
     - value: '7.2'
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     slot_uri: MIXS:0001160
-    multivalued: false
     range: float
     required: false
     recommended: false
@@ -13737,6 +13918,10 @@ slots:
       partial_match: true
   soil_type:
     name: soil_type
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: ENVO:00001998
     title: soil type
     notes:
     - soil
@@ -13746,7 +13931,6 @@ slots:
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
     slot_uri: MIXS:0000332
     multivalued: false
-    range: string
   soil_type_meth:
     name: soil_type_meth
     description: Reference or method used in determining soil series name or other
@@ -13868,6 +14052,7 @@ slots:
     in_subset:
     - sequencing
     from_schema: https://w3id.org/mixs-6-2-rc/mixs_6_2_rc
+    string_serialization: '{PMID}|{DOI}|{URL}'
     slot_uri: MIXS:0000090
     multivalued: true
   sort_tech:
@@ -14471,6 +14656,11 @@ slots:
     recommended: false
   subspecf_gen_lin:
     name: subspecf_gen_lin
+    annotations:
+      Expected_value:
+        tag: Expected_value
+        value: Genetic lineage below lowest rank of NCBI taxonomy, which is subspecies,
+          e.g. serovar, biotype, ecotype, variety, cultivar
     description: Information about the genetic distinctness of the sequenced organism
       below the subspecies level, e.g., serovar, serotype, biotype, ecotype, or any
       relevant genetic typing schemes like Group I plasmid. Subspecies should not
@@ -15134,6 +15324,7 @@ slots:
   tot_nitro_content:
     name: tot_nitro_content
     description: Total nitrogen content of the sample
+    title: total nitrogen content
     notes:
     - content
     - nitrogen
@@ -15185,6 +15376,8 @@ slots:
     slot_uri: MIXS:0000533
     multivalued: false
     range: string
+    pattern: ^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?)?
+      *([^\s-]{1,2}|[^\s-]+.+[^\s-]+)$
   tot_part_carb:
     name: tot_part_carb
     annotations:
@@ -15210,8 +15403,8 @@ slots:
       *([^\s-]{1,2}|[^\s-]+.+[^\s-]+)$
   tot_phosp:
     name: tot_phosp
+    title: total phosphorus
     notes:
-    - phosphorous
     - phosphorus
     - total
     examples:
@@ -16436,69 +16629,68 @@ classes:
     is_a: Checklist
     mixin: true
     slots:
-    - experimental_factor
+    - samp_vol_we_dna_ext
+    - geo_loc_name
+    - env_broad_scale
+    - extrachrom_elements
+    - rel_to_oxygen
+    - lib_size
+    - samp_collect_device
+    - lib_vector
+    - source_mat_id
+    - biotic_relationship
+    - ref_db
+    - feat_pred
+    - assembly_software
+    - project_name
+    - samp_size
+    - tax_class
     - trophic_level
     - host_spec_range
+    - ref_biomaterial
     - pathogenicity
-    - rel_to_oxygen
-    - samp_size
-    - nucl_acid_ext
-    - samp_vol_we_dna_ext
-    - tax_ident
+    - host_disease_stat
+    - lib_reads_seqd
+    - isol_growth_condt
+    - lib_screen
+    - specific_host
+    - adapters
+    - number_contig
+    - sim_search_meth
+    - compl_software
+    - pos_cont_type
+    - encoded_traits
+    - assembly_qual
+    - annot
     - nucl_acid_amp
-    - temp
-    - lib_layout
-    - lib_vector
-    - elev
-    - seq_meth
+    - alt
+    - samp_mat_process
     - neg_cont_type
-    - collection_date
-    - env_medium
+    - lat_lon
+    - temp
+    - depth
+    - nucl_acid_ext
+    - samp_collect_method
+    - num_replicons
+    - elev
+    - compl_score
+    - samp_name
     - assembly_name
     - env_local_scale
-    - ref_db
-    - assembly_software
-    - pos_cont_type
-    - samp_name
-    - env_broad_scale
-    - alt
-    - host_disease_stat
-    - samp_collect_method
-    - geo_loc_name
-    - subspecf_gen_lin
-    - samp_collect_device
-    - compl_score
-    - depth
-    - lib_reads_seqd
-    - estimated_size
-    - ref_biomaterial
-    - lib_screen
+    - env_medium
     - samp_taxon_id
-    - feat_pred
-    - project_name
-    - tax_class
-    - compl_software
-    - lat_lon
-    - biotic_relationship
-    - number_contig
-    - encoded_traits
-    - extrachrom_elements
-    - isol_growth_condt
-    - annot
-    - samp_mat_process
-    - assembly_qual
-    - num_replicons
-    - lib_size
-    - adapters
-    - source_mat_id
-    - specific_host
-    - sim_search_meth
+    - experimental_factor
+    - estimated_size
+    - seq_meth
+    - lib_layout
+    - tax_ident
+    - collection_date
+    - subspecf_gen_lin
     - associated_resource
     - sop
     slot_usage:
       adapters:
         name: adapters
-        string_serialization: '{dna};{dna}'
         recommended: true
       alt:
         name: alt
@@ -16521,9 +16713,6 @@ classes:
       assembly_software:
         name: assembly_software
         required: true
-      associated_resource:
-        name: associated_resource
-        string_serialization: '{PMID} | {DOI} | {URL}'
       biotic_relationship:
         name: biotic_relationship
         recommended: true
@@ -16587,10 +16776,7 @@ classes:
         recommended: false
       isol_growth_condt:
         name: isol_growth_condt
-        string_serialization: '{PMID}|{DOI}|{URL}'
         required: true
-      lat_lon:
-        name: lat_lon
       lib_layout:
         name: lib_layout
         required: false
@@ -16613,11 +16799,9 @@ classes:
         recommended: false
       nucl_acid_amp:
         name: nucl_acid_amp
-        string_serialization: '{PMID}|{DOI}|{URL}'
         recommended: true
       nucl_acid_ext:
         name: nucl_acid_ext
-        string_serialization: '{PMID}|{DOI}|{URL}'
         recommended: true
       num_replicons:
         name: num_replicons
@@ -16627,7 +16811,6 @@ classes:
         required: true
       pathogenicity:
         name: pathogenicity
-        string_serialization: '{text}'
         recommended: true
       ref_biomaterial:
         name: ref_biomaterial
@@ -16656,7 +16839,6 @@ classes:
         recommended: false
       samp_mat_process:
         name: samp_mat_process
-        string_serialization: '{text}'
         required: false
         recommended: false
       samp_name:
@@ -16687,7 +16869,6 @@ classes:
         recommended: false
       sop:
         name: sop
-        string_serialization: '{PMID}|{DOI}|{URL}'
         recommended: true
       source_mat_id:
         name: source_mat_id
@@ -16722,69 +16903,68 @@ classes:
     is_a: Checklist
     mixin: true
     slots:
-    - experimental_factor
+    - samp_vol_we_dna_ext
+    - geo_loc_name
+    - env_broad_scale
+    - extrachrom_elements
+    - lib_size
+    - samp_collect_device
+    - lib_vector
+    - source_mat_id
+    - biotic_relationship
+    - ref_db
+    - feat_pred
+    - assembly_software
+    - project_name
+    - samp_size
+    - tax_class
     - trophic_level
     - host_spec_range
-    - pathogenicity
-    - samp_size
-    - nucl_acid_ext
-    - tax_ident
-    - samp_vol_we_dna_ext
-    - nucl_acid_amp
-    - temp
-    - lib_layout
-    - lib_vector
-    - elev
-    - seq_meth
-    - neg_cont_type
-    - collection_date
-    - env_medium
-    - assembly_name
-    - env_local_scale
-    - ref_db
-    - assembly_software
-    - pos_cont_type
-    - samp_name
-    - env_broad_scale
-    - host_disease_stat
-    - alt
-    - propagation
-    - samp_collect_method
-    - geo_loc_name
-    - subspecf_gen_lin
-    - samp_collect_device
-    - compl_score
-    - depth
-    - lib_reads_seqd
-    - estimated_size
     - ref_biomaterial
-    - lib_screen
-    - samp_taxon_id
-    - feat_pred
-    - project_name
-    - tax_class
-    - compl_software
-    - lat_lon
-    - biotic_relationship
-    - number_contig
-    - ploidy
-    - extrachrom_elements
+    - pathogenicity
+    - host_disease_stat
+    - lib_reads_seqd
     - isol_growth_condt
-    - annot
-    - samp_mat_process
-    - assembly_qual
-    - num_replicons
-    - lib_size
-    - adapters
-    - source_mat_id
+    - lib_screen
     - specific_host
+    - adapters
+    - number_contig
     - sim_search_meth
+    - compl_software
+    - pos_cont_type
+    - assembly_qual
+    - annot
+    - nucl_acid_amp
+    - alt
+    - samp_mat_process
+    - neg_cont_type
+    - lat_lon
+    - temp
+    - depth
+    - nucl_acid_ext
+    - samp_collect_method
+    - num_replicons
+    - elev
+    - compl_score
+    - samp_name
+    - assembly_name
+    - propagation
+    - env_local_scale
+    - env_medium
+    - samp_taxon_id
+    - experimental_factor
+    - estimated_size
+    - seq_meth
+    - lib_layout
+    - tax_ident
+    - collection_date
+    - subspecf_gen_lin
+    - ploidy
     - associated_resource
     - sop
     slot_usage:
       adapters:
         name: adapters
-        string_serialization: '{dna};{dna}'
         recommended: true
       alt:
         name: alt
@@ -16807,9 +16987,6 @@ classes:
       assembly_software:
         name: assembly_software
         required: true
-      associated_resource:
-        name: associated_resource
-        string_serialization: '{PMID} | {DOI} | {URL}'
       biotic_relationship:
         name: biotic_relationship
         required: false
@@ -16872,10 +17049,7 @@ classes:
         recommended: false
       isol_growth_condt:
         name: isol_growth_condt
-        string_serialization: '{PMID}|{DOI}|{URL}'
         required: true
-      lat_lon:
-        name: lat_lon
       lib_layout:
         name: lib_layout
         required: false
@@ -16898,11 +17072,9 @@ classes:
         recommended: false
       nucl_acid_amp:
         name: nucl_acid_amp
-        string_serialization: '{PMID}|{DOI}|{URL}'
         recommended: true
       nucl_acid_ext:
         name: nucl_acid_ext
-        string_serialization: '{PMID}|{DOI}|{URL}'
         recommended: true
       num_replicons:
         name: num_replicons
@@ -16913,7 +17085,6 @@ classes:
         required: true
       pathogenicity:
         name: pathogenicity
-        string_serialization: '{text}'
         recommended: true
       ploidy:
         name: ploidy
@@ -16947,7 +17118,6 @@ classes:
         recommended: false
       samp_mat_process:
         name: samp_mat_process
-        string_serialization: '{text}'
         required: false
         recommended: false
       samp_name:
@@ -16978,7 +17148,6 @@ classes:
         recommended: false
       sop:
         name: sop
-        string_serialization: '{PMID}|{DOI}|{URL}'
         recommended: true
       source_mat_id:
         name: source_mat_id
@@ -17014,60 +17183,59 @@ classes:
     is_a: Checklist
     mixin: true
     slots:
-    - experimental_factor
-    - sim_search_meth
-    - samp_size
-    - nucl_acid_ext
-    - tax_ident
     - samp_vol_we_dna_ext
+    - geo_loc_name
+    - env_broad_scale
+    - extrachrom_elements
+    - lib_size
+    - samp_collect_device
+    - lib_vector
+    - subspecf_gen_lin
+    - source_mat_id
+    - ref_db
+    - feat_pred
+    - assembly_software
+    - project_name
+    - samp_size
+    - tax_class
+    - ref_biomaterial
+    - adapters
+    - lib_reads_seqd
+    - isol_growth_condt
+    - lib_screen
+    - number_contig
+    - sim_search_meth
+    - compl_software
+    - pos_cont_type
+    - assembly_qual
+    - annot
     - nucl_acid_amp
-    - temp
-    - lib_layout
-    - elev
-    - seq_meth
+    - alt
+    - samp_mat_process
     - neg_cont_type
-    - collection_date
-    - env_medium
+    - lat_lon
+    - temp
+    - depth
+    - nucl_acid_ext
+    - samp_collect_method
+    - elev
+    - compl_score
+    - samp_name
     - assembly_name
     - env_local_scale
-    - ref_db
-    - assembly_software
-    - pos_cont_type
-    - samp_name
-    - env_broad_scale
-    - alt
-    - samp_collect_method
-    - geo_loc_name
-    - subspecf_gen_lin
-    - samp_collect_device
-    - compl_score
-    - depth
-    - lib_reads_seqd
-    - estimated_size
-    - ref_biomaterial
-    - lib_screen
+    - env_medium
     - samp_taxon_id
-    - feat_pred
-    - project_name
-    - tax_class
-    - compl_software
-    - lat_lon
-    - number_contig
-    - extrachrom_elements
-    - isol_growth_condt
-    - annot
-    - samp_mat_process
-    - assembly_qual
-    - lib_size
-    - adapters
-    - source_mat_id
-    - lib_vector
+    - experimental_factor
+    - seq_meth
+    - lib_layout
+    - tax_ident
+    - collection_date
+    - estimated_size
     - associated_resource
     - sop
     slot_usage:
       adapters:
         name: adapters
-        string_serialization: '{dna};{dna}'
         recommended: true
       alt:
         name: alt
@@ -17091,9 +17259,6 @@ classes:
       assembly_software:
         name: assembly_software
         required: true
-      associated_resource:
-        name: associated_resource
-        string_serialization: '{PMID} | {DOI} | {URL}'
       compl_score:
         name: compl_score
         required: false
@@ -17136,10 +17301,7 @@ classes:
           the GAZ ontology (http://purl.bioontology.org/ontology/GAZ)
       isol_growth_condt:
         name: isol_growth_condt
-        string_serialization: '{PMID}|{DOI}|{URL}'
         required: true
-      lat_lon:
-        name: lat_lon
       lib_layout:
         name: lib_layout
         required: false
@@ -17162,11 +17324,9 @@ classes:
         recommended: false
       nucl_acid_amp:
         name: nucl_acid_amp
-        string_serialization: '{PMID}|{DOI}|{URL}'
         recommended: true
       nucl_acid_ext:
         name: nucl_acid_ext
-        string_serialization: '{PMID}|{DOI}|{URL}'
         recommended: true
       number_contig:
         name: number_contig
@@ -17197,7 +17357,6 @@ classes:
         recommended: false
       samp_mat_process:
         name: samp_mat_process
-        string_serialization: '{text}'
         required: false
         recommended: false
       samp_name:
@@ -17228,7 +17387,6 @@ classes:
         recommended: false
       sop:
         name: sop
-        string_serialization: '{PMID}|{DOI}|{URL}'
         recommended: true
       source_mat_id:
         name: source_mat_id
@@ -17257,63 +17415,62 @@ classes:
     is_a: Checklist
     mixin: true
     slots:
-    - experimental_factor
-    - sim_search_meth
-    - host_spec_range
-    - samp_size
-    - nucl_acid_ext
-    - tax_ident
     - samp_vol_we_dna_ext
-    - nucl_acid_amp
-    - temp
-    - lib_layout
-    - elev
-    - seq_meth
-    - neg_cont_type
-    - collection_date
-    - env_medium
-    - assembly_name
-    - env_local_scale
-    - ref_db
-    - assembly_software
-    - pos_cont_type
-    - samp_name
-    - env_broad_scale
-    - alt
-    - propagation
-    - samp_collect_method
     - geo_loc_name
-    - subspecf_gen_lin
-    - samp_collect_device
-    - compl_score
-    - depth
-    - lib_reads_seqd
-    - estimated_size
-    - ref_biomaterial
-    - lib_screen
-    - samp_taxon_id
-    - feat_pred
-    - project_name
-    - tax_class
-    - compl_software
-    - lat_lon
-    - number_contig
-    - encoded_traits
-    - isol_growth_condt
-    - annot
-    - samp_mat_process
-    - assembly_qual
+    - env_broad_scale
     - lib_size
-    - adapters
-    - source_mat_id
-    - specific_host
+    - samp_collect_device
     - lib_vector
+    - source_mat_id
+    - ref_db
+    - feat_pred
+    - assembly_software
+    - project_name
+    - samp_size
+    - tax_class
+    - host_spec_range
+    - ref_biomaterial
+    - adapters
+    - lib_reads_seqd
+    - isol_growth_condt
+    - lib_screen
+    - specific_host
+    - number_contig
+    - sim_search_meth
+    - compl_software
+    - pos_cont_type
+    - encoded_traits
+    - assembly_qual
+    - annot
+    - nucl_acid_amp
+    - alt
+    - samp_mat_process
+    - neg_cont_type
+    - lat_lon
+    - temp
+    - depth
+    - nucl_acid_ext
+    - samp_collect_method
+    - elev
+    - compl_score
+    - samp_name
+    - assembly_name
+    - propagation
+    - env_local_scale
+    - env_medium
+    - samp_taxon_id
+    - experimental_factor
+    - estimated_size
+    - seq_meth
+    - lib_layout
+    - tax_ident
+    - collection_date
+    - subspecf_gen_lin
     - associated_resource
     - sop
     slot_usage:
       adapters:
         name: adapters
-        string_serialization: '{dna};{dna}'
         recommended: true
       alt:
         name: alt
@@ -17337,9 +17494,6 @@ classes:
       assembly_software:
         name: assembly_software
         required: true
-      associated_resource:
-        name: associated_resource
-        string_serialization: '{PMID} | {DOI} | {URL}'
       compl_score:
         name: compl_score
         required: false
@@ -17386,10 +17540,7 @@ classes:
         recommended: false
       isol_growth_condt:
         name: isol_growth_condt
-        string_serialization: '{PMID}|{DOI}|{URL}'
         required: true
-      lat_lon:
-        name: lat_lon
       lib_layout:
         name: lib_layout
         required: false
@@ -17412,11 +17563,9 @@ classes:
         recommended: false
       nucl_acid_amp:
         name: nucl_acid_amp
-        string_serialization: '{PMID}|{DOI}|{URL}'
         recommended: true
       nucl_acid_ext:
         name: nucl_acid_ext
-        string_serialization: '{PMID}|{DOI}|{URL}'
         recommended: true
       number_contig:
         name: number_contig
@@ -17450,7 +17599,6 @@ classes:
         recommended: false
       samp_mat_process:
         name: samp_mat_process
-        string_serialization: '{text}'
         required: false
         recommended: false
       samp_name:
@@ -17481,7 +17629,6 @@ classes:
         recommended: false
       sop:
         name: sop
-        string_serialization: '{PMID}|{DOI}|{URL}'
         recommended: true
       source_mat_id:
         name: source_mat_id
@@ -17513,68 +17660,67 @@ classes:
     is_a: Checklist
     mixin: true
     slots:
-    - experimental_factor
-    - sim_search_meth
-    - host_spec_range
-    - pathogenicity
-    - samp_size
-    - nucl_acid_ext
-    - tax_ident
     - samp_vol_we_dna_ext
-    - nucl_acid_amp
-    - temp
-    - lib_layout
-    - elev
-    - seq_meth
-    - neg_cont_type
-    - collection_date
-    - env_medium
-    - assembly_name
-    - env_local_scale
-    - ref_db
-    - assembly_software
-    - pos_cont_type
-    - samp_name
-    - env_broad_scale
-    - host_disease_stat
-    - alt
-    - virus_enrich_appr
-    - propagation
-    - samp_collect_method
     - geo_loc_name
-    - subspecf_gen_lin
-    - samp_collect_device
-    - compl_score
-    - depth
-    - lib_reads_seqd
-    - estimated_size
-    - ref_biomaterial
-    - lib_screen
-    - samp_taxon_id
-    - feat_pred
-    - project_name
-    - tax_class
-    - compl_software
-    - lat_lon
-    - biotic_relationship
-    - number_contig
-    - encoded_traits
-    - isol_growth_condt
-    - annot
-    - samp_mat_process
-    - assembly_qual
-    - num_replicons
+    - env_broad_scale
     - lib_size
-    - adapters
-    - source_mat_id
-    - specific_host
+    - samp_collect_device
     - lib_vector
+    - subspecf_gen_lin
+    - source_mat_id
+    - biotic_relationship
+    - ref_db
+    - feat_pred
+    - assembly_software
+    - project_name
+    - samp_size
+    - tax_class
+    - host_spec_range
+    - adapters
+    - ref_biomaterial
+    - pathogenicity
+    - host_disease_stat
+    - lib_reads_seqd
+    - isol_growth_condt
+    - lib_screen
+    - specific_host
+    - number_contig
+    - sim_search_meth
+    - compl_software
+    - pos_cont_type
+    - encoded_traits
+    - assembly_qual
+    - annot
+    - nucl_acid_amp
+    - alt
+    - samp_mat_process
+    - virus_enrich_appr
+    - neg_cont_type
+    - lat_lon
+    - temp
+    - depth
+    - nucl_acid_ext
+    - samp_collect_method
+    - elev
+    - num_replicons
+    - compl_score
+    - samp_name
+    - assembly_name
+    - propagation
+    - env_local_scale
+    - env_medium
+    - samp_taxon_id
+    - experimental_factor
+    - seq_meth
+    - lib_layout
+    - tax_ident
+    - collection_date
+    - estimated_size
     - associated_resource
     - sop
     slot_usage:
       adapters:
         name: adapters
-        string_serialization: '{dna};{dna}'
         recommended: true
       alt:
         name: alt
@@ -17598,9 +17744,6 @@ classes:
       assembly_software:
         name: assembly_software
         required: true
-      associated_resource:
-        name: associated_resource
-        string_serialization: '{PMID} | {DOI} | {URL}'
       biotic_relationship:
         name: biotic_relationship
         required: false
@@ -17660,10 +17803,7 @@ classes:
         recommended: true
       isol_growth_condt:
         name: isol_growth_condt
-        string_serialization: '{PMID}|{DOI}|{URL}'
         required: true
-      lat_lon:
-        name: lat_lon
       lib_layout:
         name: lib_layout
         required: false
@@ -17686,11 +17826,9 @@ classes:
         recommended: false
       nucl_acid_amp:
         name: nucl_acid_amp
-        string_serialization: '{PMID}|{DOI}|{URL}'
         recommended: true
       nucl_acid_ext:
         name: nucl_acid_ext
-        string_serialization: '{PMID}|{DOI}|{URL}'
         recommended: true
       num_replicons:
         name: num_replicons
@@ -17701,7 +17839,6 @@ classes:
         recommended: false
       pathogenicity:
         name: pathogenicity
-        string_serialization: '{text}'
         recommended: true
       propagation:
         name: propagation
@@ -17731,7 +17868,6 @@ classes:
         recommended: false
       samp_mat_process:
         name: samp_mat_process
-        string_serialization: '{text}'
         required: false
         recommended: false
       samp_name:
@@ -17762,7 +17898,6 @@ classes:
         recommended: false
       sop:
         name: sop
-        string_serialization: '{PMID}|{DOI}|{URL}'
         recommended: true
       source_mat_id:
         name: source_mat_id
@@ -17797,72 +17932,71 @@ classes:
     is_a: Checklist
     mixin: true
     slots:
-    - experimental_factor
-    - x16s_recover_software
-    - rel_to_oxygen
-    - samp_size
-    - nucl_acid_ext
-    - samp_vol_we_dna_ext
-    - tax_ident
-    - nucl_acid_amp
-    - compl_appr
-    - bin_software
-    - temp
-    - lib_layout
-    - lib_vector
-    - elev
-    - seq_meth
-    - neg_cont_type
-    - collection_date
-    - adapters
-    - contam_screen_input
-    - env_medium
-    - assembly_name
-    - env_local_scale
-    - mid
-    - ref_db
-    - assembly_software
-    - pos_cont_type
-    - samp_name
     - x16s_recover
-    - env_broad_scale
-    - reassembly_bin
-    - alt
-    - trnas
-    - mag_cov_software
-    - samp_collect_method
-    - trna_ext_software
+    - samp_vol_we_dna_ext
     - geo_loc_name
+    - env_broad_scale
+    - compl_appr
+    - reassembly_bin
+    - rel_to_oxygen
+    - lib_size
     - samp_collect_device
-    - compl_score
-    - depth
+    - lib_vector
+    - bin_software
+    - source_mat_id
+    - ref_db
+    - feat_pred
+    - size_frac
+    - assembly_software
+    - project_name
+    - contam_screen_param
+    - mid
+    - samp_size
+    - tax_class
+    - ref_biomaterial
+    - adapters
     - lib_reads_seqd
     - lib_screen
-    - ref_biomaterial
-    - size_frac
-    - contam_screen_param
-    - samp_taxon_id
-    - feat_pred
-    - project_name
-    - tax_class
-    - compl_software
-    - lat_lon
-    - bin_param
     - number_contig
-    - decontam_software
-    - annot
-    - samp_mat_process
-    - assembly_qual
-    - lib_size
-    - contam_score
-    - source_mat_id
     - sim_search_meth
+    - trnas
+    - compl_software
+    - pos_cont_type
+    - decontam_software
+    - assembly_qual
+    - annot
+    - nucl_acid_amp
+    - bin_param
+    - alt
+    - samp_mat_process
+    - x16s_recover_software
+    - neg_cont_type
+    - lat_lon
+    - temp
+    - depth
+    - contam_screen_input
+    - trna_ext_software
+    - nucl_acid_ext
+    - samp_collect_method
+    - elev
+    - compl_score
+    - samp_name
+    - assembly_name
+    - contam_score
+    - env_local_scale
+    - env_medium
+    - samp_taxon_id
+    - experimental_factor
+    - seq_meth
+    - lib_layout
+    - tax_ident
+    - mag_cov_software
+    - collection_date
     - associated_resource
     - sop
     slot_usage:
       adapters:
         name: adapters
-        string_serialization: '{dna};{dna}'
         recommended: true
       alt:
         name: alt
@@ -17886,9 +18020,6 @@ classes:
       assembly_software:
         name: assembly_software
         required: true
-      associated_resource:
-        name: associated_resource
-        string_serialization: '{PMID} | {DOI} | {URL}'
       bin_param:
         name: bin_param
         required: true
@@ -17944,8 +18075,6 @@ classes:
           or sea name followed by specific region name. Country or sea names should
           be chosen from the INSDC country list (http://insdc.org/country.html), or
           the GAZ ontology (http://purl.bioontology.org/ontology/GAZ)
-      lat_lon:
-        name: lat_lon
       lib_layout:
         name: lib_layout
         recommended: true
@@ -17970,11 +18099,9 @@ classes:
         recommended: true
       nucl_acid_amp:
         name: nucl_acid_amp
-        string_serialization: '{PMID}|{DOI}|{URL}'
         recommended: true
       nucl_acid_ext:
         name: nucl_acid_ext
-        string_serialization: '{PMID}|{DOI}|{URL}'
         recommended: true
       number_contig:
         name: number_contig
@@ -18011,7 +18138,6 @@ classes:
         recommended: true
       samp_mat_process:
         name: samp_mat_process
-        string_serialization: '{text}'
         recommended: true
       samp_name:
         name: samp_name
@@ -18044,7 +18170,6 @@ classes:
         recommended: false
       sop:
         name: sop
-        string_serialization: '{PMID}|{DOI}|{URL}'
         recommended: true
       source_mat_id:
         name: source_mat_id
@@ -18090,43 +18215,43 @@ classes:
     is_a: Checklist
     mixin: true
     slots:
-    - experimental_factor
-    - seq_quality_check
-    - rel_to_oxygen
-    - nucl_acid_ext
-    - samp_size
     - samp_vol_we_dna_ext
-    - nucl_acid_amp
-    - temp
-    - elev
-    - seq_meth
-    - neg_cont_type
-    - collection_date
-    - target_gene
-    - env_medium
-    - env_local_scale
-    - target_subfragment
-    - chimera_check
-    - pos_cont_type
-    - samp_name
-    - env_broad_scale
-    - alt
-    - samp_collect_method
     - geo_loc_name
-    - subspecf_gen_lin
-    - samp_collect_device
-    - depth
-    - samp_taxon_id
-    - project_name
-    - lat_lon
-    - biotic_relationship
-    - pcr_primers
-    - pcr_cond
+    - env_broad_scale
     - extrachrom_elements
-    - isol_growth_condt
-    - samp_mat_process
+    - rel_to_oxygen
+    - samp_collect_device
     - source_mat_id
+    - chimera_check
+    - biotic_relationship
+    - project_name
+    - samp_size
     - trophic_level
+    - isol_growth_condt
+    - pcr_cond
+    - pos_cont_type
+    - nucl_acid_amp
+    - seq_quality_check
+    - alt
+    - samp_mat_process
+    - target_gene
+    - neg_cont_type
+    - lat_lon
+    - temp
+    - depth
+    - nucl_acid_ext
+    - samp_collect_method
+    - elev
+    - samp_name
+    - pcr_primers
+    - env_local_scale
+    - env_medium
+    - samp_taxon_id
+    - experimental_factor
+    - seq_meth
+    - target_subfragment
+    - collection_date
+    - subspecf_gen_lin
     - associated_resource
     - sop
     slot_usage:
@@ -18139,9 +18264,6 @@ classes:
           the altitude measurement is the vertical distance between the earth's surface
           above sea level and the sampled position in the air
         recommended: true
-      associated_resource:
-        name: associated_resource
-        string_serialization: '{PMID} | {DOI} | {URL}'
       biotic_relationship:
         name: biotic_relationship
         recommended: true
@@ -18175,22 +18297,15 @@ classes:
           the GAZ ontology (http://purl.bioontology.org/ontology/GAZ)
       isol_growth_condt:
         name: isol_growth_condt
-        string_serialization: '{PMID}|{DOI}|{URL}'
         required: true
-      lat_lon:
-        name: lat_lon
       nucl_acid_amp:
         name: nucl_acid_amp
-        string_serialization: '{PMID}|{DOI}|{URL}'
         recommended: true
       nucl_acid_ext:
         name: nucl_acid_ext
-        string_serialization: '{PMID}|{DOI}|{URL}'
         recommended: true
       pcr_cond:
         name: pcr_cond
-        string_serialization: initial denaturation:degrees_minutes;annealing:degrees_minutes;elongation:degrees_minutes;final
-          elongation:degrees_minutes;total cycles
         recommended: true
       pcr_primers:
         name: pcr_primers
@@ -18217,7 +18332,6 @@ classes:
         recommended: false
       samp_mat_process:
         name: samp_mat_process
-        string_serialization: '{text}'
         recommended: true
       samp_name:
         name: samp_name
@@ -18246,7 +18360,6 @@ classes:
         recommended: true
       sop:
         name: sop
-        string_serialization: '{PMID}|{DOI}|{URL}'
         recommended: true
       source_mat_id:
         name: source_mat_id
@@ -18281,53 +18394,52 @@ classes:
     is_a: Checklist
     mixin: true
     slots:
-    - experimental_factor
-    - seq_quality_check
-    - rel_to_oxygen
-    - nucl_acid_ext
-    - samp_size
     - samp_vol_we_dna_ext
-    - nucl_acid_amp
-    - temp
-    - lib_layout
-    - elev
-    - seq_meth
-    - neg_cont_type
-    - collection_date
-    - target_gene
-    - env_medium
-    - env_local_scale
-    - mid
-    - target_subfragment
-    - chimera_check
-    - assembly_software
-    - pos_cont_type
-    - samp_name
-    - env_broad_scale
-    - alt
-    - samp_collect_method
     - geo_loc_name
+    - env_broad_scale
+    - rel_to_oxygen
+    - lib_size
     - samp_collect_device
-    - depth
+    - lib_vector
+    - source_mat_id
+    - chimera_check
+    - size_frac
+    - assembly_software
+    - project_name
+    - mid
+    - samp_size
+    - adapters
     - lib_reads_seqd
     - lib_screen
-    - size_frac
-    - samp_taxon_id
-    - project_name
-    - lat_lon
-    - pcr_primers
     - pcr_cond
+    - pos_cont_type
+    - nucl_acid_amp
+    - seq_quality_check
+    - alt
     - samp_mat_process
-    - lib_size
-    - adapters
-    - source_mat_id
-    - lib_vector
+    - target_gene
+    - neg_cont_type
+    - lat_lon
+    - temp
+    - depth
+    - nucl_acid_ext
+    - samp_collect_method
+    - elev
+    - samp_name
+    - pcr_primers
+    - env_local_scale
+    - env_medium
+    - samp_taxon_id
+    - experimental_factor
+    - seq_meth
+    - lib_layout
+    - target_subfragment
+    - collection_date
     - associated_resource
     - sop
     slot_usage:
       adapters:
         name: adapters
-        string_serialization: '{dna};{dna}'
         recommended: true
       alt:
         name: alt
@@ -18341,9 +18453,6 @@ classes:
       assembly_software:
         name: assembly_software
         recommended: true
-      associated_resource:
-        name: associated_resource
-        string_serialization: '{PMID} | {DOI} | {URL}'
       chimera_check:
         name: chimera_check
         recommended: true
@@ -18367,8 +18476,6 @@ classes:
           or sea name followed by specific region name. Country or sea names should
           be chosen from the INSDC country list (http://insdc.org/country.html), or
           the GAZ ontology (http://purl.bioontology.org/ontology/GAZ)
-      lat_lon:
-        name: lat_lon
       lib_layout:
         name: lib_layout
         recommended: true
@@ -18389,16 +18496,12 @@ classes:
         recommended: true
       nucl_acid_amp:
         name: nucl_acid_amp
-        string_serialization: '{PMID}|{DOI}|{URL}'
         recommended: true
       nucl_acid_ext:
         name: nucl_acid_ext
-        string_serialization: '{PMID}|{DOI}|{URL}'
         recommended: true
       pcr_cond:
         name: pcr_cond
-        string_serialization: initial denaturation:degrees_minutes;annealing:degrees_minutes;elongation:degrees_minutes;final
-          elongation:degrees_minutes;total cycles
         recommended: true
       pcr_primers:
         name: pcr_primers
@@ -18424,7 +18527,6 @@ classes:
         recommended: true
       samp_mat_process:
         name: samp_mat_process
-        string_serialization: '{text}'
         recommended: true
       samp_name:
         name: samp_name
@@ -18456,7 +18558,6 @@ classes:
         recommended: false
       sop:
         name: sop
-        string_serialization: '{PMID}|{DOI}|{URL}'
         recommended: true
       source_mat_id:
         name: source_mat_id
@@ -18481,56 +18582,55 @@ classes:
     is_a: Checklist
     mixin: true
     slots:
-    - experimental_factor
-    - sim_search_meth
-    - rel_to_oxygen
-    - samp_size
-    - nucl_acid_ext
     - samp_vol_we_dna_ext
-    - nucl_acid_amp
-    - temp
-    - lib_layout
-    - elev
-    - seq_meth
-    - neg_cont_type
-    - collection_date
-    - env_medium
-    - assembly_name
-    - env_local_scale
-    - mid
-    - ref_db
-    - assembly_software
-    - pos_cont_type
-    - samp_name
-    - env_broad_scale
-    - alt
-    - samp_collect_method
     - geo_loc_name
+    - env_broad_scale
+    - rel_to_oxygen
+    - lib_size
     - samp_collect_device
-    - depth
+    - lib_vector
+    - source_mat_id
+    - ref_db
+    - feat_pred
+    - size_frac
+    - assembly_software
+    - project_name
+    - mid
+    - samp_size
+    - tax_class
+    - ref_biomaterial
+    - adapters
     - lib_reads_seqd
     - lib_screen
-    - ref_biomaterial
-    - size_frac
-    - samp_taxon_id
-    - feat_pred
-    - project_name
-    - tax_class
-    - lat_lon
     - number_contig
-    - annot
-    - samp_mat_process
+    - sim_search_meth
+    - pos_cont_type
     - assembly_qual
-    - lib_size
-    - adapters
-    - source_mat_id
-    - lib_vector
+    - annot
+    - nucl_acid_amp
+    - alt
+    - samp_mat_process
+    - neg_cont_type
+    - lat_lon
+    - temp
+    - depth
+    - nucl_acid_ext
+    - samp_collect_method
+    - elev
+    - samp_name
+    - assembly_name
+    - env_local_scale
+    - env_medium
+    - samp_taxon_id
+    - experimental_factor
+    - seq_meth
+    - lib_layout
+    - collection_date
     - associated_resource
     - sop
     slot_usage:
       adapters:
         name: adapters
-        string_serialization: '{dna};{dna}'
         recommended: true
       alt:
         name: alt
@@ -18553,9 +18653,6 @@ classes:
       assembly_software:
         name: assembly_software
         recommended: true
-      associated_resource:
-        name: associated_resource
-        string_serialization: '{PMID} | {DOI} | {URL}'
       depth:
         name: depth
         description: The vertical distance below local surface, e.g. for sediment
@@ -18580,8 +18677,6 @@ classes:
           or sea name followed by specific region name. Country or sea names should
           be chosen from the INSDC country list (http://insdc.org/country.html), or
           the GAZ ontology (http://purl.bioontology.org/ontology/GAZ)
-      lat_lon:
-        name: lat_lon
       lib_layout:
         name: lib_layout
         recommended: true
@@ -18602,11 +18697,9 @@ classes:
         recommended: true
       nucl_acid_amp:
         name: nucl_acid_amp
-        string_serialization: '{PMID}|{DOI}|{URL}'
         recommended: true
       nucl_acid_ext:
         name: nucl_acid_ext
-        string_serialization: '{PMID}|{DOI}|{URL}'
         recommended: true
       number_contig:
         name: number_contig
@@ -18638,7 +18731,6 @@ classes:
         recommended: true
       samp_mat_process:
         name: samp_mat_process
-        string_serialization: '{text}'
         recommended: true
       samp_name:
         name: samp_name
@@ -18671,7 +18763,6 @@ classes:
         recommended: false
       sop:
         name: sop
-        string_serialization: '{PMID}|{DOI}|{URL}'
         recommended: true
       source_mat_id:
         name: source_mat_id
@@ -18694,73 +18785,72 @@ classes:
     is_a: Checklist
     mixin: true
     slots:
-    - experimental_factor
-    - x16s_recover_software
-    - sim_search_meth
-    - rel_to_oxygen
-    - samp_size
-    - nucl_acid_ext
-    - samp_vol_we_dna_ext
-    - tax_ident
-    - nucl_acid_amp
-    - compl_appr
-    - wga_amp_appr
-    - temp
-    - sort_tech
-    - lib_layout
-    - elev
-    - seq_meth
-    - neg_cont_type
-    - collection_date
-    - wga_amp_kit
-    - contam_screen_input
-    - env_medium
-    - assembly_name
-    - env_local_scale
-    - mid
-    - ref_db
-    - contam_score
-    - assembly_software
-    - pos_cont_type
-    - samp_name
     - x16s_recover
-    - env_broad_scale
-    - alt
-    - trnas
-    - samp_collect_method
-    - trna_ext_software
+    - samp_vol_we_dna_ext
     - geo_loc_name
+    - env_broad_scale
+    - wga_amp_kit
+    - compl_appr
+    - rel_to_oxygen
+    - lib_size
     - samp_collect_device
-    - compl_score
-    - depth
+    - lib_vector
+    - source_mat_id
+    - wga_amp_appr
+    - ref_db
+    - feat_pred
+    - size_frac
+    - assembly_software
+    - project_name
+    - contam_screen_param
+    - mid
+    - samp_size
+    - sort_tech
+    - tax_class
+    - ref_biomaterial
+    - adapters
     - lib_reads_seqd
     - lib_screen
-    - ref_biomaterial
-    - size_frac
-    - contam_screen_param
-    - samp_taxon_id
-    - feat_pred
-    - project_name
-    - tax_class
-    - compl_software
-    - lat_lon
     - number_contig
-    - decontam_software
     - sc_lysis_approach
-    - annot
-    - samp_mat_process
+    - sim_search_meth
+    - trnas
+    - compl_software
+    - pos_cont_type
+    - decontam_software
     - assembly_qual
-    - lib_size
+    - annot
+    - nucl_acid_amp
+    - alt
+    - samp_mat_process
+    - x16s_recover_software
     - sc_lysis_method
-    - adapters
-    - source_mat_id
-    - lib_vector
+    - neg_cont_type
+    - lat_lon
+    - temp
+    - depth
+    - contam_screen_input
+    - trna_ext_software
+    - nucl_acid_ext
+    - samp_collect_method
+    - elev
+    - compl_score
+    - samp_name
+    - assembly_name
+    - contam_score
+    - env_local_scale
+    - env_medium
+    - samp_taxon_id
+    - experimental_factor
+    - seq_meth
+    - lib_layout
+    - tax_ident
+    - collection_date
     - associated_resource
     - sop
     slot_usage:
       adapters:
         name: adapters
-        string_serialization: '{dna};{dna}'
         recommended: true
       alt:
         name: alt
@@ -18784,9 +18874,6 @@ classes:
       assembly_software:
         name: assembly_software
         required: true
-      associated_resource:
-        name: associated_resource
-        string_serialization: '{PMID} | {DOI} | {URL}'
       compl_appr:
         name: compl_appr
         required: false
@@ -18836,8 +18923,6 @@ classes:
           or sea name followed by specific region name. Country or sea names should
           be chosen from the INSDC country list (http://insdc.org/country.html), or
           the GAZ ontology (http://purl.bioontology.org/ontology/GAZ)
-      lat_lon:
-        name: lat_lon
       lib_layout:
         name: lib_layout
         recommended: true
@@ -18858,11 +18943,9 @@ classes:
         recommended: true
       nucl_acid_amp:
         name: nucl_acid_amp
-        string_serialization: '{PMID}|{DOI}|{URL}'
         recommended: true
       nucl_acid_ext:
         name: nucl_acid_ext
-        string_serialization: '{PMID}|{DOI}|{URL}'
         recommended: true
       number_contig:
         name: number_contig
@@ -18895,7 +18978,6 @@ classes:
         recommended: true
       samp_mat_process:
         name: samp_mat_process
-        string_serialization: '{text}'
         recommended: true
       samp_name:
         name: samp_name
@@ -18935,7 +19017,6 @@ classes:
         recommended: false
       sop:
         name: sop
-        string_serialization: '{PMID}|{DOI}|{URL}'
         recommended: true
       sort_tech:
         name: sort_tech
@@ -18987,63 +19068,63 @@ classes:
     is_a: Checklist
     mixin: true
     slots:
-    - experimental_factor
-    - host_spec_range
-    - pathogenicity
-    - samp_size
-    - nucl_acid_ext
-    - tax_ident
     - samp_vol_we_dna_ext
-    - nucl_acid_amp
+    - geo_loc_name
+    - env_broad_scale
     - compl_appr
-    - temp
-    - source_mat_id
-    - lib_layout
+    - lib_size
+    - samp_collect_device
     - lib_vector
-    - elev
-    - seq_meth
+    - source_mat_id
+    - biotic_relationship
+    - ref_db
+    - feat_pred
+    - size_frac
+    - assembly_software
+    - project_name
+    - mid
+    - samp_size
+    - tax_class
+    - host_spec_range
+    - ref_biomaterial
+    - pathogenicity
+    - host_disease_stat
+    - lib_reads_seqd
+    - lib_screen
+    - adapters
+    - specific_host
+    - number_contig
+    - sim_search_meth
+    - trnas
+    - compl_software
+    - pos_cont_type
+    - assembly_qual
+    - annot
+    - nucl_acid_amp
+    - alt
+    - samp_mat_process
+    - virus_enrich_appr
     - neg_cont_type
-    - collection_date
-    - env_medium
+    - lat_lon
+    - temp
+    - depth
+    - trna_ext_software
+    - nucl_acid_ext
+    - samp_collect_method
+    - elev
+    - compl_score
+    - samp_name
     - assembly_name
     - env_local_scale
-    - mid
-    - ref_db
-    - assembly_software
-    - pos_cont_type
-    - samp_name
-    - env_broad_scale
-    - host_disease_stat
-    - alt
-    - virus_enrich_appr
-    - trnas
-    - samp_collect_method
-    - trna_ext_software
-    - geo_loc_name
-    - samp_collect_device
-    - compl_score
-    - depth
-    - lib_reads_seqd
-    - estimated_size
-    - ref_biomaterial
-    - size_frac
-    - lib_screen
-    - samp_taxon_id
-    - feat_pred
-    - project_name
-    - tax_class
-    - compl_software
-    - lat_lon
-    - biotic_relationship
-    - number_contig
-    - annot
-    - samp_mat_process
-    - assembly_qual
-    - lib_size
-    - adapters
     - source_uvig
-    - specific_host
-    - sim_search_meth
+    - env_medium
+    - samp_taxon_id
+    - experimental_factor
+    - seq_meth
+    - lib_layout
+    - tax_ident
+    - collection_date
+    - estimated_size
     - sort_tech
     - sc_lysis_approach
     - sc_lysis_method
@@ -19067,7 +19148,6 @@ classes:
     slot_usage:
       adapters:
         name: adapters
-        string_serialization: '{dna};{dna}'
         recommended: true
       alt:
         name: alt
@@ -19091,9 +19171,6 @@ classes:
       assembly_software:
         name: assembly_software
         required: true
-      associated_resource:
-        name: associated_resource
-        string_serialization: '{PMID} | {DOI} | {URL}'
       bin_param:
         name: bin_param
         recommended: true
@@ -19164,8 +19241,6 @@ classes:
         name: host_spec_range
         required: false
         recommended: false
-      lat_lon:
-        name: lat_lon
       lib_layout:
         name: lib_layout
         recommended: true
@@ -19190,11 +19265,9 @@ classes:
         recommended: true
       nucl_acid_amp:
         name: nucl_acid_amp
-        string_serialization: '{PMID}|{DOI}|{URL}'
         recommended: true
       nucl_acid_ext:
         name: nucl_acid_ext
-        string_serialization: '{PMID}|{DOI}|{URL}'
         recommended: true
       number_contig:
         name: number_contig
@@ -19210,7 +19283,6 @@ classes:
         recommended: true
       pathogenicity:
         name: pathogenicity
-        string_serialization: '{text}'
         required: false
         recommended: false
       pred_genome_struc:
@@ -19244,7 +19316,6 @@ classes:
         recommended: true
       samp_mat_process:
         name: samp_mat_process
-        string_serialization: '{text}'
         recommended: true
       samp_name:
         name: samp_name
@@ -19281,7 +19352,6 @@ classes:
         recommended: true
       sop:
         name: sop
-        string_serialization: '{PMID}|{DOI}|{URL}'
         recommended: true
       sort_tech:
         name: sort_tech
@@ -19348,6 +19418,7 @@ classes:
     - rel_location
     - soil_cover
     - porosity
+    - Structured_comment_name
     - soil_texture_meth
     - host_symbiont
     - host_disease_stat
@@ -19495,12 +19566,12 @@ classes:
     - pool_dna_extracts
     - misc_param
     slot_usage:
+      Structured_comment_name:
+        name: Structured_comment_name
+        title: texture
       adapters:
         name: adapters
-        string_serialization: '{dna},{dna}'
         required: true
-      ances_data:
-        name: ances_data
       annot:
         name: annot
         recommended: true
@@ -19519,9 +19590,6 @@ classes:
           Requirement:
             tag: Requirement
             value: nan
-      associated_resource:
-        name: associated_resource
-        string_serialization: '{URL}'
       biotic_relationship:
         name: biotic_relationship
         recommended: true
@@ -19550,7 +19618,6 @@ classes:
           culture
         examples:
         - value: '2020-02-26 00:00:00'
-        string_serialization: YYYY-MM-DD
       cur_vegetation:
         name: cur_vegetation
         recommended: true
@@ -19576,7 +19643,6 @@ classes:
         recommended: true
       fao_class:
         name: fao_class
-        string_serialization: '{term}'
         recommended: true
       farm_equip:
         name: farm_equip
@@ -19620,7 +19686,6 @@ classes:
         name: food_source
         examples:
         - value: red swamp crayfish; FOODON:03412231
-        string_serialization: '{text}'
         required: true
       food_trav_mode:
         name: food_trav_mode
@@ -19674,8 +19739,6 @@ classes:
         - value: downy mildew
         string_serialization: '{text}|{termLabel} [{termID}]'
         recommended: true
-      host_dry_mass:
-        name: host_dry_mass
       host_genotype:
         name: host_genotype
         examples:
@@ -19731,7 +19794,6 @@ classes:
         recommended: true
       isol_growth_condt:
         name: isol_growth_condt
-        string_serialization: '{PMID|DOI|URL}'
         required: false
         recommended: false
       lib_layout:
@@ -19788,19 +19850,15 @@ classes:
       mid:
         name: mid
         required: true
-      misc_param:
-        name: misc_param
       non_min_nutr_regm:
         name: non_min_nutr_regm
         string_serialization: '{text};{float} {unit};{period};{interval};{period}'
         recommended: true
       nucl_acid_amp:
         name: nucl_acid_amp
-        string_serialization: '{PMID|DOI|URL}'
         required: true
       nucl_acid_ext:
         name: nucl_acid_ext
-        string_serialization: '{PMID|DOI|URL}'
         required: true
       organism_count:
         name: organism_count
@@ -19811,19 +19869,15 @@ classes:
           per ml; qpcr)'
         examples:
         - value: total prokaryotes;3.5e7 cells per milliliter;qPCR
-        string_serialization: '{text};{float} {unit};[qPCR|ATP|MPN|other]'
         recommended: true
       oxy_stat_samp:
         name: oxy_stat_samp
         recommended: true
       pathogenicity:
         name: pathogenicity
-        string_serialization: '{term}'
         required: true
       pcr_cond:
         name: pcr_cond
-        string_serialization: 'initial denaturation:degrees_minutes; annealing:degrees_minutes;
-          elongation: degrees_minutes; final elongation:degrees_minutes; total cycles'
         required: true
       pcr_primers:
         name: pcr_primers
@@ -19832,7 +19886,6 @@ classes:
         required: true
       perturbation:
         name: perturbation
-        string_serialization: '{text};{interval}'
         recommended: true
       pesticide_regm:
         name: pesticide_regm
@@ -19841,7 +19894,6 @@ classes:
       ph_meth:
         name: ph_meth
         description: Reference or method used in determining ph
-        string_serialization: '{PMID|DOI|URL}'
         recommended: true
       ph_regm:
         name: ph_regm
@@ -19900,7 +19952,6 @@ classes:
         recommended: false
       samp_mat_process:
         name: samp_mat_process
-        string_serialization: '{text|term}'
         required: true
       samp_pooling:
         name: samp_pooling
@@ -19913,7 +19964,6 @@ classes:
       samp_store_dur:
         name: samp_store_dur
         description: Duration for which the sample was stored
-        string_serialization: '{interval}'
         required: true
       samp_store_loc:
         name: samp_store_loc
@@ -19928,8 +19978,6 @@ classes:
           for DNA extraction. Note: total sample collected should be entered under
           the term Sample Size (MIXS:0000001).'
         required: true
-      season:
-        name: season
       season_environment:
         name: season_environment
         string_serialization: '{text};{period};{interval};{period}'
@@ -19986,7 +20034,6 @@ classes:
         required: true
       sop:
         name: sop
-        string_serialization: '{PMID|DOI|URL}'
         required: false
         recommended: false
       source_mat_id:
@@ -20029,7 +20076,6 @@ classes:
             value: total nitrogen method
       tot_nitro_content:
         name: tot_nitro_content
-        title: total nitrogen
         recommended: true
       tot_org_c_meth:
         name: tot_org_c_meth
@@ -20042,7 +20088,6 @@ classes:
       tot_phosp:
         name: tot_phosp
         description: Total amount or concentration of phosphate
-        title: total phosphorous
         recommended: true
       trophic_level:
         name: trophic_level
@@ -20139,8 +20184,6 @@ classes:
         name: methane
         examples:
         - value: 1800 parts per billion
-      misc_param:
-        name: misc_param
       organism_count:
         name: organism_count
         description: 'Total cell count of any organism (or group of organisms) per
@@ -20150,7 +20193,6 @@ classes:
           per ml; qpcr)'
         examples:
         - value: total prokaryotes;3.5e7 cells per milliliter;qPCR
-        string_serialization: '{text};{float} {unit};[qPCR|ATP|MPN|other]'
         required: false
         recommended: false
       oxy_stat_samp:
@@ -20159,11 +20201,8 @@ classes:
         recommended: false
       perturbation:
         name: perturbation
-        string_serialization: '{text};{Rn/start_time/end_time/duration}'
         required: false
         recommended: false
-      salinity:
-        name: salinity
       samp_name:
         name: samp_name
         description: A local identifier or name that for the material sample used
@@ -20176,7 +20215,6 @@ classes:
       samp_store_dur:
         name: samp_store_dur
         description: Duration for which the sample was stored
-        string_serialization: '{duration}'
         required: false
         recommended: false
       samp_store_loc:
@@ -20410,7 +20448,6 @@ classes:
           per ml; qpcr)'
         examples:
         - value: total prokaryotes;3.5e7 cells per milliliter;qPCR
-        string_serialization: '{text};{float} {unit};[qPCR|ATP|MPN|other]'
         required: true
       samp_name:
         name: samp_name
@@ -20421,8 +20458,6 @@ classes:
           within your lab, and as informative as possible. INSDC requires every sample
           name from a single Submitter to be unique. Use of a globally unique identifier
           for the field source_mat_id is recommended in addition to sample_name.
-      season:
-        name: season
       surf_material:
         name: surf_material
         required: true
@@ -20549,7 +20584,6 @@ classes:
         description: Description of the feeding equipment used for livestock. This
           field accepts terms listed under feed delivery (http://opendata.inra.fr/EOL/EOL_0001757).
           Multiple terms can be separated by one or more pipes.
-        string_serialization: '{termLabel} [{termID}]'
       cult_isol_date:
         name: cult_isol_date
         description: A culture isolation date is a date-time entity marking the end
@@ -20557,13 +20591,6 @@ classes:
           analyte(s) in the form of an isolated colony or colonies.
         examples:
         - value: '2018-05-11T10:00:00+01:00'
-        string_serialization: '{timestamp}'
-      cult_result_org:
-        name: cult_result_org
-        string_serialization: '{termLabel} [{termID}]|{integer}'
-      cult_target:
-        name: cult_target
-        string_serialization: '{termLabel} [{termID}]|{integer}'
       enrichment_protocol:
         name: enrichment_protocol
         description: The microbiological workflow or protocol followed to test for
@@ -20599,7 +20626,6 @@ classes:
         name: food_origin
         examples:
         - value: USA:Delmarva, Peninsula
-        string_serialization: '{term}:{term}, {text}'
         required: true
       food_pack_medium:
         name: food_pack_medium
@@ -20636,7 +20662,6 @@ classes:
         name: food_source
         examples:
         - value: giant tiger prawn [FOODON:03412612]
-        string_serialization: '{termLabel} [{termID}]'
         required: false
         recommended: false
       food_trav_mode:
@@ -20655,8 +20680,6 @@ classes:
       intended_consumer:
         name: intended_consumer
         required: true
-      lat_lon:
-        name: lat_lon
       library_prep_kit:
         name: library_prep_kit
         description: Packaged kits (containing adapters, indexes, enzymes, buffers
@@ -20672,11 +20695,8 @@ classes:
           or product within a batch. Synonym: Batch Number.  The submitter should
           provide lot number of the item followed by the item name for which the lot
           number was provided.'
-      misc_param:
-        name: misc_param
       nucl_acid_ext:
         name: nucl_acid_ext
-        string_serialization: '{PMID}|{DOI}|{URL}'
         required: false
         recommended: false
       organism_count:
@@ -20688,12 +20708,10 @@ classes:
           per ml; qPCR).'
         examples:
         - value: total prokaryotes;3.5e7 colony forming units per milliliter;qPCR
-        string_serialization: '{text};{float} {unit};[ATP|MPN|qPCR|other]'
         required: false
         recommended: false
       perturbation:
         name: perturbation
-        string_serialization: '{text};{Rn/start_time/end_time/duration}'
         required: false
         recommended: false
       pool_dna_extracts:
@@ -20703,8 +20721,6 @@ classes:
         string_serialization: '{boolean},{integer}'
         required: false
         recommended: false
-      repository_name:
-        name: repository_name
       samp_collect_device:
         name: samp_collect_device
         description: The device used to collect an environmental sample. This field
@@ -20764,7 +20780,6 @@ classes:
         name: samp_store_dur
         description: Duration for which the sample was stored. Indicate the duration
           for which the sample was stored written in ISO 8601 format.
-        string_serialization: '{duration}'
         required: false
         recommended: false
       samp_store_loc:
@@ -20944,8 +20959,6 @@ classes:
     slot_usage:
       air_PM_concen:
         name: air_PM_concen
-      ances_data:
-        name: ances_data
       animal_diet:
         name: animal_diet
         examples:
@@ -20955,7 +20968,6 @@ classes:
         description: Description of the feeding equipment used for livestock. This
           field accepts terms listed under feed delivery (http://opendata.inra.fr/EOL/EOL_0001757).
           Multiple terms can be separated by pipes.
-        string_serialization: '{termLabel}{[termID]}'
       biotic_regm:
         name: biotic_regm
         required: true
@@ -20978,13 +20990,6 @@ classes:
           analyte(s) in the form of an isolated colony or colonies.
         examples:
         - value: '2018-05-11T10:00:00+01:00'
-        string_serialization: '{timestamp}'
-      cult_result_org:
-        name: cult_result_org
-        string_serialization: '{TermLabel} [{termID}]|{integer}'
-      cult_target:
-        name: cult_target
-        string_serialization: '{TermLabel} [{termID}]|{integer}'
       depth:
         name: depth
         description: The vertical distance below local surface, e.g. for sediment
@@ -21042,7 +21047,6 @@ classes:
         name: food_source
         examples:
         - value: giant tiger prawn [FOODON:03412612]
-        string_serialization: '{termLabel} [{termID}]'
         required: false
         recommended: false
       food_trav_mode:
@@ -21077,8 +21081,6 @@ classes:
         - value: downy mildew
         string_serialization: '{text}|{termLabel} [{termID}]'
         recommended: true
-      host_dry_mass:
-        name: host_dry_mass
       host_genotype:
         name: host_genotype
         examples:
@@ -21126,8 +21128,6 @@ classes:
         name: intended_consumer
         required: false
         recommended: false
-      lat_lon:
-        name: lat_lon
       library_prep_kit:
         name: library_prep_kit
         description: Packaged kits (containing adapters, indexes, enzymes, buffers
@@ -21143,11 +21143,8 @@ classes:
           or product within a batch. Synonym: Batch Number.  The submitter should
           provide lot number of the item followed by the item name for which the lot
           number was provided.'
-      misc_param:
-        name: misc_param
       nucl_acid_ext:
         name: nucl_acid_ext
-        string_serialization: '{PMID}|{DOI}|{URL}'
         required: false
         recommended: false
       organism_count:
@@ -21159,12 +21156,10 @@ classes:
           per ml; qPCR).'
         examples:
         - value: total prokaryotes;3.5e7 colony forming units per milliliter;qPCR
-        string_serialization: '{text};{float} {unit};[ATP|MPN|qPCR|other]'
         required: false
         recommended: false
       perturbation:
         name: perturbation
-        string_serialization: '{text};{Rn/start_time/end_time/duration}'
         required: false
         recommended: false
       ph:
@@ -21176,7 +21171,6 @@ classes:
       ph_meth:
         name: ph_meth
         description: Reference or method used in determining pH.
-        string_serialization: '{PMID}|{DOI}|{URL}'
         required: false
         recommended: false
       plant_growth_med:
@@ -21191,8 +21185,6 @@ classes:
         name: rel_location
         required: false
         recommended: false
-      repository_name:
-        name: repository_name
       root_med_macronutr:
         name: root_med_macronutr
         description: Measurement of the culture rooting medium macronutrients (N,P,
@@ -21201,8 +21193,6 @@ classes:
         name: root_med_micronutr
         description: Measurement of the culture rooting medium micronutrients (Fe,
           Mn, Zn, B, Cu, Mo); e.g. H3BO3 (6.2 mg/L).
-      salinity:
-        name: salinity
       samp_collect_device:
         name: samp_collect_device
         description: The device used to collect an environmental sample. This field
@@ -21249,7 +21239,6 @@ classes:
         name: samp_store_dur
         description: Duration for which the sample was stored. Indicate the duration
           for which the sample was stored written in ISO 8601 format.
-        string_serialization: '{duration}'
         required: false
         recommended: false
       samp_vol_we_dna_ext:
@@ -21259,8 +21248,6 @@ classes:
           the term Sample Size (MIXS:0000001).'
         required: false
         recommended: false
-      season:
-        name: season
       season_precpt:
         name: season_precpt
       season_temp:
@@ -21319,7 +21306,6 @@ classes:
         recommended: false
       tot_nitro_content:
         name: tot_nitro_content
-        title: total nitrogen content
         required: false
         recommended: false
       tot_org_c_meth:
@@ -21490,13 +21476,6 @@ classes:
           analyte(s) in the form of an isolated colony or colonies.
         examples:
         - value: '2018-05-11T10:00:00+01:00'
-        string_serialization: '{timestamp}'
-      cult_result_org:
-        name: cult_result_org
-        string_serialization: '{termLabel} [{termID}]|{integer}'
-      cult_target:
-        name: cult_target
-        string_serialization: '{termLabel} [{termID}]|{integer}'
       enrichment_protocol:
         name: enrichment_protocol
         description: The microbiological workflow or protocol followed to test for
@@ -21531,7 +21510,6 @@ classes:
         name: food_origin
         examples:
         - value: 'USA: Delmarva, Peninsula'
-        string_serialization: '{term}: {term}, {text}'
         required: false
         recommended: false
       food_pack_medium:
@@ -21569,7 +21547,6 @@ classes:
         name: food_source
         examples:
         - value: giant tiger prawn [FOODON:03412612]
-        string_serialization: '{termLabel} [{termID}]'
         required: false
         recommended: false
       food_trav_mode:
@@ -21599,8 +21576,6 @@ classes:
         name: intended_consumer
         required: false
         recommended: false
-      lat_lon:
-        name: lat_lon
       library_prep_kit:
         name: library_prep_kit
         description: Packaged kits (containing adapters, indexes, enzymes, buffers
@@ -21616,11 +21591,8 @@ classes:
           or product within a batch. Synonym: Batch Number.  The submitter should
           provide lot number of the item followed by the item name for which the lot
           number was provided.'
-      misc_param:
-        name: misc_param
       nucl_acid_ext:
         name: nucl_acid_ext
-        string_serialization: '{PMID}|{DOI}|{URL}'
         required: false
         recommended: false
       organism_count:
@@ -21632,7 +21604,6 @@ classes:
           per ml; qPCR).'
         examples:
         - value: total prokaryotes;3.5e7 colony forming units per milliliter;qPCR
-        string_serialization: '{text};{float} {unit};[ATP|MPN|qPCR|other]'
         required: false
         recommended: false
       pool_dna_extracts:
@@ -21642,8 +21613,6 @@ classes:
         string_serialization: '{boolean},{integer}'
         required: false
         recommended: false
-      repository_name:
-        name: repository_name
       samp_collect_device:
         name: samp_collect_device
         description: The device employed for collecting the sample.
@@ -21699,7 +21668,6 @@ classes:
         name: samp_store_dur
         description: Duration for which the sample was stored. Indicate the duration
           for which the sample was stored written in ISO 8601 format.
-        string_serialization: '{duration}'
         required: false
         recommended: false
       samp_store_loc:
@@ -21852,13 +21820,6 @@ classes:
           analyte(s) in the form of an isolated colony or colonies.
         examples:
         - value: '2018-05-11T10:00:00+01:00'
-        string_serialization: '{timestamp}'
-      cult_result_org:
-        name: cult_result_org
-        string_serialization: '{termLabel} [{termID}]|{integer}'
-      cult_target:
-        name: cult_target
-        string_serialization: '{termLabel} [{termID}]|{integer}'
       enrichment_protocol:
         name: enrichment_protocol
         description: The microbiological workflow or protocol followed to test for
@@ -21894,7 +21855,6 @@ classes:
         name: food_origin
         examples:
         - value: 'USA: Delmarva, Peninsula'
-        string_serialization: '{term}: {term}, {text}'
         required: false
         recommended: false
       food_pack_medium:
@@ -21933,7 +21893,6 @@ classes:
         name: food_source
         examples:
         - value: giant tiger prawn [FOODON:03412612]
-        string_serialization: '{termLabel} [{termID}]'
         required: false
         recommended: false
       food_trav_mode:
@@ -21956,8 +21915,6 @@ classes:
         name: intended_consumer
         required: false
         recommended: false
-      lat_lon:
-        name: lat_lon
       library_prep_kit:
         name: library_prep_kit
         description: Packaged kits (containing adapters, indexes, enzymes, buffers
@@ -21973,11 +21930,8 @@ classes:
           or product within a batch. Synonym: Batch Number.  The submitter should
           provide lot number of the item followed by the item name for which the lot
           number was provided.'
-      misc_param:
-        name: misc_param
       nucl_acid_ext:
         name: nucl_acid_ext
-        string_serialization: '{PMID}|{DOI}|{URL}'
         required: false
         recommended: false
       organism_count:
@@ -21989,12 +21943,10 @@ classes:
           per ml; qPCR).'
         examples:
         - value: total prokaryotes;3.5e7 colony forming units per milliliter;qPCR
-        string_serialization: '{text};{float} {unit};[ATP|MPN|qPCR|other]'
         required: false
         recommended: false
       perturbation:
         name: perturbation
-        string_serialization: '{text};{Rn/start_time/end_time/duration}'
         required: false
         recommended: false
       pool_dna_extracts:
@@ -22004,8 +21956,6 @@ classes:
         string_serialization: '{boolean},{integer}'
         required: false
         recommended: false
-      repository_name:
-        name: repository_name
       samp_collect_device:
         name: samp_collect_device
         description: The device used to collect an environmental sample. This field
@@ -22066,7 +22016,6 @@ classes:
         name: samp_store_dur
         description: Duration for which the sample was stored. Indicate the duration
           for which the sample was stored written in ISO 8601 format.
-        string_serialization: '{duration}'
         required: false
         recommended: false
       samp_store_loc:
@@ -22163,8 +22112,6 @@ classes:
           the altitude measurement is the vertical distance between the earth's surface
           above sea level and the sampled position in the air
         recommended: true
-      ances_data:
-        name: ances_data
       chem_administration:
         name: chem_administration
         description: List of chemical compounds administered to the host or site where
@@ -22197,8 +22144,6 @@ classes:
         name: host_body_habitat
         examples:
         - value: nasopharynx
-      host_body_product:
-        name: host_body_product
       host_body_site:
         name: host_body_site
         examples:
@@ -22230,8 +22175,6 @@ classes:
         string_serialization: '{termLabel} [{termID}]|{text}'
         required: false
         recommended: false
-      host_dry_mass:
-        name: host_dry_mass
       host_fam_rel:
         name: host_fam_rel
         examples:
@@ -22299,8 +22242,6 @@ classes:
         - value: 2500 gram
         required: false
         recommended: false
-      misc_param:
-        name: misc_param
       organism_count:
         name: organism_count
         description: 'Total cell count of any organism (or group of organisms) per
@@ -22310,7 +22251,6 @@ classes:
           per ml; qpcr)'
         examples:
         - value: total prokaryotes;3.5e7 cells per milliliter;qPCR
-        string_serialization: '{text};{float} {unit};[qPCR|ATP|MPN|other]'
         required: false
         recommended: false
       oxy_stat_samp:
@@ -22319,11 +22259,8 @@ classes:
         recommended: false
       perturbation:
         name: perturbation
-        string_serialization: '{text};{Rn/start_time/end_time/duration}'
         required: false
         recommended: false
-      salinity:
-        name: salinity
       samp_name:
         name: samp_name
         description: A local identifier or name that for the material sample used
@@ -22336,7 +22273,6 @@ classes:
       samp_store_dur:
         name: samp_store_dur
         description: Duration for which the sample was stored
-        string_serialization: '{duration}'
         required: false
         recommended: false
       samp_store_loc:
@@ -22434,8 +22370,6 @@ classes:
         - value: 30 years
         required: false
         recommended: false
-      host_body_product:
-        name: host_body_product
       host_body_site:
         name: host_body_site
         examples:
@@ -22503,8 +22437,6 @@ classes:
         - value: 65 kilogram
         required: false
         recommended: false
-      misc_param:
-        name: misc_param
       nose_throat_disord:
         name: nose_throat_disord
         annotations:
@@ -22520,7 +22452,6 @@ classes:
           per ml; qpcr)'
         examples:
         - value: total prokaryotes;3.5e7 cells per milliliter;qPCR
-        string_serialization: '{text};{float} {unit};[qPCR|ATP|MPN|other]'
         required: false
         recommended: false
       oxy_stat_samp:
@@ -22529,11 +22460,8 @@ classes:
         recommended: false
       perturbation:
         name: perturbation
-        string_serialization: '{text};{Rn/start_time/end_time/duration}'
         required: false
         recommended: false
-      salinity:
-        name: salinity
       samp_name:
         name: samp_name
         description: A local identifier or name that for the material sample used
@@ -22546,7 +22474,6 @@ classes:
       samp_store_dur:
         name: samp_store_dur
         description: Duration for which the sample was stored
-        string_serialization: '{duration}'
         required: false
         recommended: false
       samp_store_loc:
@@ -22628,8 +22555,6 @@ classes:
         - value: 30 years
         required: false
         recommended: false
-      host_body_product:
-        name: host_body_product
       host_body_site:
         name: host_body_site
         examples:
@@ -22697,8 +22622,6 @@ classes:
         - value: 65 kilogram
         required: false
         recommended: false
-      misc_param:
-        name: misc_param
       organism_count:
         name: organism_count
         description: 'Total cell count of any organism (or group of organisms) per
@@ -22708,7 +22631,6 @@ classes:
           per ml; qpcr)'
         examples:
         - value: total prokaryotes;3.5e7 cells per milliliter;qPCR
-        string_serialization: '{text};{float} {unit};[qPCR|ATP|MPN|other]'
         required: false
         recommended: false
       oxy_stat_samp:
@@ -22717,11 +22639,8 @@ classes:
         recommended: false
       perturbation:
         name: perturbation
-        string_serialization: '{text};{Rn/start_time/end_time/duration}'
         required: false
         recommended: false
-      salinity:
-        name: salinity
       samp_name:
         name: samp_name
         description: A local identifier or name that for the material sample used
@@ -22734,7 +22653,6 @@ classes:
       samp_store_dur:
         name: samp_store_dur
         description: Duration for which the sample was stored
-        string_serialization: '{duration}'
         required: false
         recommended: false
       samp_store_loc:
@@ -22815,8 +22733,6 @@ classes:
         - value: 30 years
         required: false
         recommended: false
-      host_body_product:
-        name: host_body_product
       host_body_site:
         name: host_body_site
         examples:
@@ -22884,8 +22800,6 @@ classes:
         - value: 65 kilogram
         required: false
         recommended: false
-      misc_param:
-        name: misc_param
       nose_throat_disord:
         name: nose_throat_disord
         annotations:
@@ -22901,7 +22815,6 @@ classes:
           per ml; qpcr)'
         examples:
         - value: total prokaryotes;3.5e7 cells per milliliter;qPCR
-        string_serialization: '{text};{float} {unit};[qPCR|ATP|MPN|other]'
         required: false
         recommended: false
       oxy_stat_samp:
@@ -22910,11 +22823,8 @@ classes:
         recommended: false
       perturbation:
         name: perturbation
-        string_serialization: '{text};{Rn/start_time/end_time/duration}'
         required: false
         recommended: false
-      salinity:
-        name: salinity
       samp_name:
         name: samp_name
         description: A local identifier or name that for the material sample used
@@ -22927,7 +22837,6 @@ classes:
       samp_store_dur:
         name: samp_store_dur
         description: Duration for which the sample was stored
-        string_serialization: '{duration}'
         required: false
         recommended: false
       samp_store_loc:
@@ -23009,8 +22918,6 @@ classes:
         - value: 30 years
         required: false
         recommended: false
-      host_body_product:
-        name: host_body_product
       host_body_site:
         name: host_body_site
         examples:
@@ -23078,8 +22985,6 @@ classes:
         - value: 65 kilogram
         required: false
         recommended: false
-      misc_param:
-        name: misc_param
       organism_count:
         name: organism_count
         description: 'Total cell count of any organism (or group of organisms) per
@@ -23089,7 +22994,6 @@ classes:
           per ml; qpcr)'
         examples:
         - value: total prokaryotes;3.5e7 cells per milliliter;qPCR
-        string_serialization: '{text};{float} {unit};[qPCR|ATP|MPN|other]'
         required: false
         recommended: false
       oxy_stat_samp:
@@ -23098,11 +23002,8 @@ classes:
         recommended: false
       perturbation:
         name: perturbation
-        string_serialization: '{text};{Rn/start_time/end_time/duration}'
         required: false
         recommended: false
-      salinity:
-        name: salinity
       samp_name:
         name: samp_name
         description: A local identifier or name that for the material sample used
@@ -23115,7 +23016,6 @@ classes:
       samp_store_dur:
         name: samp_store_dur
         description: Duration for which the sample was stored
-        string_serialization: '{duration}'
         required: false
         recommended: false
       samp_store_loc:
@@ -23204,8 +23104,6 @@ classes:
         - value: 30 years
         required: false
         recommended: false
-      host_body_product:
-        name: host_body_product
       host_body_site:
         name: host_body_site
         examples:
@@ -23273,8 +23171,6 @@ classes:
         - value: 65 kilogram
         required: false
         recommended: false
-      misc_param:
-        name: misc_param
       organism_count:
         name: organism_count
         description: 'Total cell count of any organism (or group of organisms) per
@@ -23284,7 +23180,6 @@ classes:
           per ml; qpcr)'
         examples:
         - value: total prokaryotes;3.5e7 cells per milliliter;qPCR
-        string_serialization: '{text};{float} {unit};[qPCR|ATP|MPN|other]'
         required: false
         recommended: false
       oxy_stat_samp:
@@ -23293,11 +23188,8 @@ classes:
         recommended: false
       perturbation:
         name: perturbation
-        string_serialization: '{text};{Rn/start_time/end_time/duration}'
         required: false
         recommended: false
-      salinity:
-        name: salinity
       samp_name:
         name: samp_name
         description: A local identifier or name that for the material sample used
@@ -23310,7 +23202,6 @@ classes:
       samp_store_dur:
         name: samp_store_dur
         description: Duration for which the sample was stored
-        string_serialization: '{duration}'
         required: false
         recommended: false
       samp_store_loc:
@@ -23426,14 +23317,10 @@ classes:
       ammonium:
         name: ammonium
         recommended: true
-      density:
-        name: density
       depos_env:
         name: depos_env
         examples:
         - value: Continental - Alluvial
-      diss_inorg_carb:
-        name: diss_inorg_carb
       diss_inorg_phosp:
         name: diss_inorg_phosp
         recommended: true
@@ -23444,8 +23331,6 @@ classes:
       hcr_temp:
         name: hcr_temp
         required: true
-      misc_param:
-        name: misc_param
       nitrate:
         name: nitrate
         recommended: true
@@ -23461,7 +23346,6 @@ classes:
           per ml; qpcr)'
         examples:
         - value: total prokaryotes;3.5e7 cells per milliliter;qPCR
-        string_serialization: '{text};{float} {unit};[qPCR|ATP|MPN|other]'
         recommended: true
       oxy_stat_samp:
         name: oxy_stat_samp
@@ -23472,8 +23356,6 @@ classes:
         description: Ph measurement of the sample, or liquid portion of sample, or
           aqueous phase of the fluid
         recommended: true
-      salinity:
-        name: salinity
       samp_name:
         name: samp_name
         description: A local identifier or name that for the material sample used
@@ -23486,7 +23368,6 @@ classes:
       samp_store_dur:
         name: samp_store_dur
         description: Duration for which the sample was stored
-        string_serialization: '{duration}'
         required: false
         recommended: false
       samp_store_loc:
@@ -23519,7 +23400,6 @@ classes:
         name: tot_phosp
         description: 'Total phosphorus concentration in the sample, calculated by:
           total phosphorus = total dissolved phosphorus + particulate phosphorus'
-        title: total phosphorus
         required: false
         recommended: false
       tvdss_of_hcr_press:
@@ -23627,22 +23507,16 @@ classes:
       ammonium:
         name: ammonium
         recommended: true
-      density:
-        name: density
       depos_env:
         name: depos_env
         examples:
         - value: Marine - Reef
-      diss_inorg_carb:
-        name: diss_inorg_carb
       diss_inorg_phosp:
         name: diss_inorg_phosp
         recommended: true
       hcr_temp:
         name: hcr_temp
         recommended: true
-      misc_param:
-        name: misc_param
       nitrate:
         name: nitrate
         required: true
@@ -23658,7 +23532,6 @@ classes:
           per ml; qpcr)'
         examples:
         - value: total prokaryotes;3.5e7 cells per milliliter;qPCR
-        string_serialization: '{text};{float} {unit};[qPCR|ATP|MPN|other]'
         recommended: true
       oxy_stat_samp:
         name: oxy_stat_samp
@@ -23669,8 +23542,6 @@ classes:
         description: Ph measurement of the sample, or liquid portion of sample, or
           aqueous phase of the fluid
         recommended: true
-      salinity:
-        name: salinity
       samp_name:
         name: samp_name
         description: A local identifier or name that for the material sample used
@@ -23683,7 +23554,6 @@ classes:
       samp_store_dur:
         name: samp_store_dur
         description: Duration for which the sample was stored
-        string_serialization: '{duration}'
         required: false
         recommended: false
       samp_store_loc:
@@ -23716,7 +23586,6 @@ classes:
         name: tot_phosp
         description: 'Total phosphorus concentration in the sample, calculated by:
           total phosphorus = total dissolved phosphorus + particulate phosphorus'
-        title: total phosphorus
         required: false
         recommended: false
       tvdss_of_hcr_press:
@@ -23824,8 +23693,6 @@ classes:
           or soil samples depth is measured from sediment or soil surface, respectively.
           Depth can be reported as an interval for subsurface samples.
         recommended: true
-      diss_inorg_carb:
-        name: diss_inorg_carb
       diss_org_nitro:
         name: diss_org_nitro
       elev:
@@ -23835,8 +23702,6 @@ classes:
         name: methane
         examples:
         - value: 0.15 micromole per liter
-      misc_param:
-        name: misc_param
       n_alkanes:
         name: n_alkanes
       nitrate:
@@ -23849,8 +23714,6 @@ classes:
         recommended: false
       org_carb:
         name: org_carb
-      org_matter:
-        name: org_matter
       org_nitro:
         name: org_nitro
       organism_count:
@@ -23862,7 +23725,6 @@ classes:
           per ml; qpcr)'
         examples:
         - value: total prokaryotes;3.5e7 cells per milliliter;qPCR
-        string_serialization: '{text};{float} {unit};[qPCR|ATP|MPN|other]'
         required: false
         recommended: false
       oxy_stat_samp:
@@ -23873,7 +23735,6 @@ classes:
         name: part_org_carb
       perturbation:
         name: perturbation
-        string_serialization: '{text};{Rn/start_time/end_time/duration}'
         required: false
         recommended: false
       ph:
@@ -23884,8 +23745,6 @@ classes:
         recommended: false
       phosplipid_fatt_acid:
         name: phosplipid_fatt_acid
-      salinity:
-        name: salinity
       samp_name:
         name: samp_name
         description: A local identifier or name that for the material sample used
@@ -23898,7 +23757,6 @@ classes:
       samp_store_dur:
         name: samp_store_dur
         description: Duration for which the sample was stored
-        string_serialization: '{duration}'
         required: false
         recommended: false
       samp_store_loc:
@@ -23934,7 +23792,6 @@ classes:
         recommended: false
       tot_nitro_content:
         name: tot_nitro_content
-        title: total nitrogen content
         required: false
         recommended: false
       tot_org_carb:
@@ -24023,23 +23880,17 @@ classes:
           ontology (chebi) (v 163), http://purl.bioontology.org/ontology/chebi
         required: false
         recommended: false
-      density:
-        name: density
       depth:
         name: depth
         description: The vertical distance below local surface, e.g. For sediment
           or soil samples depth is measured from sediment or soil surface, respectively.
           Depth can be reported as an interval for subsurface samples.
         recommended: true
-      diss_inorg_carb:
-        name: diss_inorg_carb
       diss_org_nitro:
         name: diss_org_nitro
       elev:
         name: elev
         recommended: true
-      misc_param:
-        name: misc_param
       nitrate:
         name: nitrate
         required: false
@@ -24050,8 +23901,6 @@ classes:
         recommended: false
       org_carb:
         name: org_carb
-      org_matter:
-        name: org_matter
       org_nitro:
         name: org_nitro
       organism_count:
@@ -24063,7 +23912,6 @@ classes:
           per ml; qpcr)'
         examples:
         - value: total prokaryotes;3.5e7 cells per milliliter;qPCR
-        string_serialization: '{text};{float} {unit};[qPCR|ATP|MPN|other]'
         required: false
         recommended: false
       oxy_stat_samp:
@@ -24072,7 +23920,6 @@ classes:
         recommended: false
       perturbation:
         name: perturbation
-        string_serialization: '{text};{Rn/start_time/end_time/duration}'
         required: false
         recommended: false
       ph:
@@ -24083,8 +23930,6 @@ classes:
         recommended: false
       phosplipid_fatt_acid:
         name: phosplipid_fatt_acid
-      salinity:
-        name: salinity
       samp_name:
         name: samp_name
         description: A local identifier or name that for the material sample used
@@ -24097,7 +23942,6 @@ classes:
       samp_store_dur:
         name: samp_store_dur
         description: Duration for which the sample was stored
-        string_serialization: '{duration}'
         required: false
         recommended: false
       samp_store_loc:
@@ -24211,8 +24055,6 @@ classes:
     - watering_regm
     - host_symbiont
     slot_usage:
-      ances_data:
-        name: ances_data
       biotic_regm:
         name: biotic_regm
         required: false
@@ -24280,8 +24122,6 @@ classes:
         string_serialization: '{text}|{termLabel} [{termID}]'
         required: false
         recommended: false
-      host_dry_mass:
-        name: host_dry_mass
       host_genotype:
         name: host_genotype
         examples:
@@ -24333,8 +24173,6 @@ classes:
         - value: 2500 gram
         required: false
         recommended: false
-      misc_param:
-        name: misc_param
       non_min_nutr_regm:
         name: non_min_nutr_regm
         string_serialization: '{text};{float} {unit};{Rn/start_time/end_time/duration}'
@@ -24349,7 +24187,6 @@ classes:
           per ml; qpcr)'
         examples:
         - value: total prokaryotes;3.5e7 cells per milliliter;qPCR
-        string_serialization: '{text};{float} {unit};[qPCR|ATP|MPN|other]'
         required: false
         recommended: false
       oxy_stat_samp:
@@ -24358,7 +24195,6 @@ classes:
         recommended: false
       perturbation:
         name: perturbation
-        string_serialization: '{text};{Rn/start_time/end_time/duration}'
         required: false
         recommended: false
       pesticide_regm:
@@ -24391,8 +24227,6 @@ classes:
         name: root_med_micronutr
         description: Measurement of the culture rooting medium micronutrients (Fe,
           Mn, Zn, B, Cu, Mo); e.g. H3BO3 (6.2¬†mg/L).
-      salinity:
-        name: salinity
       salt_regm:
         name: salt_regm
         string_serialization: '{text};{float} {unit};{Rn/start_time/end_time/duration}'
@@ -24410,7 +24244,6 @@ classes:
       samp_store_dur:
         name: samp_store_dur
         description: Duration for which the sample was stored
-        string_serialization: '{duration}'
         required: false
         recommended: false
       samp_store_loc:
@@ -24550,16 +24383,12 @@ classes:
           ontology (chebi) (v 163), http://purl.bioontology.org/ontology/chebi
         required: false
         recommended: false
-      density:
-        name: density
       depth:
         name: depth
         description: The vertical distance below local surface, e.g. For sediment
           or soil samples depth is measured from sediment or soil surface, respectively.
           Depth can be reported as an interval for subsurface samples.
         required: true
-      diss_inorg_carb:
-        name: diss_inorg_carb
       diss_org_nitro:
         name: diss_org_nitro
       elev:
@@ -24569,8 +24398,6 @@ classes:
         name: methane
         examples:
         - value: 0.15 micromole per liter
-      misc_param:
-        name: misc_param
       n_alkanes:
         name: n_alkanes
       nitrate:
@@ -24583,8 +24410,6 @@ classes:
         recommended: false
       org_carb:
         name: org_carb
-      org_matter:
-        name: org_matter
       org_nitro:
         name: org_nitro
       organism_count:
@@ -24596,7 +24421,6 @@ classes:
           per ml; qpcr)'
         examples:
         - value: total prokaryotes;3.5e7 cells per milliliter;qPCR
-        string_serialization: '{text};{float} {unit};[qPCR|ATP|MPN|other]'
         required: false
         recommended: false
       oxy_stat_samp:
@@ -24607,7 +24431,6 @@ classes:
         name: part_org_carb
       perturbation:
         name: perturbation
-        string_serialization: '{text};{Rn/start_time/end_time/duration}'
         required: false
         recommended: false
       ph:
@@ -24618,8 +24441,6 @@ classes:
         recommended: false
       phosplipid_fatt_acid:
         name: phosplipid_fatt_acid
-      salinity:
-        name: salinity
       samp_name:
         name: samp_name
         description: A local identifier or name that for the material sample used
@@ -24632,7 +24453,6 @@ classes:
       samp_store_dur:
         name: samp_store_dur
         description: Duration for which the sample was stored
-        string_serialization: '{duration}'
         required: false
         recommended: false
       samp_store_loc:
@@ -24668,7 +24488,6 @@ classes:
         recommended: false
       tot_nitro_content:
         name: tot_nitro_content
-        title: total nitrogen content
         required: false
         recommended: false
       tot_org_carb:
@@ -24729,6 +24548,7 @@ classes:
     - slope_aspect
     - profile_position
     - drainage_class
+    - Structured_comment_name
     - soil_texture_meth
     - ph
     - ph_meth
@@ -24746,6 +24566,9 @@ classes:
     - al_sat_meth
     - misc_param
     slot_usage:
+      Structured_comment_name:
+        name: Structured_comment_name
+        title: soil texture measurement
       crop_rotation:
         name: crop_rotation
         string_serialization: '{boolean};{Rn/start_time/end_time/duration}'
@@ -24779,7 +24602,6 @@ classes:
         recommended: false
       fao_class:
         name: fao_class
-        string_serialization: '[Acrisols|Andosols|Arenosols|Cambisols|Chernozems|Ferralsols|Fluvisols|Gleysols|Greyzems|Gypsisols|Histosols|Kastanozems|Lithosols|Luvisols|Nitosols|Phaeozems|Planosols|Podzols|Podzoluvisols|Rankers|Regosols|Rendzinas|Solonchaks|Solonetz|Vertisols|Yermosols]'
         required: false
         recommended: false
       fire:
@@ -24826,10 +24648,6 @@ classes:
         name: microbial_biomass
         required: false
         recommended: false
-      misc_param:
-        name: misc_param
-      org_matter:
-        name: org_matter
       org_nitro:
         name: org_nitro
       ph:
@@ -24841,7 +24659,6 @@ classes:
       ph_meth:
         name: ph_meth
         description: Reference or method used in determining ph
-        string_serialization: '{PMID}|{DOI}|{URL}'
         required: false
         recommended: false
       pool_dna_extracts:
@@ -24940,7 +24757,6 @@ classes:
         recommended: false
       tot_nitro_content:
         name: tot_nitro_content
-        title: total nitrogen content
         required: false
         recommended: false
       tot_org_c_meth:
@@ -25078,8 +24894,6 @@ classes:
         name: host_body_habitat
         examples:
         - value: anterior end of a tapeworm
-      host_body_product:
-        name: host_body_product
       host_body_site:
         name: host_body_site
         examples:
@@ -25092,8 +24906,6 @@ classes:
         - value: trematode
         required: false
         recommended: false
-      host_dry_mass:
-        name: host_dry_mass
       host_fam_rel:
         name: host_fam_rel
         examples:
@@ -25159,10 +24971,6 @@ classes:
         - value: nan
         required: false
         recommended: false
-      lat_lon:
-        name: lat_lon
-      misc_param:
-        name: misc_param
       organism_count:
         name: organism_count
         description: 'Total cell count of any organism (or group of organisms) per
@@ -25172,7 +24980,6 @@ classes:
           per ml; qpcr).'
         examples:
         - value: total prokaryotes;3.5e7 cells per milliliter;qPCR
-        string_serialization: '{text};{float} {unit}'
         required: false
         recommended: false
       oxy_stat_samp:
@@ -25181,11 +24988,8 @@ classes:
         recommended: false
       perturbation:
         name: perturbation
-        string_serialization: '{text};{Rn/start_time/end_time/duration}'
         required: false
         recommended: false
-      salinity:
-        name: salinity
       samp_name:
         name: samp_name
         description: Sample Name is a name that you choose for the sample. It can
@@ -25195,7 +24999,6 @@ classes:
       samp_store_dur:
         name: samp_store_dur
         description: Duration for which the sample was stored.
-        string_serialization: '{duration}'
         required: false
         recommended: false
       samp_store_loc:
@@ -25283,8 +25086,6 @@ classes:
           or soil samples depth is measured from sediment or soil surface, respectively.
           Depth can be reported as an interval for subsurface samples.
         recommended: true
-      misc_param:
-        name: misc_param
       nitrate:
         name: nitrate
         required: false
@@ -25298,7 +25099,6 @@ classes:
           per ml; qpcr)'
         examples:
         - value: total prokaryotes;3.5e7 cells per milliliter;qPCR
-        string_serialization: '{text};{float} {unit};[qPCR|ATP|MPN|other]'
         required: false
         recommended: false
       oxy_stat_samp:
@@ -25307,7 +25107,6 @@ classes:
         recommended: false
       perturbation:
         name: perturbation
-        string_serialization: '{text};{Rn/start_time/end_time/duration}'
         required: false
         recommended: false
       ph:
@@ -25316,8 +25115,6 @@ classes:
           aqueous phase of the fluid
         required: false
         recommended: false
-      salinity:
-        name: salinity
       samp_name:
         name: samp_name
         description: A local identifier or name that for the material sample used
@@ -25330,7 +25127,6 @@ classes:
       samp_store_dur:
         name: samp_store_dur
         description: Duration for which the sample was stored
-        string_serialization: '{duration}'
         required: false
         recommended: false
       samp_store_loc:
@@ -25465,16 +25261,12 @@ classes:
           ontology (chebi) (v 163), http://purl.bioontology.org/ontology/chebi
         required: false
         recommended: false
-      density:
-        name: density
       depth:
         name: depth
         description: The vertical distance below local surface, e.g. For sediment
           or soil samples depth is measured from sediment or soil surface, respectively.
           Depth can be reported as an interval for subsurface samples.
         required: true
-      diss_inorg_carb:
-        name: diss_inorg_carb
       diss_inorg_phosp:
         name: diss_inorg_phosp
         required: false
@@ -25484,8 +25276,6 @@ classes:
       elev:
         name: elev
         recommended: true
-      misc_param:
-        name: misc_param
       n_alkanes:
         name: n_alkanes
       nitrate:
@@ -25498,8 +25288,6 @@ classes:
         recommended: false
       org_carb:
         name: org_carb
-      org_matter:
-        name: org_matter
       org_nitro:
         name: org_nitro
       organism_count:
@@ -25511,7 +25299,6 @@ classes:
           per ml; qpcr)'
         examples:
         - value: total prokaryotes;3.5e7 cells per milliliter;qPCR
-        string_serialization: '{text};{float} {unit};[qPCR|ATP|MPN|other]'
         required: false
         recommended: false
       oxy_stat_samp:
@@ -25522,7 +25309,6 @@ classes:
         name: part_org_carb
       perturbation:
         name: perturbation
-        string_serialization: '{text};{Rn/start_time/end_time/duration}'
         required: false
         recommended: false
       ph:
@@ -25533,8 +25319,6 @@ classes:
         recommended: false
       phosplipid_fatt_acid:
         name: phosplipid_fatt_acid
-      salinity:
-        name: salinity
       samp_name:
         name: samp_name
         description: A local identifier or name that for the material sample used
@@ -25547,7 +25331,6 @@ classes:
       samp_store_dur:
         name: samp_store_dur
         description: Duration for which the sample was stored
-        string_serialization: '{duration}'
         required: false
         recommended: false
       samp_store_loc:
@@ -25581,7 +25364,6 @@ classes:
         name: tot_phosp
         description: 'Total phosphorus concentration in the sample, calculated by:
           total phosphorus = total dissolved phosphorus + particulate phosphorus'
-        title: total phosphorus
         required: false
         recommended: false
       turbidity:

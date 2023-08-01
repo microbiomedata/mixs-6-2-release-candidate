@@ -86,6 +86,10 @@ generated-schema/mixs_6_2_rc.yaml:
 		 --repair-report conflict-reports/conflict-repair-report.tsv \
 		 --unmapped-report other-reports/un-handled-stringsers-expvals.tsv \
 		 --schema-file-out $@
+#	$(RUN)  vskit expand \
+#		--schema $@.temp \
+#		--output $@ FARM_EQUIP_ENUM PLANT_WATER_METHOD_ENUM FERTILIZER_ADMIN_ENUM
+#	rm -rf $@.temp
 
 generated-schema/mixs_6_2_rc.yaml.notated.yaml: text-mining-results/mixs-v6-repaired-term-title-token-matrix.tsv
 
@@ -183,18 +187,24 @@ conflicts-cleanup:
 conflicts-all-reports: conflicts-cleanup \
 conflict-reports/$(RC_PREFIX).ID.SCN.conflicts.pre.tsv \
 conflict-reports/$(RC_PREFIX).ID.SCN.conflicts.post.tsv \
-conflict-reports/$(RC_PREFIX).ID.Item.conflicts.pre.tsv \
-conflict-reports/$(RC_PREFIX).ID.Item.conflicts.post.tsv \
 conflict-reports/$(RC_PREFIX).ID.Def.conflicts.pre.tsv \
 conflict-reports/$(RC_PREFIX).ID.Def.conflicts.post.tsv \
+conflict-reports/$(RC_PREFIX).ID.expval.conflicts.pre.tsv \
+conflict-reports/$(RC_PREFIX).ID.expval.conflicts.post.tsv \
+conflict-reports/$(RC_PREFIX).ID.Item.conflicts.pre.tsv \
+conflict-reports/$(RC_PREFIX).ID.Item.conflicts.post.tsv \
 conflict-reports/$(RC_PREFIX).ID.Occurrence.conflicts.pre.tsv \
 conflict-reports/$(RC_PREFIX).ID.Occurrence.conflicts.post.tsv \
-conflict-reports/$(RC_PREFIX).ID.Section.conflicts.pre.tsv \
-conflict-reports/$(RC_PREFIX).ID.Section.conflicts.post.tsv \
 conflict-reports/$(RC_PREFIX).ID.prefunit.conflicts.pre.tsv \
 conflict-reports/$(RC_PREFIX).ID.prefunit.conflicts.post.tsv \
+conflict-reports/$(RC_PREFIX).ID.Section.conflicts.pre.tsv \
+conflict-reports/$(RC_PREFIX).ID.Section.conflicts.post.tsv \
+conflict-reports/$(RC_PREFIX).ID.valsyn.conflicts.pre.tsv \
+conflict-reports/$(RC_PREFIX).ID.valsyn.conflicts.post.tsv \
 conflict-reports/$(RC_PREFIX).SCN.Item.conflicts.pre.tsv \
-conflict-reports/$(RC_PREFIX).SCN.Item.conflicts.post.tsv
+conflict-reports/$(RC_PREFIX).SCN.Item.conflicts.post.tsv \
+conflict-reports/$(RC_PREFIX).SCN.Example.conflicts.pre.tsv \
+conflict-reports/$(RC_PREFIX).SCN.Example.conflicts.post.tsv
 
 #https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/66
 conflict-reports/$(RC_PREFIX).ID.SCN.conflicts.pre.tsv: GSC-excel-harmonized-repaired/$(LEGACY_PREFIX).harmonized.tsv
@@ -210,6 +220,37 @@ conflict-reports/$(RC_PREFIX).ID.SCN.conflicts.post.tsv: GSC-excel-harmonized-re
 		--input-file $< \
 		--x-column 'MIXS ID' \
 		--y-column 'Structured comment name' \
+		--output-file $@
+
+# https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/64
+conflict-reports/$(RC_PREFIX).ID.Def.conflicts.pre.tsv: GSC-excel-harmonized-repaired/$(LEGACY_PREFIX).harmonized.tsv
+	$(RUN) find-Xs-with-multiple-Ys \
+		--input-file $< \
+		--x-column 'MIXS ID' \
+		--y-column 'Definition' \
+		--output-file $@
+
+conflict-reports/$(RC_PREFIX).ID.Def.conflicts.post.tsv: GSC-excel-harmonized-repaired/$(RC_PREFIX).repaired.tsv
+	$(RUN) find-Xs-with-multiple-Ys \
+		--input-file $< \
+		--x-column 'MIXS ID' \
+		--y-column 'Definition' \
+		--output-file $@
+
+
+# https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/64
+conflict-reports/$(RC_PREFIX).ID.expval.conflicts.pre.tsv: GSC-excel-harmonized-repaired/$(LEGACY_PREFIX).harmonized.tsv
+	$(RUN) find-Xs-with-multiple-Ys \
+		--input-file $< \
+		--x-column 'MIXS ID' \
+		--y-column 'Expected value' \
+		--output-file $@
+
+conflict-reports/$(RC_PREFIX).ID.expval.conflicts.post.tsv: GSC-excel-harmonized-repaired/$(RC_PREFIX).repaired.tsv
+	$(RUN) find-Xs-with-multiple-Ys \
+		--input-file $< \
+		--x-column 'MIXS ID' \
+		--y-column 'Expected value' \
 		--output-file $@
 
 
@@ -229,22 +270,6 @@ conflict-reports/$(RC_PREFIX).ID.Item.conflicts.post.tsv: GSC-excel-harmonized-r
 
 
 # https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/64
-conflict-reports/$(RC_PREFIX).ID.Def.conflicts.pre.tsv: GSC-excel-harmonized-repaired/$(LEGACY_PREFIX).harmonized.tsv
-	$(RUN) find-Xs-with-multiple-Ys \
-		--input-file $< \
-		--x-column 'MIXS ID' \
-		--y-column 'Definition' \
-		--output-file $@
-
-conflict-reports/$(RC_PREFIX).ID.Def.conflicts.post.tsv: GSC-excel-harmonized-repaired/$(RC_PREFIX).repaired.tsv
-	$(RUN) find-Xs-with-multiple-Ys \
-		--input-file $< \
-		--x-column 'MIXS ID' \
-		--y-column 'Definition' \
-		--output-file $@
-
-
-# https://github.com/turbomam/mixs-envo-struct-knowl-extraction/issues/64
 conflict-reports/$(RC_PREFIX).ID.Occurrence.conflicts.pre.tsv: GSC-excel-harmonized-repaired/$(LEGACY_PREFIX).harmonized.tsv
 	$(RUN) find-Xs-with-multiple-Ys \
 		--input-file $< \
@@ -257,21 +282,6 @@ conflict-reports/$(RC_PREFIX).ID.Occurrence.conflicts.post.tsv: GSC-excel-harmon
 		--input-file $< \
 		--x-column 'MIXS ID' \
 		--y-column 'Occurrence' \
-		--output-file $@
-
-
-conflict-reports/$(RC_PREFIX).ID.Section.conflicts.pre.tsv: GSC-excel-harmonized-repaired/$(LEGACY_PREFIX).harmonized.tsv
-	$(RUN) find-Xs-with-multiple-Ys \
-		--input-file $< \
-		--x-column 'MIXS ID' \
-		--y-column 'Section' \
-		--output-file $@
-
-conflict-reports/$(RC_PREFIX).ID.Section.conflicts.post.tsv: GSC-excel-harmonized-repaired/$(RC_PREFIX).repaired.tsv
-	$(RUN) find-Xs-with-multiple-Ys \
-		--input-file $< \
-		--x-column 'MIXS ID' \
-		--y-column 'Section' \
 		--output-file $@
 
 
@@ -290,7 +300,37 @@ conflict-reports/$(RC_PREFIX).ID.prefunit.conflicts.post.tsv: GSC-excel-harmoniz
 		--output-file $@
 
 
-conflict-reports/$(RC_PREFIX).SCN.Item.conflicts.pre.tsv: GSC-excel-harmonized-repaired/$(RC_PREFIX).repaired.tsv
+conflict-reports/$(RC_PREFIX).ID.Section.conflicts.pre.tsv: GSC-excel-harmonized-repaired/$(LEGACY_PREFIX).harmonized.tsv
+	$(RUN) find-Xs-with-multiple-Ys \
+		--input-file $< \
+		--x-column 'MIXS ID' \
+		--y-column 'Section' \
+		--output-file $@
+
+conflict-reports/$(RC_PREFIX).ID.Section.conflicts.post.tsv: GSC-excel-harmonized-repaired/$(RC_PREFIX).repaired.tsv
+	$(RUN) find-Xs-with-multiple-Ys \
+		--input-file $< \
+		--x-column 'MIXS ID' \
+		--y-column 'Section' \
+		--output-file $@
+
+
+conflict-reports/$(RC_PREFIX).ID.valsyn.conflicts.pre.tsv: GSC-excel-harmonized-repaired/$(LEGACY_PREFIX).harmonized.tsv
+	$(RUN) find-Xs-with-multiple-Ys \
+		--input-file $< \
+		--x-column 'MIXS ID' \
+		--y-column 'Value syntax' \
+		--output-file $@
+
+conflict-reports/$(RC_PREFIX).ID.valsyn.conflicts.post.tsv: GSC-excel-harmonized-repaired/$(RC_PREFIX).repaired.tsv
+	$(RUN) find-Xs-with-multiple-Ys \
+		--input-file $< \
+		--x-column 'MIXS ID' \
+		--y-column 'Value syntax' \
+		--output-file $@
+
+
+conflict-reports/$(RC_PREFIX).SCN.Item.conflicts.pre.tsv: GSC-excel-harmonized-repaired/$(LEGACY_PREFIX).harmonized.tsv
 	$(RUN) find-Xs-with-multiple-Ys \
 		--input-file $< \
 		--x-column 'Structured comment name' \
@@ -302,6 +342,22 @@ conflict-reports/$(RC_PREFIX).SCN.Item.conflicts.post.tsv: GSC-excel-harmonized-
 		--input-file $< \
 		--x-column 'Structured comment name' \
 		--y-column Item \
+		--output-file $@
+
+
+
+conflict-reports/$(RC_PREFIX).SCN.Example.conflicts.pre.tsv: GSC-excel-harmonized-repaired/$(LEGACY_PREFIX).harmonized.tsv
+	$(RUN) find-Xs-with-multiple-Ys \
+		--input-file $< \
+		--x-column 'Structured comment name' \
+		--y-column Example \
+		--output-file $@
+
+conflict-reports/$(RC_PREFIX).SCN.Example.conflicts.post.tsv: GSC-excel-harmonized-repaired/$(RC_PREFIX).repaired.tsv
+	$(RUN) find-Xs-with-multiple-Ys \
+		--input-file $< \
+		--x-column 'Structured comment name' \
+		--y-column Example \
 		--output-file $@
 
 # # # #

@@ -4,7 +4,18 @@ imports:
   - linkml:types
 prefixes:
   linkml: https://w3id.org/linkml/
+  AGRO: http://purl.obolibrary.org/obo/AGRO_
+  CHEBI: http://purl.obolibrary.org/obo/CHEBI_
+  ENVO: http://purl.obolibrary.org/obo/ENVO_
 slots:
+  #  farm_equip:
+  #    range: FARM_EQUIP_ENUM
+  #  farm_equip_shared:
+  #    range: FARM_EQUIP_ENUM
+  #  fertilizer_admin:
+  #    range: FERTILIZER_ADMIN_ENUM
+  #  plant_water_method:
+  #    range: PLANT_WATER_METHOD_ENUM
   animal_am_freq:
     range: float
   carb_nitro_ratio:
@@ -105,6 +116,8 @@ slots:
   experimental_factor:
     pattern: ^\S+.*\S+ \[[a-zA-Z]{2,}:\d+\]$
     multivalued: true
+  soil_pH:
+    range: float
 
 classes:
   Soil:
@@ -185,4 +198,35 @@ settings:
 # fractional durations
 # /P(?:(?:(?:\\d+D|\\d+\\.\\d+D$)|(?:\\d+M|\\d+\\.\\d+M$)(?:\\d+D|\\d+\\.\\d+D$)?|(?:\\d+Y|\\d+\\.\\d+Y$)(:?(?:\\d+M|\\d+\\.\\d+M$)(?:\\d+D|\\d+\\.\\d+D$)?)?)(:?T(?:(?:\\d+H|\\d+\\.\\d+H$)(?:(?:\\d+M|\\d+\\.\\d+M$)(?:\\d+S|\\d+\\.\\d+S$)?)?|(?:\\d+M|\\d+\\.\\d+M$)(?:\\d+S|\\d+\\.\\d+S$)?|(?:\\d+S|\\d+\\.\\d+S$)))?|T(?:(?:\\d+H|\\d+\\.\\d+H$)(?:(?:\\d+M|\\d+\\.\\d+M$)(?:\\d+S|\\d+\\.\\d+S$)?)?|(?:\\d+M|\\d+\\.\\d+M$)(?:\\d+S|\\d+\\.\\d+S$)?|(?:\\d+S|\\d+\\.\\d+S$))|(?:\\d+W|\\d+\\.\\d+W$))/gm
 
+enums:
+#  FARM_EQUIP_ENUM:
+#    reachable_from:
+#      source_ontology: obo:agro
+#      source_nodes:
+#        - AGRO:00000416
+#      relationship_types:
+#        - rdfs:subClassOf
+#      is_direct: False
+#      include_self: False
+#      traverse_up: False
+#  PLANT_WATER_METHOD_ENUM:
+#    reachable_from:
+#      source_ontology: obo:agro
+#      source_nodes:
+#        - AGRO:00000006
+#      relationship_types:
+#        - rdfs:subClassOf
+#      is_direct: False
+#      include_self: False
+#      traverse_up: False
+#  FERTILIZER_ADMIN_ENUM:
+#    reachable_from:
+#      source_ontology: obo:agro
+#      source_nodes:
+#        - AGRO:00002062
+#      relationship_types:
+#        - rdfs:subClassOf
+#      is_direct: False
+#      include_self: False
+#      traverse_up: False
 

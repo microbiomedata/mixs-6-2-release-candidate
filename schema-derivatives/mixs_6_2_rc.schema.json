@@ -44,9 +44,13 @@
             "additionalProperties": false,
             "description": "agriculture package",
             "properties": {
+                "Structured_comment_name": {
+                    "description": "The relative proportion of different grain sizes of mineral particles in a soil, as described using a standard system; express as % sand (50 um to 2 mm), silt (2 um to 50 um), and clay (<2 um) with textural name (e.g., silty clay loam) optional",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
-                    "pattern": "^[ACGTRKSYMWBHDVN]+;[ACGTRKSYMWBHDVN]+$",
                     "type": "string"
                 },
                 "adjacent_environment": {
@@ -91,7 +95,6 @@
                 },
                 "assembly_name": {
                     "description": "Name/version of the assembly provided by the submitter that is used in the genome browsers and in the community",
-                    "pattern": "^\\S.*\\S+ \\S.*\\S+$",
                     "type": "string"
                 },
                 "assembly_qual": {
@@ -142,6 +145,7 @@
                 },
                 "cult_isol_date": {
                     "description": "A culture isolation date is a date-time entity marking the end of a process in which a sample is isolated as a single colony or non-mixture culture",
+                    "format": "date-time",
                     "type": "string"
                 },
                 "cur_land_use": {
@@ -310,10 +314,7 @@
                 },
                 "host_disease_stat": {
                     "description": "List of diseases with which the host has been diagnosed; can include multiple diagnoses. The value of the field depends on host; for humans the terms should be chosen from the DO (Human Disease Ontology) at https://www.disease-ontology.org, non-human host diseases are free text",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
+                    "type": "string"
                 },
                 "host_dry_mass": {
                     "description": "Measurement of dry mass",
@@ -358,7 +359,10 @@
                 },
                 "host_symbiont": {
                     "description": "The taxonomic name of the organism(s) found living in mutualistic, commensalistic, or parasitic symbiosis with the specific host. For cases when the specific host of the sample is a symbiont this field should refer to other organisms it is associated with. E.g.: hyperparasite species X (parasite of the parasite).",
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "host_taxid": {
                     "description": "NCBI taxon id of the host, e.g. 9606",
@@ -460,6 +464,7 @@
                 },
                 "nucl_acid_amp": {
                     "description": "A link to a literature reference, electronic resource or a standard operating procedure (SOP), that describes the enzymatic amplification (PCR, TMA, NASBA) of specific nucleic acids",
+                    "pattern": "^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$",
                     "type": "string"
                 },
                 "nucl_acid_ext": {
@@ -622,6 +627,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -825,6 +831,7 @@
                 },
                 "tot_org_carb": {
                     "description": "Definition for soil: total organic carbon content of the soil, definition otherwise: total organic carbon content",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
                     "type": "string"
                 },
                 "tot_phosp": {
@@ -1012,6 +1019,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -1097,6 +1105,11 @@
                     },
                     "type": "array"
                 },
+                "Structured_comment_name": {
+                    "description": "The relative proportion of different grain sizes of mineral particles in a soil, as described using a standard system; express as % sand (50 um to 2 mm), silt (2 um to 50 um), and clay (<2 um) with textural name (e.g., silty clay loam) optional",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
                 "abs_air_humidity": {
                     "description": "Actual mass of water vapor - mh20 - present in the air water vapor mixture",
                     "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
@@ -1104,7 +1117,6 @@
                 },
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
-                    "pattern": "^[ACGTRKSYMWBHDVN]+;[ACGTRKSYMWBHDVN]+$",
                     "type": "string"
                 },
                 "add_recov_method": {
@@ -1333,7 +1345,6 @@
                 },
                 "assembly_name": {
                     "description": "Name/version of the assembly provided by the submitter that is used in the genome browsers and in the community",
-                    "pattern": "^\\S.*\\S+ \\S.*\\S+$",
                     "type": "string"
                 },
                 "assembly_qual": {
@@ -1699,6 +1710,7 @@
                     "type": "string"
                 },
                 "cult_isol_date": {
+                    "format": "date-time",
                     "type": "string"
                 },
                 "cult_result": {
@@ -2281,7 +2293,6 @@
                 },
                 "food_origin": {
                     "description": "A reference to a place on the Earth, by its name or by its geographical location that describes the origin of the food commodity, either in terms of its cultivation or production. This field accepts terms listed under geographic location (http://purl.obolibrary.org/obo/GAZ_00000448)",
-                    "pattern": "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+): ([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+), ([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)",
                     "type": "string"
                 },
                 "food_pack_capacity": {
@@ -2592,12 +2603,10 @@
                 },
                 "host_body_product": {
                     "description": "Substance produced by the body, e.g. Stool, mucus, where the sample was obtained from. For foundational model of anatomy ontology (fma) or Uber-anatomy ontology (UBERON) terms, please see https://www.ebi.ac.uk/ols/ontologies/fma or https://www.ebi.ac.uk/ols/ontologies/uberon",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_site": {
                     "description": "Name of body site where the sample was obtained from, such as a specific organ or tissue (tongue, lung etc...). For foundational model of anatomy ontology (fma) (v 4.11.0) or Uber-anatomy ontology (UBERON) (v releases/2014-06-15) terms, please see http://purl.bioontology.org/ontology/FMA or http://purl.bioontology.org/ontology/UBERON",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_temp": {
@@ -2629,10 +2638,7 @@
                     "type": "array"
                 },
                 "host_disease_stat": {
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
+                    "type": "string"
                 },
                 "host_dry_mass": {
                     "description": "Measurement of dry mass",
@@ -2641,7 +2647,10 @@
                 },
                 "host_fam_rel": {
                     "description": "Relationships to other hosts in the same study; can include multiple relationships",
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "host_genotype": {
                     "description": "Observed genotype",
@@ -2811,7 +2820,10 @@
                     "type": "string"
                 },
                 "host_symbiont": {
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "host_taxid": {
                     "type": "string"
@@ -3354,6 +3366,7 @@
                 },
                 "nucl_acid_amp": {
                     "description": "A link to a literature reference, electronic resource or a standard operating procedure (SOP), that describes the enzymatic amplification (PCR, TMA, NASBA) of specific nucleic acids",
+                    "pattern": "^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$",
                     "type": "string"
                 },
                 "nucl_acid_ext": {
@@ -4032,7 +4045,6 @@
                     "type": "array"
                 },
                 "samp_source_mat_cat": {
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "samp_stor_device": {
@@ -4044,6 +4056,7 @@
                     "type": "string"
                 },
                 "samp_store_dur": {
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -4711,6 +4724,7 @@
                 },
                 "tot_org_carb": {
                     "description": "Definition for soil: total organic carbon content of the soil, definition otherwise: total organic carbon content",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
                     "type": "string"
                 },
                 "tot_part_carb": {
@@ -6475,6 +6489,7 @@
                 },
                 "cult_isol_date": {
                     "description": "A culture isolation date is a date-time entity marking the end of a process in which a sample yields a positive result for the target microbial analyte(s) in the form of an isolated colony or colonies.",
+                    "format": "date-time",
                     "type": "string"
                 },
                 "cult_result": {
@@ -6556,7 +6571,6 @@
                 },
                 "food_origin": {
                     "description": "A reference to a place on the Earth, by its name or by its geographical location that describes the origin of the food commodity, either in terms of its cultivation or production. This field accepts terms listed under geographic location (http://purl.obolibrary.org/obo/GAZ_00000448)",
-                    "pattern": "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+): ([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+), ([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)",
                     "type": "string"
                 },
                 "food_pack_capacity": {
@@ -6774,7 +6788,6 @@
                 },
                 "samp_source_mat_cat": {
                     "description": "This is the scientific role or category that the subject organism or material has with respect to an investigation.  This field accepts terms listed under specimen source material category (http://purl.obolibrary.org/obo/GENEPIO_0001237 or http://purl.obolibrary.org/obo/OBI_0100051).",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "samp_stor_device": {
@@ -6787,6 +6800,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored. Indicate the duration for which the sample was stored written in ISO 8601 format.",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -7058,6 +7072,7 @@
                 },
                 "cult_isol_date": {
                     "description": "A culture isolation date is a date-time entity marking the end of a process in which a sample yields a positive result for the target microbial analyte(s) in the form of an isolated colony or colonies.",
+                    "format": "date-time",
                     "type": "string"
                 },
                 "cult_result": {
@@ -7244,10 +7259,7 @@
                 },
                 "host_disease_stat": {
                     "description": "List of diseases with which the host has been diagnosed; can include multiple diagnoses. The value of the field depends on host; for humans the terms should be chosen from the DO (Human Disease Ontology) at https://www.disease-ontology.org, non-human host diseases are free text.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
+                    "type": "string"
                 },
                 "host_dry_mass": {
                     "description": "Measurement of dry mass",
@@ -7462,11 +7474,11 @@
                 },
                 "samp_source_mat_cat": {
                     "description": "This is the scientific role or category that the subject organism or material has with respect to an investigation.  This field accepts terms listed under specimen source material category (http://purl.obolibrary.org/obo/GENEPIO_0001237 or http://purl.obolibrary.org/obo/OBI_0100051).",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored. Indicate the duration for which the sample was stored written in ISO 8601 format.",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_temp": {
@@ -7659,6 +7671,7 @@
                 },
                 "tot_org_carb": {
                     "description": "Definition for soil: total organic carbon content of the soil, definition otherwise: total organic carbon content",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
                     "type": "string"
                 },
                 "turbidity": {
@@ -7782,6 +7795,7 @@
                 },
                 "cult_isol_date": {
                     "description": "A culture isolation date is a date-time entity marking the end of a process in which a sample yields a positive result for the target microbial analyte(s) in the form of an isolated colony or colonies.",
+                    "format": "date-time",
                     "type": "string"
                 },
                 "cult_result": {
@@ -7893,7 +7907,6 @@
                 },
                 "food_origin": {
                     "description": "A reference to a place on the Earth, by its name or by its geographical location that describes the origin of the food commodity, either in terms of its cultivation or production. This field accepts terms listed under geographic location (http://purl.obolibrary.org/obo/GAZ_00000448)",
-                    "pattern": "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+): ([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+), ([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)",
                     "type": "string"
                 },
                 "food_pack_capacity": {
@@ -8157,7 +8170,6 @@
                 },
                 "samp_source_mat_cat": {
                     "description": "This is the scientific role or category that the subject organism or material has with respect to an investigation.  This field accepts terms listed under specimen (http://purl.obolibrary.org/obo/GENEPIO_0001237 or http://purl.obolibrary.org/obo/OBI_0100051).",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "samp_stor_device": {
@@ -8170,6 +8182,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored. Indicate the duration for which the sample was stored written in ISO 8601 format.",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -8355,6 +8368,7 @@
                 },
                 "cult_isol_date": {
                     "description": "A culture isolation date is a date-time entity marking the end of a process in which a sample yields a positive result for the target microbial analyte(s) in the form of an isolated colony or colonies.",
+                    "format": "date-time",
                     "type": "string"
                 },
                 "cult_result": {
@@ -8493,7 +8507,6 @@
                 },
                 "food_origin": {
                     "description": "A reference to a place on the Earth, by its name or by its geographical location that describes the origin of the food commodity, either in terms of its cultivation or production. This field accepts terms listed under geographic location (http://purl.obolibrary.org/obo/GAZ_00000448)",
-                    "pattern": "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+): ([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+), ([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)",
                     "type": "string"
                 },
                 "food_pack_capacity": {
@@ -8747,7 +8760,6 @@
                 },
                 "samp_source_mat_cat": {
                     "description": "This is the scientific role or category that the subject organism or material has with respect to an investigation.  This field accepts terms listed under specimen source material category (http://purl.obolibrary.org/obo/GENEPIO_0001237 or http://purl.obolibrary.org/obo/OBI_0100051).",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "samp_stor_device": {
@@ -8760,6 +8772,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored. Indicate the duration for which the sample was stored written in ISO 8601 format.",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -9106,12 +9119,10 @@
                 },
                 "host_body_product": {
                     "description": "Substance produced by the body, e.g. Stool, mucus, where the sample was obtained from. For foundational model of anatomy ontology (fma) or Uber-anatomy ontology (UBERON) terms, please see https://www.ebi.ac.uk/ols/ontologies/fma or https://www.ebi.ac.uk/ols/ontologies/uberon",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_site": {
                     "description": "Name of body site where the sample was obtained from, such as a specific organ or tissue (tongue, lung etc...). For foundational model of anatomy ontology (fma) (v 4.11.0) or Uber-anatomy ontology (UBERON) (v releases/2014-06-15) terms, please see http://purl.bioontology.org/ontology/FMA or http://purl.bioontology.org/ontology/UBERON",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_temp": {
@@ -9136,10 +9147,7 @@
                 },
                 "host_disease_stat": {
                     "description": "List of diseases with which the host has been diagnosed; can include multiple diagnoses. The value of the field depends on host; for humans the terms should be chosen from the DO (Human Disease Ontology) at https://www.disease-ontology.org, non-human host diseases are free text",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
+                    "type": "string"
                 },
                 "host_dry_mass": {
                     "description": "Measurement of dry mass",
@@ -9148,7 +9156,10 @@
                 },
                 "host_fam_rel": {
                     "description": "Relationships to other hosts in the same study; can include multiple relationships",
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "host_genotype": {
                     "description": "Observed genotype",
@@ -9209,7 +9220,10 @@
                 },
                 "host_symbiont": {
                     "description": "The taxonomic name of the organism(s) found living in mutualistic, commensalistic, or parasitic symbiosis with the specific host.",
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "host_taxid": {
                     "description": "NCBI taxon id of the host, e.g. 9606",
@@ -9268,6 +9282,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -9357,12 +9372,10 @@
                 },
                 "host_body_product": {
                     "description": "Substance produced by the body, e.g. Stool, mucus, where the sample was obtained from. For foundational model of anatomy ontology (fma) or Uber-anatomy ontology (UBERON) terms, please see https://www.ebi.ac.uk/ols/ontologies/fma or https://www.ebi.ac.uk/ols/ontologies/uberon",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_site": {
                     "description": "Name of body site where the sample was obtained from, such as a specific organ or tissue (tongue, lung etc...). For foundational model of anatomy ontology (fma) (v 4.11.0) or Uber-anatomy ontology (UBERON) (v releases/2014-06-15) terms, please see http://purl.bioontology.org/ontology/FMA or http://purl.bioontology.org/ontology/UBERON",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_temp": {
@@ -9379,14 +9392,14 @@
                 },
                 "host_disease_stat": {
                     "description": "List of diseases with which the host has been diagnosed; can include multiple diagnoses. The terms should be chosen from the DO (Human Disease Ontology) at https://www.disease-ontology.org.",
+                    "type": "string"
+                },
+                "host_fam_rel": {
+                    "description": "Relationships to other hosts in the same study; can include multiple relationships",
                     "items": {
                         "type": "string"
                     },
                     "type": "array"
-                },
-                "host_fam_rel": {
-                    "description": "Relationships to other hosts in the same study; can include multiple relationships",
-                    "type": "string"
                 },
                 "host_genotype": {
                     "description": "Observed genotype",
@@ -9431,7 +9444,10 @@
                 },
                 "host_symbiont": {
                     "description": "The taxonomic name of the organism(s) found living in mutualistic, commensalistic, or parasitic symbiosis with the specific host. The sampled symbiont can have its own symbionts. For example, parasites may have hyperparasites (=parasites of the parasite).",
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "host_tot_mass": {
                     "description": "Total mass of the host at collection, the unit depends on host",
@@ -9520,6 +9536,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -9620,12 +9637,10 @@
                 },
                 "host_body_product": {
                     "description": "Substance produced by the body, e.g. Stool, mucus, where the sample was obtained from. For foundational model of anatomy ontology (fma) or Uber-anatomy ontology (UBERON) terms, please see https://www.ebi.ac.uk/ols/ontologies/fma or https://www.ebi.ac.uk/ols/ontologies/uberon",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_site": {
                     "description": "Name of body site where the sample was obtained from, such as a specific organ or tissue (tongue, lung etc...). For foundational model of anatomy ontology (fma) (v 4.11.0) or Uber-anatomy ontology (UBERON) (v releases/2014-06-15) terms, please see http://purl.bioontology.org/ontology/FMA or http://purl.bioontology.org/ontology/UBERON",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_temp": {
@@ -9642,14 +9657,14 @@
                 },
                 "host_disease_stat": {
                     "description": "List of diseases with which the host has been diagnosed; can include multiple diagnoses. The terms should be chosen from the DO (Human Disease Ontology) at https://www.disease-ontology.org.",
+                    "type": "string"
+                },
+                "host_fam_rel": {
+                    "description": "Relationships to other hosts in the same study; can include multiple relationships",
                     "items": {
                         "type": "string"
                     },
                     "type": "array"
-                },
-                "host_fam_rel": {
-                    "description": "Relationships to other hosts in the same study; can include multiple relationships",
-                    "type": "string"
                 },
                 "host_genotype": {
                     "description": "Observed genotype",
@@ -9690,7 +9705,10 @@
                 },
                 "host_symbiont": {
                     "description": "The taxonomic name of the organism(s) found living in mutualistic, commensalistic, or parasitic symbiosis with the specific host. The sampled symbiont can have its own symbionts. For example, parasites may have hyperparasites (=parasites of the parasite).",
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "host_tot_mass": {
                     "description": "Total mass of the host at collection, the unit depends on host",
@@ -9755,6 +9773,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -9821,12 +9840,10 @@
                 },
                 "host_body_product": {
                     "description": "Substance produced by the body, e.g. Stool, mucus, where the sample was obtained from. For foundational model of anatomy ontology (fma) or Uber-anatomy ontology (UBERON) terms, please see https://www.ebi.ac.uk/ols/ontologies/fma or https://www.ebi.ac.uk/ols/ontologies/uberon",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_site": {
                     "description": "Name of body site where the sample was obtained from, such as a specific organ or tissue (tongue, lung etc...). For foundational model of anatomy ontology (fma) (v 4.11.0) or Uber-anatomy ontology (UBERON) (v releases/2014-06-15) terms, please see http://purl.bioontology.org/ontology/FMA or http://purl.bioontology.org/ontology/UBERON",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_temp": {
@@ -9843,14 +9860,14 @@
                 },
                 "host_disease_stat": {
                     "description": "List of diseases with which the host has been diagnosed; can include multiple diagnoses. The terms should be chosen from the DO (Human Disease Ontology) at https://www.disease-ontology.org.",
+                    "type": "string"
+                },
+                "host_fam_rel": {
+                    "description": "Relationships to other hosts in the same study; can include multiple relationships",
                     "items": {
                         "type": "string"
                     },
                     "type": "array"
-                },
-                "host_fam_rel": {
-                    "description": "Relationships to other hosts in the same study; can include multiple relationships",
-                    "type": "string"
                 },
                 "host_genotype": {
                     "description": "Observed genotype",
@@ -9891,7 +9908,10 @@
                 },
                 "host_symbiont": {
                     "description": "The taxonomic name of the organism(s) found living in mutualistic, commensalistic, or parasitic symbiosis with the specific host. The sampled symbiont can have its own symbionts. For example, parasites may have hyperparasites (=parasites of the parasite).",
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "host_tot_mass": {
                     "description": "Total mass of the host at collection, the unit depends on host",
@@ -9955,6 +9975,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -10030,12 +10051,10 @@
                 },
                 "host_body_product": {
                     "description": "Substance produced by the body, e.g. Stool, mucus, where the sample was obtained from. For foundational model of anatomy ontology (fma) or Uber-anatomy ontology (UBERON) terms, please see https://www.ebi.ac.uk/ols/ontologies/fma or https://www.ebi.ac.uk/ols/ontologies/uberon",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_site": {
                     "description": "Name of body site where the sample was obtained from, such as a specific organ or tissue (tongue, lung etc...). For foundational model of anatomy ontology (fma) (v 4.11.0) or Uber-anatomy ontology (UBERON) (v releases/2014-06-15) terms, please see http://purl.bioontology.org/ontology/FMA or http://purl.bioontology.org/ontology/UBERON",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_temp": {
@@ -10052,14 +10071,14 @@
                 },
                 "host_disease_stat": {
                     "description": "List of diseases with which the host has been diagnosed; can include multiple diagnoses. The terms should be chosen from the DO (Human Disease Ontology) at https://www.disease-ontology.org.",
+                    "type": "string"
+                },
+                "host_fam_rel": {
+                    "description": "Relationships to other hosts in the same study; can include multiple relationships",
                     "items": {
                         "type": "string"
                     },
                     "type": "array"
-                },
-                "host_fam_rel": {
-                    "description": "Relationships to other hosts in the same study; can include multiple relationships",
-                    "type": "string"
                 },
                 "host_genotype": {
                     "description": "Observed genotype",
@@ -10100,7 +10119,10 @@
                 },
                 "host_symbiont": {
                     "description": "The taxonomic name of the organism(s) found living in mutualistic, commensalistic, or parasitic symbiosis with the specific host. The sampled symbiont can have its own symbionts. For example, parasites may have hyperparasites (=parasites of the parasite).",
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "host_tot_mass": {
                     "description": "Total mass of the host at collection, the unit depends on host",
@@ -10158,6 +10180,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -10238,12 +10261,10 @@
                 },
                 "host_body_product": {
                     "description": "Substance produced by the body, e.g. Stool, mucus, where the sample was obtained from. For foundational model of anatomy ontology (fma) or Uber-anatomy ontology (UBERON) terms, please see https://www.ebi.ac.uk/ols/ontologies/fma or https://www.ebi.ac.uk/ols/ontologies/uberon",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_site": {
                     "description": "Name of body site where the sample was obtained from, such as a specific organ or tissue (tongue, lung etc...). For foundational model of anatomy ontology (fma) (v 4.11.0) or Uber-anatomy ontology (UBERON) (v releases/2014-06-15) terms, please see http://purl.bioontology.org/ontology/FMA or http://purl.bioontology.org/ontology/UBERON",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_temp": {
@@ -10260,14 +10281,14 @@
                 },
                 "host_disease_stat": {
                     "description": "List of diseases with which the host has been diagnosed; can include multiple diagnoses. The terms should be chosen from the DO (Human Disease Ontology) at https://www.disease-ontology.org.",
+                    "type": "string"
+                },
+                "host_fam_rel": {
+                    "description": "Relationships to other hosts in the same study; can include multiple relationships",
                     "items": {
                         "type": "string"
                     },
                     "type": "array"
-                },
-                "host_fam_rel": {
-                    "description": "Relationships to other hosts in the same study; can include multiple relationships",
-                    "type": "string"
                 },
                 "host_genotype": {
                     "description": "Observed genotype",
@@ -10308,7 +10329,10 @@
                 },
                 "host_symbiont": {
                     "description": "The taxonomic name of the organism(s) found living in mutualistic, commensalistic, or parasitic symbiosis with the specific host. The sampled symbiont can have its own symbionts. For example, parasites may have hyperparasites (=parasites of the parasite).",
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "host_tot_mass": {
                     "description": "Total mass of the host at collection, the unit depends on host",
@@ -10390,6 +10414,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -10667,6 +10692,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -11105,6 +11131,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -11652,6 +11679,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -11705,6 +11733,7 @@
                 },
                 "tot_org_carb": {
                     "description": "Definition for soil: total organic carbon content of the soil, definition otherwise: total organic carbon content",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
                     "type": "string"
                 },
                 "turbidity": {
@@ -11731,7 +11760,6 @@
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
-                    "pattern": "^[ACGTRKSYMWBHDVN]+;[ACGTRKSYMWBHDVN]+$",
                     "type": "string"
                 },
                 "alt": {
@@ -11749,7 +11777,6 @@
                 },
                 "assembly_name": {
                     "description": "Name/version of the assembly provided by the submitter that is used in the genome browsers and in the community",
-                    "pattern": "^\\S.*\\S+ \\S.*\\S+$",
                     "type": "string"
                 },
                 "assembly_qual": {
@@ -11872,12 +11899,10 @@
                 },
                 "host_body_product": {
                     "description": "Substance produced by the body, e.g. Stool, mucus, where the sample was obtained from. For foundational model of anatomy ontology (fma) or Uber-anatomy ontology (UBERON) terms, please see https://www.ebi.ac.uk/ols/ontologies/fma or https://www.ebi.ac.uk/ols/ontologies/uberon",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_site": {
                     "description": "Name of body site where the sample was obtained from, such as a specific organ or tissue (tongue, lung etc...). For foundational model of anatomy ontology (fma) (v 4.11.0) or Uber-anatomy ontology (UBERON) (v releases/2014-06-15) terms, please see http://purl.bioontology.org/ontology/FMA or http://purl.bioontology.org/ontology/UBERON",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_temp": {
@@ -11902,10 +11927,7 @@
                 },
                 "host_disease_stat": {
                     "description": "List of diseases with which the host has been diagnosed; can include multiple diagnoses. The value of the field depends on host; for humans the terms should be chosen from the DO (Human Disease Ontology) at https://www.disease-ontology.org, non-human host diseases are free text",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
+                    "type": "string"
                 },
                 "host_dry_mass": {
                     "description": "Measurement of dry mass",
@@ -11914,7 +11936,10 @@
                 },
                 "host_fam_rel": {
                     "description": "Relationships to other hosts in the same study; can include multiple relationships",
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "host_genotype": {
                     "description": "Observed genotype",
@@ -11982,7 +12007,10 @@
                 },
                 "host_symbiont": {
                     "description": "The taxonomic name of the organism(s) found living in mutualistic, commensalistic, or parasitic symbiosis with the specific host.",
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "host_taxid": {
                     "description": "NCBI taxon id of the host, e.g. 9606",
@@ -12035,6 +12063,7 @@
                 },
                 "nucl_acid_amp": {
                     "description": "A link to a literature reference, electronic resource or a standard operating procedure (SOP), that describes the enzymatic amplification (PCR, TMA, NASBA) of specific nucleic acids",
+                    "pattern": "^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$",
                     "type": "string"
                 },
                 "nucl_acid_ext": {
@@ -12135,6 +12164,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -12204,20 +12234,20 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "collection_date",
-                "env_medium",
-                "env_local_scale",
-                "assembly_software",
-                "samp_name",
-                "env_broad_scale",
                 "geo_loc_name",
-                "samp_taxon_id",
+                "env_broad_scale",
+                "assembly_software",
                 "project_name",
-                "lat_lon",
-                "number_contig",
                 "isol_growth_condt",
-                "assembly_qual"
+                "number_contig",
+                "assembly_qual",
+                "lat_lon",
+                "samp_name",
+                "env_local_scale",
+                "env_medium",
+                "samp_taxon_id",
+                "seq_meth",
+                "collection_date"
             ],
             "title": "MigsEuHostAssociated",
             "type": "object"
@@ -12228,7 +12258,6 @@
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
-                    "pattern": "^[ACGTRKSYMWBHDVN]+;[ACGTRKSYMWBHDVN]+$",
                     "type": "string"
                 },
                 "alt": {
@@ -12246,7 +12275,6 @@
                 },
                 "assembly_name": {
                     "description": "Name/version of the assembly provided by the submitter that is used in the genome browsers and in the community",
-                    "pattern": "^\\S.*\\S+ \\S.*\\S+$",
                     "type": "string"
                 },
                 "assembly_qual": {
@@ -12381,12 +12409,10 @@
                 },
                 "host_body_product": {
                     "description": "Substance produced by the body, e.g. Stool, mucus, where the sample was obtained from. For foundational model of anatomy ontology (fma) or Uber-anatomy ontology (UBERON) terms, please see https://www.ebi.ac.uk/ols/ontologies/fma or https://www.ebi.ac.uk/ols/ontologies/uberon",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_site": {
                     "description": "Name of body site where the sample was obtained from, such as a specific organ or tissue (tongue, lung etc...). For foundational model of anatomy ontology (fma) (v 4.11.0) or Uber-anatomy ontology (UBERON) (v releases/2014-06-15) terms, please see http://purl.bioontology.org/ontology/FMA or http://purl.bioontology.org/ontology/UBERON",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_temp": {
@@ -12403,14 +12429,14 @@
                 },
                 "host_disease_stat": {
                     "description": "List of diseases with which the host has been diagnosed; can include multiple diagnoses. The value of the field depends on host; for humans the terms should be chosen from the DO (Human Disease Ontology) at https://www.disease-ontology.org, non-human host diseases are free text",
+                    "type": "string"
+                },
+                "host_fam_rel": {
+                    "description": "Relationships to other hosts in the same study; can include multiple relationships",
                     "items": {
                         "type": "string"
                     },
                     "type": "array"
-                },
-                "host_fam_rel": {
-                    "description": "Relationships to other hosts in the same study; can include multiple relationships",
-                    "type": "string"
                 },
                 "host_genotype": {
                     "description": "Observed genotype",
@@ -12462,7 +12488,10 @@
                 },
                 "host_symbiont": {
                     "description": "The taxonomic name of the organism(s) found living in mutualistic, commensalistic, or parasitic symbiosis with the specific host. The sampled symbiont can have its own symbionts. For example, parasites may have hyperparasites (=parasites of the parasite).",
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "host_tot_mass": {
                     "description": "Total mass of the host at collection, the unit depends on host",
@@ -12539,6 +12568,7 @@
                 },
                 "nucl_acid_amp": {
                     "description": "A link to a literature reference, electronic resource or a standard operating procedure (SOP), that describes the enzymatic amplification (PCR, TMA, NASBA) of specific nucleic acids",
+                    "pattern": "^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$",
                     "type": "string"
                 },
                 "nucl_acid_ext": {
@@ -12645,6 +12675,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -12748,20 +12779,20 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "collection_date",
-                "env_medium",
-                "env_local_scale",
-                "assembly_software",
-                "samp_name",
-                "env_broad_scale",
                 "geo_loc_name",
-                "samp_taxon_id",
+                "env_broad_scale",
+                "assembly_software",
                 "project_name",
-                "lat_lon",
-                "number_contig",
                 "isol_growth_condt",
-                "assembly_qual"
+                "number_contig",
+                "assembly_qual",
+                "lat_lon",
+                "samp_name",
+                "env_local_scale",
+                "env_medium",
+                "samp_taxon_id",
+                "seq_meth",
+                "collection_date"
             ],
             "title": "MigsEuHumanAssociated",
             "type": "object"
@@ -12772,7 +12803,6 @@
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
-                    "pattern": "^[ACGTRKSYMWBHDVN]+;[ACGTRKSYMWBHDVN]+$",
                     "type": "string"
                 },
                 "alt": {
@@ -12786,7 +12816,6 @@
                 },
                 "assembly_name": {
                     "description": "Name/version of the assembly provided by the submitter that is used in the genome browsers and in the community",
-                    "pattern": "^\\S.*\\S+ \\S.*\\S+$",
                     "type": "string"
                 },
                 "assembly_qual": {
@@ -12902,12 +12931,10 @@
                 },
                 "host_body_product": {
                     "description": "Substance produced by the body, e.g. Stool, mucus, where the sample was obtained from. For foundational model of anatomy ontology (fma) or Uber-anatomy ontology (UBERON) terms, please see https://www.ebi.ac.uk/ols/ontologies/fma or https://www.ebi.ac.uk/ols/ontologies/uberon",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_site": {
                     "description": "Name of body site where the sample was obtained from, such as a specific organ or tissue (tongue, lung etc...). For foundational model of anatomy ontology (fma) (v 4.11.0) or Uber-anatomy ontology (UBERON) (v releases/2014-06-15) terms, please see http://purl.bioontology.org/ontology/FMA or http://purl.bioontology.org/ontology/UBERON",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_temp": {
@@ -12924,14 +12951,14 @@
                 },
                 "host_disease_stat": {
                     "description": "List of diseases with which the host has been diagnosed; can include multiple diagnoses. The value of the field depends on host; for humans the terms should be chosen from the DO (Human Disease Ontology) at https://www.disease-ontology.org, non-human host diseases are free text",
+                    "type": "string"
+                },
+                "host_fam_rel": {
+                    "description": "Relationships to other hosts in the same study; can include multiple relationships",
                     "items": {
                         "type": "string"
                     },
                     "type": "array"
-                },
-                "host_fam_rel": {
-                    "description": "Relationships to other hosts in the same study; can include multiple relationships",
-                    "type": "string"
                 },
                 "host_genotype": {
                     "description": "Observed genotype",
@@ -12979,7 +13006,10 @@
                 },
                 "host_symbiont": {
                     "description": "The taxonomic name of the organism(s) found living in mutualistic, commensalistic, or parasitic symbiosis with the specific host. The sampled symbiont can have its own symbionts. For example, parasites may have hyperparasites (=parasites of the parasite).",
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "host_tot_mass": {
                     "description": "Total mass of the host at collection, the unit depends on host",
@@ -13046,6 +13076,7 @@
                 },
                 "nucl_acid_amp": {
                     "description": "A link to a literature reference, electronic resource or a standard operating procedure (SOP), that describes the enzymatic amplification (PCR, TMA, NASBA) of specific nucleic acids",
+                    "pattern": "^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$",
                     "type": "string"
                 },
                 "nucl_acid_ext": {
@@ -13138,6 +13169,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -13214,20 +13246,20 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "collection_date",
-                "env_medium",
-                "env_local_scale",
-                "assembly_software",
-                "samp_name",
-                "env_broad_scale",
                 "geo_loc_name",
-                "samp_taxon_id",
+                "env_broad_scale",
+                "assembly_software",
                 "project_name",
-                "lat_lon",
-                "number_contig",
                 "isol_growth_condt",
-                "assembly_qual"
+                "number_contig",
+                "assembly_qual",
+                "lat_lon",
+                "samp_name",
+                "env_local_scale",
+                "env_medium",
+                "samp_taxon_id",
+                "seq_meth",
+                "collection_date"
             ],
             "title": "MigsEuHumanGut",
             "type": "object"
@@ -13238,7 +13270,6 @@
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
-                    "pattern": "^[ACGTRKSYMWBHDVN]+;[ACGTRKSYMWBHDVN]+$",
                     "type": "string"
                 },
                 "alt": {
@@ -13252,7 +13283,6 @@
                 },
                 "assembly_name": {
                     "description": "Name/version of the assembly provided by the submitter that is used in the genome browsers and in the community",
-                    "pattern": "^\\S.*\\S+ \\S.*\\S+$",
                     "type": "string"
                 },
                 "assembly_qual": {
@@ -13361,12 +13391,10 @@
                 },
                 "host_body_product": {
                     "description": "Substance produced by the body, e.g. Stool, mucus, where the sample was obtained from. For foundational model of anatomy ontology (fma) or Uber-anatomy ontology (UBERON) terms, please see https://www.ebi.ac.uk/ols/ontologies/fma or https://www.ebi.ac.uk/ols/ontologies/uberon",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_site": {
                     "description": "Name of body site where the sample was obtained from, such as a specific organ or tissue (tongue, lung etc...). For foundational model of anatomy ontology (fma) (v 4.11.0) or Uber-anatomy ontology (UBERON) (v releases/2014-06-15) terms, please see http://purl.bioontology.org/ontology/FMA or http://purl.bioontology.org/ontology/UBERON",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_temp": {
@@ -13383,14 +13411,14 @@
                 },
                 "host_disease_stat": {
                     "description": "List of diseases with which the host has been diagnosed; can include multiple diagnoses. The value of the field depends on host; for humans the terms should be chosen from the DO (Human Disease Ontology) at https://www.disease-ontology.org, non-human host diseases are free text",
+                    "type": "string"
+                },
+                "host_fam_rel": {
+                    "description": "Relationships to other hosts in the same study; can include multiple relationships",
                     "items": {
                         "type": "string"
                     },
                     "type": "array"
-                },
-                "host_fam_rel": {
-                    "description": "Relationships to other hosts in the same study; can include multiple relationships",
-                    "type": "string"
                 },
                 "host_genotype": {
                     "description": "Observed genotype",
@@ -13438,7 +13466,10 @@
                 },
                 "host_symbiont": {
                     "description": "The taxonomic name of the organism(s) found living in mutualistic, commensalistic, or parasitic symbiosis with the specific host. The sampled symbiont can have its own symbionts. For example, parasites may have hyperparasites (=parasites of the parasite).",
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "host_tot_mass": {
                     "description": "Total mass of the host at collection, the unit depends on host",
@@ -13504,6 +13535,7 @@
                 },
                 "nucl_acid_amp": {
                     "description": "A link to a literature reference, electronic resource or a standard operating procedure (SOP), that describes the enzymatic amplification (PCR, TMA, NASBA) of specific nucleic acids",
+                    "pattern": "^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$",
                     "type": "string"
                 },
                 "nucl_acid_ext": {
@@ -13596,6 +13628,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -13670,20 +13703,20 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "collection_date",
-                "env_medium",
-                "env_local_scale",
-                "assembly_software",
-                "samp_name",
-                "env_broad_scale",
                 "geo_loc_name",
-                "samp_taxon_id",
+                "env_broad_scale",
+                "assembly_software",
                 "project_name",
-                "lat_lon",
-                "number_contig",
                 "isol_growth_condt",
-                "assembly_qual"
+                "number_contig",
+                "assembly_qual",
+                "lat_lon",
+                "samp_name",
+                "env_local_scale",
+                "env_medium",
+                "samp_taxon_id",
+                "seq_meth",
+                "collection_date"
             ],
             "title": "MigsEuHumanOral",
             "type": "object"
@@ -13694,7 +13727,6 @@
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
-                    "pattern": "^[ACGTRKSYMWBHDVN]+;[ACGTRKSYMWBHDVN]+$",
                     "type": "string"
                 },
                 "air_temp_regm": {
@@ -13726,7 +13758,6 @@
                 },
                 "assembly_name": {
                     "description": "Name/version of the assembly provided by the submitter that is used in the genome browsers and in the community",
-                    "pattern": "^\\S.*\\S+ \\S.*\\S+$",
                     "type": "string"
                 },
                 "assembly_qual": {
@@ -13910,10 +13941,7 @@
                 },
                 "host_disease_stat": {
                     "description": "List of diseases with which the host has been diagnosed; can include multiple diagnoses. The value of the field depends on host; for humans the terms should be chosen from the DO (Human Disease Ontology) at https://www.disease-ontology.org, non-human host diseases are free text",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
+                    "type": "string"
                 },
                 "host_dry_mass": {
                     "description": "Measurement of dry mass",
@@ -13958,7 +13986,10 @@
                 },
                 "host_symbiont": {
                     "description": "The taxonomic name of the organism(s) found living in mutualistic, commensalistic, or parasitic symbiosis with the specific host. The sampled symbiont can have its own symbionts. For example, parasites may have hyperparasites (=parasites of the parasite).",
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "host_taxid": {
                     "description": "NCBI taxon id of the host, e.g. 9606",
@@ -14048,6 +14079,7 @@
                 },
                 "nucl_acid_amp": {
                     "description": "A link to a literature reference, electronic resource or a standard operating procedure (SOP), that describes the enzymatic amplification (PCR, TMA, NASBA) of specific nucleic acids",
+                    "pattern": "^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$",
                     "type": "string"
                 },
                 "nucl_acid_ext": {
@@ -14233,6 +14265,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -14335,20 +14368,20 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "collection_date",
-                "env_medium",
-                "env_local_scale",
-                "assembly_software",
-                "samp_name",
-                "env_broad_scale",
                 "geo_loc_name",
-                "samp_taxon_id",
+                "env_broad_scale",
+                "assembly_software",
                 "project_name",
-                "lat_lon",
-                "number_contig",
                 "isol_growth_condt",
-                "assembly_qual"
+                "number_contig",
+                "assembly_qual",
+                "lat_lon",
+                "samp_name",
+                "env_local_scale",
+                "env_medium",
+                "samp_taxon_id",
+                "seq_meth",
+                "collection_date"
             ],
             "title": "MigsEuPlantAssociated",
             "type": "object"
@@ -14357,9 +14390,13 @@
             "additionalProperties": false,
             "description": "MIxS data that complies with the MigsEu checklist and the Soil environmental package",
             "properties": {
+                "Structured_comment_name": {
+                    "description": "The relative proportion of different grain sizes of mineral particles in a soil, as described using a standard system; express as % sand (50 um to 2 mm), silt (2 um to 50 um), and clay (<2 um) with textural name (e.g., silty clay loam) optional",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
-                    "pattern": "^[ACGTRKSYMWBHDVN]+;[ACGTRKSYMWBHDVN]+$",
                     "type": "string"
                 },
                 "agrochem_addition": {
@@ -14400,7 +14437,6 @@
                 },
                 "assembly_name": {
                     "description": "Name/version of the assembly provided by the submitter that is used in the genome browsers and in the community",
-                    "pattern": "^\\S.*\\S+ \\S.*\\S+$",
                     "type": "string"
                 },
                 "assembly_qual": {
@@ -14542,10 +14578,7 @@
                 },
                 "host_disease_stat": {
                     "description": "List of diseases with which the host has been diagnosed; can include multiple diagnoses. The value of the field depends on host; for humans the terms should be chosen from the DO (Human Disease Ontology) at https://www.disease-ontology.org, non-human host diseases are free text",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
+                    "type": "string"
                 },
                 "host_spec_range": {
                     "description": "The range and diversity of host species that an organism is capable of infecting, defined by NCBI taxonomy identifier",
@@ -14630,6 +14663,7 @@
                 },
                 "nucl_acid_amp": {
                     "description": "A link to a literature reference, electronic resource or a standard operating procedure (SOP), that describes the enzymatic amplification (PCR, TMA, NASBA) of specific nucleic acids",
+                    "pattern": "^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$",
                     "type": "string"
                 },
                 "nucl_acid_ext": {
@@ -14855,6 +14889,7 @@
                 },
                 "tot_org_carb": {
                     "description": "Definition for soil: total organic carbon content of the soil, definition otherwise: total organic carbon content",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
                     "type": "string"
                 },
                 "trophic_level": {
@@ -14873,22 +14908,22 @@
                 }
             },
             "required": [
-                "elev",
-                "seq_meth",
-                "collection_date",
-                "env_medium",
-                "env_local_scale",
-                "assembly_software",
-                "samp_name",
-                "env_broad_scale",
                 "geo_loc_name",
-                "depth",
-                "samp_taxon_id",
+                "env_broad_scale",
+                "assembly_software",
                 "project_name",
-                "lat_lon",
-                "number_contig",
                 "isol_growth_condt",
-                "assembly_qual"
+                "number_contig",
+                "assembly_qual",
+                "lat_lon",
+                "depth",
+                "elev",
+                "samp_name",
+                "env_local_scale",
+                "env_medium",
+                "samp_taxon_id",
+                "seq_meth",
+                "collection_date"
             ],
             "title": "MigsEuSoil",
             "type": "object"
@@ -14899,7 +14934,6 @@
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
-                    "pattern": "^[ACGTRKSYMWBHDVN]+;[ACGTRKSYMWBHDVN]+$",
                     "type": "string"
                 },
                 "alkalinity": {
@@ -14937,7 +14971,6 @@
                 },
                 "assembly_name": {
                     "description": "Name/version of the assembly provided by the submitter that is used in the genome browsers and in the community",
-                    "pattern": "^\\S.*\\S+ \\S.*\\S+$",
                     "type": "string"
                 },
                 "assembly_qual": {
@@ -15159,10 +15192,7 @@
                 },
                 "host_disease_stat": {
                     "description": "List of diseases with which the host has been diagnosed; can include multiple diagnoses. The value of the field depends on host; for humans the terms should be chosen from the DO (Human Disease Ontology) at https://www.disease-ontology.org, non-human host diseases are free text",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
+                    "type": "string"
                 },
                 "host_spec_range": {
                     "description": "The range and diversity of host species that an organism is capable of infecting, defined by NCBI taxonomy identifier",
@@ -15255,6 +15285,7 @@
                 },
                 "nucl_acid_amp": {
                     "description": "A link to a literature reference, electronic resource or a standard operating procedure (SOP), that describes the enzymatic amplification (PCR, TMA, NASBA) of specific nucleic acids",
+                    "pattern": "^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$",
                     "type": "string"
                 },
                 "nucl_acid_ext": {
@@ -15425,6 +15456,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -15578,21 +15610,21 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "collection_date",
-                "env_medium",
-                "env_local_scale",
-                "assembly_software",
-                "samp_name",
-                "env_broad_scale",
                 "geo_loc_name",
-                "depth",
-                "samp_taxon_id",
+                "env_broad_scale",
+                "assembly_software",
                 "project_name",
-                "lat_lon",
-                "number_contig",
                 "isol_growth_condt",
-                "assembly_qual"
+                "number_contig",
+                "assembly_qual",
+                "lat_lon",
+                "depth",
+                "samp_name",
+                "env_local_scale",
+                "env_medium",
+                "samp_taxon_id",
+                "seq_meth",
+                "collection_date"
             ],
             "title": "MigsEuWater",
             "type": "object"
@@ -15603,7 +15635,6 @@
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
-                    "pattern": "^[ACGTRKSYMWBHDVN]+;[ACGTRKSYMWBHDVN]+$",
                     "type": "string"
                 },
                 "alt": {
@@ -15711,12 +15742,10 @@
                 },
                 "host_body_product": {
                     "description": "Substance produced by the body, e.g. Stool, mucus, where the sample was obtained from. For foundational model of anatomy ontology (fma) or Uber-anatomy ontology (UBERON) terms, please see https://www.ebi.ac.uk/ols/ontologies/fma or https://www.ebi.ac.uk/ols/ontologies/uberon",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_site": {
                     "description": "Name of body site where the sample was obtained from, such as a specific organ or tissue (tongue, lung etc...). For foundational model of anatomy ontology (fma) (v 4.11.0) or Uber-anatomy ontology (UBERON) (v releases/2014-06-15) terms, please see http://purl.bioontology.org/ontology/FMA or http://purl.bioontology.org/ontology/UBERON",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_temp": {
@@ -15741,10 +15770,7 @@
                 },
                 "host_disease_stat": {
                     "description": "List of diseases with which the host has been diagnosed; can include multiple diagnoses. The value of the field depends on host; for humans the terms should be chosen from the DO (Human Disease Ontology) at https://www.disease-ontology.org, non-human host diseases are free text",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
+                    "type": "string"
                 },
                 "host_dry_mass": {
                     "description": "Measurement of dry mass",
@@ -15753,7 +15779,10 @@
                 },
                 "host_fam_rel": {
                     "description": "Relationships to other hosts in the same study; can include multiple relationships",
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "host_genotype": {
                     "description": "Observed genotype",
@@ -15814,7 +15843,10 @@
                 },
                 "host_symbiont": {
                     "description": "The taxonomic name of the organism(s) found living in mutualistic, commensalistic, or parasitic symbiosis with the specific host.",
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "host_taxid": {
                     "description": "NCBI taxon id of the host, e.g. 9606",
@@ -15867,6 +15899,7 @@
                 },
                 "nucl_acid_amp": {
                     "description": "A link to a literature reference, electronic resource or a standard operating procedure (SOP), that describes the enzymatic amplification (PCR, TMA, NASBA) of specific nucleic acids",
+                    "pattern": "^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$",
                     "type": "string"
                 },
                 "nucl_acid_ext": {
@@ -15949,6 +15982,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -16010,17 +16044,17 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "collection_date",
-                "target_gene",
-                "env_medium",
-                "env_local_scale",
-                "samp_name",
-                "env_broad_scale",
                 "geo_loc_name",
-                "samp_taxon_id",
+                "env_broad_scale",
                 "project_name",
-                "lat_lon"
+                "target_gene",
+                "lat_lon",
+                "samp_name",
+                "env_local_scale",
+                "env_medium",
+                "samp_taxon_id",
+                "seq_meth",
+                "collection_date"
             ],
             "title": "MimarksSHostAssociated",
             "type": "object"
@@ -16031,7 +16065,6 @@
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
-                    "pattern": "^[ACGTRKSYMWBHDVN]+;[ACGTRKSYMWBHDVN]+$",
                     "type": "string"
                 },
                 "alt": {
@@ -16151,12 +16184,10 @@
                 },
                 "host_body_product": {
                     "description": "Substance produced by the body, e.g. Stool, mucus, where the sample was obtained from. For foundational model of anatomy ontology (fma) or Uber-anatomy ontology (UBERON) terms, please see https://www.ebi.ac.uk/ols/ontologies/fma or https://www.ebi.ac.uk/ols/ontologies/uberon",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_site": {
                     "description": "Name of body site where the sample was obtained from, such as a specific organ or tissue (tongue, lung etc...). For foundational model of anatomy ontology (fma) (v 4.11.0) or Uber-anatomy ontology (UBERON) (v releases/2014-06-15) terms, please see http://purl.bioontology.org/ontology/FMA or http://purl.bioontology.org/ontology/UBERON",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_temp": {
@@ -16173,14 +16204,14 @@
                 },
                 "host_disease_stat": {
                     "description": "List of diseases with which the host has been diagnosed; can include multiple diagnoses. The terms should be chosen from the DO (Human Disease Ontology) at https://www.disease-ontology.org.",
+                    "type": "string"
+                },
+                "host_fam_rel": {
+                    "description": "Relationships to other hosts in the same study; can include multiple relationships",
                     "items": {
                         "type": "string"
                     },
                     "type": "array"
-                },
-                "host_fam_rel": {
-                    "description": "Relationships to other hosts in the same study; can include multiple relationships",
-                    "type": "string"
                 },
                 "host_genotype": {
                     "description": "Observed genotype",
@@ -16225,7 +16256,10 @@
                 },
                 "host_symbiont": {
                     "description": "The taxonomic name of the organism(s) found living in mutualistic, commensalistic, or parasitic symbiosis with the specific host. The sampled symbiont can have its own symbionts. For example, parasites may have hyperparasites (=parasites of the parasite).",
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "host_tot_mass": {
                     "description": "Total mass of the host at collection, the unit depends on host",
@@ -16302,6 +16336,7 @@
                 },
                 "nucl_acid_amp": {
                     "description": "A link to a literature reference, electronic resource or a standard operating procedure (SOP), that describes the enzymatic amplification (PCR, TMA, NASBA) of specific nucleic acids",
+                    "pattern": "^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$",
                     "type": "string"
                 },
                 "nucl_acid_ext": {
@@ -16390,6 +16425,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -16485,17 +16521,17 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "collection_date",
-                "target_gene",
-                "env_medium",
-                "env_local_scale",
-                "samp_name",
-                "env_broad_scale",
                 "geo_loc_name",
-                "samp_taxon_id",
+                "env_broad_scale",
                 "project_name",
-                "lat_lon"
+                "target_gene",
+                "lat_lon",
+                "samp_name",
+                "env_local_scale",
+                "env_medium",
+                "samp_taxon_id",
+                "seq_meth",
+                "collection_date"
             ],
             "title": "MimarksSHumanAssociated",
             "type": "object"
@@ -16506,7 +16542,6 @@
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
-                    "pattern": "^[ACGTRKSYMWBHDVN]+;[ACGTRKSYMWBHDVN]+$",
                     "type": "string"
                 },
                 "alt": {
@@ -16603,12 +16638,10 @@
                 },
                 "host_body_product": {
                     "description": "Substance produced by the body, e.g. Stool, mucus, where the sample was obtained from. For foundational model of anatomy ontology (fma) or Uber-anatomy ontology (UBERON) terms, please see https://www.ebi.ac.uk/ols/ontologies/fma or https://www.ebi.ac.uk/ols/ontologies/uberon",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_site": {
                     "description": "Name of body site where the sample was obtained from, such as a specific organ or tissue (tongue, lung etc...). For foundational model of anatomy ontology (fma) (v 4.11.0) or Uber-anatomy ontology (UBERON) (v releases/2014-06-15) terms, please see http://purl.bioontology.org/ontology/FMA or http://purl.bioontology.org/ontology/UBERON",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_temp": {
@@ -16625,14 +16658,14 @@
                 },
                 "host_disease_stat": {
                     "description": "List of diseases with which the host has been diagnosed; can include multiple diagnoses. The terms should be chosen from the DO (Human Disease Ontology) at https://www.disease-ontology.org.",
+                    "type": "string"
+                },
+                "host_fam_rel": {
+                    "description": "Relationships to other hosts in the same study; can include multiple relationships",
                     "items": {
                         "type": "string"
                     },
                     "type": "array"
-                },
-                "host_fam_rel": {
-                    "description": "Relationships to other hosts in the same study; can include multiple relationships",
-                    "type": "string"
                 },
                 "host_genotype": {
                     "description": "Observed genotype",
@@ -16673,7 +16706,10 @@
                 },
                 "host_symbiont": {
                     "description": "The taxonomic name of the organism(s) found living in mutualistic, commensalistic, or parasitic symbiosis with the specific host. The sampled symbiont can have its own symbionts. For example, parasites may have hyperparasites (=parasites of the parasite).",
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "host_tot_mass": {
                     "description": "Total mass of the host at collection, the unit depends on host",
@@ -16740,6 +16776,7 @@
                 },
                 "nucl_acid_amp": {
                     "description": "A link to a literature reference, electronic resource or a standard operating procedure (SOP), that describes the enzymatic amplification (PCR, TMA, NASBA) of specific nucleic acids",
+                    "pattern": "^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$",
                     "type": "string"
                 },
                 "nucl_acid_ext": {
@@ -16814,6 +16851,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -16882,17 +16920,17 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "collection_date",
-                "target_gene",
-                "env_medium",
-                "env_local_scale",
-                "samp_name",
-                "env_broad_scale",
                 "geo_loc_name",
-                "samp_taxon_id",
+                "env_broad_scale",
                 "project_name",
-                "lat_lon"
+                "target_gene",
+                "lat_lon",
+                "samp_name",
+                "env_local_scale",
+                "env_medium",
+                "samp_taxon_id",
+                "seq_meth",
+                "collection_date"
             ],
             "title": "MimarksSHumanGut",
             "type": "object"
@@ -16903,7 +16941,6 @@
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
-                    "pattern": "^[ACGTRKSYMWBHDVN]+;[ACGTRKSYMWBHDVN]+$",
                     "type": "string"
                 },
                 "alt": {
@@ -16993,12 +17030,10 @@
                 },
                 "host_body_product": {
                     "description": "Substance produced by the body, e.g. Stool, mucus, where the sample was obtained from. For foundational model of anatomy ontology (fma) or Uber-anatomy ontology (UBERON) terms, please see https://www.ebi.ac.uk/ols/ontologies/fma or https://www.ebi.ac.uk/ols/ontologies/uberon",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_site": {
                     "description": "Name of body site where the sample was obtained from, such as a specific organ or tissue (tongue, lung etc...). For foundational model of anatomy ontology (fma) (v 4.11.0) or Uber-anatomy ontology (UBERON) (v releases/2014-06-15) terms, please see http://purl.bioontology.org/ontology/FMA or http://purl.bioontology.org/ontology/UBERON",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_temp": {
@@ -17015,14 +17050,14 @@
                 },
                 "host_disease_stat": {
                     "description": "List of diseases with which the host has been diagnosed; can include multiple diagnoses. The terms should be chosen from the DO (Human Disease Ontology) at https://www.disease-ontology.org.",
+                    "type": "string"
+                },
+                "host_fam_rel": {
+                    "description": "Relationships to other hosts in the same study; can include multiple relationships",
                     "items": {
                         "type": "string"
                     },
                     "type": "array"
-                },
-                "host_fam_rel": {
-                    "description": "Relationships to other hosts in the same study; can include multiple relationships",
-                    "type": "string"
                 },
                 "host_genotype": {
                     "description": "Observed genotype",
@@ -17063,7 +17098,10 @@
                 },
                 "host_symbiont": {
                     "description": "The taxonomic name of the organism(s) found living in mutualistic, commensalistic, or parasitic symbiosis with the specific host. The sampled symbiont can have its own symbionts. For example, parasites may have hyperparasites (=parasites of the parasite).",
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "host_tot_mass": {
                     "description": "Total mass of the host at collection, the unit depends on host",
@@ -17129,6 +17167,7 @@
                 },
                 "nucl_acid_amp": {
                     "description": "A link to a literature reference, electronic resource or a standard operating procedure (SOP), that describes the enzymatic amplification (PCR, TMA, NASBA) of specific nucleic acids",
+                    "pattern": "^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$",
                     "type": "string"
                 },
                 "nucl_acid_ext": {
@@ -17203,6 +17242,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -17269,17 +17309,17 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "collection_date",
-                "target_gene",
-                "env_medium",
-                "env_local_scale",
-                "samp_name",
-                "env_broad_scale",
                 "geo_loc_name",
-                "samp_taxon_id",
+                "env_broad_scale",
                 "project_name",
-                "lat_lon"
+                "target_gene",
+                "lat_lon",
+                "samp_name",
+                "env_local_scale",
+                "env_medium",
+                "samp_taxon_id",
+                "seq_meth",
+                "collection_date"
             ],
             "title": "MimarksSHumanOral",
             "type": "object"
@@ -17290,7 +17330,6 @@
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
-                    "pattern": "^[ACGTRKSYMWBHDVN]+;[ACGTRKSYMWBHDVN]+$",
                     "type": "string"
                 },
                 "air_temp_regm": {
@@ -17473,10 +17512,7 @@
                 },
                 "host_disease_stat": {
                     "description": "List of diseases with which the host has been diagnosed; can include multiple diagnoses. The value of the field depends on host; for humans the terms should be chosen from the DO (Human Disease Ontology) at https://www.disease-ontology.org, non-human host diseases are free text.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
+                    "type": "string"
                 },
                 "host_dry_mass": {
                     "description": "Measurement of dry mass",
@@ -17514,7 +17550,10 @@
                 },
                 "host_symbiont": {
                     "description": "The taxonomic name of the organism(s) found living in mutualistic, commensalistic, or parasitic symbiosis with the specific host. The sampled symbiont can have its own symbionts. For example, parasites may have hyperparasites (=parasites of the parasite).",
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "host_taxid": {
                     "description": "NCBI taxon id of the host, e.g. 9606",
@@ -17604,6 +17643,7 @@
                 },
                 "nucl_acid_amp": {
                     "description": "A link to a literature reference, electronic resource or a standard operating procedure (SOP), that describes the enzymatic amplification (PCR, TMA, NASBA) of specific nucleic acids",
+                    "pattern": "^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$",
                     "type": "string"
                 },
                 "nucl_acid_ext": {
@@ -17771,6 +17811,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -17865,17 +17906,17 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "collection_date",
-                "target_gene",
-                "env_medium",
-                "env_local_scale",
-                "samp_name",
-                "env_broad_scale",
                 "geo_loc_name",
-                "samp_taxon_id",
+                "env_broad_scale",
                 "project_name",
-                "lat_lon"
+                "target_gene",
+                "lat_lon",
+                "samp_name",
+                "env_local_scale",
+                "env_medium",
+                "samp_taxon_id",
+                "seq_meth",
+                "collection_date"
             ],
             "title": "MimarksSPlantAssociated",
             "type": "object"
@@ -17884,9 +17925,13 @@
             "additionalProperties": false,
             "description": "MIxS data that complies with the MimarksS checklist and the Soil environmental package",
             "properties": {
+                "Structured_comment_name": {
+                    "description": "The relative proportion of different grain sizes of mineral particles in a soil, as described using a standard system; express as % sand (50 um to 2 mm), silt (2 um to 50 um), and clay (<2 um) with textural name (e.g., silty clay loam) optional",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
-                    "pattern": "^[ACGTRKSYMWBHDVN]+;[ACGTRKSYMWBHDVN]+$",
                     "type": "string"
                 },
                 "agrochem_addition": {
@@ -18110,6 +18155,7 @@
                 },
                 "nucl_acid_amp": {
                     "description": "A link to a literature reference, electronic resource or a standard operating procedure (SOP), that describes the enzymatic amplification (PCR, TMA, NASBA) of specific nucleic acids",
+                    "pattern": "^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$",
                     "type": "string"
                 },
                 "nucl_acid_ext": {
@@ -18313,6 +18359,7 @@
                 },
                 "tot_org_carb": {
                     "description": "Definition for soil: total organic carbon content of the soil, definition otherwise: total organic carbon content",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
                     "type": "string"
                 },
                 "water_cont_soil_meth": {
@@ -18327,19 +18374,19 @@
                 }
             },
             "required": [
-                "elev",
-                "seq_meth",
-                "collection_date",
-                "target_gene",
-                "env_medium",
-                "env_local_scale",
-                "samp_name",
-                "env_broad_scale",
                 "geo_loc_name",
-                "depth",
-                "samp_taxon_id",
+                "env_broad_scale",
                 "project_name",
-                "lat_lon"
+                "target_gene",
+                "lat_lon",
+                "depth",
+                "elev",
+                "samp_name",
+                "env_local_scale",
+                "env_medium",
+                "samp_taxon_id",
+                "seq_meth",
+                "collection_date"
             ],
             "title": "MimarksSSoil",
             "type": "object"
@@ -18350,7 +18397,6 @@
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
-                    "pattern": "^[ACGTRKSYMWBHDVN]+;[ACGTRKSYMWBHDVN]+$",
                     "type": "string"
                 },
                 "alkalinity": {
@@ -18659,6 +18705,7 @@
                 },
                 "nucl_acid_amp": {
                     "description": "A link to a literature reference, electronic resource or a standard operating procedure (SOP), that describes the enzymatic amplification (PCR, TMA, NASBA) of specific nucleic acids",
+                    "pattern": "^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$",
                     "type": "string"
                 },
                 "nucl_acid_ext": {
@@ -18811,6 +18858,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -18956,18 +19004,18 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "collection_date",
-                "target_gene",
-                "env_medium",
-                "env_local_scale",
-                "samp_name",
-                "env_broad_scale",
                 "geo_loc_name",
-                "depth",
-                "samp_taxon_id",
+                "env_broad_scale",
                 "project_name",
-                "lat_lon"
+                "target_gene",
+                "lat_lon",
+                "depth",
+                "samp_name",
+                "env_local_scale",
+                "env_medium",
+                "samp_taxon_id",
+                "seq_meth",
+                "collection_date"
             ],
             "title": "MimarksSWater",
             "type": "object"
@@ -18978,7 +19026,6 @@
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
-                    "pattern": "^[ACGTRKSYMWBHDVN]+;[ACGTRKSYMWBHDVN]+$",
                     "type": "string"
                 },
                 "alt": {
@@ -18996,7 +19043,6 @@
                 },
                 "assembly_name": {
                     "description": "Name/version of the assembly provided by the submitter that is used in the genome browsers and in the community",
-                    "pattern": "^\\S.*\\S+ \\S.*\\S+$",
                     "type": "string"
                 },
                 "assembly_qual": {
@@ -19099,12 +19145,10 @@
                 },
                 "host_body_product": {
                     "description": "Substance produced by the body, e.g. Stool, mucus, where the sample was obtained from. For foundational model of anatomy ontology (fma) or Uber-anatomy ontology (UBERON) terms, please see https://www.ebi.ac.uk/ols/ontologies/fma or https://www.ebi.ac.uk/ols/ontologies/uberon",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_site": {
                     "description": "Name of body site where the sample was obtained from, such as a specific organ or tissue (tongue, lung etc...). For foundational model of anatomy ontology (fma) (v 4.11.0) or Uber-anatomy ontology (UBERON) (v releases/2014-06-15) terms, please see http://purl.bioontology.org/ontology/FMA or http://purl.bioontology.org/ontology/UBERON",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_temp": {
@@ -19129,10 +19173,7 @@
                 },
                 "host_disease_stat": {
                     "description": "List of diseases with which the host has been diagnosed; can include multiple diagnoses. The value of the field depends on host; for humans the terms should be chosen from the DO (Human Disease Ontology) at https://www.disease-ontology.org, non-human host diseases are free text",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
+                    "type": "string"
                 },
                 "host_dry_mass": {
                     "description": "Measurement of dry mass",
@@ -19141,7 +19182,10 @@
                 },
                 "host_fam_rel": {
                     "description": "Relationships to other hosts in the same study; can include multiple relationships",
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "host_genotype": {
                     "description": "Observed genotype",
@@ -19202,7 +19246,10 @@
                 },
                 "host_symbiont": {
                     "description": "The taxonomic name of the organism(s) found living in mutualistic, commensalistic, or parasitic symbiosis with the specific host.",
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "host_taxid": {
                     "description": "NCBI taxon id of the host, e.g. 9606",
@@ -19255,6 +19302,7 @@
                 },
                 "nucl_acid_amp": {
                     "description": "A link to a literature reference, electronic resource or a standard operating procedure (SOP), that describes the enzymatic amplification (PCR, TMA, NASBA) of specific nucleic acids",
+                    "pattern": "^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$",
                     "type": "string"
                 },
                 "nucl_acid_ext": {
@@ -19342,6 +19390,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -19399,16 +19448,16 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "collection_date",
-                "env_medium",
-                "env_local_scale",
-                "samp_name",
-                "env_broad_scale",
                 "geo_loc_name",
-                "samp_taxon_id",
+                "env_broad_scale",
                 "project_name",
-                "lat_lon"
+                "lat_lon",
+                "samp_name",
+                "env_local_scale",
+                "env_medium",
+                "samp_taxon_id",
+                "seq_meth",
+                "collection_date"
             ],
             "title": "MimsHostAssociated",
             "type": "object"
@@ -19419,7 +19468,6 @@
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
-                    "pattern": "^[ACGTRKSYMWBHDVN]+;[ACGTRKSYMWBHDVN]+$",
                     "type": "string"
                 },
                 "alt": {
@@ -19437,7 +19485,6 @@
                 },
                 "assembly_name": {
                     "description": "Name/version of the assembly provided by the submitter that is used in the genome browsers and in the community",
-                    "pattern": "^\\S.*\\S+ \\S.*\\S+$",
                     "type": "string"
                 },
                 "assembly_qual": {
@@ -19552,12 +19599,10 @@
                 },
                 "host_body_product": {
                     "description": "Substance produced by the body, e.g. Stool, mucus, where the sample was obtained from. For foundational model of anatomy ontology (fma) or Uber-anatomy ontology (UBERON) terms, please see https://www.ebi.ac.uk/ols/ontologies/fma or https://www.ebi.ac.uk/ols/ontologies/uberon",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_site": {
                     "description": "Name of body site where the sample was obtained from, such as a specific organ or tissue (tongue, lung etc...). For foundational model of anatomy ontology (fma) (v 4.11.0) or Uber-anatomy ontology (UBERON) (v releases/2014-06-15) terms, please see http://purl.bioontology.org/ontology/FMA or http://purl.bioontology.org/ontology/UBERON",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_temp": {
@@ -19574,14 +19619,14 @@
                 },
                 "host_disease_stat": {
                     "description": "List of diseases with which the host has been diagnosed; can include multiple diagnoses. The terms should be chosen from the DO (Human Disease Ontology) at https://www.disease-ontology.org.",
+                    "type": "string"
+                },
+                "host_fam_rel": {
+                    "description": "Relationships to other hosts in the same study; can include multiple relationships",
                     "items": {
                         "type": "string"
                     },
                     "type": "array"
-                },
-                "host_fam_rel": {
-                    "description": "Relationships to other hosts in the same study; can include multiple relationships",
-                    "type": "string"
                 },
                 "host_genotype": {
                     "description": "Observed genotype",
@@ -19626,7 +19671,10 @@
                 },
                 "host_symbiont": {
                     "description": "The taxonomic name of the organism(s) found living in mutualistic, commensalistic, or parasitic symbiosis with the specific host. The sampled symbiont can have its own symbionts. For example, parasites may have hyperparasites (=parasites of the parasite).",
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "host_tot_mass": {
                     "description": "Total mass of the host at collection, the unit depends on host",
@@ -19703,6 +19751,7 @@
                 },
                 "nucl_acid_amp": {
                     "description": "A link to a literature reference, electronic resource or a standard operating procedure (SOP), that describes the enzymatic amplification (PCR, TMA, NASBA) of specific nucleic acids",
+                    "pattern": "^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$",
                     "type": "string"
                 },
                 "nucl_acid_ext": {
@@ -19796,6 +19845,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -19887,16 +19937,16 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "collection_date",
-                "env_medium",
-                "env_local_scale",
-                "samp_name",
-                "env_broad_scale",
                 "geo_loc_name",
-                "samp_taxon_id",
+                "env_broad_scale",
                 "project_name",
-                "lat_lon"
+                "lat_lon",
+                "samp_name",
+                "env_local_scale",
+                "env_medium",
+                "samp_taxon_id",
+                "seq_meth",
+                "collection_date"
             ],
             "title": "MimsHumanAssociated",
             "type": "object"
@@ -19907,7 +19957,6 @@
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
-                    "pattern": "^[ACGTRKSYMWBHDVN]+;[ACGTRKSYMWBHDVN]+$",
                     "type": "string"
                 },
                 "alt": {
@@ -19921,7 +19970,6 @@
                 },
                 "assembly_name": {
                     "description": "Name/version of the assembly provided by the submitter that is used in the genome browsers and in the community",
-                    "pattern": "^\\S.*\\S+ \\S.*\\S+$",
                     "type": "string"
                 },
                 "assembly_qual": {
@@ -20017,12 +20065,10 @@
                 },
                 "host_body_product": {
                     "description": "Substance produced by the body, e.g. Stool, mucus, where the sample was obtained from. For foundational model of anatomy ontology (fma) or Uber-anatomy ontology (UBERON) terms, please see https://www.ebi.ac.uk/ols/ontologies/fma or https://www.ebi.ac.uk/ols/ontologies/uberon",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_site": {
                     "description": "Name of body site where the sample was obtained from, such as a specific organ or tissue (tongue, lung etc...). For foundational model of anatomy ontology (fma) (v 4.11.0) or Uber-anatomy ontology (UBERON) (v releases/2014-06-15) terms, please see http://purl.bioontology.org/ontology/FMA or http://purl.bioontology.org/ontology/UBERON",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_temp": {
@@ -20039,14 +20085,14 @@
                 },
                 "host_disease_stat": {
                     "description": "List of diseases with which the host has been diagnosed; can include multiple diagnoses. The terms should be chosen from the DO (Human Disease Ontology) at https://www.disease-ontology.org.",
+                    "type": "string"
+                },
+                "host_fam_rel": {
+                    "description": "Relationships to other hosts in the same study; can include multiple relationships",
                     "items": {
                         "type": "string"
                     },
                     "type": "array"
-                },
-                "host_fam_rel": {
-                    "description": "Relationships to other hosts in the same study; can include multiple relationships",
-                    "type": "string"
                 },
                 "host_genotype": {
                     "description": "Observed genotype",
@@ -20087,7 +20133,10 @@
                 },
                 "host_symbiont": {
                     "description": "The taxonomic name of the organism(s) found living in mutualistic, commensalistic, or parasitic symbiosis with the specific host. The sampled symbiont can have its own symbionts. For example, parasites may have hyperparasites (=parasites of the parasite).",
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "host_tot_mass": {
                     "description": "Total mass of the host at collection, the unit depends on host",
@@ -20154,6 +20203,7 @@
                 },
                 "nucl_acid_amp": {
                     "description": "A link to a literature reference, electronic resource or a standard operating procedure (SOP), that describes the enzymatic amplification (PCR, TMA, NASBA) of specific nucleic acids",
+                    "pattern": "^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$",
                     "type": "string"
                 },
                 "nucl_acid_ext": {
@@ -20233,6 +20283,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -20297,16 +20348,16 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "collection_date",
-                "env_medium",
-                "env_local_scale",
-                "samp_name",
-                "env_broad_scale",
                 "geo_loc_name",
-                "samp_taxon_id",
+                "env_broad_scale",
                 "project_name",
-                "lat_lon"
+                "lat_lon",
+                "samp_name",
+                "env_local_scale",
+                "env_medium",
+                "samp_taxon_id",
+                "seq_meth",
+                "collection_date"
             ],
             "title": "MimsHumanGut",
             "type": "object"
@@ -20317,7 +20368,6 @@
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
-                    "pattern": "^[ACGTRKSYMWBHDVN]+;[ACGTRKSYMWBHDVN]+$",
                     "type": "string"
                 },
                 "alt": {
@@ -20331,7 +20381,6 @@
                 },
                 "assembly_name": {
                     "description": "Name/version of the assembly provided by the submitter that is used in the genome browsers and in the community",
-                    "pattern": "^\\S.*\\S+ \\S.*\\S+$",
                     "type": "string"
                 },
                 "assembly_qual": {
@@ -20420,12 +20469,10 @@
                 },
                 "host_body_product": {
                     "description": "Substance produced by the body, e.g. Stool, mucus, where the sample was obtained from. For foundational model of anatomy ontology (fma) or Uber-anatomy ontology (UBERON) terms, please see https://www.ebi.ac.uk/ols/ontologies/fma or https://www.ebi.ac.uk/ols/ontologies/uberon",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_site": {
                     "description": "Name of body site where the sample was obtained from, such as a specific organ or tissue (tongue, lung etc...). For foundational model of anatomy ontology (fma) (v 4.11.0) or Uber-anatomy ontology (UBERON) (v releases/2014-06-15) terms, please see http://purl.bioontology.org/ontology/FMA or http://purl.bioontology.org/ontology/UBERON",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_temp": {
@@ -20442,14 +20489,14 @@
                 },
                 "host_disease_stat": {
                     "description": "List of diseases with which the host has been diagnosed; can include multiple diagnoses. The terms should be chosen from the DO (Human Disease Ontology) at https://www.disease-ontology.org.",
+                    "type": "string"
+                },
+                "host_fam_rel": {
+                    "description": "Relationships to other hosts in the same study; can include multiple relationships",
                     "items": {
                         "type": "string"
                     },
                     "type": "array"
-                },
-                "host_fam_rel": {
-                    "description": "Relationships to other hosts in the same study; can include multiple relationships",
-                    "type": "string"
                 },
                 "host_genotype": {
                     "description": "Observed genotype",
@@ -20490,7 +20537,10 @@
                 },
                 "host_symbiont": {
                     "description": "The taxonomic name of the organism(s) found living in mutualistic, commensalistic, or parasitic symbiosis with the specific host. The sampled symbiont can have its own symbionts. For example, parasites may have hyperparasites (=parasites of the parasite).",
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "host_tot_mass": {
                     "description": "Total mass of the host at collection, the unit depends on host",
@@ -20556,6 +20606,7 @@
                 },
                 "nucl_acid_amp": {
                     "description": "A link to a literature reference, electronic resource or a standard operating procedure (SOP), that describes the enzymatic amplification (PCR, TMA, NASBA) of specific nucleic acids",
+                    "pattern": "^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$",
                     "type": "string"
                 },
                 "nucl_acid_ext": {
@@ -20635,6 +20686,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -20697,16 +20749,16 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "collection_date",
-                "env_medium",
-                "env_local_scale",
-                "samp_name",
-                "env_broad_scale",
                 "geo_loc_name",
-                "samp_taxon_id",
+                "env_broad_scale",
                 "project_name",
-                "lat_lon"
+                "lat_lon",
+                "samp_name",
+                "env_local_scale",
+                "env_medium",
+                "samp_taxon_id",
+                "seq_meth",
+                "collection_date"
             ],
             "title": "MimsHumanOral",
             "type": "object"
@@ -20717,7 +20769,6 @@
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
-                    "pattern": "^[ACGTRKSYMWBHDVN]+;[ACGTRKSYMWBHDVN]+$",
                     "type": "string"
                 },
                 "air_temp_regm": {
@@ -20749,7 +20800,6 @@
                 },
                 "assembly_name": {
                     "description": "Name/version of the assembly provided by the submitter that is used in the genome browsers and in the community",
-                    "pattern": "^\\S.*\\S+ \\S.*\\S+$",
                     "type": "string"
                 },
                 "assembly_qual": {
@@ -20913,10 +20963,7 @@
                 },
                 "host_disease_stat": {
                     "description": "List of diseases with which the host has been diagnosed; can include multiple diagnoses. The value of the field depends on host; for humans the terms should be chosen from the DO (Human Disease Ontology) at https://www.disease-ontology.org, non-human host diseases are free text.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
+                    "type": "string"
                 },
                 "host_dry_mass": {
                     "description": "Measurement of dry mass",
@@ -20954,7 +21001,10 @@
                 },
                 "host_symbiont": {
                     "description": "The taxonomic name of the organism(s) found living in mutualistic, commensalistic, or parasitic symbiosis with the specific host. The sampled symbiont can have its own symbionts. For example, parasites may have hyperparasites (=parasites of the parasite).",
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "host_taxid": {
                     "description": "NCBI taxon id of the host, e.g. 9606",
@@ -21044,6 +21094,7 @@
                 },
                 "nucl_acid_amp": {
                     "description": "A link to a literature reference, electronic resource or a standard operating procedure (SOP), that describes the enzymatic amplification (PCR, TMA, NASBA) of specific nucleic acids",
+                    "pattern": "^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$",
                     "type": "string"
                 },
                 "nucl_acid_ext": {
@@ -21216,6 +21267,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -21306,16 +21358,16 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "collection_date",
-                "env_medium",
-                "env_local_scale",
-                "samp_name",
-                "env_broad_scale",
                 "geo_loc_name",
-                "samp_taxon_id",
+                "env_broad_scale",
                 "project_name",
-                "lat_lon"
+                "lat_lon",
+                "samp_name",
+                "env_local_scale",
+                "env_medium",
+                "samp_taxon_id",
+                "seq_meth",
+                "collection_date"
             ],
             "title": "MimsPlantAssociated",
             "type": "object"
@@ -21324,9 +21376,13 @@
             "additionalProperties": false,
             "description": "MIxS data that complies with the Mims checklist and the Soil environmental package",
             "properties": {
+                "Structured_comment_name": {
+                    "description": "The relative proportion of different grain sizes of mineral particles in a soil, as described using a standard system; express as % sand (50 um to 2 mm), silt (2 um to 50 um), and clay (<2 um) with textural name (e.g., silty clay loam) optional",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
-                    "pattern": "^[ACGTRKSYMWBHDVN]+;[ACGTRKSYMWBHDVN]+$",
                     "type": "string"
                 },
                 "agrochem_addition": {
@@ -21367,7 +21423,6 @@
                 },
                 "assembly_name": {
                     "description": "Name/version of the assembly provided by the submitter that is used in the genome browsers and in the community",
-                    "pattern": "^\\S.*\\S+ \\S.*\\S+$",
                     "type": "string"
                 },
                 "assembly_qual": {
@@ -21563,6 +21618,7 @@
                 },
                 "nucl_acid_amp": {
                     "description": "A link to a literature reference, electronic resource or a standard operating procedure (SOP), that describes the enzymatic amplification (PCR, TMA, NASBA) of specific nucleic acids",
+                    "pattern": "^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$",
                     "type": "string"
                 },
                 "nucl_acid_ext": {
@@ -21767,6 +21823,7 @@
                 },
                 "tot_org_carb": {
                     "description": "Definition for soil: total organic carbon content of the soil, definition otherwise: total organic carbon content",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
                     "type": "string"
                 },
                 "water_cont_soil_meth": {
@@ -21781,18 +21838,18 @@
                 }
             },
             "required": [
-                "elev",
-                "seq_meth",
-                "collection_date",
-                "env_medium",
-                "env_local_scale",
-                "samp_name",
-                "env_broad_scale",
                 "geo_loc_name",
-                "depth",
-                "samp_taxon_id",
+                "env_broad_scale",
                 "project_name",
-                "lat_lon"
+                "lat_lon",
+                "depth",
+                "elev",
+                "samp_name",
+                "env_local_scale",
+                "env_medium",
+                "samp_taxon_id",
+                "seq_meth",
+                "collection_date"
             ],
             "title": "MimsSoil",
             "type": "object"
@@ -21803,7 +21860,6 @@
             "properties": {
                 "adapters": {
                     "description": "Adapters provide priming sequences for both amplification and sequencing of the sample-library fragments. Both adapters should be reported; in uppercase letters",
-                    "pattern": "^[ACGTRKSYMWBHDVN]+;[ACGTRKSYMWBHDVN]+$",
                     "type": "string"
                 },
                 "alkalinity": {
@@ -21841,7 +21897,6 @@
                 },
                 "assembly_name": {
                     "description": "Name/version of the assembly provided by the submitter that is used in the genome browsers and in the community",
-                    "pattern": "^\\S.*\\S+ \\S.*\\S+$",
                     "type": "string"
                 },
                 "assembly_qual": {
@@ -22125,6 +22180,7 @@
                 },
                 "nucl_acid_amp": {
                     "description": "A link to a literature reference, electronic resource or a standard operating procedure (SOP), that describes the enzymatic amplification (PCR, TMA, NASBA) of specific nucleic acids",
+                    "pattern": "^PMID:\\d+$|^doi:10.\\d{2,9}/.*$|^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$",
                     "type": "string"
                 },
                 "nucl_acid_ext": {
@@ -22282,6 +22338,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -22423,17 +22480,17 @@
                 }
             },
             "required": [
-                "seq_meth",
-                "collection_date",
-                "env_medium",
-                "env_local_scale",
-                "samp_name",
-                "env_broad_scale",
                 "geo_loc_name",
-                "depth",
-                "samp_taxon_id",
+                "env_broad_scale",
                 "project_name",
-                "lat_lon"
+                "lat_lon",
+                "depth",
+                "samp_name",
+                "env_local_scale",
+                "env_medium",
+                "samp_taxon_id",
+                "seq_meth",
+                "collection_date"
             ],
             "title": "MimsWater",
             "type": "object"
@@ -22634,6 +22691,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -23163,10 +23221,7 @@
                 },
                 "host_disease_stat": {
                     "description": "List of diseases with which the host has been diagnosed; can include multiple diagnoses. The value of the field depends on host; for humans the terms should be chosen from the DO (Human Disease Ontology) at https://www.disease-ontology.org, non-human host diseases are free text.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
+                    "type": "string"
                 },
                 "host_dry_mass": {
                     "description": "Measurement of dry mass",
@@ -23204,7 +23259,10 @@
                 },
                 "host_symbiont": {
                     "description": "The taxonomic name of the organism(s) found living in mutualistic, commensalistic, or parasitic symbiosis with the specific host. The sampled symbiont can have its own symbionts. For example, parasites may have hyperparasites (=parasites of the parasite).",
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "host_taxid": {
                     "description": "NCBI taxon id of the host, e.g. 9606",
@@ -23385,6 +23443,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -24272,6 +24331,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -24338,6 +24398,7 @@
                 },
                 "tot_org_carb": {
                     "description": "Definition for soil: total organic carbon content of the soil, definition otherwise: total organic carbon content",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
                     "type": "string"
                 },
                 "turbidity": {
@@ -24363,6 +24424,11 @@
             "additionalProperties": false,
             "description": "soil package",
             "properties": {
+                "Structured_comment_name": {
+                    "description": "The relative proportion of different grain sizes of mineral particles in a soil, as described using a standard system; express as % sand (50 um to 2 mm), silt (2 um to 50 um), and clay (<2 um) with textural name (e.g., silty clay loam) optional",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
+                    "type": "string"
+                },
                 "agrochem_addition": {
                     "description": "Addition of fertilizers, pesticides, etc. - amount and time of applications",
                     "items": {
@@ -24622,6 +24688,7 @@
                 },
                 "tot_org_carb": {
                     "description": "Definition for soil: total organic carbon content of the soil, definition otherwise: total organic carbon content",
+                    "pattern": "^[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?( *- *[-+]?[0-9]*\\.?[0-9]+([eE][-+]?[0-9]+)?)? *([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)$",
                     "type": "string"
                 },
                 "water_cont_soil_meth": {
@@ -24699,12 +24766,10 @@
                 },
                 "host_body_product": {
                     "description": "Substance produced by the body, e.g. Stool, mucus, where the sample was obtained from. For foundational model of anatomy ontology (fma) or Uber-anatomy ontology (UBERON) terms, please see https://www.ebi.ac.uk/ols/ontologies/fma or https://www.ebi.ac.uk/ols/ontologies/uberon",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_body_site": {
                     "description": "Name of body site where the sample was obtained from, such as a specific organ or tissue (tongue, lung etc...). For foundational model of anatomy ontology (fma) (v 4.11.0) or Uber-anatomy ontology (UBERON) (v releases/2014-06-15) terms, please see http://purl.bioontology.org/ontology/FMA or http://purl.bioontology.org/ontology/UBERON",
-                    "pattern": "^\\S+.*\\S+ \\[[a-zA-Z]{2,}:\\d+\\]$",
                     "type": "string"
                 },
                 "host_cellular_loc": {
@@ -24730,7 +24795,10 @@
                 },
                 "host_fam_rel": {
                     "description": "Relationships to other hosts in the same study; can include multiple relationships",
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "host_genotype": {
                     "description": "Observed genotype",
@@ -24855,7 +24923,10 @@
                 },
                 "host_symbiont": {
                     "description": "The taxonomic name of the organism(s) found living in mutualistic, commensalistic, or parasitic symbiosis with the specific host. For cases when the specific host of the sample is a symbiont this field should refer to other organisms it is associated with. E.g.: hyperparasite species X (parasite of the parasite)",
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "host_taxid": {
                     "description": "NCBI taxon id of the host.",
@@ -24922,6 +24993,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored.",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -25402,6 +25474,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {
@@ -25823,6 +25896,7 @@
                 },
                 "samp_store_dur": {
                     "description": "Duration for which the sample was stored",
+                    "pattern": "^P(?!$)(\\d+Y)?(\\d+M)?(\\d+W)?(\\d+D)?(T(?=\\d+[HMS])(\\d+H)?(\\d+M)?(\\d+S)?)?$",
                     "type": "string"
                 },
                 "samp_store_loc": {

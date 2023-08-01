@@ -178,6 +178,7 @@ source	schema name	rule name	level	message
 /home/mark/gitrepos/mixs-envo-struct-knowl-extraction/generated-schema/mixs_6_2_rc.yaml	mixs_6_2_rc	recommended	warning	Subset 'investigation' does not have recommended slot 'description'
 /home/mark/gitrepos/mixs-envo-struct-knowl-extraction/generated-schema/mixs_6_2_rc.yaml	mixs_6_2_rc	standard_naming	warning	Slot has name 'HACCP_term'
 /home/mark/gitrepos/mixs-envo-struct-knowl-extraction/generated-schema/mixs_6_2_rc.yaml	mixs_6_2_rc	standard_naming	warning	Slot has name 'IFSAC_category'
+/home/mark/gitrepos/mixs-envo-struct-knowl-extraction/generated-schema/mixs_6_2_rc.yaml	mixs_6_2_rc	standard_naming	warning	Slot has name 'Structured_comment_name'
 /home/mark/gitrepos/mixs-envo-struct-knowl-extraction/generated-schema/mixs_6_2_rc.yaml	mixs_6_2_rc	standard_naming	warning	Slot has name 'air_PM_concen'
 /home/mark/gitrepos/mixs-envo-struct-knowl-extraction/generated-schema/mixs_6_2_rc.yaml	mixs_6_2_rc	standard_naming	warning	Slot has name 'ferm_pH'
 /home/mark/gitrepos/mixs-envo-struct-knowl-extraction/generated-schema/mixs_6_2_rc.yaml	mixs_6_2_rc	standard_naming	warning	Slot has name 'microb_start_taxID'

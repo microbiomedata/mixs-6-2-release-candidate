@@ -1,0 +1,41 @@
+class	MIXS ID	Expected value	Frequency
+built environment	MIXS:0000226	enumeration or {text}	0.5
+food-food production facility	MIXS:0000226	text	0.5
+host-associated	MIXS:0000252	substrate name	0.5
+symbiont-associated	MIXS:0000252	substrate name of the symbiotic organism (host of the samples)	0.5
+host-associated	MIXS:0000260	color	0.5
+symbiont-associated	MIXS:0000260	color of the symbiotic organism (host of the samples)	0.5
+host-associated	MIXS:0000261	shape	0.5
+symbiont-associated	MIXS:0000261	shape of the symbiotic organism (host of the samples)	0.5
+agriculture	MIXS:0000557	fungicide name;fungicide amount;treatment duration;interval;experimental duration	0.5
+plant-associated	MIXS:0000557	fungicide name;fungicide amount;treatment interval and duration	0.5
+agriculture	MIXS:0000558	gaseous compound name;gaseous compound amount;treatment duration;interval;experimental duration	0.5
+plant-associated	MIXS:0000558	gaseous compound name;gaseous compound amount;treatment interval and duration	0.5
+agriculture	MIXS:0000561	herbicide name;herbicide amount;treatment duration;interval;experimental duration	0.5
+plant-associated	MIXS:0000561	herbicide name;herbicide amount;treatment interval and duration	0.5
+agriculture	MIXS:0000571	non-mineral nutrient name;non-mineral nutrient amount;treatment duration;interval;experimental duration	0.5
+plant-associated	MIXS:0000571	non-mineral nutrient name;non-mineral nutrient amount;treatment interval and duration	0.5
+agriculture	MIXS:0000573	pesticide name;pesticide amount;treatment duration;interval;experimental duration	0.5
+plant-associated	MIXS:0000573	pesticide name;pesticide amount;treatment interval and duration	0.5
+agriculture	MIXS:0000582	salt name;salt amount;treatment duration;interval;experimental duration	0.5
+plant-associated	MIXS:0000582	salt name;salt amount;treatment interval and duration	0.5
+agriculture	MIXS:0000590	measurement value;treatment duration;interval;experimental duration	0.5
+plant-associated	MIXS:0000590	measurement value;treatment interval and duration	0.5
+agriculture	MIXS:0000591	measurement value;treatment duration;interval;experimental duration	0.5
+plant-associated	MIXS:0000591	measurement value;treatment interval and duration	0.5
+food-farm environment	MIXS:0000757	cardinal wind direction or azimuth degrees	0.5
+air	MIXS:0000757	wind direction name	0.5
+host-associated	MIXS:0000866	free text	0.5
+symbiont-associated	MIXS:0000866	original symbiotic organism (host of the samples) body habitat where the sample was obtained from; free text	0.5
+symbiont-associated	MIXS:0000871	Literature reference giving growth conditions of the symbiotic organism (host of the samples); PMID,DOI,url or free text	0.5
+host-associated	MIXS:0000871	PMID,DOI,url or free text	0.5
+symbiont-associated	MIXS:0000875	gravidity status of the symbiotic organism (host of the samples);timestamp	0.5
+host-associated	MIXS:0000875	gravidity status;timestamp	0.5
+agriculture	MIXS:0001040	climate name;treatment duration;interval;experimental duration	0.5
+plant-associated	MIXS:0001040	climate name;treatment interval and duration	0.5
+agriculture	MIXS:0001056	measurement value;treatment duration;interval;experimental duration	0.5
+plant-associated	MIXS:0001056	measurement value;treatment interval and duration	0.5
+agriculture	MIXS:0001068	seasonal environment name;treatment duration;interval;experimental duration	0.5
+plant-associated	MIXS:0001068	seasonal environment name;treatment interval and duration	0.5
+agriculture	MIXS:0001069	standing water type;treatment duration;interval;experimental duration	0.5
+plant-associated	MIXS:0001069	standing water type;treatment interval and duration	0.5
