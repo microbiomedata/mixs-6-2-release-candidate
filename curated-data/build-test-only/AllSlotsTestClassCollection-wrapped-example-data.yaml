@@ -7,7 +7,7 @@ all_slots_test_set:
     basin: absolutely any text
     building_setting: exurban
     coll_site_geo_feat: absolutely any text
-    collection_date: "2013-03-25T12:42:31+00:32"
+    collection_date: "2013-03-25T12:42:31+01:00"
     env_broad_scale: term [ONTOLOGY:123]
     env_local_scale: term [ONTOLOGY:123]
     env_medium: term [ONTOLOGY:123]
@@ -171,7 +171,7 @@ all_slots_test_set:
     conduc: 1.234 units
     cons_food_stor_dur: PT10H30M
     cons_food_stor_temp: absolutely any text
-    cons_purch_date: "2013-03-25T12:42:31+00:32"
+    cons_purch_date: "2013-03-25T12:42:31+01:00"
     cons_qty_purchased: 123 units
     contam_score: absolutely any text
     contam_screen_input: contigs
@@ -179,7 +179,7 @@ all_slots_test_set:
     cool_syst_id: 123
     crop_rotation: absolutely any text
     crop_yield: 1.234 units
-    cult_isol_date: absolutely any text
+    cult_isol_date: "2013-03-25T12:42:31+01:00"
     cult_result: negative # todo decrease the number of essentially boolean options
     cult_result_org:
       - absolutely any text
@@ -190,8 +190,8 @@ all_slots_test_set:
     cur_vegetation: absolutely any text
     cur_vegetation_meth: PMID:123
     date_extr_weath:
-      - "2013-03-25T12:42:31+00:32"
-    date_last_rain: "2013-03-25T12:42:31+00:32"
+      - "2013-03-25T12:42:31+01:00"
+    date_last_rain: "2013-03-25T12:42:31+01:00"
     decontam_software: absolutely any text
     density: 1.234 units
     depos_env: Other - Volcanic
@@ -227,7 +227,7 @@ all_slots_test_set:
     door_type_metal: hollow
     door_type_wood: absolutely any text
     door_water_mold: presence of mold visible
-    douche: "2013-03-25T12:42:31+00:32"
+    douche: "2013-03-25T12:42:31+01:00"
     down_par: 1.234 units
     drainage_class: poorly
     drawings: design
@@ -256,7 +256,7 @@ all_slots_test_set:
     extr_weather_event:
       - drought
     extrachrom_elements: 123
-    extreme_event: "2013-03-25T12:42:31+00:32"
+    extreme_event: "2013-03-25T12:42:31+01:00"
     facility_type:
       - packaging
     fao_class: Acrisols
@@ -281,13 +281,13 @@ all_slots_test_set:
     ferm_time: PT10H30M
     ferm_vessel: absolutely any text
     fertilizer_admin: term [ONTOLOGY:123]
-    fertilizer_date: "2013-03-25T12:42:31+00:32"
+    fertilizer_date: "2013-03-25T12:42:31+01:00"
     fertilizer_regm:
       - absolutely any text
     field: absolutely any text
-    fire: "2013-03-25T12:42:31+00:32"
+    fire: "2013-03-25T12:42:31+01:00"
     fireplace_type: wood burning
-    flooding: "2013-03-25T12:42:31+00:32"
+    flooding: "2013-03-25T12:42:31+01:00"
     floor_age: 1.234 units
     floor_area: 1.234 units
     floor_cond: damaged
@@ -397,10 +397,10 @@ all_slots_test_set:
     host_common_name: absolutely any text
     host_diet:
       - absolutely any text
-    host_disease_stat:
-      - absolutely any text
+    host_disease_stat: absolutely any text
     host_dry_mass: 1.234 units
-    host_fam_rel: absolutely any text
+    host_fam_rel:
+      - absolutely any text
     host_genotype: absolutely any text
     host_growth_cond: absolutely any text
     host_height: 1.234 units
@@ -443,11 +443,12 @@ all_slots_test_set:
     host_subspecf_genlin:
       - absolutely any text
     host_substrate: absolutely any text
-    host_symbiont: absolutely any text
+    host_symbiont:
+      - absolutely any text
     host_taxid: absolutely any text
     host_tot_mass: 1.234 units
     host_wet_mass: 1.234 units
-    hrt: "2013-03-25T12:42:31+00:32"
+    hrt: "2013-03-25T12:42:31+01:00"
     humidity: 1.234 units
     humidity_regm:
       - absolutely any text
@@ -464,10 +465,10 @@ all_slots_test_set:
     intended_consumer:
       - absolutely any text
     isol_growth_condt: PMID:123
-    iw_bt_date_well: "2013-03-25T12:42:31+00:32"
+    iw_bt_date_well: "2013-03-25T12:42:31+01:00"
     kidney_disord:
       - absolutely any text
-    last_clean: "2013-03-25T12:42:31+00:32"
+    last_clean: "2013-03-25T12:42:31+01:00"
     lib_layout: paired
     lib_reads_seqd: 123
     lib_screen: absolutely any text
@@ -496,8 +497,8 @@ all_slots_test_set:
     mechanical_damage:
       - absolutely any text
     medic_hist_perform: true
-    menarche: "2013-03-25T12:42:31+00:32"
-    menopause: "2013-03-25T12:42:31+00:32"
+    menarche: "2013-03-25T12:42:31+01:00"
+    menopause: "2013-03-25T12:42:31+01:00"
     methane: 1.234 units
     micro_biomass_meth: PMID:123
     microb_cult_med: absolutely any text
@@ -524,7 +525,7 @@ all_slots_test_set:
       - absolutely any text
     nose_throat_disord:
       - absolutely any text
-    nucl_acid_amp: absolutely any text
+    nucl_acid_amp: PMID:123
     nucl_acid_ext: PMID:123
     nucl_acid_ext_kit:
       - absolutely any text
@@ -598,7 +599,7 @@ all_slots_test_set:
     pre_treatment: absolutely any text
     pred_genome_struc: segmented
     pred_genome_type: absolutely any text
-    pregnancy: "2013-03-25T12:42:31+00:32"
+    pregnancy: "2013-03-25T12:42:31+01:00"
     pres_animal_insect: absolutely any text
     pressure: 1.234 units
     prev_land_use_meth: PMID:123
@@ -608,7 +609,7 @@ all_slots_test_set:
     prod_label_claims:
       - absolutely any text
     prod_rate: 1.234 units
-    prod_start_date: "2013-03-25T12:42:31+00:32"
+    prod_start_date: "2013-03-25T12:42:31+01:00"
     profile_position: backslope
     propagation: absolutely any text
     pulmonary_disord:
@@ -845,7 +846,7 @@ all_slots_test_set:
     tot_nitro_cont_meth: PMID:123
     tot_nitro_content: 1.234 units
     tot_org_c_meth: PMID:123
-    tot_org_carb: absolutely any text
+    tot_org_carb: 1.2 - 3.4 units
     tot_part_carb: 1.234 units
     #    tot_phos: 1.234 units see tot_phosp
     tot_phosp: 1.234 units

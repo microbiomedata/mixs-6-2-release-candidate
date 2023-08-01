@@ -1,35 +1,6 @@
 class	key	key_value	target	original_target_value	replacement_target_value
-agriculture	Item	assembly quality	Structured comment name	assembly_quality	assembly_qual
-migs_eu	Item	relevant electronic resources	Structured comment name	associated resource	associated_resource
-migs_ba	Item	relevant electronic resources	Structured comment name	associated resource	associated_resource
-migs_pl	Item	relevant electronic resources	Structured comment name	associated resource	associated_resource
-migs_vi	Item	relevant electronic resources	Structured comment name	associated resource	associated_resource
-migs_org	Item	relevant electronic resources	Structured comment name	associated resource	associated_resource
-mims	Item	relevant electronic resources	Structured comment name	associated resource	associated_resource
-mimarks_s	Item	relevant electronic resources	Structured comment name	associated resource	associated_resource
-mimarks_c	Item	relevant electronic resources	Structured comment name	associated resource	associated_resource
-misag	Item	relevant electronic resources	Structured comment name	associated resource	associated_resource
-mimag	Item	relevant electronic resources	Structured comment name	associated resource	associated_resource
-miuvig	Item	relevant electronic resources	Structured comment name	associated resource	associated_resource
-agriculture	Item	relevant electronic resources	Structured comment name	url	associated_resource
-agriculture	Item	total phosphorous	MIXS ID	MIXS:0000689	MIXS:0000117
 agriculture	Item	soil depth	MIXS ID	MIXS:0000018	MIXS:1111111
-food-human foods	Item	sample collection method	Structured comment name	sample_collec_method	samp_collect_method
-symbiont-associated	Item	sample name	Structured comment name	sample_name	samp_name
-food-human foods	Item	sample storage duration	Structured comment name	samp_stor_dur	samp_store_dur
-food-animal and animal feed	Item	sample storage duration	Structured comment name	samp_stor_dur	samp_store_dur
-food-food production facility	Item	sample storage duration	Structured comment name	samp_stor_dur	samp_store_dur
-food-farm environment	Item	sample storage duration	Structured comment name	samp_stor_dur	samp_store_dur
-food-human foods	Item	sample storage location	Structured comment name	samp_stor_loc	samp_store_loc
-food-animal and animal feed	Item	sample storage location	Structured comment name	samp_stor_loc	samp_store_loc
-food-food production facility	Item	sample storage location	Structured comment name	samp_stor_loc	samp_store_loc
-food-human foods	Item	sample storage temperature	Structured comment name	samp_stor_temp	samp_store_temp
-food-animal and animal feed	Item	sample storage temperature	Structured comment name	samp_stor_temp	samp_store_temp
-food-food production facility	Item	sample storage temperature	Structured comment name	samp_stor_temp	samp_store_temp
-food-farm environment	Item	sample storage temperature	Structured comment name	samp_stor_temp	samp_store_temp
-agriculture	Item	sample storage temperature	Structured comment name	samp_stor_temp	samp_store_temp
-agriculture	Item	total carbon	Structured comment name	tot_car	tot_carb
-agriculture	Item	total phosphorous	Structured comment name	tot_phos	tot_phosp
+agriculture	Item	total phosphorous	MIXS ID	MIXS:0000689	MIXS:0000117
 migs_eu	Item	16S recovered	Structured comment name	16s_recover	x16s_recover
 migs_ba	Item	16S recovered	Structured comment name	16s_recover	x16s_recover
 migs_pl	Item	16S recovered	Structured comment name	16s_recover	x16s_recover
@@ -52,156 +23,169 @@ mimarks_c	Item	16S recovery software	Structured comment name	16s_recover_softwar
 misag	Item	16S recovery software	Structured comment name	16s_recover_software	x16s_recover_software
 mimag	Item	16S recovery software	Structured comment name	16s_recover_software	x16s_recover_software
 miuvig	Item	16S recovery software	Structured comment name	16s_recover_software	x16s_recover_software
+agriculture	Item	assembly quality	Structured comment name	assembly_quality	assembly_qual
+migs_eu	Item	relevant electronic resources	Structured comment name	associated resource	associated_resource
+migs_ba	Item	relevant electronic resources	Structured comment name	associated resource	associated_resource
+migs_pl	Item	relevant electronic resources	Structured comment name	associated resource	associated_resource
+migs_vi	Item	relevant electronic resources	Structured comment name	associated resource	associated_resource
+migs_org	Item	relevant electronic resources	Structured comment name	associated resource	associated_resource
+mims	Item	relevant electronic resources	Structured comment name	associated resource	associated_resource
+mimarks_s	Item	relevant electronic resources	Structured comment name	associated resource	associated_resource
+mimarks_c	Item	relevant electronic resources	Structured comment name	associated resource	associated_resource
+misag	Item	relevant electronic resources	Structured comment name	associated resource	associated_resource
+mimag	Item	relevant electronic resources	Structured comment name	associated resource	associated_resource
+miuvig	Item	relevant electronic resources	Structured comment name	associated resource	associated_resource
+agriculture	Item	relevant electronic resources	Structured comment name	url	associated_resource
+food-human foods	Item	sample collection method	Structured comment name	sample_collec_method	samp_collect_method
+symbiont-associated	Item	sample name	Structured comment name	sample_name	samp_name
+food-human foods	Item	sample storage duration	Structured comment name	samp_stor_dur	samp_store_dur
+food-animal and animal feed	Item	sample storage duration	Structured comment name	samp_stor_dur	samp_store_dur
+food-food production facility	Item	sample storage duration	Structured comment name	samp_stor_dur	samp_store_dur
+food-farm environment	Item	sample storage duration	Structured comment name	samp_stor_dur	samp_store_dur
+food-human foods	Item	sample storage location	Structured comment name	samp_stor_loc	samp_store_loc
+food-animal and animal feed	Item	sample storage location	Structured comment name	samp_stor_loc	samp_store_loc
+food-food production facility	Item	sample storage location	Structured comment name	samp_stor_loc	samp_store_loc
+food-human foods	Item	sample storage temperature	Structured comment name	samp_stor_temp	samp_store_temp
+food-animal and animal feed	Item	sample storage temperature	Structured comment name	samp_stor_temp	samp_store_temp
+food-food production facility	Item	sample storage temperature	Structured comment name	samp_stor_temp	samp_store_temp
+food-farm environment	Item	sample storage temperature	Structured comment name	samp_stor_temp	samp_store_temp
+agriculture	Item	sample storage temperature	Structured comment name	samp_stor_temp	samp_store_temp
+agriculture	Item	total carbon	Structured comment name	tot_car	tot_carb
+agriculture	Item	total phosphorous	Structured comment name	tot_phos	tot_phosp
+food-food production facility	MIXS ID	MIXS:0000002	Expected value	type name	device name
+agriculture	MIXS ID	MIXS:0000002	Expected value	type name	device name
+symbiont-associated	MIXS ID	MIXS:0000009	Expected value	decimal degrees, limit to 8 decimal points	decimal degrees,  limit to 8 decimal points
+agriculture	MIXS ID	MIXS:0000016	Expected value	text or OBI	text
+food-food production facility	MIXS ID	MIXS:0000020	Expected value	genetic lineage below lowest rank of NCBI taxonomy, which is subspecies, e.g. serovar, biotype, ecotype, variety, cultivar	Genetic lineage below lowest rank of NCBI taxonomy, which is subspecies, e.g. serovar, biotype, ecotype, variety, cultivar.
+agriculture	MIXS ID	MIXS:0000027	Expected value	CV	names of organisms that the entity is pathogenic to
+agriculture	MIXS ID	MIXS:0000031	Expected value	disease name or DO	disease name or Disease Ontology term
+agriculture	MIXS ID	MIXS:0000038	Expected value	reference to amplification method; clean-up method	PMID, DOI or URL
+agriculture	MIXS ID	MIXS:0000046	Expected value	FWD:{dna} REV:{dna}	FWD: forward primer sequence;REV:reverse primer sequence
+agriculture	MIXS ID	MIXS:0000049	Expected value	initial denaturation:degrees_minutes; annealing:degrees_minutes; elongation: degrees_minutes; final elongation:degrees_minutes; total cycles	initial denaturation:degrees_minutes;annealing:degrees_minutes;elongation:degrees_minutes;final elongation:degrees_minutes;total cycles
+agriculture	MIXS ID	MIXS:0000057	Expected value	name and version of assemby	name and version of assembly
+agriculture	MIXS ID	MIXS:0000059	Expected value	annotation source description	name of tool or pipeline used, or annotation source description
+agriculture	MIXS ID	MIXS:0000091	Expected value	URL	reference to resource
+migs_eu	MIXS ID	MIXS:0000092	Expected value		text
+migs_ba	MIXS ID	MIXS:0000092	Expected value		text
+migs_pl	MIXS ID	MIXS:0000092	Expected value		text
+migs_vi	MIXS ID	MIXS:0000092	Expected value		text
+migs_org	MIXS ID	MIXS:0000092	Expected value		text
+mims	MIXS ID	MIXS:0000092	Expected value		text
+mimarks_s	MIXS ID	MIXS:0000092	Expected value		text
+mimarks_c	MIXS ID	MIXS:0000092	Expected value		text
+misag	MIXS ID	MIXS:0000092	Expected value		text
+mimag	MIXS ID	MIXS:0000092	Expected value		text
+miuvig	MIXS ID	MIXS:0000092	Expected value		text
+symbiont-associated	MIXS ID	MIXS:0000103	Expected value	organism name;measurement value	organism name;measurement value;enumeration
+food-human foods	MIXS ID	MIXS:0000103	Expected value	organism name; measurement value; enumeration	organism name;measurement value;enumeration
+food-animal and animal feed	MIXS ID	MIXS:0000103	Expected value	organism name; measurement value; enumeration	organism name;measurement value;enumeration
+food-food production facility	MIXS ID	MIXS:0000103	Expected value	organism name; measurement value; enumeration	organism name;measurement value;enumeration
+food-farm environment	MIXS ID	MIXS:0000103	Expected value	organism name; measurement value; enumeration	organism name;measurement value;enumeration
+agriculture	MIXS ID	MIXS:0000116	Expected value	time interval	duration
+host-associated	MIXS ID	MIXS:0000247	Expected value	free text	text
+plant-associated	MIXS ID	MIXS:0000247	Expected value	free text	text
+agriculture	MIXS ID	MIXS:0000247	Expected value	free text	text
+symbiont-associated	MIXS ID	MIXS:0000248	Expected value	common name of the symbiotic organism (host of the samples)	common name
+symbiont-associated	MIXS ID	MIXS:0000250	Expected value	NCBI taxon identifier of the symbiotic organism (host of the samples)	NCBI taxon identifier
+symbiont-associated	MIXS ID	MIXS:0000251	Expected value	life stage of the symbiotic organism (host of the samples)	stage
+symbiont-associated	MIXS ID	MIXS:0000255	Expected value	age of the symbiotic organism (host of the samples); value	measurement value
+symbiont-associated	MIXS ID	MIXS:0000256	Expected value	length of the symbiotic organism (host of the samples); measurement value	measurement value
+symbiont-associated	MIXS ID	MIXS:0000257	Expected value	dry mass of the symbiotic organism (host of the samples); measurement value	measurement value
+symbiont-associated	MIXS ID	MIXS:0000263	Expected value	mass of the symbiotic organism (host of the samples); measurement value	measurement value
+symbiont-associated	MIXS ID	MIXS:0000264	Expected value	height of the symbiotic organism (host of the samples); measurement value	measurement value
+agriculture	MIXS ID	MIXS:0000325	Expected value	pooling status;measurement value	pooling status;number of pooled extracts
+soil	MIXS ID	MIXS:0000332	Expected value	ENVO_00001998	ENVO:00001998
+food-farm environment	MIXS ID	MIXS:0000332	Expected value	ENVO_00001998	ENVO:00001998
+agriculture	MIXS ID	MIXS:0000332	Expected value	soil type name	ENVO:00001998
+symbiont-associated	MIXS ID	MIXS:0000365	Expected value	genotype of the symbiotic organism (host of the samples)	genotype
+food-farm environment	MIXS ID	MIXS:0000533	Expected value	percent TOC	measurement value
+food-human foods	MIXS ID	MIXS:0000752	Expected value	parameter name; measurement value	parameter name;measurement value
+food-animal and animal feed	MIXS ID	MIXS:0000752	Expected value	parameter name; measurement value	parameter name;measurement value
+food-food production facility	MIXS ID	MIXS:0000752	Expected value	parameter name; measurement value	parameter name;measurement value
+food-farm environment	MIXS ID	MIXS:0000752	Expected value	parameter name; measurement value	parameter name;measurement value
+symbiont-associated	MIXS ID	MIXS:0000754	Expected value	perturbation type name;time interval	perturbation type name;perturbation interval and duration
+agriculture	MIXS ID	MIXS:0000754	Expected value	perturbation type name;time interval	perturbation type name;perturbation interval and duration
+food-human foods	MIXS ID	MIXS:0000755	Expected value	text	location name
+food-animal and animal feed	MIXS ID	MIXS:0000755	Expected value	text	location name
+food-food production facility	MIXS ID	MIXS:0000755	Expected value	text	location name
+built environment	MIXS ID	MIXS:0000829	Expected value	NCIT:C94729	autumn [NCIT:C94733], spring [NCIT:C94731], summer [NCIT:C94732], winter [NCIT:C94730]
+host-associated	MIXS ID	MIXS:0000859	Expected value	PMID,DOI,url or free text	PMID, DOI, URL or text
+plant-associated	MIXS ID	MIXS:0000859	Expected value	PMID,DOI,url or free text	PMID, DOI, URL or text
+food-human foods	MIXS ID	MIXS:0000859	Expected value	PMID, DOI, or URL	PMID, DOI, URL or text
+food-food production facility	MIXS ID	MIXS:0000859	Expected value	PMID, DOI, or URL	PMID, DOI, URL or text
+food-farm environment	MIXS ID	MIXS:0000859	Expected value	PMID, DOI, or URL	PMID, DOI, URL or text
+agriculture	MIXS ID	MIXS:0000859	Expected value	PMID,DOI,url or free text	PMID, DOI, URL or text
+symbiont-associated	MIXS ID	MIXS:0000861	Expected value	unique identifier of the symbiotic organism (host of the samples)	unique identifier
+symbiont-associated	MIXS ID	MIXS:0000867	Expected value	body site of the symbiotic organism (host of the samples) where the samples was obtained from; FMA or UBERON	FMA or UBERON
+human-gut	MIXS ID	MIXS:0000870	Expected value	content;time interval	content;duration
+human-skin	MIXS ID	MIXS:0000870	Expected value	content;time interval	content;duration
+human-vaginal	MIXS ID	MIXS:0000870	Expected value	content;time interval	content;duration
+symbiont-associated	MIXS ID	MIXS:0000872	Expected value	Relationships to other symbiotic organisms (host od samples) in the same study; relationship type;arbitrary identifier	relationship type;arbitrary identifier
+symbiont-associated	MIXS ID	MIXS:0000874	Expected value	symbiotic organism (host of the samples) specific phenotype ontology terms; OBA or PTO or free text	PATO or HP
+agriculture	MIXS ID	MIXS:0000874	Expected value	PATO	PATO or HP
+agriculture	MIXS ID	MIXS:0001123	Expected value		AGRO:00000416
+agriculture	MIXS ID	MIXS:0001124	Expected value		text or commercial name of sanitizer or class of sanitizer or active ingredient in sanitizer
+food-farm environment	MIXS ID	MIXS:0001133	Expected value	free text	text
+agriculture	MIXS ID	MIXS:0001133	Expected value		text
+agriculture	MIXS ID	MIXS:0001145	Expected value	library preparation kit	name of library preparation kit
+food-animal and animal feed	MIXS ID	MIXS:0001152	Expected value	institution	Institution
+agriculture	MIXS ID	MIXS:0001153	Expected value		text
+food-food production facility	MIXS ID	MIXS:0001154	Expected value	OBI:0100051	GENEPIO:0001237
+agriculture	MIXS ID	MIXS:0001181	Expected value	free text	date and time
+food-human foods	MIXS ID	MIXS:0001203	Expected value	country: region, specific location (city)	country: region, specific location
+food-food production facility	MIXS ID	MIXS:0001253	Expected value	ENVO	Expected value
+food-food production facility	MIXS ID	MIXS:0001254	Expected value	ENVO	Expected value
+agriculture	MIXS ID	MIXS:0000117	Item	total phosphorous	total phosphorus
+agriculture	MIXS ID	MIXS:0000530	Item	total nitrogen	total nitrogen content
+symbiont-associated	MIXS ID	MIXS:0000862	Item	host sex	physical sex
+agriculture	MIXS ID	MIXS:0001082	Item	horizon	soil horizon
+agriculture	MIXS ID	MIXS:0001291	Item	soil horizon	horizon
+symbiont-associated	MIXS ID	MIXS:0000026	Occurrence		m
+migs_eu	MIXS ID	MIXS:0000031	Occurrence	m	1
+migs_ba	MIXS ID	MIXS:0000031	Occurrence	m	1
+migs_pl	MIXS ID	MIXS:0000031	Occurrence	m	1
+migs_vi	MIXS ID	MIXS:0000031	Occurrence	m	1
+migs_org	MIXS ID	MIXS:0000031	Occurrence	m	1
+mims	MIXS ID	MIXS:0000031	Occurrence	m	1
+mimarks_s	MIXS ID	MIXS:0000031	Occurrence	m	1
+mimarks_c	MIXS ID	MIXS:0000031	Occurrence	m	1
+misag	MIXS ID	MIXS:0000031	Occurrence	m	1
+mimag	MIXS ID	MIXS:0000031	Occurrence	m	1
+miuvig	MIXS ID	MIXS:0000031	Occurrence	m	1
+host-associated	MIXS ID	MIXS:0000031	Occurrence	m	1
+human-associated	MIXS ID	MIXS:0000031	Occurrence	m	1
+human-gut	MIXS ID	MIXS:0000031	Occurrence	m	1
+human-oral	MIXS ID	MIXS:0000031	Occurrence	m	1
+human-skin	MIXS ID	MIXS:0000031	Occurrence	m	1
+human-vaginal	MIXS ID	MIXS:0000031	Occurrence	m	1
+plant-associated	MIXS ID	MIXS:0000031	Occurrence	m	1
+agriculture	MIXS ID	MIXS:0000031	Occurrence	m	1
 agriculture	MIXS ID	MIXS:0000046	Occurrence		1
 agriculture	MIXS ID	MIXS:0000050	Occurrence		1
 agriculture	MIXS ID	MIXS:0000056	Occurrence		1
 agriculture	MIXS ID	MIXS:0000058	Occurrence		1
 symbiont-associated	MIXS ID	MIXS:0000093	Occurrence		1
 agriculture	MIXS ID	MIXS:0000093	Occurrence		1
+symbiont-associated	MIXS ID	MIXS:0000183	Occurrence	m	1
 symbiont-associated	MIXS ID	MIXS:0000365	Occurrence		1
+food-farm environment	MIXS ID	MIXS:0000530	Occurrence	m	1
+food-farm environment	MIXS ID	MIXS:0000859	Occurrence	m	1
+symbiont-associated	MIXS ID	MIXS:0000872	Occurrence	1	m
 symbiont-associated	MIXS ID	MIXS:0000874	Occurrence		1
+agriculture	MIXS ID	MIXS:0001123	Occurrence		m
+agriculture	MIXS ID	MIXS:0001124	Occurrence		m
+agriculture	MIXS ID	MIXS:0001126	Occurrence		m
+agriculture	MIXS ID	MIXS:0001133	Occurrence		m
 agriculture	MIXS ID	MIXS:0001139	Occurrence		1
+agriculture	MIXS ID	MIXS:0001153	Occurrence		m
 agriculture	MIXS ID	MIXS:0001158	Occurrence		1
 agriculture	MIXS ID	MIXS:0001159	Occurrence		1
 agriculture	MIXS ID	MIXS:0001160	Occurrence		1
 agriculture	MIXS ID	MIXS:0001161	Occurrence		1
 agriculture	MIXS ID	MIXS:0001175	Occurrence		1
 agriculture	MIXS ID	MIXS:0001181	Occurrence		1
-symbiont-associated	MIXS ID	MIXS:0001309	Occurrence		1
-food-food production facility	MIXS ID	MIXS:0000002	Value syntax	{text}	{termLabel} [{termID}]|{text}
-agriculture	MIXS ID	MIXS:0000002	Value syntax	{text}	{termLabel} [{termID}]|{text}
-food-food production facility	MIXS ID	MIXS:0001253	Value syntax	{termLabel} [{termID}]	{text}
-food-food production facility	MIXS ID	MIXS:0001254	Value syntax	{termLabel} [{termID}]	{text}
-agriculture	MIXS ID	MIXS:0000056	Structured comment name	assembly_software	assembly_qual
-agriculture	MIXS ID	MIXS:0000058	Structured comment name	assembly_qual	assembly_software
-food-farm environment	MIXS ID	MIXS:0001159	Value syntax	{termLabel} [{termID}]	bare soil [ENVO:01001616]
-agriculture	MIXS ID	MIXS:0001159	Value syntax	{termLabel} [{termID}]	bare soil [ENVO:01001616]
-air	MIXS ID	MIXS:0000757	Preferred unit		degrees or cardinal direction
-food-food production facility	MIXS ID	MIXS:0000002	Expected value	type name	device name
-agriculture	MIXS ID	MIXS:0000002	Expected value	type name	device name
-symbiont-associated	MIXS ID	MIXS:0000009	Section		environment
-food-human foods	MIXS ID	MIXS:0000009	Section		environment
-food-animal and animal feed	MIXS ID	MIXS:0000009	Section		environment
-food-food production facility	MIXS ID	MIXS:0000009	Section		environment
-food-farm environment	MIXS ID	MIXS:0000009	Section		environment
-symbiont-associated	MIXS ID	MIXS:0000010	Section		environment
-food-human foods	MIXS ID	MIXS:0000010	Section		environment
-food-animal and animal feed	MIXS ID	MIXS:0000010	Section		environment
-food-food production facility	MIXS ID	MIXS:0000010	Section		environment
-food-farm environment	MIXS ID	MIXS:0000010	Section		environment
-symbiont-associated	MIXS ID	MIXS:0000011	Section		environment
-food-human foods	MIXS ID	MIXS:0000011	Section		environment
-food-animal and animal feed	MIXS ID	MIXS:0000011	Section		environment
-food-food production facility	MIXS ID	MIXS:0000011	Section		environment
-food-farm environment	MIXS ID	MIXS:0000011	Section		environment
-host-associated	MIXS ID	MIXS:0000018	Section		environment
-microbial mat/biofilm	MIXS ID	MIXS:0000018	Section		environment
-miscellaneous natural or artificial environment	MIXS ID	MIXS:0000018	Section		environment
-plant-associated	MIXS ID	MIXS:0000018	Section		environment
-sediment	MIXS ID	MIXS:0000018	Section		environment
-soil	MIXS ID	MIXS:0000018	Section		environment
-wastewater/sludge	MIXS ID	MIXS:0000018	Section		environment
-water	MIXS ID	MIXS:0000018	Section		environment
-symbiont-associated	MIXS ID	MIXS:0000018	Section		environment
-food-farm environment	MIXS ID	MIXS:0000018	Section		environment
-air	MIXS ID	MIXS:0000093	Section		environment
-host-associated	MIXS ID	MIXS:0000093	Section		environment
-hydrocarbon resources-cores	MIXS ID	MIXS:0000093	Section		environment
-microbial mat/biofilm	MIXS ID	MIXS:0000093	Section		environment
-miscellaneous natural or artificial environment	MIXS ID	MIXS:0000093	Section		environment
-plant-associated	MIXS ID	MIXS:0000093	Section		environment
-sediment	MIXS ID	MIXS:0000093	Section		environment
-soil	MIXS ID	MIXS:0000093	Section		environment
-water	MIXS ID	MIXS:0000093	Section		environment
-symbiont-associated	MIXS ID	MIXS:0000093	Section		environment
-agriculture	MIXS ID	MIXS:0000093	Section		environment
-air	MIXS ID	MIXS:0000094	Section		environment
-host-associated	MIXS ID	MIXS:0000094	Section		environment
-miscellaneous natural or artificial environment	MIXS ID	MIXS:0000094	Section		environment
-symbiont-associated	MIXS ID	MIXS:0000094	Section		environment
-air	MIXS ID	MIXS:0000113	Section		environment
-host-associated	MIXS ID	MIXS:0000113	Section		environment
-human-associated	MIXS ID	MIXS:0000113	Section		environment
-human-gut	MIXS ID	MIXS:0000113	Section		environment
-human-oral	MIXS ID	MIXS:0000113	Section		environment
-human-skin	MIXS ID	MIXS:0000113	Section		environment
-human-vaginal	MIXS ID	MIXS:0000113	Section		environment
-hydrocarbon resources-cores	MIXS ID	MIXS:0000113	Section		environment
-hydrocarbon resources-fluids/swabs	MIXS ID	MIXS:0000113	Section		environment
-microbial mat/biofilm	MIXS ID	MIXS:0000113	Section		environment
-miscellaneous natural or artificial environment	MIXS ID	MIXS:0000113	Section		environment
-plant-associated	MIXS ID	MIXS:0000113	Section		environment
-sediment	MIXS ID	MIXS:0000113	Section		environment
-soil	MIXS ID	MIXS:0000113	Section		environment
-wastewater/sludge	MIXS ID	MIXS:0000113	Section		environment
-water	MIXS ID	MIXS:0000113	Section		environment
-symbiont-associated	MIXS ID	MIXS:0000113	Section		environment
-food-human foods	MIXS ID	MIXS:0000113	Section		environment
-food-animal and animal feed	MIXS ID	MIXS:0000113	Section		environment
-food-farm environment	MIXS ID	MIXS:0000113	Section		environment
-agriculture	MIXS ID	MIXS:0000113	Section		environment
-agriculture	MIXS ID	MIXS:0001184	Structured comment name	Food_Product_type	food_product_type
-agriculture	MIXS ID	MIXS:0001139	Structured comment name	Food_source	food_source
-soil	MIXS ID	MIXS:0000325	Preferred unit		gram, milliliter, microliter
-food-human foods	MIXS ID	MIXS:0000325	Preferred unit		gram, milliliter, microliter
-food-animal and animal feed	MIXS ID	MIXS:0000325	Preferred unit		gram, milliliter, microliter
-food-food production facility	MIXS ID	MIXS:0000325	Preferred unit		gram, milliliter, microliter
-agriculture	MIXS ID	MIXS:0001291	Structured comment name	soil_horizon	horizon
-agriculture	MIXS ID	MIXS:0001291	Item	soil horizon	horizon
-food-human foods	MIXS ID	MIXS:0000008	Section		investigation
-food-animal and animal feed	MIXS ID	MIXS:0000008	Section		investigation
-food-food production facility	MIXS ID	MIXS:0000008	Section		investigation
-air	MIXS ID	MIXS:0000092	Section		investigation
-built environment	MIXS ID	MIXS:0000092	Section		investigation
-host-associated	MIXS ID	MIXS:0000092	Section		investigation
-human-associated	MIXS ID	MIXS:0000092	Section		investigation
-human-gut	MIXS ID	MIXS:0000092	Section		investigation
-human-oral	MIXS ID	MIXS:0000092	Section		investigation
-human-skin	MIXS ID	MIXS:0000092	Section		investigation
-human-vaginal	MIXS ID	MIXS:0000092	Section		investigation
-hydrocarbon resources-cores	MIXS ID	MIXS:0000092	Section		investigation
-hydrocarbon resources-fluids/swabs	MIXS ID	MIXS:0000092	Section		investigation
-microbial mat/biofilm	MIXS ID	MIXS:0000092	Section		investigation
-miscellaneous natural or artificial environment	MIXS ID	MIXS:0000092	Section		investigation
-plant-associated	MIXS ID	MIXS:0000092	Section		investigation
-sediment	MIXS ID	MIXS:0000092	Section		investigation
-soil	MIXS ID	MIXS:0000092	Section		investigation
-wastewater/sludge	MIXS ID	MIXS:0000092	Section		investigation
-water	MIXS ID	MIXS:0000092	Section		investigation
-symbiont-associated	MIXS ID	MIXS:0000092	Section		investigation
-food-human foods	MIXS ID	MIXS:0000092	Section		investigation
-food-animal and animal feed	MIXS ID	MIXS:0000092	Section		investigation
-food-food production facility	MIXS ID	MIXS:0000092	Section		investigation
-food-farm environment	MIXS ID	MIXS:0000092	Section		investigation
-air	MIXS ID	MIXS:0001107	Section		investigation
-built environment	MIXS ID	MIXS:0001107	Section		investigation
-host-associated	MIXS ID	MIXS:0001107	Section		investigation
-human-associated	MIXS ID	MIXS:0001107	Section		investigation
-human-gut	MIXS ID	MIXS:0001107	Section		investigation
-human-oral	MIXS ID	MIXS:0001107	Section		investigation
-human-skin	MIXS ID	MIXS:0001107	Section		investigation
-human-vaginal	MIXS ID	MIXS:0001107	Section		investigation
-hydrocarbon resources-cores	MIXS ID	MIXS:0001107	Section		investigation
-hydrocarbon resources-fluids/swabs	MIXS ID	MIXS:0001107	Section		investigation
-microbial mat/biofilm	MIXS ID	MIXS:0001107	Section		investigation
-miscellaneous natural or artificial environment	MIXS ID	MIXS:0001107	Section		investigation
-plant-associated	MIXS ID	MIXS:0001107	Section		investigation
-sediment	MIXS ID	MIXS:0001107	Section		investigation
-soil	MIXS ID	MIXS:0001107	Section		investigation
-wastewater/sludge	MIXS ID	MIXS:0001107	Section		investigation
-water	MIXS ID	MIXS:0001107	Section		investigation
-symbiont-associated	MIXS ID	MIXS:0001107	Section		investigation
-food-human foods	MIXS ID	MIXS:0001107	Section		investigation
-food-animal and animal feed	MIXS ID	MIXS:0001107	Section		investigation
-food-food production facility	MIXS ID	MIXS:0001107	Section		investigation
-food-farm environment	MIXS ID	MIXS:0001107	Section		investigation
-symbiont-associated	MIXS ID	MIXS:0000026	Occurrence		m
-agriculture	MIXS ID	MIXS:0001123	Occurrence		m
-agriculture	MIXS ID	MIXS:0001124	Occurrence		m
-agriculture	MIXS ID	MIXS:0001126	Occurrence		m
-agriculture	MIXS ID	MIXS:0001133	Occurrence		m
-agriculture	MIXS ID	MIXS:0001153	Occurrence		m
 food-animal and animal feed	MIXS ID	MIXS:0001204	Occurrence		m
+symbiont-associated	MIXS ID	MIXS:0001309	Occurrence		1
 migs_eu	MIXS ID	MIXS:0000093	Preferred unit		meter
 migs_ba	MIXS ID	MIXS:0000093	Preferred unit		meter
 migs_pl	MIXS ID	MIXS:0000093	Preferred unit		meter
@@ -225,6 +209,17 @@ mimarks_c	MIXS ID	MIXS:0000094	Preferred unit		meter
 misag	MIXS ID	MIXS:0000094	Preferred unit		meter
 mimag	MIXS ID	MIXS:0000094	Preferred unit		meter
 miuvig	MIXS ID	MIXS:0000094	Preferred unit		meter
+plant-associated	MIXS ID	MIXS:0000248	Preferred unit	 	
+soil	MIXS ID	MIXS:0000325	Preferred unit		gram, milliliter, microliter
+food-human foods	MIXS ID	MIXS:0000325	Preferred unit		gram, milliliter, microliter
+food-animal and animal feed	MIXS ID	MIXS:0000325	Preferred unit		gram, milliliter, microliter
+food-food production facility	MIXS ID	MIXS:0000325	Preferred unit		gram, milliliter, microliter
+air	MIXS ID	MIXS:0000757	Preferred unit		degrees or cardinal direction
+food-human foods	MIXS ID	MIXS:0001107	Preferred unit	 	
+food-animal and animal feed	MIXS ID	MIXS:0001107	Preferred unit	 	
+food-food production facility	MIXS ID	MIXS:0001107	Preferred unit	 	
+food-farm environment	MIXS ID	MIXS:0001107	Preferred unit	 	
+agriculture	MIXS ID	MIXS:0001124	Preferred unit		parts per million
 agriculture	MIXS ID	MIXS:0001158	Preferred unit		milliSiemens per centimeter
 food-human foods	MIXS ID	MIXS:0000001	Section		nucleic acid sequence source
 food-animal and animal feed	MIXS ID	MIXS:0000001	Section		nucleic acid sequence source
@@ -237,7 +232,35 @@ food-food production facility	MIXS ID	MIXS:0000002	Section		nucleic acid sequenc
 food-farm environment	MIXS ID	MIXS:0000002	Section		nucleic acid sequence source
 agriculture	MIXS ID	MIXS:0000002	Section		nucleic acid sequence source
 agriculture	MIXS ID	MIXS:0000003	Section		nucleic acid sequence source
+food-human foods	MIXS ID	MIXS:0000008	Section		investigation
+food-animal and animal feed	MIXS ID	MIXS:0000008	Section		investigation
+food-food production facility	MIXS ID	MIXS:0000008	Section		investigation
+symbiont-associated	MIXS ID	MIXS:0000009	Section		environment
+food-human foods	MIXS ID	MIXS:0000009	Section		environment
+food-animal and animal feed	MIXS ID	MIXS:0000009	Section		environment
+food-food production facility	MIXS ID	MIXS:0000009	Section		environment
+food-farm environment	MIXS ID	MIXS:0000009	Section		environment
+symbiont-associated	MIXS ID	MIXS:0000010	Section		environment
+food-human foods	MIXS ID	MIXS:0000010	Section		environment
+food-animal and animal feed	MIXS ID	MIXS:0000010	Section		environment
+food-food production facility	MIXS ID	MIXS:0000010	Section		environment
+food-farm environment	MIXS ID	MIXS:0000010	Section		environment
+symbiont-associated	MIXS ID	MIXS:0000011	Section		environment
+food-human foods	MIXS ID	MIXS:0000011	Section		environment
+food-animal and animal feed	MIXS ID	MIXS:0000011	Section		environment
+food-food production facility	MIXS ID	MIXS:0000011	Section		environment
+food-farm environment	MIXS ID	MIXS:0000011	Section		environment
 agriculture	MIXS ID	MIXS:0000016	Section		nucleic acid sequence source
+host-associated	MIXS ID	MIXS:0000018	Section		environment
+microbial mat/biofilm	MIXS ID	MIXS:0000018	Section		environment
+miscellaneous natural or artificial environment	MIXS ID	MIXS:0000018	Section		environment
+plant-associated	MIXS ID	MIXS:0000018	Section		environment
+sediment	MIXS ID	MIXS:0000018	Section		environment
+soil	MIXS ID	MIXS:0000018	Section		environment
+wastewater/sludge	MIXS ID	MIXS:0000018	Section		environment
+water	MIXS ID	MIXS:0000018	Section		environment
+symbiont-associated	MIXS ID	MIXS:0000018	Section		environment
+food-farm environment	MIXS ID	MIXS:0000018	Section		environment
 food-food production facility	MIXS ID	MIXS:0000020	Section		nucleic acid sequence source
 symbiont-associated	MIXS ID	MIXS:0000026	Section		nucleic acid sequence source
 agriculture	MIXS ID	MIXS:0000026	Section		nucleic acid sequence source
@@ -255,35 +278,6 @@ plant-associated	MIXS ID	MIXS:0000031	Section		nucleic acid sequence source
 food-farm environment	MIXS ID	MIXS:0000031	Section		nucleic acid sequence source
 agriculture	MIXS ID	MIXS:0000031	Section		nucleic acid sequence source
 agriculture	MIXS ID	MIXS:0000032	Section		nucleic acid sequence source
-air	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
-host-associated	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
-human-associated	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
-human-gut	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
-human-oral	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
-human-skin	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
-human-vaginal	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
-hydrocarbon resources-cores	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
-hydrocarbon resources-fluids/swabs	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
-microbial mat/biofilm	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
-miscellaneous natural or artificial environment	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
-plant-associated	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
-sediment	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
-soil	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
-wastewater/sludge	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
-water	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
-symbiont-associated	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
-food-human foods	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
-food-animal and animal feed	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
-food-food production facility	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
-food-farm environment	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
-agriculture	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
-food-human foods	MIXS ID	MIXS:0001225	Section		nucleic acid sequence source
-food-animal and animal feed	MIXS ID	MIXS:0001225	Section		nucleic acid sequence source
-food-food production facility	MIXS ID	MIXS:0001225	Section		nucleic acid sequence source
-agriculture	MIXS ID	MIXS:0001225	Section		nucleic acid sequence source
-agriculture	MIXS ID	MIXS:0001124	Preferred unit		parts per million
-symbiont-associated	MIXS ID	MIXS:0000862	Item	host sex	physical sex
-symbiont-associated	MIXS ID	MIXS:0000862	Structured comment name	host_sex	physical_sex
 food-human foods	MIXS ID	MIXS:0000037	Section		sequencing
 food-animal and animal feed	MIXS ID	MIXS:0000037	Section		sequencing
 food-food production facility	MIXS ID	MIXS:0000037	Section		sequencing
@@ -314,157 +308,231 @@ agriculture	MIXS ID	MIXS:0000058	Section		sequencing
 agriculture	MIXS ID	MIXS:0000059	Section		sequencing
 agriculture	MIXS ID	MIXS:0000090	Section		sequencing
 agriculture	MIXS ID	MIXS:0000091	Section		sequencing
-symbiont-associated	MIXS ID	MIXS:0001325	Value syntax	{termLabel} [{termID}]	small intestine [UBERON:0002108]
-agriculture	MIXS ID	MIXS:0001082	Item	horizon	soil horizon
-agriculture	MIXS ID	MIXS:0001082	Structured comment name	horizon	soil_horizon
+air	MIXS ID	MIXS:0000092	Section		investigation
+built environment	MIXS ID	MIXS:0000092	Section		investigation
+host-associated	MIXS ID	MIXS:0000092	Section		investigation
+human-associated	MIXS ID	MIXS:0000092	Section		investigation
+human-gut	MIXS ID	MIXS:0000092	Section		investigation
+human-oral	MIXS ID	MIXS:0000092	Section		investigation
+human-skin	MIXS ID	MIXS:0000092	Section		investigation
+human-vaginal	MIXS ID	MIXS:0000092	Section		investigation
+hydrocarbon resources-cores	MIXS ID	MIXS:0000092	Section		investigation
+hydrocarbon resources-fluids/swabs	MIXS ID	MIXS:0000092	Section		investigation
+microbial mat/biofilm	MIXS ID	MIXS:0000092	Section		investigation
+miscellaneous natural or artificial environment	MIXS ID	MIXS:0000092	Section		investigation
+plant-associated	MIXS ID	MIXS:0000092	Section		investigation
+sediment	MIXS ID	MIXS:0000092	Section		investigation
+soil	MIXS ID	MIXS:0000092	Section		investigation
+wastewater/sludge	MIXS ID	MIXS:0000092	Section		investigation
+water	MIXS ID	MIXS:0000092	Section		investigation
+symbiont-associated	MIXS ID	MIXS:0000092	Section		investigation
+food-human foods	MIXS ID	MIXS:0000092	Section		investigation
+food-animal and animal feed	MIXS ID	MIXS:0000092	Section		investigation
+food-food production facility	MIXS ID	MIXS:0000092	Section		investigation
+food-farm environment	MIXS ID	MIXS:0000092	Section		investigation
+air	MIXS ID	MIXS:0000093	Section		environment
+host-associated	MIXS ID	MIXS:0000093	Section		environment
+hydrocarbon resources-cores	MIXS ID	MIXS:0000093	Section		environment
+microbial mat/biofilm	MIXS ID	MIXS:0000093	Section		environment
+miscellaneous natural or artificial environment	MIXS ID	MIXS:0000093	Section		environment
+plant-associated	MIXS ID	MIXS:0000093	Section		environment
+sediment	MIXS ID	MIXS:0000093	Section		environment
+soil	MIXS ID	MIXS:0000093	Section		environment
+water	MIXS ID	MIXS:0000093	Section		environment
+symbiont-associated	MIXS ID	MIXS:0000093	Section		environment
+agriculture	MIXS ID	MIXS:0000093	Section		environment
+air	MIXS ID	MIXS:0000094	Section		environment
+host-associated	MIXS ID	MIXS:0000094	Section		environment
+miscellaneous natural or artificial environment	MIXS ID	MIXS:0000094	Section		environment
+symbiont-associated	MIXS ID	MIXS:0000094	Section		environment
+air	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
+host-associated	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
+human-associated	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
+human-gut	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
+human-oral	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
+human-skin	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
+human-vaginal	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
+hydrocarbon resources-cores	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
+hydrocarbon resources-fluids/swabs	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
+microbial mat/biofilm	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
+miscellaneous natural or artificial environment	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
+plant-associated	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
+sediment	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
+soil	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
+wastewater/sludge	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
+water	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
+symbiont-associated	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
+food-human foods	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
+food-animal and animal feed	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
+food-food production facility	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
+food-farm environment	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
+agriculture	MIXS ID	MIXS:0000111	Section		nucleic acid sequence source
+air	MIXS ID	MIXS:0000113	Section		environment
+host-associated	MIXS ID	MIXS:0000113	Section		environment
+human-associated	MIXS ID	MIXS:0000113	Section		environment
+human-gut	MIXS ID	MIXS:0000113	Section		environment
+human-oral	MIXS ID	MIXS:0000113	Section		environment
+human-skin	MIXS ID	MIXS:0000113	Section		environment
+human-vaginal	MIXS ID	MIXS:0000113	Section		environment
+hydrocarbon resources-cores	MIXS ID	MIXS:0000113	Section		environment
+hydrocarbon resources-fluids/swabs	MIXS ID	MIXS:0000113	Section		environment
+microbial mat/biofilm	MIXS ID	MIXS:0000113	Section		environment
+miscellaneous natural or artificial environment	MIXS ID	MIXS:0000113	Section		environment
+plant-associated	MIXS ID	MIXS:0000113	Section		environment
+sediment	MIXS ID	MIXS:0000113	Section		environment
+soil	MIXS ID	MIXS:0000113	Section		environment
+wastewater/sludge	MIXS ID	MIXS:0000113	Section		environment
+water	MIXS ID	MIXS:0000113	Section		environment
+symbiont-associated	MIXS ID	MIXS:0000113	Section		environment
+food-human foods	MIXS ID	MIXS:0000113	Section		environment
+food-animal and animal feed	MIXS ID	MIXS:0000113	Section		environment
+food-farm environment	MIXS ID	MIXS:0000113	Section		environment
+agriculture	MIXS ID	MIXS:0000113	Section		environment
+air	MIXS ID	MIXS:0001107	Section		investigation
+built environment	MIXS ID	MIXS:0001107	Section		investigation
+host-associated	MIXS ID	MIXS:0001107	Section		investigation
+human-associated	MIXS ID	MIXS:0001107	Section		investigation
+human-gut	MIXS ID	MIXS:0001107	Section		investigation
+human-oral	MIXS ID	MIXS:0001107	Section		investigation
+human-skin	MIXS ID	MIXS:0001107	Section		investigation
+human-vaginal	MIXS ID	MIXS:0001107	Section		investigation
+hydrocarbon resources-cores	MIXS ID	MIXS:0001107	Section		investigation
+hydrocarbon resources-fluids/swabs	MIXS ID	MIXS:0001107	Section		investigation
+microbial mat/biofilm	MIXS ID	MIXS:0001107	Section		investigation
+miscellaneous natural or artificial environment	MIXS ID	MIXS:0001107	Section		investigation
+plant-associated	MIXS ID	MIXS:0001107	Section		investigation
+sediment	MIXS ID	MIXS:0001107	Section		investigation
+soil	MIXS ID	MIXS:0001107	Section		investigation
+wastewater/sludge	MIXS ID	MIXS:0001107	Section		investigation
+water	MIXS ID	MIXS:0001107	Section		investigation
+symbiont-associated	MIXS ID	MIXS:0001107	Section		investigation
+food-human foods	MIXS ID	MIXS:0001107	Section		investigation
+food-animal and animal feed	MIXS ID	MIXS:0001107	Section		investigation
+food-food production facility	MIXS ID	MIXS:0001107	Section		investigation
+food-farm environment	MIXS ID	MIXS:0001107	Section		investigation
+food-human foods	MIXS ID	MIXS:0001225	Section		nucleic acid sequence source
+food-animal and animal feed	MIXS ID	MIXS:0001225	Section		nucleic acid sequence source
+food-food production facility	MIXS ID	MIXS:0001225	Section		nucleic acid sequence source
+agriculture	MIXS ID	MIXS:0001225	Section		nucleic acid sequence source
+agriculture	MIXS ID	MIXS:0000056	Structured comment name	assembly_software	assembly_qual
+agriculture	MIXS ID	MIXS:0000058	Structured comment name	assembly_qual	assembly_software
+soil	MIXS ID	MIXS:0000335	Structured comment name	soil_text_measure	Structured comment name
+agriculture	MIXS ID	MIXS:0000335	Structured comment name	texture	Structured comment name
 agriculture	MIXS ID	MIXS:0000336	Structured comment name	texture_meth	soil_texture_meth
 agriculture	MIXS ID	MIXS:0000338	Structured comment name	tot_n_meth	tot_nitro_cont_meth
 agriculture	MIXS ID	MIXS:0000530	Structured comment name	tot_nitro	tot_nitro_content
-food-food production facility	MIXS ID	MIXS:0001253	Expected value	ENVO	
-food-food production facility	MIXS ID	MIXS:0001254	Expected value	ENVO	
-plant-associated	MIXS ID	MIXS:0000248	Preferred unit	 	
-food-human foods	MIXS ID	MIXS:0001107	Preferred unit	 	
-food-animal and animal feed	MIXS ID	MIXS:0001107	Preferred unit	 	
-food-food production facility	MIXS ID	MIXS:0001107	Preferred unit	 	
-food-farm environment	MIXS ID	MIXS:0001107	Preferred unit	 	
-soil	MIXS ID	MIXS:0000335	Structured comment name	soil_text_measure	
-agriculture	MIXS ID	MIXS:0000335	Structured comment name	texture	
-built environment	Structured comment name	occup_density_samp	Example		0.1
-hydrocarbon resources-fluids/swabs	Structured comment name	iwf	Example		0.79
-food-farm environment	Structured comment name	tot_nitro_cont_meth	Occurrence	m	1
+symbiont-associated	MIXS ID	MIXS:0000862	Structured comment name	host_sex	physical_sex
+agriculture	MIXS ID	MIXS:0001082	Structured comment name	horizon	soil_horizon
+agriculture	MIXS ID	MIXS:0001139	Structured comment name	Food_source	food_source
+agriculture	MIXS ID	MIXS:0001184	Structured comment name	Food_Product_type	food_product_type
+agriculture	MIXS ID	MIXS:0001291	Structured comment name	soil_horizon	horizon
+food-food production facility	MIXS ID	MIXS:0000002	Value syntax	{text}	{termLabel} [{termID}]|{text}
+agriculture	MIXS ID	MIXS:0000002	Value syntax	{text}	{termLabel} [{termID}]|{text}
+agriculture	MIXS ID	MIXS:0000003	Value syntax	{PMID|DOI|URL}	{PMID}|{DOI}|{URL}
+agriculture	MIXS ID	MIXS:0000016	Value syntax	{text|term}	{text}
+agriculture	MIXS ID	MIXS:0000037	Value syntax	{PMID|DOI|URL}	{PMID}|{DOI}|{URL}
+agriculture	MIXS ID	MIXS:0000038	Value syntax	{PMID|DOI|URL}	{PMID}|{DOI}|{URL}
+agriculture	MIXS ID	MIXS:0000046	Value syntax		FWD:{dna};REV:{dna}
+agriculture	MIXS ID	MIXS:0000048	Value syntax	{dna},{dna}	{dna};{dna}
+agriculture	MIXS ID	MIXS:0000049	Value syntax	initial denaturation:degrees_minutes; annealing:degrees_minutes; elongation: degrees_minutes; final elongation:degrees_minutes; total cycles	initial denaturation:degrees_minutes;annealing:degrees_minutes;elongation:degrees_minutes;final elongation:degrees_minutes;total cycles
+agriculture	MIXS ID	MIXS:0000090	Value syntax	{PMID|DOI|URL}	{PMID}|{DOI}|{URL}
+migs_eu	MIXS ID	MIXS:0000091	Value syntax	{PMID} | {DOI} | {URL}	{PMID}|{DOI}|{URL}
+migs_ba	MIXS ID	MIXS:0000091	Value syntax	{PMID} | {DOI} | {URL}	{PMID}|{DOI}|{URL}
+migs_pl	MIXS ID	MIXS:0000091	Value syntax	{PMID} | {DOI} | {URL}	{PMID}|{DOI}|{URL}
+migs_vi	MIXS ID	MIXS:0000091	Value syntax	{PMID} | {DOI} | {URL}	{PMID}|{DOI}|{URL}
+migs_org	MIXS ID	MIXS:0000091	Value syntax	{PMID} | {DOI} | {URL}	{PMID}|{DOI}|{URL}
+mims	MIXS ID	MIXS:0000091	Value syntax	{PMID} | {DOI} | {URL}	{PMID}|{DOI}|{URL}
+mimarks_s	MIXS ID	MIXS:0000091	Value syntax	{PMID} | {DOI} | {URL}	{PMID}|{DOI}|{URL}
+mimarks_c	MIXS ID	MIXS:0000091	Value syntax	{PMID} | {DOI} | {URL}	{PMID}|{DOI}|{URL}
+misag	MIXS ID	MIXS:0000091	Value syntax	{PMID} | {DOI} | {URL}	{PMID}|{DOI}|{URL}
+mimag	MIXS ID	MIXS:0000091	Value syntax	{PMID} | {DOI} | {URL}	{PMID}|{DOI}|{URL}
+miuvig	MIXS ID	MIXS:0000091	Value syntax	{PMID} | {DOI} | {URL}	{PMID}|{DOI}|{URL}
+agriculture	MIXS ID	MIXS:0000091	Value syntax	{URL}	{PMID}|{DOI}|{URL}
+air	MIXS ID	MIXS:0000103	Value syntax	{text};{float} {unit};[qPCR|ATP|MPN|other]	{text};{float} {unit};[ATP|MPN|qPCR|other]
+built environment	MIXS ID	MIXS:0000103	Value syntax	{text};{float} {unit};[qPCR|ATP|MPN|other]	{text};{float} {unit};[ATP|MPN|qPCR|other]
+host-associated	MIXS ID	MIXS:0000103	Value syntax	{text};{float} {unit};[qPCR|ATP|MPN|other]	{text};{float} {unit};[ATP|MPN|qPCR|other]
+human-associated	MIXS ID	MIXS:0000103	Value syntax	{text};{float} {unit};[qPCR|ATP|MPN|other]	{text};{float} {unit};[ATP|MPN|qPCR|other]
+human-gut	MIXS ID	MIXS:0000103	Value syntax	{text};{float} {unit};[qPCR|ATP|MPN|other]	{text};{float} {unit};[ATP|MPN|qPCR|other]
+human-oral	MIXS ID	MIXS:0000103	Value syntax	{text};{float} {unit};[qPCR|ATP|MPN|other]	{text};{float} {unit};[ATP|MPN|qPCR|other]
+human-skin	MIXS ID	MIXS:0000103	Value syntax	{text};{float} {unit};[qPCR|ATP|MPN|other]	{text};{float} {unit};[ATP|MPN|qPCR|other]
+human-vaginal	MIXS ID	MIXS:0000103	Value syntax	{text};{float} {unit};[qPCR|ATP|MPN|other]	{text};{float} {unit};[ATP|MPN|qPCR|other]
+hydrocarbon resources-cores	MIXS ID	MIXS:0000103	Value syntax	{text};{float} {unit};[qPCR|ATP|MPN|other]	{text};{float} {unit};[ATP|MPN|qPCR|other]
+hydrocarbon resources-fluids/swabs	MIXS ID	MIXS:0000103	Value syntax	{text};{float} {unit};[qPCR|ATP|MPN|other]	{text};{float} {unit};[ATP|MPN|qPCR|other]
+microbial mat/biofilm	MIXS ID	MIXS:0000103	Value syntax	{text};{float} {unit};[qPCR|ATP|MPN|other]	{text};{float} {unit};[ATP|MPN|qPCR|other]
+miscellaneous natural or artificial environment	MIXS ID	MIXS:0000103	Value syntax	{text};{float} {unit};[qPCR|ATP|MPN|other]	{text};{float} {unit};[ATP|MPN|qPCR|other]
+plant-associated	MIXS ID	MIXS:0000103	Value syntax	{text};{float} {unit};[qPCR|ATP|MPN|other]	{text};{float} {unit};[ATP|MPN|qPCR|other]
+sediment	MIXS ID	MIXS:0000103	Value syntax	{text};{float} {unit};[qPCR|ATP|MPN|other]	{text};{float} {unit};[ATP|MPN|qPCR|other]
+wastewater/sludge	MIXS ID	MIXS:0000103	Value syntax	{text};{float} {unit};[qPCR|ATP|MPN|other]	{text};{float} {unit};[ATP|MPN|qPCR|other]
+water	MIXS ID	MIXS:0000103	Value syntax	{text};{float} {unit};[qPCR|ATP|MPN|other]	{text};{float} {unit};[ATP|MPN|qPCR|other]
+symbiont-associated	MIXS ID	MIXS:0000103	Value syntax	{text};{float} {unit}	{text};{float} {unit};[ATP|MPN|qPCR|other]
+agriculture	MIXS ID	MIXS:0000103	Value syntax	{text};{float} {unit};[qPCR|ATP|MPN|other]	{text};{float} {unit};[ATP|MPN|qPCR|other]
+agriculture	MIXS ID	MIXS:0000116	Value syntax	{interval}	{duration}
+agriculture	MIXS ID	MIXS:0000754	Value syntax	{text};{interval}	{text};{Rn/start_time/end_time/duration}
+agriculture	MIXS ID	MIXS:0001123	Value syntax		{termLabel} [{termID}]
+agriculture	MIXS ID	MIXS:0001124	Value syntax		{text} {float} {unit}
+agriculture	MIXS ID	MIXS:0001133	Value syntax		{text}
+agriculture	MIXS ID	MIXS:0001153	Value syntax		{text}
+agriculture	MIXS ID	MIXS:0001158	Value syntax		{float} {unit}
+food-farm environment	MIXS ID	MIXS:0001159	Value syntax	{termLabel} [{termID}]	bare soil [ENVO:01001616]
+agriculture	MIXS ID	MIXS:0001159	Value syntax	{termLabel} [{termID}]	bare soil [ENVO:01001616]
+agriculture	MIXS ID	MIXS:0001160	Value syntax		{float}
+agriculture	MIXS ID	MIXS:0001161	Value syntax		{text}
+agriculture	MIXS ID	MIXS:0001181	Value syntax	YYYY-MM-DD	{timestamp}
+food-animal and animal feed	MIXS ID	MIXS:0001207	Value syntax	{term}:{term}, {text}	{term}: {term}, {text}
+food-food production facility	MIXS ID	MIXS:0001253	Value syntax	{termLabel} [{termID}]	{text}
+food-food production facility	MIXS ID	MIXS:0001254	Value syntax	{termLabel} [{termID}]	{text}
+symbiont-associated	MIXS ID	MIXS:0001325	Value syntax	{termLabel} [{termID}]	small intestine [UBERON:0002108]
 food-animal and animal feed	Structured comment name	animal_am_freq	Example	once daily	1.5
-symbiont-associated	Structured comment name	oxy_stat_samp	Value syntax	[aerobic|anaerobic]	[aerobic|anaerobic|other]
-agriculture	Structured comment name	oxy_stat_samp	Value syntax	[aerobic|anaerobic]	[aerobic|anaerobic|other]
-agriculture	Structured comment name	trophic_level	Value syntax	[autotroph| carboxydotroph| chemoautotroph| chemoheterotroph| chemolithoautotroph| chemolithotroph| chemoorganoheterotroph| chemoorganotroph| chemosynthetic| chemotroph| copiotroph| diazotroph| facultative| autotroph| heterotroph| lithoautotroph| lithoheterotroph| lithotroph| methanotroph| methylotroph| mixotroph| obligate| chemoautolithotroph| oligotroph| organoheterotroph| organotroph| photoautotroph| photoheterotroph| photolithoautotroph| photolithotroph| photosynthetic| phototroph]	[autotroph|carboxydotroph|chemoautotroph|chemoheterotroph|chemolithoautotroph|chemolithotroph|chemoorganoheterotroph|chemoorganotroph|chemosynthetic|chemotroph|copiotroph|diazotroph|facultative|autotroph|heterotroph|lithoautotroph|lithoheterotroph|lithotroph|methanotroph|methylotroph|mixotroph|obligate|chemoautolithotroph|oligotroph|organoheterotroph|organotroph|photoautotroph|photoheterotroph|photolithoautotroph|photolithotroph|photosynthetic|phototroph]
-agriculture	Structured comment name	biotic_relationship	Value syntax	[free living|parasite|commensal|symbiont]	[free living|parasitism|commensalism|symbiotic|mutualism]
-agriculture	Structured comment name	chimera_check	Value syntax	{text} {text}	{software};{version};{parameters}
-soil	Structured comment name	store_cond	Value syntax	{text};{duration}	{text};{period}
-agriculture	Structured comment name	food_product_type	Value syntax	{text}	{text}|{termLabel} [{termID}]
-built environment	Structured comment name	built_struc_age	Example	15	15 years
-migs_eu	Structured comment name	collection_date	Example	2018-05-11T10:00:00+01:00; 2018-05-11	2013-03-25T12:42:31+00:32
-migs_ba	Structured comment name	collection_date	Example	2018-05-11T10:00:00+01:00; 2018-05-11	2013-03-25T12:42:31+00:32
-migs_pl	Structured comment name	collection_date	Example	2018-05-11T10:00:00+01:00; 2018-05-11	2013-03-25T12:42:31+00:32
-migs_vi	Structured comment name	collection_date	Example	2018-05-11T10:00:00+01:00; 2018-05-11	2013-03-25T12:42:31+00:32
-migs_org	Structured comment name	collection_date	Example	2018-05-11T10:00:00+01:00; 2018-05-11	2013-03-25T12:42:31+00:32
-mims	Structured comment name	collection_date	Example	2018-05-11T10:00:00+01:00; 2018-05-11	2013-03-25T12:42:31+00:32
-mimarks_s	Structured comment name	collection_date	Example	2018-05-11T10:00:00+01:00; 2018-05-11	2013-03-25T12:42:31+00:32
-mimarks_c	Structured comment name	collection_date	Example	2018-05-11T10:00:00+01:00; 2018-05-11	2013-03-25T12:42:31+00:32
-misag	Structured comment name	collection_date	Example	2018-05-11T10:00:00+01:00; 2018-05-11	2013-03-25T12:42:31+00:32
-mimag	Structured comment name	collection_date	Example	2018-05-11T10:00:00+01:00; 2018-05-11	2013-03-25T12:42:31+00:32
-miuvig	Structured comment name	collection_date	Example	2018-05-11T10:00:00+01:00; 2018-05-11	2013-03-25T12:42:31+00:32
-symbiont-associated	Structured comment name	collection_date	Example	2018-05-11T10:00:00+01:00; 2018-05-11	2013-03-25T12:42:31+00:32
-food-human foods	Structured comment name	collection_date	Example	2018-05-11T10:00:00+01:00	2013-03-25T12:42:31+00:32
-food-animal and animal feed	Structured comment name	collection_date	Example	2018-05-11T10:00:00+01:00	2013-03-25T12:42:31+00:32
-food-food production facility	Structured comment name	collection_date	Example	2018-05-11T10:00:00+01:00	2013-03-25T12:42:31+00:32
-food-farm environment	Structured comment name	collection_date	Example	2018-05-11T10:00:00+01:00	2013-03-25T12:42:31+00:32
-food-human foods	Structured comment name	cons_purch_date	Example	2019-11-30 00:00:00	2013-03-25T12:42:31+00:32
-food-animal and animal feed	Structured comment name	cons_purch_date	Example	2019-11-30 00:00:00	2013-03-25T12:42:31+00:32
-food-farm environment	Structured comment name	date_extr_weath	Example	2018-05-11:T14:30Z	2013-03-25T12:42:31+00:32
-built environment	Structured comment name	date_last_rain	Example	2018-05-11:T14:30Z	2013-03-25T12:42:31+00:32
-human-vaginal	Structured comment name	douche	Example	2018-05-11 00:00:00	2013-03-25T12:42:31+00:32
-human-vaginal	Structured comment name	hrt	Example	2018-05-11 00:00:00	2013-03-25T12:42:31+00:32
-hydrocarbon resources-fluids/swabs	Structured comment name	iw_bt_date_well	Example	2018-05-11 00:00:00	2013-03-25T12:42:31+00:32
-built environment	Structured comment name	last_clean	Example	2018-05-11:T14:30Z	2013-03-25T12:42:31+00:32
-human-vaginal	Structured comment name	menarche	Example	2018-05-11 00:00:00	2013-03-25T12:42:31+00:32
-human-vaginal	Structured comment name	menopause	Example	2018-05-11 00:00:00	2013-03-25T12:42:31+00:32
-human-vaginal	Structured comment name	pregnancy	Example	2018-05-11 00:00:00	2013-03-25T12:42:31+00:32
-hydrocarbon resources-fluids/swabs	Structured comment name	prod_start_date	Example	2018-05-11 00:00:00	2013-03-25T12:42:31+00:32
 hydrocarbon resources-cores	Structured comment name	api	Example		31.1 API
 hydrocarbon resources-fluids/swabs	Structured comment name	api	Example		31.1 API
-hydrocarbon resources-fluids/swabs	Structured comment name	water_cut	Example		45%
-food-animal and animal feed	Structured comment name	food_source_age	Example	P6M	6 months
-food-human foods	Structured comment name	ferm_rel_humidity	Example	95% RH	95%
-agriculture	Structured comment name	assembly_qual	Item	assembly software	assembly quality
-agriculture	Structured comment name	assembly_software	Item	assembly quality	assembly software
-migs_eu	Structured comment name	env_medium	Example	soil [ENVO:00001998]; Annotating a fish swimming in the upper 100 m of the Atlantic Ocean, consider: ocean water [ENVO:00002151]. Example: Annotating a duck on a pond consider: pond water [ENVO:00002228]|air [ENVO_00002005]	bluegrass field soil [ENVO:00005789]
-migs_ba	Structured comment name	env_medium	Example	soil [ENVO:00001998]; Annotating a fish swimming in the upper 100 m of the Atlantic Ocean, consider: ocean water [ENVO:00002151]. Example: Annotating a duck on a pond consider: pond water [ENVO:00002228]|air [ENVO_00002005]	bluegrass field soil [ENVO:00005789]
-migs_pl	Structured comment name	env_medium	Example	soil [ENVO:00001998]; Annotating a fish swimming in the upper 100 m of the Atlantic Ocean, consider: ocean water [ENVO:00002151]. Example: Annotating a duck on a pond consider: pond water [ENVO:00002228]|air [ENVO_00002005]	bluegrass field soil [ENVO:00005789]
-migs_vi	Structured comment name	env_medium	Example	soil [ENVO:00001998]; Annotating a fish swimming in the upper 100 m of the Atlantic Ocean, consider: ocean water [ENVO:00002151]. Example: Annotating a duck on a pond consider: pond water [ENVO:00002228]|air [ENVO_00002005]	bluegrass field soil [ENVO:00005789]
-migs_org	Structured comment name	env_medium	Example	soil [ENVO:00001998]; Annotating a fish swimming in the upper 100 m of the Atlantic Ocean, consider: ocean water [ENVO:00002151]. Example: Annotating a duck on a pond consider: pond water [ENVO:00002228]|air [ENVO_00002005]	bluegrass field soil [ENVO:00005789]
-mims	Structured comment name	env_medium	Example	soil [ENVO:00001998]; Annotating a fish swimming in the upper 100 m of the Atlantic Ocean, consider: ocean water [ENVO:00002151]. Example: Annotating a duck on a pond consider: pond water [ENVO:00002228]|air [ENVO_00002005]	bluegrass field soil [ENVO:00005789]
-mimarks_s	Structured comment name	env_medium	Example	soil [ENVO:00001998]; Annotating a fish swimming in the upper 100 m of the Atlantic Ocean, consider: ocean water [ENVO:00002151]. Example: Annotating a duck on a pond consider: pond water [ENVO:00002228]|air [ENVO_00002005]	bluegrass field soil [ENVO:00005789]
-mimarks_c	Structured comment name	env_medium	Example	soil [ENVO:00001998]; Annotating a fish swimming in the upper 100 m of the Atlantic Ocean, consider: ocean water [ENVO:00002151]. Example: Annotating a duck on a pond consider: pond water [ENVO:00002228]|air [ENVO_00002005]	bluegrass field soil [ENVO:00005789]
-misag	Structured comment name	env_medium	Example	soil [ENVO:00001998]; Annotating a fish swimming in the upper 100 m of the Atlantic Ocean, consider: ocean water [ENVO:00002151]. Example: Annotating a duck on a pond consider: pond water [ENVO:00002228]|air [ENVO_00002005]	bluegrass field soil [ENVO:00005789]
-mimag	Structured comment name	env_medium	Example	soil [ENVO:00001998]; Annotating a fish swimming in the upper 100 m of the Atlantic Ocean, consider: ocean water [ENVO:00002151]. Example: Annotating a duck on a pond consider: pond water [ENVO:00002228]|air [ENVO_00002005]	bluegrass field soil [ENVO:00005789]
-miuvig	Structured comment name	env_medium	Example	soil [ENVO:00001998]; Annotating a fish swimming in the upper 100 m of the Atlantic Ocean, consider: ocean water [ENVO:00002151]. Example: Annotating a duck on a pond consider: pond water [ENVO:00002228]|air [ENVO_00002005]	bluegrass field soil [ENVO:00005789]
 hydrocarbon resources-fluids/swabs	Structured comment name	basin	Example		Campos
-agriculture	Structured comment name	chimera_check	Item	chimera check	chimera check software
+migs_eu	Structured comment name	bin_param	Example	coverage and kmer	
+migs_ba	Structured comment name	bin_param	Example	coverage and kmer	
+migs_pl	Structured comment name	bin_param	Example	coverage and kmer	
+migs_vi	Structured comment name	bin_param	Example	coverage and kmer	
+migs_org	Structured comment name	bin_param	Example	coverage and kmer	
+mims	Structured comment name	bin_param	Example	coverage and kmer	
+mimarks_s	Structured comment name	bin_param	Example	coverage and kmer	
+mimarks_c	Structured comment name	bin_param	Example	coverage and kmer	
+misag	Structured comment name	bin_param	Example	coverage and kmer	
+mimag	Structured comment name	bin_param	Example	coverage and kmer	
+miuvig	Structured comment name	bin_param	Example	coverage and kmer	
+built environment	Structured comment name	built_struc_age	Example	15	15 years
 food-human foods	Structured comment name	coll_site_geo_feat	Example	grocery store [ENVO:01000984]	farm [ENVO:00000078]
 food-animal and animal feed	Structured comment name	coll_site_geo_feat	Example	grocery store [GENEPIO:0001020]	farm [ENVO:00000078]
 food-food production facility	Structured comment name	coll_site_geo_feat	Example	grocery store [GENEPIO:0001020]	farm [ENVO:00000078]
-agriculture	Structured comment name	food_product_type	Item	Foodon product type	food product type
-food-human foods	Structured comment name	food_trav_vehic	Item	Food shipping transportation vehicle	food shipping transportation vehicle
-food-farm environment	Structured comment name	food_trav_vehic	Item	Food shipping transportation vehicle	food shipping transportation vehicle
-agriculture	Structured comment name	food_source	Item	Food source	food source
-agriculture	Structured comment name	food_product_type	Expected value		FOODON:00001002 or FOODON:03309997
-soil	Structured comment name	heavy_metals_meth	Item	extreme_unusual_properties/heavy metals method	heavy metals method
-agriculture	Structured comment name	heavy_metals_meth	Item	extreme_unusual_conditions	heavy metals method
-migs_eu	Structured comment name	env_local_scale	Example	litter layer [ENVO:01000338]; Annotating a pooled sample taken from various vegetation layers in a forest consider: canopy [ENVO:00000047]|herb and fern layer [ENVO:01000337]|litter layer [ENVO:01000338]|understory [01000335]|shrub layer [ENVO:01000336].	hillside [ENVO:01000333]
-migs_ba	Structured comment name	env_local_scale	Example	litter layer [ENVO:01000338]; Annotating a pooled sample taken from various vegetation layers in a forest consider: canopy [ENVO:00000047]|herb and fern layer [ENVO:01000337]|litter layer [ENVO:01000338]|understory [01000335]|shrub layer [ENVO:01000336].	hillside [ENVO:01000333]
-migs_pl	Structured comment name	env_local_scale	Example	litter layer [ENVO:01000338]; Annotating a pooled sample taken from various vegetation layers in a forest consider: canopy [ENVO:00000047]|herb and fern layer [ENVO:01000337]|litter layer [ENVO:01000338]|understory [01000335]|shrub layer [ENVO:01000336].	hillside [ENVO:01000333]
-migs_vi	Structured comment name	env_local_scale	Example	litter layer [ENVO:01000338]; Annotating a pooled sample taken from various vegetation layers in a forest consider: canopy [ENVO:00000047]|herb and fern layer [ENVO:01000337]|litter layer [ENVO:01000338]|understory [01000335]|shrub layer [ENVO:01000336].	hillside [ENVO:01000333]
-migs_org	Structured comment name	env_local_scale	Example	litter layer [ENVO:01000338]; Annotating a pooled sample taken from various vegetation layers in a forest consider: canopy [ENVO:00000047]|herb and fern layer [ENVO:01000337]|litter layer [ENVO:01000338]|understory [01000335]|shrub layer [ENVO:01000336].	hillside [ENVO:01000333]
-mims	Structured comment name	env_local_scale	Example	litter layer [ENVO:01000338]; Annotating a pooled sample taken from various vegetation layers in a forest consider: canopy [ENVO:00000047]|herb and fern layer [ENVO:01000337]|litter layer [ENVO:01000338]|understory [01000335]|shrub layer [ENVO:01000336].	hillside [ENVO:01000333]
-mimarks_s	Structured comment name	env_local_scale	Example	litter layer [ENVO:01000338]; Annotating a pooled sample taken from various vegetation layers in a forest consider: canopy [ENVO:00000047]|herb and fern layer [ENVO:01000337]|litter layer [ENVO:01000338]|understory [01000335]|shrub layer [ENVO:01000336].	hillside [ENVO:01000333]
-mimarks_c	Structured comment name	env_local_scale	Example	litter layer [ENVO:01000338]; Annotating a pooled sample taken from various vegetation layers in a forest consider: canopy [ENVO:00000047]|herb and fern layer [ENVO:01000337]|litter layer [ENVO:01000338]|understory [01000335]|shrub layer [ENVO:01000336].	hillside [ENVO:01000333]
-misag	Structured comment name	env_local_scale	Example	litter layer [ENVO:01000338]; Annotating a pooled sample taken from various vegetation layers in a forest consider: canopy [ENVO:00000047]|herb and fern layer [ENVO:01000337]|litter layer [ENVO:01000338]|understory [01000335]|shrub layer [ENVO:01000336].	hillside [ENVO:01000333]
-mimag	Structured comment name	env_local_scale	Example	litter layer [ENVO:01000338]; Annotating a pooled sample taken from various vegetation layers in a forest consider: canopy [ENVO:00000047]|herb and fern layer [ENVO:01000337]|litter layer [ENVO:01000338]|understory [01000335]|shrub layer [ENVO:01000336].	hillside [ENVO:01000333]
-miuvig	Structured comment name	env_local_scale	Example	litter layer [ENVO:01000338]; Annotating a pooled sample taken from various vegetation layers in a forest consider: canopy [ENVO:00000047]|herb and fern layer [ENVO:01000337]|litter layer [ENVO:01000338]|understory [01000335]|shrub layer [ENVO:01000336].	hillside [ENVO:01000333]
-soil	Structured comment name	horizon_meth	Item	soil horizon method	horizon method
-soil	Structured comment name	micro_biomass_meth	Example		http://dx.doi.org/10.1016/j.soilbio.2005.01.021
-agriculture	Structured comment name	micro_biomass_meth	Example		http://dx.doi.org/10.1016/j.soilbio.2005.01.021
-agriculture	Structured comment name	lot_number	Item	lot_number	lot number
-agriculture	Structured comment name	lot_number	Occurrence		m
-air	Structured comment name	solar_irradiance	Occurrence	1	m
-migs_eu	Structured comment name	experimental_factor	Occurrence	1	m
-migs_ba	Structured comment name	experimental_factor	Occurrence	1	m
-migs_pl	Structured comment name	experimental_factor	Occurrence	1	m
-migs_vi	Structured comment name	experimental_factor	Occurrence	1	m
-migs_org	Structured comment name	experimental_factor	Occurrence	1	m
-mims	Structured comment name	experimental_factor	Occurrence	1	m
-mimarks_s	Structured comment name	experimental_factor	Occurrence	1	m
-mimarks_c	Structured comment name	experimental_factor	Occurrence	1	m
-misag	Structured comment name	experimental_factor	Occurrence	1	m
-mimag	Structured comment name	experimental_factor	Occurrence	1	m
-miuvig	Structured comment name	experimental_factor	Occurrence	1	m
-migs_eu	Structured comment name	env_broad_scale	Occurrence	m	1
-migs_ba	Structured comment name	env_broad_scale	Occurrence	m	1
-migs_pl	Structured comment name	env_broad_scale	Occurrence	m	1
-migs_vi	Structured comment name	env_broad_scale	Occurrence	m	1
-migs_org	Structured comment name	env_broad_scale	Occurrence	m	1
-mims	Structured comment name	env_broad_scale	Occurrence	m	1
-mimarks_s	Structured comment name	env_broad_scale	Occurrence	m	1
-mimarks_c	Structured comment name	env_broad_scale	Occurrence	m	1
-misag	Structured comment name	env_broad_scale	Occurrence	m	1
-mimag	Structured comment name	env_broad_scale	Occurrence	m	1
-miuvig	Structured comment name	env_broad_scale	Occurrence	m	1
-food-farm environment	Structured comment name	season_temp	Item	mean seasonal air temperature	mean seasonal temperature
-food-human foods	Structured comment name	food_product_type	Occurrence	m	1
-food-animal and animal feed	Structured comment name	food_product_type	Occurrence	m	1
-food-food production facility	Structured comment name	food_product_type	Occurrence	m	1
-food-farm environment	Structured comment name	food_product_type	Occurrence	m	1
-agriculture	Structured comment name	food_product_type	Occurrence		1
-symbiont-associated	Structured comment name	host_body_product	MIXS ID	MIXS:0000868	MIXS:0000888
-symbiont-associated	Structured comment name	host_symbiont	MIXS ID	MIXS:0001309	MIXS:0001298
-agriculture	Structured comment name	host_symbiont	MIXS ID	MIXS:0001309	MIXS:0001298
-host-associated	Structured comment name	host_body_product	Example	Portion of mucus [fma66938]	mucus [FMA:66938]
-human-associated	Structured comment name	host_body_product	Example	Portion of mucus [fma66938]	mucus [FMA:66938]
-human-gut	Structured comment name	host_body_product	Example	Portion of mucus [fma66938]	mucus [FMA:66938]
-human-oral	Structured comment name	host_body_product	Example	Portion of mucus [fma66938]	mucus [FMA:66938]
-human-skin	Structured comment name	host_body_product	Example	Portion of mucus [fma66938]	mucus [FMA:66938]
-human-vaginal	Structured comment name	host_body_product	Example	Portion of mucus [fma66938]	mucus [FMA:66938]
-symbiont-associated	Structured comment name	host_body_product	Example	Portion of mucus [fma66938]	mucus [FMA:66938]
-agriculture	Structured comment name	chimera_check	Expected value	name and version of software	name and version of software, parameters used
-human-associated	Structured comment name	nose_throat_disord	Item	lung/nose-throat disorder	nose throat disorder
-human-oral	Structured comment name	nose_throat_disord	Item	nose/mouth/teeth/throat disorder	nose throat disorder
-food-human foods	Structured comment name	study_inc_dur	Example	P24H	PT24H
-food-animal and animal feed	Structured comment name	study_inc_dur	Example	P24H	PT24H
-food-food production facility	Structured comment name	study_inc_dur	Example	P24H	PT24H
-food-human foods	Structured comment name	timepoint	Example	P24H	PT24H
-food-animal and animal feed	Structured comment name	timepoint	Example	P24H	PT24H
-food-food production facility	Structured comment name	timepoint	Example	P24H	PT24H
-food-farm environment	Structured comment name	timepoint	Example	P24H	PT24H
-human-oral	Structured comment name	time_last_toothbrush	Example	P2H45M	PT2H45M
+migs_eu	Structured comment name	collection_date	Example	2018-05-11T10:00:00+01:00; 2018-05-11	2013-03-25T12:42:31+01:00
+migs_ba	Structured comment name	collection_date	Example	2018-05-11T10:00:00+01:00; 2018-05-11	2013-03-25T12:42:31+01:00
+migs_pl	Structured comment name	collection_date	Example	2018-05-11T10:00:00+01:00; 2018-05-11	2013-03-25T12:42:31+01:00
+migs_vi	Structured comment name	collection_date	Example	2018-05-11T10:00:00+01:00; 2018-05-11	2013-03-25T12:42:31+01:00
+migs_org	Structured comment name	collection_date	Example	2018-05-11T10:00:00+01:00; 2018-05-11	2013-03-25T12:42:31+01:00
+mims	Structured comment name	collection_date	Example	2018-05-11T10:00:00+01:00; 2018-05-11	2013-03-25T12:42:31+01:00
+mimarks_s	Structured comment name	collection_date	Example	2018-05-11T10:00:00+01:00; 2018-05-11	2013-03-25T12:42:31+01:00
+mimarks_c	Structured comment name	collection_date	Example	2018-05-11T10:00:00+01:00; 2018-05-11	2013-03-25T12:42:31+01:00
+misag	Structured comment name	collection_date	Example	2018-05-11T10:00:00+01:00; 2018-05-11	2013-03-25T12:42:31+01:00
+mimag	Structured comment name	collection_date	Example	2018-05-11T10:00:00+01:00; 2018-05-11	2013-03-25T12:42:31+01:00
+miuvig	Structured comment name	collection_date	Example	2018-05-11T10:00:00+01:00; 2018-05-11	2013-03-25T12:42:31+01:00
+symbiont-associated	Structured comment name	collection_date	Example	2018-05-11T10:00:00+01:00; 2018-05-11	2013-03-25T12:42:31+01:00
+food-human foods	Structured comment name	collection_date	Example	2018-05-11T10:00:00+01:00	2013-03-25T12:42:31+01:00
+food-animal and animal feed	Structured comment name	collection_date	Example	2018-05-11T10:00:00+01:00	2013-03-25T12:42:31+01:00
+food-food production facility	Structured comment name	collection_date	Example	2018-05-11T10:00:00+01:00	2013-03-25T12:42:31+01:00
+food-farm environment	Structured comment name	collection_date	Example	2018-05-11T10:00:00+01:00	2013-03-25T12:42:31+01:00
+migs_eu	Structured comment name	compl_appr	Example	other: UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)	
+migs_ba	Structured comment name	compl_appr	Example	other: UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)	
+migs_pl	Structured comment name	compl_appr	Example	other: UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)	
+migs_vi	Structured comment name	compl_appr	Example	other: UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)	
+migs_org	Structured comment name	compl_appr	Example	other: UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)	
+mims	Structured comment name	compl_appr	Example	other: UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)	
+mimarks_s	Structured comment name	compl_appr	Example	other: UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)	
+mimarks_c	Structured comment name	compl_appr	Example	other: UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)	
+misag	Structured comment name	compl_appr	Example	other: UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)	
+mimag	Structured comment name	compl_appr	Example	other: UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)	
+miuvig	Structured comment name	compl_appr	Example	other: UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)	
+food-human foods	Structured comment name	cons_purch_date	Example	2019-11-30 00:00:00	2013-03-25T12:42:31+01:00
+food-animal and animal feed	Structured comment name	cons_purch_date	Example	2019-11-30 00:00:00	2013-03-25T12:42:31+01:00
+food-farm environment	Structured comment name	date_extr_weath	Example	2018-05-11:T14:30Z	2013-03-25T12:42:31+01:00
+built environment	Structured comment name	date_last_rain	Example	2018-05-11:T14:30Z	2013-03-25T12:42:31+01:00
+human-vaginal	Structured comment name	douche	Example	2018-05-11 00:00:00	2013-03-25T12:42:31+01:00
 migs_eu	Structured comment name	env_broad_scale	Example	oceanic epipelagic zone biome [ENVO:01000033] for annotating a water sample from the photic zone in middle of the Atlantic Ocean	rangeland biome [ENVO:01000247]
 migs_ba	Structured comment name	env_broad_scale	Example	oceanic epipelagic zone biome [ENVO:01000033] for annotating a water sample from the photic zone in middle of the Atlantic Ocean	rangeland biome [ENVO:01000247]
 migs_pl	Structured comment name	env_broad_scale	Example	oceanic epipelagic zone biome [ENVO:01000033] for annotating a water sample from the photic zone in middle of the Atlantic Ocean	rangeland biome [ENVO:01000247]
@@ -476,6 +544,122 @@ mimarks_c	Structured comment name	env_broad_scale	Example	oceanic epipelagic zon
 misag	Structured comment name	env_broad_scale	Example	oceanic epipelagic zone biome [ENVO:01000033] for annotating a water sample from the photic zone in middle of the Atlantic Ocean	rangeland biome [ENVO:01000247]
 mimag	Structured comment name	env_broad_scale	Example	oceanic epipelagic zone biome [ENVO:01000033] for annotating a water sample from the photic zone in middle of the Atlantic Ocean	rangeland biome [ENVO:01000247]
 miuvig	Structured comment name	env_broad_scale	Example	oceanic epipelagic zone biome [ENVO:01000033] for annotating a water sample from the photic zone in middle of the Atlantic Ocean	rangeland biome [ENVO:01000247]
+migs_eu	Structured comment name	env_local_scale	Example	litter layer [ENVO:01000338]; Annotating a pooled sample taken from various vegetation layers in a forest consider: canopy [ENVO:00000047]|herb and fern layer [ENVO:01000337]|litter layer [ENVO:01000338]|understory [01000335]|shrub layer [ENVO:01000336].	hillside [ENVO:01000333]
+migs_ba	Structured comment name	env_local_scale	Example	litter layer [ENVO:01000338]; Annotating a pooled sample taken from various vegetation layers in a forest consider: canopy [ENVO:00000047]|herb and fern layer [ENVO:01000337]|litter layer [ENVO:01000338]|understory [01000335]|shrub layer [ENVO:01000336].	hillside [ENVO:01000333]
+migs_pl	Structured comment name	env_local_scale	Example	litter layer [ENVO:01000338]; Annotating a pooled sample taken from various vegetation layers in a forest consider: canopy [ENVO:00000047]|herb and fern layer [ENVO:01000337]|litter layer [ENVO:01000338]|understory [01000335]|shrub layer [ENVO:01000336].	hillside [ENVO:01000333]
+migs_vi	Structured comment name	env_local_scale	Example	litter layer [ENVO:01000338]; Annotating a pooled sample taken from various vegetation layers in a forest consider: canopy [ENVO:00000047]|herb and fern layer [ENVO:01000337]|litter layer [ENVO:01000338]|understory [01000335]|shrub layer [ENVO:01000336].	hillside [ENVO:01000333]
+migs_org	Structured comment name	env_local_scale	Example	litter layer [ENVO:01000338]; Annotating a pooled sample taken from various vegetation layers in a forest consider: canopy [ENVO:00000047]|herb and fern layer [ENVO:01000337]|litter layer [ENVO:01000338]|understory [01000335]|shrub layer [ENVO:01000336].	hillside [ENVO:01000333]
+mims	Structured comment name	env_local_scale	Example	litter layer [ENVO:01000338]; Annotating a pooled sample taken from various vegetation layers in a forest consider: canopy [ENVO:00000047]|herb and fern layer [ENVO:01000337]|litter layer [ENVO:01000338]|understory [01000335]|shrub layer [ENVO:01000336].	hillside [ENVO:01000333]
+mimarks_s	Structured comment name	env_local_scale	Example	litter layer [ENVO:01000338]; Annotating a pooled sample taken from various vegetation layers in a forest consider: canopy [ENVO:00000047]|herb and fern layer [ENVO:01000337]|litter layer [ENVO:01000338]|understory [01000335]|shrub layer [ENVO:01000336].	hillside [ENVO:01000333]
+mimarks_c	Structured comment name	env_local_scale	Example	litter layer [ENVO:01000338]; Annotating a pooled sample taken from various vegetation layers in a forest consider: canopy [ENVO:00000047]|herb and fern layer [ENVO:01000337]|litter layer [ENVO:01000338]|understory [01000335]|shrub layer [ENVO:01000336].	hillside [ENVO:01000333]
+misag	Structured comment name	env_local_scale	Example	litter layer [ENVO:01000338]; Annotating a pooled sample taken from various vegetation layers in a forest consider: canopy [ENVO:00000047]|herb and fern layer [ENVO:01000337]|litter layer [ENVO:01000338]|understory [01000335]|shrub layer [ENVO:01000336].	hillside [ENVO:01000333]
+mimag	Structured comment name	env_local_scale	Example	litter layer [ENVO:01000338]; Annotating a pooled sample taken from various vegetation layers in a forest consider: canopy [ENVO:00000047]|herb and fern layer [ENVO:01000337]|litter layer [ENVO:01000338]|understory [01000335]|shrub layer [ENVO:01000336].	hillside [ENVO:01000333]
+miuvig	Structured comment name	env_local_scale	Example	litter layer [ENVO:01000338]; Annotating a pooled sample taken from various vegetation layers in a forest consider: canopy [ENVO:00000047]|herb and fern layer [ENVO:01000337]|litter layer [ENVO:01000338]|understory [01000335]|shrub layer [ENVO:01000336].	hillside [ENVO:01000333]
+migs_eu	Structured comment name	env_medium	Example	soil [ENVO:00001998]; Annotating a fish swimming in the upper 100 m of the Atlantic Ocean, consider: ocean water [ENVO:00002151]. Example: Annotating a duck on a pond consider: pond water [ENVO:00002228]|air [ENVO_00002005]	bluegrass field soil [ENVO:00005789]
+migs_ba	Structured comment name	env_medium	Example	soil [ENVO:00001998]; Annotating a fish swimming in the upper 100 m of the Atlantic Ocean, consider: ocean water [ENVO:00002151]. Example: Annotating a duck on a pond consider: pond water [ENVO:00002228]|air [ENVO_00002005]	bluegrass field soil [ENVO:00005789]
+migs_pl	Structured comment name	env_medium	Example	soil [ENVO:00001998]; Annotating a fish swimming in the upper 100 m of the Atlantic Ocean, consider: ocean water [ENVO:00002151]. Example: Annotating a duck on a pond consider: pond water [ENVO:00002228]|air [ENVO_00002005]	bluegrass field soil [ENVO:00005789]
+migs_vi	Structured comment name	env_medium	Example	soil [ENVO:00001998]; Annotating a fish swimming in the upper 100 m of the Atlantic Ocean, consider: ocean water [ENVO:00002151]. Example: Annotating a duck on a pond consider: pond water [ENVO:00002228]|air [ENVO_00002005]	bluegrass field soil [ENVO:00005789]
+migs_org	Structured comment name	env_medium	Example	soil [ENVO:00001998]; Annotating a fish swimming in the upper 100 m of the Atlantic Ocean, consider: ocean water [ENVO:00002151]. Example: Annotating a duck on a pond consider: pond water [ENVO:00002228]|air [ENVO_00002005]	bluegrass field soil [ENVO:00005789]
+mims	Structured comment name	env_medium	Example	soil [ENVO:00001998]; Annotating a fish swimming in the upper 100 m of the Atlantic Ocean, consider: ocean water [ENVO:00002151]. Example: Annotating a duck on a pond consider: pond water [ENVO:00002228]|air [ENVO_00002005]	bluegrass field soil [ENVO:00005789]
+mimarks_s	Structured comment name	env_medium	Example	soil [ENVO:00001998]; Annotating a fish swimming in the upper 100 m of the Atlantic Ocean, consider: ocean water [ENVO:00002151]. Example: Annotating a duck on a pond consider: pond water [ENVO:00002228]|air [ENVO_00002005]	bluegrass field soil [ENVO:00005789]
+mimarks_c	Structured comment name	env_medium	Example	soil [ENVO:00001998]; Annotating a fish swimming in the upper 100 m of the Atlantic Ocean, consider: ocean water [ENVO:00002151]. Example: Annotating a duck on a pond consider: pond water [ENVO:00002228]|air [ENVO_00002005]	bluegrass field soil [ENVO:00005789]
+misag	Structured comment name	env_medium	Example	soil [ENVO:00001998]; Annotating a fish swimming in the upper 100 m of the Atlantic Ocean, consider: ocean water [ENVO:00002151]. Example: Annotating a duck on a pond consider: pond water [ENVO:00002228]|air [ENVO_00002005]	bluegrass field soil [ENVO:00005789]
+mimag	Structured comment name	env_medium	Example	soil [ENVO:00001998]; Annotating a fish swimming in the upper 100 m of the Atlantic Ocean, consider: ocean water [ENVO:00002151]. Example: Annotating a duck on a pond consider: pond water [ENVO:00002228]|air [ENVO_00002005]	bluegrass field soil [ENVO:00005789]
+miuvig	Structured comment name	env_medium	Example	soil [ENVO:00001998]; Annotating a fish swimming in the upper 100 m of the Atlantic Ocean, consider: ocean water [ENVO:00002151]. Example: Annotating a duck on a pond consider: pond water [ENVO:00002228]|air [ENVO_00002005]	bluegrass field soil [ENVO:00005789]
+food-farm environment	Structured comment name	farm_water_source	Example	water well (ENVO:01000002)	
+agriculture	Structured comment name	farm_water_source	Example	water well (ENVO:01000002)	
+food-human foods	Structured comment name	ferm_rel_humidity	Example	95% RH	95%
+food-farm environment	Structured comment name	food_clean_proc	Example	rinsed with water|scrubbed with brush	
+food-animal and animal feed	Structured comment name	food_source_age	Example	P6M	6 months
+host-associated	Structured comment name	host_body_product	Example	Portion of mucus [fma66938]	mucus [FMA:66938]
+human-associated	Structured comment name	host_body_product	Example	Portion of mucus [fma66938]	mucus [FMA:66938]
+human-gut	Structured comment name	host_body_product	Example	Portion of mucus [fma66938]	mucus [FMA:66938]
+human-oral	Structured comment name	host_body_product	Example	Portion of mucus [fma66938]	mucus [FMA:66938]
+human-skin	Structured comment name	host_body_product	Example	Portion of mucus [fma66938]	mucus [FMA:66938]
+human-vaginal	Structured comment name	host_body_product	Example	Portion of mucus [fma66938]	mucus [FMA:66938]
+symbiont-associated	Structured comment name	host_body_product	Example	Portion of mucus [fma66938]	mucus [FMA:66938]
+host-associated	Structured comment name	host_sex	Example	non-binary	
+human-associated	Structured comment name	host_sex	Example	non-binary	
+human-gut	Structured comment name	host_sex	Example	non-binary	
+human-oral	Structured comment name	host_sex	Example	non-binary	
+human-skin	Structured comment name	host_sex	Example	non-binary	
+human-vaginal	Structured comment name	host_sex	Example	non-binary	
+human-vaginal	Structured comment name	hrt	Example	2018-05-11 00:00:00	2013-03-25T12:42:31+01:00
+migs_eu	Structured comment name	isol_growth_condt	Example	doi: 10.1016/j.syapm.2018.01.009	doi:10.1016/j.syapm.2018.01.009
+migs_ba	Structured comment name	isol_growth_condt	Example	doi: 10.1016/j.syapm.2018.01.009	doi:10.1016/j.syapm.2018.01.009
+migs_pl	Structured comment name	isol_growth_condt	Example	doi: 10.1016/j.syapm.2018.01.009	doi:10.1016/j.syapm.2018.01.009
+migs_vi	Structured comment name	isol_growth_condt	Example	doi: 10.1016/j.syapm.2018.01.009	doi:10.1016/j.syapm.2018.01.009
+migs_org	Structured comment name	isol_growth_condt	Example	doi: 10.1016/j.syapm.2018.01.009	doi:10.1016/j.syapm.2018.01.009
+mims	Structured comment name	isol_growth_condt	Example	doi: 10.1016/j.syapm.2018.01.009	doi:10.1016/j.syapm.2018.01.009
+mimarks_s	Structured comment name	isol_growth_condt	Example	doi: 10.1016/j.syapm.2018.01.009	doi:10.1016/j.syapm.2018.01.009
+mimarks_c	Structured comment name	isol_growth_condt	Example	doi: 10.1016/j.syapm.2018.01.009	doi:10.1016/j.syapm.2018.01.009
+misag	Structured comment name	isol_growth_condt	Example	doi: 10.1016/j.syapm.2018.01.009	doi:10.1016/j.syapm.2018.01.009
+mimag	Structured comment name	isol_growth_condt	Example	doi: 10.1016/j.syapm.2018.01.009	doi:10.1016/j.syapm.2018.01.009
+miuvig	Structured comment name	isol_growth_condt	Example	doi: 10.1016/j.syapm.2018.01.009	doi:10.1016/j.syapm.2018.01.009
+agriculture	Structured comment name	isol_growth_condt	Example		doi:10.1016/j.syapm.2018.01.009
+hydrocarbon resources-fluids/swabs	Structured comment name	iw_bt_date_well	Example	2018-05-11 00:00:00	2013-03-25T12:42:31+01:00
+hydrocarbon resources-fluids/swabs	Structured comment name	iwf	Example		0.79
+built environment	Structured comment name	last_clean	Example	2018-05-11:T14:30Z	2013-03-25T12:42:31+01:00
+human-vaginal	Structured comment name	menarche	Example	2018-05-11 00:00:00	2013-03-25T12:42:31+01:00
+human-vaginal	Structured comment name	menopause	Example	2018-05-11 00:00:00	2013-03-25T12:42:31+01:00
+soil	Structured comment name	micro_biomass_meth	Example		http://dx.doi.org/10.1016/j.soilbio.2005.01.021
+agriculture	Structured comment name	micro_biomass_meth	Example		http://dx.doi.org/10.1016/j.soilbio.2005.01.021
+built environment	Structured comment name	occup_density_samp	Example		0.1
+human-vaginal	Structured comment name	pregnancy	Example	2018-05-11 00:00:00	2013-03-25T12:42:31+01:00
+hydrocarbon resources-fluids/swabs	Structured comment name	prod_start_date	Example	2018-05-11 00:00:00	2013-03-25T12:42:31+01:00
+built environment	Structured comment name	shading_device_type	Example	slatted aluminum awning	
+soil	Structured comment name	soil_texture_meth	Example		https://uwlab.soils.wisc.edu/wp-content/uploads/sites/17/2015/09/particle_size.pdf
+food-farm environment	Structured comment name	soil_texture_meth	Example	https://uwlab.soils.wisc.edu/wp-content/uploads/sites/17/2015/09/particle_size.pdf (hydrometer method)	https://uwlab.soils.wisc.edu/wp-content/uploads/sites/17/2015/09/particle_size.pdf
+agriculture	Structured comment name	soil_texture_meth	Example		https://uwlab.soils.wisc.edu/wp-content/uploads/sites/17/2015/09/particle_size.pdf
+soil	Structured comment name	soil_type_meth	Example		https://www.lrh.usace.army.mil/Portals/38/docs/PR/BluestoneSFEIS/Appendix%20K-Soil%20Descriptions.pdf
+food-farm environment	Structured comment name	soil_type_meth	Example	Frederick series; Weikert series	https://www.lrh.usace.army.mil/Portals/38/docs/PR/BluestoneSFEIS/Appendix%20K-Soil%20Descriptions.pdf
+agriculture	Structured comment name	soil_type_meth	Example		https://www.lrh.usace.army.mil/Portals/38/docs/PR/BluestoneSFEIS/Appendix%20K-Soil%20Descriptions.pdf
+food-human foods	Structured comment name	study_inc_dur	Example	P24H	PT24H
+food-animal and animal feed	Structured comment name	study_inc_dur	Example	P24H	PT24H
+food-food production facility	Structured comment name	study_inc_dur	Example	P24H	PT24H
+migs_eu	Structured comment name	tax_ident	Example	other: rpoB gene	
+migs_ba	Structured comment name	tax_ident	Example	other: rpoB gene	
+migs_pl	Structured comment name	tax_ident	Example	other: rpoB gene	
+migs_vi	Structured comment name	tax_ident	Example	other: rpoB gene	
+migs_org	Structured comment name	tax_ident	Example	other: rpoB gene	
+mims	Structured comment name	tax_ident	Example	other: rpoB gene	
+mimarks_s	Structured comment name	tax_ident	Example	other: rpoB gene	
+mimarks_c	Structured comment name	tax_ident	Example	other: rpoB gene	
+misag	Structured comment name	tax_ident	Example	other: rpoB gene	
+mimag	Structured comment name	tax_ident	Example	other: rpoB gene	
+miuvig	Structured comment name	tax_ident	Example	other: rpoB gene	
+human-oral	Structured comment name	time_last_toothbrush	Example	P2H45M	PT2H45M
+food-human foods	Structured comment name	timepoint	Example	P24H	PT24H
+food-animal and animal feed	Structured comment name	timepoint	Example	P24H	PT24H
+food-food production facility	Structured comment name	timepoint	Example	P24H	PT24H
+food-farm environment	Structured comment name	timepoint	Example	P24H	PT24H
+migs_eu	Structured comment name	virus_enrich_appr	Example	filtration + FeCl Precipitation + ultracentrifugation + DNAse	
+migs_ba	Structured comment name	virus_enrich_appr	Example	filtration + FeCl Precipitation + ultracentrifugation + DNAse	
+migs_pl	Structured comment name	virus_enrich_appr	Example	filtration + FeCl Precipitation + ultracentrifugation + DNAse	
+migs_vi	Structured comment name	virus_enrich_appr	Example	filtration + FeCl Precipitation + ultracentrifugation + DNAse	
+migs_org	Structured comment name	virus_enrich_appr	Example	filtration + FeCl Precipitation + ultracentrifugation + DNAse	
+mims	Structured comment name	virus_enrich_appr	Example	filtration + FeCl Precipitation + ultracentrifugation + DNAse	
+mimarks_s	Structured comment name	virus_enrich_appr	Example	filtration + FeCl Precipitation + ultracentrifugation + DNAse	
+mimarks_c	Structured comment name	virus_enrich_appr	Example	filtration + FeCl Precipitation + ultracentrifugation + DNAse	
+misag	Structured comment name	virus_enrich_appr	Example	filtration + FeCl Precipitation + ultracentrifugation + DNAse	
+mimag	Structured comment name	virus_enrich_appr	Example	filtration + FeCl Precipitation + ultracentrifugation + DNAse	
+miuvig	Structured comment name	virus_enrich_appr	Example	filtration + FeCl Precipitation + ultracentrifugation + DNAse	
+hydrocarbon resources-fluids/swabs	Structured comment name	water_cut	Example		45%
+agriculture	Structured comment name	chimera_check	Expected value	name and version of software	name and version of software, parameters used
+agriculture	Structured comment name	food_product_type	Expected value		FOODON:00001002 or FOODON:03309997
+agriculture	Structured comment name	assembly_qual	Item	assembly software	assembly quality
+agriculture	Structured comment name	assembly_software	Item	assembly quality	assembly software
+agriculture	Structured comment name	chimera_check	Item	chimera check	chimera check software
+agriculture	Structured comment name	food_product_type	Item	Foodon product type	food product type
+agriculture	Structured comment name	food_source	Item	Food source	food source
+food-human foods	Structured comment name	food_trav_vehic	Item	Food shipping transportation vehicle	food shipping transportation vehicle
+food-farm environment	Structured comment name	food_trav_vehic	Item	Food shipping transportation vehicle	food shipping transportation vehicle
+soil	Structured comment name	heavy_metals_meth	Item	extreme_unusual_properties/heavy metals method	heavy metals method
+agriculture	Structured comment name	heavy_metals_meth	Item	extreme_unusual_conditions	heavy metals method
+soil	Structured comment name	horizon_meth	Item	soil horizon method	horizon method
+agriculture	Structured comment name	lot_number	Item	lot_number	lot number
+human-associated	Structured comment name	nose_throat_disord	Item	lung/nose-throat disorder	nose throat disorder
+human-oral	Structured comment name	nose_throat_disord	Item	nose/mouth/teeth/throat disorder	nose throat disorder
 migs_eu	Structured comment name	samp_collect_device	Item	sample collection device	sample collection device or method
 migs_ba	Structured comment name	samp_collect_device	Item	sample collection device	sample collection device or method
 migs_pl	Structured comment name	samp_collect_device	Item	sample collection device	sample collection device or method
@@ -491,6 +675,22 @@ food-human foods	Structured comment name	samp_collect_device	Item	sample collect
 food-animal and animal feed	Structured comment name	samp_collect_device	Item	sample collection device	sample collection device or method
 food-food production facility	Structured comment name	samp_collect_device	Item	sample collection device	sample collection device or method
 food-farm environment	Structured comment name	samp_collect_device	Item	sample collection device	sample collection device or method
+migs_eu	Structured comment name	samp_collect_device	Item	sample collection device or method	sample collection device
+migs_ba	Structured comment name	samp_collect_device	Item	sample collection device or method	sample collection device
+migs_pl	Structured comment name	samp_collect_device	Item	sample collection device or method	sample collection device
+migs_vi	Structured comment name	samp_collect_device	Item	sample collection device or method	sample collection device
+migs_org	Structured comment name	samp_collect_device	Item	sample collection device or method	sample collection device
+mims	Structured comment name	samp_collect_device	Item	sample collection device or method	sample collection device
+mimarks_s	Structured comment name	samp_collect_device	Item	sample collection device or method	sample collection device
+mimarks_c	Structured comment name	samp_collect_device	Item	sample collection device or method	sample collection device
+misag	Structured comment name	samp_collect_device	Item	sample collection device or method	sample collection device
+mimag	Structured comment name	samp_collect_device	Item	sample collection device or method	sample collection device
+miuvig	Structured comment name	samp_collect_device	Item	sample collection device or method	sample collection device
+food-human foods	Structured comment name	samp_collect_device	Item	sample collection device or method	sample collection device
+food-animal and animal feed	Structured comment name	samp_collect_device	Item	sample collection device or method	sample collection device
+food-food production facility	Structured comment name	samp_collect_device	Item	sample collection device or method	sample collection device
+food-farm environment	Structured comment name	samp_collect_device	Item	sample collection device or method	sample collection device
+agriculture	Structured comment name	samp_collect_device	Item	sample collection device or method	sample collection device
 migs_eu	Structured comment name	samp_name	Item	sample name 	sample name
 migs_ba	Structured comment name	samp_name	Item	sample name 	sample name
 migs_pl	Structured comment name	samp_name	Item	sample name 	sample name
@@ -524,6 +724,7 @@ food-animal and animal feed	Structured comment name	samp_name	Item	sample name 	
 food-food production facility	Structured comment name	samp_name	Item	sample name 	sample name
 food-farm environment	Structured comment name	samp_name	Item	sample name 	sample name
 food-farm environment	Structured comment name	samp_type	Item	sample type (host or environmental context)	sample type
+food-farm environment	Structured comment name	season_temp	Item	mean seasonal air temperature	mean seasonal temperature
 soil	Structured comment name	sieving	Item	composite design/sieving	sieving
 agriculture	Structured comment name	sieving	Item	composite design/sieving (if any)	sieving
 agriculture	Structured comment name	soil_texture_meth	Item	texture method	soil texture method
@@ -531,80 +732,109 @@ food-farm environment	Structured comment name	solar_irradiance	Item	mean seasona
 agriculture	Structured comment name	solar_irradiance	Item	mean seasonal solar irradiance	solar irradiance
 agriculture	Structured comment name	store_cond	Item	storage conditions (fresh/frozen/other)	storage conditions
 agriculture	Structured comment name	tot_nitro_cont_meth	Item	total nitrogen method	total nitrogen content method
-migs_eu	Structured comment name	bin_param	Example	coverage and kmer	
-migs_ba	Structured comment name	bin_param	Example	coverage and kmer	
-migs_pl	Structured comment name	bin_param	Example	coverage and kmer	
-migs_vi	Structured comment name	bin_param	Example	coverage and kmer	
-migs_org	Structured comment name	bin_param	Example	coverage and kmer	
-mims	Structured comment name	bin_param	Example	coverage and kmer	
-mimarks_s	Structured comment name	bin_param	Example	coverage and kmer	
-mimarks_c	Structured comment name	bin_param	Example	coverage and kmer	
-misag	Structured comment name	bin_param	Example	coverage and kmer	
-mimag	Structured comment name	bin_param	Example	coverage and kmer	
-miuvig	Structured comment name	bin_param	Example	coverage and kmer	
-migs_eu	Structured comment name	compl_appr	Example	other: UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)	
-migs_ba	Structured comment name	compl_appr	Example	other: UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)	
-migs_pl	Structured comment name	compl_appr	Example	other: UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)	
-migs_vi	Structured comment name	compl_appr	Example	other: UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)	
-migs_org	Structured comment name	compl_appr	Example	other: UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)	
-mims	Structured comment name	compl_appr	Example	other: UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)	
-mimarks_s	Structured comment name	compl_appr	Example	other: UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)	
-mimarks_c	Structured comment name	compl_appr	Example	other: UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)	
-misag	Structured comment name	compl_appr	Example	other: UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)	
-mimag	Structured comment name	compl_appr	Example	other: UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)	
-miuvig	Structured comment name	compl_appr	Example	other: UViG length compared to the average length of reference genomes from the P22virus genus (NCBI RefSeq v83)	
-food-farm environment	Structured comment name	farm_water_source	Example	water well (ENVO:01000002)	
-agriculture	Structured comment name	farm_water_source	Example	water well (ENVO:01000002)	
-food-farm environment	Structured comment name	food_clean_proc	Example	rinsed with water|scrubbed with brush	
-host-associated	Structured comment name	host_sex	Example	non-binary	
-human-associated	Structured comment name	host_sex	Example	non-binary	
-human-gut	Structured comment name	host_sex	Example	non-binary	
-human-oral	Structured comment name	host_sex	Example	non-binary	
-human-skin	Structured comment name	host_sex	Example	non-binary	
-human-vaginal	Structured comment name	host_sex	Example	non-binary	
-built environment	Structured comment name	shading_device_type	Example	slatted aluminum awning	
-migs_eu	Structured comment name	tax_ident	Example	other: rpoB gene	
-migs_ba	Structured comment name	tax_ident	Example	other: rpoB gene	
-migs_pl	Structured comment name	tax_ident	Example	other: rpoB gene	
-migs_vi	Structured comment name	tax_ident	Example	other: rpoB gene	
-migs_org	Structured comment name	tax_ident	Example	other: rpoB gene	
-mims	Structured comment name	tax_ident	Example	other: rpoB gene	
-mimarks_s	Structured comment name	tax_ident	Example	other: rpoB gene	
-mimarks_c	Structured comment name	tax_ident	Example	other: rpoB gene	
-misag	Structured comment name	tax_ident	Example	other: rpoB gene	
-mimag	Structured comment name	tax_ident	Example	other: rpoB gene	
-miuvig	Structured comment name	tax_ident	Example	other: rpoB gene	
-migs_eu	Structured comment name	virus_enrich_appr	Example	filtration + FeCl Precipitation + ultracentrifugation + DNAse	
-migs_ba	Structured comment name	virus_enrich_appr	Example	filtration + FeCl Precipitation + ultracentrifugation + DNAse	
-migs_pl	Structured comment name	virus_enrich_appr	Example	filtration + FeCl Precipitation + ultracentrifugation + DNAse	
-migs_vi	Structured comment name	virus_enrich_appr	Example	filtration + FeCl Precipitation + ultracentrifugation + DNAse	
-migs_org	Structured comment name	virus_enrich_appr	Example	filtration + FeCl Precipitation + ultracentrifugation + DNAse	
-mims	Structured comment name	virus_enrich_appr	Example	filtration + FeCl Precipitation + ultracentrifugation + DNAse	
-mimarks_s	Structured comment name	virus_enrich_appr	Example	filtration + FeCl Precipitation + ultracentrifugation + DNAse	
-mimarks_c	Structured comment name	virus_enrich_appr	Example	filtration + FeCl Precipitation + ultracentrifugation + DNAse	
-misag	Structured comment name	virus_enrich_appr	Example	filtration + FeCl Precipitation + ultracentrifugation + DNAse	
-mimag	Structured comment name	virus_enrich_appr	Example	filtration + FeCl Precipitation + ultracentrifugation + DNAse	
-miuvig	Structured comment name	virus_enrich_appr	Example	filtration + FeCl Precipitation + ultracentrifugation + DNAse	
+symbiont-associated	Structured comment name	host_body_product	MIXS ID	MIXS:0000868	MIXS:0000888
+symbiont-associated	Structured comment name	host_symbiont	MIXS ID	MIXS:0001309	MIXS:0001298
+agriculture	Structured comment name	host_symbiont	MIXS ID	MIXS:0001309	MIXS:0001298
+migs_eu	Structured comment name	env_broad_scale	Occurrence	m	1
+migs_ba	Structured comment name	env_broad_scale	Occurrence	m	1
+migs_pl	Structured comment name	env_broad_scale	Occurrence	m	1
+migs_vi	Structured comment name	env_broad_scale	Occurrence	m	1
+migs_org	Structured comment name	env_broad_scale	Occurrence	m	1
+mims	Structured comment name	env_broad_scale	Occurrence	m	1
+mimarks_s	Structured comment name	env_broad_scale	Occurrence	m	1
+mimarks_c	Structured comment name	env_broad_scale	Occurrence	m	1
+misag	Structured comment name	env_broad_scale	Occurrence	m	1
+mimag	Structured comment name	env_broad_scale	Occurrence	m	1
+miuvig	Structured comment name	env_broad_scale	Occurrence	m	1
+migs_eu	Structured comment name	experimental_factor	Occurrence	1	m
+migs_ba	Structured comment name	experimental_factor	Occurrence	1	m
+migs_pl	Structured comment name	experimental_factor	Occurrence	1	m
+migs_vi	Structured comment name	experimental_factor	Occurrence	1	m
+migs_org	Structured comment name	experimental_factor	Occurrence	1	m
+mims	Structured comment name	experimental_factor	Occurrence	1	m
+mimarks_s	Structured comment name	experimental_factor	Occurrence	1	m
+mimarks_c	Structured comment name	experimental_factor	Occurrence	1	m
+misag	Structured comment name	experimental_factor	Occurrence	1	m
+mimag	Structured comment name	experimental_factor	Occurrence	1	m
+miuvig	Structured comment name	experimental_factor	Occurrence	1	m
+food-human foods	Structured comment name	food_product_type	Occurrence	m	1
+food-animal and animal feed	Structured comment name	food_product_type	Occurrence	m	1
+food-food production facility	Structured comment name	food_product_type	Occurrence	m	1
+food-farm environment	Structured comment name	food_product_type	Occurrence	m	1
+agriculture	Structured comment name	food_product_type	Occurrence		1
+agriculture	Structured comment name	lot_number	Occurrence		m
 food-human foods	Structured comment name	organism_count	Occurrence	1	m
 food-animal and animal feed	Structured comment name	organism_count	Occurrence	1	m
 food-food production facility	Structured comment name	organism_count	Occurrence	1	m
 food-farm environment	Structured comment name	organism_count	Occurrence	1	m
 agriculture	Structured comment name	organism_count	Occurrence		m
-soil	Structured comment name	soil_texture_meth	Example		https://uwlab.soils.wisc.edu/wp-content/uploads/sites/17/2015/09/particle_size.pdf
-food-farm environment	Structured comment name	soil_texture_meth	Example	https://uwlab.soils.wisc.edu/wp-content/uploads/sites/17/2015/09/particle_size.pdf (hydrometer method)	https://uwlab.soils.wisc.edu/wp-content/uploads/sites/17/2015/09/particle_size.pdf
-agriculture	Structured comment name	soil_texture_meth	Example		https://uwlab.soils.wisc.edu/wp-content/uploads/sites/17/2015/09/particle_size.pdf
-migs_eu	Structured comment name	isol_growth_condt	Example	doi: 10.1016/j.syapm.2018.01.009	doi:10.1016/j.syapm.2018.01.009
-migs_ba	Structured comment name	isol_growth_condt	Example	doi: 10.1016/j.syapm.2018.01.009	doi:10.1016/j.syapm.2018.01.009
-migs_pl	Structured comment name	isol_growth_condt	Example	doi: 10.1016/j.syapm.2018.01.009	doi:10.1016/j.syapm.2018.01.009
-migs_vi	Structured comment name	isol_growth_condt	Example	doi: 10.1016/j.syapm.2018.01.009	doi:10.1016/j.syapm.2018.01.009
-migs_org	Structured comment name	isol_growth_condt	Example	doi: 10.1016/j.syapm.2018.01.009	doi:10.1016/j.syapm.2018.01.009
-mims	Structured comment name	isol_growth_condt	Example	doi: 10.1016/j.syapm.2018.01.009	doi:10.1016/j.syapm.2018.01.009
-mimarks_s	Structured comment name	isol_growth_condt	Example	doi: 10.1016/j.syapm.2018.01.009	doi:10.1016/j.syapm.2018.01.009
-mimarks_c	Structured comment name	isol_growth_condt	Example	doi: 10.1016/j.syapm.2018.01.009	doi:10.1016/j.syapm.2018.01.009
-misag	Structured comment name	isol_growth_condt	Example	doi: 10.1016/j.syapm.2018.01.009	doi:10.1016/j.syapm.2018.01.009
-mimag	Structured comment name	isol_growth_condt	Example	doi: 10.1016/j.syapm.2018.01.009	doi:10.1016/j.syapm.2018.01.009
-miuvig	Structured comment name	isol_growth_condt	Example	doi: 10.1016/j.syapm.2018.01.009	doi:10.1016/j.syapm.2018.01.009
-agriculture	Structured comment name	isol_growth_condt	Example		doi:10.1016/j.syapm.2018.01.009
-soil	Structured comment name	soil_type_meth	Example		https://www.lrh.usace.army.mil/Portals/38/docs/PR/BluestoneSFEIS/Appendix%20K-Soil%20Descriptions.pdf
-food-farm environment	Structured comment name	soil_type_meth	Example	Frederick series; Weikert series	https://www.lrh.usace.army.mil/Portals/38/docs/PR/BluestoneSFEIS/Appendix%20K-Soil%20Descriptions.pdf
-agriculture	Structured comment name	soil_type_meth	Example		https://www.lrh.usace.army.mil/Portals/38/docs/PR/BluestoneSFEIS/Appendix%20K-Soil%20Descriptions.pdf
+air	Structured comment name	solar_irradiance	Occurrence	1	m
+food-farm environment	Structured comment name	tot_nitro_cont_meth	Occurrence	m	1
+agriculture	Structured comment name	biotic_relationship	Value syntax	[free living|parasite|commensal|symbiont]	[free living|parasitism|commensalism|symbiotic|mutualism]
+agriculture	Structured comment name	chimera_check	Value syntax	{text} {text}	{software};{version};{parameters}
+agriculture	Structured comment name	food_product_type	Value syntax	{text}	{text}|{termLabel} [{termID}]
+symbiont-associated	Structured comment name	oxy_stat_samp	Value syntax	[aerobic|anaerobic]	[aerobic|anaerobic|other]
+agriculture	Structured comment name	oxy_stat_samp	Value syntax	[aerobic|anaerobic]	[aerobic|anaerobic|other]
+soil	Structured comment name	store_cond	Value syntax	{text};{duration}	{text};{period}
+agriculture	Structured comment name	trophic_level	Value syntax	[autotroph| carboxydotroph| chemoautotroph| chemoheterotroph| chemolithoautotroph| chemolithotroph| chemoorganoheterotroph| chemoorganotroph| chemosynthetic| chemotroph| copiotroph| diazotroph| facultative| autotroph| heterotroph| lithoautotroph| lithoheterotroph| lithotroph| methanotroph| methylotroph| mixotroph| obligate| chemoautolithotroph| oligotroph| organoheterotroph| organotroph| photoautotroph| photoheterotroph| photolithoautotroph| photolithotroph| photosynthetic| phototroph]	[autotroph|carboxydotroph|chemoautotroph|chemoheterotroph|chemolithoautotroph|chemolithotroph|chemoorganoheterotroph|chemoorganotroph|chemosynthetic|chemotroph|copiotroph|diazotroph|facultative|autotroph|heterotroph|lithoautotroph|lithoheterotroph|lithotroph|methanotroph|methylotroph|mixotroph|obligate|chemoautolithotroph|oligotroph|organoheterotroph|organotroph|photoautotroph|photoheterotroph|photolithoautotroph|photolithotroph|photosynthetic|phototroph]
+food-farm environment	MIXS ID	MIXS:0001113	Expected value	EOL_0001757	EOL:0001757
+agriculture	MIXS ID	MIXS:0000027	Value syntax	{term}	{text}
+agriculture	MIXS ID	MIXS:0001139	Value syntax	{text}	{termLabel} [{termID}]
+symbiont-associated	MIXS ID	MIXS:0000888	Expected value	body substance of the symbiotic organism (host of the samples) where the samples was obtained from; FMA or UBERON	FMA or UBERON
+symbiont-associated	MIXS ID	MIXS:0001298	Expected value	symbionts of the symbiotic organism (host of the samples). e.g.: annotating a sample collected from a trematode with a nematomorpha cyst consider: species name of the nematomorph; {species name} or {common name}	species name or common name
+agriculture	MIXS ID	MIXS:0001298	Expected value	symbionts of the symbiotic organism (host of the samples). e.g.: annotating a sample collected from a trematode with a nematomorpha cyst consider: species name of the nematomorph; {species name} or {common name}	species name or common name
+symbiont-associated	MIXS ID	MIXS:0001298	Occurrence	1	m
+agriculture	MIXS ID	MIXS:0001298	Occurrence	1	m
+migs_eu	MIXS ID	MIXS:0000018	Preferred unit		meter
+migs_ba	MIXS ID	MIXS:0000018	Preferred unit		meter
+migs_pl	MIXS ID	MIXS:0000018	Preferred unit		meter
+migs_vi	MIXS ID	MIXS:0000018	Preferred unit		meter
+migs_org	MIXS ID	MIXS:0000018	Preferred unit		meter
+mims	MIXS ID	MIXS:0000018	Preferred unit		meter
+mimarks_s	MIXS ID	MIXS:0000018	Preferred unit		meter
+mimarks_c	MIXS ID	MIXS:0000018	Preferred unit		meter
+misag	MIXS ID	MIXS:0000018	Preferred unit		meter
+mimag	MIXS ID	MIXS:0000018	Preferred unit		meter
+miuvig	MIXS ID	MIXS:0000018	Preferred unit		meter
+migs_eu	MIXS ID	MIXS:0000111	Preferred unit	millliter, gram, milligram, square centimeter	milliliter, gram, milligram, square centimeter
+migs_ba	MIXS ID	MIXS:0000111	Preferred unit	millliter, gram, milligram, square centimeter	milliliter, gram, milligram, square centimeter
+migs_pl	MIXS ID	MIXS:0000111	Preferred unit	millliter, gram, milligram, square centimeter	milliliter, gram, milligram, square centimeter
+migs_vi	MIXS ID	MIXS:0000111	Preferred unit	millliter, gram, milligram, square centimeter	milliliter, gram, milligram, square centimeter
+migs_org	MIXS ID	MIXS:0000111	Preferred unit	millliter, gram, milligram, square centimeter	milliliter, gram, milligram, square centimeter
+mims	MIXS ID	MIXS:0000111	Preferred unit	millliter, gram, milligram, square centimeter	milliliter, gram, milligram, square centimeter
+mimarks_s	MIXS ID	MIXS:0000111	Preferred unit	millliter, gram, milligram, square centimeter	milliliter, gram, milligram, square centimeter
+mimarks_c	MIXS ID	MIXS:0000111	Preferred unit	millliter, gram, milligram, square centimeter	milliliter, gram, milligram, square centimeter
+misag	MIXS ID	MIXS:0000111	Preferred unit	millliter, gram, milligram, square centimeter	milliliter, gram, milligram, square centimeter
+mimag	MIXS ID	MIXS:0000111	Preferred unit	millliter, gram, milligram, square centimeter	milliliter, gram, milligram, square centimeter
+miuvig	MIXS ID	MIXS:0000111	Preferred unit	millliter, gram, milligram, square centimeter	milliliter, gram, milligram, square centimeter
+air	MIXS ID	MIXS:0000111	Preferred unit	millliter, gram, milligram, square centimeter	milliliter, gram, milligram, square centimeter
+host-associated	MIXS ID	MIXS:0000111	Preferred unit	millliter, gram, milligram, square centimeter	milliliter, gram, milligram, square centimeter
+human-associated	MIXS ID	MIXS:0000111	Preferred unit	millliter, gram, milligram, square centimeter	milliliter, gram, milligram, square centimeter
+human-gut	MIXS ID	MIXS:0000111	Preferred unit	millliter, gram, milligram, square centimeter	milliliter, gram, milligram, square centimeter
+human-oral	MIXS ID	MIXS:0000111	Preferred unit	millliter, gram, milligram, square centimeter	milliliter, gram, milligram, square centimeter
+human-skin	MIXS ID	MIXS:0000111	Preferred unit	millliter, gram, milligram, square centimeter	milliliter, gram, milligram, square centimeter
+human-vaginal	MIXS ID	MIXS:0000111	Preferred unit	millliter, gram, milligram, square centimeter	milliliter, gram, milligram, square centimeter
+hydrocarbon resources-cores	MIXS ID	MIXS:0000111	Preferred unit	millliter, gram, milligram, square centimeter	milliliter, gram, milligram, square centimeter
+hydrocarbon resources-fluids/swabs	MIXS ID	MIXS:0000111	Preferred unit	millliter, gram, milligram, square centimeter	milliliter, gram, milligram, square centimeter
+microbial mat/biofilm	MIXS ID	MIXS:0000111	Preferred unit	millliter, gram, milligram, square centimeter	milliliter, gram, milligram, square centimeter
+miscellaneous natural or artificial environment	MIXS ID	MIXS:0000111	Preferred unit	millliter, gram, milligram, square centimeter	milliliter, gram, milligram, square centimeter
+plant-associated	MIXS ID	MIXS:0000111	Preferred unit	millliter, gram, milligram, square centimeter	milliliter, gram, milligram, square centimeter
+sediment	MIXS ID	MIXS:0000111	Preferred unit	millliter, gram, milligram, square centimeter	milliliter, gram, milligram, square centimeter
+soil	MIXS ID	MIXS:0000111	Preferred unit	millliter, gram, milligram, square centimeter	milliliter, gram, milligram, square centimeter
+wastewater/sludge	MIXS ID	MIXS:0000111	Preferred unit	millliter, gram, milligram, square centimeter	milliliter, gram, milligram, square centimeter
+water	MIXS ID	MIXS:0000111	Preferred unit	millliter, gram, milligram, square centimeter	milliliter, gram, milligram, square centimeter
+symbiont-associated	MIXS ID	MIXS:0000111	Preferred unit	millliter, gram, milligram	milliliter, gram, milligram, square centimeter
+agriculture	MIXS ID	MIXS:0000111	Preferred unit	millliter, gram, milligram	milliliter, gram, milligram, square centimeter
+water	MIXS ID	MIXS:0000425	Preferred unit	micromole per liter, milligram per liter, parts per million, micromole per kilogram	micromole per liter, milligram per liter, parts per million
+water	MIXS ID	MIXS:0000426	Preferred unit	micromole per liter, milligram per liter, parts per million, micromole per kilogram	micromole per liter, milligram per liter, parts per million
+water	MIXS ID	MIXS:0000434	Preferred unit	microgram per liter, milligram per liter, parts per million, micromole per kilogram	microgram per liter, milligram per liter, parts per million
+water	MIXS ID	MIXS:0000435	Preferred unit	gram per cubic meter, gram per cubic centimeter, kilogram per cubic meter	gram per cubic meter, gram per cubic centimeter
+symbiont-associated	MIXS ID	MIXS:0000264	Preferred unit	nanometre, micrometre, millimeter, centimeter, meter	centimeter, millimeter, meter
+symbiont-associated	MIXS ID	MIXS:0000263	Preferred unit	kilogram, gram, cell number	kilogram, gram
+symbiont-associated	MIXS ID	MIXS:0000256	Preferred unit	nanometre, micrometre, millimeter, centimeter, meter	centimeter, millimeter, meter
+water	MIXS ID	MIXS:0000204	Preferred unit	microgram per liter, milligram per cubic meter	microgram per liter
+food-farm environment	MIXS ID	MIXS:0001119	Value syntax	{TermLabel} [{termID}]|{integer}	{termLabel} [{termID}]|{integer}
+food-farm environment	MIXS ID	MIXS:0001118	Value syntax	{TermLabel} [{termID}]|{integer}	{termLabel} [{termID}]|{integer}
+agriculture	MIXS ID	MIXS:0001106	Value syntax	{PMID|DOI|URL}	{PMID}|{DOI}|{URL}
+food-farm environment	MIXS ID	MIXS:0001113	Value syntax	{termLabel}{[termID]}	{termLabel} [{termID}]
+agriculture	MIXS ID	MIXS:0001083	Value syntax	{term}	[Acrisols|Andosols|Arenosols|Cambisols|Chernozems|Ferralsols|Fluvisols|Gleysols|Greyzems|Gypsisols|Histosols|Kastanozems|Lithosols|Luvisols|Nitosols|Phaeozems|Planosols|Podzols|Podzoluvisols|Rankers|Regosols|Rendzinas|Solonchaks|Solonetz|Vertisols|Yermosols]

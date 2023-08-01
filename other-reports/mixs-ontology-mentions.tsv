@@ -233,7 +233,7 @@ MIXS:0000050	seq_meth	miuvig	Example	454 Genome Sequencer FLX [OBI:0000702]	OBI
 MIXS:0000751	chem_administration	air	Expected value	CHEBI;timestamp	CHEBI
 MIXS:0000751	chem_administration	air	Example	agar [CHEBI:2509];2018-05-11T20:00Z	CHEBI
 MIXS:0000829	season	built environment	Definition	The season when sampling occurred. Any of the four periods into which the year is divided by the equinoxes and solstices. This field accepts terms listed under season (http://purl.obolibrary.org/obo/NCIT_C94729).	NCIT
-MIXS:0000829	season	built environment	Expected value	NCIT:C94729	NCIT
+MIXS:0000829	season	built environment	Expected value	autumn [NCIT:C94733], spring [NCIT:C94731], summer [NCIT:C94732], winter [NCIT:C94730]	NCIT
 MIXS:0000829	season	built environment	Example	autumn [NCIT:C94733]	NCIT
 MIXS:0000031	host_disease_stat	host-associated	Example	rabies [DOID:11260]	DOID
 MIXS:0000751	chem_administration	host-associated	Expected value	CHEBI;timestamp	CHEBI
@@ -340,7 +340,7 @@ MIXS:0000578	root_med_macronutr	plant-associated	Example	KH2PO4;170¬†milligra
 MIXS:0000751	chem_administration	sediment	Expected value	CHEBI;timestamp	CHEBI
 MIXS:0000751	chem_administration	sediment	Example	agar [CHEBI:2509];2018-05-11T20:00Z	CHEBI
 MIXS:0000332	soil_type	soil	Definition	Description of the soil type or classification. This field accepts terms under soil (http://purl.obolibrary.org/obo/ENVO_00001998).  Multiple terms can be separated by pipes.	ENVO
-MIXS:0000332	soil_type	soil	Expected value	ENVO_00001998	ENVO
+MIXS:0000332	soil_type	soil	Expected value	ENVO:00001998	ENVO
 MIXS:0000332	soil_type	soil	Example	plinthosol [ENVO:00002250]	ENVO
 MIXS:0000751	chem_administration	wastewater/sludge	Expected value	CHEBI;timestamp	CHEBI
 MIXS:0000751	chem_administration	wastewater/sludge	Example	agar [CHEBI:2509];2018-05-11T20:00Z	CHEBI
@@ -349,13 +349,13 @@ MIXS:0000751	chem_administration	water	Example	agar [CHEBI:2509];2018-05-11T20:0
 MIXS:0000010	geo_loc_name	symbiont-associated	Definition	The geographical origin of the sample as defined by the country or sea name followed by specific region name. Country or sea names should be chosen from the INSDC country list (http://insdc.org/country.html), or the GAZ ontology (http://purl.bioontology.org/ontology/GAZ).	GAZ
 MIXS:0000010	geo_loc_name	symbiont-associated	Expected value	country or sea name (INSDC or GAZ): region(GAZ), specific location name	GAZ
 MIXS:0000867	host_body_site	symbiont-associated	Definition	Name of body site where the sample was obtained from, such as a specific organ or tissue (tongue, lung etc...). For foundational model of anatomy ontology (fma) (v 4.11.0) or Uber-anatomy ontology (UBERON) (v releases/2014-06-15) terms, please see http://purl.bioontology.org/ontology/FMA or http://purl.bioontology.org/ontology/UBERON.	UBERON
-MIXS:0000867	host_body_site	symbiont-associated	Expected value	body site of the symbiotic organism (host of the samples) where the samples was obtained from; FMA or UBERON	UBERON
+MIXS:0000867	host_body_site	symbiont-associated	Expected value	FMA or UBERON	UBERON
 MIXS:0000867	host_body_site	symbiont-associated	Example	scolex [UBERON:0015119]	UBERON
 MIXS:0000888	host_body_product	symbiont-associated	Definition	Substance produced by the body, e.g. Stool, mucus, where the sample was obtained from. For foundational model of anatomy ontology (fma) or Uber-anatomy ontology (UBERON) terms, please see https://www.ebi.ac.uk/ols/ontologies/fma or https://www.ebi.ac.uk/ols/ontologies/uberon.	UBERON
-MIXS:0000888	host_body_product	symbiont-associated	Expected value	body substance of the symbiotic organism (host of the samples) where the samples was obtained from; FMA or UBERON	UBERON
+MIXS:0000888	host_body_product	symbiont-associated	Expected value	FMA or UBERON	UBERON
 MIXS:0000888	host_body_product	symbiont-associated	Example	mucus [FMA:66938]	FMA
 MIXS:0000874	host_phenotype	symbiont-associated	Definition	Phenotype of human or other host. For phenotypic quality ontology (pato) (v 2018-03-27) terms, please see http://purl.bioontology.org/ontology/pato. For Human Phenotype Ontology (HP) (v 2018-06-13) please see http://purl.bioontology.org/ontology/HP.	HP
-MIXS:0000874	host_phenotype	symbiont-associated	Expected value	symbiotic organism (host of the samples) specific phenotype ontology terms; OBA or PTO or free text	OBA
+MIXS:0000874	host_phenotype	symbiont-associated	Expected value	PATO or HP	PATO
 MIXS:0001325	host_of_host_env_loc	symbiont-associated	Definition	For a symbiotic host organism the local anatomical environment within its host may have causal influences. Report the anatomical entity(s) which are in the direct environment of the symbiotic host organism being sampled and which you believe have significant causal influences on your sample or specimen. For example, if the symbiotic host organism being sampled is an intestinal worm, its local environmental context will be the term for intestine from UBERON (http://uberon.github.io/).	UBERON
 MIXS:0001325	host_of_host_env_loc	symbiont-associated	Expected value	UBERON term(s), multiple values can be separated by pipes.	UBERON
 MIXS:0001325	host_of_host_env_loc	symbiont-associated	Value syntax	small intestine [UBERON:0002108]	UBERON
@@ -623,7 +623,7 @@ MIXS:0001183	coll_site_geo_feat	food-food production facility	Definition	Text or
 MIXS:0001183	coll_site_geo_feat	food-food production facility	Expected value	ENVO:00000002 or ENVO:00000070	ENVO
 MIXS:0001183	coll_site_geo_feat	food-food production facility	Example	farm [ENVO:00000078]	ENVO
 MIXS:0001154	samp_source_mat_cat	food-food production facility	Definition	This is the scientific role or category that the subject organism or material has with respect to an investigation.  This field accepts terms listed under specimen (http://purl.obolibrary.org/obo/GENEPIO_0001237 or http://purl.obolibrary.org/obo/OBI_0100051).	GENEPIO
-MIXS:0001154	samp_source_mat_cat	food-food production facility	Expected value	OBI:0100051	OBI
+MIXS:0001154	samp_source_mat_cat	food-food production facility	Expected value	GENEPIO:0001237	GENEPIO
 MIXS:0001154	samp_source_mat_cat	food-food production facility	Example	environmental swab specimen [OBI:0002613]	OBI
 MIXS:0000998	samp_type	food-food production facility	Definition	The type of material from which the sample was obtained. For the Hydrocarbon package, samples include types like core, rock trimmings, drill cuttings, piping section, coupon, pigging debris, solid deposit, produced fluid, produced water, injected water, swabs, etc. For the Food Package, samples are usually categorized as food, body products or tissues, or environmental material. This field accepts terms listed under environmental specimen (http://purl.obolibrary.org/obo/GENEPIO_0001246).	GENEPIO
 MIXS:0000998	samp_type	food-food production facility	Expected value	GENEPIO:0001246	GENEPIO
@@ -753,7 +753,7 @@ MIXS:0001111	plant_water_method	food-farm environment	Definition	Description of 
 MIXS:0001111	plant_water_method	food-farm environment	Expected value	AGRO_00000006	AGRO
 MIXS:0001111	plant_water_method	food-farm environment	Example	drip irrigation process [AGRO:00000056]	AGRO
 MIXS:0001113	animal_feed_equip	food-farm environment	Definition	Description of the feeding equipment used for livestock. This field accepts terms listed under feed delivery (http://opendata.inra.fr/EOL/EOL_0001757). Multiple terms can be separated by pipes.	EO
-MIXS:0001113	animal_feed_equip	food-farm environment	Expected value	EOL_0001757	EO
+MIXS:0001113	animal_feed_equip	food-farm environment	Expected value	EOL:0001757	EO
 MIXS:0001113	animal_feed_equip	food-farm environment	Example	self feeding [EOL:0001645]| straight feed trough [EOL:0001661]	EO
 MIXS:0001114	animal_intrusion	food-farm environment	Definition	Identification of animals intruding on the sample or sample site including invertebrates (such as pests or pollinators) and vertebrates (such as wildlife or domesticated animals). This field accepts terms under organism (http://purl.obolibrary.org/obo/NCIT_C14250). This field also accepts identification numbers from NCBI under https://www.ncbi.nlm.nih.gov/taxonomy. Multiple terms can be separated by pipes.	NCIT
 MIXS:0001114	animal_intrusion	food-farm environment	Expected value	NCIT:C14250 or NCBI taxid	NCIT
@@ -828,7 +828,7 @@ MIXS:0001159	soil_cover	food-farm environment	Expected value	subclass of 'enviro
 MIXS:0001159	soil_cover	food-farm environment	Value syntax	bare soil [ENVO:01001616]	ENVO
 MIXS:0001159	soil_cover	food-farm environment	Example	bare soil [ENVO01001616]	ENVO
 MIXS:0000332	soil_type	food-farm environment	Definition	Description of the soil type or classification. This field accepts terms under soil (http://purl.obolibrary.org/obo/ENVO_00001998).  Multiple terms can be separated by pipes.	ENVO
-MIXS:0000332	soil_type	food-farm environment	Expected value	ENVO_00001998	ENVO
+MIXS:0000332	soil_type	food-farm environment	Expected value	ENVO:00001998	ENVO
 MIXS:0000332	soil_type	food-farm environment	Example	plinthosol [ENVO:00002250]	ENVO
 MIXS:0001167	spikein_org	food-farm environment	Definition	Taxonomic information about the spike-in organism(s). This field accepts terms under organism (http://purl.obolibrary.org/obo/NCIT_C14250). This field also accepts identification numbers from NCBI under https://www.ncbi.nlm.nih.gov/taxonomy. Multiple terms can be separated by pipes.	NCIT
 MIXS:0001167	spikein_org	food-farm environment	Expected value	NCIT:C14250 or NCBI taxid	NCIT
@@ -880,6 +880,7 @@ MIXS:0001138	food_trav_vehic	agriculture	Example	aircraft [ENVO:01001488]|car [E
 MIXS:0001126	farm_equip	agriculture	Definition	List of equipment used for planting, fertilization, harvesting, irrigation, land levelling, residue management, weeding or transplanting during the growing season. This field accepts terms listed under agricultural implement (http://purl.obolibrary.org/obo/AGRO_00000416). Multiple terms can be separated by pipes.	AGRO
 MIXS:0001126	farm_equip	agriculture	Expected value	AGRO:00000416	AGRO
 MIXS:0001126	farm_equip	agriculture	Example	combine harvester [AGRO:00000473]	AGRO
+MIXS:0001123	farm_equip_shared	agriculture	Expected value	AGRO:00000416	AGRO
 MIXS:0001060	plant_struc	agriculture	Definition	Name of plant structure the sample was obtained from; for Plant Ontology (PO) (v releases/2017-12-14) terms, see http://purl.bioontology.org/ontology/PO, e.g. petiole epidermis (PO_0000051). If an individual flower is sampled, the sex of it can be recorded here.	PO
 MIXS:0001060	plant_struc	agriculture	Expected value	PO	PO
 MIXS:0001060	plant_struc	agriculture	Example	epidermis [PO:0005679]	PO
@@ -892,9 +893,9 @@ MIXS:0001170	spikein_strain	agriculture	Expected value	NCIT:C14250 or NCBI taxid
 MIXS:0000578	root_med_macronutr	agriculture	Definition	Measurement of the culture rooting medium macronutrients (N,P, K, Ca, Mg, S); e.g. KH2PO4 (170¬†mg/L).	PO
 MIXS:0000578	root_med_macronutr	agriculture	Example	KH2PO4;170¬†milligram per liter	PO
 MIXS:0000002	samp_collect_device	agriculture	Definition	The device used to collect an environmental sample. This field accepts terms listed under environmental sampling device (http://purl.obolibrary.org/obo/ENVO). This field also accepts terms listed under specimen collection device (http://purl.obolibrary.org/obo/GENEPIO_0002094).	ENVO
-MIXS:0000016	samp_mat_process	agriculture	Expected value	text or OBI	OBI
 MIXS:0000874	host_phenotype	agriculture	Definition	Phenotype of human or other host. For phenotypic quality ontology (pato) (v 2018-03-27) terms, please see http://purl.bioontology.org/ontology/pato. For Human Phenotype Ontology (HP) (v 2018-06-13) please see http://purl.bioontology.org/ontology/HP	HP
-MIXS:0000874	host_phenotype	agriculture	Expected value	PATO	PATO
+MIXS:0000874	host_phenotype	agriculture	Expected value	PATO or HP	PATO
 MIXS:0000050	seq_meth	agriculture	Definition	Sequencing machine used. Where possible the term should be taken from the OBI list of DNA sequencers (http://purl.obolibrary.org/obo/OBI_0400103).	OBI
 MIXS:0000050	seq_meth	agriculture	Expected value	Text or OBI	OBI
 MIXS:0000050	seq_meth	agriculture	Example	454 Genome Sequencer FLX [OBI:0000702]	OBI
+MIXS:0000332	soil_type	agriculture	Expected value	ENVO:00001998	ENVO

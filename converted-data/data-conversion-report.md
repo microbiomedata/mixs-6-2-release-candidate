@@ -2,7 +2,7 @@
 ### Input
 ```yaml
 mims_soil_data:
-- collection_date: '2013-03-25T12:42:31+00:32'
+- collection_date: '2013-03-25T12:42:31+01:00'
   depth: 1.234 units
   elev: 1.234 units
   env_broad_scale: term [ONTOLOGY:123]
@@ -14,7 +14,7 @@ mims_soil_data:
   samp_name: msd1
   samp_taxon_id: absolutely any text
   seq_meth: absolutely any text
-- collection_date: '2013-03-25T12:42:31+00:32'
+- collection_date: '2013-03-25T12:42:31+01:00'
   depth: 1.234 units
   elev: 1.234 units
   env_broad_scale: term [ONTOLOGY:123]
@@ -32,7 +32,7 @@ mims_soil_data:
 ### Input
 ```yaml
 mims_soil_data:
-- collection_date: '2013-03-25T12:42:31+00:32'
+- collection_date: '2013-03-25T12:42:31+01:00'
   depth: 1.234 units
   elev: 1.234 units
   env_broad_scale: term [ONTOLOGY:123]
@@ -51,7 +51,7 @@ mims_soil_data:
 ### Input
 ```yaml
 mims_soil_data:
-- collection_date: '2013-03-25T12:42:31+00:32'
+- collection_date: '2013-03-25T12:42:31+01:00'
   depth: 1.234 units
   elev: 1.234 units
   env_broad_scale: term [ONTOLOGY:123]

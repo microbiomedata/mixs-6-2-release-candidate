@@ -1,4 +1,5 @@
 optional_not_present:
+- Structured_comment_name
 - host_associated_data
 - human_associated_data
 - human_gut_data

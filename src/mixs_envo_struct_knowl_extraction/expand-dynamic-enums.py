@@ -10,5 +10,6 @@ schema_view = SchemaView(schema_file)
 enums = schema_view.all_enums()
 
 for ek, ev in enums.items():
-    print(ek)
+    if ev.reachable_from:
+        print(ek)
 

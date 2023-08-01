@@ -106,14 +106,14 @@ all_slots_test_set:
   climate_environment:
   - tropical climate;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M
   coll_site_geo_feat: farm [ENVO:00000078]
-  collection_date: '2013-03-25T12:42:31+00:32'
+  collection_date: '2013-03-25T12:42:31+01:00'
   compl_appr: other
   compl_score: med;60%
   compl_software: checkm
   conduc: 10 milliSiemens per centimeter
   cons_food_stor_dur: P5D
   cons_food_stor_temp: 4 degree Celsius
-  cons_purch_date: '2013-03-25T12:42:31+00:32'
+  cons_purch_date: '2013-03-25T12:42:31+01:00'
   cons_qty_purchased: 5 cans
   contam_score: '0.01'
   contam_screen_input: contigs
@@ -129,8 +129,8 @@ all_slots_test_set:
   - Listeria monocytogenes [NCIT:C86502]
   cur_land_use: conifers
   date_extr_weath:
-  - '2013-03-25T12:42:31+00:32'
-  date_last_rain: '2013-03-25T12:42:31+00:32'
+  - '2013-03-25T12:42:31+01:00'
+  date_last_rain: '2013-03-25T12:42:31+01:00'
   decontam_software: anvi'o
   density: 1000 kilogram per cubic meter
   depth: 10 meter
@@ -161,7 +161,7 @@ all_slots_test_set:
   door_type_metal: hollow
   door_type_wood: battened
   door_water_mold: presence of mold visible
-  douche: '2013-03-25T12:42:31+00:32'
+  douche: '2013-03-25T12:42:31+01:00'
   down_par: 28.71 microEinstein per square meter per second
   drainage_class: well
   drawings: sketch
@@ -321,7 +321,7 @@ all_slots_test_set:
   - 'serovar:Newport, variety:glabrum, cultivar: Red Delicious'
   host_substrate: rock
   host_wet_mass: 1500 gram
-  hrt: '2013-03-25T12:42:31+00:32'
+  hrt: '2013-03-25T12:42:31+01:00'
   humidity_regm:
   - 25 gram per cubic meter;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M
   hygienic_area: Low Hygiene Area
@@ -334,9 +334,9 @@ all_slots_test_set:
   intended_consumer:
   - 9606 o rsenior as food consumer [FOODON:03510254]
   isol_growth_condt: doi:10.1016/j.syapm.2018.01.009
-  iw_bt_date_well: '2013-03-25T12:42:31+00:32'
+  iw_bt_date_well: '2013-03-25T12:42:31+01:00'
   iwf: 0.79
-  last_clean: '2013-03-25T12:42:31+00:32'
+  last_clean: '2013-03-25T12:42:31+01:00'
   lat_lon: 50.586825 6.408977
   lib_layout: paired
   lib_reads_seqd: 20
@@ -358,8 +358,8 @@ all_slots_test_set:
   mechanical_damage:
   - pruning;bark
   medic_hist_perform: true
-  menarche: '2013-03-25T12:42:31+00:32'
-  menopause: '2013-03-25T12:42:31+00:32'
+  menarche: '2013-03-25T12:42:31+01:00'
+  menopause: '2013-03-25T12:42:31+01:00'
   micro_biomass_meth: http://dx.doi.org/10.1016/j.soilbio.2005.01.021
   microb_cult_med: brain heart infusion agar [MICRO:0000566]
   microb_start: starter cultures [FOODON:03544454]
@@ -438,14 +438,14 @@ all_slots_test_set:
   potassium: 463 milligram per liter
   pred_genome_struc: non-segmented
   pred_genome_type: dsDNA
-  pregnancy: '2013-03-25T12:42:31+00:32'
+  pregnancy: '2013-03-25T12:42:31+01:00'
   pres_animal_insect: cat;5
   pressure: 50 atmosphere
   previous_land_use: fallow; 2018-05-11:T14:30Z
   primary_prod: 100 milligram per cubic meter per day
   prod_label_claims:
   - free range
-  prod_start_date: '2013-03-25T12:42:31+00:32'
+  prod_start_date: '2013-03-25T12:42:31+01:00'
   profile_position: summit
   project_name: Forest soil metagenome
   propagation: lytic

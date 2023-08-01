@@ -27,6 +27,7 @@ scikit-learn = "^1.2.2" # for text mining. possibly heavyweight
 #geopandas = "^0.13.2"
 #matplotlib = "^3.7.2"
 #matplotlib-venn = "^0.11.9"
+oaklib = "^0.5.12"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.1.3"
