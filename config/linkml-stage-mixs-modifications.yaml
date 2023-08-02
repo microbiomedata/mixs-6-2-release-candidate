@@ -118,79 +118,104 @@ slots:
     multivalued: true
   soil_pH:
     range: float
+#  geo_loc_name:
+#    structured_pattern:
+#      syntax: "^{text}: {text}, {text}$"
+#      interpolated: true
+#      partial_match: true
+  lat_lon:
+    structured_pattern:
+      syntax: "^{lat} {lon}$"
+      interpolated: true
+      partial_match: true
+#  samp_name:
+#    identifier: true
 
 classes:
-  Soil:
-    slot_usage:
-      heavy_metals_meth:
-        annotations:
-          usage_title: "extreme_unusual_properties/heavy metals method"
-      horizon_meth:
-        annotations:
-          usage_title: "soil horizon method"
-      sieving:
-        annotations:
-          usage_title: "composite design/sieving"
-  Agriculture:
-    slot_usage:
-      heavy_metals_meth:
-        annotations:
-          usage_title: "extreme_unusual_conditions"
-      sieving:
-        annotations:
-          usage_title: "composite design/sieving (if any)"
-      soil_texture_meth:
-        annotations:
-          usage_title: "texture method"
-      solar_irradiance:
-        annotations:
-          usage_title: "mean seasonal solar irradiance"
-      store_cond:
-        annotations:
-          usage_title: "storage conditions (fresh/frozen/other)"
-      tot_nitro_cont_meth:
-        annotations:
-          usage_title: "total nitrogen method"
-  HumanAssociated:
-    slot_usage:
-      nose_throat_disord:
-        annotations:
-          usage_title: "lung/nose-throat disorder"
-  HumanOral:
-    slot_usage:
-      nose_throat_disord:
-        annotations:
-          usage_title: "nose/mouth/teeth/throat disorder"
-  FoodFarmEnvironment:
-    slot_usage:
-      samp_type:
-        annotations:
-          usage_title: "sample type (host or environmental context)"
-      season_temp:
-        annotations:
-          usage_title: "mean seasonal air temperature"
-      solar_irradiance:
-        annotations:
-          usage_title: "mean seasonal solar irradiance"
+#  Soil:
+#    slot_usage:
+#      heavy_metals_meth:
+#        annotations:
+#          usage_title: "extreme_unusual_properties/heavy metals method"
+#      horizon_meth:
+#        annotations:
+#          usage_title: "soil horizon method"
+#      sieving:
+#        annotations:
+#          usage_title: "composite design/sieving"
+#  Agriculture:
+#    slot_usage:
+#      heavy_metals_meth:
+#        annotations:
+#          usage_title: "extreme_unusual_conditions"
+#      sieving:
+#        annotations:
+#          usage_title: "composite design/sieving (if any)"
+#      soil_texture_meth:
+#        annotations:
+#          usage_title: "texture method"
+#      solar_irradiance:
+#        annotations:
+#          usage_title: "mean seasonal solar irradiance"
+#      store_cond:
+#        annotations:
+#          usage_title: "storage conditions (fresh/frozen/other)"
+#      tot_nitro_cont_meth:
+#        annotations:
+#          usage_title: "total nitrogen method"
+#  HumanAssociated:
+#    slot_usage:
+#      nose_throat_disord:
+#        annotations:
+#          usage_title: "lung/nose-throat disorder"
+#  HumanOral:
+#    slot_usage:
+#      nose_throat_disord:
+#        annotations:
+#          usage_title: "nose/mouth/teeth/throat disorder"
+#  FoodFarmEnvironment:
+#    slot_usage:
+#      samp_type:
+#        annotations:
+#          usage_title: "sample type (host or environmental context)"
+#      season_temp:
+#        annotations:
+#          usage_title: "mean seasonal air temperature"
+#      solar_irradiance:
+#        annotations:
+#          usage_title: "mean seasonal solar irradiance"
 
 settings:
   country: "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)"
   name: "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)"
+  parameters: "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)"
   region: "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)"
   room_name: "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)"
+  software: "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)"
   specific_location: "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)"
   storage_condition_type: "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)"
+  termLabel: "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)"
   text: "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)"
   unit: "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)"
+  version: "([^\\s-]{1,2}|[^\\s-]+.+[^\\s-]+)"
 
-  DOI: "^doi:10.\\d{2,9}/.*$"
-  PMID: "^PMID:\\d+$"
+
   # URL pattern from https://uibakery.io/regex-library/url
+  DOI: "^doi:10.\\d{2,9}/.*$"
+  NCBItaxon_id: "NCBITaxon:\\d+"
+  PMID: "^PMID:\\d+$"
   URL: "^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$"
   adapter: "[ACGTRKSYMWBHDVN]+"
+  ambiguous_nucleotides: "[ACGTRKSYMWBHDVN]+"
   duration: "P(?:(?:\\d+D|\\d+M(?:\\d+D)?|\\d+Y(?:\\d+M(?:\\d+D)?)?)(?:T(?:\\d+H(?:\\d+M(?:\\d+S)?)?|\\d+M(?:\\d+S)?|\\d+S))?|T(?:\\d+H(?:\\d+M(?:\\d+S)?)?|\\d+M(?:\\d+S)?|\\d+S)|\\d+W)"
   float: "[-+]?[0-9]*\\.?[0-9]+"
+  integer: "[1-9][0-9]*"
+  lat: "(-?((?:[0-8]?[0-9](?:\\.\\d{0,8})?)|90))"
+  lon: "-?[0-9]+(?:\\.[0-9]{0,8})?$|^-?(1[0-7]{1,2})"
   room_number: "[1-9][0-9]*"
+  scientific_float: "[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?"
+  termID: "[a-zA-Z]{2,}:[a-zA-Z0-9]\\d+"
+
 
 
 #  {crop_rotation_status};{schedule}: {boolean};{Rn/start_time/end_time/duration}

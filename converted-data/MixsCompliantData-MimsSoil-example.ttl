@@ -4,21 +4,8 @@
 
 [] a mixs_6_2_rc:MixsCompliantData ;
     MIXS:mims_soil_data [ a MIXS:0010007_0016012 ;
-            MIXS:0000009 "absolutely any text" ;
-            MIXS:0000010 "absolutely any text" ;
-            MIXS:0000011 "2013-03-25T12:42:31+01:00"^^xsd:dateTime ;
-            MIXS:0000012 "term [ONTOLOGY:123]" ;
-            MIXS:0000013 "term [ONTOLOGY:123]" ;
-            MIXS:0000014 "term [ONTOLOGY:123]" ;
-            MIXS:0000018 "1.234 units" ;
-            MIXS:0000050 "absolutely any text" ;
-            MIXS:0000092 "absolutely any text" ;
-            MIXS:0000093 "1.234 units" ;
-            MIXS:0001107 "msd1" ;
-            MIXS:0001320 "absolutely any text" ],
-        [ a MIXS:0010007_0016012 ;
-            MIXS:0000009 "absolutely any text" ;
-            MIXS:0000010 "absolutely any text" ;
+            MIXS:0000009 "45.1 45.9" ;
+            MIXS:0000010 "text: text, text" ;
             MIXS:0000011 "2013-03-25T12:42:31+01:00"^^xsd:dateTime ;
             MIXS:0000012 "term [ONTOLOGY:123]" ;
             MIXS:0000013 "term [ONTOLOGY:123]" ;
@@ -28,5 +15,18 @@
             MIXS:0000092 "absolutely any text" ;
             MIXS:0000093 "1.234 units" ;
             MIXS:0001107 "msd2" ;
-            MIXS:0001320 "absolutely any text" ] .
+            MIXS:0001320 "Gut Metagenome [NCBITaxon:749906]" ],
+        [ a MIXS:0010007_0016012 ;
+            MIXS:0000009 "45.1 45.9" ;
+            MIXS:0000010 "text: text, text" ;
+            MIXS:0000011 "2013-03-25T12:42:31+01:00"^^xsd:dateTime ;
+            MIXS:0000012 "term [ONTOLOGY:123]" ;
+            MIXS:0000013 "term [ONTOLOGY:123]" ;
+            MIXS:0000014 "term [ONTOLOGY:123]" ;
+            MIXS:0000018 "1.234 units" ;
+            MIXS:0000050 "absolutely any text" ;
+            MIXS:0000092 "absolutely any text" ;
+            MIXS:0000093 "1.234 units" ;
+            MIXS:0001107 "msd1" ;
+            MIXS:0001320 "Gut Metagenome [NCBITaxon:749906]" ] .
 

@@ -258,13 +258,13 @@ rdflib = ">=0.4.2"
 
 [[package]]
 name = "chardet"
-version = "5.1.0"
+version = "5.2.0"
 description = "Universal encoding detector for Python 3"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "chardet-5.1.0-py3-none-any.whl", hash = "sha256:362777fb014af596ad31334fde1e8c327dfdb076e1960d1694662d46a6917ab9"},
-    {file = "chardet-5.1.0.tar.gz", hash = "sha256:0d62712b956bc154f85fb0a266e2a3c5913c2967e00348701b32411d6def31e5"},
+    {file = "chardet-5.2.0-py3-none-any.whl", hash = "sha256:e1cf59446890a00105fe7b7912492ea04b6e6f06d4b742b2c788469e34c82970"},
+    {file = "chardet-5.2.0.tar.gz", hash = "sha256:1b3b6ff479a8c414bc3fa2c0852995695c4a026dcd6d0633b2dd092ca39c1cf7"},
 ]
 
 [[package]]
@@ -915,19 +915,20 @@ files = [
 
 [[package]]
 name = "funowl"
-version = "0.1.12"
+version = "0.1.13"
 description = "Python rendering of the OWL Functional syntax"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "funowl-0.1.12-py3-none-any.whl", hash = "sha256:44f2337d47d21ab6532f8f0e51173c506a0d9dae9efa959cb105b0311e352082"},
-    {file = "funowl-0.1.12.tar.gz", hash = "sha256:3316c37ecde08cdfa96ebcbcc02ed53c355dc56845d654a8f37aa7a913ca6f71"},
+    {file = "funowl-0.1.13-py3-none-any.whl", hash = "sha256:81dc273b11cb1b0c9fbf15496a6b85f335ef1694c321fd704267bcd694e3cb26"},
+    {file = "funowl-0.1.13.tar.gz", hash = "sha256:49f26a0e9b072ba331914564478a90e99e1d8fa10c4570d600bb3bae9250ea06"},
 ]
 
 [package.dependencies]
 bcp47 = "*"
+jsonasobj = "*"
 pyjsg = ">=0.11.6"
-rdflib = ">=5.0.0"
+rdflib = "6.2.0"
 rdflib-shim = "*"
 rfc3987 = "*"
 
@@ -1032,28 +1033,27 @@ uritemplate = ">=3.0.1,<5"
 
 [[package]]
 name = "google-auth"
-version = "2.22.0"
+version = "2.17.3"
 description = "Google Authentication Library"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*"
 files = [
-    {file = "google-auth-2.22.0.tar.gz", hash = "sha256:164cba9af4e6e4e40c3a4f90a1a6c12ee56f14c0b4868d1ca91b32826ab334ce"},
-    {file = "google_auth-2.22.0-py2.py3-none-any.whl", hash = "sha256:d61d1b40897407b574da67da1a833bdc10d5a11642566e506565d1b1a46ba873"},
+    {file = "google-auth-2.17.3.tar.gz", hash = "sha256:ce311e2bc58b130fddf316df57c9b3943c2a7b4f6ec31de9663a9333e4064efc"},
+    {file = "google_auth-2.17.3-py2.py3-none-any.whl", hash = "sha256:f586b274d3eb7bd932ea424b1c702a30e0393a2e2bc4ca3eae8263ffd8be229f"},
 ]
 
 [package.dependencies]
 cachetools = ">=2.0.0,<6.0"
 pyasn1-modules = ">=0.2.1"
-rsa = ">=3.1.4,<5"
+rsa = {version = ">=3.1.4,<5", markers = "python_version >= \"3.6\""}
 six = ">=1.9.0"
-urllib3 = "<2.0"
 
 [package.extras]
-aiohttp = ["aiohttp (>=3.6.2,<4.0.0.dev0)", "requests (>=2.20.0,<3.0.0.dev0)"]
+aiohttp = ["aiohttp (>=3.6.2,<4.0.0dev)", "requests (>=2.20.0,<3.0.0dev)"]
 enterprise-cert = ["cryptography (==36.0.2)", "pyopenssl (==22.0.0)"]
 pyopenssl = ["cryptography (>=38.0.3)", "pyopenssl (>=20.0.0)"]
 reauth = ["pyu2f (>=0.1.5)"]
-requests = ["requests (>=2.20.0,<3.0.0.dev0)"]
+requests = ["requests (>=2.20.0,<3.0.0dev)"]
 
 [[package]]
 name = "google-auth-httplib2"
@@ -3096,24 +3096,27 @@ files = [
 
 [[package]]
 name = "rdflib"
-version = "6.3.2"
+version = "6.2.0"
 description = "RDFLib is a Python library for working with RDF, a simple yet powerful language for representing information."
 optional = false
-python-versions = ">=3.7,<4.0"
+python-versions = ">=3.7"
 files = [
-    {file = "rdflib-6.3.2-py3-none-any.whl", hash = "sha256:36b4e74a32aa1e4fa7b8719876fb192f19ecd45ff932ea5ebbd2e417a0247e63"},
-    {file = "rdflib-6.3.2.tar.gz", hash = "sha256:72af591ff704f4caacea7ecc0c5a9056b8553e0489dd4f35a9bc52dbd41522e0"},
+    {file = "rdflib-6.2.0-py3-none-any.whl", hash = "sha256:85c34a86dfc517a41e5f2425a41a0aceacc23983462b32e68610b9fad1383bca"},
+    {file = "rdflib-6.2.0.tar.gz", hash = "sha256:62dc3c86d1712db0f55785baf8047f63731fa59b2682be03219cb89262065942"},
 ]
 
 [package.dependencies]
-isodate = ">=0.6.0,<0.7.0"
-pyparsing = ">=2.1.0,<4"
+isodate = "*"
+pyparsing = "*"
+setuptools = "*"
 
 [package.extras]
-berkeleydb = ["berkeleydb (>=18.1.0,<19.0.0)"]
-html = ["html5lib (>=1.0,<2.0)"]
-lxml = ["lxml (>=4.3.0,<5.0.0)"]
-networkx = ["networkx (>=2.0.0,<3.0.0)"]
+berkeleydb = ["berkeleydb"]
+dev = ["black (==22.6.0)", "flake8", "flakeheaven", "isort", "mypy", "pep8-naming", "types-setuptools"]
+docs = ["myst-parser", "sphinx (<6)", "sphinx-autodoc-typehints", "sphinxcontrib-apidoc", "sphinxcontrib-kroki"]
+html = ["html5lib"]
+networkx = ["networkx"]
+tests = ["html5lib", "pytest", "pytest-cov"]
 
 [[package]]
 name = "rdflib-jsonld"
@@ -3366,13 +3369,13 @@ files = [
 
 [[package]]
 name = "rich"
-version = "13.5.1"
+version = "13.5.2"
 description = "Render rich text, tables, progress bars, syntax highlighting, markdown and more to the terminal"
 optional = false
 python-versions = ">=3.7.0"
 files = [
-    {file = "rich-13.5.1-py3-none-any.whl", hash = "sha256:b97381b204a206e1be618f5e1215a57174a1a7732490b3bf6668cf41d30bc72d"},
-    {file = "rich-13.5.1.tar.gz", hash = "sha256:881653ee7037803559d8eae98f145e0a4c4b0ec3ff0300d2cc8d479c71fc6819"},
+    {file = "rich-13.5.2-py3-none-any.whl", hash = "sha256:146a90b3b6b47cac4a73c12866a499e9817426423f57c5a66949c086191a8808"},
+    {file = "rich-13.5.2.tar.gz", hash = "sha256:fb9d6c0a0f643c99eed3875b5377a184132ba9be4d61516a55273d3554d75a39"},
 ]
 
 [package.dependencies]
@@ -4178,19 +4181,20 @@ six = "*"
 
 [[package]]
 name = "urllib3"
-version = "1.26.16"
+version = "2.0.4"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
 optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
+python-versions = ">=3.7"
 files = [
-    {file = "urllib3-1.26.16-py2.py3-none-any.whl", hash = "sha256:8d36afa7616d8ab714608411b4a3b13e58f463aee519024578e062e141dce20f"},
-    {file = "urllib3-1.26.16.tar.gz", hash = "sha256:8f135f6502756bde6b2a9b28989df5fbe87c9970cecaa69041edcce7f0589b14"},
+    {file = "urllib3-2.0.4-py3-none-any.whl", hash = "sha256:de7df1803967d2c2a98e4b11bb7d6bd9210474c46e8a0401514e3a42a75ebde4"},
+    {file = "urllib3-2.0.4.tar.gz", hash = "sha256:8d22f86aae8ef5e410d4f539fde9ce6b2113a001bb4d189e0aed70642d602b11"},
 ]
 
 [package.extras]
-brotli = ["brotli (>=1.0.9)", "brotlicffi (>=0.8.0)", "brotlipy (>=0.6.0)"]
-secure = ["certifi", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "ipaddress", "pyOpenSSL (>=0.14)", "urllib3-secure-extra"]
-socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
+brotli = ["brotli (>=1.0.9)", "brotlicffi (>=0.8.0)"]
+secure = ["certifi", "cryptography (>=1.9)", "idna (>=2.0.0)", "pyopenssl (>=17.1.0)", "urllib3-secure-extra"]
+socks = ["pysocks (>=1.5.6,!=1.5.7,<2.0)"]
+zstd = ["zstandard (>=0.18.0)"]
 
 [[package]]
 name = "validators"

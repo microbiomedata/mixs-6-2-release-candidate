@@ -1,5 +1,8 @@
 all_slots_test_set:
-  - address: "123 Main Street"
+  - nose_mouth_teeth_throat_disord:
+      - absolutely any text
+    urobiom_sex: female
+    address: "123 Main Street"
     abs_air_humidity: 123 units
     add_recov_method: absolutely any text
     alt: 123 units
@@ -11,20 +14,20 @@ all_slots_test_set:
     env_broad_scale: term [ONTOLOGY:123]
     env_local_scale: term [ONTOLOGY:123]
     env_medium: term [ONTOLOGY:123]
-    geo_loc_name: absolutely any text
+    geo_loc_name: "text: text, text"
     hc_produced: Bitumen
     hcr: Coalbed
     host_dependence: obligate
     indoor_space: bathroom
     iwf: 0.999
-    lat_lon: absolutely any text
+    lat_lon: 45.1 45.9
     occup_density_samp: 0.999
     occup_samp: 0.999
     project_name: absolutely any text
     rel_air_humidity: 0.999
     samp_collect_point: well
     samp_name: absolutely any text
-    samp_taxon_id: absolutely any text
+    samp_taxon_id: Gut Metagenome [NCBITaxon:749906]
     samp_type: term [ONTOLOGY:123]
     seq_meth: absolutely any text
     space_typ_state: typically occupied
@@ -43,7 +46,7 @@ all_slots_test_set:
     light_type:
       - natural light
     x16s_recover: true
-    x16s_recover_software: absolutely any text
+    x16s_recover_software: text;text;text
     HACCP_term:
       - term [ONTOLOGY:123]
     adapters: ACGT;ACGT
@@ -87,7 +90,7 @@ all_slots_test_set:
     animal_housing:
       - term [ONTOLOGY:123]
     animal_intrusion:
-      - absolutely any text
+      - term [ONTOLOGY:123]
     animal_sex: intact female
     annot: absolutely any text
     annual_precpt: 1.234 units
@@ -100,7 +103,7 @@ all_slots_test_set:
     asphaltenes_pc: maltenes;1.234 units
     assembly_name: absolutely any text
     assembly_qual: absolutely any text
-    assembly_software: absolutely any text
+    assembly_software: text;text;text
     associated_resource:
       - absolutely any text
     association_duration: 90 minutes
@@ -160,7 +163,7 @@ all_slots_test_set:
     chem_oxygen_dem: 1.234 units
     chem_treat_method: absolutely any text
     chem_treatment: absolutely any text
-    chimera_check: absolutely any text
+    chimera_check: text;text;text
     chloride: 1.234 units
     chlorophyll: 1.234 units
     climate_environment:
@@ -173,7 +176,7 @@ all_slots_test_set:
     cons_food_stor_temp: absolutely any text
     cons_purch_date: "2013-03-25T12:42:31+01:00"
     cons_qty_purchased: 123 units
-    contam_score: absolutely any text
+    contam_score: 123
     contam_screen_input: contigs
     contam_screen_param: absolutely any text
     cool_syst_id: 123
@@ -182,7 +185,7 @@ all_slots_test_set:
     cult_isol_date: "2013-03-25T12:42:31+01:00"
     cult_result: negative # todo decrease the number of essentially boolean options
     cult_result_org:
-      - absolutely any text
+      - term [ONTOLOGY:123]
     cult_root_med: absolutely any text
     cult_target:
       - absolutely any text
@@ -268,12 +271,12 @@ all_slots_test_set:
     farm_equip_shared:
       - term [ONTOLOGY:123]
     farm_water_source: freshwater
-    feat_pred: absolutely any text
+    feat_pred: text;text;text
     ferm_chem_add:
       - absolutely any text
     ferm_chem_add_perc:
-      - absolutely any text
-    ferm_headspace_oxy: absolutely any text
+      - 123
+    ferm_headspace_oxy: 123
     ferm_medium: absolutely any text
     ferm_pH: 1.999
     ferm_rel_humidity: 99%
@@ -309,7 +312,7 @@ all_slots_test_set:
     food_cooking_proc:
       - absolutely any text
     food_dis_point:
-      - absolutely any text
+      - "text: text, text"
     food_dis_point_city:
       - absolutely any text
     food_harvest_proc:
@@ -384,7 +387,7 @@ all_slots_test_set:
     height_carper_fiber: 1.234 units
     herbicide_regm:
       - absolutely any text
-    horizon: O horizon
+    #    horizon: O horizon
     horizon_meth: PMID:123
     host_age: 1.234 units
     host_body_habitat: absolutely any text
@@ -507,7 +510,7 @@ all_slots_test_set:
     microb_start_inoc: 1.234 units
     microb_start_prep: absolutely any text
     microb_start_source: absolutely any text
-    microb_start_taxID: absolutely any text
+    microb_start_taxID: term [ONTOLOGY:123]
     microbial_biomass: 1.234 units
     mid: ACGT
     mineral_nutr_regm:
@@ -716,7 +719,7 @@ all_slots_test_set:
     sequencing_kit: absolutely any text
     sequencing_location: absolutely any text
     serovar_or_serotype:
-      - absolutely any text
+      - term [ONTOLOGY:123]
     sewage_type: absolutely any text
     sexual_act: absolutely any text
     shad_dev_water_mold: presence of mold visible
@@ -726,7 +729,7 @@ all_slots_test_set:
     shading_device_type: trellis
     sieving: absolutely any text
     silicate: 1.234 units
-    sim_search_meth: absolutely any text
+    sim_search_meth: text;text;text
     sc_lysis_approach: enzymatic
     sc_lysis_method: absolutely any text
     size_frac: absolutely any text
@@ -779,7 +782,7 @@ all_slots_test_set:
     spikein_metal:
       - absolutely any text
     spikein_org:
-      - absolutely any text
+      - text 123
     spikein_serovar:
       - absolutely any text
     spikein_strain:
@@ -826,7 +829,7 @@ all_slots_test_set:
     temp: 1.234 units
     temp_out: 1.234 units
     tertiary_treatment: absolutely any text
-    #    texture: 1.234 units
+    soil_texture: 1.234 units
     #    texture_meth: absolutely any text # see soil_texture_meth
     tidal_stage: ebb tide
     tillage:
@@ -857,7 +860,7 @@ all_slots_test_set:
     train_stop_loc: downtown
     travel_out_six_month:
       - absolutely any text
-    trna_ext_software: absolutely any text
+    trna_ext_software: text;text;text
     trnas: absolutely any text
     trophic_level: chemoautotroph
     turbidity: 1.234 units

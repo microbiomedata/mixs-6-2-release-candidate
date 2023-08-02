@@ -1,5 +1,4 @@
 optional_not_present:
-- Structured_comment_name
 - host_associated_data
 - human_associated_data
 - human_gut_data
@@ -28,11 +27,9 @@ optional_not_present:
 - mims_plant_associated_data
 - mims_soil_data
 - mims_water_data
-- physical_sex
 - plant_associated_data
 - soil_data
 - water_data
-recommended_not_present:
-- soil_depth
+recommended_not_present: []
 required_not_present: []
 used_but_undefined: []
