@@ -32,6 +32,8 @@ all_slots_test_set:
   animal_am_route: oral-feed
   animal_am_use: shipping fever
   animal_body_cond: under conditioned
+  animal_diet:
+  - Hay [FOODON:03301763]
   animal_feed_equip:
   - self feeding [EOL:0001645]| straight feed trough [EOL:0001661]
   animal_group_size: 80
@@ -115,12 +117,13 @@ all_slots_test_set:
   cons_food_stor_temp: 4 degree Celsius
   cons_purch_date: '2013-03-25T12:42:31+01:00'
   cons_qty_purchased: 5 cans
-  contam_score: '0.01'
+  contam_score: 0.01
   contam_screen_input: contigs
   contam_screen_param: kmer
   cool_syst_id: 12345
   crop_rotation: yes;R2/2017-01-01/2018-12-31/P6M
   crop_yield: 570 kilogram per metre square
+  cult_isol_date: '2018-05-11T10:00:00+01:00'
   cult_result: positive
   cult_result_org:
   - Listeria monocytogenes [NCIT:C86502]
@@ -133,7 +136,6 @@ all_slots_test_set:
   date_last_rain: '2013-03-25T12:42:31+01:00'
   decontam_software: anvi'o
   density: 1000 kilogram per cubic meter
-  depth: 10 meter
   detec_type: independent sequence (UViG)
   dew_point: 22 degree Celsius
   diet_last_six_month: yes;vegetarian diet
@@ -180,6 +182,8 @@ all_slots_test_set:
   estimated_size: 300000 bp
   ethnicity:
   - native american
+  experimental_factor:
+  - time series design [EFO:0001779]
   ext_wall_orient: northwest
   ext_window_orient: southwest
   extr_weather_event:
@@ -200,8 +204,8 @@ all_slots_test_set:
   ferm_chem_add:
   - salt
   ferm_chem_add_perc:
-  - '0.01'
-  ferm_headspace_oxy: '0.05'
+  - 0.01
+  ferm_headspace_oxy: 0.05
   ferm_medium: molasses
   ferm_pH: 4.5
   ferm_rel_humidity: 95%
@@ -220,6 +224,8 @@ all_slots_test_set:
   floor_struc: concrete
   floor_water_mold: ceiling discoloration
   fluor: 2.5 volts
+  food_additive:
+  - xanthan gum [FOODON:03413321]
   food_allergen_label:
   - food allergen labelling about crustaceans and products thereof [FOODON:03510215]
   food_clean_proc: rinsed with water
@@ -228,6 +234,8 @@ all_slots_test_set:
   food_contain_wrap: Plastic shrink-pack [FOODON:03490137]
   food_cooking_proc:
   - food blanching [FOODON:03470175]
+  food_dis_point:
+  - 'USA: Delmarva, Peninsula'
   food_dis_point_city:
   - Atlanta[GAZ:00004445]
   food_harvest_proc:
@@ -235,6 +243,7 @@ all_slots_test_set:
   food_ingredient:
   - bean (whole) [FOODON:00002753]
   food_name_status: protected geographic indication [FOODON:03530256]
+  food_origin: 'USA: Delmarva, Peninsula'
   food_pack_capacity: 454 grams
   food_pack_integrity:
   - food packing medium compromised [FOODON:00002517]
@@ -289,7 +298,6 @@ all_slots_test_set:
   - mercury;0.09 micrograms per gram
   herbicide_regm:
   - atrazine;10 milligram per liter;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M
-  horizon: '[O horizon|A horizon|E horizon|B horizon|C horizon|R layer|Permafrost]'
   host_body_mass_index: 22 kilogram per square meter
   host_body_product: mucus [FMA:66938]
   host_cellular_loc: extracellular
@@ -382,7 +390,7 @@ all_slots_test_set:
   nitrite: 0.5 micromole per liter
   nitro: 4.2 micromole per liter
   non_min_nutr_regm:
-  - carbon dioxide;10 mole per liter;R2/2018-05-11T14:30/2018-05-11T19:30/P1H30M
+  - https://phylogenomics.me/protocols/16s-pcr-protocol/
   nucl_acid_amp: https://phylogenomics.me/protocols/16s-pcr-protocol/
   nucl_acid_ext: https://mobio.com/media/wysiwyg/pdfs/protocols/12888.pdf
   nucl_acid_ext_kit:
@@ -407,6 +415,7 @@ all_slots_test_set:
   - chuck [FOODON:03530021]
   pathogenicity: human, animal, plant, fungi, bacteria
   pcr_cond: initial denaturation:94_3;annealing:50_1;elongation:72_1.5;final elongation:72_10;35
+  pcr_primers: FWD:GTGCCAGCMGCCGCGGTAA;REV:GGACTACHVGGGTWTCTAAT
   perturbation:
   - antibiotic addition;R2/2018-05-11T14:30Z/2018-05-11T19:30Z/P1H30M
   pesticide_regm:
@@ -435,6 +444,7 @@ all_slots_test_set:
   ploidy: allopolyploidy [PATO:0001379]
   pollutants:
   - lead;0.15 microgram per cubic meter
+  pool_dna_extracts: yes, 5
   potassium: 463 milligram per liter
   pred_genome_struc: non-segmented
   pred_genome_type: dsDNA
@@ -495,15 +505,18 @@ all_slots_test_set:
   samp_purpose: field trial
   samp_rep_biol: 6 replicates
   samp_rep_tech: 10 replicates
+  samp_size: 5 liter
+  samp_source_mat_cat: environmental (swab or sampling) [GENEPIO:0001732]
   samp_stor_device: Whirl Pak sampling bag [GENEPIO:0002122]
   samp_stor_media: peptone water medium [MICRO:0000548]
   samp_store_dur: P1Y6M
+  samp_store_loc: Freezer no:5
   samp_store_sol: 5% ethanol
   samp_store_temp: -80 degree Celsius
   samp_subtype: biofilm
   samp_surf_moisture:
   - submerged
-  samp_taxon_id: Gut Metagenome [NCBI:txid749906]
+  samp_taxon_id: Gut Metagenome [NCBITaxon:749906]
   samp_transport_cond: 5 days;-20 degree Celsius
   samp_transport_cont: cooler
   samp_transport_dur: P10D
@@ -540,7 +553,6 @@ all_slots_test_set:
   sodium: 10.5 milligram per liter
   soil_conductivity: 10 milliSiemens per centimeter
   soil_cover: bare soil [ENVO01001616]
-  soil_depth: 5 cm
   soil_horizon: A horizon
   soil_pH: 7.2
   soil_porosity: '0.2'

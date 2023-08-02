@@ -1,4 +1,4 @@
-string_serialization	Expected_value	count
+Value_syntax	Expected_value	count
 {text}	IFSAC term	1
 {dna};{dna}	adapter A and B sequence	1
 [Water Injection|Dump Flood|Gas Injection|Wag Immiscible Injection|Polymer Addition|Surfactant Addition|Not Applicable|other];{timestamp}	enumeration;timestamp	1
@@ -11,13 +11,11 @@ string_serialization	Expected_value	count
 {float} {day}	value	1
 {text}	text or FOODON_03309997	1
 {termLabel} [{termID}]	EOL:0001757	1
-{termLabel} [{termID}]|{integer}	NCIT:C14250 or NCBI taxid	5
 {text}	name of tool or pipeline used, or annotation source description	1
 {text};{float} {unit};{Rn/start_time/end_time/duration}	antibiotic name;antibiotic amount;treatment interval and duration	1
 {integer} {unit} x {integer} {unit}	measurement value	1
 {text} {text}	name and version of assembly	1
 [Finished genome|High-quality draft genome|Medium-quality draft genome|Low-quality draft genome|Genome fragment(s)]	enumeration	1
-{software};{version};{parameters}	name and version of software, parameters used	2
 {PMID}|{DOI}|{URL}	reference to resource	1
 {text};{float} {unit}	atmospheric data name;measurement value	1
 {software};{version}{PID}	names and versions of software(s) used	1
@@ -27,6 +25,7 @@ string_serialization	Expected_value	count
 [wild|natural|semi-natural|inbred line|breeder's line|hybrid|clonal selection|mutant]	enumeration	1
 {text};{float} {unit}	biomass type;measurement value	1
 {text}	medication name	1
+{float}:{float}	measurement value	1
 {termLabel} [{termID}];{timestamp}	CHEBI;timestamp	1
 {text};{float} {unit};{Rn/start_time/end_time/duration}	mutagen name;mutagen amount;treatment interval and duration	1
 {float} {unit};{Rn/start_time/end_time/duration};{duration};{duration}	measurement value;frequency;duration;duration	1
@@ -34,7 +33,6 @@ string_serialization	Expected_value	count
 [high|med|low];{percentage}	quality;percent completeness	1
 {software};{version}	names and versions of software(s) used	1
 {float} {unit}|{text}	text or measurement value	1
-{float} percentage	value	3
 [ref db|kmer|coverage|combination];{text|integer}	enumeration;value or name	1
 	crop rotation status;schedule	1
 {text}|{PMID}|{DOI}|{URL}	name, PMID,DOI or url	1
@@ -51,12 +49,11 @@ string_serialization	Expected_value	count
 {text};{float} {unit}	emulsion name;measurement value	1
 {text}	for plasmid: antibiotic resistance; for phage: converting genes	1
 {termLabel} [{termID}]	Environmental entities having causal influences upon the entity at time of sampling	1
-{text}	Expected value	2
+{text}	ENVO	1
 {integer} bp	number of base pairs	1
 {text}	text recommend from Wikipedia list	1
 {termLabel} [{termID}]|{text}	text or EFO and/or OBI	1
 {text} {float} {unit}	text or commercial name of sanitizer or class of sanitizer or active ingredient in sanitizer	1
-{software};{version};{parameters}	names and versions of software(s), parameters used	4
 {float} {unit}	chemical ingredient	1
 {text};{float} {unit};{Rn/start_time/end_time/duration}	fertilizer name;fertilizer amount;treatment interval and duration	1
 [tile|wood strip or parquet|carpet|rug|laminate wood|lineoleum|vinyl composition tile|sheet vinyl|stone|bamboo|cork|terrazo|concrete|none;specify unfinished|sealed|clear finish|paint]	enumeration	1
@@ -65,7 +62,6 @@ string_serialization	Expected_value	count
 {text}|{termLabel} [{termID}]	FOODON:03500010	1
 {text}|{termLabel} [{termID}]	FOODON:03490100	1
 {text}|{termLabel} [{termID}]	FOODON:03450002	1
-{term}: {term}, {text}	country: region, specific location	2
 {text}|{termLabel} [{termID}]	GAZ:00000448	1
 {text}|{termLabel} [{termID}]	FOODON	1
 {text}|{termLabel} [{termID}]	FOODON:03530218	1
@@ -78,29 +74,26 @@ string_serialization	Expected_value	count
 {text}|{termLabel} [{termID}]	ENVO:01000604	1
 {text}|{termLabel} [{termID}]	FOODON:03460111	1
 {text};{float} {unit}	gaseous substance name;measurement value	1
-	PMID, DOI, URL or text	1
-{term}: {term}, {text}	country or sea name (INSDC or GAZ): region(GAZ), specific location name	1
+{PMID}|{DOI}|{URL}	PMID, DOI, URL or text	1
 {boolean};{timestamp}		1
 {float} {unit};{Rn/start_time/end_time/duration}	gravity factor value;treatment interval and duration	1
 {text}|{termLabel} [{termID}]	free text or CO	1
 {text};{float} {unit};{Rn/start_time/end_time/duration}	growth hormone name;growth hormone amount;treatment interval and duration	1
 {text};{float} {unit}	heavy metal name;measurement value unit	1
-enumeration	enumeration	1
 {termLabel} [{termID}]	FMA or UBERON	2
-	disease name or Disease Ontology term	1
+{termLabel} [{termID}]|{text}	disease name or Disease Ontology term	2
 {text};{text}	relationship type;arbitrary identifier	2
 {boolean};{boolean}	HIV status;HAART initiation status	1
 {text};{duration}	content;duration	1
 {text}	stage	1
 {float} m	count	1
 {text}	species name of coinfecting organism(s)	1
-{termLabel} [{termID}]|{text}	disease name or Disease Ontology term	1
 small intestine [UBERON:0002108]	UBERON term(s), multiple values can be separated by pipes	1
 {termLabel} [{termID}]	An ontology term for a material such as a tissue type or excreted substance	1
 {boolean};{timestamp}	gravidity status;timestamp	1
 {term}	phenotype of the host of the symbiotic organism; PATO	1
 {integer}	NCBI taxon identifier of the host of the symbiotic taxon organism	1
-	PATO or HP	1
+{termLabel} [{termID}]	PATO or HP	1
 "[female|hermaphrodite|non-binary|male|transgender|transgender (female to male)|transgender (male to female)
 |undeclared]"	enumeration	1
 {integer}	NCBI taxid	1
@@ -108,6 +101,7 @@ small intestine [UBERON:0002108]	UBERON term(s), multiple values can be separate
 {text}	species name or common name	1
 	NCBI taxon identifier	1
 {float} {unit};{Rn/start_time/end_time/duration}	humidity value;treatment interval and duration	1
+{text}	Expected value	1
 {text};{float} {unit}	inorganic particle name;measurement value	1
 {integer}|{termLabel} [{termID}]	FOODON_03510136 or NCBI taxid	1
 {float} {float}	decimal degrees,  limit to 8 decimal points	1
@@ -115,10 +109,10 @@ small intestine [UBERON:0002108]	UBERON term(s), multiple values can be separate
 {text}	vector	1
 {text}	name of library preparation kit	1
 {text};{float} {unit};{float} {unit}	exposure type;light intensity;light quality	1
+{termLabel} [{termID}]	PMID,DOI or url	1
 {text}	local classification name	1
 {integer}, {text}	lot number, item	1
 {text};{text}	damage type;body site	1
-{text}|{termLabel} [{termID}]	MICRO:0000067	3
 {term label} [{termID}]|{text}	FOODON:03544453	1
 {text};{float} {unit};[ATP|MPN|qPCR|spread plate|other]	organism name; measurement value; enumeration	1
 {text};{float} {unit};{Rn/start_time/end_time/duration}	mineral nutrient name;mineral nutrient amount;treatment interval and duration	1
@@ -174,7 +168,6 @@ FWD:{dna};REV:{dna}	FWD: forward primer sequence;REV:reverse primer sequence	1
 {text}|{termLabel} [{termID}]	NCIT:C4318	1
 {text}	location name	1
 {text}	solution name	1
-{text} [NCBI:txid]	Taxonomy ID	1
 {float}	time	1
 {float} {unit};{float} {unit}	measurement value;measurement value	2
 {float} {unit} {text}	text or measurement value	1
@@ -182,7 +175,6 @@ FWD:{dna};REV:{dna}	FWD: forward primer sequence;REV:reverse primer sequence	1
 {text}	kit, protocol name	1
 {termLabel} [{termID}]	autumn [NCIT:C94733], spring [NCIT:C94731], summer [NCIT:C94732], winter [NCIT:C94730]	1
 {text}	secondary treatment type	1
-{termLabel} [{termID}]|{text}	Text or OBI	1
 {text}	name of sequencing kit used	1
 {text}	sewage type name	1
 {text}	partner sex;frequency	1
@@ -190,7 +182,6 @@ FWD:{dna};REV:{dna}	FWD: forward primer sequence;REV:reverse primer sequence	1
 {text};{float} {unit}	design name and/or size;amount	1
 {float}-{float} {unit}	filter size value range	1
 bare soil [ENVO:01001616]	subclass of 'environmental material', http://purl.obolibrary.org/obo/ENVO_00010483	1
-{float} {unit}	Depth can be reported as an interval for subsurface samples	1
 {percentage}	percent porosity	1
 	ENVO:00001998	1
 {text};{float} {unit}	soluble inorganic material name;measurement value	1

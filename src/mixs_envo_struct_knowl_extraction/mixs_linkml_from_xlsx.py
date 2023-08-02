@@ -1,5 +1,6 @@
 import logging
 import os
+import pprint
 import re
 from collections import Counter
 from distutils.util import strtobool
@@ -251,9 +252,11 @@ def harmonize_sheets(url: str, excel_file_path, textual_key, global_target_schem
 
     mixs_sheet_only = set(mixs_sheet_col_list) - set(env_packages_renamed_col_list)
 
-    logger.info(f"Columns only found in the MIxS sheet: {list(mixs_sheet_only)}")
+    if len(mixs_sheet_only) > 0:
+        logger.info(f"Columns only found in the MIxS sheet: {list(mixs_sheet_only)}")
 
-    logger.info(f"Columns only found in the environmental_packages sheet: {list(env_pack_only)}")
+    if len(env_pack_only) > 0:
+        logger.info(f"Columns only found in the environmental_packages sheet: {list(env_pack_only)}")
 
     df_env_packages_renamed = df_env_packages_renamed[applicable_col_list]
 
@@ -273,7 +276,10 @@ def do_tables_stage_mods(fixes_file: str, df: pd.DataFrame) -> tuple[
     fixes_lod = fixes_sheet.to_dict('records')
     reports = []
     for fix in fixes_lod:
-        if fix['apply']:
+        if fix['apply']:  # todo delete true won't have a target
+            if liberally_convert_to_boolean(fix['delete']) is True:
+                df = df.loc[df[fix['key']] != fix['key_val']]
+                continue
             reportable = df.loc[df[fix['key']] == fix['key_val']].copy()
 
             reportable = reportable[['class', fix['key'], fix['target']]]
@@ -624,7 +630,8 @@ def construct_assign_simple_enumerations(sheet: pd.DataFrame, debug_mode: bool, 
     duplicated_scns = duplicated_scn_val_counts.index.tolist()
 
     contradictory_enums = possible_enums_sheet[possible_enums_sheet[textual_key].isin(duplicated_scns)]
-    logger.info(f"{contradictory_enums = }")
+    if contradictory_enums.shape[0] > 0:
+        logger.info(f"{contradictory_enums = }")
 
     # add a comment to the schema
     scns_with_contradictory_enums = contradictory_enums[textual_key].unique().tolist()
@@ -737,7 +744,7 @@ def string_ser_exp_val_to_range_patterns(tsv_file: str, global_target_schema):
         # if ss == '{text}':
         #     logger.info(f"Processing slot {k} with string serialization <{ss}> and expected value <{ev}>")
 
-        row = df[(df['string_serialization'] == ss) & (df['Expected_value'] == ev)]
+        row = df[(df['Value_syntax'] == ss) & (df['Expected_value'] == ev)]
         row_count = row.shape[0]
 
         if row_count == 1:
@@ -777,7 +784,7 @@ def string_ser_exp_val_to_range_patterns(tsv_file: str, global_target_schema):
     for i in unmapped:
         unmapped_lod.append(
             {
-                'string_serialization': i[0],
+                'Value_syntax': i[0],
                 'Expected_value': i[1],
                 'count': unmapped[i]
             }
@@ -864,7 +871,10 @@ def do_linkml_stage_mods(supplementary_file: str, global_target_schema):
                 if proposed_v.range != "string" and global_target_schema.slots[proposed_k].pattern:
                     # logger.info(f"attempting to remove {proposed_k}'s pattern from {proposed_v.range} slot")
                     del global_target_schema.slots[proposed_k].pattern
-
+            if proposed_v.structured_pattern:
+                global_target_schema.slots[proposed_k].structured_pattern = proposed_v.structured_pattern
+            if proposed_v.identifier:
+                global_target_schema.slots[proposed_k].identifier = True
         else:
             logger.info(f"{proposed_k} is not in the target schema")
 

@@ -1,5 +1,4 @@
 optional_not_present:
-- Structured_comment_name
 - additional_info
 - address
 - adj_room
@@ -8,7 +7,6 @@ optional_not_present:
 - al_sat_meth
 - amniotic_fluid_color
 - amount_light
-- animal_diet
 - annual_precpt
 - association_duration
 - avg_occup
@@ -21,16 +19,15 @@ optional_not_present:
 - ceil_thermal_mass
 - chem_oxygen_dem
 - chem_treat_method
-- cult_isol_date
 - cur_vegetation
 - cur_vegetation_meth
+- depth
 - dermatology_disord
 - diss_oxygen_fluid
 - efficiency_percent
 - emulsions
 - exp_duct
 - exp_pipe
-- experimental_factor
 - ext_door
 - extreme_event
 - fire
@@ -40,9 +37,6 @@ optional_not_present:
 - floor_count
 - floor_thermal_mass
 - foetal_health_stat
-- food_additive
-- food_dis_point
-- food_origin
 - food_pack_medium
 - food_product_type
 - food_source
@@ -129,6 +123,7 @@ optional_not_present:
 - mims_plant_associated_data
 - mims_soil_data
 - mims_water_data
+- nose_mouth_teeth_throat_disord
 - nose_throat_disord
 - number_pets
 - number_plants
@@ -138,12 +133,9 @@ optional_not_present:
 - organism_count
 - owc_tvdss
 - particle_class
-- pcr_primers
 - permeability
-- physical_sex
 - plant_associated_data
 - plant_growth_med
-- pool_dna_extracts
 - porosity
 - pour_point
 - pre_treatment
@@ -168,10 +160,7 @@ optional_not_present:
 - samp_collect_method
 - samp_preserv
 - samp_room_id
-- samp_size
 - samp_sort_meth
-- samp_source_mat_cat
-- samp_store_loc
 - samp_time_out
 - secondary_treatment
 - sewage_type
@@ -182,6 +171,7 @@ optional_not_present:
 - slope_gradient
 - sludge_retent_time
 - soil_data
+- soil_texture
 - soluble_inorg_mat
 - soluble_org_mat
 - sulfate_fw
@@ -192,6 +182,7 @@ optional_not_present:
 - travel_out_six_month
 - tvdss_of_hcr_press
 - tvdss_of_hcr_temp
+- urobiom_sex
 - urogenit_disord
 - urogenit_tract_disor
 - vfa_fw
